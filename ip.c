@@ -1,29 +1,6 @@
 /* Tokyo Bus Guide IP.BIN
  *
- * Hacked by Lucas Azevedo
- *
- * Questions, corrections etc:
- * lhs_azevedo@hotmail.com
- *
- * Notes:
- * ~~~~~~
- *
- * reg[REG] = access to register REG (including both normal
- *            CPU registers aswell as CPU-related memory-mapped
- *            registers, but NOT other hardware registers)
- *
- *
- * Most names have been made up by me and can be very misleading,
- * even to the point of being downright incorrect with regards to
- * their actual functions
- *
- * Beware: this source code is only meant to illustrate the funtion
- * of the IP.BIN. It is not a 100% translation of the actual IP.BIN
- * but a number of short cuts and simplifications have been made in order
- * to clarify the operation, which was the purpose of this whole exercise.
- *
- * Compiling this source (in so far it is possible at all) will NOT
- * produce a proper IP.BIN!
+ * reg[REG] = access to register REG
  *
  */
 
