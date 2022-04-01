@@ -77,10 +77,15 @@ void _8c0083f8_license_screen2() {
     // 0x8c00847c: Restore IMASK
     reg[SR] = (reg[SR] & 0xffffff0f) | (local_2c_imask << 4);
 
+    // NO TEX HERE
     _8c00853c(local_c);
 
+    // 8c00849a
+    // NO TEX HERE 
     _8c00908c(1);
 
+    // 8c0084a0
+    // NO TEX HERE
     int local_10 = _8c009e12();
 
     int local_28 = 0;
@@ -89,12 +94,21 @@ void _8c0083f8_license_screen2() {
     int local_1c;
     do {
         //   8c0084b0
+        // LOOP1: NO TEX HERE
+        // LOOP2: NO TEX HERE
+        // LOOP3: NO TEX HERE
         int local_14 = _8c009e12();
 
         //   8c0084bc
+        // LOOP1: NO TEX HERE
+        // LOOP2: NO TEX HERE
+        // LOOP3: NO TEX HERE
         int local_18 = _8c009e1c(local_10, local_14);
 
         //   8c0084c6
+        // LOOP1: NO TEX HERE
+        // LOOP2: NO TEX HERE
+        // LOOP3: NO TEX HERE
         local_1c = _8c009e24(local_18);
 
         int local_24 = 0;
