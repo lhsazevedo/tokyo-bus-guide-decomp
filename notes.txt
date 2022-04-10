@@ -1,0 +1,31 @@
+8c016068: Load title parts.dat pointer and pass it as 2nd parameter to FUN_8c018568
+FUN_8c018568
+
+dat_queue_cursor (0x8c011298) initted as 0x8C157A8C
+
+Before mark_parts.dat queueing: points to 8c157a90
+
+
+
+
+
+
+
+Allocs
+160/6ca5e0 => 8c935a20
+4000       => 8c931a00
+4000       => 8c931a00
+...
+a0800      => 8c894f00
+1000       => 8c893ee0
+...
+2000       => 8c890660
+9000       => 8c767da0
+
+8d000      => 8c770dc0
+
+
+8c011236: malloc returns 0x8c894f00
+
+
+Ficar de olho: 0x8c0111c6
