@@ -138,7 +138,8 @@ _dat_8c0111b4(UknDatStruct ukn_dat_struct) {
     } else if (ukn_dat_struct->_08_int == 1) {
 
     }
-
+param_2
+param_2
     return;
 }
 
@@ -226,6 +227,18 @@ _8c014ae8(param1, param2, param3, param4, param5) {
     local4 = param3;
 }
 
+// ...
+
+read_dat_8c014f54(?, ?, ?, UknDatStruct2 param_4, unsigned short param_5, ) {
+    if (param_5 == 2000) {
+
+    } else {
+        
+    }
+}
+
+// ...
+
 void njUserInit_8c0134ec() {
     _8c01356c(0x100000);
 
@@ -258,9 +271,7 @@ void njUserInit_8c0134ec() {
     _8c059de2(_8c157af8, 0x0c00);
 
     void *_8c235ca0 = (void *) 0x8c235ca0;
-    _8c057f18(_8c235ca0, 0x20000);
-
-    // 0x8c0135d0
+    _8c057f18(_8c235ca8C014F82
     void *_8c2f84a0 = (void *) 0x8c2f84a0;
     _8c05b62e(_8c2f84a0);
 

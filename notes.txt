@@ -1,3 +1,15 @@
+
+Tools:
+
+- https://gitlab.com/dashgl/ikaruga
+- https://github.com/Mahlet-Inc/hobbits
+  A multi-platform GUI for bit-based analysis, processing, and visualization 
+- https://github.com/kaitai-io/kaitai_struct
+  Kaitai Struct: declarative language to generate binary data parsers in C++ / C# / Go / Java / JavaScript / Lua / Perl / PHP / Python / Ruby 
+- https://github.com/vstinner/hachoir
+  Hachoir is a Python library to view and edit a binary stream field by field 
+
+
 8c016068: Load title parts.dat pointer and pass it as 2nd parameter to FUN_8c018568
 FUN_8c018568
 
