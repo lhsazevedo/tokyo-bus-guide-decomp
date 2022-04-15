@@ -4,6 +4,8 @@
  *
  */
 
+#include "sg_gd.h";
+
 typedef enum {FALSE, TRUE} boolean;
 
 // ac010000: entry
@@ -88,8 +90,21 @@ int *ff_ptr_8c157a98 = 0;
 
 char *cur_dir_8c157a80 = "DATA EMPTY.";
 
+boolean *_8c0112a8 = FALSE;
+
+struct UknDatStruct {
+    void field_0x08;
+    void gdfs_0x0c;
+    // ...
+    void queued_dat_0x18;
+};
+typedef UknDatStruct;
+
 _dat_8c0111b4(UknDatStruct ukn_dat_struct) {
-    QueuedDat *queued_dat = ukn_dat_struct->queued_dat;
+    // r13 = ukn_dat_struct
+    // r14 = ukn_dat_struct->queued_dat_0x18
+
+    QueuedDat *queued_dat = ukn_dat_struct->queued_dat_0x18;
 
     if (ukn_dat_struct->_08_int == 0) {
         for (; queued_dat < ukn_dat_end_8c157a90; queued_dat += sizeof(QueuedDat)) {
@@ -101,45 +116,84 @@ _dat_8c0111b4(UknDatStruct ukn_dat_struct) {
                         // gdFsChangeDir?
                         gdFsChangeDir_8c0532ac(queued_dat->basepath);
                     }
-
-                    // gdFsOpen?
-                    void *gdfs = gdFsOpen_8c053ba6(queued_dat->filename, 0);
-                    ukn_dat_struct->gdfs = gdfs;
-
-                    if (!gdfs) {
-                        // break?
-                    }
-
-                    int size;
-                    gdFsGetFileSize_8c053316(gdfs, &size);
-
-                    if (!size) {
-                        // break?
-                    }
-
-                    size = gdFsCalcSctSize(size);
-
-                    void* dest = malloc_8c0544d6(size);
-
-                    queued_dat->dest = dest;
-
-                    int ret = gdFsRead_8c0533ee(gdfs, size, queued_dat->dest);
-
-                    if (!ret) {
-                        // break?
-                    }
-
-                    gdFsClose(gdfs);
-
-                    queued_dat->uint_ukn2 = 1;
                 }
+
+                // gdFsOpen?
+                void *gdfs = gdFsOpen_8c053ba6(queued_dat->filename, 0);
+                ukn_dat_struct->gdfs = gdfs;
+
+                if (!gdfs) {
+                    gdFsClose_8c0532c4(ukn_dat_struct->gdfs_0x0c);
+
+                    free_8c0545a4(*queued_dat->dest);
+
+                    _8c0112a8 = TRUE;
+                    break;
+                }
+
+                int size;
+                gdFsGetFileSize_8c053316(gdfs, &size);
+
+                if (!size) {
+                    _8c0112a8 = TRUE;
+                    break;
+                }
+
+                size = gdFsCalcSctSize(size);
+
+                void* dest = malloc_8c0544d6(size);
+
+                queued_dat->dest = dest;
+
+                int ret = gdFsRead_8c0533ee(gdfs, size, queued_dat->dest);
+
+                if (!ret) {
+                    _8c0112a8 = TRUE;
+                    break;
+                }
+
+                gdFsClose_8c0532c4(gdfs);
+
+                queued_dat->uint_ukn2 = 1;
             }
         }
-    } else if (ukn_dat_struct->_08_int == 1) {
 
+        if (_8c0112a8 == FALSE) {
+            _8c157a98 = 1;
+
+            _8c014b66(ukn_dat_struct);
+        } else {
+            // 0x8c011250...
+            // DATA_EMPTY
+        }
+    } else if (ukn_dat_struct->_08_int == 1) {
+        int stat = gdFsGetStat_8c053874(ukn_dat_struct->gdfs_0x0c);
+
+        if (stat == GDD_STAT_COMPLETE) {
+            // 0x8c011282...
+            gdFsClose_8c0532c4(ukn_dat_struct->gdfs_0x0c);
+
+            queued_dat->uint_ukn2 = 1;
+        } else if (stat == GDD_STAT_READ) {
+            // 0x8c0112cc...
+            int ret = _8c0537c8(ukn_dat_struct->gdfs_0x0c);
+
+            if (ret != 0) {
+                _8c05371c(ukn_dat_struct->gdfs_0x0c, 2048, queued_dat->dest);
+            }
+
+            return;
+        } else {
+            gdFsClose_8c0532c4(ukn_dat_struct->gdfs_0x0c);
+
+            free_8c0545a4(*queued_dat->dest);
+        }
+
+        // 0x8c0112f6...
+        queued_dat += sizeof(QueuedDat);
+        ukn_dat_struct->queued_dat_0x18 = queued_dat;
     }
-param_2
-param_2
+
     return;
 }
 
@@ -229,11 +283,68 @@ _8c014ae8(param1, param2, param3, param4, param5) {
 
 // ...
 
-read_dat_8c014f54(?, ?, ?, UknDatStruct2 param_4, unsigned short param_5, ) {
-    if (param_5 == 2000) {
+struct UknDatStruct2 {
+    void *field_0x00;
+    void *field_0x04;
+    char *contents;
+};
+typedef UknDatStruct2;
 
+struct DatFileUknStruct1 {
+    int *field_0x00;
+    float float_1;
+    float float_2;
+}
+typedef DatFileUknStruct1;
+
+parse_dat_8c014f54(float float_fr7, float float_fr6, float float_fr4, UknDatStruct2 *ukndatstruct_r4, int file_offset_r5) {
+    char *nextptr;
+    if (file_offset_r5 == 2000) {
+        // 0x8c014f76
+        nextptr = ukndatstruct_r4->contents;
     } else {
-        
+        // 0x8c014f78
+        int offset = ukndatstruct_r4->contents + file_offset_r5 * 4;
+        nextptr = ukndatstruct_r4->contents + offset * 4;
+    }
+
+    // 0x8c014f68
+    void *local_24_0x18 = ukndatstruct_r4->field_0x00;
+    void *local_28_0x1c = ukndatstruct_r4->field_0x04;
+    // 0x8c014f9a
+    int local_20_0x14 = 0;
+    // 0x8c014f9c
+    float local_12_0x0c = 1.0;
+    // 0x8c014fa0
+    float local_16_0x10 = 1.0;
+    
+    // 0x8c014fa2: float constant used later
+    // float a_fr14 = 0.0001;
+
+
+    int i = 0;
+    DatFileUknStruct1 *uknstruct3 = nextptr;
+    float frpass = float_fr6;
+
+    while (TRUE) {
+        DatFileUknStruct1 *uknstruct3 = (DatFileUknStruct1*) nextptr + i * 12;
+
+        if (uknstruct3->field_0x00 == -1) {
+            break;
+        }
+
+        // fr12 = fr4
+        // fr13 = fr5
+
+        // Struct
+        float float_local_0 = uknstruct3->float_1 + float_fr4;
+        float float_local_4 = uknstruct3->float_2 + float_fr4;
+
+        _8c074c08(uknstruct3->field_0x00, &float_local_0, 0x20);
+
+        frpass += 0.0001;
+        uknstruct3 += sizeof(DatFileUknStruct1);
+        i++;
     }
 }
 
