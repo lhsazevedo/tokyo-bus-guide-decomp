@@ -12,43 +12,6 @@ typedef enum {FALSE, TRUE} boolean;
 //  - Write to register ff00001c
 //  - Jump to 8c04f6c0
 
-_8c04f6c0() {
-    //   8c04f6c0 24 d2         mov.l     LAB_8c04f754,r2
-    //   8c04f6c2 22 4f         sts.l     PR,@-r15
-    //   8c04f6c4 22 63         mov.l     @r2=>DAT_f649f449,r3
-    // r3 = "---\n", but used as an address?
-    //   8c04f6c6 30 61         mov.b     @r3,r1
-    // r1 = 0
-
-    //   0x8c04f6c8 to 0x8c04f6d4
-    // Write "SEGA" (or "AGES" ?) from 0x8c00c000 to 0x8c00f400
-    // TODO
-
-    //   8c04f6d6
-    // No effect observed (without patching)
-    _8c04f6f8();
-
-    //   8c04f6da
-    // No effect observed (without patching)
-    _8c04f6e8();
-
-    //   8c04f6e0
-    //  Game runs here?
-    mainfunc_8c010080();
-
-    // f6e4
-    _8c04f6f0();
-
-    // f6f4
-    _8c051e1a();
-
-
-    //   8c04f6de 21 d2         mov.l     PTR_DAT_8c04f764,r2                        = 8c09067a
-    //   8c04f6e0 52 1f         mov.l     r5,@(0x8,r15)
-    //   8c04f6e2 62 85         mov.w     @(0x4,r6)=>DAT_f80bf82f,r0
-    //   8c04f6e4 14 7c         add       #0x14,r12
-    //   8c04f6e6 c3 63         mov       r12,r3
-}
 
 void mainfunc_8c010080() {
     //   8c010088 0b 43
@@ -73,13 +36,19 @@ struct QueuedDat {
     char *basepath;
     char *filename;
     void *dest;
-    unsigned int *uint_ukn2;
+    boolean *complete;
 }
 typedef QueuedDat;
 
-// 0x8c935900
-// TODO: Discover loaded flag - Appears to be setted at 8c0139c6 ?
-QueuedDat *queued_dat_base;
+struct UknDatStruct {
+    void *func_0x00;
+    void *funcparam_0x04;
+    void field_0x08;
+    GDFS *gdfs_0x0c;
+    // ...
+    void queued_dat_0x18;
+};
+typedef UknDatStruct;
 
 // TODO: ?
 QueuedDat queued_dats[10];
@@ -88,19 +57,11 @@ QueuedDat *ukn_dat_end_8c157a90;
 
 int *ff_ptr_8c157a98 = 0;
 
-char *cur_dir_8c157a80 = "DATA EMPTY.";
+char *cur_dir_8c157a80;
 
 boolean *_8c0112a8 = FALSE;
 
-struct UknDatStruct {
-    void field_0x08;
-    void gdfs_0x0c;
-    // ...
-    void queued_dat_0x18;
-};
-typedef UknDatStruct;
-
-_dat_8c0111b4(UknDatStruct ukn_dat_struct) {
+_dat_8c0111b4(UknDatStruct *ukn_dat_struct) {
     // r13 = ukn_dat_struct
     // r14 = ukn_dat_struct->queued_dat_0x18
 
@@ -108,7 +69,7 @@ _dat_8c0111b4(UknDatStruct ukn_dat_struct) {
 
     if (ukn_dat_struct->_08_int == 0) {
         for (; queued_dat < ukn_dat_end_8c157a90; queued_dat += sizeof(QueuedDat)) {
-            if (queued_dat->uint_ukn2 == 0) {
+            if (queued_dat->complete == 0) {
                 if (*queued_dat->basepath != '\0') {
                     if (!strcmp("DATA EMPTY.", queued_dat->basepath)) {
                         cur_dir_8c157a80 = queued_dat->basepath;
@@ -119,12 +80,10 @@ _dat_8c0111b4(UknDatStruct ukn_dat_struct) {
                 }
 
                 // gdFsOpen?
-                void *gdfs = gdFsOpen_8c053ba6(queued_dat->filename, 0);
+                GDFS *gdfs = gdFsOpen_8c053ba6(queued_dat->filename, 0);
                 ukn_dat_struct->gdfs = gdfs;
-
                 if (!gdfs) {
                     gdFsClose_8c0532c4(ukn_dat_struct->gdfs_0x0c);
-
                     free_8c0545a4(*queued_dat->dest);
 
                     _8c0112a8 = TRUE;
@@ -133,7 +92,6 @@ _dat_8c0111b4(UknDatStruct ukn_dat_struct) {
 
                 int size;
                 gdFsGetFileSize_8c053316(gdfs, &size);
-
                 if (!size) {
                     _8c0112a8 = TRUE;
                     break;
@@ -142,11 +100,9 @@ _dat_8c0111b4(UknDatStruct ukn_dat_struct) {
                 size = gdFsCalcSctSize(size);
 
                 void* dest = malloc_8c0544d6(size);
-
                 queued_dat->dest = dest;
 
                 int ret = gdFsRead_8c0533ee(gdfs, size, queued_dat->dest);
-
                 if (!ret) {
                     _8c0112a8 = TRUE;
                     break;
@@ -154,17 +110,25 @@ _dat_8c0111b4(UknDatStruct ukn_dat_struct) {
 
                 gdFsClose_8c0532c4(gdfs);
 
-                queued_dat->uint_ukn2 = 1;
+                queued_dat->complete = TRUE;
+
+                return;
             }
         }
 
-        if (_8c0112a8 == FALSE) {
-            _8c157a98 = 1;
+        if (_8c157a88 == 0) {
+            *ff_ptr_8c157a98 = 1;
 
             _8c014b66(ukn_dat_struct);
         } else {
-            // 0x8c011250...
-            // DATA_EMPTY
+            // 0x8c011250
+            ukn_dat_struct->queued_dat = _8c157a8c;
+
+            _8c157a88 = 0;
+
+            // 0x8c011260
+            // TODO
+            cur_dir_8c157a80 = "DATA EMPTY."
         }
     } else if (ukn_dat_struct->_08_int == 1) {
         int stat = gdFsGetStat_8c053874(ukn_dat_struct->gdfs_0x0c);
@@ -172,8 +136,7 @@ _dat_8c0111b4(UknDatStruct ukn_dat_struct) {
         if (stat == GDD_STAT_COMPLETE) {
             // 0x8c011282...
             gdFsClose_8c0532c4(ukn_dat_struct->gdfs_0x0c);
-
-            queued_dat->uint_ukn2 = 1;
+            queued_dat->complete = TRUE;
         } else if (stat == GDD_STAT_READ) {
             // 0x8c0112cc...
             int ret = _8c0537c8(ukn_dat_struct->gdfs_0x0c);
@@ -196,9 +159,6 @@ _dat_8c0111b4(UknDatStruct ukn_dat_struct) {
 
     return;
 }
-
-
-// Called by by 0x8c014ae8 ?
 
 sortQueuedDats_8c011310() {
     // The comments below are relative to the marks_parts.dat call
@@ -254,7 +214,7 @@ sortQueuedDats_8c011310() {
         // 3rd param is a unknown * 
         // 4rd param is a unknown * --> 0x8C2260D4 on this call
         //     appears to be destination
-        if (_8c014ae8(_8c1ba3c8, _8c0111b4, ptr1, ptr2, 0)) {
+        if (fill_tasks_8c014ae8(_8c1ba3c8, _8c0111b4, ptr1, ptr2, 0)) {
             // TODO:
             //   8c0113a6 c2 62         mov.l     @r12=>DAT_8c157a8c,r2
             //   8c0113a8 f2 63         mov.l     @r15=>local_28,r3
@@ -276,9 +236,227 @@ sortQueuedDats_8c011310() {
     return 0;
 }
 
-_8c014ae8(param1, param2, param3, param4, param5) {
-    local8 = param2;
-    local4 = param3;
+void _8c011f36() {
+
+}
+
+void queued_thing_at_8c157ac0
+void allocated_8c157abc;
+char *DATA_EMPTY_at_8c03334c = "DATA EMPTY.";
+int _8c157ac8;
+
+void _8c011f6c() {
+
+    // 
+    _8c01116a();
+
+    _8c01147a();
+
+    _8c0117fe();
+
+    queued_thing_at_8c157ac0 = allocated_8c157abc;
+
+    allocated_8c157abc = DATA_EMPTY_at_8c03334c;
+    cur_dir_8c157a80 = DATA_EMPTY_at_8c03334c;
+    _8c157ac8 = 1;
+
+    return _8c157ac8;
+}
+
+// 0x8c935900
+// TODO: Discover loaded flag - Appears to be setted at 8c0139c6 ?
+QueuedDat *queued_dat_base;
+
+// Called by by 0x8c014ae8 ?
+
+
+// ...
+
+int _8c03bd80;
+int _8c157a60;
+int _8c1ba354;
+int _8c03bfa8;
+int _8c03bd84;
+void *_8c0139f4;
+
+void njUserInit_8c0134ec() {
+    _8c01356c(0x100000);
+
+    if (_8c0550b0() == 0) {
+        _8c013574(0x31, 0, 2);
+    } else {
+        _8c0149b0(0x38, 0, 2);
+
+        _8c079318(1.0, 0.91);
+    }
+
+    // 0x8c01358c
+    void *_8c2f8ca0 = (void *) 0x8c2f8ca0;
+    _8c073248(_8c2f8ca0, 0x10, 0);
+
+    // 0x8c013596
+    void *_8c255ca0 = (void *) 0x8c255ca0;
+    _8c05b7b0(_8c255ca0, 0x0800);
+
+    // 0x8c013596
+    // njInitVertexBuffer?
+    _8c056ea2(800000, 320000, 320000, 320000, 20000);
+
+    // 0x8c0135b2
+    void *_8c277ca0 = (void *) 0x8C277CA0;
+    _8c059dcc(_8c277ca0, 0x80800);
+
+    // 0x8c0135bc
+    void *_8c157af8 = (void *) 0x8C157AF8;
+    _8c059de2(_8c157af8, 0x0c00);
+
+    void *_8c235ca0 = (void *) 0x8c235ca0;
+    _8c057f18(_8c235ca8C014F82
+    void *_8c2f84a0 = (void *) 0x8c2f84a0;
+    _8c05b62e(_8c2f84a0);
+
+    _8c05483c();
+
+    // 0x8c0135de
+    a = _8c010924();
+
+    char param1;
+    if (a < 0) {
+        param1 = 0
+    } else {
+        param1 = *a;
+    }
+
+    // 0x8c013656
+
+    _8c0108c0(param1);
+
+    _8c010fbe();
+
+    _8c014b8c();
+
+    _8c059abc(512, _8c277ca0, 2817, 256);
+
+    _8c059aca(_8c18acf8, 512, 999, 0x40800000);
+
+    _8c059b98(256);
+
+    _8c059e3a(_8c03bf44);
+
+    fill_with_ffffs_8c014a9c(?, 16);
+
+    fill_with_ffffs_8c014a9c(?, 16);
+
+    fill_with_ffffs_8c014a9c(?, 32);
+
+    fill_with_ffffs_8c014a9c(?, 64);
+
+    fill_with_ffffs_8c014a9c(?, 32);
+
+    // ...
+
+    // 0x8c013850
+    // Allocations and preps?
+    _8c011f36();
+
+    // 0x8c013856
+    // Allocations and preps?
+    _8c011f6c();
+
+    // ...
+}
+
+njUserMain_8c01392e() {
+    if (_8c03bd80 == 0) {
+        // 0x8c013956
+        if (!_8c157a60 == 0) {
+            // 0x8c01395e
+            // Just before logo
+            if (_8c03bfa8 != 0) {
+                // 0x8c013976
+
+                // gdFs?
+                _8c053c02();
+
+                int ret = gdFsGetStat_8c053874(?);
+
+                // GDD_STAT_BUSY
+                if (ret == 4) {
+                    _8c03bfa8 = 0;
+                }
+            } else {
+                // 0x8c013966
+                int ret = gdFsGetStat_8c053874();
+
+                // GDD_STAT_IDLE
+                if (ret == 0) {
+                    _8c03bfa8 = 1;
+                }
+            }
+        }
+
+        // 0x8c01398a
+        // gdFs?
+        int ret = _8c053c5c();
+
+        if (ret == 6) {
+            if (_8c1ba354 != -1) {
+                _8c056450(_8c1ba354);
+            }
+
+            return -1;
+        }
+
+        // 0x8c013994
+        int ret2 = _8c053c5c();
+
+        if (ret2 == 6 || ret2 = 0) {
+            _8c053c74(ret2);
+        }
+
+        // 0x8c0139aa
+        if (_8c013aa4 != 0) {
+            return -1;
+        }
+    } else {
+        // 0x8c01393e
+        if (_8c03bd84 == 0) {
+            if (_8c1ba354 != -1) {
+                _8c056450(_8c1ba354);
+            }
+
+            return -1;
+        }
+    }
+
+    // 0x8c0139c2
+
+    // Param _8c0139f4 is 0x8c1ba3c8 on first call,
+    // and already populated with tree items.
+    execDatTasks_8c014b42(_8c0139f4);
+
+    return 0;
+}
+
+// ...
+
+void fill_tasks_8c014ae8(param1, param2, param3, param4, param5) {
+    // TODO!!!
+}
+
+void _8c014b3e();
+
+void execDatTasks_8c014b42(UknDatStruct *ukn_dat_struct) {
+    while (*ukn_dat_struct) {
+        if (*ukn_dat_struct->func_0x00 == -1) {
+            continue;
+        }
+
+        ukn_dat_struct->func_0x00(ukn_dat_struct, ukn_dat_struct->funcparam_0x04);
+
+        // size = 0x20 (32 bytes)
+        ukn_dat_struct += sizeof(UknDatStruct);
+    }
 }
 
 // ...
@@ -350,55 +528,8 @@ parse_dat_8c014f54(float float_fr7, float float_fr6, float float_fr4, UknDatStru
 
 // ...
 
-void njUserInit_8c0134ec() {
-    _8c01356c(0x100000);
+char _8c013650;
 
-    if (_8c0550b0() == 0) {
-        _8c013574(0x31, 0, 2);
-    } else {
-        _8c0149b0(0x38, 0, 2);
-
-        _8c079318(1.0, 0.91);
-    }
-
-    // 0x8c01358c
-    void *_8c2f8ca0 = (void *) 0x8c2f8ca0;
-    _8c073248(_8c2f8ca0, 0x10, 0);
-
-    // 0x8c013596
-    void *_8c255ca0 = (void *) 0x8c255ca0;
-    _8c05b7b0(_8c255ca0, 0x0800);
-
-    // 0x8c013596
-    // njInitVertexBuffer?
-    _8c056ea2(800000, 320000, 320000, 320000, 20000);
-
-    // 0x8c0135b2
-    void *_8c277ca0 = (void *) 0x8C277CA0;
-    _8c059dcc(_8c277ca0, 0x80800);
-
-    // 0x8c0135bc
-    void *_8c157af8 = (void *) 0x8C157AF8;
-    _8c059de2(_8c157af8, 0x0c00);
-
-    void *_8c235ca0 = (void *) 0x8c235ca0;
-    _8c057f18(_8c235ca8C014F82
-    void *_8c2f84a0 = (void *) 0x8c2f84a0;
-    _8c05b62e(_8c2f84a0);
-
-    _8c05483c();
-
-    // 0x8c0135de
-    char a = _8c010924();
-
-    if (a < 0) {
-        // ...
-    } else {
-        // ...
-    }
-
-    // ...
-}
 
 struct _8c315be8 {};
 typedef struct _8c315be8 _8c315be8;
@@ -407,6 +538,44 @@ boolean _8c0571e2_update_b = FALSE;
 
 // TODO: Check initial value
 boolean _8c315598_c = FALSE;
+
+_8c04f6c0() {
+    //   8c04f6c0 24 d2         mov.l     LAB_8c04f754,r2
+    //   8c04f6c2 22 4f         sts.l     PR,@-r15
+    //   8c04f6c4 22 63         mov.l     @r2=>DAT_f649f449,r3
+    // r3 = "---\n", but used as an address?
+    //   8c04f6c6 30 61         mov.b     @r3,r1
+    // r1 = 0
+
+    //   0x8c04f6c8 to 0x8c04f6d4
+    // Write "SEGA" (or "AGES" ?) from 0x8c00c000 to 0x8c00f400
+    // TODO
+
+    //   8c04f6d6
+    // No effect observed (without patching)
+    _8c04f6f8();
+
+    //   8c04f6da
+    // No effect observed (without patching)
+    _8c04f6e8();
+
+    //   8c04f6e0
+    //  Game runs here?
+    mainfunc_8c010080();
+
+    // f6e4
+    _8c04f6f0();
+
+    // f6f4
+    _8c051e1a();
+
+
+    //   8c04f6de 21 d2         mov.l     PTR_DAT_8c04f764,r2                        = 8c09067a
+    //   8c04f6e0 52 1f         mov.l     r5,@(0x8,r15)
+    //   8c04f6e2 62 85         mov.w     @(0x4,r6)=>DAT_f80bf82f,r0
+    //   8c04f6e4 14 7c         add       #0x14,r12
+    //   8c04f6e6 c3 63         mov       r12,r3
+}
 
 void njWaitVSync_8c0571e2() { 
     //   8c0571f6
