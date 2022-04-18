@@ -5,14 +5,49 @@
  */
 
 #include "sg_gd.h";
+#include "1st_read.h";
 
-typedef enum {FALSE, TRUE} boolean;
+boolean ukn_pvm_bool_at_8c18adac;
+Task tasks_8c1ba3c8[16 + 1];
+Task tasks_8c1ba5e8[16 + 1];
+// TODO: ?
+QueuedDat queued_dats[10];
+QueuedDat *ukn_dat_end_8c157a90;
+int *ff_ptr_8c157a98 = 0;
+char *cur_dir_8c157a80;
+boolean *_8c0112a8 = FALSE;
+void queued_thing_at_8c157ac0
+void allocated_8c157abc;
+char *DATA_EMPTY_at_8c03334c = "DATA EMPTY.";
+int _8c157ac8;
+int _8c03bd80;
+int _8c157a60;
+int _8c1ba354;
+int _8c03bfa8;
+int _8c03bd84;
+void *_8c0139f4;
+char _8c013650;
+struct _8c315be8 {};
+typedef struct _8c315be8 _8c315be8;
+boolean _8c0571e2_update_b = FALSE;
+// TODO: Check initial value
+boolean _8c315598_c = FALSE;
+// Task tasks_8c1ba808[?];
+// 0x8c935900
+// TODO: Discover loaded flag - Appears to be setted at 8c0139c6 ?
+QueuedDat *queued_dat_base_8c935900;
+
+ResourceGroup title_resource_group_8c044254 = {
+    .parts = "title_parts.dat",
+    .dat = "title.dat",
+    .pvm = "title.pvm",
+    .text_count = 1,
+}
+
 
 // ac010000: entry
 //  - Write to register ff00001c
 //  - Jump to 8c04f6c0
-
-
 void mainfunc_8c010080() {
     //   8c010088 0b 43
     // Note: takes some time...
@@ -31,35 +66,6 @@ void mainfunc_8c010080() {
 }
 
 // ...
-
-struct QueuedDat {
-    char *basepath;
-    char *filename;
-    void *dest;
-    boolean *complete;
-}
-typedef QueuedDat;
-
-struct UknDatStruct {
-    void *func_0x00;
-    void *funcparam_0x04;
-    void field_0x08;
-    GDFS *gdfs_0x0c;
-    // ...
-    void queued_dat_0x18;
-};
-typedef UknDatStruct;
-
-// TODO: ?
-QueuedDat queued_dats[10];
-
-QueuedDat *ukn_dat_end_8c157a90;
-
-int *ff_ptr_8c157a98 = 0;
-
-char *cur_dir_8c157a80;
-
-boolean *_8c0112a8 = FALSE;
 
 _dat_8c0111b4(UknDatStruct *ukn_dat_struct) {
     // r13 = ukn_dat_struct
@@ -163,8 +169,8 @@ _dat_8c0111b4(UknDatStruct *ukn_dat_struct) {
 sortQueuedDats_8c011310() {
     // The comments below are relative to the marks_parts.dat call
 
-    // 0x8c157a8c = QueuedDat *queued_dat_base
-    // 0x8c935900 = char* queued_dat_base->basepath
+    // 0x8c157a8c = QueuedDat *queued_dat_base_8c935900
+    // 0x8c935900 = char* queued_dat_base_8c935900->basepath
     // 0x8c033380 = char '\'
 
     // 0x8c011322: r12 = 0x8c157a8c = 0x8c935900 = 0x8c033380 = "\SYSTEM"
@@ -175,12 +181,12 @@ sortQueuedDats_8c011310() {
 
     //                                TODO
     //                               vvvvvvv
-    if (queued_dat_base->basepath != reg[r3]) {
+    if (queued_dat_base_8c935900->basepath != reg[r3]) {
 
         // malloc?
         //                                              TODO
         //                                             vvvvvvv
-        void *temp_queued_dats_maybe = malloc_8c0544d6(reg[r4] - queued_dat_base->basepath);
+        void *temp_queued_dats_maybe = malloc_8c0544d6(reg[r4] - queued_dat_base_8c935900->basepath);
         // temp_queued_dats_maybe = allocated memory (0xa0 bytes?)
 
         boolean swapped;
@@ -188,18 +194,18 @@ sortQueuedDats_8c011310() {
         do {
             swapped = FALSE;
 
-            QueuedDat* next_queued_dat_base = queued_dat_base + sizeof(QueuedDat);
+            QueuedDat* next_queued_dat_base = queued_dat_base_8c935900 + sizeof(QueuedDat);
 
-            while (queued_dat_base < reg[r2]) {
-                if (strcmp(queued_dat_base->filename, next_queued_dat_base->filename)) {
-                    memcpy(queued_dat_base, temp_queued_dats_maybe, 0x10);
-                    memcpy(next_queued_dat_base, queued_dat_base, 0x10);
+            while (queued_dat_base_8c935900 < reg[r2]) {
+                if (strcmp(queued_dat_base_8c935900->filename, next_queued_dat_base->filename)) {
+                    memcpy(queued_dat_base_8c935900, temp_queued_dats_maybe, 0x10);
+                    memcpy(next_queued_dat_base, queued_dat_base_8c935900, 0x10);
                     memcpy(temp_queued_dats_maybe, next_queued_dat_base, 0x10);
 
                     swapped = TRUE;
                 }
 
-                queued_dat_base += sizeof(QueuedDat);
+                queued_dat_base_8c935900 += sizeof(QueuedDat);
             }
         } while (swapped);
 
@@ -214,7 +220,7 @@ sortQueuedDats_8c011310() {
         // 3rd param is a unknown * 
         // 4rd param is a unknown * --> 0x8C2260D4 on this call
         //     appears to be destination
-        if (fill_tasks_8c014ae8(_8c1ba3c8, _8c0111b4, ptr1, ptr2, 0)) {
+        if (pushTask_8c014ae8(_8c1ba3c8, _8c0111b4, ptr1, ptr2, 0)) {
             // TODO:
             //   8c0113a6 c2 62         mov.l     @r12=>DAT_8c157a8c,r2
             //   8c0113a8 f2 63         mov.l     @r15=>local_28,r3
@@ -240,11 +246,6 @@ void _8c011f36() {
 
 }
 
-void queued_thing_at_8c157ac0
-void allocated_8c157abc;
-char *DATA_EMPTY_at_8c03334c = "DATA EMPTY.";
-int _8c157ac8;
-
 void _8c011f6c() {
 
     // 
@@ -263,21 +264,55 @@ void _8c011f6c() {
     return _8c157ac8;
 }
 
-// 0x8c935900
-// TODO: Discover loaded flag - Appears to be setted at 8c0139c6 ?
-QueuedDat *queued_dat_base;
-
-// Called by by 0x8c014ae8 ?
-
-
 // ...
 
-int _8c03bd80;
-int _8c157a60;
-int _8c1ba354;
-int _8c03bfa8;
-int _8c03bd84;
-void *_8c0139f4;
+void task_8c013388(Task *task, void *allocated) {
+    if (task->field_0x08 == 0) {
+        // 0x8c013440
+
+        if (!getUknPvmBool_8c01432a()) {
+            return;
+        }
+
+        // 0x8c01344a
+
+        task->field_0x08++;
+
+        float val = _8c1bc448->field_0x04;
+
+        // float comparison in r3?
+        if (val < 0) {
+            val += 4.3;
+        }
+
+        val -= 1.0;
+
+        // Allocation stuff?
+        _8c011f6c();
+
+        // 0x8c013472
+        
+        // Sound stuff...
+
+        _8c011fe0();
+    } else if (task->field_0x08 = 1) {
+        if (getUknPvmBool_8c01432a()) {
+            return;
+        }
+
+        _8c011f7e();
+
+        _8c014b66(task);
+
+        _8c010e18("\\SOUND");
+
+        _8c2260a8 = 0;
+
+        return _8c015fd6(0);
+    } else {
+        return;
+    }
+}
 
 void njUserInit_8c0134ec() {
     _8c01356c(0x100000);
@@ -355,6 +390,9 @@ void njUserInit_8c0134ec() {
 
     // ...
 
+    // 0x8c013834
+    pushTask_8c014ae8(tasks_8c1ba3c8, task_8c013388, local_sega, local_val0x78, 0);
+
     // 0x8c013850
     // Allocations and preps?
     _8c011f36();
@@ -366,7 +404,7 @@ void njUserInit_8c0134ec() {
     // ...
 }
 
-njUserMain_8c01392e() {
+int njUserMain_8c01392e() {
     if (_8c03bd80 == 0) {
         // 0x8c013956
         if (!_8c157a60 == 0) {
@@ -433,49 +471,70 @@ njUserMain_8c01392e() {
 
     // Param _8c0139f4 is 0x8c1ba3c8 on first call,
     // and already populated with tree items.
-    execDatTasks_8c014b42(_8c0139f4);
+    execTasks_8c014b42(_8c0139f4);
 
     return 0;
 }
 
 // ...
 
-void fill_tasks_8c014ae8(param1, param2, param3, param4, param5) {
-    // TODO!!!
+void resetUknPvmBool_8c014322() {
+    *ukn_pvm_bool_at_8c18adac = FALSE;
+}
+
+boolean getUknPvmBool_8c01432a() {
+    return *ukn_pvm_bool_at_8c18adac;
+}
+
+void setUknPvmBool_8c014330() {
+    *ukn_pvm_bool_at_8c18adac = TRUE;
+}
+
+void pushTask_8c014ae8(Task task[], void (*cb_r5)(void), void *param_r6, void *param_r7, void alloc_size_st1) {
+    while (task->callback_0x00 != -1) {
+        if (task->callback_0x00 == 0) {
+            return 0;
+        }
+        task += 0x20; // sizeof(Task)
+    }
+
+    if (alloc_size_st1 != 0) {
+        void *ret = malloc(alloc_size_st1);
+        task->allocated_0x04 = ret;
+        if (ret == 0) {
+            return 0;
+        }   
+    } else {
+        task->allocated_0x04 = 0;
+    }
+
+    *task->callback_0x00 = cb_r5;
+
+    // TODO: ???
+    *param_r6 = task;
+    *param_r7 = task->allocated_0x04;
+
+    return 1;
 }
 
 void _8c014b3e();
 
-void execDatTasks_8c014b42(UknDatStruct *ukn_dat_struct) {
-    while (*ukn_dat_struct) {
-        if (*ukn_dat_struct->func_0x00 == -1) {
+void execTasks_8c014b42(Task *task) {
+    while (*task) {
+        if (*task->callback_0x00 == -1) {
             continue;
         }
 
-        ukn_dat_struct->func_0x00(ukn_dat_struct, ukn_dat_struct->funcparam_0x04);
+        task->callback_0x00(task, task->allocated_0x04);
 
         // size = 0x20 (32 bytes)
-        ukn_dat_struct += sizeof(UknDatStruct);
+        task += sizeof(Task);
     }
 }
 
 // ...
 
-struct UknDatStruct2 {
-    void *field_0x00;
-    void *field_0x04;
-    char *contents;
-};
-typedef UknDatStruct2;
-
-struct DatFileUknStruct1 {
-    int *field_0x00;
-    float float_1;
-    float float_2;
-}
-typedef DatFileUknStruct1;
-
-parse_dat_8c014f54(float float_fr7, float float_fr6, float float_fr4, UknDatStruct2 *ukndatstruct_r4, int file_offset_r5) {
+void parse_dat_8c014f54(float float_fr7, float float_fr6, float float_fr4, UknDatStruct2 *ukndatstruct_r4, int file_offset_r5) {
     char *nextptr;
     if (file_offset_r5 == 2000) {
         // 0x8c014f76
@@ -528,18 +587,43 @@ parse_dat_8c014f54(float float_fr7, float float_fr6, float float_fr4, UknDatStru
 
 // ...
 
-char _8c013650;
+undefined task_8c015ab8() {
 
+}
 
-struct _8c315be8 {};
-typedef struct _8c315be8 _8c315be8;
+void _8c015fd6(int param_r4) {
+    _8c0128cc(0);
 
-boolean _8c0571e2_update_b = FALSE;
+    pushTask_8c014ae8(tasks_8c1ba3c8, task_8c012f44, st_plus_4, st_plus_8, 0);
 
-// TODO: Check initial value
-boolean _8c315598_c = FALSE;
+    pushTask_8c014ae8(tasks_8c1ba3c8, task_8c015ab8, st_plus_8, st_plus_c, 0);
 
-_8c04f6c0() {
+    _8c1bc7a8->field_0x18 = 0;
+    _8c1bc7a8->field_0x64 = 0;
+
+    // 0x8c016024 ...
+
+    _8c059f94(?);
+
+    // ...
+
+    _8c011f36();
+
+    _8c011f6c();
+
+    // ...
+
+    // 0x8c01606e
+    request_sys_resgrp_8c018568(_8c1bc7a8->field_0x0c, title_resource_group_8c044254);
+
+    // Common dats and PVMs
+    _8c01852c();
+
+    // Pushes another task
+    _8c011fe0();
+}
+
+void _8c04f6c0() {
     //   8c04f6c0 24 d2         mov.l     LAB_8c04f754,r2
     //   8c04f6c2 22 4f         sts.l     PR,@-r15
     //   8c04f6c4 22 63         mov.l     @r2=>DAT_f649f449,r3
@@ -645,7 +729,6 @@ int _8c0807f6(int r4_param1) {
 }
 
 // ...
-
 
 // Pretty long
 _8c096be0 () {

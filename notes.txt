@@ -41,3 +41,6 @@ a0800      => 8c894f00
 
 
 Ficar de olho: 0x8c0111c6
+
+
+_8c1bc7a8 = Menu state!!!
