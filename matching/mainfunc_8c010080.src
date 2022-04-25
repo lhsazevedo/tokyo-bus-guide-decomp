@@ -1,0 +1,38 @@
+          .IMPORT     _njUserExit
+          .IMPORT     _njWaitVSync_8c0571e2
+          .IMPORT     _njUserInit_8c0134ec
+          .IMPORT     _njUserMain_8c01392e
+          .EXPORT     _mainfunc_8c010080
+          .SECTION    P,CODE,ALIGN=4
+_mainfunc_8c010080:              ; function: mainfunc_8c010080
+                                 ; frame size=12
+          MOV.L       R14,@-R15
+          MOV.L       R13,@-R15
+          STS.L       PR,@-R15
+          MOV.L       L244+2,R3  ; _njUserInit_8c0134ec
+          JSR         @R3
+          NOP
+          MOV.L       L244+10,R14; _njUserMain_8c01392e
+          MOV.L       L244+6,R13 ; _njWaitVSync_8c0571e2
+L240:                             
+          JSR         @R14
+          NOP
+          CMP/PZ      R0
+          BF          L242
+          JSR         @R13
+          NOP
+          BRA         L240
+          NOP
+L242:                             
+          LDS.L       @R15+,PR
+          MOV.L       L244+14,R3 ; _njUserExit
+          MOV.L       @R15+,R13
+          JMP         @R3
+          MOV.L       @R15+,R14
+L244:                             
+          .RES.W      1
+          .DATA.L     _njUserInit_8c0134ec
+          .DATA.L     _njWaitVSync_8c0571e2
+          .DATA.L     _njUserMain_8c01392e
+          .DATA.L     _njUserExit
+          .END

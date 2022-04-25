@@ -1,0 +1,43 @@
+          .IMPORT     _pushTask_8c014ae8
+          .IMPORT     _fadein_8c022a54
+          .IMPORT     _tasks_8c1ba3c8
+          .IMPORT     __8c226568
+          .IMPORT     __8c227d80
+          .EXPORT     _push_fadein_8c022a9c
+          .SECTION    P,CODE,ALIGN=4
+_push_fadein_8c022a9c:           ; function: push_fadein_8c022a9c
+                                 ; frame size=20
+          STS.L       PR,@-R15
+          ADD         #-12,R15
+          MOV         #0,R3
+          MOV.L       R4,@(8,R15)
+          MOV.L       R3,@-R15
+          MOV.L       L243+4,R4  ; _tasks_8c1ba3c8
+          MOV         R15,R7
+          MOV.L       L243,R5    ; _fadein_8c022a54
+          ADD         #8,R7
+          MOV.L       L243+8,R2  ; _pushTask_8c014ae8
+          MOV         R15,R6
+          JSR         @R2
+          ADD         #4,R6
+          MOV.L       @(12,R15),R2
+          MOV.L       @(4,R15),R3
+          MOV.L       L243+20,R0 ; __8c226568
+          MOV.L       R2,@(8,R3)
+          MOV         #1,R2
+          MOV.L       L243+16,R1 ; __8c227d80
+          MOV.L       L243+12,R3 ; H'FF000000
+          MOV.L       R3,@R1
+          MOV.L       R2,@R0
+          ADD         #16,R15
+          LDS.L       @R15+,PR
+          RTS
+          NOP
+L243:                             
+          .DATA.L     _fadein_8c022a54
+          .DATA.L     _tasks_8c1ba3c8
+          .DATA.L     _pushTask_8c014ae8
+          .DATA.L     H'FF000000
+          .DATA.L     __8c227d80
+          .DATA.L     __8c226568
+          .END
