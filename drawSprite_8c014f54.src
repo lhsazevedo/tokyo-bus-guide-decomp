@@ -1,0 +1,97 @@
+          .IMPORT     _njDrawSprite2D_8c074c08
+          .EXPORT     _drawSprite_8c014f54
+          .SECTION    P,CODE,ALIGN=4
+_drawSprite_8c014f54:            ; function: drawSprite_8c014f54
+                                 ; frame size=68
+          MOV.L       R14,@-R15
+          MOV.L       R13,@-R15
+          MOV.L       R12,@-R15
+          MOV.L       R11,@-R15
+          MOV.L       R10,@-R15
+          FMOV.S      FR15,@-R15
+          FMOV.S      FR14,@-R15
+          FMOV.S      FR13,@-R15
+          STS.L       PR,@-R15
+          ADD         #-32,R15
+          FTRC        FR6,FPUL
+          MOV.W       L1006,R3   ; H'07D0
+          FMOV.S      FR5,FR13
+          CMP/EQ      R3,R5
+          FMOV.S      FR4,FR14
+          BF/S        L1002
+          STS         FPUL,R12
+          BRA         L1003
+          MOV.L       @(8,R4),R13
+L1002:                            
+          MOV.L       @(8,R4),R6
+          SHLL2       R5
+          ADD         R6,R5
+          MOV.L       @R5,R13
+          SHLL2       R13
+          ADD         R6,R13
+L1003:                            
+          FLDI1       FR3
+          MOV         #16,R0
+          MOV.L       @R4,R3
+          MOV         R13,R14
+          MOV.L       L1006+2,R10; _njDrawSprite2D_8c074c08
+          MOV.L       R3,@(24,R15)
+          MOV.L       @(4,R4),R2
+          MOV         #0,R4
+          MOV         R4,R11
+          MOV.L       R2,@(28,R15)
+          MOV.L       R4,@(20,R15)
+          FMOV.S      FR3,@(R0,R15)
+          MOV         #12,R0
+          FMOV.S      FR3,@(R0,R15)
+          MOVA        L1006+6,R0
+          BRA         L1004
+          FMOV.S      @R0,FR15
+L1005:                            
+          MOV         #4,R0
+          FMOV.S      FR14,FR2
+          FMOV.S      @(R0,R14),FR3
+          MOV         #8,R0
+          MOV         #32,R6
+          MOV         R12,R7
+          FADD        FR3,FR2
+          FMOV.S      FR2,@R15
+          FMOV.S      @(R0,R14),FR3
+          MOV         #4,R0
+          FMOV.S      FR13,FR2
+          FADD        FR3,FR2
+          FMOV.S      FR2,@(R0,R15)
+          MOV.L       @R14,R5
+          JSR         @R10
+          MOV         R15,R4
+          LDS         R12,FPUL
+          ADD         #12,R14
+          ADD         #1,R11
+          FLOAT       FPUL,FR3
+          FADD        FR15,FR3
+          FTRC        FR3,FPUL
+          STS         FPUL,R12
+L1004:                            
+          MOV         R11,R0
+          SHLL        R0
+          MOV         R11,R3
+          ADD         R3,R0
+          MOV.B       @(R0,R13),R0
+          CMP/EQ      #-1,R0
+          BF          L1005
+          ADD         #32,R15
+          LDS.L       @R15+,PR
+          FMOV.S      @R15+,FR13
+          FMOV.S      @R15+,FR14
+          FMOV.S      @R15+,FR15
+          MOV.L       @R15+,R10
+          MOV.L       @R15+,R11
+          MOV.L       @R15+,R12
+          MOV.L       @R15+,R13
+          RTS
+          MOV.L       @R15+,R14
+L1006:                            
+          .DATA.W     H'07D0
+          .DATA.L     _njDrawSprite2D_8c074c08
+          .DATA.L     H'38D1B717
+          .END

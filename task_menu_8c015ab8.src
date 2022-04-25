@@ -1,0 +1,239 @@
+          .IMPORT     __8c051618
+          .IMPORT     _getUknPvmBool_8c01432a
+          .IMPORT     __8c011f7e
+          .IMPORT     __8c01940e
+          .IMPORT     _push_fadein_8c015b5c
+          .IMPORT     __8c05738a
+          .IMPORT     __8c0fcd28
+          .IMPORT     __8c226568
+          .IMPORT     _draw_dat_8c014f54
+          .IMPORT     _push_fadeout_8c015b60
+          .EXPORT     _menu_state_8c1bc7a8
+          .EXPORT     __8c1ba35c
+          .EXPORT     _task_menu_8c015ab8
+          .SECTION    P,CODE,ALIGN=4
+_task_menu_8c015ab8:             ; function: task_menu_8c015ab8
+                                 ; frame size=32
+          MOV.L       R14,@-R15
+          MOV.L       R13,@-R15
+          MOV.L       R12,@-R15
+          MOV.L       R11,@-R15
+          FMOV.S      FR15,@-R15
+          FMOV.S      FR14,@-R15
+          STS.L       PR,@-R15
+          ADD         #-4,R15
+          MOV.L       L292+2,R14 ; _menu_state_8c1bc7a8
+          MOV         #11,R3
+          MOV.L       R4,@R15
+          MOV.L       @(24,R14),R4
+          MOV.L       L292+6,R13 ; __8c226568
+          CMP/GE      R3,R4
+          BF          L278
+          MOV         #12,R1
+          CMP/GE      R1,R4
+          BT          L278
+          MOV.L       L292+10,R2 ; H'00000010+__8c1ba35c
+          MOV.L       @R2,R0
+          CMP/EQ      #8,R0
+          BT          L278
+          MOV.L       L292+14,R2 ; __8c0fcd28
+          MOV         #0,R7
+          MOV.L       L292+18,R3 ; __8c051618
+          MOV         R7,R6
+          MOV         #1,R5
+          JSR         @R3
+          MOV.L       @R2,R4
+          MOV.L       L292+10,R3 ; H'00000010+__8c1ba35c
+          MOV         #14,R2
+          MOV         #0,R1
+          MOV.L       R1,@R3
+          MOV.L       R2,@(24,R14)
+          MOV.L       R1,@R13
+L278:                             
+          MOVA        L292+26,R0
+          MOV.L       L292+30,R12; _draw_dat_8c014f54
+          FMOV.S      @R0,FR14
+          MOV         #0,R4
+          MOV.L       @(24,R14),R0
+          MOV.L       L292+22,R11; _push_fadein_8c015b5c
+          FLDI0       FR15
+          MOV         #19,R1
+          CMP/HS      R1,R0
+          BF          L293
+          BRA         L279
+          NOP
+L293:                             
+          SHLL        R0
+          MOV         R0,R1
+          MOVA        L295,R0
+          MOV.W       @(R0,R1),R0
+          BRAF        R0
+          NOP
+L294:                             
+L292:                             
+          .RES.W      1
+          .DATA.L     _menu_state_8c1bc7a8
+          .DATA.L     __8c226568
+          .DATA.L     H'00000010+__8c1ba35c
+          .DATA.L     __8c0fcd28
+          .DATA.L     __8c051618
+          .DATA.L     _push_fadein_8c015b5c
+          .DATA.L     H'C0A00000
+          .DATA.L     _draw_dat_8c014f54
+L295:
+          .DATA.W     L259-L294
+          .DATA.W     L260-L294
+          .DATA.W     L261-L294
+          .DATA.W     L262-L294
+          .DATA.W     L263-L294
+          .DATA.W     L264-L294
+          .DATA.W     L265-L294
+          .DATA.W     L266-L294
+          .DATA.W     L267-L294
+          .DATA.W     L268-L294
+          .DATA.W     L269-L294
+          .DATA.W     L270-L294
+          .DATA.W     L271-L294
+          .DATA.W     L272-L294
+          .DATA.W     L273-L294
+          .DATA.W     L274-L294
+          .DATA.W     L275-L294
+          .DATA.W     L276-L294
+          .DATA.W     L277-L294
+L259:                            ; case label 
+          MOV.L       L296,R3    ; _getUknPvmBool_8c01432a
+          JSR         @R3
+          NOP
+          TST         R0,R0
+          BT          L283
+          MOV.L       L296+4,R3  ; __8c011f7e
+          JSR         @R3
+          NOP
+          MOV.L       L296+8,R2  ; __8c01940e
+          JSR         @R2
+          NOP
+          MOV.L       @R15,R3
+          MOV.L       @(8,R3),R2
+          TST         R2,R2
+          BT          L281
+          MOV         #13,R2
+          MOV.L       R2,@(24,R14)
+          JSR         @R11
+          MOV         #10,R4
+          MOV         #-1,R6
+          MOV         R6,R4
+          MOV         R6,R5
+          ADD         #4,R15
+          LDS.L       @R15+,PR
+          MOV.L       L296+12,R3 ; __8c05738a
+          FMOV.S      @R15+,FR14
+          FMOV.S      @R15+,FR15
+          MOV.L       @R15+,R11
+          MOV.L       @R15+,R12
+          MOV.L       @R15+,R13
+          JMP         @R3
+          MOV.L       @R15+,R14
+L281:                             
+          MOV         #1,R3
+          MOV.L       R3,@(24,R14)
+          JSR         @R11
+          MOV         #20,R4
+          MOV.L       L296+16,R14; H'FF000000
+          MOV         R14,R4
+          MOV         R14,R5
+          MOV         R14,R6
+          ADD         #4,R15
+          LDS.L       @R15+,PR
+          MOV.L       L296+12,R2 ; __8c05738a
+          FMOV.S      @R15+,FR14
+          FMOV.S      @R15+,FR15
+          MOV.L       @R15+,R11
+          MOV.L       @R15+,R12
+          MOV.L       @R15+,R13
+          JMP         @R2
+          MOV.L       @R15+,R14
+L260:                            ; case label 
+          MOV.L       @R13,R3
+          TST         R3,R3
+          BF          L291
+          MOV         #2,R3
+          MOV.L       R3,@(24,R14)
+          BRA         L291
+          MOV.L       R4,@(32,R14)
+L261:                            ; case label 
+          MOV         R14,R2
+          ADD         #32,R2
+          MOV.L       @(4,R2),R1
+          MOV         #30,R3
+          CMP/GT      R3,R1
+          BF          L291
+          MOV.L       L296+20,R2 ; _push_fadeout_8c015b60
+          MOV         #3,R0
+          MOV.L       R0,@(24,R14)
+          JSR         @R2
+          MOV         #20,R4
+          BRA         L291
+          NOP
+L262:                            ; case label 
+          MOV.L       @R13,R3
+          TST         R3,R3
+          BT          L291
+          MOV         #4,R2
+          MOV.L       R2,@(24,R14)
+          JSR         @R11
+          MOV         #20,R4
+          BRA         L283
+          NOP
+L263:                            ; case label 
+          MOV.L       @R13,R3
+          TST         R3,R3
+          BF          L291
+          MOV         #5,R3
+          MOV.L       R3,@(24,R14)
+          MOV.L       R4,@(32,R14)
+L291:                             
+          MOV         #0,R5
+          MOV         R14,R4
+          FMOV.S      FR15,FR4
+          FMOV.S      FR14,FR6
+          FMOV.S      FR15,FR5
+          JSR         @R12
+          ADD         #12,R4
+L264:                            ; case label 
+L265:                            ; case label 
+L266:                            ; case label 
+L267:                            ; case label 
+L268:                            ; case label 
+L269:                            ; case label 
+L270:                            ; case label 
+L271:                            ; case label 
+L272:                            ; case label 
+L273:                            ; case label 
+L274:                            ; case label 
+L275:                            ; case label 
+L276:                            ; case label 
+L277:                            ; case label 
+L279:                             
+L283:                             
+          ADD         #4,R15
+          LDS.L       @R15+,PR
+          FMOV.S      @R15+,FR14
+          FMOV.S      @R15+,FR15
+          MOV.L       @R15+,R11
+          MOV.L       @R15+,R12
+          MOV.L       @R15+,R13
+          RTS
+          MOV.L       @R15+,R14
+L296:                             
+          .DATA.L     _getUknPvmBool_8c01432a
+          .DATA.L     __8c011f7e
+          .DATA.L     __8c01940e
+          .DATA.L     __8c05738a
+          .DATA.L     H'FF000000
+          .DATA.L     _push_fadeout_8c015b60
+          .SECTION    B,DATA,ALIGN=4
+_menu_state_8c1bc7a8:            ; static: menu_state_8c1bc7a8
+          .RES.L      9
+__8c1ba35c:                      ; static: _8c1ba35c
+          .RES.L      5
+          .END
