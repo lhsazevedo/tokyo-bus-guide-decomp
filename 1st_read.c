@@ -534,14 +534,14 @@ void execTasks_8c014b42(Task *task) {
 
 // ...
 
-void parse_dat_8c014f54(float float_fr7, float float_fr6, float float_fr4, UknDatStruct2 *ukndatstruct_r4, int file_offset_r5) {
+void draw_dat_8c014f54(UknDatStruct2 *ukndatstruct_r4, int texture_id, float x, float y, float float_fr7) {
     char *nextptr;
-    if (file_offset_r5 == 2000) {
+    if (texture_id == 2000) {
         // 0x8c014f76
         nextptr = ukndatstruct_r4->contents;
     } else {
         // 0x8c014f78
-        int offset = ukndatstruct_r4->contents + file_offset_r5 * 4;
+        int offset = ukndatstruct_r4->contents + texture_id * 4;
         nextptr = ukndatstruct_r4->contents + offset * 4;
     }
 
@@ -561,7 +561,7 @@ void parse_dat_8c014f54(float float_fr7, float float_fr6, float float_fr4, UknDa
 
     int i = 0;
     DatFileUknStruct1 *uknstruct3 = nextptr;
-    float frpass = float_fr6;
+    float frpass = y;
 
     while (TRUE) {
         DatFileUknStruct1 *uknstruct3 = (DatFileUknStruct1*) nextptr + i * 12;
@@ -574,8 +574,8 @@ void parse_dat_8c014f54(float float_fr7, float float_fr6, float float_fr4, UknDa
         // fr13 = fr5
 
         // Struct
-        float float_local_0 = uknstruct3->float_1 + float_fr4;
-        float float_local_4 = uknstruct3->float_2 + float_fr4;
+        float float_local_0 = uknstruct3->float_1 + x;
+        float float_local_4 = uknstruct3->float_2 + x;
 
         _8c074c08(uknstruct3->field_0x00, &float_local_0, 0x20);
 
