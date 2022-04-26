@@ -8,18 +8,20 @@ extern void push_fadein_8c015b5c();
 extern void _8c05738a();
 extern int _8c0fcd28;
 extern int is_fading_8c226568;
-extern void draw_dat_8c014f54(void *r4, int r5, float fr4, float fr5, float fr6);
+extern void drawSprite_8c014f54(void *r4, int r5, float fr4, float fr5, float fr6);
 extern void push_fadeout_8c015b60();
 
 struct MenuState {
     void *field_0x00;
     void *field_0x04;
     void *field_0x08;
-    void *field_0x0c;
+    DrawDatStruct1 *drawdatstruct1_0x0c;
     void *field_0x10;
     void *field_0x14;
     int mode_0x18;
     int field_0x1c;
+    float field_0x20;
+    float field_0x24;
     // ...
     int logo_timer_0x68;
 }
@@ -38,8 +40,12 @@ typedef UknMenuStruct1;
 
 UknMenuStruct1 _8c1ba35c;
 
-void task_menu_8c015ab8(Task *task, void *state) {
+void task_title_8c015ab8(Task *task, void *state) {
     // r12 = 0x8c226568
+    // fr12 = -4.5
+    // fr13 = -4.0
+    // fr14 = -5.0
+    // fr15 = 0
 
     int m = menu_state_8c1bc7a8.mode_0x18;
 
@@ -69,7 +75,7 @@ void task_menu_8c015ab8(Task *task, void *state) {
                     // 0x8c015baa
                     menu_state_8c1bc7a8.mode_0x18 = 0x01;
 
-                    push_fadein_8c015b5c(0x14);
+                    push_fadein_8c015b5c(20);
 
                     _8c05738a(0xff000000, 0xff000000, 0xff000000);
                 }
@@ -86,9 +92,7 @@ void task_menu_8c015ab8(Task *task, void *state) {
                 menu_state_8c1bc7a8.logo_timer_0x68 = 0;
             }
 
-            //                                                 > Texture ID?
-            //                                                 |  X    Y     ?
-            draw_dat_8c014f54(&menu_state_8c1bc7a8.field_0x0c, 0, 0.0, 0.0, -5.0);
+            drawSprite_8c014f54(&menu_state_8c1bc7a8.drawdatstruct1_0x0c, 0, 0.0, 0.0, -5.0);
             return;
 
         case 0x02:
@@ -100,10 +104,10 @@ void task_menu_8c015ab8(Task *task, void *state) {
 
             if (menu_state_8c1bc7a8.logo_timer_0x68 > 0x1e) {
                 menu_state_8c1bc7a8.mode_0x18 = 0x03;
-                push_fadeout_8c015b60(0x14);
+                push_fadeout_8c015b60(20);
             }
 
-            draw_dat_8c014f54(&menu_state_8c1bc7a8.field_0x0c, 0, 0.0, 0.0, -5.0);
+            drawSprite_8c014f54(&menu_state_8c1bc7a8.drawdatstruct1_0x0c, 0, 0.0, 0.0, -5.0);
             return;
 
         case 0x03:
@@ -111,11 +115,11 @@ void task_menu_8c015ab8(Task *task, void *state) {
             // 08c015c0c
 
             if (is_fading_8c226568 == 0) {
-                draw_dat_8c014f54(&menu_state_8c1bc7a8.field_0x0c, 0, 0.0, 0.0, -5.0);
+                drawSprite_8c014f54(&menu_state_8c1bc7a8.drawdatstruct1_0x0c, 0, 0.0, 0.0, -5.0);
             } else {
                 menu_state_8c1bc7a8.mode_0x18 = 0x04;
 
-                push_fadein_8c015b5c(0x14);
+                push_fadein_8c015b5c(20);
             }
 
             return;
@@ -129,42 +133,116 @@ void task_menu_8c015ab8(Task *task, void *state) {
                 menu_state_8c1bc7a8.logo_timer_0x68 = 0;
             }
 
-            draw_dat_8c014f54(&menu_state_8c1bc7a8.field_0x0c, 3, 0.0, 0.0, -5.0);
+            drawSprite_8c014f54(&menu_state_8c1bc7a8.drawdatstruct1_0x0c, 3, 0.0, 0.0, -5.0);
             return;
 
         case 0x05:
             // ADX
+            
+            menu_state_8c1bc7a8.logo_timer_0x68++;
+
+            if (menu_state_8c1bc7a8.logo_timer_0x68 > 0x1e) {
+                menu_state_8c1bc7a8.mode_0x18 = 0x06;
+                push_fadeout_8c015b60(20);
+            }
+
+            drawSprite_8c014f54(&menu_state_8c1bc7a8.drawdatstruct1_0x0c, 3, 0.0, 0.0, -5.0);
+
             break;
 
         case 0x06:
             // ADX FADE OUT
+            
+            if (is_fading_8c226568 == 0) {
+                drawSprite_8c014f54(&menu_state_8c1bc7a8.drawdatstruct1_0x0c, 0, 0.0, 0.0, -5.0);
+            } else {
+                // VMU Check?
+                if (_8c012984() == 0 || _8c019550("TOKYOBUS.001", 3) != 0) {
+                    menu_state_8c1bc7a8.mode_0x18 = 0xa;
+                } else {
+                    menu_state_8c1bc7a8.mode_0x18 = 0x7;
+                }
+
+                push_fadein_8c015b5c(10);
+            }
+
             break;
 
         case 0x07:
+            // VMU WARNING FADE IN
+            // ...
             break;
 
         case 0x08:
+            // VMU WARNING
+            // ...
             break;
 
         case 0x09:
+            // VMU WARNING FADE OUT
+            // ...
             break;
 
         case 0x0a:
             // TITLE FADE IN
+
+            if (is_fading_8c226568 == 0) {
+                menu_state_8c1bc7a8.mode_0x18 = 0x0b;
+
+                menu_state_8c1bc7a8.field_0x20 = 640;
+
+                _8c010cd6(0, 0);
+            }
+
+            drawSprite_8c014f54(&menu_state_8c1bc7a8.drawdatstruct1_0x0c, 2, 0.0, 0.0, -5.0);
+
+            drawSprite_8c014f54(&menu_state_8c1bc7a8.drawdatstruct1_0x0c, 46, 0.0, 0.0, -7.0);
+
             break;
 
         case 0x0b:
             // BUS SLIDE
-            break;
+
+            menu_state_8c1bc7a8.field_0x20 -= 5.11111;
+
+            if (menu_state_8c1bc7a8.field_0x20 > 180) {
+                // drawSprite_8c014f54();
+
+                // ...
+                break;
+            } else {
+                menu_state_8c1bc7a8.mode_0x18 = 0x0c;
+
+                menu_state_8c1bc7a8.field_0x24 = 167.0;
+            }
+
+            // Missing break?
 
         case 0x0c:
             // FLAG REVEAL
+
+            menu_state_8c1bc7a8.field_0x24 -= 2.33333;
+
+            if (menu_state_8c1bc7a8.field_0x24 <= 97) {
+                menu_state_8c1bc7a8.mode_0x18 = 0x0e;
+            }
+
+            drawSprite_8c014f54(&menu_state_8c1bc7a8.drawdatstruct1_0x0c, 4, 302, menu_state_8c1bc7a8.field_0x24, -4.5);
+
+            // drawSprite_8c014f54(...);
+
+            // drawSprite_8c014f54(...);
+
             break;
 
         case 0x0d:
+            // ?
+
+            // drawSprite_8c014f54(...) x 4
             break;
 
         case 0x0e:
+            // ...
             break;
 
         case 0x0f:

@@ -1,0 +1,88 @@
+
+                         void __stdcall drawSprite_8c014f54(UknDatStruct2 
+          MOV.L     R14,@-R15
+          MOV.L     R13,@-R15
+          MOV.L     R12,@-R15
+          MOV.L     R11,@-R15
+          FMOV.S    FR15,@-R15
+          FMOV.S    FR14,@-R15
+          FMOV.S    FR13,@-R15
+          FMOV.S    FR12,@-R15
+          STS.L     PR,@-R15
+          ADD       #-0x20,R15
+          MOV.W     INT_8c015028,R3                            = 7D0h
+          FMOV      FR4,FR12
+          CMP/EQ    R3,R5
+          FMOV      FR5,FR13
+          BF/S      reads_title_dat_LAB_8c014f78
+          _FMOV     FR6,FR15
+          BRA       LAB_8c014f86
+          _MOV.L    @(0x8,R4),R13
+                         reads_title_dat_LAB_8c014f78              XREF[1]:   8c014f70(j)  
+          ; @(id * 4 + offset) * 4 + offset
+          MOV       R5,R13
+          MOV.L     @(0x8,R4),R6
+          SHLL2     R13
+          ADD       R6,R13
+          MOV.L     @R13,R13
+          SHLL2     R13
+          ADD       R6,R13
+                         LAB_8c014f86                              XREF[1]:   8c014f74(j)  
+          FLDI1     FR4
+          MOV       #0xc,R0
+          MOV.L     @R4,R3
+          MOV       #0x0,R14
+          MOV.L     ->njDrawSprite2D_8c074c08,R11              = 8c074c08
+          MOV.L     R3,@(0x18,R15)
+          MOV.L     @(0x4,R4),R2
+          MOV       #0x0,R4
+          MOV       R4,R12
+          MOV.L     R2,@(0x1c,R15)
+          MOV.L     R4,@(0x14,R15)
+          FMOV      FR4,@(R0,R15)
+          MOV       #0x10,R0
+          FMOV      FR4,@(R0,R15)
+          MOVA      FLOAT_8c015030,R0                          = 1.0E-4
+          FMOV.S    @R0,FR14                   = 1.0E-4
+          BRA       LAB_8c014fd0
+          _ADD      R13,R14
+                         LAB_8c014faa                              XREF[1]:   8c014fde(j)  
+          MOV       #0x4,R0
+          FMOV      FR12,FR2
+          FMOV.S    @(R0,R14),FR3
+          MOV       #0x8,R0
+          FMOV      FR15,FR4
+          MOV       #0x20,R6
+          FADD      FR3,FR2
+          FMOV.S    FR2,@R15
+          FMOV.S    @(R0,R14),FR3
+          MOV       #0x4,R0
+          FMOV      FR13,FR2
+          FADD      FR3,FR2
+          FMOV      FR2,@(R0,R15)
+          MOV.L     @R14,R5
+          JSR       @R11=>njDrawSprite2D_8c074c08              undefined njDrawSprite2D_8c0
+          _MOV      R15,R4
+          FADD      FR14,FR15
+          ADD       #0xc,R14
+          ADD       #0x1,R12
+                         LAB_8c014fd0                              XREF[1]:   8c014fa6(j)  
+          MOV       R12,R0
+          SHLL      R0
+          MOV       R12,R3
+          ADD       R3,R0
+          SHLL2     R0
+          MOV.L     @(R0,R13),R0
+          CMP/EQ    #-0x1,R0
+          BF        LAB_8c014faa
+          ADD       #0x20,R15
+          LDS.L     @R15+,PR
+          FMOV.S    @R15+,FR12
+          FMOV.S    @R15+,FR13
+          FMOV.S    @R15+,FR14
+          FMOV.S    @R15+,FR15
+          MOV.L     @R15+,R11
+          MOV.L     @R15+,R12
+          MOV.L     @R15+,R13
+          RTS
+          _MOV.L    @R15+,R14

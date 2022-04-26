@@ -1,34 +1,12 @@
 #include "includes.h"
 #include "ninja.h"
 
-struct DrawDatStruct1 {
-    NJS_TEXLIST *tlist_0x00;
-    NJS_TEXANIM *tanim_0x04;
-    char *contents_0x08;
-    int field_0x0c;
-}
-typedef DrawDatStruct1;
-
 struct DatSect1Entry {
     int sprite_no_0x00;
     float x_0x04;
     float y_0x08;
 }
 typedef DatSect1Entry;
-
-// NJS_SPRITE?
-// struct DrawDatXY {
-//     float x_0x00;
-//     float y_0x04;
-//     int field_0x08;
-//     float float_0x0c;
-//     float float_0x10;
-//     int int_0x14;
-//     void *ptr_0x18;
-//     void *ptr_0x1c;
-// }
-// typedef DrawDatXY;
-
 
 void drawSprite_8c014f54(DrawDatStruct1 *struct1_r4, int texture_id, float x, float y, float priority) {
     // fr12 = fr4 = x
