@@ -1,3 +1,6 @@
+// April 24, 2022
+// For now we don't need to keep reversing this one...
+
 #include "includes.h"
 
 extern void _8c051618();
@@ -58,6 +61,7 @@ void task_title_8c015ab8(Task *task, void *state) {
     }
 
     switch (menu_state_8c1bc7a8.mode_0x18) {
+        // 0x8c015b88 (0x8c015b32 + 4 + 0x052)
         case 0x00:
             if (getUknPvmBool_8c01432a()) {
                 _8c011f7e();
@@ -83,10 +87,9 @@ void task_title_8c015ab8(Task *task, void *state) {
 
             return;
 
+        // FORTYFIVE FADE IN
+        // 0x8c015be4 (0x8c015b32 + 4 + 0x0AE)
         case 0x01:
-            // FORTYFIVE FADE IN
-            // 0x8c015be4
-
             if (is_fading_8c226568 == 0) {
                 menu_state_8c1bc7a8.mode_0x18 = 0x02;
                 menu_state_8c1bc7a8.logo_timer_0x68 = 0;
@@ -95,9 +98,9 @@ void task_title_8c015ab8(Task *task, void *state) {
             drawSprite_8c014f54(&menu_state_8c1bc7a8.drawdatstruct1_0x0c, 0, 0.0, 0.0, -5.0);
             return;
 
+        // FORTYFIVE
+        // 0x8c015bf4 (0x8c015b32 + 4 + 0x0BE)
         case 0x02:
-            // FORTYFIVE
-            // 0x8c015bf4
             // r4 = 0x1e
 
             menu_state_8c1bc7a8.logo_timer_0x68++;
@@ -110,10 +113,9 @@ void task_title_8c015ab8(Task *task, void *state) {
             drawSprite_8c014f54(&menu_state_8c1bc7a8.drawdatstruct1_0x0c, 0, 0.0, 0.0, -5.0);
             return;
 
+        // FORTYFIVE FADE OUT
+        // 0x8c015c0c (0x8c015b32 + 4 + 0x0D6)
         case 0x03:
-            // FORTYFIVE FADE OUT
-            // 08c015c0c
-
             if (is_fading_8c226568 == 0) {
                 drawSprite_8c014f54(&menu_state_8c1bc7a8.drawdatstruct1_0x0c, 0, 0.0, 0.0, -5.0);
             } else {
@@ -124,10 +126,9 @@ void task_title_8c015ab8(Task *task, void *state) {
 
             return;
 
+        // ADX FADE IN
+        // 0x8c015c1e (0x8c015b32 + 4 + 0x0E8)
         case 0x04:
-            // ADX FADE IN
-            // 0x8c015c1e
-
             if (is_fading_8c226568 == 0) {
                 menu_state_8c1bc7a8.mode_0x18 = 0x05;
                 menu_state_8c1bc7a8.logo_timer_0x68 = 0;
@@ -136,9 +137,9 @@ void task_title_8c015ab8(Task *task, void *state) {
             drawSprite_8c014f54(&menu_state_8c1bc7a8.drawdatstruct1_0x0c, 3, 0.0, 0.0, -5.0);
             return;
 
+        // ADX
+        // 0x8c015c2e (0x8c015b32 + 4 + 0x0F8)
         case 0x05:
-            // ADX
-            
             menu_state_8c1bc7a8.logo_timer_0x68++;
 
             if (menu_state_8c1bc7a8.logo_timer_0x68 > 0x1e) {
@@ -150,9 +151,9 @@ void task_title_8c015ab8(Task *task, void *state) {
 
             break;
 
+        // ADX FADE OUT
+        // 0x8c015c46 (0x8c015b32 + 4 + 0x110)
         case 0x06:
-            // ADX FADE OUT
-            
             if (is_fading_8c226568 == 0) {
                 drawSprite_8c014f54(&menu_state_8c1bc7a8.drawdatstruct1_0x0c, 0, 0.0, 0.0, -5.0);
             } else {
@@ -168,24 +169,24 @@ void task_title_8c015ab8(Task *task, void *state) {
 
             break;
 
+        // VMU WARNING FADE IN
+        // 0x8c015c6c (0x8c015b32 + 4 + 0x136)
         case 0x07:
-            // VMU WARNING FADE IN
-            // ...
             break;
 
+        // VMU WARNING
+        // 0x8c015ca8 (0x8c015b32 + 4 + 0x172)
         case 0x08:
-            // VMU WARNING
-            // ...
             break;
 
+        // VMU WARNING FADE OUT
+        // 0x8c015cd4 (0x8c015b32 + 4 + 0x19E)
         case 0x09:
-            // VMU WARNING FADE OUT
-            // ...
             break;
 
+        // TITLE FADE IN
+        // 0x8c015cf2 (0x8c015b32 + 4 + 0x1BC)
         case 0x0a:
-            // TITLE FADE IN
-
             if (is_fading_8c226568 == 0) {
                 menu_state_8c1bc7a8.mode_0x18 = 0x0b;
 
@@ -200,9 +201,9 @@ void task_title_8c015ab8(Task *task, void *state) {
 
             break;
 
+        // BUS SLIDE
+        // 0x8c015d10 (0x8c015b32 + 4 + 0x1DA)
         case 0x0b:
-            // BUS SLIDE
-
             menu_state_8c1bc7a8.field_0x20 -= 5.11111;
 
             if (menu_state_8c1bc7a8.field_0x20 > 180) {
@@ -218,9 +219,9 @@ void task_title_8c015ab8(Task *task, void *state) {
 
             // Missing break?
 
+        // FLAG REVEAL
+        // 0x8c015d4a (0x8c015b32 + 4 + 0x214)
         case 0x0c:
-            // FLAG REVEAL
-
             menu_state_8c1bc7a8.field_0x24 -= 2.33333;
 
             if (menu_state_8c1bc7a8.field_0x24 <= 97) {
@@ -235,26 +236,57 @@ void task_title_8c015ab8(Task *task, void *state) {
 
             break;
 
+        // Coming from demo?
+        // 0x8c015d94 (0x8c015b32 + 4 + 0x25E)
         case 0x0d:
-            // ?
-
             // drawSprite_8c014f54(...) x 4
             break;
 
+        // 0x8c015e18 (0x8c015b32 + 4 + 0x2E2)
         case 0x0e:
-            // ...
+            // r14 = menu_state
+            // r? = _8c1ba35c
+            if (_8c1ba35c.field_0x10 == 8) {
+                // 0x8c015e42
+                if (++menu_state_8c1bc7a8.mode_0x18 == 1050) {
+                    // 0x8c015e54
+                    menu_state_8c1bc7a8.mode_0x18 = 0x11;
+
+                    _8c010bae(0);
+                    _8c010bae(1);
+
+                    push_fadeout_8c022b60(60);
+                }
+            } else {
+                // 0x8c015e20
+            }
+
+            drawSprite_8c014f54(&menu_state_8c1bc7a8.drawdatstruct1_0x0c, 5, 0, 0, -4.5);
+
+            drawSprite_8c014f54(&menu_state_8c1bc7a8.drawdatstruct1_0x0c, 6, 0, 0, -4.5);
+
+            // 0x8c015f7c
+            drawSprite_8c014f54(&menu_state_8c1bc7a8.drawdatstruct1_0x0c, 4, 302, 97, -4.5);
+
+            drawSprite_8c014f54(&menu_state_8c1bc7a8.drawdatstruct1_0x0c, 1, 180, 0, -4);
+
+            drawSprite_8c014f54(&menu_state_8c1bc7a8.drawdatstruct1_0x0c, 2, 0, 0, -5);
+
+            // 0x8c015fac - 0x8c015fb4
+            drawSprite_8c014f54(&menu_state_8c1bc7a8.drawdatstruct1_0x0c, 46, 0, 0, -7);
+
             break;
 
+        // 0x8c015e68 (0x8c015b32 + 4 + 0x332)
         case 0x0f:
             break;
 
+        // 0x8c015e98 (0x8c015b32 + 4 + 0x362)
         case 0x10:
             break;
 
+        // 0x8c015f04 (0x8c015b32 + 4 + 0x3CE)
         case 0x11:
-            break;
-
-        case 0x12:
             break;
     }
 }
