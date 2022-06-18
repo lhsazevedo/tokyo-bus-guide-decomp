@@ -1,3 +1,6 @@
+// June 18, 2022
+// Functionally matching, but still using different registers...
+
 #include "includes.h"
 #include "ninja.h"
 
@@ -17,69 +20,50 @@ void drawSprite_8c014f54(DrawDatStruct1 *struct1_r4, int texture_id, float x, fl
     int *dat_offset;
     int i;
     int offset;
-    DatSect1Entry *dat_section = NULL;
+    DatSect1Entry *dat_entry = NULL;
     NJS_SPRITE sprite;
     int bpr = 0;
-    int pri = priority;
+    // float increment;
+    float pri = priority;
+    char *intptr;
+    int texture_offset;
 
     if (texture_id == 2000) {
         // 0x8c014f76
         dat_section_base = struct1_r4->contents_0x08;
     } else {
         // 0x8c014f78
-        // r13 = r5 = texture_id
-        // r13 = texture_id * 4
-        // r6 = struct_r4->contents_0x08
-        // r13 = r13 + r6
 
-        // GOOD
-        // int *intptr = struct1_r4->contents_0x08;
-        // dat_section_base = intptr;
-        // dat_section_base += texture_id;
-        // dat_section_base = intptr + *dat_section_base;
-
-        // ?
-        dat_section_base = struct1_r4->contents_0x08 + texture_id * 4;
-        dat_section_base = struct1_r4->contents_0x08 + (*(int*)dat_section_base) * 4;
-
-        // BAD
-        // int *intptr = struct1_r4->contents_0x08;
-        // int *offsetptr = intptr + texture_id;
-        // int *newptr = (intptr + *offsetptr);
-        // dat_section_base = (DatSect1Entry *)newptr;
-
-        // BAD
-        // int *intptr = struct1_r4->contents_0x08;
-        // int offset = (intptr + texture_id);
-
-        // dat_section_base = intptr;
-        // dat_section_base += texture_id;
-        // dat_section_base = intptr + *offset;
-
-        // int offset = texture_id * 4;
-        // offset += struct1_r4->contents_0x08;
-        // dat_section_base = struct1_r4->contents_0x08 + offset;
-        // dat_section_base = struct1_r4->contents_0x08 + *(int*)dat_section_base * 4;
+        // Wrong registers only
+        texture_offset = texture_id;
+        intptr = struct1_r4->contents_0x08;
+        dat_section_base = intptr + texture_offset * 4;
+        dat_section_base = intptr + (* (int *)dat_section_base) * 4;
     }
 
-    // dat_section;
+    dat_entry = 0;
 
     sprite.tlist = struct1_r4->tlist_0x00;
     sprite.tanim = struct1_r4->tanim_0x04;
     sprite.ang = 0;
-    sprite.sx = sprite.sy = 1.0;
+    sprite.sx = 1.0f;
+    sprite.sy = 1.0f;
 
     i = 0;
-    dat_section = (DatSect1Entry*)dat_section_base;
+    // increment = 0.0001;
 
-    while (*(dat_section_base + i * (sizeof(DatSect1Entry) / 4)) != -1) {
-        sprite.p.x = x + dat_section->x_0x04;
-        sprite.p.y = y + dat_section->y_0x08;
+    dat_entry = (DatSect1Entry *) ((int) dat_entry + (int) dat_section_base);
 
-        njDrawSprite2D_8c074c08(&sprite, dat_section->sprite_no_0x00, NJD_SPRITE_ALPHA, pri);
+    while (*((int *) (dat_section_base + i * sizeof(DatSect1Entry))) != -1) {
+        float xa = x + dat_entry->x_0x04;
+        float ya = y + dat_entry->y_0x08;
+        sprite.p.x = xa;
+        sprite.p.y = ya;
+
+        njDrawSprite2D_8c074c08(&sprite, dat_entry->sprite_no_0x00, NJD_SPRITE_ALPHA, pri);
 
         pri += 0.0001;
         i++;
-        dat_section++;
+        dat_entry++;
     }
 }
