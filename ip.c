@@ -1,6 +1,10 @@
 /* Tokyo Bus Guide IP.BIN
  *
  * reg[REG] = access to register REG
+ * 
+ * June 8, 2022
+ * This was a great start for learning how SH4 asm instructions translates to
+ * rough C files. Now I'm moving on to the game code itself...
  *
  */
 
