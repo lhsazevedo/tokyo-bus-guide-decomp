@@ -45,3 +45,11 @@ Ficar de olho: 0x8c0111c6
 
 
 _8c1bc7a8 = Menu state!!!
+
+
+
+## Loading
+The task load_8c014338 is responsible for loading the game.
+It calls load_route_models_8c014088 that checks the route location and time of
+day and loads models accordingly.
+0x8c014784 also does some loading, maybe for story mode?
