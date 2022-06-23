@@ -1,0 +1,346 @@
+          MOV.L     R14,@-R15
+          MOV.L     R13,@-R15
+          MOV.L     R12,@-R15
+          MOV.L     MASKED,R12
+          MOV.L     MASKED,R0
+          MOV.L     ->route_8c18ad18,R14
+          MOV.L     MASKED,R7
+          MOV.L     MASKED,R6
+          MOV.L     R11,@-R15
+          MOV.L     R10,@-R15
+          MOV.L     MASKED,R1
+          STS.L     PR,@-R15
+          MOV.L     @R12,R3
+          MOV.L     ->route_common_dir_8c18ad6c,R13
+          SHLL2     R3
+          MOV.L     ->route_pvr_dir_8c18ad4c,R10
+          MOV.L     @(R0,R3),R2
+          MOV.L     ->prob_strcpy_8c03011c,R11
+          MOV.L     R2,@R14
+          MOV       R2,R3
+          MOV.L     @R3,R2
+          MOV.L     R2,@R7
+          MOV.L     @R14,R3
+          MOV.L     @(0x4,R3),R2
+          MOV.L     R2,@R6
+          MOV.L     @R14,R3
+          MOV.L     @(0x10,R3),R2
+          MOV.L     R2,@R1
+          MOV.L     @R7,R0
+          MOV.L     @R6,R5
+          CMP/EQ    #0x0,R0
+          BT/S      LAB_8c0140d6
+          _MOV      R13,R4
+          CMP/EQ    #0x1,R0
+          BT        LAB_8c014104
+          CMP/EQ    #0x2,R0
+          BT        LAB_8c014132
+          BRA       LAB_8c0141e4
+          _NOP
+MASKED:
+          MOV       R5,R0
+          CMP/EQ    #0x0,R0
+          BT        LAB_8c0140e8
+          CMP/EQ    #0x1,R0
+          BT        LAB_8c0140e8
+          CMP/EQ    #0x2,R0
+          BT        LAB_8c0140f4
+          BRA       LAB_8c0141e4
+          _NOP
+MASKED:
+          MOV.L     MASKED,R5
+          JSR       @R11
+          _NOP
+          MOV.L     MASKED,R5
+          BRA       LAB_8c0140fc
+          _NOP
+MASKED:
+          MOV.L     MASKED,R5
+          JSR       @R11
+          _NOP
+          MOV.L     MASKED,R5
+MASKED:
+          JSR       @R11
+          _MOV      R10,R4
+          BRA       LAB_8c0141e4
+          _NOP
+MASKED:
+          MOV       R5,R0
+          CMP/EQ    #0x0,R0
+          BT        LAB_8c014116
+          CMP/EQ    #0x1,R0
+          BT        LAB_8c014116
+          CMP/EQ    #0x2,R0
+          BT        LAB_8c014122
+          BRA       LAB_8c0141e4
+          _NOP
+MASKED:
+          MOV.L     MASKED,R5
+          JSR       @R11
+          _NOP
+          MOV.L     MASKED,R5
+          BRA       LAB_8c01412a
+          _NOP
+MASKED:
+          MOV.L     MASKED,R5
+          JSR       @R11
+          _NOP
+          MOV.L     MASKED,R5
+MASKED:
+          JSR       @R11
+          _MOV      R10,R4
+          BRA       LAB_8c0141e4
+          _NOP
+MASKED:
+          MOV       R5,R0
+          CMP/EQ    #0x0,R0
+          BT        LAB_8c0141cc
+          CMP/EQ    #0x1,R0
+          BT        LAB_8c0141cc
+          CMP/EQ    #0x2,R0
+          BT        LAB_8c0141d8
+          BRA       LAB_8c0141e4
+          _NOP
+MASKED:
+          route_8c18ad18
+MASKED:
+          MASKED
+MASKED:
+          MASKED
+MASKED:
+          MASKED
+MASKED:
+          MASKED
+MASKED:
+          MASKED
+MASKED:
+          route_common_dir_8c18ad6c
+MASKED:
+          FUN_8c012030
+MASKED:
+          MASKED
+MASKED:
+          MASKED
+MASKED:
+          MASKED
+MASKED:
+          MASKED
+MASKED:
+          MASKED
+MASKED:
+          SUB_8c029ad4
+MASKED:
+          MASKED
+MASKED:
+          MASKED
+MASKED:
+          route_common_dir_copy_8c18ad2c
+MASKED:
+          request_dat_8c011182
+MASKED:
+          LAB_8c02aa36
+MASKED:
+          MASKED
+MASKED:
+          MASKED
+MASKED:
+          MASKED
+MASKED:
+          MASKED
+MASKED:
+          MASKED
+MASKED:
+          route_pvr_dir_8c18ad4c
+MASKED:
+          prob_strcpy_8c03011c
+MASKED:
+          MASKED
+MASKED:
+          MASKED
+MASKED:
+          MASKED
+MASKED:
+          MASKED
+MASKED:
+          MASKED
+MASKED:
+          MASKED
+MASKED:
+          MASKED
+MASKED:
+          MASKED
+MASKED:
+          MOV.L     MASKED,R5
+          JSR       @R11
+          _NOP
+          MOV.L     MASKED,R5
+          BRA       LAB_8c0141e0
+          _NOP
+MASKED:
+          MOV.L     MASKED,R5
+          JSR       @R11
+          _NOP
+          MOV.L     MASKED,R5
+MASKED:
+          JSR       @R11
+          _MOV      R10,R4
+MASKED:
+          MOV.L     ->route_common_dir_copy_8c18ad8c,R4
+          JSR       @R11
+          _MOV      R13,R5
+          MOV.L     ->route_common_dir_copy_8c18ad2c,R4
+          JSR       @R11
+          _MOV      R13,R5
+          MOV.L     @R14,R5
+          MOV       R12,R6
+          MOV.L     ->request_nj_8c011492,R11
+          MOV       #0x0,R7
+          MOV.L     @(0x1c,R5),R5
+          ADD       #0x4,R6
+          JSR       @R11
+          _MOV      R13,R4
+          MOV.L     @R14,R5
+          MOV       R12,R6
+          MOV       #0x0,R7
+          MOV.L     @(0x20,R5),R5
+          ADD       #0x8,R6
+          JSR       @R11
+          _MOV      R13,R4
+          MOV.L     @R14,R3
+          MOV       R12,R6
+          ADD       #0x10,R6
+          MOV.L     @(0x24,R3),R2
+          MOV       #0x0,R7
+          MOV.L     R2,@(0xc,R12
+          MOV.L     @R14,R5
+          MOV.L     @(0x28,R5),R5
+          JSR       @R11
+          _MOV      R13,R4
+          MOV.L     @R14,R5
+          MOV       R12,R6
+          MOV       #0x0,R7
+          MOV.L     @(0x2c,R5),R5
+          ADD       #0x14,R6
+          JSR       @R11
+          _MOV      R13,R4
+          MOV.L     @R14,R5
+          MOV       R12,R6
+          MOV       #0x0,R7
+          MOV.L     @(0x30,R5),R5
+          ADD       #0x18,R6
+          JSR       @R11
+          _MOV      R13,R4
+          MOV.L     @R14,R5
+          MOV       R12,R6
+          MOV       #0x0,R7
+          MOV.L     @(0x34,R5),R5
+          ADD       #0x1c,R6
+          JSR       @R11
+          _MOV      R13,R4
+          MOV.L     @R14,R5
+          MOV       R12,R6
+          MOV       #0x0,R7
+          MOV.L     @(0x38,R5),R5
+          ADD       #0x20,R6
+          JSR       @R11
+          _MOV      R13,R4
+          MOV.L     @R14,R5
+          MOV       R12,R6
+          MOV.L     ->request_dat_8c011182,R10
+          ADD       #0x24,R6
+          MOV.L     @(0x3c,R5),R5
+          JSR       @R10
+          _MOV      R13,R4
+          MOV.L     @R14,R5
+          MOV       #0x40,R0
+          MOV       R12,R6
+          MOV       #0x0,R7
+          MOV.L     @(R0,R5),R5
+          ADD       #0x28,R6
+          JSR       @R11
+          _MOV      R13,R4
+          MOV.L     @R14,R5
+          MOV       #0x44,R0
+          MOV       R12,R7
+          ADD       #0x2c,R7
+          MOV.L     @(R0,R5),R5
+          MOV       #0x0,R6
+          JSR       @R11
+          _MOV      R13,R4
+          MOV.L     @R14,R5
+          MOV       #0x48,R0
+          MOV       R12,R6
+          ADD       #0x30,R6
+          MOV.L     @(R0,R5),R5
+          JSR       @R10
+          _MOV      R13,R4
+          MOV.L     @R14,R5
+          MOV       #0x4c,R0
+          MOV       R12,R6
+          ADD       #0x34,R6
+          MOV.L     @(R0,R5),R5
+          JSR       @R10
+          _MOV      R13,R4
+          MOV.L     @R14,R5
+          MOV       #0x50,R0
+          MOV       R12,R6
+          ADD       #0x38,R6
+          MOV.L     @(R0,R5),R5
+          JSR       @R10
+          _MOV      R13,R4
+          MOV.L     @R14,R5
+          MOV       #0x54,R0
+          MOV       R12,R6
+          MOV       #0x0,R7
+          MOV.L     @(R0,R5),R5
+          ADD       #0x3c,R6
+          JSR       @R11
+          _MOV      R13,R4
+          MOV.L     @R14,R5
+          MOV       #0x58,R0
+          MOV       R12,R6
+          MOV       #0x0,R7
+          MOV.L     @(R0,R5),R5
+          ADD       #0x40,R6
+          JSR       @R11
+          _MOV      R13,R4
+          MOV.L     @R14,R5
+          MOV       #0x5c,R0
+          MOV       R12,R6
+          MOV       #0x0,R7
+          MOV.L     @(R0,R5),R5
+          ADD       #0x44,R6
+          JSR       @R11
+          _MOV      R13,R4
+          MOV.L     @R14,R5
+          MOV       #0x60,R0
+          MOV       R12,R6
+          MOV       #0x0,R7
+          MOV.L     @(R0,R5),R5
+          ADD       #0x48,R6
+          JSR       @R11
+          _MOV      R13,R4
+          MOV.L     @R14,R5
+          MOV       #0x64,R0
+          MOV       R12,R6
+          MOV       #0x0,R7
+          MOV.L     @(R0,R5),R5
+          ADD       #0x4c,R6
+          JSR       @R11
+          _MOV      R13,R4
+          BSR       request_some_fileMASKED
+          _NOP
+          MOV.L     ->FUN_8c012030,R2
+          MOV       #0x10,R6
+          MOV.L     MASKED.njd_8c01444c,R5
+          JSR       @R2
+          _MOV      R13,R4
+          MOV.L     MASKED,R3
+          MOV.L     R0,@R3
+          LDS.L     @R15+,PR
+          MOV.L     @R15+,R10
+          MOV.L     @R15+,R11
+          MOV.L     @R15+,R12
+          MOV.L     @R15+,R13
+          RTS
+          _MOV.L    @R15+,R14
