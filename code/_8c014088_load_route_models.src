@@ -1,0 +1,414 @@
+          .IMPORT     __8c012030
+          .IMPORT     _request_nj_8c011492
+          .IMPORT     _request_dat_8c011182
+          .IMPORT     _request_some_files_8c013ae8
+          .IMPORT     _prob_strcpy_8c03011c
+          .EXPORT     __8c1bb868
+          .EXPORT     __8c043ca4
+          .EXPORT     _route_8c18ad18
+          .EXPORT     _route_location_8c18ad1c
+          .EXPORT     _route_time_of_day_8c18ad20
+          .EXPORT     _route_common_dir_copy_8c18ad2c
+          .EXPORT     _route_pvr_dir_8c18ad4c
+          .EXPORT     _route_common_dir_8c18ad6c
+          .EXPORT     _route_common_dir_copy_8c18ad8c
+          .EXPORT     __8c1bb86c
+          .EXPORT     __8c1bb870
+          .EXPORT     __8c1bb878
+          .EXPORT     __8c1bb87c
+          .EXPORT     __8c1bb880
+          .EXPORT     __8c1bb884
+          .EXPORT     __8c1bb888
+          .EXPORT     __8c1bb890
+          .EXPORT     __8c1bb894
+          .EXPORT     __8c1bb8a4
+          .EXPORT     __8c1bb8a8
+          .EXPORT     __8c1bb8ac
+          .EXPORT     __8c1bb8b0
+          .EXPORT     __8c1bb8b4
+          .EXPORT     __8c1bb874
+          .EXPORT     __8c1bc3ec
+          .EXPORT     _load_route_models_8c014088
+          .SECTION    P,CODE,ALIGN=4
+_load_route_models_8c014088:     ; function: load_route_models_8c014088
+                                 ; frame size=20
+          MOV.L       L1072+4,R2 ; __8c1bb868
+          MOV.L       R14,@-R15
+          MOV.L       R13,@-R15
+          MOV.L       R12,@-R15
+          MOV.L       R11,@-R15
+          STS.L       PR,@-R15
+          MOV.L       @R2,R3
+          MOV.L       L1072,R4   ; _route_8c18ad18
+          MOV.L       @R3,R1
+          TST         R15,R15
+          MOV.L       L1072+8,R3 ; __8c043ca4
+          SHLL2       R1
+          MOV.L       L1072+20,R12; _route_pvr_dir_8c18ad4c
+          MOV.L       @R3,R0
+          MOV.L       L1072+24,R13; _prob_strcpy_8c03011c
+          MOV.L       @(R0,R1),R1
+          MOV.L       L1072+12,R1; _route_location_8c18ad1c
+          MOV.L       L1072+16,R0; _route_time_of_day_8c18ad20
+          MOV.L       L1072+28,R14; _route_common_dir_8c18ad6c
+          MOV.L       R15,@R4
+          MOV.L       @R1,R3
+          MOV.L       R15,@R3
+          MOV.L       @R0,R3
+          MOV.L       @(4,R15),R2
+          MOV.L       R2,@R3
+          BF/S        L1054
+          MOV         R14,R4
+          TST         R15,R15
+          BT          L1056
+          MOV         R15,R0
+          CMP/EQ      #1,R0
+          BF          L1055
+L1056:                            
+          MOV.L       L1072+32,R5; L1021
+          JSR         @R13
+          NOP
+          MOV.L       L1072+36,R4; L1022
+          BRA         L1071
+          NOP
+L1055:                            
+          CMP/EQ      #2,R0
+          BF          L1071
+          MOV.L       L1072+40,R5; L1024
+          JSR         @R13
+          NOP
+          MOV.L       L1072+44,R4; L1025
+          BRA         L1071
+          NOP
+L1054:                            
+          MOV         R15,R0
+          CMP/EQ      #1,R0
+          BF          L1060
+          TST         R15,R15
+          BT          L1062
+          MOV         R15,R0
+          CMP/EQ      #1,R0
+          BF          L1061
+L1062:                            
+          MOV.L       L1072+48,R5; L1028
+          JSR         @R13
+          NOP
+          MOV.L       L1072+52,R4; L1029
+          BRA         L1071
+          NOP
+L1061:                            
+          CMP/EQ      #2,R0
+          BF          L1071
+          MOV.L       L1072+56,R5; L1031
+          JSR         @R13
+          NOP
+          MOV.L       L1072+60,R4; L1032
+L1071:                            
+          MOV         R4,R5
+          JSR         @R13
+          MOV         R12,R4
+          BRA         L1059
+          NOP
+L1060:                            
+          CMP/EQ      #2,R0
+          BF          L1059
+          TST         R15,R15
+          BT          L1068
+          MOV         R15,R0
+          CMP/EQ      #1,R0
+          BF          L1067
+L1068:                            
+          MOV.L       L1072+64,R5; L1035
+          JSR         @R13
+          NOP
+          MOV.L       L1072+68,R4; L1036
+          BRA         L1069
+          NOP
+L1072:                            
+          .DATA.L     _route_8c18ad18
+          .DATA.L     __8c1bb868
+          .DATA.L     __8c043ca4
+          .DATA.L     _route_location_8c18ad1c
+          .DATA.L     _route_time_of_day_8c18ad20
+          .DATA.L     _route_pvr_dir_8c18ad4c
+          .DATA.L     _prob_strcpy_8c03011c
+          .DATA.L     _route_common_dir_8c18ad6c
+          .DATA.L     L1021
+          .DATA.L     L1022
+          .DATA.L     L1024
+          .DATA.L     L1025
+          .DATA.L     L1028
+          .DATA.L     L1029
+          .DATA.L     L1031
+          .DATA.L     L1032
+          .DATA.L     L1035
+          .DATA.L     L1036
+L1067:                            
+          CMP/EQ      #2,R0
+          BF          L1069
+          MOV.L       L1073+10,R5; L1038
+          JSR         @R13
+          NOP
+          MOV.L       L1073+14,R4; L1039
+L1069:                            
+          MOV         R4,R5
+          JSR         @R13
+          MOV         R12,R4
+L1059:                            
+          MOV.L       L1073+18,R4; _route_common_dir_copy_8c18ad8c
+          JSR         @R13
+          MOV         R14,R5
+          MOV.L       L1073+22,R4; _route_common_dir_copy_8c18ad2c
+          JSR         @R13
+          MOV         R14,R5
+          MOV.L       L1073+30,R6; __8c1bb86c
+          MOV         #0,R7
+          MOV.L       @(28,R15),R5
+          MOV.L       L1073+26,R13; _request_nj_8c011492
+          JSR         @R13
+          MOV         R14,R4
+          MOV.L       @(32,R15),R5
+          MOV         #0,R7
+          MOV.L       L1073+34,R6; __8c1bb870
+          JSR         @R13
+          MOV         R14,R4
+          MOV.L       L1073+38,R3; __8c1bb874
+          MOV         #0,R7
+          MOV.L       @(36,R15),R2
+          MOV.L       L1073+42,R6; __8c1bb878
+          MOV.L       R2,@R3
+          MOV.L       @(40,R15),R5
+          JSR         @R13
+          MOV         R14,R4
+          MOV.L       @(44,R15),R5
+          MOV         #0,R7
+          MOV.L       L1073+46,R6; __8c1bb87c
+          JSR         @R13
+          MOV         R14,R4
+          MOV.L       @(48,R15),R5
+          MOV         #0,R7
+          MOV.L       L1073+50,R6; __8c1bb880
+          JSR         @R13
+          MOV         R14,R4
+          MOV.L       @(52,R15),R5
+          MOV         #0,R7
+          MOV.L       L1073+54,R6; __8c1bb884
+          JSR         @R13
+          MOV         R14,R4
+          MOV.L       @(56,R15),R5
+          MOV         #0,R7
+          MOV.L       L1073+58,R6; __8c1bb888
+          JSR         @R13
+          MOV         R14,R4
+          MOV.W       L1073,R6   ; H'008C
+          MOV         #0,R7
+          MOV.L       @(60,R15),R5
+          MOV.L       L1073+62,R12; _request_dat_8c011182
+          JSR         @R12
+          MOV         R14,R4
+          MOV         #64,R0
+          MOV.L       L1073+66,R6; __8c1bb890
+          MOV.L       @(R0,R15),R5
+          MOV         #0,R7
+          JSR         @R13
+          MOV         R14,R4
+          MOV         #68,R0
+          MOV.L       L1073+70,R7; __8c1bb894
+          MOV.L       @(R0,R15),R5
+          MOV         #0,R6
+          JSR         @R13
+          MOV         R14,R4
+          MOV         #72,R0
+          MOV.W       L1073+2,R11; H'0094
+          MOV.L       @(R0,R15),R5
+          MOV.W       L1073+4,R6 ; H'0098
+          MOV         R11,R7
+          JSR         @R12
+          MOV         R14,R4
+          MOV         #76,R0
+          MOV.W       L1073+6,R6 ; H'009C
+          MOV.L       @(R0,R15),R5
+          MOV         R11,R7
+          JSR         @R12
+          MOV         R14,R4
+          MOV         #80,R0
+          MOV.W       L1073+8,R6 ; H'00A0
+          MOV.L       @(R0,R15),R5
+          MOV         R11,R7
+          JSR         @R12
+          MOV         R14,R4
+          MOV         #84,R0
+          MOV.L       L1073+74,R6; __8c1bb8a4
+          MOV.L       @(R0,R15),R5
+          MOV         #0,R7
+          JSR         @R13
+          MOV         R14,R4
+          MOV         #88,R0
+          MOV.L       L1073+78,R6; __8c1bb8a8
+          MOV.L       @(R0,R15),R5
+          MOV         #0,R7
+          JSR         @R13
+          MOV         R14,R4
+          MOV         #92,R0
+          MOV.L       L1073+82,R6; __8c1bb8ac
+          MOV.L       @(R0,R15),R5
+          MOV         #0,R7
+          JSR         @R13
+          MOV         R14,R4
+          MOV         #96,R0
+          MOV.L       L1073+86,R6; __8c1bb8b0
+          MOV.L       @(R0,R15),R5
+          MOV         #0,R7
+          JSR         @R13
+          MOV         R14,R4
+          MOV         #100,R0
+          MOV.L       L1073+90,R6; __8c1bb8b4
+          MOV.L       @(R0,R15),R5
+          MOV         #0,R7
+          JSR         @R13
+          MOV         R14,R4
+          MOV.L       L1073+94,R3; _request_some_files_8c013ae8
+          JSR         @R3
+          NOP
+          MOV.L       L1073+102,R2; __8c012030
+          MOV         #16,R6
+          MOV.L       L1073+98,R5; L1040
+          JSR         @R2
+          MOV         R14,R4
+          MOV.L       L1073+106,R3; __8c1bc3ec
+          MOV.L       R0,@R3
+          LDS.L       @R15+,PR
+          MOV.L       @R15+,R11
+          MOV.L       @R15+,R12
+          MOV.L       @R15+,R13
+          RTS
+          MOV.L       @R15+,R14
+L1073:                            
+          .DATA.W     H'008C
+          .DATA.W     H'0094
+          .DATA.W     H'0098
+          .DATA.W     H'009C
+          .DATA.W     H'00A0
+          .DATA.L     L1038
+          .DATA.L     L1039
+          .DATA.L     _route_common_dir_copy_8c18ad8c
+          .DATA.L     _route_common_dir_copy_8c18ad2c
+          .DATA.L     _request_nj_8c011492
+          .DATA.L     __8c1bb86c
+          .DATA.L     __8c1bb870
+          .DATA.L     __8c1bb874
+          .DATA.L     __8c1bb878
+          .DATA.L     __8c1bb87c
+          .DATA.L     __8c1bb880
+          .DATA.L     __8c1bb884
+          .DATA.L     __8c1bb888
+          .DATA.L     _request_dat_8c011182
+          .DATA.L     __8c1bb890
+          .DATA.L     __8c1bb894
+          .DATA.L     __8c1bb8a4
+          .DATA.L     __8c1bb8a8
+          .DATA.L     __8c1bb8ac
+          .DATA.L     __8c1bb8b0
+          .DATA.L     __8c1bb8b4
+          .DATA.L     _request_some_files_8c013ae8
+          .DATA.L     L1040
+          .DATA.L     __8c012030
+          .DATA.L     __8c1bc3ec
+          .SECTION    C,DATA,ALIGN=4
+L1021:
+          .SDATA      "\SD_COMMON"
+          .DATA.B     H'00
+          .RES.B      1
+L1022:
+          .SDATA      "\SD_PVR"
+          .DATA.B     H'00
+L1024:
+          .SDATA      "\SN_COMMON"
+          .DATA.B     H'00
+          .RES.B      1
+L1025:
+          .SDATA      "\SN_PVR"
+          .DATA.B     H'00
+L1028:
+          .SDATA      "\WD_COMMON"
+          .DATA.B     H'00
+          .RES.B      1
+L1029:
+          .SDATA      "\WD_PVR"
+          .DATA.B     H'00
+L1031:
+          .SDATA      "\WN_COMMON"
+          .DATA.B     H'00
+          .RES.B      1
+L1032:
+          .SDATA      "\WN_PVR"
+          .DATA.B     H'00
+L1035:
+          .SDATA      "\OD_COMMON"
+          .DATA.B     H'00
+          .RES.B      1
+L1036:
+          .SDATA      "\OD_PVR"
+          .DATA.B     H'00
+L1038:
+          .SDATA      "\ON_COMMON"
+          .DATA.B     H'00
+          .RES.B      1
+L1039:
+          .SDATA      "\ON_PVR"
+          .DATA.B     H'00
+L1040:
+          .SDATA      "signal00.njd"
+          .DATA.B     H'00
+          .SECTION    B,DATA,ALIGN=4
+__8c1bb868:                      ; static: _8c1bb868
+          .RES.L      1
+__8c043ca4:                      ; static: _8c043ca4
+          .RES.L      1
+_route_8c18ad18:                 ; static: route_8c18ad18
+          .RES.L      1
+_route_location_8c18ad1c:        ; static: route_location_8c18ad1c
+          .RES.L      1
+_route_time_of_day_8c18ad20:     ; static: route_time_of_day_8c18ad20
+          .RES.L      1
+_route_common_dir_copy_8c18ad2c: ; static: route_common_dir_copy_8c18ad2c
+          .RES.B      32
+_route_pvr_dir_8c18ad4c:         ; static: route_pvr_dir_8c18ad4c
+          .RES.B      32
+_route_common_dir_8c18ad6c:      ; static: route_common_dir_8c18ad6c
+          .RES.B      32
+_route_common_dir_copy_8c18ad8c: ; static: route_common_dir_copy_8c18ad8c
+          .RES.B      32
+__8c1bb86c:                      ; static: _8c1bb86c
+          .RES.L      1
+__8c1bb870:                      ; static: _8c1bb870
+          .RES.L      1
+__8c1bb878:                      ; static: _8c1bb878
+          .RES.L      1
+__8c1bb87c:                      ; static: _8c1bb87c
+          .RES.L      1
+__8c1bb880:                      ; static: _8c1bb880
+          .RES.L      1
+__8c1bb884:                      ; static: _8c1bb884
+          .RES.L      1
+__8c1bb888:                      ; static: _8c1bb888
+          .RES.L      1
+__8c1bb890:                      ; static: _8c1bb890
+          .RES.L      1
+__8c1bb894:                      ; static: _8c1bb894
+          .RES.L      1
+__8c1bb8a4:                      ; static: _8c1bb8a4
+          .RES.L      1
+__8c1bb8a8:                      ; static: _8c1bb8a8
+          .RES.L      1
+__8c1bb8ac:                      ; static: _8c1bb8ac
+          .RES.L      1
+__8c1bb8b0:                      ; static: _8c1bb8b0
+          .RES.L      1
+__8c1bb8b4:                      ; static: _8c1bb8b4
+          .RES.L      1
+__8c1bb874:                      ; static: _8c1bb874
+          .RES.L      1
+__8c1bc3ec:                      ; static: _8c1bc3ec
+          .RES.L      1
+          .END

@@ -1,8 +1,10 @@
 ## Tasks
 
-There are two task arrays:
+There are (at least) four task arrays:
 - `tasks_8c1ba3c8`: Seems to be used during menus.
 - `tasks_8c1ba5e8`: Seems to be used in-game only.
+- `tasks_8c1ba808`: Pedestrian groups
+- `tasks_8c514300`: A pedestrian group
 
 ### Known Tasks
 - `0x8c014338`: Load
@@ -22,6 +24,8 @@ There are two task arrays:
 - `0x8c022bdc`: Bus
 - `0x8c0275d4`: Traffic
 - `0x8c0283e8`
+- `0x8c028e00`: Pedestrian
+- `0x8c029078`: Pedestrian group
 - `0x8c0293f6`: Pedestrians
 - `0x8c029904` 
 - `0x8c02a60e`: Scene floor
