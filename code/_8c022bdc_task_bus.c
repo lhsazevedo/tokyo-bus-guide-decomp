@@ -4,12 +4,14 @@ extern int _8c0fcd28;
 extern int _8c18ad20;
 extern void *_8c1bb868;
 extern int _8c1bb8c8;
+extern int _8c1bb8d0;
 extern void *bus_state_8c1bb9d0;
-extern int _8c1bbd9c;
+extern void *bus_8c1bbd9c;
 extern int _8c2264d4;
 extern float _8c227db0;
 extern float _8c227db4;
 extern int _8c228660;
+extern int _8c228b3c;
 
 struct BusState {
     int distance_traveled_0x070;
@@ -17,6 +19,7 @@ struct BusState {
     int acc_0x078;
     int ang_0x07c;
     int blinker_0x080;
+    int field_0x084;
 
     float field_0x0f4;
     float field_0x100;
@@ -34,7 +37,7 @@ struct BusState {
 
     int gear_0x2f4;
 
-    int boarding_state_0x3c0;
+    int bus_substate_0x3c0;
     int field_0x3c4;
 }
 typedef BusState;
@@ -142,7 +145,7 @@ void _8c022bdc_task_bus(Task *task, void *state) {
         // Boarding
         case 0:
             // 8c022c7c
-            switch (bus_state_8c1bb9d0.boarding_state_0x3c0)
+            switch (bus_state_8c1bb9d0.bus_substate_0x3c0)
             {
                 // TODO
                 case 0:
@@ -156,8 +159,8 @@ void _8c022bdc_task_bus(Task *task, void *state) {
                         // 8c022ca0  mov.w     WORD_8c022cde,r0                           = 3C0h
                         // 8c022ca2  mov       #0x1,r3
                         // 8c022ca4  mov.l     r3,@(r0,r14)=>DAT_8c1bbd90                 = ??
-                        int field = _8c051618(_8c0fcd28, 1, 0x1d, 0);
-                        bus_state_8c1bb9d0.boarding_state_0x3c0 = 1;
+                        _8c051618(_8c0fcd28, 1, 0x1d, 0);
+                        bus_state_8c1bb9d0.bus_substate_0x3c0 = 1;
 
                         // 8c022ca6  bra       LAB_8c022f72
                         // 8c022ca8  _fmov.s   fr14,@r12=>DAT_8c227db0
@@ -165,7 +168,7 @@ void _8c022bdc_task_bus(Task *task, void *state) {
                     }
                     break;
                 
-                // TODO
+                // FADING IN
                 case 1:
                     // 8c022caa  fmov.s    @r12=>DAT_8c227db0,fr3
                     // 8c022cae  fadd      fr4,fr3
@@ -182,7 +185,7 @@ void _8c022bdc_task_bus(Task *task, void *state) {
                         // 8c022cbc  mov.w     WORD_8c022cde,r0                           = 3C0h
                         // 8c022cbe  mov       #0x2,r1
                         //  8c022cc2  mov.l     r1,@(r0,r14)=>DAT_8c1bbd90                 = ??
-                        bus_state_8c1bb9d0.boarding_state_0x3c0 = 2;
+                        bus_state_8c1bb9d0.bus_substate_0x3c0 = 2;
                         
                         // 8c022cc0  fmov.s    fr4,@r12=>DAT_8c227db0
                         _8c227db0 = _8c227db4;
@@ -199,6 +202,20 @@ void _8c022bdc_task_bus(Task *task, void *state) {
         // Driving
         case 1:
             /* code */
+            switch (bus_state_8c1bb9d0.bus_substate_0x3c0)
+            {
+                // DOOR OPEN
+                case 2:
+                    // 8c022d14
+                    // TODO
+                    break;
+
+                // DOOR CLOSING
+                case 3:
+                    // 8c022d3e
+                    // TODO
+                    break;
+            }
             break;
 
         // TODO
@@ -222,16 +239,99 @@ void _8c022bdc_task_bus(Task *task, void *state) {
     // 8c022f7a  fldi0     fr3
     // 8c022f7e  fcmp/eq   fr3,fr2
     // 8c022f80  bf        LAB_8c022f86
+    // TODO: If moving
     if (bus_state_8c1bb9d0.speed_0x27c != 0.f) {
-        // 8c022f86
-        // ...
+        // 8c022f86  mov.l     ->FUN_8c023938,r2                          = 8c023938
+        // 8c022f88  jsr       @r2=>FUN_8c023938                          undefined FUN_8c023938(undef
+        // 8c022f8a  _nop
+        _8c023938();
+        // 8c022f8c  mov.l     ->FUN_8c023cba,r3                          = 8c023cba
+        // 8c022f8e  jsr       @r3=>FUN_8c023cba                          undefined FUN_8c023cba(undef
+        // 8c022f90  _nop
+        _8c023cba();
+
+        // 8c022f94  mov.l     DAT_8c023094,r12                           = 8C228B3Ch
+        // 8c022f96  mov.l     @(0x10,r10)=>DAT_8c1bb878,r2               = ??
+        // 8c022f9a  mov.l     r2,@r12=>DAT_8c228b3c
+        _8c228b3c = _8c1bb868->field_0x10;
+
+        //  8c022f92  mov.w     DAT_8c02306a,r0                            = 02D0h
+        // 8c022f9c  mov.l     @(r0,r14),r3=>DAT_8c1bbca0                 = ??
+        // 8c022f9e  mov.w     DAT_8c02306c,r0                            = 0120h
+        // 8c022fa0  fmov.s    @(r0,r14),fr6=>DAT_8c1bbaf0                = ??
+        // 8c022fa2  add       #-0x4,r0
+        // 8c022fa4  fmov.s    @(r0,r14),fr5=>DAT_8c1bbaec                = ??
+        // 8c022fa6  add       #-0x4,r0
+        // 8c022fa8  fmov.s    @(r0,r14),fr4=>DAT_8c1bbae8                = ??
+        //  8c022f98  mov.w     DAT_8c02306e,r4                            = 0340h
+        // 8c022faa  jsr       @r3
+        // 8c022fac  _add      r14,r4=>DAT_8c1bbd10                       = ??
+        // Related to traffic violation?
+        // TODO
+        int *result = bus_state_8c1bb9d0.field_0x2d0(
+            bus_state_8c1bb9d0.field_0x340,
+            bus_state_8c1bb9d0.field_0x118,
+            bus_state_8c1bb9d0.field_0x11c,
+            bus_state_8c1bb9d0.field_0x120
+        );
+
+        // 8c022fae  mov       r0,r4
+        // 8c022fb0  tst       r4,r4
+        // 8c022fb2  bt        LAB_8c022fcc
+        if (result) {
+            // 8c022fb4  mov.w     DAT_8c023070,r0                            = 034Ch
+            // 8c022fb6  mov.l     @r4+,r3
+            // 8c022fb8  mov.l     r3,@(r0,r14)=>DAT_8c1bbd1c                 = ??
+            // 8c022fba  add       #0x4,r0
+            // 8c022fbc  mov.l     @r4+,r3
+            // 8c022fbe  mov.l     r3,@(r0,r14)=>DAT_8c1bbd20                 = ??
+            // 8c022fc0  add       #0x4,r0
+            // 8c022fc2  mov.l     @r4+,r3
+            // 8c022fc4  mov.l     r3,@(r0,r14)=>DAT_8c1bbd24                 = ??
+            // 8c022fc6  add       #0x4,r0
+            // 8c022fc8  mov.l     @r4,r2
+            // 8c022fca  mov.l     r2,@(r0,r14)=>DAT_8c1bbd28                 = ??
+            bus_state_8c1bb9d0.field_0x34c = *result++;
+            bus_state_8c1bb9d0.field_0x350 = *result++;
+            bus_state_8c1bb9d0.field_0x354 = *result++;
+            bus_state_8c1bb9d0.field_0x358 = *result;
+        }
+
+        // 8c022fcc  mov.w     DAT_8c02306a,r0                            = 02D0h
+        // 8c022fce  mov.w     DAT_8c023074,r4                            = 035Ch
+        // 8c022fd0  mov.l     @(r0,r14),r3=>DAT_8c1bbca0                 = ??
+        // 8c022fd2  mov.w     DAT_8c023072,r0                            = 012Ch
+        // 8c022fd4  fmov.s    @(r0,r14),fr6=>DAT_8c1bbafc                = ??
+        // 8c022fd6  add       #-0x4,r0
+        // 8c022fd8  fmov.s    @(r0,r14),fr5=>DAT_8c1bbaf8                = ??
+        // 8c022fda  add       #-0x4,r0
+        // 8c022fdc  fmov.s    @(r0,r14),fr4=>DAT_8c1bbaf4                = ??
+        // 8c022fde  jsr       @r3
+        // 8c022fe0  _add      r14,r4=>DAT_8c1bbd2c                       = ??
+        // 8c022fe2  mov       r0,r4
+        // 8c022fe4  tst       r4,r4
+        // 8c022fe6  bt        LAB_8c023000
+        // 8c022fe8  mov.w     DAT_8c023076,r0                            = 0368h
+        // 8c022fea  mov.l     @r4+,r3
+        // 8c022fec  mov.l     r3,@(r0,r14)=>DAT_8c1bbd38                 = ??
+        // 8c022fee  add       #0x4,r0
+        // 8c022ff0  mov.l     @r4+,r3
+        // 8c022ff2  mov.l     r3,@(r0,r14)=>DAT_8c1bbd3c                 = ??
+        // 8c022ff4  add       #0x4,r0
+        // 8c022ff6  mov.l     @r4+,r3
+        // 8c022ff8  mov.l     r3,@(r0,r14)=>DAT_8c1bbd40                 = ??
+        // 8c022ffa  add       #0x4,r0
+        // 8c022ffc  mov.l     @r4,r2
+        // 8c022ffe  mov.l     r2,@(r0,r14)=>DAT_8c1bbd44                 = ??
+
     }
 
     // 8c0230ec 31 d2         mov.l     DAT_8c0231b4,r2                            = 8C1BB8C8h
     // 8c0230ee 22 63         mov.l     @r2=>DAT_8c1bb8c8,r3                       = ??
     // 8c0230f0 38 23         tst       r3,r3
     // 8c0230f2 22 89         bt        LAB_8c02313a
-    if (!_8c1bb8c8) {
+    // TODO: ?
+    if (_8c1bb8c8) {
         // 8c0230f2 (...)
 
         // 8c0230f4  mov.w     DAT_8c0231a2,r0                            = 0250h
@@ -262,6 +362,7 @@ void _8c022bdc_task_bus(Task *task, void *state) {
 
     // 8c02313c  mov       #0x70,r0
     // 8c02313e  mov.l     @(r0,r14),r2=>DAT_8c1bba40                 = ??
+
     //  8c02313a  mov.w     DAT_8c0231ae,r1                            = 027Ch
     // 8c023142  add       r14,r1
     // 8c023146  fmov.s    @r1=>DAT_8c1bbc4c,fr3                      = ??
@@ -283,6 +384,7 @@ void _8c022bdc_task_bus(Task *task, void *state) {
     // 8c02315c  bra       LAB_8c023170
     // 8c02315e  _mov      #0x10,r12
 
+    // Shift acceleration history
     // TODO
 
     int r5 = 0;
@@ -406,6 +508,7 @@ void _8c022bdc_task_bus(Task *task, void *state) {
     // 8c023202  bt        LAB_8c023212
     // 8c023204  bra       LAB_8c02321a
     // 8c023206  _nop
+    // TODO: Blinker ? (Maybe not)
     if (_8c18ad20 == 1) {
         // 8c023208  mov.w     DAT_8c023288,r0                            = 0080h
         // 8c02320a  mov.l     @(r0,r14),r2=>DAT_8c1bba50                 = ??
@@ -418,42 +521,79 @@ void _8c022bdc_task_bus(Task *task, void *state) {
         // 8c023214  mov.l     PTR_DAT_8c02329c,r0                        = 8c1bbd9c
         // 8c023216  jsr       @r2=>FUN_8c028022                          undefined FUN_8c028022(int p
         // 8c023218  _mov.l    @r0=>DAT_8c1bbd9c,r4                       = ??
-        prob_blinker_8c028022(_8c1bbd9c);
+        // TODO: If skipped, doesn't affect blinker.
+        prob_blinker_8c028022(bus_8c1bbd9c);
     }
 
     // 8c02321a  mov.w     DAT_8c02328a,r0                            = 02F4h
     // 8c02321c  mov.l     @(r0,r14),r0=>DAT_8c1bbcc4                 = ??
     // 8c02321e  cmp/eq    #0x5,r0
     // 8c023220  bf        LAB_8c02323a
-    // Not reverse gear
+    // If not reverse gear
     if (bus_state_8c1bb9d0.gear_0x2f4 != 5) {
-        // 8c02323a 28 90         mov.w     DAT_8c02328e,r0                            = 025Ch
-        // 8c02323c ee 00         mov.l     @(r0,r14),r0=>DAT_8c1bbc2c                 = ??
-        // 8c02323e 08 20         tst       r0,r0
-        // 8c023240 06 8b         bf        LAB_8c023250
+        // 8c02323a  mov.w     DAT_8c02328e,r0                            = 025Ch
+        // 8c02323c  mov.l     @(r0,r14),r0=>DAT_8c1bbc2c                 = ??
+        // 8c02323e  tst       r0,r0
+        // 8c023240  bf        LAB_8c023250
 
-        // 8c023242 25 90         mov.w     DAT_8c023290,r0                            = 0260h
-        // 8c023244 17 d3         mov.l     ->FUN_8c0518f8,r3                          = 8c0518f8
-        // 8c023246 d6 0e         mov.l     r13,@(r0,r14)=>DAT_8c1bbc30                = ??
-        // 8c023248 0b 43         jsr       @r3=>FUN_8c0518f8                          int FUN_8c0518f8(undefined *
-        // 8c02324a b1 54         _mov.l    @(0x4,r11)=>DAT_8c0fcd2c,r4                = ??
-        // 8c02324c 30 a0         bra       LAB_8c0232b0
-        // 8c02324e 09 00         _nop
+        // 8c023242  mov.w     DAT_8c023290,r0                            = 0260h
+        // 8c023244  mov.l     ->FUN_8c0518f8,r3                          = 8c0518f8
+        // 8c023246  mov.l     r13,@(r0,r14)=>DAT_8c1bbc30                = ??
+        // 8c023248  jsr       @r3=>FUN_8c0518f8                          int FUN_8c0518f8(undefined *
+        // 8c02324a  _mov.l    @(0x4,r11)=>DAT_8c0fcd2c,r4                = ??
+        // 8c02324c  bra       LAB_8c0232b0
+        // 8c02324e  _nop
 
+    } else {
+        // 8c023222
     }
-    //...
 
-    // 8c023222  mov.w     DAT_8c02328c,r0                            = 02F8h
-    // 8c023224  mov.l     @(r0,r14),r2=>DAT_8c1bbcc8                 = ??
-    // 8c023226  tst       r12,r2
-    // 8c023228  add       #0x1,r2
-    // 8c02322a  bt/s      LAB_8c0232b0
-    // 8c02322c  _mov.l    r2,@(r0,r14)=>DAT_8c1bbcc8                 = ??
-    // 8c02322e  mov.w     DAT_8c023288,r0                            = 0080h
-    // 8c023230  mov       #0x6,r3
-    // 8c023232  mov.l     @(r0,r14),r2=>DAT_8c1bba50                 = ??
-    // 8c023234  or        r3,r2
-    // 8c023236  bra       LAB_8c0232b0
-    // 8c023238  _mov.l    r2,@(r0,r14)=>DAT_8c1bba50                 = ??
+    // 8c0232b0  mov.l     DAT_8c0232f8,r2                            = 8C1BBD9Ch
+    // 8c0232b2  mov.l     ->FUN_8c020594,r3                          = 8c020594
+    // 8c0232b4  mov.w     DAT_8c0232f4,r4                            = 0084h
+    // 8c0232b6  mov.l     @r2=>DAT_8c1bbd9c,r5                       = ??
+    // 8c0232b8  jsr       @r3=>FUN_8c020594                          undefined FUN_8c020594(undef
+    // 8c0232ba  _add      r14,r4
+    // TODO
+    // Update bus model position (doesn't affect steering and collision)
+    move_bus_model_8c020594(bus_state_8c1bb9d0.field_0x084, bus_8c1bbd9c);
 
+    // 8c0232bc  mov.l     DAT_8c023300,r2
+    // 8c0232be  mov.l     @r2,r0                       = ??
+    // 8c0232c0  cmp/eq    #0x2,r0
+    // 8c0232c2  bt        LAB_8c0232ce
+    // TODO:
+    if (_8c1bb8d0 == 2) {
+        //                    LAB_8c0232ce                              XREF[1]:   8c0232c2(j)  
+        // 8c0232ce         mov.l     ->FUN_8c025906,r1                          = 8c025906
+        // 8c0232d0         jsr       @r1=>FUN_8c025906                          undefined FUN_8c025906(undef
+        // 8c0232d2         _nop
+        // Small function
+        _8c025906();
+    } else {
+        // 8c0232c4         mov.l     ->FUN_8c025078,r1                          = 8c025078
+        // 8c0232c6         jsr       @r1=>FUN_8c025078                          undefined FUN_8c025078(undef
+        // 8c0232c8         _nop
+        // Big function
+        // Render bus model, move camera
+        _8c025078();
+    }
+
+    // 8c0232d4  add       #0x4,r15
+    // 8c0232d6  lds.l     @r15+,PR=>local_30
+    // 8c0232d8  mov.l     PTR_LAB_8c02330c,r3                        = 8c025604
+    // 8c0232da  fmov.s    @r15+=>Stack[-0x2c],fr12
+    // 8c0232dc  fmov.s    @r15+=>local_28,fr13
+    // 8c0232de  fmov.s    @r15+=>local_28+0x4,fr14
+    // 8c0232e0  fmov.s    @r15+=>local_20,fr15
+    // 8c0232e2  mov.l     @r15+=>local_20+0x4,r8
+    // 8c0232e4  mov.l     @r15+=>local_18,r9
+    // 8c0232e6  mov.l     @r15+=>local_14,r10
+    // 8c0232e8  mov.l     @r15+=>local_10,r11
+    // 8c0232ea  mov.l     @r15+=>local_c,r12
+    // 8c0232ec  mov.l     @r15+=>local_c[4],r13
+    // 8c0232ee  jmp       @r3=>LAB_8c025604
+    // 8c0232f0  _mov.l    @r15+=>local_c[8],r14
+    // If skipped: no bus reflex on mirrors
+    return _8c025604();
 }
