@@ -1,4 +1,4 @@
-# TODO: Extract address from file name
+# TODO: Extract address from file name (caution with padding)
 
 if [ $# -ne 4 ]; then
     echo 'Usage: all.sh <func_name> <padding> <address_hex> <sha1>'
@@ -15,7 +15,10 @@ if test $? -ne 0 ; then
 fi
 
 echo -n 'Aligning... '
-if [ "$2" -eq '1' ]; then
+if [ "$2" -eq '0' ]; then
+    # Noop
+    :
+elif [ "$2" -eq '1' ]; then
     sed -i '/.SECTION    P.*/a\          .DATA.B 0' $1.src
 elif [ "$2" -eq '2' ]; then
     sed -i '/.SECTION    P.*/a\          .DATA.B 0,0' $1.src
@@ -79,7 +82,8 @@ if [ ! -f "$1_original.bin" ]; then
 fi;
 
 echo 'Diffing... '
-dcdis -b 0x$3 $1_original.bin > $1_original.dis
-dcdis -b 0x$3 $1.bin > $1.dis
+dcdis -b 0x$3 $1_original.bin | cut -d ' ' -f 2- > $1_original.dis
+dcdis -b 0x$3 $1.bin | cut -d ' ' -f 2- > $1.dis
 
-diff $1_original.dis $1.dis
+# TODO: Handle missing delta
+delta $1_original.dis $1.dis
