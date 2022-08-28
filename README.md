@@ -10,8 +10,8 @@ Most of source code is only meant to illustrate the original logic.
 ## Updates
 For a closer look, see [this thread](https://twitter.com/lhs_azevedo/status/1508270685784793089).
 
-### June 28, 2022
-Now that I have a basic understanding of the tasks systems and how the Main Menu works, let's try to grasp the course loading and gameplay.
+- **Aug 28, 2022**: Added an shell script (`code/all.sh`) to compile, pad, assemble, link, check and diff functions. This should help decompilation, even though this isn't my top goal.
+- **June 28, 2022**: Now that I have a basic understanding of the tasks systems and how the Main Menu works, let's try to grasp the course loading and gameplay.
 
 ## Useful resources
 - [Dreamcast Programming](https://mc.pp.se/dc/) by Marcus Comstedt
