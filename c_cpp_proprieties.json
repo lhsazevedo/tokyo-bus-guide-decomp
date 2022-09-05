@@ -1,7 +1,7 @@
 {
     "configurations": [
         {
-            "includePath": "Include"
+            "includePath": "dc_sdk/shc/include,dc_sdk/shinobi/include"
         }
     ]
 }
