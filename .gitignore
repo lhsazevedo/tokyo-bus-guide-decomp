@@ -8,7 +8,11 @@ code/*.dis
 code/*.elf
 code/*.obj
 code/*.src
+code/dc_sdk
 code/link.sub
+
+code/Ninja
+code/shinobi
 
 # Ignore game binary
 1ST_READ.BIN
