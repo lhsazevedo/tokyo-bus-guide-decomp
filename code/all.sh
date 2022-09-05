@@ -42,6 +42,7 @@ echo elf > link.sub
 echo "input $1" >> link.sub
 echo "output $1_padded.elf" >> link.sub
 echo "start P($3)" >> link.sub
+echo debug >> link.sub
 echo 'exit' >> link.sub
 ./link.sh
 
@@ -51,7 +52,7 @@ if test $? -ne 0 ; then
 fi;
 
 echo -n 'elf2bin... '
-wine Hitachi/elf2bin.exe $1_padded.elf
+wine dc_sdk/bin/elf2bin.exe $1_padded.elf
 
 if test $? -ne 0 ; then
     echo 'Failed'
@@ -82,8 +83,8 @@ if [ ! -f "$1_original.bin" ]; then
 fi;
 
 echo 'Diffing... '
-dcdis -b 0x$3 $1_original.bin | cut -d ' ' -f 2- > $1_original.dis
-dcdis -b 0x$3 $1.bin | cut -d ' ' -f 2- > $1.dis
+dcdis -b 0x$3 $1_original.bin | cut -d ' ' -f 6- > $1_original.dis
+dcdis -b 0x$3 $1.bin | cut -d ' ' -f 6- > $1.dis
 
 # TODO: Handle missing delta
-delta $1_original.dis $1.dis
+delta -s $1_original.dis $1.dis

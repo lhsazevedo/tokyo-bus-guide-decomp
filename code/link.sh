@@ -1,1 +1,1 @@
-wine Hitachi/lnk.exe -sub=link.sub
+wine dc_sdk/shc/bin/LNK.EXE -sub=link.sub

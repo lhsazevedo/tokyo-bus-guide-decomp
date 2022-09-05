@@ -1,10 +1,11 @@
-wine Hitachi/asmsh.exe \
+wine dc_sdk/shc/bin/asmsh.exe \
 $1.src \
 -cpu=sh4 \
 -endian=little \
 -sjis \
 -private \
--O="$1.obj"
+-debug=d \
+-O="$1.o"
 
 if test $? -ne 0 ; then
     exit 1
