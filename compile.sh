@@ -12,6 +12,12 @@ wine /media/lhsazevedo/hdstorage/dc_sdk/155j/shc/bin/asmsh.exe src\\_144036_8c03
 
 wine /media/lhsazevedo/hdstorage/dc_sdk/155j/shc/bin/lnk.exe -sub=lnk.sub
 
+rm build/tbg.bin
 wine /media/lhsazevedo/hdstorage/dc_sdk/155j/bin/elf2bin.exe -s 8c010000 build/tbg.elf
 
-sha1sum 1ST_READ.BIN build/tbg.bin
+echo
+echo Expected hash:
+echo a6df9e0de39b2d11e9339aef915d20e35763ec81
+echo
+echo Actual hash:
+sha1sum build/tbg.bin
