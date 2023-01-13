@@ -1,0 +1,27 @@
+          .EXPORT     _execTasks_8c014b42
+          .SECTION    P,CODE,ALIGN=4
+          .DATA.B 0,0
+_execTasks_8c014b42:             ; function: execTasks_8c014b42
+                                 ; frame size=8
+          MOV.L       R14,@-R15
+          STS.L       PR,@-R15
+          BRA         L988
+          MOV         R4,R14
+L989:                             
+          MOV.L       @R14,R0
+          CMP/EQ      #-1,R0
+          BT          L990
+          MOV.L       @(4,R14),R5
+          MOV.L       @R14,R3
+          JSR         @R3
+          MOV         R14,R4
+L990:                             
+          ADD         #32,R14
+L988:                             
+          MOV.L       @R14,R2
+          TST         R2,R2
+          BF          L989
+          LDS.L       @R15+,PR
+          RTS
+          MOV.L       @R15+,R14
+          .END

@@ -1,0 +1,5 @@
+elf
+input test003.obj
+output test003.elf
+start P(8c010000)
+exit

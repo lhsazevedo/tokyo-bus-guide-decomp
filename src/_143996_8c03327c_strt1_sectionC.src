@@ -1,0 +1,14 @@
+          .SECTION P, CODE, ALIGN=4
+
+          .DATA.L H'8C03BD80 ; H'8c03327c
+          .DATA.L H'8C04F6C0 ; H'8c033280
+          .DATA.L H'8C04F6C0
+          .DATA.L H'8C04F6C0
+          .DATA.L H'8C04F6C0
+          .DATA.L H'8C04F6C0 ; H'8c033290
+          .DATA.L H'8C0FCD20
+          .DATA.L H'8C235C88
+          .DATA.L H'8C235CA0
+          .DATA.L H'8C2F90A0 ; H'8c0332a0
+
+          .END

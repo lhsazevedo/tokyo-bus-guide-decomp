@@ -1,18 +1,4 @@
-# Ignore Hitachi/Sega files
-code/Hitachi/*
-code/Include/*
-
-# Ignore compilation output
-code/*.bin
-code/*.dis
-code/*.elf
-code/*.obj
-code/*.src
-code/dc_sdk
-code/link.sub
-
-code/Ninja
-code/shinobi
+build/
 
 # Ignore game binary
 1ST_READ.BIN

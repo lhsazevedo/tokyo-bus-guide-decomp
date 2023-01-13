@@ -1,0 +1,73 @@
+struct Section {
+	u8 header[4];
+	be u64 size;
+	u8 ukn[7];
+	u8 sectionNameLen;
+	char sectionName[sectionNameLen];
+};
+
+struct ExternSym {
+	u8 ukn;
+	u8 len;
+	char value[this.len];
+};
+
+struct ExternSyms {
+	u8 header[3];
+	ExternSym entries[parent.header.externSymCount];
+};
+
+struct Sym {
+	u8 ukn[7];
+	u8 len;
+	char value[this.len];
+};
+
+struct Syms {
+	u8 header[3];
+	Sym entries[parent.header.symCount];
+};
+
+struct Header {
+	u8 magic[0x20];
+	u8 ukn01[4];
+	char date1[12];
+	u8 ukn02[15];
+	u8 nameLen;
+	char name[nameLen];
+
+	u8 ukn03;
+	char sh[2];
+	u8 ukn04[5];
+	u16 sectionCount;
+	u8 externSymCount;
+	u8 ukn04_2;
+	u8 symCount;
+
+	u8 name2Len;
+	char name2[name2Len];
+
+	u8 ukn04Len;
+	char ukn04[ukn04Len];
+
+	char date2[12];
+};
+
+struct ShcObject {
+	Header header;
+	
+	Section sections[this.header.sectionCount];
+	
+	if (this.header.externSymCount > 0)
+		ExternSyms externSyms;
+	
+	if (this.header.symCount > 0)
+		Syms syms;
+	
+	//Section sections[this.sectionCount];
+};
+
+ShcObject obj @ 0;
+//char name[header.nameLen] @ $;
+
+

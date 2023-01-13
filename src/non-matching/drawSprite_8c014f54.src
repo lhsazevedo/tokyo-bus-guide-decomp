@@ -1,0 +1,114 @@
+          .EXPORT     _drawSprite_8c014f54
+          .SECTION    P,CODE,ALIGN=4
+          .LINE       "Z:\home\lhsazevedo\code\tweaking\tokyo-bus-guide\code\drawSprite_8c014f54.c",14
+_drawSprite_8c014f54:            ; function: drawSprite_8c014f54
+                                 ; frame size=68
+          MOV.L       R14,@-R15
+          MOV.L       R13,@-R15
+          MOV.L       R12,@-R15
+          MOV.L       R11,@-R15
+          FMOV.S      FR15,@-R15
+          FMOV.S      FR14,@-R15
+          FMOV.S      FR13,@-R15
+          FMOV.S      FR12,@-R15
+          STS.L       PR,@-R15
+          ADD         #-32,R15
+          .LINE       "Z:\home\lhsazevedo\code\tweaking\tokyo-bus-guide\code\drawSprite_8c014f54.c",23
+          MOV.W       L996,R3    ; H'07D0
+          .LINE       "Z:\home\lhsazevedo\code\tweaking\tokyo-bus-guide\code\drawSprite_8c014f54.c",21
+          MOVA        L996+4,R0
+          FMOV.S      FR4,FR12
+          CMP/EQ      R3,R5
+          FMOV.S      FR5,FR13
+          .LINE       "Z:\home\lhsazevedo\code\tweaking\tokyo-bus-guide\code\drawSprite_8c014f54.c",20
+          FMOV.S      FR6,FR15
+          BF/S        L992
+          FMOV.S      @R0,FR14
+          .LINE       "Z:\home\lhsazevedo\code\tweaking\tokyo-bus-guide\code\drawSprite_8c014f54.c",25
+          BRA         L993
+          MOV.L       @(8,R4),R13
+L992:                             
+          .LINE       "Z:\home\lhsazevedo\code\tweaking\tokyo-bus-guide\code\drawSprite_8c014f54.c",28
+          MOV.L       @(8,R4),R6
+          SHLL2       R5
+          ADD         R6,R5
+          .LINE       "Z:\home\lhsazevedo\code\tweaking\tokyo-bus-guide\code\drawSprite_8c014f54.c",29
+          MOV.L       @R5,R13
+          SHLL2       R13
+          ADD         R6,R13
+L993:                             
+          .LINE       "Z:\home\lhsazevedo\code\tweaking\tokyo-bus-guide\code\drawSprite_8c014f54.c",43
+          FLDI1       FR4
+          MOV         #12,R0
+          .LINE       "Z:\home\lhsazevedo\code\tweaking\tokyo-bus-guide\code\drawSprite_8c014f54.c",40
+          MOV.L       @R4,R3
+          MOV.L       L996+8,R11 ; H'8C074C08
+          MOV.L       R3,@(24,R15)
+          .LINE       "Z:\home\lhsazevedo\code\tweaking\tokyo-bus-guide\code\drawSprite_8c014f54.c",41
+          MOV.L       @(4,R4),R2
+          .LINE       "Z:\home\lhsazevedo\code\tweaking\tokyo-bus-guide\code\drawSprite_8c014f54.c",42
+          MOV         #0,R4
+          .LINE       "Z:\home\lhsazevedo\code\tweaking\tokyo-bus-guide\code\drawSprite_8c014f54.c",46
+          MOV         R4,R12
+          MOV.L       R2,@(28,R15)
+          MOV.L       R4,@(20,R15)
+          FMOV.S      FR4,@(R0,R15)
+          .LINE       "Z:\home\lhsazevedo\code\tweaking\tokyo-bus-guide\code\drawSprite_8c014f54.c",44
+          MOV         #16,R0
+          FMOV.S      FR4,@(R0,R15)
+          .LINE       "Z:\home\lhsazevedo\code\tweaking\tokyo-bus-guide\code\drawSprite_8c014f54.c",47
+          .LINE       "Z:\home\lhsazevedo\code\tweaking\tokyo-bus-guide\code\drawSprite_8c014f54.c",49
+          BRA         L994
+          MOV         R13,R14
+L995:                             
+          .LINE       "Z:\home\lhsazevedo\code\tweaking\tokyo-bus-guide\code\drawSprite_8c014f54.c",53
+          MOV         #4,R0
+          FMOV.S      FR12,FR2
+          FMOV.S      @(R0,R14),FR3
+          .LINE       "Z:\home\lhsazevedo\code\tweaking\tokyo-bus-guide\code\drawSprite_8c014f54.c",54
+          MOV         #8,R0
+          .LINE       "Z:\home\lhsazevedo\code\tweaking\tokyo-bus-guide\code\drawSprite_8c014f54.c",57
+          FMOV.S      FR15,FR4
+          MOV         #32,R6
+          FADD        FR3,FR2
+          FMOV.S      FR2,@R15
+          FMOV.S      @(R0,R14),FR3
+          MOV         #4,R0
+          FMOV.S      FR13,FR2
+          FADD        FR3,FR2
+          FMOV.S      FR2,@(R0,R15)
+          MOV.L       @R14,R5
+          JSR         @R11
+          MOV         R15,R4
+          FADD        FR14,FR15
+          ADD         #12,R14
+          ADD         #1,R12
+L994:                             
+          .LINE       "Z:\home\lhsazevedo\code\tweaking\tokyo-bus-guide\code\drawSprite_8c014f54.c",50
+          MOV         R12,R0
+          NOP
+          SHLL        R0
+          MOV         R12,R3
+          ADD         R3,R0
+          SHLL2       R0
+          MOV.L       @(R0,R13),R0
+          CMP/EQ      #-1,R0
+          BF          L995
+          .LINE       "Z:\home\lhsazevedo\code\tweaking\tokyo-bus-guide\code\drawSprite_8c014f54.c",60
+          ADD         #32,R15
+          LDS.L       @R15+,PR
+          FMOV.S      @R15+,FR12
+          FMOV.S      @R15+,FR13
+          FMOV.S      @R15+,FR14
+          FMOV.S      @R15+,FR15
+          MOV.L       @R15+,R11
+          MOV.L       @R15+,R12
+          MOV.L       @R15+,R13
+          RTS
+          MOV.L       @R15+,R14
+L996:                             
+          .DATA.W     H'07D0
+          .RES.W      1
+          .DATA.L     H'38D1B717
+          .DATA.L     H'8C074C08
+          .END

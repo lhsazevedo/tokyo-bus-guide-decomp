@@ -1,0 +1,81 @@
+mov.l R14, @-R15
+mov.l R13, @-R15
+mov.l R12, @-R15
+mov.l R11, @-R15
+fmov.s FR15, @-R15
+fmov.s FR14, @-R15
+fmov.s FR13, @-R15
+fmov.s FR12, @-R15
+sts.l PR, @-R15
+sub H'20, R15
+mov.w @(H'8c015028), R3
+fmov FR4, FR12
+cmp/eq R3, R5
+fmov FR5, FR13
+bf/s H'8c014f78
+fmov FR6, FR15
+bra H'8c014f86
+mov.l @(2, R4), R13
+mov R5, R13
+mov.l @(2, R4), R6
+shll2 R13
+add R6, R13
+mov.l @R13, R13
+shll2 R13
+add R6, R13
+fldi1 FR4
+mov H'0c, R0
+mov.l @R4, R3
+mov H'00, R14
+mov.l @(H'8c01502c), R11
+mov.l R3, @(6, R15)
+mov.l @(1, R4), R2
+mov H'00, R4
+mov R4, R12
+mov.l R2, @(7, R15)
+mov.l R4, @(5, R15)
+fmov.s FR4, @(R0, R15)
+mov H'10, R0
+fmov.s FR4, @(R0, R15)
+mova H'8c015030, R0
+fmov.s @R0, FR14
+bra H'8c014fd0
+add R13, R14
+mov H'04, R0
+fmov FR12, FR2
+fmov.s @(R0, R14), FR3
+mov H'08, R0
+fmov FR15, FR4
+ mov H'20, R6
+fadd FR3, FR2
+fmov.s FR2, @R15
+fmov.s @(R0, R14), FR3
+mov H'04, R0
+fmov FR13, FR2
+fadd FR3, FR2
+fmov.s FR2, @(R0, R15)
+mov.l @R14, R5
+jsr @R11
+mov R15, R4
+fadd FR14, FR15
+add H'0c, R14
+add H'01, R12
+mov R12, R0
+shll R0
+mov R12, R3
+add R3, R0
+shll2 R0
+mov.l @(R0, R13), R0
+cmp/eq H'ffffffff, R0
+bf H'8c014faa
+ add H'20, R15
+lds.l @R15+, PR
+fmov.s @R15+, FR12
+fmov.s @R15+, FR13
+fmov.s @R15+, FR14
+fmov.s @R15+, FR15
+mov.l @R15+, R11
+mov.l @R15+, R12
+mov.l @R15+, R13
+rts
+mov.l @R15+, R14

@@ -1,0 +1,2 @@
+-debug=d 
+-cpu=sh4 -endian=little -sjis 
