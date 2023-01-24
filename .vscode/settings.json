@@ -4,7 +4,10 @@
         "*.inc": "php",
         "*.s": "plaintext",
         "_19266_8c014b42_tasks.h": "c",
-        "_19124_8c014ab4_tasks.h": "c"
+        "_19124_8c014ab4_tasks.h": "c",
+        "_88760_8c015ab8_task_title.h": "c",
+        "includes.h": "c",
+        "_23224_8c015ab8_task_title.h": "c"
     },
     "C_Cpp.errorSquiggles": "disabled",
 }

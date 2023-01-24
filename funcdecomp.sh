@@ -10,7 +10,6 @@ echo -n 'Compiling... '
 ./compile.sh $1
 
 if test $? -ne 0 ; then
-    echo 'Failed'
     exit 1
 fi
 
@@ -38,12 +37,12 @@ if test $? -ne 0 ; then
 fi;
 
 echo -n 'Linking... '
-echo elf > link.sub
-echo "input $1" >> link.sub
-echo "output $1_padded.elf" >> link.sub
-echo "start P($3)" >> link.sub
-echo debug >> link.sub
-echo 'exit' >> link.sub
+echo elf > link_decomp.sub
+echo "input src\\$1" >> link_decomp.sub
+echo "output build\\$1_padded.elf" >> link_decomp.sub
+echo "start P($3)" >> link_decomp.sub
+echo debug >> link_decomp.sub
+echo 'exit' >> link_decomp.sub
 ./link.sh
 
 if test $? -ne 0 ; then
@@ -52,7 +51,7 @@ if test $? -ne 0 ; then
 fi;
 
 echo -n 'elf2bin... '
-wine dc_sdk/bin/elf2bin.exe $1_padded.elf
+wine /media/lhsazevedo/hdstorage/dc_sdk/155j/bin/elf2bin.exe $1_padded.elf
 
 if test $? -ne 0 ; then
     echo 'Failed'

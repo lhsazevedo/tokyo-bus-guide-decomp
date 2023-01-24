@@ -4,18 +4,63 @@ debug
 elf 
 output build\tbg.elf 
 
+define __8c010bae(8C010BAE)
+define _snd_8c010cd6(8C010CD6)
+define _nop_8c011120(8C011120)
+define __8c011f36(8C011F36)
+define __8c011f6c(8C011F6C)
+define __8c011f7e(8C011F7E)
+define __8c011fe0(8C011FE0)
+define __8c0128cc(8C0128CC)
+define __8c012984(8C012984)
+define _task_8c012f44(8C012F44)
+
 define _njUserInit(8C0134EC)
 define _njUserMain(8C01392E)
 define _njUserExit(8C0139D4)
+
+define _resetUknPvmBool_8c014322(8C014322)
+define _getUknPvmBool_8c01432a(8C01432A)
+define _setUknPvmBool_8c014330(8C014330)
+define _drawSprite_8c014f54(8C014F54)
+define __8c0159ac(8C0159AC)
+define _push_fadein_8c015b5c(8C015B5C)
+define __8c016182(8C016182)
+define __8c01852c(8C01852C)
+define _request_sys_resgrp_8c018568(8C018568)
+define __8c01940e(8C01940E)
+define __8c019550(8C019550)
+define __8c019e44(8C019E44)
+define _push_fadeout_8c022b60(8C022B60)
+define __8c02ae3e(8C02AE3E)
+define __8c03bd80(8C03BD80)
+define _title_resource_group_8c044254(8C044254)
+
+define _sdMidiPlay(8C051618)
+
 define _syMalloc(8C0544D6)
 define _syFree(8C0545A4)
 define _njWaitVSync(8C0571E2)
+define _njSetBackColor(8C05738A)
+define _njGarbageTexture(8C059F94)
+
+define _midi_handle_8c0fcd28(8C0FCD28)
+define __8c157af8(8C157AF8)
+define _ukn_menu_struct_8c1ba35c(8C1BA35C)
+define __8c1ba3c8(8C1BA3C8)
+define __8c1bb8c4(8C1BB8C4)
+define _menu_state_8c1bc7a8(8C1BC7A8)
+define __8c1bc7b4(8C1BC7B4)
+define __8c225fb0(8C225FB0)
+define _is_fading_8c226568(8C226568)
 
 input build\_00000_8c010000.obj
 input build\_00128_8c010080_main.obj
 input build\_00188_8c0100bc.obj
 input build\_19124_8c014ab4_tasks.obj
 input build\_19340_8c014b8c.obj
+input build\_23224_8c015ab8_task_title.obj
+input build\_24840_8c016108.obj
 input build\_143996_8c03327c_strt1_sectionC.obj
 input build\_144036_8c0332a4_sectionC.obj
 
