@@ -32,8 +32,8 @@ struct MenuState {
     void *field_0x04;
     void *field_0x08;
     DrawDatStruct1 drawdatstruct1_0x0c;
-    // void *field_0x10;
-    // void *field_0x14;
+    /* void *field_0x10; */
+    /* void *field_0x14; */
 
     TITLE_STATE state_0x18;
     Uint32 field_0x1c;
