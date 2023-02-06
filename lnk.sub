@@ -45,14 +45,17 @@ define _njSetBackColor(8C05738A)
 define _njGarbageTexture(8C059F94)
 
 define _midi_handle_8c0fcd28(8C0FCD28)
+define _s_TOKYOBUS_001_8c037f60(8C037F60)
 define __8c157af8(8C157AF8)
-define _ukn_menu_struct_8c1ba35c(8C1BA35C)
+define _per_8c1ba35c(8C1BA35C)
 define __8c1ba3c8(8C1BA3C8)
 define __8c1bb8c4(8C1BB8C4)
 define _menu_state_8c1bc7a8(8C1BC7A8)
 define __8c1bc7b4(8C1BC7B4)
 define __8c225fb0(8C225FB0)
 define _is_fading_8c226568(8C226568)
+
+define _testing(0)
 
 input build\_00000_8c010000.obj
 input build\_00128_8c010080_main.obj

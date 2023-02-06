@@ -59,12 +59,3 @@ struct MenuState {
     Sint32 logo_timer_0x68;
 }
 typedef MenuState;
-
-struct UknMenuStruct1  {
-    Uint32 field_0x00;
-    Uint32 field_0x04;
-    Uint32 field_0x08;
-    Uint32 field_0x0c;
-    Uint32 field_0x10;
-}
-typedef UknMenuStruct1;

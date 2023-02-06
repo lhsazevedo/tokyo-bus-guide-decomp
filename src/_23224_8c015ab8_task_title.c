@@ -13,8 +13,9 @@
 // extern void _8c01940e();
 // extern void push_fadein_8c015b5c();
 // extern void njSetBackColor();
+
 extern SDMIDI midi_handle_8c0fcd28;
-extern Uint32 is_fading_8c226568;
+extern Bool is_fading_8c226568;
 extern void drawSprite_8c014f54(DrawDatStruct1 *drawdatstruct, Uint32 texture_id, Float32 x, Float32 y, Float32 priority);
 
 // p2 is a ResourceGroup
@@ -24,19 +25,18 @@ extern void nop_8c011120();
 extern void resetUknPvmBool_8c014322();
 
 // extern void push_fadeout_8c022b60();
-extern Uint32 _8c03bd80;
-extern Uint32 _8c1bb8c4;
-extern Task *_8c1ba3c8;
 extern TaskAction task_8c012f44;
-extern Sint32 _8c225fb0;
-extern void *_8c1bc7b4;
+extern void _8c019e44(Task *task);
+extern char s_TOKYOBUS_001_8c037f60[13];
+extern Uint32 _8c03bd80;
 extern void *title_resource_group_8c044254;
-
-extern MenuState menu_state_8c1bc7a8;
-extern UknMenuStruct1 ukn_menu_struct_8c1ba35c;
 extern NJS_TEXMEMLIST *_8c157af8;
-
-extern char s_TOKYOBUS_001[13];
+extern PDS_PERIPHERAL per_8c1ba35c;
+extern Task *_8c1ba3c8;
+extern Uint32 _8c1bb8c4;
+extern MenuState menu_state_8c1bc7a8;
+extern void *_8c1bc7b4;
+extern Sint32 _8c225fb0;
 
 void task_title_8c015ab8(Task *task, void *state) {
     // r12 = 0x8c226568
@@ -48,10 +48,10 @@ void task_title_8c015ab8(Task *task, void *state) {
     TITLE_STATE title_state = menu_state_8c1bc7a8.state_0x18;
 
     if (title_state >= TITLE_BUS_SLIDE && title_state <= TITLE_FLAG_REVEAL) {
-        if ((ukn_menu_struct_8c1ba35c.field_0x10 & 8) != 0) {
+        if (per_8c1ba35c.press & NJD_DGT_ST) {
             sdMidiPlay(midi_handle_8c0fcd28, 1, 0, 0);
 
-            ukn_menu_struct_8c1ba35c.field_0x10 = 0;
+            per_8c1ba35c.press = 0;
             menu_state_8c1bc7a8.state_0x18 = TITLE_0X0E;
             is_fading_8c226568 = 0;
         }
@@ -88,7 +88,7 @@ void task_title_8c015ab8(Task *task, void *state) {
         // FORTYFIVE FADE IN
         // 0x8c015be4 (0x8c015b32 + 4 + 0x0AE)
         case TITLE_FORTYFIVE_FADEIN:
-            if (is_fading_8c226568 == 0) {
+            if (!is_fading_8c226568) {
                 menu_state_8c1bc7a8.state_0x18 = TITLE_FORTYFIVE;
                 menu_state_8c1bc7a8.logo_timer_0x68 = 0;
             }
@@ -99,10 +99,6 @@ void task_title_8c015ab8(Task *task, void *state) {
         // FORTYFIVE
         // 0x8c015bf4 (0x8c015b32 + 4 + 0x0BE)
         case TITLE_FORTYFIVE:
-            // r4 = 0x1e
-
-            // menu_state_8c1bc7a8.logo_timer_0x68++;
-
             if (++menu_state_8c1bc7a8.logo_timer_0x68 > 0x1e) {
                 menu_state_8c1bc7a8.state_0x18 = TITLE_FORTYFIVE_FADEOUT;
                 push_fadeout_8c022b60(20);
@@ -114,19 +110,19 @@ void task_title_8c015ab8(Task *task, void *state) {
         // FORTYFIVE FADE OUT
         // 0x8c015c0c (0x8c015b32 + 4 + 0x0D6)
         case TITLE_FORTYFIVE_FADEOUT:
-            if (is_fading_8c226568 == 0) {
+            if (!is_fading_8c226568) {
                 menu_state_8c1bc7a8.state_0x18 = TITLE_ADX_FADEIN;
                 push_fadein_8c015b5c(20);
-            } else {
-                drawSprite_8c014f54(&menu_state_8c1bc7a8.drawdatstruct1_0x0c, 0, 0.0, 0.0, -5.0);
+                return;
             }
-
+            
+            drawSprite_8c014f54(&menu_state_8c1bc7a8.drawdatstruct1_0x0c, 0, 0.0, 0.0, -5.0);
             break;
 
         // ADX FADE IN
         // 0x8c015c1e (0x8c015b32 + 4 + 0x0E8)
         case TITLE_ADX_FADEIN:
-            if (is_fading_8c226568 == 0) {
+            if (!is_fading_8c226568) {
                 menu_state_8c1bc7a8.state_0x18 = TITLE_ADX;
                 menu_state_8c1bc7a8.logo_timer_0x68 = 0;
             }
@@ -137,8 +133,6 @@ void task_title_8c015ab8(Task *task, void *state) {
         // ADX
         // 0x8c015c2e (0x8c015b32 + 4 + 0x0F8)
         case TITLE_ADX:
-            // menu_state_8c1bc7a8.logo_timer_0x68++;
-
             if (++menu_state_8c1bc7a8.logo_timer_0x68 > 0x1e) {
                 menu_state_8c1bc7a8.state_0x18 = TITLE_ADX_FADEOUT;
                 push_fadeout_8c022b60(20);
@@ -151,25 +145,26 @@ void task_title_8c015ab8(Task *task, void *state) {
         // ADX FADE OUT
         // 0x8c015c46 (0x8c015b32 + 4 + 0x110)
         case TITLE_ADX_FADEOUT:
-            if (is_fading_8c226568 == 0) {
+            if (!is_fading_8c226568) {
                 // VMU Check?
-                if (_8c012984() == 0 || _8c019550(s_TOKYOBUS_001, 3) == 0) {
+                if (_8c012984() == 0 || _8c019550(s_TOKYOBUS_001_8c037f60, 3) == 0) {
                     menu_state_8c1bc7a8.state_0x18 = TITLE_VMU_WARN_FADEIN;
                     push_fadein_8c015b5c(10);
                 } else {
                     menu_state_8c1bc7a8.state_0x18 = TITLE_FADEIN;
                     push_fadein_8c015b5c(10);
                 }
-            } else {
-                drawSprite_8c014f54(&menu_state_8c1bc7a8.drawdatstruct1_0x0c, 3, 0.0, 0.0, -5.0);
-            }
 
+                return;
+            }
+            
+            drawSprite_8c014f54(&menu_state_8c1bc7a8.drawdatstruct1_0x0c, 3, 0.0, 0.0, -5.0);
             break;
 
         // VMU WARNING FADE IN
         // 0x8c015c6c (0x8c015b32 + 4 + 0x136)
         case TITLE_VMU_WARN_FADEIN:
-            if (is_fading_8c226568 == 0) {
+            if (!is_fading_8c226568) {
                 menu_state_8c1bc7a8.state_0x18 = TITLE_VMU_WARN;
             }
 
@@ -182,25 +177,28 @@ void task_title_8c015ab8(Task *task, void *state) {
         // VMU WARNING
         // 0x8c015ca8 (0x8c015b32 + 4 + 0x172)
         case TITLE_VMU_WARN:
-            if (ukn_menu_struct_8c1ba35c.field_0x10 != 0 || _8c019550(s_TOKYOBUS_001, 3) != 0) {
+            if (per_8c1ba35c.press != 0 || _8c019550(s_TOKYOBUS_001_8c037f60, 3) != 0) {
                 sdMidiPlay(midi_handle_8c0fcd28, 1, 0, 0);
                 menu_state_8c1bc7a8.state_0x18 = TITLE_VMU_WARN_FADEOUT;
                 push_fadeout_8c022b60(10);
-            } else {
-                drawSprite_8c014f54(&menu_state_8c1bc7a8.drawdatstruct1_0x0c, 17, 0.0, 0.0, -5.0);
-            }
 
+                return;
+            }
+            
+            drawSprite_8c014f54(&menu_state_8c1bc7a8.drawdatstruct1_0x0c, 17, 0.0, 0.0, -5.0);
             break;
 
         // VMU WARNING FADE OUT
         // 0x8c015cd4 (0x8c015b32 + 4 + 0x19E)
         case TITLE_VMU_WARN_FADEOUT:
-            if (is_fading_8c226568 == 0) {
+            if (!is_fading_8c226568) {
                 menu_state_8c1bc7a8.state_0x18 = TITLE_FADEIN;
                 push_fadein_8c015b5c(10);
-            } else {
-                drawSprite_8c014f54(&menu_state_8c1bc7a8.drawdatstruct1_0x0c, 17, 0.0, 0.0, -5.0);
+
+                return;
             }
+
+            drawSprite_8c014f54(&menu_state_8c1bc7a8.drawdatstruct1_0x0c, 17, 0.0, 0.0, -5.0);
             break;
 
         // TITLE FADE IN
@@ -234,7 +232,7 @@ void task_title_8c015ab8(Task *task, void *state) {
                 drawSprite_8c014f54(&menu_state_8c1bc7a8.drawdatstruct1_0x0c, 46, 0.0, 0.0, -7.0);
 
                 // ...
-                break;
+                return;
             } else {
                 menu_state_8c1bc7a8.state_0x18 = TITLE_FLAG_REVEAL;
 
@@ -265,7 +263,7 @@ void task_title_8c015ab8(Task *task, void *state) {
         // Coming from demo?
         // 0x8c015d94 (0x8c015b32 + 4 + 0x25E)
         case TITLE_0X0D:
-            if (is_fading_8c226568 == 0) {
+            if (!is_fading_8c226568) {
                 menu_state_8c1bc7a8.state_0x18 = TITLE_0X0E;
             }
 
@@ -287,8 +285,8 @@ void task_title_8c015ab8(Task *task, void *state) {
 
         // 0x8c015e18 (0x8c015b32 + 4 + 0x2E2)
         case TITLE_0X0E:
-            // r? = ukn_menu_struct_8c1ba35c
-            if ((ukn_menu_struct_8c1ba35c.field_0x10 & 8) != 0) {
+            // r? = per_8c1ba35c
+            if ((per_8c1ba35c.press & NJD_DGT_ST) != 0) {
                 _8c010bae(0);
                 _8c010bae(1);
 
@@ -346,9 +344,9 @@ void task_title_8c015ab8(Task *task, void *state) {
 
         // 0x8c015e98 (0x8c015b32 + 4 + 0x362)
         case TITLE_0X10:
-            _8c019550(s_TOKYOBUS_001, 3);
+            _8c019550(s_TOKYOBUS_001_8c037f60, 3);
 
-            if (is_fading_8c226568 == 0) {
+            if (!is_fading_8c226568) {
                 if (_8c03bd80 == 0) {
                     _8c1bb8c4 = 0;
 
@@ -356,17 +354,35 @@ void task_title_8c015ab8(Task *task, void *state) {
                 }
             }
 
+            drawSprite_8c014f54(&menu_state_8c1bc7a8.drawdatstruct1_0x0c, 5, 0, 0, -4.5);
+
+            if ((++menu_state_8c1bc7a8.logo_timer_0x68 & 1) != 0) {
+                drawSprite_8c014f54(&menu_state_8c1bc7a8.drawdatstruct1_0x0c, 6, 0, 0, -4.5);
+            }
+
+            drawSprite_8c014f54(&menu_state_8c1bc7a8.drawdatstruct1_0x0c, 4, 302, 97, -4.5);
+            drawSprite_8c014f54(&menu_state_8c1bc7a8.drawdatstruct1_0x0c, 1, 180, 0, -4);
+            drawSprite_8c014f54(&menu_state_8c1bc7a8.drawdatstruct1_0x0c, 2, 0, 0, -5);
+            drawSprite_8c014f54(&menu_state_8c1bc7a8.drawdatstruct1_0x0c, 46, 0, 0, -7);
+
             break;
 
         // 0x8c015f04 (0x8c015b32 + 4 + 0x3CE)
         case TITLE_0X11:
 
-            if (is_fading_8c226568 == 0) {
+            if (!is_fading_8c226568) {
                 if (_8c03bd80 == 0) {
                     _8c016182();
                     _8c0159ac();
                 }
             }
+
+            drawSprite_8c014f54(&menu_state_8c1bc7a8.drawdatstruct1_0x0c, 5, 0, 0, -4.5);
+            drawSprite_8c014f54(&menu_state_8c1bc7a8.drawdatstruct1_0x0c, 6, 0, 0, -4.5);
+            drawSprite_8c014f54(&menu_state_8c1bc7a8.drawdatstruct1_0x0c, 4, 302, 97, -4.5);
+            drawSprite_8c014f54(&menu_state_8c1bc7a8.drawdatstruct1_0x0c, 1, 180, 0, -4);
+            drawSprite_8c014f54(&menu_state_8c1bc7a8.drawdatstruct1_0x0c, 2, 0, 0, -5);
+            drawSprite_8c014f54(&menu_state_8c1bc7a8.drawdatstruct1_0x0c, 46, 0, 0, -7);
 
             break;
     }
