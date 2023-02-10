@@ -54,7 +54,7 @@ struct MenuState {
     Uint32 field_0x58;
     Uint32 field_0x5c;
     Uint32 field_0x60;
-    Uint32 field_0x64;
+    Sint32 field_0x64;
 
     Sint32 logo_timer_0x68;
 }

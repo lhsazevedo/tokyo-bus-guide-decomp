@@ -55,8 +55,6 @@ define __8c1bc7b4(8C1BC7B4)
 define __8c225fb0(8C225FB0)
 define _is_fading_8c226568(8C226568)
 
-define _testing(0)
-
 input build\_00000_8c010000.obj
 input build\_00128_8c010080_main.obj
 input build\_00188_8c0100bc.obj
