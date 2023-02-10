@@ -7,13 +7,36 @@ output build\tbg.elf
 define _njUserInit(8C0134EC)
 define _njUserMain(8C01392E)
 define _njUserExit(8C0139D4)
+
+define _gMapleRecvBuf(8C18ADC4)
+define _gMapleSendBuf(8C196DE4)
+
+define _gdfswork(8C1A2E04)
+define _gdfscurdir(8C1A4198)
+
+define _gdFsInit(8C052502)
+define _pdInitPeripheral(8C053D44)
+define _pdExitPeripheral(8C054264)
+define _syMallocInit(8C054408)
+define _syMallocFinish(8C054462)
 define _syMalloc(8C0544D6)
 define _syFree(8C0545A4)
+define _syHwInit(8C054E38)
+define _syHwInit2(8C054E62)
+define _syHwFinish(8C054E72)
+define __8c056358(8C056358)
+define _njInitSystem(8C056752)
 define _njWaitVSync(8C0571E2)
+define _njExitSystem(8C057400)
+
+define __BSG_END(8C0E7FCC)
+
+
 
 input build\_00000_8c010000.obj
 input build\_00128_8c010080_main.obj
 input build\_00188_8c0100bc.obj
+input build\_18864_8c0149b0_sbinit.obj
 input build\_19100_8c014a9c_tasks.obj
 input build\_19340_8c014b8c.obj
 input build\_143996_8c03327c_strt1_sectionC.obj

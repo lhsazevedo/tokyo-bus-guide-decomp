@@ -1168,20 +1168,5 @@
           .DATA.B H'0C, H'7F, H'26, H'4F, H'0B, H'00, H'F6, H'6E, H'00, H'0C, H'00, H'04, H'FF, H'8D, H'41, H'FF ; H'8c014980
           .DATA.B H'8A, H'73, H'05, H'8C, H'6C, H'7A, H'15, H'8C, H'84, H'47, H'01, H'8C, H'C8, H'A3, H'1B, H'8C ; H'8c014990
           .DATA.B H'E8, H'4A, H'01, H'8C, H'F8, H'7A, H'15, H'8C, H'94, H'9F, H'05, H'8C, H'36, H'1F, H'01, H'8C ; H'8c0149a0
-          .DATA.B H'E6, H'2F, H'22, H'4F, H'F0, H'7F, H'02, H'00, H'49, H'93, H'41, H'1F, H'39, H'20, H'52, H'1F ; H'8c0149b0
-          .DATA.B H'F0, H'CB, H'62, H'2F, H'0E, H'40, H'23, H'D2, H'0B, H'42, H'09, H'00, H'23, H'D2, H'E0, H'EE ; H'8c0149c0
-          .DATA.B H'21, H'D3, H'22, H'65, H'22, H'D2, H'3B, H'25, H'22, H'D1, H'E9, H'25, H'53, H'1F, H'5B, H'65 ; H'8c0149d0
-          .DATA.B H'F3, H'54, H'2C, H'35, H'0B, H'41, H'20, H'74, H'1F, H'D3, H'F2, H'55, H'F2, H'66, H'0B, H'43 ; H'8c0149e0
-          .DATA.B H'F1, H'54, H'1E, H'D2, H'0B, H'42, H'09, H'00, H'1F, H'D3, H'1E, H'D5, H'1C, H'D6, H'0B, H'43 ; H'8c0149f0
-          .DATA.B H'00, H'E4, H'02, H'00, H'23, H'92, H'29, H'20, H'0E, H'40, H'1D, H'D7, H'08, H'E4, H'1B, H'D5 ; H'8c014a00
-          .DATA.B H'E9, H'27, H'1D, H'96, H'E9, H'25, H'20, H'75, H'20, H'77, H'10, H'7F, H'26, H'4F, H'19, H'D3 ; H'8c014a10
-          .DATA.B H'2B, H'43, H'F6, H'6E, H'22, H'4F, H'18, H'D3, H'0B, H'43, H'09, H'00, H'17, H'D2, H'0B, H'42 ; H'8c014a20
-          .DATA.B H'09, H'00, H'17, H'D3, H'0B, H'43, H'09, H'00, H'16, H'D2, H'0B, H'42, H'09, H'00, H'02, H'00 ; H'8c014a30
-          .DATA.B H'05, H'93, H'39, H'20, H'F0, H'CB, H'0E, H'40, H'13, H'D2, H'2B, H'42, H'26, H'4F, H'0F, H'FF ; H'8c014a40
-          .DATA.B H'00, H'08, H'00, H'00, H'38, H'4E, H'05, H'8C, H'00, H'00, H'00, H'80, H'CC, H'7F, H'0E, H'8C ; H'8c014a50
-          .DATA.B H'E0, H'FF, H'FF, H'8C, H'08, H'44, H'05, H'8C, H'52, H'67, H'05, H'8C, H'62, H'4E, H'05, H'8C ; H'8c014a60
-          .DATA.B H'E4, H'6D, H'19, H'8C, H'C4, H'AD, H'18, H'8C, H'44, H'3D, H'05, H'8C, H'04, H'2E, H'1A, H'8C ; H'8c014a70
-          .DATA.B H'98, H'41, H'1A, H'8C, H'02, H'25, H'05, H'8C, H'64, H'42, H'05, H'8C, H'00, H'74, H'05, H'8C ; H'8c014a80
-          .DATA.B H'62, H'44, H'05, H'8C, H'72, H'4E, H'05, H'8C, H'58, H'63, H'05, H'8C ; H'8c014a90
 
           .END
