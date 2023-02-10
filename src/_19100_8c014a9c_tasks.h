@@ -1,5 +1,7 @@
+typedef void (*TaskAction)(struct Task *task, void *state);
+
 struct Task {
-    void (*action)(struct Task *task, void *state);
+    TaskAction action;
     void *state;
     int field_0x08;
     int field_0x0c;

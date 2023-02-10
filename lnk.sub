@@ -14,7 +14,7 @@ define _njWaitVSync(8C0571E2)
 input build\_00000_8c010000.obj
 input build\_00128_8c010080_main.obj
 input build\_00188_8c0100bc.obj
-input build\_19124_8c014ab4_tasks.obj
+input build\_19100_8c014a9c_tasks.obj
 input build\_19340_8c014b8c.obj
 input build\_143996_8c03327c_strt1_sectionC.obj
 input build\_144036_8c0332a4_sectionC.obj
