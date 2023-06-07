@@ -1,12 +1,45 @@
           .SECTION P, CODE, ALIGN=4
 
-          .DATA.B H'09, H'00, H'09, H'00, H'09, H'00, H'09, H'00, H'09, H'00, H'09, H'00, H'05, H'D0, H'02, H'61 ; H'8c010000
-          .DATA.B H'05, H'D2, H'29, H'21, H'04, H'92, H'2B, H'21, H'12, H'20, H'04, H'D0, H'2B, H'40, H'09, H'00 ; H'8c010010
-          .DATA.B H'00, H'08, H'00, H'00, H'1C, H'00, H'00, H'FF, H'AF, H'89, H'00, H'00, H'C0, H'F6, H'04, H'8C ; H'8c010020
-          .DATA.B H'4C, H'69, H'62, H'20, H'48, H'61, H'6E, H'64, H'6C, H'65, H'20, H'53, H'74, H'61, H'72, H'74 ; H'8c010030
+          ; Section DSGLH
+          ; _START_SYS from strt1.obj
+_START_SYS:
+          NOP
+          NOP
+          NOP
+          NOP
+          NOP
+          NOP
+          MOV.L       CCN_CCR,r0
+          MOV.L       @r0,r1
+          MOV.L       MASK,r2
+          AND         r2,r1
+          MOV.W       DATA0,r2
+          OR          r2,r1
+          MOV.L       r1,@r0
+          MOV.L       PTR___INIT,r0
+          JMP         @r0
+          NOP
+
+DATA0:
+          .DATA.W H'0800
+          .DATA.B H'00, H'00 ; align
+CCN_CCR:
+          .DATA.L H'FF00001C
+MASK:
+          .DATA.L H'000089AF ; a
+PTR___INIT:
+          .DATA.L H'8C04F6C0 ; __INIT
+
+          .SDATA "Lib Handle Start"
+
+          ; _ovg_libhdl from ov_main_.obj
+_ovg_libhdl:
           .DATA.B H'00, H'00, H'00, H'00, H'01, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00 ; H'8c010040
           .DATA.B H'00, H'0A, H'7E, H'BA, H'A9, H'BD, H'D1, H'11, H'8A, H'EB, H'00, H'60, H'08, H'95, H'62, H'5F ; H'8c010050
+
+          ; Section DSGLE
           .DATA.B H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00 ; H'8c010060
-          .DATA.B H'4C, H'69, H'62, H'20, H'48, H'61, H'6E, H'64, H'6C, H'65, H'20, H'45, H'6E, H'64, H'20, H'20 ; H'8c010070
+
+          .SDATA "Lib Handle End  "
 
           .END
