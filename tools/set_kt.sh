@@ -9,6 +9,6 @@ export SHC_INC=$(winepath -w /media/lhsazevedo/hdstorage/dc_sdk/155j/shc/include
 # export HLNK_LIBRARY2=$(winepath -w /media/lhsazevedo/hdstorage/dc_sdk/155j/shinobi/lib/ninja.lib)
 # export HLNK_LIBRARY3=$(winepath -w /media/lhsazevedo/hdstorage/dc_sdk/155j/shc/lib/sh4nlfzn.lib)
 
-unset HLNK_LIBRARY1
-unset HLNK_LIBRARY2
-unset HLNK_LIBRARY3
+# unset HLNK_LIBRARY1
+# unset HLNK_LIBRARY2
+# unset HLNK_LIBRARY3

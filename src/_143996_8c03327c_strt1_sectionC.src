@@ -1,14 +1,24 @@
           .SECTION P, CODE, ALIGN=4
 
+__D_ROM:
           .DATA.L H'8C03BD80 ; H'8c03327c
+__D32_ROM:
           .DATA.L H'8C04F6C0 ; H'8c033280
+__D_BGN:
           .DATA.L H'8C04F6C0
+__D4_END:
           .DATA.L H'8C04F6C0
+__D32_BGN:
           .DATA.L H'8C04F6C0
+__D_END:
           .DATA.L H'8C04F6C0 ; H'8c033290
+__B_BGN:
           .DATA.L H'8C0FCD20
+__B4_END:
           .DATA.L H'8C235C88
+__B32_BGN:
           .DATA.L H'8C235CA0
+__B_END:
           .DATA.L H'8C2F90A0 ; H'8c0332a0
 
           .END
