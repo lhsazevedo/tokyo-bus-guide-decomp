@@ -1,0 +1,210 @@
+          .IMPORT     __8c0fcd50
+          .IMPORT     _const_127
+          .IMPORT     __8c226468
+          .IMPORT     __midi_handle_8c0fcd28
+          .IMPORT     __sdMidiSetVol
+          .IMPORT     __divls
+          .EXPORT     _FUN_sound_8c0100bc
+          .EXPORT     _FUN_mdiVol_8c010128
+          .SECTION P, CODE, ALIGN=4
+_FUN_sound_8c0100bc:
+          MOV.L       L253+8,R5
+          MOVA        L253+4,R0
+          MOV.L       L253+12,R4
+          MOV         #100,R6
+          STS.L       PR,@-R15
+          MOV.L       @R5,R3
+          FMOV.S      @R0,FR5
+          MOV         #24,R0
+          LDS         R3,FPUL
+          MOV         #30,R3
+          FLOAT       FPUL,FR3
+          FDIV        FR5,FR3
+          FMOV.S      FR3,@(R0,R4)
+          ; 8c0fcd50[24] = H'7F / 2600.0
+          MOVA        L253+16,R0
+          FMOV.S      @R0,FR4
+          MOV         #24,R0
+          FMOV.S      @(R0,R4),FR3
+          MOV         #28,R0
+          FMUL        FR5,FR3
+          FDIV        FR4,FR3
+          FMOV.S      FR3,@(R0,R4)
+          ; 8c0fcd50[28] = 8c0fcd50[24] * 2600.0 / 3000.0 
+          MOV.L       @R5,R2
+          MUL.L       R3,R2
+          MOV.L       L253+20,R2
+          STS         MACL,R1
+          JSR         @R2
+          MOV         R6,R0
+          MOV.L       R0,@(20,R4)
+          ; 8c0fcd50[H'14] = H'7F * H'1E / H'64
+          MOV.L       @R5,R1
+          MOV         R1,R2
+          SHLL2       R1
+          ADD         R2,R1
+          MOV.L       L253+20,R2
+          SHLL2       R1
+          SHLL        R1
+          JSR         @R2
+          MOV         R6,R0
+          MOV.L       R0,@(8,R4)
+          ; 8c0fcd50[8] = H'7F * 40 / H'64
+
+          MOV         #24,R0
+          FMOV.S      @(R0,R4),FR3
+          MOVA        L253+24,R0
+          FMUL        FR4,FR3
+          FTRC        FR3,FPUL
+          STS         FPUL,R2
+          MOV.L       R2,@(12,R4)
+          ; 8c0fcd50[12] = (int) (8c0fcd50[24] * 3000.0)
+
+          MOV.L       @R5,R1 ; 7f
+          FMOV.S      @R0,FR2 ; 3900
+          MOV         #32,R0
+          LDS         R1,FPUL
+          LDS.L       @R15+,PR
+          FLOAT       FPUL,FR3 
+          FDIV        FR2,FR3 ; FR3 = 
+          RTS
+          FMOV.S     FR3,@(R0,R4)
+          ; 8c0fcd50[32] = (int) (H'7F / 3900.0)
+_FUN_mdiVol_8c010128:
+          MOV.L       L253+28,R3 ; ptr to 8c226468
+          MOVA        L253+36,R0 ; ptr to -127.f
+          MOV.L       R14,@-R15
+          MOV.L       R13,@-R15
+          MOV.L       R12,@-R15
+          MOV.L       R11,@-R15
+          MOV.L       R10,@-R15
+          FMOV.S      FR15,@-R15
+          MOV.L       L253+12,R14 ; ptr to 8c0fcd50
+          FMOV.S      FR14,@-R15
+          STS.L       PR,@-R15
+          FMOV.S      @R3,FR3 ; global pointed by 8c226468 (R3)
+          FMOV.S      @R0,FR14 ; -127.f
+
+          FTRC        FR3,FPUL
+          MOV.L       @R14,R0
+          MOV.L       L253+32,R10 ; _midi_handle_8c0fcd28
+          AND         #2,R0
+          MOV.L       L253+40,R12
+          CMP/EQ      #2,R0
+          STS         FPUL,R13
+          LDS         R13,FPUL
+          FLOAT       FPUL,FR3
+          BF/S        L247
+          FMOV.S      FR3,FR15 ; delay // global
+          MOVA        L253+44,R0 ; ptr to 10.f
+          MOV         R10,R11
+          FMOV.S      @R0,FR3 ; 10.f
+          FCMP/GT     FR15,FR3
+          BT/S        LAB_8c010192
+          ADD         #28,R11 ; delay // _midi_handle_8c0fcd28 + 28
+          MOVA        L253+16,R0 ; ptr to 3000.f
+          FMOV.S      @R0,FR2 ; 3000.f
+          FCMP/GT     FR15,FR2
+          BF          LAB_8c010192
+          ; 8c01016c
+          MOV.L       @(8,R14),R3
+          MOVA        L253+48,R0
+          FMOV.S      @R0,FR0 ; -10.f
+          MOV         #24,R0
+          LDS         R3,FPUL
+          MOV         #0,R6
+          FMOV.S      FR15,FR3
+          FADD        FR0,FR3
+          FMOV.S      @(R0,R14),FR0
+          FLOAT       FPUL,FR2
+          FMAC        FR0,FR3,FR2
+          FMOV.S      FR2,FR3
+          FADD        FR14,FR3
+          FTRC        FR3,FPUL
+          STS         FPUL,R5
+          JSR         @R12 ; __sdMidiSetVol_8c051844
+          MOV.L       @R11,R4
+          BRA         L247
+          NOP
+LAB_8c010192:
+          MOVA        L253+16,R0
+          FMOV.S      @R0,FR3
+          FCMP/GT     FR15,FR3
+          BT          L247
+          ; 8c01019a
+          MOV.L       @(12,R14),R2
+          MOV         #28,R0
+          MOV.W       L253,R3
+          MOV         #0,R6
+          LDS         R2,FPUL
+          ADD         R13,R3
+          FMOV.S      @(R0,R14),FR0
+          FLOAT       FPUL,FR2
+          LDS         R3,FPUL
+          FLOAT       FPUL,FR1
+          FMUL        FR0,FR1
+          FSUB        FR1,FR2
+          FADD        FR14,FR2
+          FTRC        FR2,FPUL
+          STS         FPUL,R5
+          JSR         @R12 ; __sdMidiSetVol_8c051844
+          MOV.L      @R11,R4
+
+L247:
+          MOV.L       @R14,R0
+          AND         #4,R0
+          CMP/EQ      #4,R0
+          BF          L251
+          MOVA        L253+52,R0
+          FMOV.S      FR15,FR3
+          FMOV.S      @R0,FR0
+          MOV         #32,R0
+          MOV         #0,R6
+          FADD        FR0,FR3
+          FMOV.S      @(R0,R14),FR0
+          FMAC        FR0,FR3,FR14
+          FTRC        FR14,FPUL
+          STS         FPUL,R5
+          JSR         @R12 ; __sdMidiSetVol_8c051844
+          MOV.L      @(24,R10),R4
+          MOV.W       L253+2,R3
+          CMP/GE      R3,R13
+          BT          L251
+          MOV.L       @R14,R1
+          MOV         #-5,R2
+          MOV         #-127,R5
+          AND         R2,R1
+          MOV         #0,R6
+          MOV.L       R1,@R14
+          JSR         @R12 ; __sdMidiSetVol_8c051844
+          MOV.L      @(24,R10),R4
+L251:
+          LDS.L       @R15+,PR
+          FMOV.S      @R15+,FR14
+          FMOV.S      @R15+,FR15
+          MOV.L       @R15+,R10
+          MOV.L       @R15+,R11
+          MOV.L       @R15+,R12
+          MOV.L       @R15+,R13
+          RTS
+          MOV.L      @R15+,R14
+
+          ; Literal Pool 
+L253:
+          .DATA.W -3000 ; 8c010204
+          .DATA.W H'834 ; 8c010206
+          .FDATA.S F'2600.0 ; 8c010208
+          .DATA.L H'8C03BD90 ; 8c01020C
+          .DATA.L H'8C0FCD50 ; 8c010210
+          .FDATA.S F'3000.0 ; 8c010214
+          .DATA.L H'8C02FB50 ; 8c010218 __divls
+          .FDATA.S F'3900.0 ; 8c01021C
+          .DATA.L H'8c226468 ; 8c010220
+          .DATA.L __midi_handle_8c0fcd28 ; 8c010224
+          .FDATA.S F'-127.0 ; 8c010228
+          .DATA.L __sdMidiSetVol ; 8c01022c
+          .FDATA.S F'10.0 ; 8c010230
+          .FDATA.S F'-10.0 ; 8c010234
+          .FDATA.S F'-1000.0 ; 8c010238
+
+          .END
