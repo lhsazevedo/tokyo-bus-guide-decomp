@@ -36,11 +36,14 @@ void FUN_sound_8c0100bc() {
 }
 
 void FUN_mdiVol_8c010128() {
+    SDMIDI *midi_handle_a;
     int r13_8c226468_as_int = _8c226468;
     float fr15_8c226468 = r13_8c226468_as_int;
+    float tempfr;
 
     if ((_8c0fcd50.field_0x00 & 2) == 2) {
-        SDMIDI *midi_handle_a = &_midi_handle_8c0fcd28[7];
+        midi_handle_a = &_midi_handle_8c0fcd28[7];
+
         if (fr15_8c226468 >= 10 && fr15_8c226468 < 3000) {
             sdMidiSetVol(
                 *midi_handle_a,
@@ -48,15 +51,15 @@ void FUN_mdiVol_8c010128() {
                 0
             );
         /* 8c010192 */
-        } else if (fr15_8c226468 >= 3000) {
+        } else {
+            if (fr15_8c226468 >= 3000) {
                 /* 8c01019a */
-                
                 sdMidiSetVol(
                     *midi_handle_a,
                     (float) _8c0fcd50.field_0x0c - (_8c0fcd50.field_0x1c * (r13_8c226468_as_int + -3000)) + -127,
                     0
                 );
-            // }
+            }
         }
     }
 
@@ -64,11 +67,11 @@ void FUN_mdiVol_8c010128() {
     if ((_8c0fcd50.field_0x00 & 4) == 4) {
         sdMidiSetVol(
             _midi_handle_8c0fcd28[6],
-            (float)_8c0fcd50.field_0x20 * (fr15_8c226468 + -1000) + -127,
+            (float) _8c0fcd50.field_0x20 * (fr15_8c226468 + -1000) + -127,
            0
         );
 
-        if (r13_8c226468_as_int < 2100) {
+        if (! (r13_8c226468_as_int >= 2100)) {
             /* 8c0101e2 */
             _8c0fcd50.field_0x00 &= -5;
 
