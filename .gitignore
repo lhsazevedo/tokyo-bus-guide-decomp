@@ -2,3 +2,5 @@ build/
 
 # Ignore game binary
 1ST_READ.BIN
+
+set_kt.sh
