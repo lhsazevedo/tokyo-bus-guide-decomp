@@ -8,12 +8,11 @@ define _njUserInit(8C0134EC)
 define _njUserMain(8C01392E)
 define _njUserExit(8C0139D4)
 
-define _gMapleRecvBuf(8C18ADC4)
-define _gMapleSendBuf(8C196DE4)
+define __divls(8C02FB50)
 
-define _gdfswork(8C1A2E04)
-define _gdfscurdir(8C1A4198)
+define _const127_8c03bd90(8C03BD90)
 
+define _sdMidiSetVol(8C051844)
 define _gdFsInit(8C052502)
 define _pdInitPeripheral(8C053D44)
 define _pdExitPeripheral(8C054264)
@@ -30,12 +29,20 @@ define _njWaitVSync(8C0571E2)
 define _njExitSystem(8C057400)
 
 define __BSG_END(8C0E7FCC)
+define __midi_handle_8c0fcd28(8C0FCD28)
+define __8c0fcd50(8C0FCD50)
 
+define _gMapleRecvBuf(8C18ADC4)
+define _gMapleSendBuf(8C196DE4)
+define _gdfswork(8C1A2E04)
+define _gdfscurdir(8C1A4198)
 
+define __8c226468(8C226468)
 
 input build\_00000_8c010000.obj
 input build\_00128_8c010080_main.obj
 input build\_00188_8c0100bc.obj
+input build\_00572_8c01023c.obj
 input build\_18864_8c0149b0_sbinit.obj
 input build\_19100_8c014a9c_tasks.obj
 input build\_19340_8c014b8c.obj
