@@ -36,22 +36,22 @@ void FUN_mdiVol_8c010128() {
     // float fr2;
     // int vol;
 
-    int r13_8c226468_as_int, int_temp;
-    float fr15_8c226468, temp1;
+    int _8c226468_as_int_in_r13, int_temp;
+    float _8c226468_in_fr15, temp1;
     SDMIDI *midi_handle_a;
     SDMIDI midi_handle_b;
 
     // fr14 = -127.f;
-    r13_8c226468_as_int = (int) _8c226468;
-    fr15_8c226468 = (float) r13_8c226468_as_int;
+    _8c226468_as_int_in_r13 = (int) _8c226468;
+    _8c226468_in_fr15 = (float) _8c226468_as_int_in_r13;
 
     if ((_8c0fcd50.field_0x00 & 2) == 2) {
         midi_handle_a = &(*_midi_handle_8c0fcd28);
         midi_handle_a += 7;
         // fr3 = 10.f;
         // fr2 = 3000.f;
-        if (!(10 > fr15_8c226468) && 3000 > fr15_8c226468) {
-            temp1 = (_8c0fcd50.field_0x08 + (_8c0fcd50.field_0x18 * (fr15_8c226468 + -10)));
+        if (!(10 > _8c226468_in_fr15) && 3000 > _8c226468_in_fr15) {
+            temp1 = (_8c0fcd50.field_0x08 + (_8c0fcd50.field_0x18 * (_8c226468_in_fr15 + -10)));
             sdMidiSetVol(
                 *midi_handle_a,
                 temp1 + -127,
@@ -59,11 +59,11 @@ void FUN_mdiVol_8c010128() {
             );
         // 8c010192
         } else {
-            if (3000 <= fr15_8c226468) {
+            if (3000 <= _8c226468_in_fr15) {
                 // 8c01019a
                 sdMidiSetVol(
                     *midi_handle_a,
-                    (_8c0fcd50.field_0x0c - (_8c0fcd50.field_0x1c * (r13_8c226468_as_int + -3000))) + -127,
+                    (_8c0fcd50.field_0x0c - (_8c0fcd50.field_0x1c * (_8c226468_as_int_in_r13 + -3000))) + -127,
                     0
                 );
             }
@@ -82,9 +82,9 @@ void FUN_mdiVol_8c010128() {
         // fr0 = _8c0fcd50.field_0x20
         // fr14 += fr0 * fr3;
 
-        // temp2 = fr15_8c226468;
+        // temp2 = _8c226468_in_fr15;
         // temp2 += -1000;
-        temp1 = _8c0fcd50.field_0x20 * (fr15_8c226468 + -1000);
+        temp1 = _8c0fcd50.field_0x20 * (_8c226468_in_fr15 + -1000);
         sdMidiSetVol(
             _midi_handle_8c0fcd28[6],
             -127.f + temp1,
@@ -92,7 +92,7 @@ void FUN_mdiVol_8c010128() {
         );
 
         // r3 = (Uint16) 2100;
-        if (! (r13_8c226468_as_int >= 2100)) {
+        if (! (_8c226468_as_int_in_r13 >= 2100)) {
 
             // midi_handle_b = _midi_handle_8c0fcd28[6];
 

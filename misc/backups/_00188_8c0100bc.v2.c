@@ -36,56 +36,56 @@ void FUN_mdiVol_8c010128() {
     // float fr2;
     // int vol;
 
-    int r13_8c226468_as_int;
-    float fr15_8c226468, temp1, temp2;
+    int _8c226468_as_int_in_r13;
+    float _8c226468_in_fr15, temp1, temp2;
     SDMIDI *midi_handle_a;
 
     // fr14 = -127.f;
-    r13_8c226468_as_int = (int) _8c226468;
-    fr15_8c226468 = (float) r13_8c226468_as_int;
+    _8c226468_as_int_in_r13 = (int) _8c226468;
+    _8c226468_in_fr15 = (float) _8c226468_as_int_in_r13;
 
     if ((_8c0fcd50.field_0x00 & 2) == 2) {
         midi_handle_a = &(*_midi_handle_8c0fcd28);
         midi_handle_a += 7;
         // fr3 = 10.f;
         // fr2 = 3000.f;
-        if (!(10 > fr15_8c226468) && 3000 > fr15_8c226468) {
-            // fr2 = _8c0fcd50.field_0x08 + (_8c0fcd50.field_0x18 * (fr15_8c226468 + -10.f));
+        if (!(10 > _8c226468_in_fr15) && 3000 > _8c226468_in_fr15) {
+            // fr2 = _8c0fcd50.field_0x08 + (_8c0fcd50.field_0x18 * (_8c226468_in_fr15 + -10.f));
 
-            // if (fr15_8c226468 >= 10 && 3000 > fr15_8c226468) {
+            // if (_8c226468_in_fr15 >= 10 && 3000 > _8c226468_in_fr15) {
             // 8c01016c
             // r3 = _8c0fcd50.field_0x08;
             // fr0 = -10.f;
-            // fr3 = fr15_8c226468 + -10.f;
+            // fr3 = _8c226468_in_fr15 + -10.f;
             // fr3 += -10.f;
             // fr0 = _8c0fcd50.field_0x18;
-            //fr2 = _8c0fcd50.field_0x08 + (_8c0fcd50.field_0x18 * (fr15_8c226468 + -10.f));
+            //fr2 = _8c0fcd50.field_0x08 + (_8c0fcd50.field_0x18 * (_8c226468_in_fr15 + -10.f));
             // fr2 += _8c0fcd50.field_0x18 * fr3;
             // fr3 = fr2;
             // fr3 += fr14;
 
             // fr2 = _8c0fcd50.field_0x08
-            // fr2 += _8c0fcd50.field_0x18 * (fr15_8c226468 - 10.f)
+            // fr2 += _8c0fcd50.field_0x18 * (_8c226468_in_fr15 - 10.f)
             // fr3 = fr2
             // fr2 = _8c0fcd50.field_0x08;
-            // fr2 += _8c0fcd50.field_0x18 * (fr15_8c226468 - 10.f);
-            // vol = (int) (_8c0fcd50.field_0x08 +  _8c0fcd50.field_0x18 * (fr15_8c226468 - 10.f));
+            // fr2 += _8c0fcd50.field_0x18 * (_8c226468_in_fr15 - 10.f);
+            // vol = (int) (_8c0fcd50.field_0x08 +  _8c0fcd50.field_0x18 * (_8c226468_in_fr15 - 10.f));
             sdMidiSetVol(
                 *midi_handle_a,
-                ((_8c0fcd50.field_0x08 + (_8c0fcd50.field_0x18 * (fr15_8c226468 + -10.f))) + -127.f),
+                ((_8c0fcd50.field_0x08 + (_8c0fcd50.field_0x18 * (_8c226468_in_fr15 + -10.f))) + -127.f),
                 0
             );
         // 8c010192
         } else {
-            if (3000 <= fr15_8c226468) {
+            if (3000 <= _8c226468_in_fr15) {
                 // 8c01019a
-                // fr2 = _8c0fcd50.field_0x0c - (_8c0fcd50.field_0x1c * (r13_8c226468_as_int + -3000));
+                // fr2 = _8c0fcd50.field_0x0c - (_8c0fcd50.field_0x1c * (_8c226468_as_int_in_r13 + -3000));
 
                 // r2 = _8c0fcd50.field_0x0c;
-                //r3 = ((Sint16) -3000) + r13_8c226468_as_int;
-                // r3 += r13_8c226468_as_int;
+                //r3 = ((Sint16) -3000) + _8c226468_as_int_in_r13;
+                // r3 += _8c226468_as_int_in_r13;
                 // fr0 = _8c0fcd50.field_0x1c;
-                // fr2 = _8c0fcd50.field_0x0c - (_8c0fcd50.field_0x1c * (r13_8c226468_as_int + -3000));
+                // fr2 = _8c0fcd50.field_0x0c - (_8c0fcd50.field_0x1c * (_8c226468_as_int_in_r13 + -3000));
                 // fr1 = (float) r3;
                 // fr1 *= _8c0fcd50.field_0x1c;
                 // fr2 -= fr1;
@@ -107,14 +107,14 @@ void FUN_mdiVol_8c010128() {
                 // r5 = (int) fr2
 
                 // fr2 = (float) _8c0fcd50.field_0x0c
-                // fr1 = (float) fr15_8c226468 + -3000
+                // fr1 = (float) _8c226468_in_fr15 + -3000
                 // fr1 *= _8c0fcd50.field_0x1c
                 // fr2 -= fr1
                 // fr2 += -127.f
-                // fr2 = (_8c0fcd50.field_0x0c - ((fr15_8c226468 + -3000) * _8c0fcd50.field_0x1c)) + -127;
+                // fr2 = (_8c0fcd50.field_0x0c - ((_8c226468_in_fr15 + -3000) * _8c0fcd50.field_0x1c)) + -127;
                 sdMidiSetVol(
                     *midi_handle_a,
-                    ((_8c0fcd50.field_0x0c - (_8c0fcd50.field_0x1c * (r13_8c226468_as_int + -3000))) + -127.f),
+                    ((_8c0fcd50.field_0x0c - (_8c0fcd50.field_0x1c * (_8c226468_as_int_in_r13 + -3000))) + -127.f),
                     0
                 );
             }
@@ -124,31 +124,31 @@ void FUN_mdiVol_8c010128() {
     // LAB_8c0101bc
     if ((_8c0fcd50.field_0x00 & 4) == 4) {
         // 8c0101c4
-        // fr14 = -127.f + _8c0fcd50.field_0x20 * (fr15_8c226468 + (-1000.f))
+        // fr14 = -127.f + _8c0fcd50.field_0x20 * (_8c226468_in_fr15 + (-1000.f))
 
-        // fr3 = fr15_8c226468 + (-1000.f);
+        // fr3 = _8c226468_in_fr15 + (-1000.f);
         // fr0 = -1000.f;
         // fr3 += fr0;
         // fr0 = _8c0fcd50.field_0x20;
-        // fr14 = -127.f + _8c0fcd50.field_0x20 * (fr15_8c226468 + (-1000.f));
+        // fr14 = -127.f + _8c0fcd50.field_0x20 * (_8c226468_in_fr15 + (-1000.f));
         // fr14 += _8c0fcd50.field_0x20 * fr3;
 
         // fr0 = -1000
-        // fr3 =  fr15_8c226468
-        // fr3 += fr0 (fr15_8c226468 += -1000)
+        // fr3 =  _8c226468_in_fr15
+        // fr3 += fr0 (_8c226468_in_fr15 += -1000)
         // fr0 = _8c0fcd50.field_0x20
         // fr14 += fr0 * fr3 (-127f += _8c0fcd50.field_0x20 * fr3)
         // param = (int) fr14
-        // (int) (_8c0fcd50.field_0x20 * (fr15_8c226468 + -1000) + -127.f)
+        // (int) (_8c0fcd50.field_0x20 * (_8c226468_in_fr15 + -1000) + -127.f)
 
         sdMidiSetVol(
             _midi_handle_8c0fcd28[6],
-            (-127.f + _8c0fcd50.field_0x20 * (fr15_8c226468 + -1000.f)),
+            (-127.f + _8c0fcd50.field_0x20 * (_8c226468_in_fr15 + -1000.f)),
            0
         );
 
         // r3 = (Uint16) 2100;
-        if (! (r13_8c226468_as_int >= 2100)) {
+        if (! (_8c226468_as_int_in_r13 >= 2100)) {
             // 8c0101e2
             // r1 = _8c0fcd50.field_0x00;
             // r2 = -5;
