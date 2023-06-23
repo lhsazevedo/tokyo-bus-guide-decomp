@@ -1,3 +1,5 @@
+#include "shinobi.h"
+
 typedef void (*TaskAction)(struct Task *task, void *state);
 
 struct Task {
@@ -11,3 +13,8 @@ struct Task {
     int field_0x1c;
 }
 typedef Task;
+
+/**
+ * @todo Should action be typed?
+ */
+int pushTask_8c014ae8(Task *tasks, void *action, Task **created_task, void **create_state, size_t alloc_size);
