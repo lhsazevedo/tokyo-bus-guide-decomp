@@ -4,18 +4,51 @@ debug
 elf 
 output build\tbg.elf 
 
+define __0002d0c4(0002D0C4)
+
+define _FUN_8c010532(8C010532)
 define _njUserInit(8C0134EC)
 define _njUserMain(8C01392E)
 define _njUserExit(8C0139D4)
 
 define __divls(8C02FB50)
-
+define __slow_mvn(8C02FED0)
+define _strlen(8C030130)
+define _FUN_8c030140(8C030140)
+define _const_adx_E8101214(8C0332A4)
+define __8c03bd80(8C03BD80)
 define _const127_8c03bd90(8C03BD90)
+define __8c03bd84(8C03BD84)
+define _PTR_bgm_8c03bd94(8C03BD94)
 
+define _ADXT_Init(8C04F7A2)
+define __8c04f8c0(8C04F8C0)
+define _ADXT_GetStat(8C04FCFC)
+define _ADXT_EntryErrFunc(8C0500C0)
+define _ADXF_LoadPartition(8C0504D6)
+define _ADXF_GetPtinfoSize(8C050840)
+
+define _sdMemBlkCreate(8C0510B8)
+define _sdMemBlkDestroy(8C051150)
+define _sdMemBlkSetPrm(8C0511E0)
+define _sdMemBlkSetTransferMode(8C05126C)
+define _sdMultiUnitDownload(8C0513E0)
+define _sdMidiOpenPort(8C05154C)
+define _sdMidiPlay(8C051618)
+define _sdMidiSetPitch(8C051790)
 define _sdMidiSetVol(8C051844)
+define _sdDrvInit(8C0519C0)
+define _sdLibInit(8C051AD0)
+
 define _gdFsInit(8C052502)
+define _gdFsClose(8C0532C4)
+define _gdFsGetFileSize(8C0532FC)
+define _gdFsRead(8C0533EE)
+define _gdFsOpen(8C053BA6)
+
 define _pdInitPeripheral(8C053D44)
 define _pdExitPeripheral(8C054264)
+
 define _syMallocInit(8C054408)
 define _syMallocFinish(8C054462)
 define _syMalloc(8C0544D6)
@@ -24,25 +57,34 @@ define _syHwInit(8C054E38)
 define _syHwInit2(8C054E62)
 define _syHwFinish(8C054E72)
 define __8c056358(8C056358)
+
 define _njInitSystem(8C056752)
 define _njWaitVSync(8C0571E2)
 define _njExitSystem(8C057400)
 
 define __BSG_END(8C0E7FCC)
+define __8c0fcd20(8C0FCD20)
+define __8c0fcd24(8C0FCD24)
 define __midi_handle_8c0fcd28(8C0FCD28)
+define _sd_src_blk_ptr(8C0FCD48)
+define __8c0fcd4c(8C0FCD4C)
 define __8c0fcd50(8C0FCD50)
+define __8c0fcd74(8C0FCD74)
+
+define __8c156efc(8C156EFC)
 
 define _gMapleRecvBuf(8C18ADC4)
 define _gMapleSendBuf(8C196DE4)
 define _gdfswork(8C1A2E04)
 define _gdfscurdir(8C1A4198)
-
+define __8c1bbcb0(8C1BBCB0)
 define __8c226468(8C226468)
 
 input build\_00000_8c010000.obj
 input build\_00128_8c010080_main.obj
 input build\_00188_8c0100bc.obj
 input build\_00572_8c01023c.obj
+input build\_03608_8c010e18.obj
 input build\_18864_8c0149b0_sbinit.obj
 input build\_19100_8c014a9c_tasks.obj
 input build\_19340_8c014b8c.obj
