@@ -7,7 +7,7 @@ wine /media/lhsazevedo/hdstorage/dc_sdk/155j/shc/bin/shc.exe src\\_00128_8c01008
 wine /media/lhsazevedo/hdstorage/dc_sdk/155j/shc/bin/asmsh.exe src\\_00188_8c0100bc.src -object=build\\_00188_8c0100bc.obj $ASMSH_FLAGS
 # wine /media/lhsazevedo/hdstorage/dc_sdk/155j/shc/bin/shc.exe src\\_00188_8c0100bc.c -object=build\\_00188_8c0100bc.obj -sub=shc.sub
 wine /media/lhsazevedo/hdstorage/dc_sdk/155j/shc/bin/asmsh.exe src\\_00572_8c01023c.src -object=build\\_00572_8c01023c.obj $ASMSH_FLAGS
-wine /media/lhsazevedo/hdstorage/dc_sdk/155j/shc/bin/asmsh.exe src\\_03608_8c010e18.src -object=build\\_03608_8c010e18.obj $ASMSH_FLAGS
+wine /media/lhsazevedo/hdstorage/dc_sdk/155j/shc/bin/asmsh.exe src\\_03728_8c010e90.src -object=build\\_03728_8c010e90.obj $ASMSH_FLAGS
 wine /media/lhsazevedo/hdstorage/dc_sdk/155j/shc/bin/shc.exe src\\_18864_8c0149b0_sbinit.c -object=build\\_18864_8c0149b0_sbinit.obj -sub=shc.sub
 wine /media/lhsazevedo/hdstorage/dc_sdk/155j/shc/bin/shc.exe src\\_19100_8c014a9c_tasks.c -object=build\\_19100_8c014a9c_tasks.obj -sub=shc.sub
 wine /media/lhsazevedo/hdstorage/dc_sdk/155j/shc/bin/asmsh.exe src\\_19340_8c014b8c.src -object=build\\_19340_8c014b8c.obj $ASMSH_FLAGS
