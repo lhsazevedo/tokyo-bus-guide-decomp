@@ -8,12 +8,12 @@
           .EXPORT     _FUN_mdiVol_8c010128
           .SECTION    P,CODE,ALIGN=4
 _FUN_sound_8c0100bc:             ; function: FUN_sound_8c0100bc
-                                 ; frame size=
+                                 ; frame size=4
                                  ; used runtime library name:
                                  ; __divls
-          MOV.L       L1338+8,R5 ; _const127_8c03bd90
-          MOVA        L1338+4,R0
-          MOV.L       L1338+12,R4;__8c0fcd50
+          MOV.L       L3+8,R5 ; _const127_8c03bd90
+          MOVA        L3+4,R0
+          MOV.L       L3+12,R4; __8c0fcd50
           MOV         #100,R6
           STS.L       PR,@-R15
           MOV.L       @R5,R3
@@ -24,7 +24,7 @@ _FUN_sound_8c0100bc:             ; function: FUN_sound_8c0100bc
           FLOAT       FPUL,FR3
           FDIV        FR5,FR3
           FMOV.S      FR3,@(R0,R4)
-          MOVA        L1338+16,R0
+          MOVA        L3+16,R0
           FMOV.S      @R0,FR4
           MOV         #24,R0
           FMOV.S      @(R0,R4),FR3
@@ -34,7 +34,7 @@ _FUN_sound_8c0100bc:             ; function: FUN_sound_8c0100bc
           FMOV.S      FR3,@(R0,R4)
           MOV.L       @R5,R2
           MUL.L       R3,R2
-          MOV.L       L1338+20,R2; __divls
+          MOV.L       L3+20,R2; __divls
           STS         MACL,R1
           JSR         @R2
           MOV         R6,R0
@@ -43,7 +43,7 @@ _FUN_sound_8c0100bc:             ; function: FUN_sound_8c0100bc
           MOV         R1,R2
           SHLL2       R1
           ADD         R2,R1
-          MOV.L       L1338+20,R2; __divls
+          MOV.L       L3+20,R2; __divls
           SHLL2       R1
           SHLL        R1
           JSR         @R2
@@ -51,7 +51,7 @@ _FUN_sound_8c0100bc:             ; function: FUN_sound_8c0100bc
           MOV.L       R0,@(8,R4)
           MOV         #24,R0
           FMOV.S      @(R0,R4),FR3
-          MOVA        L1338+24,R0
+          MOVA        L3+24,R0
           FMUL        FR4,FR3
           FTRC        FR3,FPUL
           STS         FPUL,R2
@@ -66,43 +66,43 @@ _FUN_sound_8c0100bc:             ; function: FUN_sound_8c0100bc
           RTS
           FMOV.S      FR3,@(R0,R4)
 _FUN_mdiVol_8c010128:            ; function: FUN_mdiVol_8c010128
-                                 ; frame size=
-          MOV.L       L1338+28,R3; __8c226468
-          MOVA        L1338+36,R0
+                                 ; frame size=32
+          MOV.L       L3+28,R3; __8c226468
+          MOVA        L3+36,R0
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           MOV.L       R12,@-R15
           MOV.L       R11,@-R15
           MOV.L       R10,@-R15
           FMOV.S      FR15,@-R15
-          MOV.L       L1338+12,R14; __8c0fcd50
+          MOV.L       L3+12,R14; __8c0fcd50
           FMOV.S      FR14,@-R15
           STS.L       PR,@-R15
           FMOV.S      @R3,FR3
           FMOV.S      @R0,FR14
           FTRC        FR3,FPUL
           MOV.L       @R14,R0
-          MOV.L       L1338+32,R10; __midi_handle_8c0fcd28
+          MOV.L       L3+32,R10; __midi_handle_8c0fcd28
           AND         #2,R0
-          MOV.L       L1338+40,R12; _sdMidiSetVol
+          MOV.L       L3+40,R12; _sdMidiSetVol
           CMP/EQ      #2,R0
           STS         FPUL,R13
           LDS         R13,FPUL
           FLOAT       FPUL,FR3
-          BF/S        L1332
+          BF/S        L1
           FMOV.S      FR3,FR15
-          MOVA        L1338+44,R0
+          MOVA        L3+44,R0
           MOV         R10,R11
           FMOV.S      @R0,FR3
           FCMP/GT     FR15,FR3
-          BT/S        L1333
+          BT/S        L0
           ADD         #28,R11
-          MOVA        L1338+16,R0
+          MOVA        L3+16,R0
           FMOV.S      @R0,FR2
           FCMP/GT     FR15,FR2
-          BF          L1333
-          MOV.L       @(8,R14),R3 ; 8c01016c
-          MOVA        L1338+48,R0
+          BF          L0
+          MOV.L       @(8,R14),R3
+          MOVA        L3+48,R0
           FMOV.S      @R0,FR0
           MOV         #24,R0
           LDS         R3,FPUL
@@ -118,16 +118,16 @@ _FUN_mdiVol_8c010128:            ; function: FUN_mdiVol_8c010128
           STS         FPUL,R5
           JSR         @R12
           MOV.L       @R11,R4
-          BRA         L1332
+          BRA         L1
           NOP
-L1333:                            
-          MOVA        L1338+16,R0 ; 8c010192
+L0:                            
+          MOVA        L3+16,R0
           FMOV.S      @R0,FR3
           FCMP/GT     FR15,FR3
-          BT          L1332
-          MOV.L       @(12,R14),R2 ; 8c01019a
+          BT          L1
+          MOV.L       @(12,R14),R2
           MOV         #28,R0
-          MOV.W       L1338,R3   ; H'F448
+          MOV.W       L3,R3   ; H'F448
           MOV         #0,R6
           LDS         R2,FPUL
           ADD         R13,R3
@@ -142,12 +142,12 @@ L1333:
           STS         FPUL,R5
           JSR         @R12
           MOV.L       @R11,R4
-L1332:                            
+L1:                            
           MOV.L       @R14,R0
           AND         #4,R0
           CMP/EQ      #4,R0
-          BF          L1336
-          MOVA        L1338+52,R0
+          BF          L2
+          MOVA        L3+52,R0
           FMOV.S      FR15,FR3
           FMOV.S      @R0,FR0
           MOV         #32,R0
@@ -159,9 +159,9 @@ L1332:
           STS         FPUL,R5
           JSR         @R12
           MOV.L       @(24,R10),R4
-          MOV.W       L1338+2,R3 ; H'0834
+          MOV.W       L3+2,R3 ; H'0834
           CMP/GE      R3,R13
-          BT          L1336
+          BT          L2
           MOV.L       @R14,R1
           MOV         #-5,R2
           MOV         #-127,R5
@@ -170,7 +170,7 @@ L1332:
           MOV.L       R1,@R14
           JSR         @R12
           MOV.L       @(24,R10),R4
-L1336:                            
+L2:                            
           LDS.L       @R15+,PR
           FMOV.S      @R15+,FR14
           FMOV.S      @R15+,FR15
@@ -179,21 +179,21 @@ L1336:
           MOV.L       @R15+,R12
           MOV.L       @R15+,R13
           RTS
-          MOV.L      @R15+,R14
-L1338:                            
+          MOV.L       @R15+,R14
+L3:                            
           .DATA.W     H'F448
           .DATA.W     H'0834
-          .DATA.L     H'45228000 ; F'2600.0
+          .DATA.L     H'45228000
           .DATA.L     _const127_8c03bd90
           .DATA.L     __8c0fcd50
-          .DATA.L     H'453B8000 ; F'3000.0
+          .DATA.L     H'453B8000
           .DATA.L     __divls
-          .DATA.L     H'4573C000 ; F'3900.0
+          .DATA.L     H'4573C000
           .DATA.L     __8c226468
           .DATA.L     __midi_handle_8c0fcd28
-          .DATA.L     H'C2FE0000 ; F'-127.0
+          .DATA.L     H'C2FE0000
           .DATA.L     _sdMidiSetVol
-          .DATA.L     H'41200000 ; F'10.0
-          .DATA.L     H'C1200000 ; F'-10.0
-          .DATA.L     H'C47A0000 ; F'-1000.0
+          .DATA.L     H'41200000
+          .DATA.L     H'C1200000
+          .DATA.L     H'C47A0000
           .END
