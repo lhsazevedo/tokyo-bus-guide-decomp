@@ -43,19 +43,17 @@ void FUN_mdiVol_8c010128() {
         if (fr15_8c226468 >= 10 && fr15_8c226468 < 3000) {
             sdMidiSetVol(
                 _midi_handle_8c0fcd28[7],
-                _8c0fcd50.field_0x08 + ((fr15_8c226468 - 10) * _8c0fcd50.field_0x18) - 127,
+                _8c0fcd50.field_0x08 + (fr15_8c226468 - 10) * _8c0fcd50.field_0x18 - 127,
                 0
             );
         /* 8c010192 */
         } else if (fr15_8c226468 >= 3000) {
-                /* 8c01019a */
-                
-                sdMidiSetVol(
-                    _midi_handle_8c0fcd28[7],
-                    _8c0fcd50.field_0x0c - ((r13_8c226468_as_int - 3000) * _8c0fcd50.field_0x1c) - 127,
-                    0
-                );
-            // }
+            /* 8c01019a */
+            sdMidiSetVol(
+                _midi_handle_8c0fcd28[7],
+                _8c0fcd50.field_0x0c - (r13_8c226468_as_int - 3000) * _8c0fcd50.field_0x1c - 127,
+                0
+            );
         }
     }
 
