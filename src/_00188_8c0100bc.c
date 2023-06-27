@@ -1,7 +1,7 @@
 /* Almost matching!
  * FUN_sound_8c0100bc matches perfectly.
- * FUN_mdiVol_8c010128 functionally matches, differs only by two instructions
- * and register allocation.
+ * FUN_mdiVol_8c010128 functionally matches, differs only by register allocation
+ * at the beginning of the function.
  */
 
 #include <shinobi.h>
@@ -40,11 +40,10 @@ void FUN_mdiVol_8c010128() {
     float fr15_8c226468 = r13_8c226468_as_int;
 
     if ((_8c0fcd50.field_0x00 & 2) == 2) {
-        SDMIDI *midi_handle_a = &_midi_handle_8c0fcd28[7];
         if (fr15_8c226468 >= 10 && fr15_8c226468 < 3000) {
             sdMidiSetVol(
-                *midi_handle_a,
-                (float) _8c0fcd50.field_0x08 + (_8c0fcd50.field_0x18 * (fr15_8c226468 + -10)) + -127,
+                _midi_handle_8c0fcd28[7],
+                _8c0fcd50.field_0x08 + ((fr15_8c226468 - 10) * _8c0fcd50.field_0x18) - 127,
                 0
             );
         /* 8c010192 */
@@ -52,8 +51,8 @@ void FUN_mdiVol_8c010128() {
                 /* 8c01019a */
                 
                 sdMidiSetVol(
-                    *midi_handle_a,
-                    (float) _8c0fcd50.field_0x0c - (_8c0fcd50.field_0x1c * (r13_8c226468_as_int + -3000)) + -127,
+                    _midi_handle_8c0fcd28[7],
+                    _8c0fcd50.field_0x0c - ((r13_8c226468_as_int - 3000) * _8c0fcd50.field_0x1c) - 127,
                     0
                 );
             // }
@@ -62,9 +61,10 @@ void FUN_mdiVol_8c010128() {
 
     /* LAB_8c0101bc */
     if ((_8c0fcd50.field_0x00 & 4) == 4) {
+        float temp = fr15_8c226468;
         sdMidiSetVol(
             _midi_handle_8c0fcd28[6],
-            (float)_8c0fcd50.field_0x20 * (fr15_8c226468 + -1000) + -127,
+            (temp - 1000) * _8c0fcd50.field_0x20 - 127,
            0
         );
 
