@@ -15,6 +15,7 @@ define _prob_task_8c014784(8C014784)
 
 define __divls(8C02FB50)
 define __slow_mvn(8C02FED0)
+define _memset(8C0300b8)
 define _strlen(8C030130)
 define _FUN_8c030140(8C030140)
 define _const_adx_E8101214(8C0332A4)
@@ -22,6 +23,7 @@ define __8c03bd80(8C03BD80)
 define _const127_8c03bd90(8C03BD90)
 define __8c03bd84(8C03BD84)
 define _PTR_bgm_8c03bd94(8C03BD94)
+define __8c03be5c(8C03BE5C)
 
 define _ADXT_Init(8C04F7A2)
 define __8c04f8c0(8C04F8C0)
@@ -65,6 +67,9 @@ define _syHwInit2(8C054E62)
 define _syHwFinish(8C054E72)
 define __8c056358(8C056358)
 
+define _pdVibMxStart(8C056422)
+define _pdVibMxStop(8C056450)
+
 define _njInitSystem(8C056752)
 define _njWaitVSync(8C0571E2)
 define _njSetBackColor(8C05738A)
@@ -81,6 +86,7 @@ define __8c0fcd50(8C0FCD50)
 define __8c0fcd74(8C0FCD74)
 
 define __8c156efc(8C156EFC)
+define __8c157a48(8C157A48)
 define __8c157a6c(8C157A6C)
 define __8c157af8(8C157AF8)
 
@@ -91,7 +97,6 @@ define _gdfscurdir(8C1A4198)
 define _tasks_8c1ba3c8(8C1BA3C8)
 define __8c1bbcb0(8C1BBCB0)
 define __8c226468(8C226468)
-
 
 input build\_00000_8c010000.obj
 input build\_00128_8c010080_main.obj
