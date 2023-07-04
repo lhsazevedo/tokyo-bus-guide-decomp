@@ -4,8 +4,7 @@ ASMSH_FLAGS="-debug=d -cpu=sh4 -endian=little -sjis"
 
 wine $SHC_BIN/asmsh.exe src\\_00000_8c010000.src -object=build\\_00000_8c010000.obj $ASMSH_FLAGS
 wine $SHC_BIN/shc.exe src\\_00128_8c010080_main.c -object=build\\_00128_8c010080_main.obj -sub=shc.sub
-wine $SHC_BIN/asmsh.exe src\\_00188_8c0100bc.src -object=build\\_00188_8c0100bc.obj $ASMSH_FLAGS
-# wine $SHC_BIN/shc.exe src\\_00188_8c0100bc.c -object=build\\_00188_8c0100bc.obj -sub=shc.sub
+wine $SHC_BIN/shc.exe src\\_00188_8c0100bc.c -object=build\\_00188_8c0100bc.obj -sub=shc.sub
 wine $SHC_BIN/asmsh.exe src\\_00572_8c01023c.src -object=build\\_00572_8c01023c.obj $ASMSH_FLAGS
 wine $SHC_BIN/shc.exe src\\_03728_8c010e90.c -object=build\\_03728_8c010e90.obj -sub=shc.sub
 wine $SHC_BIN/asmsh.exe src\\_04068_8c010fe4.src -object=build\\_04068_8c010fe4.obj $ASMSH_FLAGS

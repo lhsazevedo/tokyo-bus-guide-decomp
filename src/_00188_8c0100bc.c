@@ -23,7 +23,11 @@ typedef s_8c0fcd50;
 extern s_8c0fcd50 _8c0fcd50;
 /* TODO: Move to constant section */
 extern const int const127_8c03bd90;
-extern float _8c226468;
+typedef struct _Test {
+    float var0;
+} Test;
+
+extern Test _8c226468;
 extern SDMIDI _midi_handle_8c0fcd28[7];
 
 void FUN_sound_8c0100bc() {
@@ -36,7 +40,7 @@ void FUN_sound_8c0100bc() {
 }
 
 void FUN_mdiVol_8c010128() {
-    int r13_8c226468_as_int = _8c226468;
+    int r13_8c226468_as_int = _8c226468.var0;
 
     if ((_8c0fcd50.field_0x00 & 2) == 2) {
         if (r13_8c226468_as_int >= 10.f && r13_8c226468_as_int < 3000.f) {
