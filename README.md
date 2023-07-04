@@ -1,6 +1,6 @@
 # Tokyo Bus Guide Decompilation
 
-My attempt to decompile the Sega Dreamcast game called "Tokyo Bus Guide".
+An attempt to decompile the Sega Dreamcast game called "Tokyo Bus Guide".
 
 ![Main function hero](./tbg.png)
 
