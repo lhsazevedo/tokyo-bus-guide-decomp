@@ -10,13 +10,13 @@ _nop_8c011120:                   ; function: nop_8c011120
           RTS
           NOP
 _FUN_8c011124:                   ; function: FUN_8c011124
-                                 ; frame size=?
+                                 ; frame size=16
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           STS.L       PR,@-R15
           ADD         #-4,R15
           MOV         R4,R3
-          MOV.L       L13,R14  ; __8c157a8c
+          MOV.L       L13,R14  ; __8c157a8c_start
           TST         R3,R3
           BT/S        L1
           MOV.L       R4,@R15
@@ -52,26 +52,27 @@ L3:
           MOV.L       @R15+,R14
 
 _FUN_8c01116a:                   ; function: FUN_8c01116a
-                                 ; frame size=?
-          MOV.L       L13,R2
-          MOV.L       L13+12,R1
+                                 ; frame size=0
+          MOV.L       L13,R2     ; __8c157a8c_start
+          MOV.L       L13+12,R1  ; __8c157a90_current
           MOV.L       @R2,R3
-          MOV.L       L13+20,R2
+          MOV.L       L13+20,R2  ; __8c157a80
           MOV.L       R3,@R1
           MOV         #1,R1
-          MOV.L       L13+16,R3
+          MOV.L       L13+16,R3  ; _DATA_EMPTY_8c03334c
           MOV.L       @R3,R0
           MOV.L       R0,@R2
-          MOV.L       L13+24,R0
+          MOV.L       L13+24,R0  ; __8c157a98
           RTS
           MOV.L       R1,@R0
 
-request_dat_8c011182:
+_request_dat_8c011182:           ; function: request_dat_8c011182
+                                 ; frame size=0
           MOV.B       @R5,R3
           TST         R3,R3
           BT          L4
-          MOV.L       L13+8,R2
-          MOV.L       L13+12,R7
+          MOV.L       L13+8,R2   ; __8c157a90_current
+          MOV.L       L13+12,R7  ; __8c157a94_end
           MOV.L       @R2,R3
           MOV.L       @R7,R0
           CMP/HS      R3,R0
@@ -95,7 +96,8 @@ L5:
           RTS
           NOP
 
-task_8c0111b4:
+_task_8c0111b4:                  ; function: request_dat_8c011182
+                                 ; frame size=32
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           MOV.L       R12,@-R15
