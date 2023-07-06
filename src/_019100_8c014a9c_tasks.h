@@ -6,7 +6,7 @@ struct Task {
     TaskAction action;
     void *state;
     int field_0x08;
-    int field_0x0c;
+    void* field_0x0c;
     int field_0x10;
     int field_0x14;
     int field_0x18;

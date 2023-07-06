@@ -1,4 +1,6 @@
 #include <shinobi.h>
+#include <string.h>
+#include "_019100_8c014a9c_tasks.h"
 
 struct QueuedDat {
     char* basedir;
@@ -18,7 +20,7 @@ typedef QueuedDat;
 
 // extern s_ukn_00 _8c157a8c;
 
-extern char* _8c157a80;
+extern char* _8c157a80_basedir;
 extern void* _8c157a8c_start;
 extern QueuedDat* _8c157a90_current;
 extern void* _8c157a94_end;
@@ -51,7 +53,7 @@ int FUN_8c011124(Uint32 param) {
 /* Matched */
 FUN_8c01116a() {
       _8c157a90_current = _8c157a8c_start;
-      _8c157a80 = DATA_EMPTY_8c03334c;
+      _8c157a80_basedir = DATA_EMPTY_8c03334c;
       _8c157a98 = 1;
 }
 
@@ -70,8 +72,32 @@ int request_dat_8c011182(char* basedir, char* filename, void* dest) {
     return 1;
 }
 
-void task_8c0111b4() {
-    
+void task_8c0111b4(Task* task, void* state) {
+    QueuedDat* qd = (QueuedDat*) task->field_0x18;
+    int size;
+
+    if (task->field_0x08 == 0) {
+        for (; qd < _8c157a90_current; qd++) {
+            if (qd->field_0x0c == 0) {
+                if (*qd->basedir != 0 && strcmp(_8c157a80_basedir, qd->basedir)) {
+                    _8c157a80_basedir = qd->basedir;
+                    gdFsChangeDir(qd->basedir);
+                }
+            }
+
+            task->field_0x0c = gdFsOpen(qd->filename, 0);
+
+            if (task->field_0x0c) {
+                if (gdFsGetFileSize((GDFS) task->field_0x0c, &size)) {
+                    qd->dest = syMalloc(size * 2048);
+
+                    gdFsRead(task->field_0x0c, size, qd->dest);
+                }
+            }
+        }
+    } else if (task->field_0x08 == 1) {
+        gdFsGetStat((GDFS) task->field_0x0c);
+    }
 }
 
 FUN_8c011310() {
