@@ -1,10 +1,25 @@
+          .IMPORT     _gdFsChangeDir
+          .IMPORT     _gdFsOpen
+          .IMPORT     _gdFsClose
+          .IMPORT     _gdFsGetFileSize
+          .IMPORT     _gdFsRead
+          .IMPORT     _gdFsGetStat
+          .IMPORT     _gdFsTrans32
+          .IMPORT     _gdFsGetTransStat
           .IMPORT     _syMalloc
-          .IMPORT     __8c157a80
+          .IMPORT     _syFree
+          .IMPORT     _memcpy
+          .IMPORT     _pushTask_8c014ae8
+          .IMPORT     _freeTask_8c014b66
+          .IMPORT     __8c157a80_basedir
+          .IMPORT     __8c157a88
           .IMPORT     __8c157a8c_start
           .IMPORT     __8c157a90_current
           .IMPORT     __8c157a94_end
           .IMPORT     __8c157a98
-          .IMPORT     _DATA_EMPTY_8c03334c
+          .IMPORT     _ptr_str_DATA_EMPTY_8c03be7c
+          .IMPORT     _tasks_8c1ba3c8
+          .IMPORT     _strcmp
           .EXPORT     _nop_8c011120
           .EXPORT     _FUN_8c011124
           .EXPORT     _FUN_8c01116a
@@ -42,12 +57,12 @@ _FUN_8c011124:                   ; function: FUN_8c011124
           MOV         #0,R0
 L0:
           MOV.L       @R14,R3
-          MOV.L       L14+8,R2
+          MOV.L       L14+8,R2 ; __8c157a94_end
           ADD         R3,R13
           BRA         L2
           MOV.L       R13,@R2
 L1:
-          MOV.L       L14+8,R3
+          MOV.L       L14+8,R3 ; __8c157a94_end
           MOV         #-1,R1
           MOV.L       R1,@R3
           MOV.L       R1,@R14
@@ -65,10 +80,10 @@ _FUN_8c01116a:                   ; function: FUN_8c01116a
           MOV.L       L14,R2     ; __8c157a8c_start
           MOV.L       L14+12,R1  ; __8c157a90_current
           MOV.L       @R2,R3
-          MOV.L       L14+20,R2  ; __8c157a80
+          MOV.L       L14+20,R2  ; __8c157a80_basedir
           MOV.L       R3,@R1
           MOV         #1,R1
-          MOV.L       L14+16,R3  ; _DATA_EMPTY_8c03334c
+          MOV.L       L14+16,R3  ; _ptr_str_DATA_EMPTY_8c03be7c
           MOV.L       @R3,R0
           MOV.L       R0,@R2
           MOV.L       L14+24,R0  ; __8c157a98
@@ -80,8 +95,8 @@ _request_dat_8c011182:           ; function: request_dat_8c011182
           MOV.B       @R5,R3
           TST         R3,R3
           BT          L4
-          MOV.L       L14+8,R2   ; __8c157a90_current
-          MOV.L       L14+12,R7  ; __8c157a94_end
+          MOV.L       L14+8,R2   ; __8c157a94_end
+          MOV.L       L14+12,R7  ; __8c157a90_current
           MOV.L       @R2,R3
           MOV.L       @R7,R0
           CMP/HS      R3,R0
@@ -118,7 +133,7 @@ _task_8c0111b4:                  ; function: task_8c0111b4
           ADD         #-4,R15
           MOV         R4,R13
           MOV.L       @(8,R13),R0
-          MOV.L       L14+28,R11
+          MOV.L       L14+28,R11; __8c157a88
           MOV.L       @(24,R13),R14
           CMP/EQ      #0,R0
           BT/S        L7
@@ -128,8 +143,8 @@ _task_8c0111b4:                  ; function: task_8c0111b4
           BRA         L19
           NOP
 L7:
-          MOV.L       L14+12,R2
-          MOV.L       L14+20,R12
+          MOV.L       L14+12,R2 ; __8c157a90_current
+          MOV.L       L14+20,R12 ; __8c157a80_basedir
           MOV.L       @R2,R3
           CMP/HS      R3,R14
           BT          L10
@@ -169,7 +184,7 @@ L9:
           TST         R0,R0
           BT          L17
           MOV.L       @R15,R4
-          MOV.L       L14+4,R3
+          MOV.L       L14+4,R3 ; _syMalloc
           SHLL8       R4
           MOV.L       @(8,R14),R8
           SHLL2       R4
@@ -195,12 +210,12 @@ L10:
           MOV.L       @R1,R3
           MOV.L       R3,@(24,R13)
           MOV.L       R0,@R11
-          MOV.L       L14+16,R0
+          MOV.L       L14+16,R0 ; _ptr_str_DATA_EMPTY_8c03be7c
           MOV.L       @R0,R3
           BRA         L19
           MOV.L       R3,@R12
 L11:
-          MOV.L       L14+24,R1
+          MOV.L       L14+24,R1 ; __8c157a98
           MOV.L       L14+52,R3
           MOV.L       R10,@R1
           JSR         @R3
@@ -226,14 +241,14 @@ L13:
 
 L14:
           .DATA.L __8c157a8c_start ; H'8c01128c
-          .DATA.L H'8C0544D6 ; H'8c011290
+          .DATA.L _syMalloc ; H'8c011290
           .DATA.L __8c157a94_end
           .DATA.L __8c157a90_current
-          .DATA.L H'8C03BE7C
-          .DATA.L __8c157a80 ; H'8c0112a0
+          .DATA.L _ptr_str_DATA_EMPTY_8c03be7c
+          .DATA.L __8c157a80_basedir ; H'8c0112a0
           .DATA.L __8c157a98
-          .DATA.L H'8C157A88
-          .DATA.L H'8C030108
+          .DATA.L __8c157a88
+          .DATA.L _strcmp
           .DATA.L H'8C0532AC ; H'8c0112b0
           .DATA.L H'8C053BA6
           .DATA.L H'8C053316
@@ -283,7 +298,7 @@ L19:
           MOV.L       @R15+,R14
 
 _FUN_8c011310:                   ; function: FUN_8c011310
-                                 ; frame size=?
+                                 ; frame size=40
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           MOV.L       R12,@-R15
@@ -390,13 +405,13 @@ L26:
           MOV.L       @R15+,R14
 
 _FUN_8c0113d2:                   ; function: FUN_8c0113d2
-                                 ; frame size=?
-          MOV.L       L28+28,R3
+                                 ; frame size=0
+          MOV.L       L28+28,R3; __8c157a98
           RTS
           MOV.L       @R3,R0
 _FUN_8c0113d8:                   ; function: FUN_8c0113d8
-                                 ; frame size=?
-          MOV.L       L28+24,R2
+                                 ; frame size=0
+          MOV.L       L28+24,R2; __8c157a8c_start
           MOV.L       @R2,R0
           CMP/EQ      #-1,R0
           BT/S        L27
