@@ -71,10 +71,10 @@ See [this thread](https://twitter.com/lhs_azevedo/status/1508270685784793089).
 | DSGLH         | 0x8C010000 |
 | DSGLE         | 0x8C010060 |
 | P             | 0x8C010080 |
-| C             | 0X8C03327C |
+| C             | 0x8C03327C |
 | C32           | ?          |
-| D             | ?          |
-| D32           | ?          |
+| D             | 0x8C04F6C0 |
+| D32           | 0x8C04F6C0 |
 | PSG           | ?          |
 | R             | ?          |
 | R32           | ?          |
