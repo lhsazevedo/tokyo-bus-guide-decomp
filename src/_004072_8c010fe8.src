@@ -1,0 +1,170 @@
+          .SECTION P, CODE, ALIGN=4
+FUN_8c010fe8:
+          MOV         #0,r6
+          MOV         r4,r3
+          MOV         r5,r7
+          ADD         #-32,r7
+          MOV.L       L7+2,r5
+          MOV.L       r4,@r5
+          MOV.L       r6,@(12,r3)
+          MOV         r7,r3
+          SUB         r4,r3
+          MOV.L       @r5,r2
+          SHLR2       r3
+          MOV.L       L7+6,r4
+          SHLR2       r3
+          SHLR        r3
+          MOV.L       r3,@(8,r2)
+          MOV.L       @r5,r2
+          MOV.L       r2,@r2
+          MOV         r2,r3
+          MOV.L       @r5,r2
+          MOV.L       r7,@(4,r2)
+          MOV.L       @r5,r3
+          MOV.L       @(4,r3),r2
+          MOV         r2,r3
+          MOV.L       r2,@r4
+          MOV.L       r6,@(12,r3)
+          MOV.L       @r4,r2
+          MOV.L       r6,@(8,r2)
+          MOV.L       @r5,r2
+          MOV.L       @r4,r3
+          MOV.L       r2,@r3
+          MOV.L       @r4,r3
+          RTS
+          MOV.L       r6,@(4,r3)
+
+FUN_8c01102a:
+          MOV.L       r14,@-r15
+          MOV.L       r12,@-r15
+          MOV.L       r11,@-r15
+          STS.L       PR,@-r15
+          ADD         #-4,r15
+          MOV.L       r4,@r15
+          ADD         #H'1f,r4
+          SHLR2       r4
+          MOV.L       L7+2,r2
+          SHLR2       r4
+          MOV.L       L7+6,r14
+          SHLR        r4
+          MOV.L       @r2,r5
+          ADD         #1,r4
+          MOV         r4,r0
+          SHLL2       r0
+          SHLL2       r0
+          MOV         #0,r11
+          MOV         #32,r12
+          MOV         #1,r6
+          BRA         L3
+          SHLL        r0
+L0:
+          MOV.L       @(12,r5),r2
+          TST         r6,r2
+          BF          L2
+          MOV.L       @(8,r5),r3
+          CMP/HS      r4,r3
+          BF          L2
+          MOV.L       @(4,r5),r7
+          ADD         r5,r0
+          MOV.L       r4,@(8,r5)
+          MOV.L       r0,@(4,r5)
+          MOV.L       r6,@(12,r5)
+          MOV.L       @(4,r5),r4
+          CMP/EQ      r4,r7
+          BT/S        L1
+          MOV         r5,r6
+          MOV.L       L7+10,r2
+          MOV.L       r6,@r4
+          MOV.L       r7,@(4,r4)
+          SUB         r4,r7
+          MOV         r7,r1
+          JSR         @r2
+          MOV         r12,r0
+          MOV.L       r0,@(8,r4)
+          MOV.L       r11,@(12,r4)
+          MOV.L       @(4,r4),r5
+          MOV.L       r4,@r5
+          MOV.L       @r14,r3
+          CMP/EQ      r3,r5
+          BT          L1
+          MOV.L       @(12,r5),r0
+          TST         #1,r0
+          BF          L1
+          MOV.L       @(4,r5),r2
+          MOV.L       r2,@(4,r4)
+          MOV.L       @(8,r5),r3
+          MOV.L       @(8,r4),r1
+          ADD         r3,r1
+          MOV.L       r1,@(8,r4)
+          MOV.L       @(4,r4),r5
+          MOV.L       r4,@r5
+L1:
+          MOV         r6,r0
+          BRA         FUN_8c0110b8
+          ADD         #32,r0
+L2:
+          MOV.L       @(4,r5),r5
+L3:
+          MOV.L       @r14,r3
+          CMP/EQ      r3,r5
+          BF          L0
+L4:
+          BRA         L4
+          NOP
+
+FUN_8c0110b8:
+          ADD         #4,r15
+          LDS.L       @r15+,PR
+          MOV.L       @r15+,r11
+          MOV.L       @r15+,r12
+          RTS
+          MOV.L       @r15+,r14
+          ADD         #-32,r4
+          MOV.L       @(12,r4),r2
+          MOV         #-H'2,r3
+          AND         r3,r2
+          MOV.L       r2,@(12,r4)
+          MOV.L       L7+6,r2
+          MOV.L       @(4,r4),r5
+          MOV.L       @r2,r1
+          CMP/EQ      r1,r5
+          BT          L5
+          MOV.L       @(12,r5),r0
+          TST         #1,r0
+          BF          L5
+          MOV.L       @(4,r5),r3
+          MOV.L       r3,@(4,r4)
+          MOV.L       @(8,r4),r2
+          MOV.L       @(8,r5),r3
+          ADD         r3,r2
+          MOV.L       r2,@(8,r4)
+          MOV.L       @(4,r4),r5
+          MOV.L       r4,@r5
+L5:
+          MOV.L       L7+2,r2
+          MOV.L       @r2,r3
+          CMP/EQ      r3,r4
+          BT/S        L6
+          MOV.L       @r4,r5
+          MOV.L       @(12,r5),r0
+          TST         #1,r0
+          BF          L6
+          MOV.L       @(4,r4),r2
+          MOV.L       r2,@(4,r5)
+          MOV.L       @(8,r4),r3
+          MOV.L       @(8,r5),r1
+          ADD         r3,r1
+          MOV.L       r1,@(8,r5)
+          MOV.L       @(4,r4),r4
+          MOV.L       r5,@r4
+L6:
+          RTS
+          MOV         #0,r0
+
+L7:
+          .DATA.B     H'00, H'00 ; H'8c011112
+          .DATA.L     H'8C157A58
+          .DATA.L     H'8C157A5C
+          .DATA.L     H'8C02FB50
+          .END
+
