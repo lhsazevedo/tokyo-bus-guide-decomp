@@ -53,7 +53,7 @@ FUN_8c01116a() {
       _8c157a98 = 1;
 }
 
-/* Functionally matching, wrong register allocation */
+/* regswap */
 int request_dat_8c011182(char* basedir, char* filename, void* dest) {
     if (*filename == 0) {
         return 0;
