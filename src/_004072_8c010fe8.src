@@ -1,5 +1,6 @@
           .SECTION P, CODE, ALIGN=4
-FUN_8c010fe8:
+_FUN_8c010fe8:                   ; function: FUN_8c010fe8
+                                 ; frame size=0
           MOV         #0,r6
           MOV         r4,r3
           MOV         r5,r7
@@ -34,7 +35,7 @@ FUN_8c010fe8:
           RTS
           MOV.L       r6,@(4,r3)
 
-FUN_8c01102a:
+_FUN_8c01102a:
           MOV.L       r14,@-r15
           MOV.L       r12,@-r15
           MOV.L       r11,@-r15
@@ -100,7 +101,7 @@ L0:
           MOV.L       r4,@r5
 L1:
           MOV         r6,r0
-          BRA         FUN_8c0110b8
+          BRA         _FUN_8c0110b8
           ADD         #32,r0
 L2:
           MOV.L       @(4,r5),r5
@@ -112,7 +113,7 @@ L4:
           BRA         L4
           NOP
 
-FUN_8c0110b8:
+_FUN_8c0110b8:
           ADD         #4,r15
           LDS.L       @r15+,PR
           MOV.L       @r15+,r11

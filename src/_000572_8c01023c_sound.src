@@ -2,7 +2,7 @@
           ; and should be merged in the future.
 
           .IMPORT     __8c226468
-          .IMPORT     __midi_handle_8c0fcd28
+          .IMPORT     _midi_handle_8c0fcd28
           .IMPORT     _sdMidiSetPitch
           .IMPORT     __8c1bbcb0
           .IMPORT     _sdMidiPlay ; H'8c010360
@@ -186,7 +186,7 @@ LP1:
           .DATA.L __8c226468
           .DATA.L H'C1200000 ; F'-10.0 H'8c010340
           .DATA.L H'3D4CCCCD ; F'0.05
-          .DATA.L __midi_handle_8c0fcd28
+          .DATA.L _midi_handle_8c0fcd28
           .DATA.L _sdMidiSetPitch
           .DATA.L H'41200000 ; F'10.0 H'8c010350
           .DATA.L H'453B8000 ; F'3000.0
@@ -367,7 +367,7 @@ LP2:
           .DATA.L __8c04f8c0
           .DATA.L __0002d0c4
           .DATA.L __8c0fcd20
-          .DATA.L __midi_handle_8c0fcd28
+          .DATA.L _midi_handle_8c0fcd28
           .DATA.L _sdMidiOpenPort
 
           ; TODO: Unreachable?
@@ -721,7 +721,7 @@ LP4:
          .DATA.L __8c0fcd24
          .DATA.L _ADXT_GetStat
          .DATA.L __8c03bd80
-         .DATA.L __midi_handle_8c0fcd28 ; H'8c010780
+         .DATA.L _midi_handle_8c0fcd28 ; H'8c010780
          .DATA.L _sdMidiPlay
 
           LAB_8c010788:
@@ -875,7 +875,7 @@ LP5:
           .DATA.W H'056C
           .DATA.L H'0000FC22 ; 64546 H'8c010892
           .DATA.L H'8C0FCD20
-          .DATA.L __midi_handle_8c0fcd28
+          .DATA.L _midi_handle_8c0fcd28
           .DATA.L _ADXT_SetOutVol ; H'8c0108a0
           .DATA.L _sdMidiPause
           .DATA.L H'8C03BD88

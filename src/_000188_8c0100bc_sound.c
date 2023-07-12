@@ -28,7 +28,7 @@ typedef struct _Test {
 } Test;
 
 extern Test _8c226468;
-extern SDMIDI _midi_handle_8c0fcd28[7];
+extern SDMIDI midi_handle_8c0fcd28[7];
 
 void FUN_sound_8c0100bc() {
     _8c0fcd50.field_0x18 = (float) const127_8c03bd90 / 2600;
@@ -45,7 +45,7 @@ void FUN_mdiVol_8c010128() {
     if ((_8c0fcd50.field_0x00 & 2) == 2) {
         if (r13_8c226468_as_int >= 10.f && r13_8c226468_as_int < 3000.f) {
             sdMidiSetVol(
-                _midi_handle_8c0fcd28[7],
+                midi_handle_8c0fcd28[7],
                 _8c0fcd50.field_0x08 + (r13_8c226468_as_int - 10.f) * _8c0fcd50.field_0x18 - 127,
                 0
             );
@@ -53,7 +53,7 @@ void FUN_mdiVol_8c010128() {
         } else if (r13_8c226468_as_int >= 3000.f) {
             /* 8c01019a */
             sdMidiSetVol(
-                _midi_handle_8c0fcd28[7],
+                midi_handle_8c0fcd28[7],
                 _8c0fcd50.field_0x0c - (r13_8c226468_as_int - 3000) * _8c0fcd50.field_0x1c - 127,
                 0
             );
@@ -63,7 +63,7 @@ void FUN_mdiVol_8c010128() {
     /* LAB_8c0101bc */
     if ((_8c0fcd50.field_0x00 & 4) == 4) {
         sdMidiSetVol(
-            _midi_handle_8c0fcd28[6],
+            midi_handle_8c0fcd28[6],
             (r13_8c226468_as_int - 1000.f) * _8c0fcd50.field_0x20 - 127,
            0
         );
@@ -73,7 +73,7 @@ void FUN_mdiVol_8c010128() {
             _8c0fcd50.field_0x00 &= -5;
 
             sdMidiSetVol(
-                _midi_handle_8c0fcd28[6],
+                midi_handle_8c0fcd28[6],
                 -127,
                 0
             );
