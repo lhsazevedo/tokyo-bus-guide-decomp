@@ -107,7 +107,6 @@ L1:
           MOV.W       @(R0,R1),R0
           BRAF        R0
           NOP
-
 L2:                               
 L3:                               
           .RES.W      1 ; H'8c015b36
@@ -141,7 +140,6 @@ L4:
           .DATA.W     L41-L2
           .DATA.W     L43-L2
           .DATA.W     L47-L2
-
 L5:                               ; case label 0
           MOV.L       L37,R3 ; _getUknPvmBool_8c01432a
           JSR         @R3
@@ -488,7 +486,7 @@ L37:
 
 L38:                              ; case label e
           MOV.L       @(16,R9),R0
-          MOV.L       H'8c015f38,R12
+          MOV.L       L48+2,R12
           TST         #8,R0
           BT          L39
           JSR         @R12
