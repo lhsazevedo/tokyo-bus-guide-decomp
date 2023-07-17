@@ -139,7 +139,7 @@ define __8c011f7e(8C011F7E)
 define __8c01940e(8C01940E)
 
 define __8c2263a8(8C2263A8)
-define _freeDrawDatStruct_8c0185c4(8C0185C4)
+define _freeResourceGroup_8c0185c4(8C0185C4)
 define __8c02af32(8C02AF32)
 
 
