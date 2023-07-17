@@ -33,7 +33,7 @@ void FUN_sound_8c0100bc() {
     _8c0fcd50.field_0x20 = (float) const127_8c03bd90 / 3900;
 }
 
-void FUN_mdiVol_8c010128() {
+void midiSetVol_8c010128() {
     int r13_8c226468_as_int = _8c226468.var0;
 
     if ((_8c0fcd50.field_0x00 & 2) == 2) {

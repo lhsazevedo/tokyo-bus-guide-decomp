@@ -24,7 +24,7 @@ typedef struct _Test {
 extern Test _8c226468;
 
 /* Matched */
-FUN_8c01023c()
+midiSetPitch_8c01023c()
 {
     int _8c226468_as_int = _8c226468.var0;
 

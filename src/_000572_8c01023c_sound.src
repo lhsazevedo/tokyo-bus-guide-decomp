@@ -49,7 +49,7 @@
           .IMPORT     _sdSndSetFxPrg
           .IMPORT     _sdMidiSetFxLev
           .SECTION    P,CODE,ALIGN=4
-_FUN_8c01023c:
+_midiSetPitch_8c01023c:
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           MOV.L       R12,@-R15
