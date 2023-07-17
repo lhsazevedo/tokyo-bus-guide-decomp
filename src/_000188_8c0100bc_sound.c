@@ -1,9 +1,3 @@
-/* Almost matching!
- * FUN_sound_8c0100bc matches perfectly.
- * FUN_mdiVol_8c010128 functionally matches, differs only by register allocation
- * at the beginning of the function.
- */
-
 #include <shinobi.h>
 #include <sg_sd.h>
 
