@@ -1,0 +1,29 @@
+          .IMPORT     _menuState_8c1bc7a8
+          .IMPORT     __8c225fb0
+          .IMPORT     _freeDrawDatStruct_8c0185c4
+          .IMPORT     __8c02af32
+          .EXPORT     _freeDrawDatStructs_8c016108
+          .SECTION    P,CODE,ALIGN=4
+freeDrawDatStructs_8c016108:
+          MOV.L       R14,@-R15
+          STS.L       PR,@-R15
+          MOV.L       0x8c016138,R4
+          MOV.L       0x8c016134,R14
+          JSR         @R14
+          NOP
+          MOV.L       0x8c01613c,R4
+          JSR         @R14
+          NOP
+          MOV.L       0x8c016140,R4
+          JSR         @R14
+          NOP
+          MOV.L       0x8c016144,R3
+          JSR         @R3
+          NOP
+          MOV.L       0x8c016148,R3
+          MOV         #1,R2
+          MOV.L       R2,@R3
+          LDS.L       @R15+,PR
+          RTS
+          MOV.L       @R15+,R14
+          .END

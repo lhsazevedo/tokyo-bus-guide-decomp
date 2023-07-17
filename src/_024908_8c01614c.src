@@ -1,9 +1,5 @@
           .SECTION P, CODE, ALIGN=4
-          .DATA.B H'E6, H'2F, H'22, H'4F, H'0A, H'D4, H'09, H'DE ; H'8c016108
-          .DATA.B H'0B, H'4E, H'09, H'00, H'09, H'D4, H'0B, H'4E, H'09, H'00, H'09, H'D4, H'0B, H'4E, H'09, H'00 ; H'8c016110
-          .DATA.B H'08, H'D3, H'0B, H'43, H'09, H'00, H'08, H'D3, H'FF, H'E2, H'22, H'23, H'26, H'4F, H'0B, H'00 ; H'8c016120
-          .DATA.B H'F6, H'6E, H'00, H'00, H'C4, H'85, H'01, H'8C, H'A8, H'C7, H'1B, H'8C, H'B4, H'C7, H'1B, H'8C ; H'8c016130
-          .DATA.B H'A8, H'63, H'22, H'8C, H'32, H'AF, H'02, H'8C, H'B0, H'5F, H'22, H'8C, H'E6, H'2F, H'22, H'4F ; H'8c016140
+          .DATA.B H'E6, H'2F, H'22, H'4F ; H'8c01614c
           .DATA.B H'8A, H'D3, H'0B, H'43, H'09, H'00, H'8A, H'D2, H'0B, H'42, H'09, H'00, H'89, H'D3, H'0B, H'43 ; H'8c016150
           .DATA.B H'09, H'00, H'8A, H'D4, H'88, H'DE, H'0B, H'4E, H'09, H'00, H'89, H'D4, H'0B, H'4E, H'09, H'00 ; H'8c016160
           .DATA.B H'88, H'D4, H'0B, H'4E, H'09, H'00, H'88, H'D4, H'0B, H'4E, H'09, H'00, H'26, H'4F, H'0B, H'00 ; H'8c016170
