@@ -11,7 +11,7 @@ struct DatSect1Entry {
 }
 typedef DatSect1Entry;
 
-void drawSprite_8c014f54(DrawDatStruct1 *struct1_r4, int texture_id, float x, float y, float priority) {
+void drawSprite_8c014f54(ResourceGroup *struct1_r4, int texture_id, float x, float y, float priority) {
     int dat_entry;
     int dat_section_base;
     int i;

@@ -4,75 +4,8 @@
 #include <shinobi.h>
 #include <sg_sd.h>
 #include "_019100_8c014a9c_tasks.h"
+#include "_023224_8c015ab8_title.h"
 
-enum TITLE_STATE {
-    TITLE_STATE_0X00_INIT,
-    TITLE_STATE_0X01_FORTYFIVE_FADE_IN,
-    TITLE_STATE_0X02_FORTYFIVE,
-    TITLE_STATE_0X03_FORTYFIVE_FADE_OUT,
-    TITLE_STATE_0X04_ADX_FADE_IN,
-    TITLE_STATE_0X05_ADX,
-    TITLE_STATE_0X06_ADX_FADE_OUT,
-    TITLE_STATE_0X07_VMU_WARNING_FADE_IN,
-    TITLE_STATE_0X08_VMU_WARNING,
-    TITLE_STATE_0X09_VMU_WARNING_FADE_OUT,
-    TITLE_STATE_0X0A_TITLE_FADE_IN,
-    TITLE_STATE_0X0B_BUS_SLIDE,
-    TITLE_STATE_0X0C_FLAG_REVEAL,
-    TITLE_STATE_0X0D_TITLE_FADE_IN_DIRECT,
-    TITLE_STATE_0X0E_PRESS_START,
-    TITLE_STATE_0X0F_START_PRESSED,
-    TITLE_STATE_0X10_START_PRESSED_FADE_OUT,
-    TITLE_STATE_0X11_TIME_OUT
-};
-typedef enum TITLE_STATE TITLE_STATE;
-
-struct ResourceGroup {
-    char* parts;
-    char* dat;
-    char* pvm;
-    Uint32 tex_count;
-}
-typedef ResourceGroup;
-
-struct DrawDatStruct1 {
-    NJS_TEXLIST *tlist_0x00;
-    NJS_TEXANIM *tanim_0x04;
-    void *contents_0x08;
-    int field_0x0c;
-}
-typedef DrawDatStruct1;
-
-struct MenuState {
-    void *field_0x00;
-    void *field_0x04;
-    void *field_0x08;
-    DrawDatStruct1 *drawDatStruct1_0x0c;
-    void *field_0x10;
-    void *field_0x14;
-    TITLE_STATE state_0x18;
-    int field_0x1c;
-    float busX_0x20;
-    float flagY_0x24;
-    int field_0x28;
-    int field_0x2c;
-    int field_0x30;
-    int field_0x34;
-    int field_0x38;
-    int field_0x3c;
-    int field_0x40;
-    int field_0x44;
-    int field_0x48;
-    int field_0x4c;
-    int field_0x50;
-    int field_0x54;
-    int field_0x58;
-    int field_0x5c;
-    int field_0x60;
-    int startTimer_0x64;
-    int logo_timer_0x68;
-}
-typedef MenuState;
 
 extern void _8c051618();
 extern Bool getUknPvmBool_8c01432a();
@@ -81,13 +14,12 @@ extern void _8c01940e();
 extern void push_fadein_8c022a9c();
 extern SDMIDI midi_handle_8c0fcd28[7];
 extern Bool isFading_8c226568;
-extern void drawSprite_8c014f54(DrawDatStruct1 *r4, int r5, float fr4, float fr5, float fr6);
+extern void drawSprite_8c014f54(ResourceGroup *r4, int r5, float fr4, float fr5, float fr6);
 extern void push_fadeout_8c022b60();
 extern char* saveNames_8c044d50[11];
 extern Bool _8c03bd80;
 extern Bool _8c1bb8c4;
-extern ResourceGroup titleResourceGroup_8c044254;
-extern MenuState menuState_8c1bc7a8;
+extern ResourceGroupInfo titleResourceGroup_8c044254;
 extern PDS_PERIPHERAL peripheral_8c1ba35c[2];
 extern Task tasks_8c1ba3c8[16];
 extern void task_8c012f44(Task* task, void* state);
@@ -96,13 +28,12 @@ extern FUN_8c02ae3e(int p1, int p2, int p3, int p4, float fp1, int p5, int p6, i
 extern FUN_8c011f36(int p1, int p2, int p3, int p4);
 extern void nop_8c011120();
 extern void resetUknPvmBool_8c014322();
-extern void* _8c225fb0;
 extern FUN_8c019550(char** p1, int p2);
 extern void _8c019e44(Task* task);
 extern _8c016182();
 extern _8c0159ac();
 extern void FUN_8c011f6c();
-extern void request_sys_resgrp_8c018568(DrawDatStruct1* dds, ResourceGroup* rg);
+extern void request_sys_resgrp_8c018568(ResourceGroup* dds, ResourceGroupInfo* rg);
 extern void requestCommonResources_8c01852c();
 extern void setUknPvmBool_8c014330();
 extern void FUN_8c011fe0(void* p1, int p2, int p3, int p4, void* p2);
