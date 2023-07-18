@@ -12,7 +12,7 @@ extern Bool getUknPvmBool_8c01432a();
 extern void _8c011f7e();
 extern void _8c01940e();
 extern void push_fadein_8c022a9c();
-extern SDMIDI midi_handle_8c0fcd28[7];
+extern SDMIDI midiHandles_8c0fcd28[7];
 extern Bool isFading_8c226568;
 extern void drawSprite_8c014f54(ResourceGroup *r4, int r5, float fr4, float fr5, float fr6);
 extern void push_fadeout_8c022b60();
@@ -56,7 +56,7 @@ void task_title_8c015ab8(Task* task, void *state) {
         && menuState_8c1bc7a8.state_0x18 <= TITLE_STATE_0X0C_FLAG_REVEAL) { /* 8c015af6 */
             if (peripheral_8c1ba35c[0].press & PDD_DGT_ST) { /* 8c015afa */
                 /* 8c015b00 */
-                sdMidiPlay(midi_handle_8c0fcd28[0], 1, 0, 0);
+                sdMidiPlay(midiHandles_8c0fcd28[0], 1, 0, 0);
 
                 peripheral_8c1ba35c[0].press = 0;
                 menuState_8c1bc7a8.state_0x18 = TITLE_STATE_0X0E_PRESS_START;
@@ -212,7 +212,7 @@ void task_title_8c015ab8(Task* task, void *state) {
                 peripheral_8c1ba35c[0].press & (PDD_DGT_TA | PDD_DGT_ST)
                 || FUN_8c019550(saveNames_8c044d50, 3)
             ) {
-                sdMidiPlay(midi_handle_8c0fcd28[0], 1, 0, 0);
+                sdMidiPlay(midiHandles_8c0fcd28[0], 1, 0, 0);
                 menuState_8c1bc7a8.state_0x18 = TITLE_STATE_0X09_VMU_WARNING_FADE_OUT;
                 push_fadeout_8c022b60(10);
             }
@@ -320,7 +320,7 @@ void task_title_8c015ab8(Task* task, void *state) {
                 FUN_8c010bae(0);
                 FUN_8c010bae(1);
 
-                sdMidiPlay(midi_handle_8c0fcd28[0], 1, 0, 0);
+                sdMidiPlay(midiHandles_8c0fcd28[0], 1, 0, 0);
 
                 menuState_8c1bc7a8.state_0x18 = TITLE_STATE_0X0F_START_PRESSED;
                 menuState_8c1bc7a8.logo_timer_0x68 = 0;

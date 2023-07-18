@@ -2,7 +2,7 @@
           .IMPORT     __8c0fcd50
           .IMPORT     _const127_8c03bd90
           .IMPORT     __8c226468
-          .IMPORT     _midi_handle_8c0fcd28
+          .IMPORT     _midiHandles_8c0fcd28
           .IMPORT     __divls
           .EXPORT     _FUN_sound_8c0100bc
           .EXPORT     _midiSetVol_8c010128
@@ -82,7 +82,7 @@ _midiSetVol_8c010128:            ; function: midiSetVol_8c010128
           FMOV.S      @R0,FR14
           FTRC        FR3,FPUL
           MOV.L       @R14,R0
-          MOV.L       L3+32,R10; _midi_handle_8c0fcd28
+          MOV.L       L3+32,R10; _midiHandles_8c0fcd28
           AND         #2,R0
           MOV.L       L3+40,R12; _sdMidiSetVol
           CMP/EQ      #2,R0
@@ -190,7 +190,7 @@ L3:
           .DATA.L     __divls
           .DATA.L     H'4573C000
           .DATA.L     __8c226468
-          .DATA.L     _midi_handle_8c0fcd28
+          .DATA.L     _midiHandles_8c0fcd28
           .DATA.L     H'C2FE0000
           .DATA.L     _sdMidiSetVol
           .DATA.L     H'41200000

@@ -4,11 +4,11 @@
           .IMPORT     _sdMidiSetVol
           .IMPORT     _ADXT_Create
           .IMPORT     __8c0fcd50
-          .IMPORT     _midi_handle_8c0fcd28
+          .IMPORT     _midiHandles_8c0fcd28
           .IMPORT     __8c226468
           .IMPORT     __8c1bbcb0
           .IMPORT     _work_8c0fcd74
-          .IMPORT     _adxt_8c0fcd20
+          .IMPORT     _adxtHandles_8c0fcd20
           .EXPORT     _midiSetPitch_8c01023c
           .EXPORT     _FUN_8c0102d8
           .EXPORT     _createAdxHandles_8c010428
@@ -36,7 +36,7 @@ _midiSetPitch_8c01023c:          ; function: midiSetPitch_8c01023c
           MOVA        L2+24,R0
           FTRC        FR3,FPUL
           FMOV.S      @R0,FR2
-          MOV.L       L2+16,R12; _midi_handle_8c0fcd28
+          MOV.L       L2+16,R12; _midiHandles_8c0fcd28
           MOV.L       L2+20,R14; _sdMidiSetPitch
           MOV         R12,R13
           STS         FPUL,R4
@@ -111,7 +111,7 @@ _FUN_8c0102d8:                   ; function: FUN_8c0102d8
           MOV.L       R9,@-R15
           MOV.L       R8,@-R15
           MOV.L       L2+36,R3; __8c1bbcb0
-          MOV.L       L2+16,R9; _midi_handle_8c0fcd28
+          MOV.L       L2+16,R9; _midiHandles_8c0fcd28
           STS.L       PR,@-R15
           FMOV.S      @R2,FR3
           MOV         R9,R12
@@ -155,7 +155,7 @@ L2:
           .DATA.L     __8c226468
           .DATA.L     H'C1200000 ; F'-10.0 H'8c010340
           .DATA.L     H'3D4CCCCD ; F'0.05
-          .DATA.L     _midi_handle_8c0fcd28
+          .DATA.L     _midiHandles_8c0fcd28
           .DATA.L     _sdMidiSetPitch
           .DATA.L     H'41200000 ; F'10.0 H'8c010350
           .DATA.L     H'453B8000 ; F'3000.0
@@ -275,7 +275,7 @@ _createAdxHandles_8c010428:      ; function: createAdxHandles_8c010428
           MOV.L       R9,@-R15
           STS.L       PR,@-R15
           MOV.L       L10+20,R14; H'0002D0C4
-          MOV.L       L10+24,R13; _adxt_8c0fcd20
+          MOV.L       L10+24,R13; _adxtHandles_8c0fcd20
           MOV.L       L10+16,R9; _ADXT_Create
           MOV.L       L10+12,R12; _work_8c0fcd74
 L8:                               
@@ -335,8 +335,8 @@ L10:
           .DATA.L _work_8c0fcd74
           .DATA.L _ADXT_Create
           .DATA.L H'0002D0C4
-          .DATA.L _adxt_8c0fcd20
-          .DATA.L _midi_handle_8c0fcd28
+          .DATA.L _adxtHandles_8c0fcd20
+          .DATA.L _midiHandles_8c0fcd28
           .DATA.L _sdMidiOpenPort
 ; TODO: Unused?
 _FUN_8c0104bc:                    ; function: FUN_8c0104bc
@@ -636,7 +636,7 @@ LAB_8c0106f4:
           CMP/GT      R1,R14
           BT          LAB_8c010718
 LAB_8c010700:
-          MOV.L       LAB_dddddddd+68,R4 ; _midi_handle_8c0fcd28
+          MOV.L       LAB_dddddddd+68,R4 ; _midiHandles_8c0fcd28
           MOV         R14,R6
           MOV.L       LAB_dddddddd+72,R3 ; _sdMidiPlay
           MOV         #1,R5
@@ -689,7 +689,7 @@ LAB_dddddddd:
          .DATA.L __8c0fcd24
          .DATA.L _ADXT_GetStat
          .DATA.L __8c03bd80
-         .DATA.L _midi_handle_8c0fcd28 ; H'8c010780
+         .DATA.L _midiHandles_8c0fcd28 ; H'8c010780
          .DATA.L _sdMidiPlay
 
           LAB_8c010788:
@@ -843,7 +843,7 @@ LAB_eeeeeeeeee:
           .DATA.W H'056C
           .DATA.L H'0000FC22 ; 64546 H'8c010892
           .DATA.L H'8C0FCD20
-          .DATA.L _midi_handle_8c0fcd28
+          .DATA.L _midiHandles_8c0fcd28
           .DATA.L _ADXT_SetOutVol ; H'8c0108a0
           .DATA.L _sdMidiPause
           .DATA.L H'8C03BD88
