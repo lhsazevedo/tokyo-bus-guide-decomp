@@ -1,55 +1,24 @@
-          ; This file is part of _00188_8c0100bc.src
-          ; and should be merged in the future.
-
-          .IMPORT     __8c226468
-          .IMPORT     _midi_handle_8c0fcd28
-          .IMPORT     _sdMidiSetPitch
-          .IMPORT     __8c1bbcb0
-          .IMPORT     _sdMidiPlay ; H'8c010360
-          .IMPORT     _sdMidiSetVol
-          .IMPORT     __8c0fcd50
-          .IMPORT     __8c0fcd74
-          .IMPORT     __8c04f8c0
-          .IMPORT     __0002d0c4
-          .IMPORT     __8c0fcd20
           .IMPORT     _sdMidiOpenPort
-          .IMPORT     _gdFsOpen
-          .IMPORT     _gdFsGetFileSize
-          .IMPORT     _syMalloc
-          .IMPORT     _gdFsRead
-          .IMPORT     _gdFsClose
-          .IMPORT     _const_adx_E8101214
-          .IMPORT     __slow_mvn
-          .IMPORT     _strlen
-          .IMPORT     _FUN_8c030140
-          .IMPORT     __8c03bd80
-          .IMPORT     __8c03bd84
-          .IMPORT     _ADXF_LoadPartition
-          .IMPORT     _ADXF_GetPtinfoSize
-          .IMPORT     _PTR_bgm_8c03bd94
-          .IMPORT     __8c156efc
-          .IMPORT     _sdMemBlkCreate
-          .IMPORT     __8c0fcd4c
-          .IMPORT     _sdMemBlkSetPrm
-          .IMPORT     _sdMultiUnitDownload
-          .IMPORT     _syFree
-          .IMPORT     _sdMemBlkDestroy
-          .IMPORT     _ADXT_Init
-          .IMPORT     _FUN_8c010532
-          .IMPORT     _ADXT_EntryErrFunc
-          .IMPORT     _sdLibInit
-          .IMPORT     _sd_src_blk_ptr
-          .IMPORT     _sdDrvInit
-          .IMPORT     _sdMemBlkSetTransferMode
-          .IMPORT     __8c0fcd24
-          .IMPORT     _ADXT_GetStat
-          .IMPORT     _ADXT_SetOutVol
-          .IMPORT     _sdMidiPause
-          .IMPORT     _sdMidiContinue
-          .IMPORT     _sdSndSetFxPrg
-          .IMPORT     _sdMidiSetFxLev
+          .IMPORT     _sdMidiPlay
+          .IMPORT     _sdMidiSetPitch
+          .IMPORT     _sdMidiSetVol
+          .IMPORT     _ADXT_Create
+          .IMPORT     __8c0fcd50
+          .IMPORT     _midi_handle_8c0fcd28
+          .IMPORT     __8c226468
+          .IMPORT     __8c1bbcb0
+          .IMPORT     _work_8c0fcd74
+          .IMPORT     _adxt_8c0fcd20
+          .EXPORT     _midiSetPitch_8c01023c
+          .EXPORT     _FUN_8c0102d8
+          .EXPORT     _createAdxHandles_8c010428
+          .EXPORT     _createMidiHandles_8c010468
+          .EXPORT     _createAdxAndMidiHandles_8c01048e
+          .EXPORT     _FUN_8c0104d6
+          .EXPORT     _FUN_8c010532
           .SECTION    P,CODE,ALIGN=4
-_midiSetPitch_8c01023c:
+_midiSetPitch_8c01023c:          ; function: midiSetPitch_8c01023c
+                                 ; frame size=32
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           MOV.L       R12,@-R15
@@ -58,7 +27,7 @@ _midiSetPitch_8c01023c:
           FMOV.S      FR13,@-R15
           STS.L       PR,@-R15
           ADD         #-4,R15
-          MOV.L       L2+4,R3
+          MOV.L       L2+4,R3 ; __8c226468
           MOVA        L2+8,R0
           FMOV.S      @R0,FR13
           MOVA        L2+12,R0
@@ -67,8 +36,8 @@ _midiSetPitch_8c01023c:
           MOVA        L2+24,R0
           FTRC        FR3,FPUL
           FMOV.S      @R0,FR2
-          MOV.L       L2+16,R12
-          MOV.L       L2+20,R14
+          MOV.L       L2+16,R12; _midi_handle_8c0fcd28
+          MOV.L       L2+20,R14; _sdMidiSetPitch
           MOV         R12,R13
           STS         FPUL,R4
           LDS         R4,FPUL
@@ -97,7 +66,7 @@ _midiSetPitch_8c01023c:
           MOV.L       @(28,R12),R4
           BRA         L1
           NOP
-L0:
+L0:                               
           MOVA        L2+28,R0
           FMOV.S      @R0,FR3
           FCMP/GT     FR15,FR3
@@ -120,7 +89,7 @@ L0:
           MOV         #0,R6
           JSR         @R14
           MOV.L       @(28,R12),R4
-L1:
+L1:                               
           ADD         #4,R15
           LDS.L       @R15+,PR
           FMOV.S      @R15+,FR13
@@ -130,18 +99,19 @@ L1:
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-FUN_8c0102d8:
-          MOV.L       L2+4,R2
+_FUN_8c0102d8:                   ; function: FUN_8c0102d8
+                                 ; frame size=?
+          MOV.L       L2+4,R2 ; __8c226468
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           MOV.L       R12,@-R15
           MOV.L       R11,@-R15
-          MOV.L       L2+48,R14
+          MOV.L       L2+48,R14; __8c0fcd50
           MOV.L       R10,@-R15
           MOV.L       R9,@-R15
           MOV.L       R8,@-R15
-          MOV.L       L2+36,R3
-          MOV.L       L2+16,R9
+          MOV.L       L2+36,R3; __8c1bbcb0
+          MOV.L       L2+16,R9; _midi_handle_8c0fcd28
           STS.L       PR,@-R15
           FMOV.S      @R2,FR3
           MOV         R9,R12
@@ -149,24 +119,24 @@ FUN_8c0102d8:
           FTRC        FR3,FPUL
           MOV.L       @R3,R5
           AND         #1,R0
-          MOV.L       L2+20,R8
-          MOV.L       L2+40,R10
+          MOV.L       L2+20,R8; _sdMidiSetPitch
+          MOV.L       L2+40,R10; _sdMidiPlay
           CMP/EQ      #1,R0
-          MOV.L       L2+44,R11
+          MOV.L       L2+44,R11; _sdMidiSetVol
           MOV         R0,R4
           STS         FPUL,R13
-          BT/S        LAB_8c01036c
+          BT/S        L3
           ADD         #24,R12
           MOV         R5,R0
           CMP/EQ      #1,R0
-          BF          LAB_8c01036c
-          MOV.W       L2,R5
+          BF          L3
+          MOV.W       L2,R5   ; H'FF38
           MOV         #0,R6
           JSR         @R8
           MOV.L       @R12,R4
           MOV.L       @(20,R14),R5
           MOV         #0,R6
-          ADD         #-H'7f,R5
+          ADD         #-127,R5
           JSR         @R11
           MOV.L       @R12,R4
           MOV         #1,R5
@@ -177,115 +147,113 @@ FUN_8c0102d8:
           MOV         #0,R3
           MOV         R3,R0
           OR          #1,R0
-          BRA         LAB_8c010388
+          BRA         L4
           MOV.L       R0,@R14
-
-L2:
-          .DATA.W H'FF38 ; -200 H'8c010338
-          .DATA.B H'00, H'00
-          .DATA.L __8c226468
-          .DATA.L H'C1200000 ; F'-10.0 H'8c010340
-          .DATA.L H'3D4CCCCD ; F'0.05
-          .DATA.L _midi_handle_8c0fcd28
-          .DATA.L _sdMidiSetPitch
-          .DATA.L H'41200000 ; F'10.0 H'8c010350
-          .DATA.L H'453B8000 ; F'3000.0
-          .DATA.L H'457A0000 ; F'4000.0
-          .DATA.L __8c1bbcb0
-          .DATA.L _sdMidiPlay ; H'8c010360
-          .DATA.L _sdMidiSetVol
-          .DATA.L __8c0fcd50
-
-LAB_8c01036c:
+L2:                               
+          .DATA.W     H'FF38 ; -200 H'8c010338
+          .RES.W      1
+          .DATA.L     __8c226468
+          .DATA.L     H'C1200000 ; F'-10.0 H'8c010340
+          .DATA.L     H'3D4CCCCD ; F'0.05
+          .DATA.L     _midi_handle_8c0fcd28
+          .DATA.L     _sdMidiSetPitch
+          .DATA.L     H'41200000 ; F'10.0 H'8c010350
+          .DATA.L     H'453B8000 ; F'3000.0
+          .DATA.L     H'457A0000 ; F'4000.0
+          .DATA.L     __8c1bbcb0
+          .DATA.L     _sdMidiPlay ; H'8c010360
+          .DATA.L     _sdMidiSetVol
+          .DATA.L     __8c0fcd50
+L3:                               
           MOV         R4,R0
           CMP/EQ      #1,R0
-          BF          LAB_8c010388
+          BF          L4
           MOV         R5,R0
           CMP/EQ      #1,R0
-          BT          LAB_8c010388
-          MOV.W       LAB_bbbbbbb,R6
-          MOV         #-H'7f,R5
+          BT          L4
+          MOV.W       L10,R6   ; H'07D0
+          MOV         #-127,R5
           JSR         @R11
           MOV.L       @R12,R4
           MOV.L       @R14,R2
-          MOV         #-H'2,R3
+          MOV         #-2,R3
           AND         R3,R2
           MOV.L       R2,@R14
-LAB_8c010388:
+L4:                               
           MOV.L       @R14,R0
           AND         #2,R0
           CMP/EQ      #2,R0
-          BT/S        LAB_8c0103c4
+          BT/S        L5
           MOV         R0,R4
           LDS         R13,FPUL
-          MOVA        LAB_bbbbbbb+4,R0 ; Next literal pool!
+          MOVA        L10+4,R0
           FMOV.S      @R0,FR2
           FLOAT       FPUL,FR3
           FCMP/GT     FR3,FR2
-          BT          LAB_8c0103c4
+          BT          L5
           MOV         R9,R12
           MOV         #0,R6
           ADD         #28,R12
           MOV         R6,R5
           JSR         @R8
           MOV.L       @R12,R4
-          MOV         #-H'7f,R5
+          MOV         #-127,R5
           MOV         #0,R6
           JSR         @R11
           MOV.L       @R12,R4
           MOV         #1,R5
-          MOV         #H'2c,R6
+          MOV         #44,R6
           MOV         #0,R7
           JSR         @R10
           MOV.L       @R12,R4
           MOV.L       @R14,R0
           OR          #2,R0
-          BRA         LAB_8c0103de
+          BRA         L6
           MOV.L       R0,@R14
-LAB_8c0103c4:
+L5:                               
           MOV         R4,R0
           CMP/EQ      #2,R0
-          BF          LAB_8c0103de
+          BF          L6
           LDS         R13,FPUL
-          MOVA        LAB_bbbbbbb+4,R0
+          MOVA        L10+4,R0
           FMOV.S      @R0,FR2
           FLOAT       FPUL,FR3
           FCMP/GT     FR3,FR2
-          BF          LAB_8c0103de
+          BF          L6
           MOV.L       @R14,R2
-          MOV         #-H'3,R3
+          MOV         #-3,R3
           AND         R3,R2
           MOV.L       R2,@R14
-LAB_8c0103de:
+L6:                               
           MOV.L       @R14,R0
           AND         #4,R0
           CMP/EQ      #4,R0
-          BT          LAB_8c010416
+          BT          L7
           LDS         R13,FPUL
-          MOVA        LAB_bbbbbbb+8,R0
+          MOVA        L10+8,R0
           FMOV.S      @R0,FR2
           FLOAT       FPUL,FR3
           FCMP/GT     FR3,FR2
-          BT          LAB_8c010416
+          BT          L7
           MOV         R9,R13
           MOV         #0,R6
           ADD         #24,R13
           MOV         R6,R5
           JSR         @R8
           MOV.L       @R13,R4
-          MOV         #-H'7f,R5
+          MOV         #-127,R5
           MOV         #0,R6
           JSR         @R11
           MOV.L       @R13,R4
           MOV         #1,R5
-          MOV         #H'2d,R6
+          MOV         #45,R6
           MOV         #0,R7
           JSR         @R10
           MOV.L       @R13,R4
           MOV.L       @R14,R0
           OR          #4,R0
           MOV.L       R0,@R14
-LAB_8c010416:
+L7:                               
           LDS.L       @R15+,PR
           MOV.L       @R15+,R8
           MOV.L       @R15+,R9
@@ -295,8 +263,8 @@ LAB_8c010416:
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-
-_FUN_adx_8c010428:
+_createAdxHandles_8c010428:      ; function: createAdxHandles_8c010428
+                                 ; frame size=28
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           MOV.L       R12,@-R15
@@ -306,22 +274,21 @@ _FUN_adx_8c010428:
           MOV         #2,R10
           MOV.L       R9,@-R15
           STS.L       PR,@-R15
-          MOV.L       LAB_bbbbbbb+20,R14
-          MOV.L       LAB_bbbbbbb+24,R13
-          MOV.L       LAB_bbbbbbb+16,R9
-          MOV.L       LAB_bbbbbbb+12,R12
-LAB_8c010442:
+          MOV.L       L10+20,R14; H'0002D0C4
+          MOV.L       L10+24,R13; _adxt_8c0fcd20
+          MOV.L       L10+16,R9; _ADXT_Create
+          MOV.L       L10+12,R12; _work_8c0fcd74
+L8:                               
           MOV         R12,R5
           MOV         R14,R6
           JSR         @R9
           MOV         #2,R4
           ADD         #1,R11
-LAB_8c01044c:
           MOV.L       R0,@R13
           EXTS.B      R11,R3
           CMP/GE      R10,R3
           ADD         R14,R12
-          BF/S        LAB_8c010442
+          BF/S        L8
           ADD         #4,R13
           LDS.L       @R15+,PR
           MOV.L       @R15+,R9
@@ -330,86 +297,87 @@ LAB_8c01044c:
           MOV.L       @R15+,R12
           MOV.L       @R15+,R13
           RTS
-          MOV.L      @R15+,R14
-LAB_8c010468:
+          MOV.L       @R15+,R14
+_createMidiHandles_8c010468:     ; function: createMidiHandles_8c010468
+                                 ; frame size=16
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
-          MOV.L       LAB_bbbbbbb+28,R4
+          MOV.L       L10+28,R4
           MOV.L       R12,@-R15
           STS.L       PR,@-R15
-          MOV.L       LAB_bbbbbbb+32,R13
+          MOV.L       L10+32,R13
           MOV         R4,R12
-          ADD         #H'20,R12
+          ADD         #32,R12
           MOV         R4,R14
-LAB_8c01047a:
+L9:                               
           JSR         @R13
           MOV         R14,R4
           ADD         #4,R14
           CMP/HS      R12,R14
-          BF          LAB_8c01047a
+          BF          L9
           LDS.L       @R15+,PR
           MOV.L       @R15+,R12
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-_prepareAdxAndMidi_8c01048e:
+_createAdxAndMidiHandles_8c01048e:      ; function: createAdxAndMidiHandles_8c01048e
+                                        ; frame size=4
           STS.L       PR,@-R15
-          BSR         _FUN_adx_8c010428
+          BSR         _createAdxHandles_8c010428
           NOP
-          BRA         LAB_8c010468
+          BRA         createMidiHandles_8c010468
           LDS.L      @R15+,PR
-LAB_bbbbbbb:
+L10:
           .DATA.W H'07D0 ; 2000 H'8c010498
-          .DATA.B H'00, H'00
+          .RES.W 1
           .DATA.L H'43C80000 ; F'400.0
           .DATA.L H'45034000 ; F'2100.0 H'8c0104a0
-          .DATA.L __8c0fcd74
-          .DATA.L __8c04f8c0
-          .DATA.L __0002d0c4
-          .DATA.L __8c0fcd20
+          .DATA.L _work_8c0fcd74
+          .DATA.L _ADXT_Create
+          .DATA.L H'0002D0C4
+          .DATA.L _adxt_8c0fcd20
           .DATA.L _midi_handle_8c0fcd28
           .DATA.L _sdMidiOpenPort
-
-          ; TODO: Unreachable?
-          MOV.W       LAB_cccccccc,R3
+; TODO: Unused?
+_FUN_8c0104bc:                    ; function: FUN_8c0104bc
+          MOV.W       L17,R3
           ADD         R3,R4
           CMP/PZ      R4
-          BT          LAB_8c0104c8
-          MOV.W       LAB_cccccccc,R2
+          BT          L11
+          MOV.W       L17,R2
           ADD         R2,R4
-LAB_8c0104c8:
-          MOV         #-H'b,R2
+L11:
+          MOV         #-11,R2
           SHAD        R2,R4
           MOV         R4,R0
           SHLL8       R0
           SHLL2       R0
           RTS
           SHLL       R0
-
-_FUN_8c0104d6:
+_FUN_8c0104d6:                    ; function: FUN_8c0104d6
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           MOV.L       R12,@-R15
           STS.L       PR,@-R15
           ADD         #-4,R15
-          MOV.L       LAB_cccccccc+2,R3
+          MOV.L       L17+2,R3
           JSR         @R3
           MOV        #0,R5
-          MOV.L       LAB_cccccccc+6,R2
+          MOV.L       L17+6,R2
           MOV         R15,R5
           MOV         R0,R14
           JSR         @R2
           MOV        R0,R4
           MOV.L       @R15,R13
-          MOV.W       LAB_cccccccc,R3
+          MOV.W       L17,R3
           ADD         R3,R13
           CMP/PZ      R13
-          BT          LAB_8c0104fe
-          MOV.W       LAB_cccccccc,R2
+          BT          L12
+          MOV.W       L17,R2
           ADD         R2,R13
-LAB_8c0104fe:
-          MOV         #-H'b,R2
-          MOV.L       LAB_cccccccc+10,R1
+L12:
+          MOV         #-11,R2
+          MOV.L       L17+10,R1
           SHAD        R2,R13
           MOV         R13,R4
           SHLL8       R4
@@ -417,15 +385,15 @@ LAB_8c0104fe:
           JSR         @R1
           SHLL       R4
           TST         R0,R0
-          BT/S        LAB_8c01051e
+          BT/S        L13
           MOV        R0,R12
-          MOV.L       LAB_cccccccc+14,R2
+          MOV.L       L17+14,R2
           MOV         R13,R5
           MOV         R12,R6
           JSR         @R2
           MOV        R14,R4
-LAB_8c01051e:
-          MOV.L       LAB_cccccccc+18,R3
+L13:
+          MOV.L       L17+18,R3
           JSR         @R3
           MOV        R14,R4
           MOV         R12,R0
@@ -435,40 +403,40 @@ LAB_8c01051e:
           MOV.L       @R15+,R13
           RTS
           MOV.L      @R15+,R14
-LAB_8c010532:
+_FUN_8c010532:                    ; function: FUN_8c010532
           MOV.L       R14,@-R15
           STS.L       PR,@-R15
           ADD         #-H'10,R15
           MOV         R15,R1
-          MOV.L       LAB_cccccccc+22,R2
-          MOV.L       LAB_cccccccc+26,R3
+          MOV.L       L17+22,R2
+          MOV.L       L17+26,R3
           MOV         R15,R14
           MOV.L       R5,@R15
           ADD         #4,R14
           ADD         #4,R1
           JSR         @R3
           MOV        #H'9,R0
-          MOV.L       LAB_cccccccc+30,R1
+          MOV.L       L17+30,R1
           JSR         @R1
           MOV        R14,R4
-          MOV.L       LAB_cccccccc+34,R3
+          MOV.L       L17+34,R3
           MOV         R14,R5
           MOV         R0,R6
           JSR         @R3
           MOV.L      @R15,R4
           TST         R0,R0
-          BF          LAB_8c010572
+          BF          L14
           BSR         _FUN_8c010ca6 ; This source file is huge!
           MOV        #0,R4
           BSR         _FUN_8c010ca6
           MOV        #1,R4
-          MOV.L       LAB_cccccccc+42,R0
+          MOV.L       L17+42,R0
           MOV         #0,R3
-          MOV.L       LAB_cccccccc+38,R2
+          MOV.L       L17+38,R2
           MOV         R3,R1
           MOV.L       R3,@R2
           MOV.L       R3,@R0
-LAB_8c010572:
+L14:
           ADD         #H'10,R15
           LDS.L       @R15+,PR
           RTS
@@ -484,14 +452,14 @@ adxLoad_8c01057a:
           MOV.L       R9,@-R15
           MOV.L       R8,@-R15
           STS.L       PR,@-R15
-          MOV.L       LAB_cccccccc+46,R8
-          MOV.L       LAB_cccccccc+50,R9
-          MOV.L       LAB_cccccccc+54,R13
-          BRA         LAB_8c0105b6
+          MOV.L       L17+46,R8
+          MOV.L       L17+50,R9
+          MOV.L       L17+54,R13
+          BRA         L16
           MOV        R4,R14
-LAB_8c010598:
+L15:
           EXTS.B      R14,R10
-          MOV.L       LAB_cccccccc+58,R6
+          MOV.L       L17+58,R6
           SHLL2       R10
           SHLL        R10
           ADD         R13,R10
@@ -505,14 +473,14 @@ LAB_8c010598:
           MOV        R11,R4
           ADD         #1,R14
           ADD         R0,R12
-LAB_8c0105b6:
+L16:
           EXTS.B      R14,R3
           SHLL2       R3
           SHLL        R3
           ADD         R13,R3
           MOV.L       @(H'4,R3),R2
           TST         R2,R2
-          BF          LAB_8c010598
+          BF          L15
           LDS.L       @R15+,PR
           MOV.L       @R15+,R8
           MOV.L       @R15+,R9
@@ -522,7 +490,7 @@ LAB_8c0105b6:
           MOV.L       @R15+,R13
           RTS
           MOV.L      @R15+,R14
-LAB_cccccccc:
+L17:
           .DATA.W H'7FF ; 2047 H'8c0105d6
           .DATA.L _gdFsOpen
           .DATA.L _gdFsGetFileSize
@@ -790,7 +758,7 @@ _FUN_8c0107d2:
           MOV.L      @(H'4,R10),R4
           MOV         R12,R11
           MOV.L       H'8c0108a4,R13
-          ADD         #H'20,R11
+          ADD         #32,R11
           MOV         R12,R14
 LAB_8c010802:
           JSR         @R13
@@ -816,7 +784,7 @@ LAB_8c01080e:
           MOV         R12,R4
           MOV         R14,R13
           MOV.L       H'8c0108b0,R12
-          ADD         #H'20,R13
+          ADD         #32,R13
 LAB_8c010830:
           JSR         @R12
           MOV.L      @R14+,R4
@@ -1065,13 +1033,13 @@ LAB_8c010a00:
           MOV.L       H'8c010b14,R13
           MOV         R4,R11
           MOV.L       H'8c010b1c,R12
-          ADD         #H'20,R11
+          ADD         #32,R11
           MOV.L       R3,@R13
           MOV         R4,R14
 LAB_8c010a20:
           MOV.L       @R13,R5
           MOV         #0,R6
-          ADD         #-H'7f,R5
+          ADD         #-127,R5
           JSR         @R12
           MOV.L       @R14+,R4
           CMP/HS      R11,R14
@@ -1145,7 +1113,7 @@ LAB_8c010a86:
           JSR         @R13
           MOV.L       @R4,R4
           MOV.L       @R14,R3
-          MOV         #-H'2,R4
+          MOV         #-2,R4
           AND         R4,R3
           MOV.L       R3,@R14
           MOV.L       @R11,R2
@@ -1174,7 +1142,7 @@ LAB_8c010abe:
           JSR         @R13
           MOV.L       @R4,R4
           MOV.L       @R14,R2
-          MOV         #-H'3,R3
+          MOV         #-3,R3
           AND         R3,R2
           MOV.L       R2,@R14
           MOV         #-H'11,R2
@@ -1215,8 +1183,8 @@ LAB_8c010b34:
           MOV.L       @R12,R4
 LAB_8c010b4e:
           MOV.L       @R14,R0
-          AND         #H'20,R0
-          CMP/EQ      #H'20,R0
+          AND         #32,R0
+          CMP/EQ      #32,R0
           BF          LAB_8c010b64
           MOV.L       @(H'10,R14),R2
           MOV.L       @(H'8,R14),R3
@@ -1248,8 +1216,8 @@ LAB_8c010b82:
           CMP/GT      R5,R3
           BF          LAB_8c010ba0
           MOV.L       @R14,R0
-          AND         #H'20,R0
-          CMP/EQ      #H'20,R0
+          AND         #32,R0
+          CMP/EQ      #32,R0
           BF          LAB_8c010ba0
           JSR         @R13
           MOV.L       @(H'4,R12),R4
@@ -1343,12 +1311,12 @@ _FUN_8c010c2c:
           MOV.L       H'8c010d38,R1
           MOV.L       @R1,R0
           AND         #H'f0,R0
-          CMP/EQ      #H'20,R0
+          CMP/EQ      #32,R0
           BT          LAB_8c010c68
           MOV.L       H'8c010d40,R3
           MOV.L       @R5,R0
           MOV.L       H'8c010d44,R2
-          OR          #H'20,R0
+          OR          #32,R0
           MOV.L       R0,@R5
           MOV.L       @R3,R1
           JSR         @R2
@@ -1370,7 +1338,7 @@ _FUN_8c010c6e:
           NOP
           BSR         H'8c01023c
           NOP
-          BRA         FUN_8c0102d8
+          BRA         _FUN_8c0102d8
           LDS.L       @R15+,PR
 _FUN_8c010c7c:
           MOV.L       R14,@-R15
@@ -1402,7 +1370,7 @@ _FUN_8c010ca6:
           TST         R14,R14
           BF          LAB_8c010cba
           MOV.L       @R4,R2
-          MOV         #-H'2,R3
+          MOV         #-2,R3
           AND         R3,R2
           BRA         LAB_8c010cc8
           MOV.L       R2,@R4
@@ -1532,7 +1500,7 @@ _FUN_8c010d8a:
           JSR         @R1
           MOV.L       @R14,R4
           MOV.L       H'8c010e74,R3
-          MOV         #-H'2,R12
+          MOV         #-2,R12
           MOV.L       H'8c010e78,R13
           MOV.L       @R3,R2
           AND         R12,R2
