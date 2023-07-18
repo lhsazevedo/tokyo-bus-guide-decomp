@@ -1,0 +1,26 @@
+Swap call for njUserInit in 8c0138f4:
+          ; 64 dd (r13)
+          MOV.L       L1211,R3   ; _njInitPrint
+          ; 00 E6
+          MOV         #0,R6
+          ; 63 65
+          MOV         R6,R5
+          ; 0b 4d (r13)
+          JSR         @R3
+          ; 63 64
+          MOV         R6,R4
+
+Addr that calls the pusher function: 8c0134ca
+Write 8c016636 at LP 8c013560
+
+Other candidates for hooking (untested):
+Write at LP 8c01354c
+Write at LP 8c015f5c
+Write at LP 8c015ab4
+
+
+
+
+
+
+
