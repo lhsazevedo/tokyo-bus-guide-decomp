@@ -4,9 +4,6 @@ debug
 elf 
 output build\tbg.elf 
 
-define __0002d0c4(0002D0C4)
-
-define _FUN_8c010532(8C010532)
 define _FUN_8c011f36(8C011F36)
 define _njUserInit(8C0134EC)
 define _njUserMain(8C01392E)
@@ -21,17 +18,14 @@ define __slow_mvn(8C02FED0)
 define _memset(8C0300b8)
 define _strcmp(8C030108)
 define _strlen(8C030130)
-define _FUN_8c030140(8C030140)
 define _const_adx_E8101214(8C0332A4)
 define _ptr_str_DATA_EMPTY_8c03be7c(8C03BE7C)
 define __8c03bd80(8C03BD80)
 define _const127_8c03bd90(8C03BD90)
 define __8c03bd84(8C03BD84)
-define _PTR_bgm_8c03bd94(8C03BD94)
 define __8c03be5c(8C03BE5C)
 
 define _ADXT_Init(8C04F7A2)
-define __8c04f8c0(8C04F8C0)
 define _ADXT_GetStat(8C04FCFC)
 define _ADXT_SetOutVol(8C04FE10)
 define _ADXT_EntryErrFunc(8C0500C0)
@@ -82,15 +76,10 @@ define _njExitSystem(8C057400)
 define _njGarbageTexture(8C059F94)
 
 define __BSG_END(8C0E7FCC)
-define __8c0fcd20(8C0FCD20)
-define __8c0fcd24(8C0FCD24)
 define _midiHandles_8c0fcd28(8C0FCD28)
-define _sd_src_blk_ptr(8C0FCD48)
-define __8c0fcd4c(8C0FCD4C)
+define _memblkSource_8c0fcd4c(8C0FCD4C)
 define __8c0fcd50(8C0FCD50)
-define __8c0fcd74(8C0FCD74)
 
-define __8c156efc(8C156EFC)
 define __8c157a48(8C157A48)
 define __8c157a6c(8C157A6C)
 define __8c157a80_basedir(8C157A80)
@@ -113,6 +102,7 @@ define __8c226468(8C226468)
 define _isFading_8c226568(8C226568)
 
 
+; Unordered
 define _FUN_8c010bae(8C010BAE)
 define _FUN_8c011f6c(8C011F6C)
 define _FUN_8c011fe0(8C011FE0)
@@ -131,17 +121,21 @@ define _titleResourceGroup_8c044254(8C044254)
 define _saveNames_8c044d50(8C044D50)
 define __8c1bb8c4(8C1BB8C4)
 define __8c225fb0(8C225FB0)
-
 define __8c012984(8C012984)
 define _getUknPvmBool_8c01432a(8C01432A)
-define _snd_8c010cd6(8C010CD6)
 define __8c011f7e(8C011F7E)
 define __8c01940e(8C01940E)
-
 define __8c2263a8(8C2263A8)
 define _freeResourceGroup_8c0185c4(8C0185C4)
 define __8c02af32(8C02AF32)
-
+define _ADXT_Create(8C04F8C0)
+define _adxtHandles_8c0fcd20(8C0FCD20)
+define _memblkSource_8c0fcd48(8C0FCD48)
+define _adxfPartitionInfo_8c03bd94(8C03BD94)
+define _work_8c0fcd74(8C0FCD74)
+define _strncmp(8c030140)
+define _adxf_work_8c156efc(8C156EFC)
+define __8c03bd88(8C03BD88)
 
 input build\_000000_8c010000.obj
 input build\_000128_8c010080_main.obj
