@@ -34,8 +34,8 @@ extern Uint32 _8c1bbcb0;
 #define WKSIZE 184516
 extern char work_8c0fcd74[WKSIZE * 2];
 extern ADXT adxtHandles_8c0fcd20[2];
-int _8c03bd80;
-int _8c03bd84;
+extern int _8c03bd80;
+extern int _8c03bd84;
 
 struct AdxfPartitionInfo {
     char* fname_0x00;
@@ -47,10 +47,25 @@ extern AdxfPartitionInfo adxfPartitionInfo_8c03bd94[2];
 extern char adxf_work_8c156efc[];
 extern void* memblkSource_8c0fcd48;
 extern void* memblkSource_8c0fcd4c;
-extern int _8c03bd88[2];
+extern char _8c0332b0[];
+extern int _8c03bd90 = 127;
+
+struct s_8c03bd88 {
+    int field_0x00;
+    int field_0x04;
+}
+typedef s_8c03bd88;
+
+extern s_8c03bd88 _8c03bd88;
+
+/* === Prototypes === */
+void midiResetFxAndPlay_8c010846(int hld_idx, int data_num);
+void FUN_8c0109c0();
+void FUN_8c010ca6(Bool p1);
+void snd_8c010cd6();
 
 /* Matched */
-midiSetPitch_8c01023c()
+void midiSetPitch_8c01023c()
 {
     int _8c226468_as_int = _8c226468.var0;
 
@@ -79,7 +94,7 @@ midiSetPitch_8c01023c()
     }
 }
 
-FUN_8c0102d8()
+void FUN_8c0102d8()
 {
     /*
      * r5 = _8c1bbcb0
@@ -135,35 +150,34 @@ FUN_8c0102d8()
 }
 
 /* Matched */
-createAdxHandles_8c010428()
+void createAdxHandles_8c010428()
 {
-    Sint8 i = 0;
-    do
+    Sint8 i;
+    for (i = 0; i < 2; i++)
     {
         adxtHandles_8c0fcd20[i] = ADXT_Create(2, &work_8c0fcd74[i * WKSIZE], WKSIZE);
-        i++;
-    } while (i < 2);
+    }
 }
 
 /* Matched */
-createMidiHandles_8c010468()
+void createMidiHandles_8c010468()
 {
-    SDMIDI* handle = &midiHandles_8c0fcd28[0];
-    do {
-        sdMidiOpenPort(handle);
-        handle++;
-    } while (handle < &midiHandles_8c0fcd28[8]);
+    int i;
+    for (i = 0; i < 8; i++)
+    {
+        sdMidiOpenPort(&midiHandles_8c0fcd28[i]);
+    }
 }
 
 /* Matched */
-createAdxAndMidiHandles_8c01048e()
+void createAdxAndMidiHandles_8c01048e()
 {
     createAdxHandles_8c010428();
     createMidiHandles_8c010468();
 }
 
 /* Matched */
-Sint32 FUN_8c0104bc(Sint32 fsize)
+Sint32 unused_8c0104bc(Sint32 fsize)
 {
     fsize += 2047;
     return (fsize / 2048) * 2048;
@@ -258,7 +272,6 @@ void soundInit_8c01065e()
 /* Matched */
 void FUN_8c0106ac()
 {
-    // TODO: Fix 1016 (W) Argument mismatch
     int s = ADXT_GetStat(adxtHandles_8c0fcd20[1]);
     if (s == ADXT_STAT_STOP || s == ADXT_STAT_PLAYEND) {
         _8c03bd80 &= 0xffffffef;
@@ -273,15 +286,15 @@ Bool FUN_8c0106d2(Sint32 param)
     }
 
     if (param >= 0 && param < 10) {
-        FUN_8c010846(0, param);
-        return 1;
+        midiResetFxAndPlay_8c010846(0, param);
+        return TRUE;
     } else {
         if (param >= 10 && param <= 70) {
             sdMidiPlay(midiHandles_8c0fcd28[0], 1, param - 10, 0);
-            return 1;
+            return TRUE;
         }
 
-        return 0;
+        return FALSE;
     }
 }
 
@@ -290,19 +303,19 @@ Bool FUN_8c010720(Sint32 param)
 {
     if (param >= 0 && param < 63) {
         snd_8c010cd6(1, param + 17);
-        return 1;
+        return TRUE;
     } else {
         if (param >= 63 && param <= 1388) {
             snd_8c010cd6(2, param - 63);
-            return 1;
+            return TRUE;
         }
 
-        return 0;
+        return FALSE;
     }
 }
 
 /* Matched */
-FUN_8c0107ac(Sint32 param)
+int FUN_8c0107ac(Sint32 param)
 {
     if (param >= 0 && param < 17) {
         snd_8c010cd6(0, param);
@@ -311,35 +324,201 @@ FUN_8c0107ac(Sint32 param)
     return 0;
 }
 
-
-FUN_8c0107d2(int param)
+/* Matched */
+void controlAdxtWithOutVol_8c0107d2(Bool play)
 {
-    SDMIDI* handle = &midiHandles_8c0fcd28[0];
+    Uint32 i;
 
-    if (param == 1) {
+    if (play == TRUE) {
         ADXT_SetOutVol(adxtHandles_8c0fcd20[0], -990);
         ADXT_SetOutVol(adxtHandles_8c0fcd20[1], -990);
 
-        do {
-            sdMidiPause(*handle);
-            handle++;
-        } while (handle < &midiHandles_8c0fcd28[8]);
-    } else if (param == 0) {
-        ADXT_SetOutVol(adxtHandles_8c0fcd20[0], _8c03bd88[0] - 990);
-        ADXT_SetOutVol(adxtHandles_8c0fcd20[1], _8c03bd88[1] - 990);
-        do {
-            sdMidiContinue(*handle);
-            handle++;
-        } while (handle < &midiHandles_8c0fcd28[8]);
+        for (i = 0; i < 8; i++)
+            sdMidiPause(midiHandles_8c0fcd28[i]);
+    } else if (play == FALSE) {
+        ADXT_SetOutVol(adxtHandles_8c0fcd20[0], -990 + _8c03bd88.field_0x00);
+        ADXT_SetOutVol(adxtHandles_8c0fcd20[1], -990 + _8c03bd88.field_0x04);
+
+        for (i = 0; i < 8; i++)
+            sdMidiContinue(midiHandles_8c0fcd28[i]);
     }
 }
 
-FUN_8c010ca6(Bool p1)
+/* Matched */
+void midiResetFxAndPlay_8c010846(int hld_idx, int data_num)
 {
+    Sint8 i;
+
+    sdSndSetFxPrg(0, 0);
+
+    for (i = 0; i < 6; i++)
+        sdMidiSetFxLev(midiHandles_8c0fcd28[i], 0);
+
+    sdMidiPlay(midiHandles_8c0fcd28[hld_idx], 0, data_num, 0);
+}
+
+/* Matched */
+Bool setSoundMode_8c0108c0(Bool no_pan)
+{
+    void *dat;
+    int r;
+
+    if (no_pan == FALSE) {
+        sdSndSetPanMode(SDE_PAN_MODE_ENABLE);
+    } else if (no_pan == TRUE) {
+        sdSndSetPanMode(SDE_PAN_MODE_DISABLE);
+    }
+
+    dat = syMalloc(0x4000);
+    r = syCfgInit(dat);
+    if (r != SYD_CFG_OK) {
+        syFree(dat);
+        return FALSE;
+    }
+
+    r = syCfgSetSoundMode(no_pan);
+    if (r != SYD_CFG_OK) {
+        syFree(dat);
+        return FALSE;
+    }
+
+    syCfgExit();
+    syFree(dat);
+
+    return TRUE;
+}
+
+/* Matched */
+FUN_8c010924() {
+    void* dat;
+    int r;
+    Sint32 mode;
+
+    dat = syMalloc(0x4000);
+    r = syCfgInit(dat);
+    if (r != SYD_CFG_OK) {
+        syFree(dat);
+        return -1;
+    }
+
+    r = syCfgGetSoundMode(&mode);
+    if (r != SYD_CFG_OK) {
+        syFree(dat);
+        return -1;
+    }
+
+    syCfgExit();
+    syFree(dat);
+
+    return mode;
+}
+
+FUN_8c010972(int param1, int param2) {
+    // Initialized data
+    int vols_8c0332b0[10] = {
+        0,
+        110,
+        220,
+        330,
+        440,
+        550,
+        660,
+        770,
+        880,
+        990
+    };
+
+    switch (param2)
+    {
+    case 0:
+        _8c03bd88.field_0x00 = vols_8c0332b0[param1];
+        ADXT_SetOutVol(adxtHandles_8c0fcd20[0], _8c03bd88.field_0x00 - 990);
+        break;
+
+    case 1:
+        _8c03bd88.field_0x04 = vols_8c0332b0[param1];
+        ADXT_SetOutVol(adxtHandles_8c0fcd20[1], _8c03bd88.field_0x04 - 990);
+        break;
+    }
+
+    /* if (param2 == 0) {
+        // vol = &_8c03bd88.field_0x00;
+        // adxt = adxtHandles_8c0fcd20[0];
+        
+    } else if (param2 == 1) {
+        // vol = &_8c03bd88.field_0x04;
+        // adxt = adxtHandles_8c0fcd20[1];
+        
+    } */
+
+    // ADXT_SetOutVol(adxt, 990 + *vol);
+}
+
+/* Matched (except for a BSR, will be fixed when merged with 8c0100bc) */
+void FUN_8c0109f4(int param1) {
+    // Initialized data
+    int i;
+    int vols_8c0332d8[10] = {
+        0,
+        25,
+        51,
+        76,
+        102,
+        127,
+        153,
+        178,
+        204,
+        229
+    };
+
+    _8c03bd90 = vols_8c0332d8[param1];
+
+    for (i = 0; i < 8; i++)
+        sdMidiSetVol(midiHandles_8c0fcd28[i], _8c03bd90 - 127, 0);
     
+    FUN_sound_8c0100bc();
 }
 
-snd_8c010cd6()
-{
+void FUN_adxVol_8c010a40() {
+    if ((_8c157a34 & 0xf) != 0) /* 8c010a56 */
+    {
+        /* 8c010a5c */
+        if ((_8c157a34 & 1) == 1) /* 8c010a62 */
+        {
+            /* 8c010a64 */
 
+        }
+
+        /* 8c010a70 */
+        if () /* 8c010a76 */
+        {
+            /* 8c010a78 */
+        }
+
+        /* 8c010a86 */
+        
+    }
+    else /* 8c010b34 */
+    {
+
+    }
 }
+
+void FUN_8c010bae() { }
+
+void FUN_8c010c2c() { }
+
+void FUN_8c010c6e() { }
+
+void FUN_8c010c7c() { }
+
+void FUN_8c010ca6(Bool p1) { }
+
+void snd_8c010cd6() { }
+
+void FUN_8c010d8a() { }
+
+void FUN_8c010de6() { }
+
+void FUN_8c010e18() { }
+

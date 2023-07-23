@@ -4,8 +4,10 @@
           .IMPORT     _gdFsRead
           .IMPORT     _syMalloc
           .IMPORT     _syFree
+          .IMPORT     _syCfgInit
           .IMPORT     _syCfgExit
           .IMPORT     _syCfgSetSoundMode
+          .IMPORT     _syCfgGetSoundMode
           .IMPORT     _sdDrvInit
           .IMPORT     _sdLibInit
           .IMPORT     _sdSndSetPanMode
@@ -44,19 +46,21 @@
           .IMPORT     _memblkSource_8c0fcd48
           .IMPORT     _memblkSource_8c0fcd4c
           .IMPORT     __8c03bd88
-          .IMPORT     _FUN_8c056110
+          .IMPORT     _FUN_sound_8c0100bc
           .IMPORT     __slow_mvn
           .IMPORT     _const_adx_E8101214
+          .IMPORT     __quick_evn_mvn
+          .EXPORT     __8c03bd90
           .EXPORT     _midiResetFxAndPlay_8c010846
+          .EXPORT     _FUN_8c010ca6
           .EXPORT     _midiSetPitch_8c01023c
           .EXPORT     _FUN_8c0102d8
           .EXPORT     _createAdxHandles_8c010428
           .EXPORT     _createMidiHandles_8c010468
           .EXPORT     _createAdxAndMidiHandles_8c01048e
-          .EXPORT     _FUN_8c0104bc
+          .EXPORT     _unused_8c0104bc
           .EXPORT     _FUN_8c0104d6
           .EXPORT     _usr_adx_err_func_8c010532
-          .EXPORT     _FUN_8c010ca6
           .EXPORT     _adxLoad_8c01057a
           .EXPORT     _finishSoundInit_8c010614
           .EXPORT     _adxInit_8c01064c
@@ -67,7 +71,18 @@
           .EXPORT     _snd_8c010cd6
           .EXPORT     _FUN_8c0107ac
           .EXPORT     _controlAdxtWithOutVol_8c0107d2
-          .EXPORT     _FUN_8c0108c0
+          .EXPORT     _setSoundMode_8c0108c0
+          .EXPORT     _FUN_8c010924
+          .EXPORT     _FUN_8c010972
+          .EXPORT     _FUN_8c0109f4
+          .EXPORT     _FUN_adxVol_8c010a40
+          .EXPORT     _FUN_8c010bae
+          .EXPORT     _FUN_8c010c2c
+          .EXPORT     _FUN_8c010c6e
+          .EXPORT     _FUN_8c010c7c
+          .EXPORT     _FUN_8c010d8a
+          .EXPORT     _FUN_8c010de6
+          .EXPORT     _FUN_8c010e18
           .SECTION    P,CODE,ALIGN=4
 _midiSetPitch_8c01023c:          ; function: midiSetPitch_8c01023c
                                  ; frame size=32
@@ -391,7 +406,7 @@ L10:
           .DATA.L     _adxtHandles_8c0fcd20
           .DATA.L     _midiHandles_8c0fcd28
           .DATA.L     _sdMidiOpenPort
-_FUN_8c0104bc:                   ; function: FUN_8c0104bc Unused?
+_unused_8c0104bc:                ; function: unused_8c0104bc
                                  ; frame size=0
           MOV.W       L17,R3   ; H'07FF
           ADD         R3,R4
@@ -465,7 +480,7 @@ _usr_adx_err_func_8c010532:      ; function: usr_adx_err_func_8c010532
           STS.L       PR,@-R15
           ADD         #-16,R15
           MOV         R15,R1
-          MOV.L       L17+22,R2; L30
+          MOV.L       L17+22,R2; L50
           MOV.L       L17+26,R3; __slow_mvn
           MOV         R15,R14
           MOV.L       R5,@R15
@@ -916,7 +931,7 @@ L37:
           .DATA.L     _sdSndSetFxPrg
           .DATA.L     _sdMidiSetFxLev
           .DATA.L     _sdMidiPlay
-_FUN_8c0108c0:                   ; function: FUN_8c0108c0
+_setSoundMode_8c0108c0:          ; function: setSoundMode_8c0108c0
                                  ; frame size=12
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
@@ -933,70 +948,70 @@ L38:
           MOV         R13,R0
           CMP/EQ      #1,R0
           BF          L39
-          MOV.L       L47+6,R3
+          MOV.L       L47+6,R3 ; _sdSndSetPanMode
           JSR         @R3
           MOV         #0,R4
 L39:                              
-          MOV.L       L47+10,R2
-          MOV.W       L47,R4
+          MOV.L       L47+10,R2; _syMalloc
+          MOV.W       L47,R4   ; H'4000
           JSR         @R2
           NOP
-          MOV.L       L47+14,R3
+          MOV.L       L47+14,R3; _syCfgInit
           MOV         R0,R14
           JSR         @R3
           MOV         R0,R4
           MOV         R0,R4
           TST         R4,R4
-          BF          L41
-          MOV.L       L47+18,R2
+          BF          L40
+          MOV.L       L47+18,R2; _syCfgSetSoundMode
           JSR         @R2
           MOV         R13,R4
           MOV         R0,R4
-L40:                              
           TST         R4,R4
-          BT          L42
-L41:                              
-          MOV.L       L47+22,R2
+          BT          L41
+L40:
+          MOV.L       L47+22,R2; _syFree
           JSR         @R2
           MOV         R14,R4
-          BRA         L43
+          BRA         L42
           MOV         #0,R0
-L42:                              
-          MOV.L       L47+26,R3
+L41:                              
+          MOV.L       L47+26,R3; _syCfgExit
           JSR         @R3
           NOP
-          MOV.L       L47+22,R2
+          MOV.L       L47+22,R2; _syFree
           JSR         @R2
           MOV         R14,R4
           MOV         #1,R0
-L43:                              
+L42:                              
           LDS.L       @R15+,PR
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-_FUN_8c010924:
+_FUN_8c010924:                   ; function: FUN_8c010924
+                                 ; frame size=12
           MOV.L       R14,@-R15
           STS.L       PR,@-R15
           ADD         #-4,R15
-          MOV.L       L47+10,R3
-          MOV.W       L47,R4
+          MOV.L       L47+10,R3; _syMalloc
+          MOV.W       L47,R4   ; H'4000
           JSR         @R3
           NOP
-          MOV.L       L47+14,R2
+          MOV.L       L47+14,R2; _syCfgInit
           MOV         R0,R14
           JSR         @R2
           MOV         R0,R4
           MOV         R0,R4
           TST         R4,R4
-          BF          L44
-          MOV.L       L47+30,R3
+          BF          L43
+          MOV.L       L47+30,R3; _syCfgGetSoundMode
           JSR         @R3
           MOV         R15,R4
           MOV         R0,R4
           TST         R4,R4
-          BT          L45
-L44:
-          MOV.L       L47+22,R3
+          BT          L44
+L43:
+          MOV.L       L47+22,R3; _syFree
           JSR         @R3
           MOV         R14,R4
           MOV         #-1,R0
@@ -1004,27 +1019,31 @@ L44:
           LDS.L       @R15+,PR
           RTS
           MOV.L       @R15+,R14
-L45:
-          MOV.L       L47+26,R2
+L44:                              
+          MOV.L       L47+26,R2; _syCfgExit
           JSR         @R2
           NOP
-          MOV.L       L47+22,R3
+          MOV.L       L47+22,R3; _syFree
           JSR         @R3
           MOV         R14,R4
           MOV.L       @R15,R0
+L45:                              
           ADD         #4,R15
           LDS.L       @R15+,PR
           RTS
           MOV.L       @R15+,R14
-_FUN_8c010972:
+_FUN_8c010972:                   ; function: FUN_8c010972
+                                 ; frame size=48
+                                 ; used runtime library name:
+                                 ; __quick_evn_mvn
           STS.L       PR,@-R15
-          ADD         #-H'28,R15
+          ADD         #-40,R15
           MOV.L       L47+34,R2
           MOV         R15,R7
-          MOV.L       L47+38,R3
+          MOV.L       L47+38,R3; __quick_evn_mvn
           MOV         R15,R1
           JSR         @R3
-          MOV         #H'28,R0
+          MOV         #40,R0
           MOV         R5,R0
           MOV         R4,R6
           CMP/EQ      #0,R0
@@ -1033,146 +1052,149 @@ _FUN_8c010972:
           ADD         R7,R6
           CMP/EQ      #1,R0
           BT          L48
-          BRA         LAB_8c0109ec
+          BRA         L50
           NOP
-L46:
-          MOV.L       L47+42,R1
+L46:                              ; case label 
+          MOV.L       L47+42,R1; __8c03bd88
           MOV.L       @R6,R3
-          MOV.L       L47+46,R4
+          MOV.L       L47+46,R4; _adxtHandles_8c0fcd20
           MOV.L       R3,@R1
           MOV.L       @R1,R5
-          MOV.W       L47+2,R3
-          BRA         LAB_8c0109e6
+          MOV.W       L47+2,R3 ; H'FC22
+          BRA         L49
           ADD         R3,R5
 
-L47:
-          .DATA.W     H'4000 ; L47
+L47:                              
+          .DATA.W     H'4000
           .DATA.W     H'FC22
-          .RES.W      1 ; L47+2
-          .DATA.L     H'8C051364
-          .DATA.L     H'8C0544D6 ; L47+10
-          .DATA.L     H'8C056110
-          .DATA.L     H'8C05612C
-          .DATA.L     H'8C0545A4
-          .DATA.L     H'8C056122 ; L47+26
-          .DATA.L     H'8C056162
-          .DATA.L     H'8C0332B0
-          .DATA.L     H'8C02FE2C
-          .DATA.L     H'8C03BD88 ; L47+42
-          .DATA.L     H'8C0FCD20
-
-L48:
-          MOV.L       H'8c010b00,R1
+          .RES.W      1
+          .DATA.L     _sdSndSetPanMode
+          .DATA.L     _syMalloc
+          .DATA.L     _syCfgInit
+          .DATA.L     _syCfgSetSoundMode
+          .DATA.L     _syFree
+          .DATA.L     _syCfgExit
+          .DATA.L     _syCfgGetSoundMode
+          .DATA.L     _const_int_arr_8c0332b0
+          .DATA.L     __quick_evn_mvn
+          .DATA.L     __8c03bd88
+          .DATA.L     _adxtHandles_8c0fcd20
+L48:                              ; case label 
+          MOV.L       L56+6,R1
           MOV.L       @R6,R3
-          MOV.L       H'8c010b04,R4
+          MOV.L       L56+10,R4
           MOV.L       R3,@R1
           MOV.L       @R1,R5
-          MOV.W       H'8c010afa,R3
+          MOV.W       L56,R3
           ADD         R3,R5
-LAB_8c0109e6:
-          MOV.L       H'8c010b08,R3
+L49:                              
+          MOV.L       L56+14,R3
           JSR         @R3
           MOV.L       @R4,R4
-LAB_8c0109ec:
-          ADD         #H'28,R15
+L50:                              
+          ADD         #40,R15
           LDS.L       @R15+,PR
           RTS
           NOP
-_FUN_8c0109f4:
+_FUN_8c0109f4:                   ; function: FUN_8c0109f4
+                                 ; frame size=60
+                                 ; used runtime library name:
+                                 ; __quick_evn_mvn
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           MOV.L       R12,@-R15
           MOV.L       R11,@-R15
           STS.L       PR,@-R15
-          ADD         #-H'28,R15
-LAB_8c010a00:
-          MOV.L       H'8c010b0c,R2
+          ADD         #-40,R15
+L51:
+          MOV.L       L56+18,R2
           MOV         R15,R5
-          MOV.L       H'8c010b10,R3
+          MOV.L       L56+22,R3; __quick_evn_mvn
           MOV         R15,R1
           JSR         @R3
-          MOV         #H'28,R0
+          MOV         #40,R0
           MOV         R4,R0
           SHLL2       R0
-          MOV.L       H'8c010b18,R4
+          MOV.L       L56+30,R4; _midiHandles_8c0fcd28
           MOV.L       @(R0,R5),R3
-          MOV.L       H'8c010b14,R13
+          MOV.L       L56+26,R13; __8c03bd90
           MOV         R4,R11
-          MOV.L       H'8c010b1c,R12
+          MOV.L       L56+34,R12; _sdMidiSetVol
           ADD         #32,R11
           MOV.L       R3,@R13
           MOV         R4,R14
-LAB_8c010a20:
+L52:
           MOV.L       @R13,R5
           MOV         #0,R6
           ADD         #-127,R5
           JSR         @R12
           MOV.L       @R14+,R4
           CMP/HS      R11,R14
-          BF          LAB_8c010a20
-          BSR         H'8c0100bc
+          BF          L52
+          BSR         _FUN_sound_8c0100bc
           NOP
-          ADD         #H'28,R15
+          ADD         #40,R15
           LDS.L       @R15+,PR
           MOV.L       @R15+,R11
           MOV.L       @R15+,R12
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-_FUN_adxVol_8c010a40:
+_FUN_adxVol_8c010a40:            ; function: FUN_adxVol_8c010a40
+                                 ; frame size=24
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           MOV.L       R12,@-R15
           MOV.L       R11,@-R15
           STS.L       PR,@-R15
           ADD         #-4,R15
-          MOV.L       H'8c010b24,R14
-          MOV         #H'f,R3
-          MOV.L       H'8c010b08,R13
+          MOV.L       L56+42,R14
+          MOV         #15,R3
+          MOV.L       L56+14,R13
           MOV.L       @R14,R4
-          MOV.L       H'8c010b20,R12
+          MOV.L       L56+38,R12
           TST         R4,R3
           BT/S        LAB_8c010b34
           MOV.L       @(4,R14),R5
           MOV         #1,R0
           AND         R4,R0
           CMP/EQ      #1,R0
-          BF          LAB_8c010a70
-          MOV.L       @(H'c,R14),R2
+          BF          L53
+          MOV.L       @(12,R14),R2
           SUB         R5,R2
           MOV         R2,R5
-          MOV.L       R2,@(H'c,R14)
+          MOV.L       R2,@(12,R14)
           JSR         @R13
           MOV.L       @R12,R4
-LAB_8c010a70:
+L53:
           MOV.L       @R14,R0
           AND         #2,R0
           CMP/EQ      #2,R0
-          BF          LAB_8c010a86
-          MOV.L       @(H'10,R14),R2
-          MOV.L       @(H'8,R14),R3
+          BF          L54
+          MOV.L       @(16,R14),R2
+          MOV.L       @(8,R14),R3
           SUB         R3,R2
           MOV         R2,R5
-          MOV.L       R2,@(H'10,R14)
+          MOV.L       R2,@(16,R14)
           JSR         @R13
           MOV.L       @(4,R12),R4
-LAB_8c010a86:
-          MOV.L       @(H'c,R14),R2
-          MOV.W       H'8c010afc,R3
-          MOV.L       H'8c010b28,R11
+L54:
+          MOV.L       @(12,R14),R2
+          MOV.W       L56+2,R3
+          MOV.L       L56+46,R11
           CMP/GE      R3,R2
-          BT          LAB_8c010abe
+          BT          L55
           MOV.L       @R14,R0
           AND         #1,R0
           CMP/EQ      #1,R0
-          BF          LAB_8c010abe
-          MOV.L       H'8c010b2c,R3
+          BF          L55
+          MOV.L       L56+50,R3
           MOV         R12,R4
           MOV.L       R4,@R15
           JSR         @R3
           MOV.L       @R4,R4
-          MOV.L       H'8c010b30,R2
-          MOV.W       H'8c010afa,R3
+          MOV.L       L56+54,R2
+          MOV.W       L56,R3
           MOV.L       @R2,R5
           MOV.L       @R15,R4
           ADD         R3,R5
@@ -1185,9 +1207,9 @@ LAB_8c010a86:
           MOV.L       @R11,R2
           AND         R4,R2
           MOV.L       R2,@R11
-LAB_8c010abe:
-          MOV.L       @(H'10,R14),R1
-          MOV.W       H'8c010afc,R3
+L55:
+          MOV.L       @(16,R14),R1
+          MOV.W       L56+2,R3
           CMP/GE      R3,R1
           BT          LAB_8c010ba0
           MOV.L       @R14,R0
@@ -1195,13 +1217,13 @@ LAB_8c010abe:
           CMP/EQ      #2,R0
           BF          LAB_8c010ba0
           MOV         R12,R4
-          MOV.L       H'8c010b2c,R3
+          MOV.L       L56+50,R3
           ADD         #4,R4
           MOV.L       R4,@R15
           JSR         @R3
           MOV.L       @R4,R4
-          MOV.L       H'8c010b00,R2
-          MOV.W       H'8c010afa,R3
+          MOV.L       L56+6,R2
+          MOV.W       L56,R3
           MOV.L       @R2,R5
           MOV.L       @R15,R4
           ADD         R3,R5
@@ -1216,22 +1238,23 @@ LAB_8c010abe:
           AND         R2,R1
           BRA         LAB_8c010ba0
           MOV.L       R1,@R11
-
-          .DATA.B H'22, H'FC ; H'8c010afa
-          .DATA.B H'D4, H'FE, H'00, H'00 ; H'8c010afc
-          .DATA.L H'8C03BD8C ; H'8c010b00
-          .DATA.L H'8C0FCD24
-          .DATA.L H'8C04FE10
-          .DATA.L H'8C0332D8
-          .DATA.L H'8C02FE2C ; H'8c010b10
-          .DATA.L H'8C03BD90
-          .DATA.L H'8C0FCD28
-          .DATA.L H'8C051844
-          .DATA.L H'8C0FCD20 ; H'8c010b20
-          .DATA.L H'8C157A34
-          .DATA.L H'8C03BD80
-          .DATA.L H'8C04FC64
-          .DATA.L H'8C03BD88 ; H'8c010b30
+L56:
+          .DATA.B     H'FC22 ; L56
+          .DATA.B     H'FED4 ; L56+2
+          .RES.W      1
+          .DATA.L     H'8C03BD8C ; L56+6
+          .DATA.L     H'8C0FCD24
+          .DATA.L     H'8C04FE10
+          .DATA.L     H'8C0332D8
+          .DATA.L     H'8C02FE2C ; L56+22
+          .DATA.L     H'8C03BD90
+          .DATA.L     H'8C0FCD28
+          .DATA.L     H'8C051844
+          .DATA.L     H'8C0FCD20 ; L56+38
+          .DATA.L     H'8C157A34
+          .DATA.L     H'8C03BD80
+          .DATA.L     H'8C04FC64
+          .DATA.L     H'8C03BD88 ; L56+54
 
 LAB_8c010b34:
           MOV.W       H'8c010c16,R0
@@ -1241,10 +1264,10 @@ LAB_8c010b34:
           AND         R4,R0
           CMP/EQ      #H'10,R0
           BF          LAB_8c010b4e
-          MOV.L       @(H'c,R14),R2
+          MOV.L       @(12,R14),R2
           ADD         R5,R2
           MOV         R2,R5
-          MOV.L       R2,@(H'c,R14)
+          MOV.L       R2,@(12,R14)
           JSR         @R13
           MOV.L       @R12,R4
 LAB_8c010b4e:
@@ -1252,16 +1275,16 @@ LAB_8c010b4e:
           AND         #32,R0
           CMP/EQ      #32,R0
           BF          LAB_8c010b64
-          MOV.L       @(H'10,R14),R2
-          MOV.L       @(H'8,R14),R3
+          MOV.L       @(16,R14),R2
+          MOV.L       @(8,R14),R3
           ADD         R3,R2
           MOV         R2,R5
-          MOV.L       R2,@(H'10,R14)
+          MOV.L       R2,@(16,R14)
           JSR         @R13
           MOV.L       @(4,R12),R4
 LAB_8c010b64:
           MOV.L       H'8c010c1c,R3
-          MOV.L       @(H'c,R14),R2
+          MOV.L       @(12,R14),R2
           MOV.L       @R3,R5
           CMP/GT      R5,R2
           BF          LAB_8c010b82
@@ -1277,7 +1300,7 @@ LAB_8c010b64:
           MOV.L       R2,@R14
 LAB_8c010b82:
           MOV.L       H'8c010c20,R1
-          MOV.L       @(H'10,R14),R3
+          MOV.L       @(16,R14),R3
           MOV.L       @R1,R5
           CMP/GT      R5,R3
           BF          LAB_8c010ba0
@@ -1309,7 +1332,7 @@ _FUN_8c010bae:
           MOV.W       H'8c010c18,R7
           TST         R4,R4
           BF          LAB_8c010be4
-          MOV         #H'f,R0
+          MOV         #15,R0
           AND         R6,R0
           CMP/EQ      #1,R0
           BT          LAB_8c010be4
@@ -1326,14 +1349,14 @@ _FUN_8c010bae:
           MOV.L       R0,@(4,R5)
           MOV.L       @R6,R1
           ADD         R7,R1
-          MOV.L       R1,@(H'c,R5)
+          MOV.L       R1,@(12,R5)
 LAB_8c010be4:
           MOV         R4,R0
           CMP/EQ      #1,R0
           BF          LAB_8c010c10
           MOV.L       H'8c010c24,R2
           MOV.L       @R2,R0
-          AND         #H'f,R0
+          AND         #15,R0
           CMP/EQ      #2,R0
           BT          LAB_8c010c10
           MOV.L       H'8c010c20,R4
@@ -1347,10 +1370,10 @@ LAB_8c010c00:
           ADD         R3,R1
           JSR         @R2
           MOV         #H'5a,R0
-          MOV.L       R0,@(H'8,R5)
+          MOV.L       R0,@(8,R5)
           MOV.L       @R4,R1
           ADD         R1,R7
-          MOV.L       R7,@(H'10,R5)
+          MOV.L       R7,@(16,R5)
 LAB_8c010c10:
           LDS.L       @R15+,PR
           RTS
@@ -1368,7 +1391,7 @@ _FUN_8c010c2c:
           MOV.L       H'8c010d38,R5
           STS.L       PR,@-R15
           MOV.L       @R5,R0
-          TST         #H'f,R0
+          TST         #15,R0
           BF          LAB_8c010c68
           MOV         #1,R2
           MOV.L       H'8c010d3c,R6
@@ -1389,8 +1412,8 @@ _FUN_8c010c2c:
           JSR         @R2
           MOV         R7,R0
           MOV.W       H'8c010d34,R2
-          MOV.L       R0,@(H'8,R5)
-          MOV.L       R2,@(H'10,R5)
+          MOV.L       R0,@(8,R5)
+          MOV.L       R2,@(16,R5)
           MOV         #-17,R2
           MOV.L       @R6,R1
           AND         R2,R1
