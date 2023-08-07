@@ -2,7 +2,7 @@
 /* Functionally matching, but still using different registers... */
 
 #include "includes.h"
-#include "ninja.h"
+#include "shinobi.h"
 
 struct DatSect1Entry {
     int sprite_no_0x00;
