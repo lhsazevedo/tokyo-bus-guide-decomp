@@ -14,18 +14,30 @@ dat_handle.close()
 
 print("Size:", len(r), "bytes")
 
-offset = int.from_bytes(r[0:4], 'little')
-print("Offset at 0x0:", offset)
-
 i = 0
-current = offset * 4
+
 while True:
-    s = struct.unpack('<iff', r[current:current+12])
-    if s[0] == -1:
+    offset = int.from_bytes(r[i:i+4], 'little')
+
+    if offset == 0:
         break
 
-    print("Sprite ID:", s[0])
-    print("X:", s[1])
-    print("Y:", s[2])
+    print("Offset at " + hex(i) + ":", offset)
 
-    current = current + 12
+    current = offset * 4
+
+    while True:
+        if (struct.unpack('<i', r[current:current+4])[0] == -1):
+            break
+
+        s = struct.unpack('<iff', r[current:current+12])
+
+        print("Sprite ID:", s[0])
+        print("X:", s[1])
+        print("Y:", s[2])
+
+        current = current + 12
+
+    i = i+4
+
+
