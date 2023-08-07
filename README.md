@@ -66,22 +66,22 @@ See [this thread](https://twitter.com/lhs_azevedo/status/1508270685784793089).
 
 ### Program sections:
 
-| Section       | Address    |
-| ------------- | ---------: |
-| DSGLH         | 0x8C010000 |
-| DSGLE         | 0x8C010060 |
-| P             | 0x8C010080 |
-| C             | 0x8C03327C |
-| C32           | ?          |
-| D             | 0x8C04F6C0 |
-| D32           | 0x8C04F6C0 |
-| PSG           | ?          |
-| R             | ?          |
-| R32           | ?          |
-| CSG           | ?          |
-| CSG32         | ?          |
-| DSG           | ?          |
-| DSG32         | ?          |
+| Section         | Address    |
+| --------------- | ---------: |
+| DSGLH           | 0x8c010000 |
+| DSGLE           | 0x8c010060 |
+| P (program)     | 0x8c010080 |
+| C (const. data) | 0x8c03327c |
+| C32             | ?          |
+| D (init. data)  | 0x8C03BD80 |
+| D32             | 0x8c04f6c0 |
+| PSG             | 0x8c04f6c0 |
+| R               | ?          |
+| R32             | ?          |
+| CSG             | 0x8c0e7f98 |
+| CSG32           | ?          |
+| DSG             | ?          |
+| DSG32           | ?          |
 
 ## Useful resources
 - [Dreamcast Programming](https://mc.pp.se/dc/) by Marcus Comstedt
