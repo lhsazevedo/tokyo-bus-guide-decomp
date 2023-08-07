@@ -17,25 +17,14 @@ struct s_8c0fcd50 {
 }
 typedef s_8c0fcd50;
 
-extern s_8c0fcd50 _8c0fcd50;
-extern SDMIDI midiHandles_8c0fcd28[7];
-
-typedef struct _Test {
+struct s_8c226468 {
     float var0;
-} Test;
+}
+typedef s_8c226468;
 
 typedef struct _Test2 {
     Uint32 var0;
 } Test2;
-
-extern Test _8c226468;
-extern Uint32 _8c1bbcb0;
-
-#define WKSIZE 184516
-extern char work_8c0fcd74[WKSIZE * 2];
-extern ADXT adxtHandles_8c0fcd20[2];
-extern int _8c03bd80;
-extern int _8c03bd84;
 
 struct AdxfPartitionInfo {
     char* fname_0x00;
@@ -43,26 +32,106 @@ struct AdxfPartitionInfo {
 }
 typedef AdxfPartitionInfo;
 
-extern AdxfPartitionInfo adxfPartitionInfo_8c03bd94[2];
-extern char adxf_work_8c156efc[];
-extern void* memblkSource_8c0fcd48;
-extern void* memblkSource_8c0fcd4c;
-extern char _8c0332b0[];
-extern int _8c03bd90 = 127;
-
 struct s_8c03bd88 {
     int field_0x00;
     int field_0x04;
 }
 typedef s_8c03bd88;
 
+struct s_8c157a34 {
+    int flags_0x00;
+    int field_0x04;
+    int field_0x08;
+    int field_0x0c;
+    int field_0x10;
+}
+typedef s_8c157a34;
+
+
+extern s_8c0fcd50 _8c0fcd50;
+extern ADXT adxtHandles_8c0fcd20[2];
+extern SDMIDI midiHandles_8c0fcd28[7];
+
+#define WKSIZE 184516
+extern char work_8c0fcd74[WKSIZE * 2];
+
+extern char _8c0332b0[];
 extern s_8c03bd88 _8c03bd88;
+extern int _8c03bd88_a;
+extern int _8c03bd88_b;
+extern int _8c03bd90; /* = 127; */
+extern AdxfPartitionInfo adxfPartitionInfo_8c03bd94[2];
+extern int _8c03bd80;
+extern int _8c03bd84;
+extern void* memblkSource_8c0fcd48;
+extern void* memblkSource_8c0fcd4c;
+
+extern char adxf_work_8c156efc[];
+extern s_8c157a34 _8c157a34;
+extern Uint32 _8c1bbcb0;
+
+extern s_8c226468 _8c226468;
+
+/* TODO: Const or init? Move to section */
+extern const int const127_8c03bd90;
 
 /* === Prototypes === */
 void midiResetFxAndPlay_8c010846(int hld_idx, int data_num);
 void FUN_8c0109c0();
 void FUN_8c010ca6(Bool p1);
 void snd_8c010cd6();
+
+
+void FUN_sound_8c0100bc() {
+    _8c0fcd50.field_0x18 = (float) const127_8c03bd90 / 2600;
+    _8c0fcd50.field_0x1c = _8c0fcd50.field_0x18 * 2600 / 3000;
+    _8c0fcd50.field_0x14 = const127_8c03bd90 * 30 / 100;
+    _8c0fcd50.field_0x08 = const127_8c03bd90 * 40 / 100;
+    _8c0fcd50.field_0x0c = _8c0fcd50.field_0x18 * 3000;
+    _8c0fcd50.field_0x20 = (float) const127_8c03bd90 / 3900;
+}
+
+void midiSetVol_8c010128() {
+    int r13_8c226468_as_int = _8c226468.var0;
+
+    if ((_8c0fcd50.field_0x00 & 2) == 2) {
+        if (r13_8c226468_as_int >= 10.f && r13_8c226468_as_int < 3000.f) {
+            sdMidiSetVol(
+                midiHandles_8c0fcd28[7],
+                _8c0fcd50.field_0x08 + (r13_8c226468_as_int - 10.f) * _8c0fcd50.field_0x18 - 127,
+                0
+            );
+        /* 8c010192 */
+        } else if (r13_8c226468_as_int >= 3000.f) {
+            /* 8c01019a */
+            sdMidiSetVol(
+                midiHandles_8c0fcd28[7],
+                _8c0fcd50.field_0x0c - (r13_8c226468_as_int - 3000) * _8c0fcd50.field_0x1c - 127,
+                0
+            );
+        }
+    }
+
+    /* LAB_8c0101bc */
+    if ((_8c0fcd50.field_0x00 & 4) == 4) {
+        sdMidiSetVol(
+            midiHandles_8c0fcd28[6],
+            (r13_8c226468_as_int - 1000.f) * _8c0fcd50.field_0x20 - 127,
+           0
+        );
+
+        if (r13_8c226468_as_int < 2100) {
+            /* 8c0101e2 */
+            _8c0fcd50.field_0x00 &= -5;
+
+            sdMidiSetVol(
+                midiHandles_8c0fcd28[6],
+                -127,
+                0
+            );
+        }
+    }
+}
 
 /* Matched */
 void midiSetPitch_8c01023c()
@@ -415,7 +484,7 @@ FUN_8c010924() {
 
 FUN_8c010972(int param1, int param2) {
     // Initialized data
-    int vols_8c0332b0[10] = {
+    const int vols_8c0332b0[10] = {
         0,
         110,
         220,
@@ -430,15 +499,18 @@ FUN_8c010972(int param1, int param2) {
 
     switch (param2)
     {
-    case 0:
-        _8c03bd88.field_0x00 = vols_8c0332b0[param1];
-        ADXT_SetOutVol(adxtHandles_8c0fcd20[0], _8c03bd88.field_0x00 - 990);
-        break;
-
-    case 1:
-        _8c03bd88.field_0x04 = vols_8c0332b0[param1];
-        ADXT_SetOutVol(adxtHandles_8c0fcd20[1], _8c03bd88.field_0x04 - 990);
-        break;
+        case 0: {
+            // int vol = vols_8c0332b0[param1];
+            _8c03bd88.field_0x00 = vols_8c0332b0[param1];
+            ADXT_SetOutVol(adxtHandles_8c0fcd20[param2], _8c03bd88.field_0x00 - 990);
+            break;
+        }
+        case 1: {
+            // int vol = vols_8c0332b0[param1];
+            _8c03bd88.field_0x04 = vols_8c0332b0[param1];
+            ADXT_SetOutVol(adxtHandles_8c0fcd20[param2], _8c03bd88.field_0x04 - 990);
+            break;
+        }
     }
 
     /* if (param2 == 0) {
@@ -480,31 +552,99 @@ void FUN_8c0109f4(int param1) {
 }
 
 void FUN_adxVol_8c010a40() {
-    if ((_8c157a34 & 0xf) != 0) /* 8c010a56 */
+    /* 8c010a56 */
+    if ((_8c157a34.flags_0x00 & 0xf) != 0)
     {
         /* 8c010a5c */
-        if ((_8c157a34 & 1) == 1) /* 8c010a62 */
+        if ((_8c157a34.flags_0x00 & 1) == 1)
         {
-            /* 8c010a64 */
-
+            _8c157a34.field_0x0c -= _8c157a34.field_0x04;
+            ADXT_SetOutVol(adxtHandles_8c0fcd20[0], _8c157a34.field_0x0c);
         }
 
         /* 8c010a70 */
-        if () /* 8c010a76 */
+        if ((_8c157a34.flags_0x00 & 2) == 2)
         {
-            /* 8c010a78 */
+            _8c157a34.field_0x10 -= _8c157a34.field_0x08;
+            ADXT_SetOutVol(adxtHandles_8c0fcd20[1], _8c157a34.field_0x10);
         }
 
         /* 8c010a86 */
-        
-    }
-    else /* 8c010b34 */
-    {
+        if (
+            (_8c157a34.field_0x0c < -300)
+            && (_8c157a34.flags_0x00 & 1) == 1
+        ) 
+        {
+            ADXT_Stop(adxtHandles_8c0fcd20[0]);
+            ADXT_SetOutVol(adxtHandles_8c0fcd20[0], _8c03bd88.field_0x00 - 990);
 
+            _8c157a34.flags_0x00 &= 0xfffffffe;
+            _8c03bd80 &= 0xfffffffe;
+        }
+
+        /* 8c010abe */
+        if (
+            (_8c157a34.field_0x10 < -300)
+            && (_8c157a34.flags_0x00 & 2) == 2
+        )
+        {
+            ADXT_Stop(adxtHandles_8c0fcd20[1]);
+            ADXT_SetOutVol(adxtHandles_8c0fcd20[1], _8c03bd88.field_0x04 - 990);
+            _8c157a34.flags_0x00 &= 0xfffffffd;
+            _8c03bd80 &= 0xffffffef;
+        }
+    }
+    else 
+    {
+        /* 8c010b38 */
+        if ((_8c157a34.flags_0x00 & 0xf0) != 0) {
+            if ((_8c157a34.flags_0x00 & 0x10) == 0x10) {
+                _8c157a34.field_0x0c += _8c157a34.field_0x04;
+                ADXT_SetOutVol(adxtHandles_8c0fcd20[0], _8c157a34.field_0x0c);
+            }
+
+            /* 8c010b4e */
+            if ((_8c157a34.flags_0x00 & 0x20) == 0x20) {
+                _8c157a34.field_0x10 += _8c157a34.field_0x08;
+                ADXT_SetOutVol(adxtHandles_8c0fcd20[1], _8c157a34.field_0x10);
+            }
+
+            /* 8c010b64 */
+            if (
+                (_8c157a34.field_0x0c >= _8c03bd88.field_0x00)
+                && ((_8c157a34.flags_0x00 & 0x10) == 0x10)
+            ) {
+                ADXT_SetOutVol(adxtHandles_8c0fcd20[0], _8c03bd88.field_0x00);
+                _8c157a34.flags_0x00 &= 0xffffffef;
+            }
+
+            /* 8c010b82 */
+            if (
+                (_8c157a34.field_0x10 > _8c03bd88.field_0x04)
+                && ((_8c157a34.flags_0x00 & 0x20) == 0x20)
+            ) {
+                ADXT_SetOutVol(adxtHandles_8c0fcd20[1], _8c03bd88.field_0x04);
+                _8c157a34.flags_0x00 &= 0xffffffdf;
+            }
+        }
     }
 }
 
-void FUN_8c010bae() { }
+void FUN_8c010bae(int param1) {
+    if ((_8c157a34.flags_0x00 & 0xf0) == 0) {
+        /* 8c010bba */
+        if (param1 == 0 && (_8c157a34.flags_0x00 & 0xf) != 1) {
+            _8c157a34.flags_0x00 |= 1;
+            _8c157a34.field_0x04 = (_8c03bd88.field_0x00 - 300) / 90;
+            _8c157a34.field_0x0c = _8c03bd88.field_0x00 - 990;
+        }
+        if (param1 == 1 && (_8c157a34.flags_0x00 & 0xf) != 2) {
+            _8c157a34.flags_0x00 |= 2;
+            _8c157a34.field_0x08 = (_8c03bd88.field_0x04 - 300) / 90;
+            _8c157a34.field_0x10 = _8c03bd88.field_0x04 - 990;
+        }
+    }
+}
 
 void FUN_8c010c2c() { }
 
