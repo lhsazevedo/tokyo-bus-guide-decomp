@@ -26,19 +26,19 @@
           .IMPORT     __quick_evn_mvn
           .IMPORT     _syCfgExit
           .EXPORT     _nop_8c011120
-          .EXPORT     _FUN_8c011124
+          .EXPORT     _initDatQueue_8c011124
           .EXPORT     _FUN_8c01116a
           .EXPORT     _request_dat_8c011182
           .EXPORT     _task_8c0111b4
           .EXPORT     _FUN_8c011310
-          .EXPORT     _FUN_8c0113d2
-          .EXPORT     _FUN_8c0113d8
+          .EXPORT     _get_8c157a98_8c0113d2
+          .EXPORT     _freeFirstQueuedDat_8c0113d8
           .SECTION    P,CODE,ALIGN=4
 _nop_8c011120:                   ; function: nop_8c011120
                                  ; frame size=0
           RTS
           NOP
-_FUN_8c011124:                   ; function: FUN_8c011124
+_initDatQueue_8c011124:                   ; function: initDatQueue_8c011124
                                  ; frame size=16
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
@@ -407,12 +407,12 @@ L26:
           RTS
           MOV.L       @R15+,R14
 
-_FUN_8c0113d2:                   ; function: FUN_8c0113d2
+_get_8c157a98_8c0113d2:                   ; function: get_8c157a98_8c0113d2
                                  ; frame size=0
           MOV.L       L28+28,R3; __8c157a98
           RTS
           MOV.L       @R3,R0
-_FUN_8c0113d8:                   ; function: FUN_8c0113d8
+_freeFirstQueuedDat_8c0113d8:                   ; function: freeFirstQueuedDat_8c0113d8
                                  ; frame size=0
           MOV.L       L28+24,R2; __8c157a8c_start
           MOV.L       @R2,R0

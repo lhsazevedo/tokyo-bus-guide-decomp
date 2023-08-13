@@ -29,7 +29,7 @@ void nop_8c011120() {
 }
 
 /* Mathed :) */
-int FUN_8c011124(int param) {
+int initDatQueue_8c011124(int param) {
     if (param != 0) {
         if ((_8c157a8c_start = syMalloc(param * sizeof(QueuedDat))) == NULL) {
             return 0;
@@ -69,12 +69,7 @@ int request_dat_8c011182(char* basedir, char* filename, void* dest) {
     }
 }
 
-/*
- * Non matching. Depends on the correct number of preceding instructions because
- * of the literal pool placement.
- * Also, there could be some gotos in here.
- */
-
+/* Almost matching */
 void task_8c0111b4(_8c0111b4_Task* task, void* state) {
     /*
      * r13 = Task* task
@@ -199,6 +194,7 @@ void task_8c0111b4(_8c0111b4_Task* task, void* state) {
     }
 }
 
+/* Almost matching */
 FUN_8c011310() {
     int r9;
     Task *created_task;
@@ -256,12 +252,12 @@ FUN_8c011310() {
 }
 
 /* Matched */
-int FUN_8c0113d2() {
+int get_8c157a98_8c0113d2() {
     return _8c157a98;
 }
 
 /* Matched */
-FUN_8c0113d8() {
+freeFirstQueuedDat_8c0113d8() {
     if (_8c157a8c_start != (QueuedDat*) -1) {
         syFree((void*) _8c157a8c_start);
     }
