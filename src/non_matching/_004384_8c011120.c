@@ -114,7 +114,7 @@ void task_8c0111b4(_8c0111b4_Task* task, void* state) {
                 }
 
                 /* 8c01121a */
-                if (!gdFsGetFileSize(task->gdfs_0x0c, &size)) {
+                if (!gdFsGetFileSctSize(task->gdfs_0x0c, &size)) {
                     /* 8c0112f4 (shared) */
                     _8c157a88 = 1;
                     task->queuedDat_0x18++;

@@ -22,12 +22,16 @@ typedef struct {
     int field_0x1c;
 } _8c0114cc_Task;
 
-extern char* _8c157a80_basedir;
+extern char *_8c157a80_basedir;
+extern void *_8c157a84;
 extern int _8c157a88;
+
 extern QueuedNj* queuedNjFiles_8c157a9c;
 extern QueuedNj* queuedNjFilesCursor_8c157aa0;
 extern QueuedNj* queuedNjFilesEnd_8c157aa4;
 extern int _8c157aa8;
+extern void *_8c227ca0;
+
 extern const char* ptr_str_DATA_EMPTY_8c03be7c;
 
 /* Matched */
@@ -74,7 +78,93 @@ int requestNj_8c011492(char* basedir, char* filename, void* dest, int r7) {
 
 /* wip */
 void task_8c0114cc(_8c0114cc_Task* task, void* state) {
+    QueuedNj* qnj = task->queuedNj_0x18;
+    Sint32 size;
+    Uint32 fpos, rtype;
+
+    switch (task->field_0x08)
+    {
+    case 0:
+        while (1)
+        {
+            if (qnj < queuedNjFilesCursor_8c157aa0) {
+                if (qnj->field_0x10 == 0) {
+                    if (*qnj->basedir != 0 &&
+                    strcmp(_8c157a80_basedir, qnj->basedir) != 0
+                    ) {
+                        _8c157a80_basedir = qnj->basedir;
+                        gdFsChangeDir(qnj->basedir);
+                    }
+
+                    task->gdfs_0x0c = gdFsOpen(qnj->filename, 0);
+                    if (task->gdfs_0x0c == NULL) {
+                        /* 8c01168c (shared) */
+                        if (_8c157a84 != _8c227ca0) {
+                            syFree(_8c157a84)
+                        }
+                        _8c157a88 = 1;
+                        task->queuedNj_0x18++;
+                        task->field_0x08 = 0;
+                        return;
+                    }
+
+                    if (!gdFsGetFileSctSize(task->gdfs_0x0c, &size)) {
+                        /* 8c01168c (shared) */
+                        if (_8c157a84 != _8c227ca0) {
+                            syFree(_8c157a84)
+                        }
+                        _8c157a88 = 1;
+                        task->queuedNj_0x18++;
+                        task->field_0x08 = 0;
+                        return;
+                    }
+
+                    if (size > 0x100) {
+                        _8c157a84 = syMalloc(size * 2048);
+                    } else {
+                        _8c157a84 = _8c227ca0;
+                    }
+
+                    if (!gdFsRead(task->gdfs_0x0c, size, _8c157a84)) {
+                        /* 8c01168c (shared) */
+                        if (_8c157a84 != _8c227ca0) {
+                            syFree(_8c157a84)
+                        }
+                        _8c157a88 = 1;
+                        task->queuedNj_0x18++;
+                        task->field_0x08 = 0;
+                        return; 
+                    }
+
+                    gdFsClose(task->gdfs_0x0c);
+                    qnj->field_0x10 = 1;
+                    task->queuedDat_0x18++;
+
+                    if (qnj->field_0x08 != 0) {
+                        *qnj->field_0x8 = njReadBinary(_8c157a84, &fpos, &rtype);
+                    }
+
+                    if (qnj->field_0x0c != 0) {
+                        *qnj->field_0x0c = njReadBinary(_8c157a84, &fpos, &rtype);
+                    }
+
+                    if (_8c157a84 != _8c227ca0) {
+                        syFree(_8c157a84)
+                    }
+                    task->queuedNj_0x18++;
+                    task->field_0x08 = 0;
+                    return;
+                }
+            }
+
+            qnj++;
+        }
+        
+        break;
     
+    default:
+        break;
+    }
 }
 
 /* Matched */
