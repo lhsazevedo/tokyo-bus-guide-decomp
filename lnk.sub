@@ -154,7 +154,7 @@ define _gdFsGetStat(8C053874)
 define _gdFsGetFileSctSize(8C053316)
 define _gdFsGetTransStat(8c0537c8)
 define _gdFsTrans32(8C05371C)
-define __slow_strcmp1(8C0302F8)
+; define __slow_strcmp1(8C0302F8)
 
 input build\_000000_8c010000.obj
 input build\_000128_8c010080_main.obj
@@ -163,6 +163,7 @@ input build\_003728_8c010e90.obj
 input build\_004072_8c010fe8.obj
 input build\_004384_8c011120.obj
 input build\_005168_8c011430.obj
+input build\_008160_8c011fe0.obj
 input build\_018740_8c014934.obj
 input build\_018864_8c0149b0_sbinit.obj
 input build\_019100_8c014a9c_tasks.obj

@@ -50,23 +50,23 @@ FUN_8c01116a() {
       _8c157a98 = 1;
 }
 
-/* minor regswap */
+/* Matched */
 int request_dat_8c011182(char* basedir, char* filename, void* dest) {
     if (*filename == 0) {
         return 0;
-    } else {
-        if (_8c157a90_current >= _8c157a94_end) {
-            return 0;
-        }
-
-        _8c157a90_current->basedir = basedir;
-        _8c157a94_end->filename = filename;
-        _8c157a94_end->dest = dest;
-        _8c157a94_end->field_0x0c = 0;
-
-        _8c157a94_end++;
-        return 1;
     }
+
+    if (_8c157a90_current >= _8c157a94_end) {
+        return 0;
+    }
+
+    _8c157a90_current->basedir = basedir;
+    _8c157a90_current->filename = filename;
+    _8c157a90_current->dest = dest;
+    _8c157a90_current->field_0x0c = 0;
+
+    _8c157a90_current++;
+    return 1;
 }
 
 /* Almost matching */
@@ -257,7 +257,7 @@ int get_8c157a98_8c0113d2() {
 }
 
 /* Matched */
-freeFirstQueuedDat_8c0113d8() {
+freeDatQueue_8c0113d8() {
     if (_8c157a8c_start != (QueuedDat*) -1) {
         syFree((void*) _8c157a8c_start);
     }

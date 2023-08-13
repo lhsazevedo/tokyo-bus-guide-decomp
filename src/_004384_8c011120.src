@@ -32,7 +32,7 @@
           .EXPORT     _task_8c0111b4
           .EXPORT     _FUN_8c011310
           .EXPORT     _get_8c157a98_8c0113d2
-          .EXPORT     _freeFirstQueuedDat_8c0113d8
+          .EXPORT     _freeDatQueue_8c0113d8
           .SECTION    P,CODE,ALIGN=4
 _nop_8c011120:                   ; function: nop_8c011120
                                  ; frame size=0
@@ -412,7 +412,7 @@ _get_8c157a98_8c0113d2:                   ; function: get_8c157a98_8c0113d2
           MOV.L       L28+28,R3; __8c157a98
           RTS
           MOV.L       @R3,R0
-_freeFirstQueuedDat_8c0113d8:                   ; function: freeFirstQueuedDat_8c0113d8
+_freeDatQueue_8c0113d8:                   ; function: freeDatQueue_8c0113d8
                                  ; frame size=0
           MOV.L       L28+24,R2; __8c157a8c_start
           MOV.L       @R2,R0

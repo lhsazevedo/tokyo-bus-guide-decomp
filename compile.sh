@@ -9,6 +9,7 @@ wine $SHC_BIN/shc.exe src\\_003728_8c010e90.c -object=build\\_003728_8c010e90.ob
 wine $SHC_BIN/asmsh.exe src\\_004072_8c010fe8.src -object=build\\_004072_8c010fe8.obj $ASMSH_FLAGS
 wine $SHC_BIN/asmsh.exe src\\_004384_8c011120.src -object=build\\_004384_8c011120.obj $ASMSH_FLAGS
 wine $SHC_BIN/asmsh.exe src\\_005168_8c011430.src -object=build\\_005168_8c011430.obj $ASMSH_FLAGS
+wine $SHC_BIN/asmsh.exe src\\_008160_8c011fe0.src -object=build\\_008160_8c011fe0.obj $ASMSH_FLAGS
 wine $SHC_BIN/shc.exe src\\_018740_8c014934.c -object=build\\_018740_8c014934.obj -sub=shc.sub
 wine $SHC_BIN/shc.exe src\\_018864_8c0149b0_sbinit.c -object=build\\_018864_8c0149b0_sbinit.obj -sub=shc.sub
 wine $SHC_BIN/shc.exe src\\_019100_8c014a9c_tasks.c -object=build\\_019100_8c014a9c_tasks.obj -sub=shc.sub
