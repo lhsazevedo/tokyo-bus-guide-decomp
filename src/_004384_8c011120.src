@@ -17,9 +17,14 @@
           .IMPORT     __8c157a90_current
           .IMPORT     __8c157a94_end
           .IMPORT     __8c157a98
-          .IMPORT     _ptr_str_DATA_EMPTY_8c03be7c
+          ; .IMPORT     _str_DATA_EMPTY_8c03334c
           .IMPORT     _tasks_8c1ba3c8
+          .IMPORT     __slow_strcmp1
           .IMPORT     _strcmp
+          .IMPORT     _ptr_str_DATA_EMPTY_8c03be7c
+          .IMPORT     _gdFsGetFileSctSize
+          .IMPORT     __quick_evn_mvn
+          .IMPORT     _syCfgExit
           .EXPORT     _nop_8c011120
           .EXPORT     _FUN_8c011124
           .EXPORT     _FUN_8c01116a
@@ -55,26 +60,25 @@ _FUN_8c011124:                   ; function: FUN_8c011124
           MOV.L       R0,@R14
           BRA         L3
           MOV         #0,R0
-L0:
+L0:                               
           MOV.L       @R14,R3
           MOV.L       L14+8,R2 ; __8c157a94_end
           ADD         R3,R13
           BRA         L2
           MOV.L       R13,@R2
-L1:
+L1:                               
           MOV.L       L14+8,R3 ; __8c157a94_end
           MOV         #-1,R1
           MOV.L       R1,@R3
           MOV.L       R1,@R14
-L2:
+L2:                               
           MOV         #1,R0
-L3:
+L3:                               
           ADD         #4,R15
           LDS.L       @R15+,PR
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-
 _FUN_8c01116a:                   ; function: FUN_8c01116a
                                  ; frame size=0
           MOV.L       L14,R2     ; __8c157a8c_start
@@ -89,7 +93,6 @@ _FUN_8c01116a:                   ; function: FUN_8c01116a
           MOV.L       L14+24,R0  ; __8c157a98
           RTS
           MOV.L       R1,@R0
-
 _request_dat_8c011182:           ; function: request_dat_8c011182
                                  ; frame size=0
           MOV.B       @R5,R3
@@ -104,7 +107,7 @@ _request_dat_8c011182:           ; function: request_dat_8c011182
 L4:
           RTS
           MOV         #0,R0
-L5:
+L5:                               
           MOV.L       R4,@R0
           MOV         #1,R0
           MOV.L       @R7,R3
@@ -117,7 +120,7 @@ L5:
           MOV.L       @R7,R3
           ADD         #16,R3
           MOV.L       R3,@R7
-L6:
+L6:                               
           RTS
           NOP
 
@@ -240,22 +243,22 @@ L13:
           MOV.L       R10,@(12,R14)
 
 L14:
-          .DATA.L __8c157a8c_start ; H'8c01128c
-          .DATA.L _syMalloc ; H'8c011290
-          .DATA.L __8c157a94_end
-          .DATA.L __8c157a90_current
-          .DATA.L _ptr_str_DATA_EMPTY_8c03be7c
-          .DATA.L __8c157a80_basedir ; H'8c0112a0
-          .DATA.L __8c157a98
-          .DATA.L __8c157a88
-          .DATA.L _strcmp
-          .DATA.L H'8C0532AC ; H'8c0112b0
-          .DATA.L H'8C053BA6
-          .DATA.L H'8C053316
-          .DATA.L H'8C0533EE ; H'8c0112c0
-          .DATA.L H'8C014B66
-          .DATA.L H'8C053874
-          .DATA.L H'8C0532C4
+          .DATA.L     __8c157a8c_start ; H'8c01128c
+          .DATA.L     _syMalloc ; H'8c011290
+          .DATA.L     __8c157a94_end
+          .DATA.L     __8c157a90_current
+          .DATA.L     _ptr_str_DATA_EMPTY_8c03be7c
+          .DATA.L     __8c157a80_basedir ; H'8c0112a0
+          .DATA.L     __8c157a98
+          .DATA.L     __8c157a88
+          .DATA.L     _strcmp
+          .DATA.L     _gdFsChangeDir ; H'8c0112b0
+          .DATA.L     _gdFsOpen
+          .DATA.L     _gdFsGetFileSctSize
+          .DATA.L     _gdFsRead ; H'8c0112c0
+          .DATA.L     _freeTask_8c014b66
+          .DATA.L     _gdFsGetStat
+          .DATA.L     _gdFsClose
 
 L15:
           MOV.L       L28+4,R3
@@ -298,7 +301,7 @@ L19:
           MOV.L       @R15+,R14
 
 _FUN_8c011310:                   ; function: FUN_8c011310
-                                 ; frame size=40
+                                 ; frame size=44
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           MOV.L       R12,@-R15
@@ -308,16 +311,16 @@ _FUN_8c011310:                   ; function: FUN_8c011310
           MOV.L       R8,@-R15
           STS.L       PR,@-R15
           ADD         #-8,R15
-          MOV.L       L28+24,R12
-          MOV.L       L28+20,R8
+          MOV.L       L28+24,R12; __8c157a8c_start
+          MOV.L       L28+20,R8; __8c157a90_current
           MOV.L       @R12,R2
           MOV.L       @R8,R3
           CMP/EQ      R3,R2
           BT          L24
-          MOV.L       L28+28,R2
+          MOV.L       L28+28,R2; __8c157a98
           MOV         #0,R10
           MOV.L       R10,@R2
-          MOV.L       L28+32,R2
+          MOV.L       L28+32,R2;_syMalloc
           MOV.L       @R8,R4
           MOV.L       @R12,R3
           JSR         @R2
@@ -329,23 +332,23 @@ L20:
           BRA         L23
           MOV         R13,R14
 L21:
-          MOV.L       L28+36,R2
+          MOV.L       L28+36,R2;_strcmp
           MOV.L       @(4,R14),R5
           JSR         @R2
           MOV.L       @(4,R13),R4
           CMP/PL      R0
           BF          L22
-          MOV.L       L28+40,R3
+          MOV.L       L28+40,R3; __quick_evn_mvn
           MOV         R13,R2
           MOV         R11,R1
           JSR         @R3
           MOV         #16,R0
-          MOV.L       L28+40,R3
+          MOV.L       L28+40,R3; __quick_evn_mvn
           MOV         R14,R2
           MOV         R13,R1
           JSR         @R3
           MOV         #16,R0
-          MOV.L       L28+40,R3
+          MOV.L       L28+40,R3; __quick_evn_mvn
           MOV         R11,R2
           MOV         R14,R1
           JSR         @R3
@@ -360,15 +363,15 @@ L23:
           BF          L21
           TST         R9,R9
           BF          L20
-          MOV.L       L28+16,R3
+          MOV.L       L28+16,R3; _syFree
           JSR         @R3
           MOV         R11,R4
           MOV         #0,R2
-          MOV.L       L28+48,R4
+          MOV.L       L28+48,R4; _tasks_8c1ba3c8
           MOV.L       R2,@-R15
-          MOV.L       L28+44,R5
+          MOV.L       L28+44,R5; _task_8c0111b4
           MOV         R15,R7
-          MOV.L       L28+52,R3
+          MOV.L       L28+52,R3; _pushTask_8c014ae8
           ADD         #8,R7
           MOV         R15,R6
           JSR         @R3
@@ -425,23 +428,23 @@ L27:
           NOP
 
 L28:
-          .DATA.B H'00, H'08, H'00, H'00 ; H'8c0113ec
-          .DATA.L H'8C0537C8 ; H'8c0113f0
-          .DATA.L H'8C05371C
-          .DATA.L H'8C0532C4
-          .DATA.L H'8C0545A4
-          .DATA.L H'8C157A90 ; H'8c011400
-          .DATA.L H'8C157A8C
-          .DATA.L H'8C157A98
-          .DATA.L H'8C0544D6
-          .DATA.L H'8C030108 ; H'8c011410
-          .DATA.L H'8C02FE2C
-          .DATA.L H'8C0111B4
-          .DATA.L H'8C1BA3C8
-          .DATA.L H'8C014AE8 ; H'8c011420
-          .DATA.L H'8C157A88
-          .DATA.L H'8C03BE7C
-          .DATA.L H'8C157A80
+          .DATA.W     H'0800
+          .RES.W      1 ; H'8c0113ec
+          .DATA.L     _gdFsGetTransStat ; H'8c0113f0
+          .DATA.L     _gdFsTrans32
+          .DATA.L     _gdFsClose
+          .DATA.L     _syFree
+          .DATA.L     __8c157a90_current ; H'8c011400
+          .DATA.L     __8c157a8c_start
+          .DATA.L     __8c157a98
+          .DATA.L     _syMalloc
+          .DATA.L     _strcmp ; H'8c011410
+          .DATA.L     __quick_evn_mvn
+          .DATA.L     _task_8c0111b4
+          .DATA.L     _tasks_8c1ba3c8
+          .DATA.L     _pushTask_8c014ae8 ; H'8c011420
+          .DATA.L     __8c157a88
+          .DATA.L     _ptr_str_DATA_EMPTY_8c03be7c
+          .DATA.L     __8c157a80_basedir
 
           .END
-

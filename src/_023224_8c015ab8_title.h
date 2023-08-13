@@ -38,7 +38,7 @@ struct ResourceGroup {
 typedef ResourceGroup;
 
 struct MenuState {
-    void *field_0x00;
+    ResourceGroup *field_0x00;
     void *field_0x04;
     void *field_0x08;
     ResourceGroup *drawDatStruct1_0x0c;

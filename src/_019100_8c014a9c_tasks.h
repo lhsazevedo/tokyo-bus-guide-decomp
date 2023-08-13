@@ -3,6 +3,15 @@
 #ifndef _TASKS_H_
 #define _TASKS_H_
 
+// Probably should be moved to another header...
+struct QueuedDat {
+    char* basedir;
+    char* filename;
+    void* dest;
+    int field_0x0c;
+}
+typedef QueuedDat;
+
 typedef void (*TaskAction)(struct Task *task, void *state);
 
 struct Task {
@@ -12,7 +21,7 @@ struct Task {
     void* field_0x0c;
     int field_0x10;
     int field_0x14;
-    int field_0x18;
+    QueuedDat* field_0x18;
     int field_0x1c;
 }
 typedef Task;

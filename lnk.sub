@@ -150,6 +150,11 @@ define __8c157a34(8C157A34)
 define __8c0fcd24(8C0FCD24)
 define _sdMidiStopAll(8C051974)
 define _gdFsChangeDir(8C0532AC)
+define _gdFsGetStat(8C053874)
+define _gdFsGetFileSctSize(8C053316)
+define _gdFsGetTransStat(8c0537c8)
+define _gdFsTrans32(8C05371C)
+define __slow_strcmp1(8C0302F8)
 
 input build\_000000_8c010000.obj
 input build\_000128_8c010080_main.obj
