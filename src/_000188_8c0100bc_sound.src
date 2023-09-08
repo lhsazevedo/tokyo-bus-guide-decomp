@@ -1775,43 +1775,43 @@ L79:
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-
-_FUN_8c010d8a:
+_FUN_8c010d8a:                   ; function: FUN_8c010d8a
+                                 ; frame size=16
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           MOV.L       R12,@-R15
           STS.L       PR,@-R15
-          MOV.L       L80+12,R3
-          MOV.L       L80+8,R14
+          MOV.L       L80+12,R3 ; _ADXT_Stop
+          MOV.L       L80+8,R14 ; _adxtHandles_8c0fcd20
           JSR         @R3
           MOV.L       @R14,R4
-          MOV.L       L80+16,R2
-          MOV.W       L80,R3
+          MOV.L       L80+16,R2; __8c03bd88
+          MOV.W       L80,R3   ; H'FC22
           MOV.L       @R2,R5
-          MOV.L       L80+20,R1
+          MOV.L       L80+20,R1; _ADXT_SetOutVol
           ADD         R3,R5
           JSR         @R1
           MOV.L       @R14,R4
-          MOV.L       L80+24,R3
+          MOV.L       L80+24,R3; __8c157a34
           MOV         #-2,R12
-          MOV.L       L80+28,R13
+          MOV.L       L80+28,R13; __8c03bd80
           MOV.L       @R3,R2
           AND         R12,R2
           MOV.L       R2,@R3
           MOV.L       @R13,R3
-          MOV.L       L80+12,R2
+          MOV.L       L80+12,R2 ; _ADXT_Stop
           AND         R12,R3
           MOV.L       R3,@R13
           JSR         @R2
           MOV.L       @R14,R4
-          MOV.L       L80+16,R2
-          MOV.W       L80,R3
+          MOV.L       L80+16,R2; __8c03bd88
+          MOV.W       L80,R3   ; H'FC22
           MOV.L       @R2,R5
-          MOV.L       L80+20,R1
+          MOV.L       L80+20,R1; _ADXT_SetOutVol
           ADD         R3,R5
           JSR         @R1
           MOV.L       @R14,R4
-          MOV.L       L80+24,R3
+          MOV.L       L80+24,R3; __8c157a34
           MOV.L       @R3,R2
           AND         R12,R2
           MOV.L       R2,@R3
@@ -1823,62 +1823,63 @@ _FUN_8c010d8a:
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-_FUN_8c010de6:
+_FUN_8c010de6:                   ; function: FUN_8c010de6
+                                 ; frame size=4
           STS.L       PR,@-R15
-          MOV.L       L80+32,R2
+          MOV.L       L80+32,R2; _sdMidiStopAll
           JSR         @R2
           NOP
-          MOV.L       L80+12,R3
-          MOV.L       L80+8,R4
+          MOV.L       L80+12,R3; _ADXT_Stop
+          MOV.L       L80+8,R4 ; _adxtHandles_8c0fcd20
           JSR         @R3
           MOV.L       @R4,R4
-          MOV.L       L80+12,R2
-          MOV.L       L80+36,R4
+          MOV.L       L80+12,R2; _ADXT_Stop
+          MOV.L       L80+36,R4; H'00000004+_adxtHandles_8c0fcd20
           JSR         @R2
           MOV.L       @R4,R4
-          MOV.L       L80+28,R2
+          MOV.L       L80+28,R2; __8c03bd80
           MOV         #0,R3
-          MOV.L       L80+40,R0
+          MOV.L       L80+40,R0; __8c03bd84
           MOV         R3,R5
           MOV.L       R3,@R2
           MOV         #1,R1
-          MOV.L       L80+24,R4
-          MOV.L       L80+44,R3
+          MOV.L       L80+24,R4; __8c157a34
+          MOV.L       L80+44,R3; _memset
           MOV.L       R1,@R0
           JSR         @R3
-          MOV         #H'14,R6
-          BRA         H'8c0100bc
+          MOV         #20,R6
+          BRA         _FUN_sound_8c0100bc
           LDS.L       @R15+,PR
-
-_FUN_8c010e18:
+_FUN_8c010e18:                   ; function: FUN_8c010e18
+                                 ; frame size=8
           MOV.L       R14,@-R15
           MOV         #0,R3
-          MOV.L       L80+28,R14
+          MOV.L       L80+28,R14; __8c03bd80
           MOV         #1,R2
           STS.L       PR,@-R15
           MOV.L       R3,@R14
-          MOV.L       L80+40,R1
-          MOV.L       L80+48,R3
+          MOV.L       L80+40,R1; __8c03bd84
+          MOV.L       L80+48,R3; _gdFsChangeDir
           JSR         @R3
           MOV.L       R2,@R1
-          MOV.L       L80+44,R2
-          MOV         #H'14,R6
-          MOV.L       L80+24,R4
+          MOV.L       L80+44,R2; _memset
+          MOV         #20,R6
+          MOV.L       L80+24,R4; __8c157a34
           JSR         @R2
           MOV         #0,R5
-          BSR         H'8c0100bc
+          BSR         _FUN_sound_8c0100bc
           NOP
           MOV.L       @R14,R0
           OR          #17,R0
-          BSR         H'8c01065e
+          BSR         _soundInit_8c01065e
           MOV.L       R0,@R14
-          BSR         H'8c01064c
+          BSR         _adxInit_8c01064c
           NOP
-          BSR         H'8c01048e
+          BSR         _createAdxAndMidiHandles_8c01048e
           NOP
-          BSR         H'8c01057a
+          BSR         _adxLoad_8c01057a
           NOP
-          BSR         H'8c010614
+          BSR         _finishSoundInit_8c010614
           NOP
           MOV         #0,R3
           MOV.L       R3,@R14

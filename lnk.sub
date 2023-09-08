@@ -156,6 +156,11 @@ define _gdFsGetTransStat(8c0537c8)
 define _gdFsTrans32(8C05371C)
 ; define __slow_strcmp1(8C0302F8)
 
+define _queuedNjFiles_8c157a9c(8C157A9C)
+define _queuedNjFilesEnd_8c157aa4(8C157AA4)
+define _queuedNjFilesCursor_8c157aa0(8C157AA0)
+define __8c157aa8(8C157AA8)
+
 input build\_000000_8c010000.obj
 input build\_000128_8c010080_main.obj
 input build\_000188_8c0100bc_sound.obj

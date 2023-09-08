@@ -1,4 +1,9 @@
           .SECTION P, CODE, ALIGN=4
+          .IMPORT     _queuedNjFiles_8c157a9c
+          .IMPORT     _queuedNjFilesEnd_8c157aa4
+          .IMPORT     _queuedNjFilesCursor_8c157aa0
+          .IMPORT     __8c157a80_basedir
+          .IMPORT     __8c157aa8
 _initNjQueue:                    ; function: initNjQueue
                                  ; frame size=16
           MOV.L       R14,@-R15
@@ -90,7 +95,7 @@ L5:
           MOV.L       R2,@R14
           RTS
           MOV.L       @R15+,R14
-task_8c0114cc:
+_task_8c0114cc:
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           MOV.L       R12,@-R15
@@ -134,7 +139,7 @@ L7:
           .DATA.L     _queuedNjFilesCursor_8c157aa0
           .DATA.L     H'8C03BE7C ; L7+18
           .DATA.L     __8c157a80_basedir
-          .DATA.L     __8c157a88
+          .DATA.L     __8c157aa8
           .DATA.L     H'8C0545A4
           .DATA.L     H'8C277CA0 ; L7+34
           .DATA.L     H'8C157A84 
