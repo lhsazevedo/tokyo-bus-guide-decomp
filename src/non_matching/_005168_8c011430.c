@@ -5,8 +5,8 @@
 struct QueuedNj {
     char* basedir;
     char* filename;
-    void* dest;
-    int field_0x0c;
+    void** dest_0x08;
+    void** dest_0x0c;
     int field_0x10;
 }
 typedef QueuedNj;
@@ -57,7 +57,7 @@ FUN_8c01147a() {
 }
 
 /* Matched */
-int requestNj_8c011492(char* basedir, char* filename, void* dest, int r7) {
+int requestNj_8c011492(char* basedir, char* filename, void* dest, void* dest2) {
     if (*filename == 0) {
         return 0;
     }
@@ -68,8 +68,8 @@ int requestNj_8c011492(char* basedir, char* filename, void* dest, int r7) {
 
     queuedNjFilesCursor_8c157aa0->basedir = basedir;
     queuedNjFilesCursor_8c157aa0->filename = filename;
-    queuedNjFilesCursor_8c157aa0->dest = dest;
-    queuedNjFilesCursor_8c157aa0->field_0x0c = r7;
+    queuedNjFilesCursor_8c157aa0->dest_0x08 = dest;
+    queuedNjFilesCursor_8c157aa0->dest_0x0c = dest2;
     queuedNjFilesCursor_8c157aa0->field_0x10 = 0;
 
     queuedNjFilesCursor_8c157aa0++;
@@ -100,7 +100,7 @@ void task_8c0114cc(_8c0114cc_Task* task, void* state) {
                     if (task->gdfs_0x0c == NULL) {
                         /* 8c01168c (shared) */
                         if (_8c157a84 != _8c227ca0) {
-                            syFree(_8c157a84)
+                            syFree(_8c157a84);
                         }
                         _8c157a88 = 1;
                         task->queuedNj_0x18++;
@@ -111,7 +111,7 @@ void task_8c0114cc(_8c0114cc_Task* task, void* state) {
                     if (!gdFsGetFileSctSize(task->gdfs_0x0c, &size)) {
                         /* 8c01168c (shared) */
                         if (_8c157a84 != _8c227ca0) {
-                            syFree(_8c157a84)
+                            syFree(_8c157a84);
                         }
                         _8c157a88 = 1;
                         task->queuedNj_0x18++;
@@ -128,7 +128,7 @@ void task_8c0114cc(_8c0114cc_Task* task, void* state) {
                     if (!gdFsRead(task->gdfs_0x0c, size, _8c157a84)) {
                         /* 8c01168c (shared) */
                         if (_8c157a84 != _8c227ca0) {
-                            syFree(_8c157a84)
+                            syFree(_8c157a84);
                         }
                         _8c157a88 = 1;
                         task->queuedNj_0x18++;
@@ -138,18 +138,18 @@ void task_8c0114cc(_8c0114cc_Task* task, void* state) {
 
                     gdFsClose(task->gdfs_0x0c);
                     qnj->field_0x10 = 1;
-                    task->queuedDat_0x18++;
+                    task->queuedNj_0x18++;
 
-                    if (qnj->field_0x08 != 0) {
-                        *qnj->field_0x8 = njReadBinary(_8c157a84, &fpos, &rtype);
+                    if (qnj->dest_0x08 != 0) {
+                        *qnj->dest_0x08 = njReadBinary(_8c157a84, &fpos, &rtype);
                     }
 
-                    if (qnj->field_0x0c != 0) {
-                        *qnj->field_0x0c = njReadBinary(_8c157a84, &fpos, &rtype);
+                    if (qnj->dest_0x0c != 0) {
+                        *qnj->dest_0x0c = njReadBinary(_8c157a84, &fpos, &rtype);
                     }
 
                     if (_8c157a84 != _8c227ca0) {
-                        syFree(_8c157a84)
+                        syFree(_8c157a84);
                     }
                     task->queuedNj_0x18++;
                     task->field_0x08 = 0;
