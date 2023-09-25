@@ -1,5 +1,8 @@
 #include <shinobi.h>
 
+/* === Workarounds === */
+const char _8c033318[52] = {0};
+
 /* === Structs === */
 struct s_8c157a48 {
     int field_0x00;
@@ -17,8 +20,63 @@ struct ukn_01 {
 }
 typedef s_ukn_01;
 
+s_ukn_01 _8c03bdac[] = {
+    {0x14, 0x01, 0xFF, 0x0F},
+    {0x64, 0x01, 0xFE, 0x1E},
+    {0x00, 0x00, 0x00, 0x00}
+};
+
+s_ukn_01 _8c03bdc4[] = {
+    {0x1E, 0x01, 0x03, 0x1E},
+    {0x14, 0x01, 0x00, 0x00},
+    {0x1E, 0x01, 0x03, 0x1E},
+    {0x00, 0x00, 0x00, 0x00}
+};
+
+s_ukn_01 _8c03bde4[] = {
+    {0x14, 0x01, 0x03, 0x1E},
+    {0x00, 0x00, 0x00, 0x00}
+};
+
+s_ukn_01 _8c03bdf4[] = {
+    {0x0C, 0x01, 0xF9, 0x0F},
+    {0x00, 0x00, 0x00, 0x00}
+};
+
+s_ukn_01 _8c03be04[] = {
+    {0x0A, 0x01, 0x03, 0x0F},
+    {0x0A, 0x01, 0x02, 0x14},
+    {0x00, 0x00, 0x00, 0x00}
+};
+
+s_ukn_01 _8c03be1c[] = {
+    {0x0F, 0x01, 0x04, 0x1E},
+    {0x0F, 0x01, 0x03, 0x14},
+    {0x00, 0x00, 0x00, 0x00}
+};
+
+s_ukn_01 _8c03be34[] = {
+    {0x19, 0x01, 0x07, 0x28},
+    {0x0A, 0x01, 0x05, 0x1E},
+    {0x00, 0x00, 0x00, 0x00}
+};
+
+s_ukn_01 _8c03be4c[] = {
+    {0x00, 0x00, 0x00, 0x00},
+    {0x00, 0x00, 0x00, 0x00}
+};
+
 /* === External vars === */
-extern s_ukn_01* _8c03be5c;
+s_ukn_01* _8c03be5c[] = {
+    _8c03bdac,
+    _8c03bdc4,
+    _8c03bde4,
+    _8c03bdf4,
+    _8c03be04,
+    _8c03be1c,
+    _8c03be34,
+    _8c03be4c
+};
 
 /* === Uninitialized vars === */
 s_8c157a48 _8c157a48;
@@ -27,14 +85,14 @@ void FUN_8c010e90(int port) {
     PDS_VIBPARAM param;
     s_ukn_01* r13_02;
 
-    r13_02 = *(&_8c03be5c + _8c157a48.field_0x00);
+    r13_02 = _8c03be5c[_8c157a48.field_0x00];
 
     if (!_8c157a48.field_0x08) {
         param.unit = 1;
 
-        param.flag = (r13_02 + _8c157a48.field_0x08)->flag;
-        param.power = (r13_02 + _8c157a48.field_0x08)->power;
-        param.freq = (r13_02 + _8c157a48.field_0x08)->freq;
+        param.flag = r13_02[_8c157a48.field_0x08].flag;
+        param.power = r13_02[_8c157a48.field_0x08].power;
+        param.freq = r13_02[_8c157a48.field_0x08].freq;
 
         param.inc = 0;
 
@@ -42,19 +100,19 @@ void FUN_8c010e90(int port) {
 
         _8c157a48.field_0x08++;
         _8c157a48.field_0x0c = 1;
-    } else if ((r13_02 + (_8c157a48.field_0x08 - 1))->field_0x00 < _8c157a48.field_0x04) {
+    } else if (r13_02[_8c157a48.field_0x08 - 1].field_0x00 < _8c157a48.field_0x04) {
         pdVibMxStop(port);
 
         _8c157a48.field_0x04 = 0;
 
-        if ((r13_02 + _8c157a48.field_0x08)->field_0x00 == 0) {
+        if (r13_02[_8c157a48.field_0x08].field_0x00 == 0) {
             FUN_8c010fbe();
         } else {
             param.unit = 1;
 
-            param.flag = (r13_02 + _8c157a48.field_0x08)->flag;
-            param.power = (r13_02 + _8c157a48.field_0x08)->power;
-            param.freq = (r13_02 + _8c157a48.field_0x08)->freq;
+            param.flag = r13_02[_8c157a48.field_0x08].flag;
+            param.power = r13_02[_8c157a48.field_0x08].power;
+            param.freq = r13_02[_8c157a48.field_0x08].freq;
 
             param.inc = 0;
 

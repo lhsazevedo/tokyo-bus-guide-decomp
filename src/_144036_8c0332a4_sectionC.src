@@ -1,11 +1,4 @@
           .SECTION C, DATA, ALIGN=4
-
-          .DATAB.B 52, H'00 ; H'8c033318
-
-s_DATA_EMPTY_8c03334c:
-          .SDATAZ "DATA EMPTY" ; H'8c03334c
-          .RES.B 1
-
 s_FortyFive_8c033358:
           .SDATAZ "FortyFive" ; H'8c033358
           .RES.B 2

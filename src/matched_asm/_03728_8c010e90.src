@@ -1,8 +1,17 @@
           .IMPORT     _pdVibMxStart
           .IMPORT     _pdVibMxStop
-          .IMPORT     __8c157a48
-          .IMPORT     __8c03be5c
           .IMPORT     _memset
+          .EXPORT     __8c033318
+          .EXPORT     __8c03bdac
+          .EXPORT     __8c03bdc4
+          .EXPORT     __8c03bde4
+          .EXPORT     __8c03bdf4
+          .EXPORT     __8c03be04
+          .EXPORT     __8c03be1c
+          .EXPORT     __8c03be34
+          .EXPORT     __8c03be4c
+          .EXPORT     __8c03be5c
+          .EXPORT     __8c157a48
           .EXPORT     _FUN_8c010e90
           .EXPORT     _FUN_8c010fbe
           .EXPORT     _FUN_8c010f7a
@@ -59,7 +68,7 @@ _FUN_8c010e90:                   ; function: FUN_8c010e90
           MOV.L       R3,@(8,R14)
           BRA         L3
           MOV.L       R10,@(12,R14)
-L0:
+L0:                               
           ADD         #-1,R4
           MOV.L       @(4,R14),R3
           SHLL2       R4
@@ -83,7 +92,7 @@ L0:
           NOP
           BRA         L3
           NOP
-L1:
+L1:                               
           MOV.B       R10,@R15
           MOV.L       @(8,R14),R0
           SHLL2       R0
@@ -105,7 +114,7 @@ L1:
           MOV.B       R0,@(3,R15)
           MOV         R9,R0
           MOV.B       R0,@(4,R15)
-L2:
+L2:                               
           MOV         R15,R5
           JSR         @R11
           MOV         R12,R4
@@ -115,14 +124,14 @@ L2:
           MOV.L       @(8,R14),R3
           ADD         #1,R3
           MOV.L       R3,@(8,R14)
-L3:
+L3:                               
           MOV.L       @(12,R14),R0
           CMP/EQ      #1,R0
           BF          L4
           MOV.L       @(4,R14),R3
           ADD         #1,R3
           MOV.L       R3,@(4,R14)
-L4:
+L4:                               
           ADD         #8,R15
           LDS.L       @R15+,PR
           MOV.L       @R15+,R9
@@ -141,7 +150,7 @@ _FUN_8c010f7a:                   ; function: FUN_8c010f7a
           STS.L       PR,@-R15
           CMP/GE      R3,R14
           BT          L7
-          MOV.L       L9,R13
+          MOV.L       L9,R13  ; __8c157a48
           MOV.L       @(12,R13),R0
           CMP/EQ      #1,R0
           BF/S        L5
@@ -151,27 +160,27 @@ _FUN_8c010f7a:                   ; function: FUN_8c010f7a
           BT          L6
           BRA         L7
           NOP
-L5:
+L5:                               
           TST         R4,R4
           BF          L7
           BSR         _FUN_8c010fbe
           NOP
 L6:
           MOV.L       R14,@R13
-L7:
+L7:                               
           LDS.L       @R15+,PR
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
 _FUN_8c010fae:                   ; function: FUN_8c010fae
                                  ; frame size=0
-          MOV.L       L9,R3
+          MOV.L       L9,R3   ; __8c157a48
           MOV.L       @R3,R0
           CMP/EQ      #7,R0
           BT          L8
           BRA         _FUN_8c010e90
           NOP
-L8:
+L8:                               
           RTS
           NOP
 _FUN_8c010fbe:                   ; function: FUN_8c010fbe
@@ -187,11 +196,94 @@ _FUN_8c010fbe:                   ; function: FUN_8c010fbe
           MOV         #7,R2
           RTS
           MOV.L       R2,@R3
-
-L9:
+L9:                               
           .DATA.L     __8c157a48
           .DATA.L     __8c03be5c
           .DATA.L     _pdVibMxStart
           .DATA.L     _pdVibMxStop
           .DATA.L     _memset
+          .SECTION    C,DATA,ALIGN=4
+__8c033318:                      ; static: _8c033318
+          .DATA.B     H'00
+          .DATAB.B    51,0
+          .SECTION    D,DATA,ALIGN=4
+__8c03bdac:                      ; static: _8c03bdac
+          .DATA.L     H'00000014
+          .DATA.B     H'01,H'FF,H'0F
+          .DATAB.B    1,0
+          .DATA.L     H'00000064
+          .DATA.B     H'01,H'FE,H'1E
+          .DATAB.B    1,0
+          .DATA.L     H'00000000
+          .DATA.B     H'00,H'00,H'00
+          .DATAB.B    1,0
+__8c03bdc4:                      ; static: _8c03bdc4
+          .DATA.L     H'0000001E
+          .DATA.B     H'01,H'03,H'1E
+          .DATAB.B    1,0
+          .DATA.L     H'00000014
+          .DATA.B     H'01,H'00,H'00
+          .DATAB.B    1,0
+          .DATA.L     H'0000001E
+          .DATA.B     H'01,H'03,H'1E
+          .DATAB.B    1,0
+          .DATA.L     H'00000000
+          .DATA.B     H'00,H'00,H'00
+          .DATAB.B    1,0
+__8c03bde4:                      ; static: _8c03bde4
+          .DATA.L     H'00000014
+          .DATA.B     H'01,H'03,H'1E
+          .DATAB.B    1,0
+          .DATA.L     H'00000000
+          .DATA.B     H'00,H'00,H'00
+          .DATAB.B    1,0
+__8c03bdf4:                      ; static: _8c03bdf4
+          .DATA.L     H'0000000C
+          .DATA.B     H'01,H'F9,H'0F
+          .DATAB.B    1,0
+          .DATA.L     H'00000000
+          .DATA.B     H'00,H'00,H'00
+          .DATAB.B    1,0
+__8c03be04:                      ; static: _8c03be04
+          .DATA.L     H'0000000A
+          .DATA.B     H'01,H'03,H'0F
+          .DATAB.B    1,0
+          .DATA.L     H'0000000A
+          .DATA.B     H'01,H'02,H'14
+          .DATAB.B    1,0
+          .DATA.L     H'00000000
+          .DATA.B     H'00,H'00,H'00
+          .DATAB.B    1,0
+__8c03be1c:                      ; static: _8c03be1c
+          .DATA.L     H'0000000F
+          .DATA.B     H'01,H'04,H'1E
+          .DATAB.B    1,0
+          .DATA.L     H'0000000F
+          .DATA.B     H'01,H'03,H'14
+          .DATAB.B    1,0
+          .DATA.L     H'00000000
+          .DATA.B     H'00,H'00,H'00
+          .DATAB.B    1,0
+__8c03be34:                      ; static: _8c03be34
+          .DATA.L     H'00000019
+          .DATA.B     H'01,H'07,H'28
+          .DATAB.B    1,0
+          .DATA.L     H'0000000A
+          .DATA.B     H'01,H'05,H'1E
+          .DATAB.B    1,0
+          .DATA.L     H'00000000
+          .DATA.B     H'00,H'00,H'00
+          .DATAB.B    1,0
+__8c03be4c:                      ; static: _8c03be4c
+          .DATA.L     H'00000000
+          .DATA.B     H'00,H'00,H'00
+          .DATAB.B    1,0
+          .DATA.L     H'00000000
+          .DATA.B     H'00,H'00,H'00
+          .DATAB.B    1,0
+__8c03be5c:                      ; static: _8c03be5c
+          .DATA.L     __8c03bdac,__8c03bdc4,__8c03bde4,__8c03bdf4,__8c03be04,__8c03be1c,__8c03be34,__8c03be4c
+          .SECTION    B,DATA,ALIGN=4
+__8c157a48:                      ; static: _8c157a48
+          .RES.L      4
           .END

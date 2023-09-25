@@ -446,5 +446,8 @@ L28:
           .DATA.L     __8c157a88
           .DATA.L     _ptr_str_DATA_EMPTY_8c03be7c
           .DATA.L     __8c157a80_basedir
-
+          .SECTION    C,DATA,ALIGN=4
+L29:
+          .SDATA      "DATA EMPTY"
+          .DATA.B     H'00
           .END

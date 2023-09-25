@@ -8,7 +8,6 @@ extern QueuedDat* _8c157a8c_start;
 extern QueuedDat* _8c157a90_current;
 extern QueuedDat* _8c157a94_end;
 extern int _8c157a98;
-extern const char* ptr_str_DATA_EMPTY_8c03be7c;
 
 extern Task* tasks_8c1ba3c8;
 
@@ -46,7 +45,7 @@ int initDatQueue_8c011124(int param) {
 /* Matched */
 FUN_8c01116a() {
       _8c157a90_current = _8c157a8c_start;
-      _8c157a80_basedir = ptr_str_DATA_EMPTY_8c03be7c;
+      _8c157a80_basedir = "DATA EMPTY";
       _8c157a98 = 1;
 }
 
@@ -149,8 +148,7 @@ void task_8c0111b4(_8c0111b4_Task* task, void* state) {
             /* 8c011250 */
             task->queuedDat_0x18 = _8c157a8c_start;
             _8c157a88 = 0;
-            // _8c157a80_basedir = "DATA EMPTY";
-            _8c157a80_basedir = ptr_str_DATA_EMPTY_8c03be7c;
+            _8c157a80_basedir = "DATA EMPTY";
             return;
         } else {
             /* 8c011262 */
@@ -245,8 +243,7 @@ FUN_8c011310() {
     created_task->field_0x18 = _8c157a8c_start;
     created_task->field_0x08 = 0;
     _8c157a88 = 0;
-    // _8c157a80_basedir = "DATA EMPTY";
-    _8c157a80_basedir = ptr_str_DATA_EMPTY_8c03be7c;
+    _8c157a80_basedir = "DATA EMPTY";
 
     return 1;
 }
