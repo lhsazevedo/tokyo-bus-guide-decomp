@@ -1,19 +1,18 @@
           .SECTION P, CODE, ALIGN=4
 
-          .DATA.B H'45, H'38, H'31, H'30, H'31, H'32, H'31, H'34, H'00, H'00, H'00, H'00 ; H'8c0332a4
-          .DATA.B H'00, H'00, H'00, H'00, H'6E, H'00, H'00, H'00, H'DC, H'00, H'00, H'00, H'4A, H'01, H'00, H'00 ; H'8c0332b0
-          .DATA.B H'B8, H'01, H'00, H'00, H'26, H'02, H'00, H'00, H'94, H'02, H'00, H'00, H'02, H'03, H'00, H'00 ; H'8c0332c0
-          .DATA.B H'70, H'03, H'00, H'00, H'DE, H'03, H'00, H'00, H'00, H'00, H'00, H'00, H'19, H'00, H'00, H'00 ; H'8c0332d0
-          .DATA.B H'33, H'00, H'00, H'00, H'4C, H'00, H'00, H'00, H'66, H'00, H'00, H'00, H'7F, H'00, H'00, H'00 ; H'8c0332e0
-          .DATA.B H'99, H'00, H'00, H'00, H'B2, H'00, H'00, H'00, H'CC, H'00, H'00, H'00, H'E5, H'00, H'00, H'00 ; H'8c0332f0
+          .SDATAZ "E8101214"
+          .RES.B 3
+
+          .DATA.L 0, 110, 220, 330, 440, 550, 660, 770, 880, 990
+
+          .DATA.L 0, 25, 51, 76, 102, 127, 153, 178, 204, 229
 
           .SDATAZ "bgm.afs" ; H'8c033300
           .SDATAZ "voice.afs" ; H'8c033308
 
-          .DATA.B H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00 ; H'8c033312
-          .DATA.B H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00 ; H'8c033320
-          .DATA.B H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00 ; H'8c033330
-          .DATA.B H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00 ; H'8c033340
+          .DATA.B H'00, H'00, H'00, H'00 ; H'8c033314
+
+          .DATAB.B 54, H'00 ; H'8c033318
 
 s_DATA_EMPTY_8c03334c:
           .SDATAZ "DATA EMPTY" ; H'8c03334c
@@ -1304,72 +1303,74 @@ s_ON_PVR_8c033530:
           .DATA.B H'3E, H'82, H'E6, H'82, H'EB, H'82, H'B5, H'82, H'A2, H'82, H'C5, H'82, H'B7, H'82, H'A9, H'81 ; H'8c0389a0
           .DATA.B H'48, H'00, H'00, H'00 ; H'8c0389b0
 
-          .SDATAZ "?‚f‚`‚l‚d@‚c‚d‚r‚h‚f‚m?<E><E><E>‚j‚d‚m‚i‚h@‚m‚`‚j‚`‚m‚n<E><E><E><E><E><E>?‚n‚q‚h‚f‚h‚m‚`‚k@‚o‚k‚`‚m?<E><E><E>‚s‚`‚j‚d‚n@‚x‚`‚f‚h"
+          .SDATAZ "`‚f‚`‚l‚d@‚c‚d‚r‚h‚f‚m`<E><E><E>‚j‚d‚m‚i‚h@‚m‚`‚j‚`‚m‚n<E><E><E><E><E><E>`‚n‚q‚h‚f‚h‚m‚`‚k@‚o‚k‚`‚m`<E><E><E>‚s‚`‚j‚d‚n@‚x‚`‚f‚h"
           .RES.B 3
-          .SDATAZ "<E><E><E>?‚l‚`‚h‚m@‚o‚q‚n‚f‚q‚`‚l‚l‚d‚q?<E><E><E>‚j‚`‚y‚t‚`‚j‚h@‚s‚n‚h‚c‚`<E><E><E><E><E><E>?‚r‚t‚a@‚o‚q‚n‚f‚q‚`‚l‚l‚d‚q?"
+          .SDATAZ "<E><E><E>`‚l‚`‚h‚m@‚o‚q‚n‚f‚q‚`‚l‚l‚d‚q`<E><E><E>‚j‚`‚y‚t‚`‚j‚h@‚s‚n‚h‚c‚`<E><E><E><E><E><E>`‚r‚t‚a@‚o‚q‚n‚f‚q‚`‚l‚l‚d‚q`"
           .RES.B 3
-          .SDATAZ "‚x‚n‚t‚g‚d‚h@‚r‚`‚s‚n<E><E>‚r‚g‚h‚m‚h‚b‚g‚h‚q‚n@‚s‚`‚j‚`‚g‚`‚r‚g‚h<E><E><E><E><E><E>?‚`‚r‚r‚h‚r‚s‚`‚m‚s@‚o‚q‚n‚f‚q‚`‚l‚l‚d‚q?<E><E><E>‚l‚h‚s‚r‚t‚m‚n‚q‚h@‚l‚`‚s‚r‚t‚c‚`<E><E>‚l‚h‚m‚n‚q‚t@‚l‚h‚x‚`‚i‚h‚l‚`"
+          .SDATAZ "‚x‚n‚t‚g‚d‚h@‚r‚`‚s‚n<E><E>‚r‚g‚h‚m‚h‚b‚g‚h‚q‚n@‚s‚`‚j‚`‚g‚`‚r‚g‚h<E><E><E><E><E><E>`‚`‚r‚r‚h‚r‚s‚`‚m‚s@‚o‚q‚n‚f‚q‚`‚l‚l‚d‚q`<E><E><E>‚l‚h‚s‚r‚t‚m‚n‚q‚h@‚l‚`‚s‚r‚t‚c‚`<E><E>‚l‚h‚m‚n‚q‚t@‚l‚h‚x‚`‚i‚h‚l‚`"
           .RES.B 2
-          .SDATAZ "<E><E><E><E>?‚u‚l@‚o‚q‚n‚f‚q‚`‚l‚l‚d‚q?<E><E><E>‚i‚t‚m@‚h‚r‚g‚h‚c‚`<E><E>‚`‚j‚h‚n@‚r‚g‚h‚q‚`‚h‚r‚g‚h<E><E>iŠ”Ž®‰ïŽÐƒ^ƒNƒgƒT[ƒrƒXj"
+          .SDATAZ "<E><E><E><E>`‚u‚l@‚o‚q‚n‚f‚q‚`‚l‚l‚d‚q`<E><E><E>‚i‚t‚m@‚h‚r‚g‚h‚c‚`<E><E>‚`‚j‚h‚n@‚r‚g‚h‚q‚`‚h‚r‚g‚h<E><E>iŠ”Ž®‰ïŽÐƒ^ƒNƒgƒT[ƒrƒXj"
           .RES.B 2
-          .SDATAZ "<E><E>?‚r‚t‚o‚o‚n‚q‚s@‚o‚q‚n‚f‚q‚`‚l‚l‚d‚q?<E><E><E>‚s‚n‚q‚t@‚m‚`‚j‚`‚f‚`‚v‚`"
+          .SDATAZ "<E><E>`‚r‚t‚o‚o‚n‚q‚s@‚o‚q‚n‚f‚q‚`‚l‚l‚d‚q`<E><E><E>‚s‚n‚q‚t@‚m‚`‚j‚`‚f‚`‚v‚`"
           .RES.B 2
-          .SDATAZ "<E><E><E><E><E><E>?‚b‚g‚`‚q‚`‚b‚s‚d‚q@‚c‚d‚r‚h‚f‚m?<E><E><E>‚m‚n‚a‚t‚n@‚j‚t‚r‚t‚m‚n‚j‚h"
-          .SDATAZ "<E><E><E><E><E><E><E><E><E><E>?‚b‚f@‚c‚d‚r‚h‚f‚m‚d‚q?<E><E><E>?‚„‚‰‚’‚…‚ƒ‚”‚‚’?"
+          .SDATAZ "<E><E><E><E><E><E>`‚b‚g‚`‚q‚`‚b‚s‚d‚q@‚c‚d‚r‚h‚f‚m`<E><E><E>‚m‚n‚a‚t‚n@‚j‚t‚r‚t‚m‚n‚j‚h"
+          .SDATAZ "<E><E><E><E><E><E><E><E><E><E>`‚b‚f@‚c‚d‚r‚h‚f‚m‚d‚q`<E><E><E>`‚„‚‰‚’‚…‚ƒ‚”‚‚’`"
           .RES.B 2
-          .SDATAZ "‚s‚n‚r‚g‚h‚`‚j‚h@‚l‚`‚q‚t‚x‚`‚l‚`<E><E>‚x‚`‚r‚t‚e‚t‚l‚h@‚r‚n‚d‚i‚h‚l‚`<E><E>iŠ”Ž®‰ïŽÐƒEƒYj<E><E><E><E>?‚ƒ‚‚’?<E><E>‚m‚n‚a‚t‚g‚h‚s‚n@‚x‚`‚l‚`‚l‚n‚s‚n<E><E>‚s‚n‚l‚n‚d@‚e‚t‚i‚h‚r‚`‚v‚`"
+          .SDATAZ "‚s‚n‚r‚g‚h‚`‚j‚h@‚l‚`‚q‚t‚x‚`‚l‚`<E><E>‚x‚`‚r‚t‚e‚t‚l‚h@‚r‚n‚d‚i‚h‚l‚`<E><E>iŠ”Ž®‰ïŽÐƒEƒYj<E><E><E><E>`‚ƒ‚‚’`<E><E>‚m‚n‚a‚t‚g‚h‚s‚n@‚x‚`‚l‚`‚l‚n‚s‚n<E><E>‚s‚n‚l‚n‚d@‚e‚t‚i‚h‚r‚`‚v‚`"
           .RES.B 1
-          .SDATAZ "<E>?‚“‚ˆ‚‰‚Ž‚Š‚•‚‹‚••‚—‚‚Ž‚‡‚‚Ž?<E><E>‚s‚`‚j‚`‚x‚`@‚x‚n‚r‚g‚h‚c‚`<E><E>‚j‚`‚y‚t‚m‚n‚q‚h@‚s‚`‚a‚`‚s‚`<E><E>‚j‚`‚s‚r‚t‚x‚t‚j‚h@‚l‚h‚x‚`‚n<E><E>‚l‚h‚s‚r‚t‚n@‚s‚d‚q‚`‚n<E><E>‚l‚`‚m‚`‚a‚t@‚j‚n‚i‚h‚l‚`<E><E>‚f‚d‚m‚f‚n@‚h‚s‚n"
+          .SDATAZ "<E>`‚“‚ˆ‚‰‚Ž‚Š‚•‚‹‚••‚—‚‚Ž‚‡‚‚Ž`<E><E>‚s‚`‚j‚`‚x‚`@‚x‚n‚r‚g‚h‚c‚`<E><E>‚j‚`‚y‚t‚m‚n‚q‚h@‚s‚`‚a‚`‚s‚`<E><E>‚j‚`‚s‚r‚t‚x‚t‚j‚h@‚l‚h‚x‚`‚n<E><E>‚l‚h‚s‚r‚t‚n@‚s‚d‚q‚`‚n<E><E>‚l‚`‚m‚`‚a‚t@‚j‚n‚i‚h‚l‚`<E><E>‚f‚d‚m‚f‚n@‚h‚s‚n"
           .RES.B 2
-          .SDATAZ "‚j‚d‚h‚i‚h@‚m‚`‚j‚`‚m‚h‚r‚g‚h<E><E>iŠ”Ž®‰ïŽÐƒEƒYj<E><E><E><E>?‚‚•‚‚…?<E><E>‚x‚`‚r‚t‚g‚h‚q‚n@‚j‚`‚m‚n‚t<E><E>‚x‚n‚r‚g‚h‚m‚n‚q‚h@‚g‚h‚q‚`‚h<E><E>‚x‚t‚s‚`‚j‚`@‚x‚`‚l‚`‚y‚`‚j‚h<E><E>i—LŒÀ‰ïŽÐƒ^ƒCƒj[ƒA[ƒgj"
+          .SDATAZ "‚j‚d‚h‚i‚h@‚m‚`‚j‚`‚m‚h‚r‚g‚h<E><E>iŠ”Ž®‰ïŽÐƒEƒYj<E><E><E><E>`‚‚•‚‚…`<E><E>‚x‚`‚r‚t‚g‚h‚q‚n@‚j‚`‚m‚n‚t<E><E>‚x‚n‚r‚g‚h‚m‚n‚q‚h@‚g‚h‚q‚`‚h<E><E>‚x‚t‚s‚`‚j‚`@‚x‚`‚l‚`‚y‚`‚j‚h<E><E>i—LŒÀ‰ïŽÐƒ^ƒCƒj[ƒA[ƒgj"
           .RES.B 1
-          .SDATAZ "<E><E>‚s‚d‚q‚t‚n@‚h‚b‚g‚h‚l‚t‚q‚`<E><E>‚j‚n‚t‚i‚h@‚n‚f‚`‚s‚`<E><E>iŠ”Ž®‰ïŽÐƒZƒsƒAj<E><E><E><E>?‚…‚–‚…‚Ž‚”?<E><E>‚r‚x‚n‚i‚h@‚l‚`‚s‚r‚t‚c‚`<E><E>‚g‚`‚x‚`‚s‚n@‚r‚g‚h‚m‚n‚g‚`‚q‚`"
+          .SDATAZ "<E><E>‚s‚d‚q‚t‚n@‚h‚b‚g‚h‚l‚t‚q‚`<E><E>‚j‚n‚t‚i‚h@‚n‚f‚`‚s‚`<E><E>iŠ”Ž®‰ïŽÐƒZƒsƒAj<E><E><E><E>`‚…‚–‚…‚Ž‚”`<E><E>‚r‚x‚n‚i‚h@‚l‚`‚s‚r‚t‚c‚`<E><E>‚g‚`‚x‚`‚s‚n@‚r‚g‚h‚m‚n‚g‚`‚q‚`"
           .RES.B 1
-          .SDATAZ "<E>‚r‚`‚b‚g‚h‚j‚n@‚r‚`‚j‚`‚t‚d<E><E>‚m‚n‚a‚t‚g‚h‚s‚n@‚j‚h‚q‚h‚s‚n‚t‚r‚g‚h<E><E>‚`‚j‚h‚s‚d‚q‚t@‚s‚`‚j‚`‚n<E><E>‚j‚t‚m‚h‚g‚`‚q‚t@‚`‚q‚`‚h<E><E>‚b‚g‚h‚g‚h‚q‚n@‚j‚t‚r‚g‚h‚a‚d<E><E>‚x‚t‚t‚h‚b‚g‚h‚q‚n@‚r‚g‚h‚l‚`‚c‚`<E><E>‚g‚h‚c‚d‚l‚h‚s‚r‚t@‚r‚g‚h‚n‚m‚n"
+          .SDATA "<E>‚r‚`‚b‚g‚h‚j‚n@‚r‚`‚j‚`‚t‚d<E><E>‚m‚n‚a‚t‚g‚h‚s‚n@‚j‚h‚q‚h‚s‚n‚t‚r‚g‚h<E><E>‚`‚j‚h‚s‚d‚q‚t@‚s‚`‚j‚`‚n"
+          .SDATAZ "<E><E>‚j‚t‚m‚h‚g‚`‚q‚t@‚`‚q‚`‚h<E><E>‚b‚g‚h‚g‚h‚q‚n@‚j‚t‚r‚g‚h‚a‚d<E><E>‚x‚t‚t‚h‚b‚g‚h‚q‚n@‚r‚g‚h‚l‚`‚c‚`<E><E>‚g‚h‚c‚d‚l‚h‚s‚r‚t@‚r‚g‚h‚n‚m‚n"
           .RES.B 2
-          .SDATAZ "‚m‚`‚n‚x‚`@‚t‚d‚c‚`<E><E>iŠ”Ž®‰ïŽÐƒEƒYj<E><E><E><E>?‚–‚@‚‡‚’‚‚‚ˆ‚‰‚ƒ?<E><E>‚m‚`‚n‚`‚j‚h@‚r‚g‚h‚l‚n‚f‚`‚l‚`<E><E><E><E>?‚f‚q‚`‚o‚g‚h‚b@‚r‚t‚o‚o‚n‚q‚s?<E><E>‚x‚t‚s‚`‚j‚`@‚l‚t‚q‚`‚j‚`‚l‚h"
+          .SDATAZ "‚m‚`‚n‚x‚`@‚t‚d‚c‚`<E><E>iŠ”Ž®‰ïŽÐƒEƒYj<E><E><E><E>`‚–‚@‚‡‚’‚‚‚ˆ‚‰‚ƒ`<E><E>‚m‚`‚n‚`‚j‚h@‚r‚g‚h‚l‚n‚f‚`‚l‚`<E><E><E><E>`‚f‚q‚`‚o‚g‚h‚b@‚r‚t‚o‚o‚n‚q‚s`<E><E>‚x‚t‚s‚`‚j‚`@‚l‚t‚q‚`‚j‚`‚l‚h"
           .RES.B 1
-          .SDATAZ "<E>i—LŒÀ‰ïŽÐƒGƒ€EƒNƒŠƒGƒCƒgj<E><E><E>‚l‚`‚r‚`‚j‚`‚y‚t@‚j‚n‚a‚`‚x‚`‚r‚g‚h<E><E>i—LŒÀ‰ïŽÐƒr[ƒgƒŠƒ“ƒNƒXj<E><E><E><E>?‚‚ˆ‚‚”‚?<E><E>‚g‚h‚r‚`‚r‚g‚h@‚l‚`‚q‚t‚x‚`‚l‚`"
+          .SDATAZ "<E>i—LŒÀ‰ïŽÐƒGƒ€EƒNƒŠƒGƒCƒgj<E><E><E>‚l‚`‚r‚`‚j‚`‚y‚t@‚j‚n‚a‚`‚x‚`‚r‚g‚h<E><E>i—LŒÀ‰ïŽÐƒr[ƒgƒŠƒ“ƒNƒXj<E><E><E><E>`‚‚ˆ‚‚”‚`<E><E>‚g‚h‚r‚`‚r‚g‚h@‚l‚`‚q‚t‚x‚`‚l‚`"
           .RES.B 3
-          .SDATAZ "<E>?‚–‚‰‚„‚…‚?<E><E>‚s‚`‚j‚`‚e‚t‚l‚h@‚l‚h‚m‚`‚l‚h<E><E>iŠ”Ž®‰ïŽÐƒwƒLƒTƒSƒ“j<E><E><E><E>?‚…‚–‚…‚Ž‚”?<E><E>‚r‚g‚h‚f‚d‚j‚n@‚r‚`‚j‚t‚l‚`<E><E>i—LŒÀ‰ïŽÐƒSƒŠƒ‰j"
+          .SDATAZ "<E>`‚–‚‰‚„‚…‚`<E><E>‚s‚`‚j‚`‚e‚t‚l‚h@‚l‚h‚m‚`‚l‚h<E><E>iŠ”Ž®‰ïŽÐƒwƒLƒTƒSƒ“j<E><E><E><E>`‚…‚–‚…‚Ž‚”`<E><E>‚r‚g‚h‚f‚d‚j‚n@‚r‚`‚j‚t‚l‚`<E><E>i—LŒÀ‰ïŽÐƒSƒŠƒ‰j"
           .RES.B 2
           .SDATAZ "<E>‚j‚`‚y‚t‚r‚t‚j‚d@‚x‚n‚r‚g‚h‚g‚`‚q‚`<E><E>iƒGƒhƒ‚ƒ“j"
           .RES.B 2
-          .SDATAZ "<E><E><E><E>?‚r‚b‚d‚m‚`‚q‚h‚n@‚v‚q‚h‚s‚d‚q?<E><E><E>‚`‚r‚`‚s‚n@‚h‚y‚t‚l‚h"
+          .SDATAZ "<E><E><E><E>`‚r‚b‚d‚m‚`‚q‚h‚n@‚v‚q‚h‚s‚d‚q`<E><E><E>‚`‚r‚`‚s‚n@‚h‚y‚t‚l‚h"
           .RES.B 2
-          .SDATAZ "<E><E><E><E><E><E><E><E>?‚u‚n‚h‚b‚d@‚`‚b‚s‚n‚q?<E><E><E>‚r‚x‚n‚s‚n@‚j‚`‚r‚g‚h‚h<E><E>‚r‚`‚x‚t‚q‚h@‚r‚`‚c‚`‚n‚j‚`"
+          .SDATAZ "<E><E><E><E><E><E><E><E>`‚u‚n‚h‚b‚d@‚`‚b‚s‚n‚q`<E><E><E>‚r‚x‚n‚s‚n@‚j‚`‚r‚g‚h‚h<E><E>‚r‚`‚x‚t‚q‚h@‚r‚`‚c‚`‚n‚j‚`"
           .RES.B 2
-          .SDATAZ "‚j‚d‚m‚i‚h@‚g‚`‚l‚`‚c‚`<E><E>‚l‚`‚r‚`‚j‚`‚y‚t@‚r‚t‚y‚t‚j‚h<E><E>‚x‚n‚j‚n@‚r‚n‚t‚l‚h<E><E>‚l‚`‚j‚n‚s‚n@‚s‚r‚t‚l‚t‚q‚`<E><E>‚r‚`‚b‚g‚h‚j‚n@‚j‚n‚i‚h‚l‚`<E><E>‚s‚n‚r‚g‚h‚s‚`‚j‚`@‚r‚g‚h‚l‚h‚y‚t<E><E>‚l‚h‚s‚r‚t‚`‚j‚h@‚l‚`‚c‚n‚m‚n<E><E>‚s‚n‚l‚n‚g‚h‚q‚n@‚s‚r‚t‚a‚n‚h"
+          .SDATA "‚j‚d‚m‚i‚h@‚g‚`‚l‚`‚c‚`<E><E>‚l‚`‚r‚`‚j‚`‚y‚t@‚r‚t‚y‚t‚j‚h<E><E>‚x‚n‚j‚n@‚r‚n‚t‚l‚h<E>"
+          .SDATAZ "<E>‚l‚`‚j‚n‚s‚n@‚s‚r‚t‚l‚t‚q‚`<E><E>‚r‚`‚b‚g‚h‚j‚n@‚j‚n‚i‚h‚l‚`<E><E>‚s‚n‚r‚g‚h‚s‚`‚j‚`@‚r‚g‚h‚l‚h‚y‚t<E><E>‚l‚h‚s‚r‚t‚`‚j‚h@‚l‚`‚c‚n‚m‚n<E><E>‚s‚n‚l‚n‚g‚h‚q‚n@‚s‚r‚t‚a‚n‚h"
           .RES.B 1
           .SDATAZ "<E>‚m‚`‚n‚j‚h@‚a‚`‚m‚c‚n<E><E>‚r‚d‚h‚i‚h‚q‚n@‚b‚g‚n‚c‚`<E><E>‚c‚`‚h‚r‚t‚j‚d@‚d‚f‚`‚v‚`<E><E>‚x‚t‚t‚j‚h@‚g‚`‚l‚`‚m‚n<E><E>‚x‚t‚l‚h‚j‚n@‚h‚v‚`‚l‚n‚s‚n<E><E>‚`‚j‚h‚j‚n@‚j‚n‚h‚j‚d<E><E>‚x‚n‚r‚g‚h‚j‚n@‚j‚`‚l‚d‚h"
           .RES.B 2
-          .SDATAZ "‚r‚d‚s‚r‚t@‚n‚g‚`‚r‚g‚h<E><E><E><E><E><E>?‚u‚n‚h‚b‚d@‚b‚n‚n‚q‚c‚h‚m‚`‚s‚d?<E><E><E>‚s‚`‚j‚`‚j‚n@‚g‚`‚r‚d‚f‚`‚v‚`<E><E>i—LŒÀ‰ïŽÐ]èƒvƒƒ_ƒNƒVƒ‡ƒ“j"
+          .SDATAZ "‚r‚d‚s‚r‚t@‚n‚g‚`‚r‚g‚h<E><E><E><E><E><E>`‚u‚n‚h‚b‚d@‚b‚n‚n‚q‚c‚h‚m‚`‚s‚d`<E><E><E>‚s‚`‚j‚`‚j‚n@‚g‚`‚r‚d‚f‚`‚v‚`<E><E>i—LŒÀ‰ïŽÐ]èƒvƒƒ_ƒNƒVƒ‡ƒ“j"
           .RES.B 2
-          .SDATAZ "<E><E><E>?‚l‚t‚r‚h‚b?<E><E><E>?‚‚’‚‚„‚•‚ƒ‚…‚’?<E><E>‚g‚d‚d?‚i‚n‚n‚m@‚j‚h‚l<E><E>iŠ”Ž®‰ïŽÐƒAƒbƒgƒ}ƒ“j<E><E><E><E>?‚„‚‰‚’‚…‚ƒ‚”‚‚’?"
+          .SDATAZ "<E><E><E>`‚l‚t‚r‚h‚b`<E><E><E>`‚‚’‚‚„‚•‚ƒ‚…‚’`<E><E>‚g‚d‚d|‚i‚n‚n‚m@‚j‚h‚l<E><E>iŠ”Ž®‰ïŽÐƒAƒbƒgƒ}ƒ“j<E><E><E><E>`‚„‚‰‚’‚…‚ƒ‚”‚‚’`"
           .RES.B 1
-          .SDATAZ "<E>‚s‚d‚s‚r‚t‚q‚n@‚l‚t‚s‚`<E><E>iŠ”Ž®‰ïŽÐƒAƒbƒgƒ}ƒ“j<E><E><E><E><E><E>?‚l‚t‚r‚h‚b‚h‚`‚m?<E><E><E>?‚‹‚…‚™‚‚‚‚‚’‚„?<E><E>‚x‚n‚r‚g‚h‚`‚j‚h@‚s‚`‚m‚m‚n"
+          .SDATAZ "<E>‚s‚d‚s‚r‚t‚q‚n@‚l‚t‚s‚`<E><E>iŠ”Ž®‰ïŽÐƒAƒbƒgƒ}ƒ“j<E><E><E><E><E><E>`‚l‚t‚r‚h‚b‚h‚`‚m`<E><E><E>`‚‹‚…‚™‚‚‚‚‚’‚„`<E><E>‚x‚n‚r‚g‚h‚`‚j‚h@‚s‚`‚m‚m‚n"
           .RES.B 3
-          .SDATAZ "<E><E><E>?‚‚‚‚“‚“?<E><E>‚l‚`‚r‚`‚s‚n‚l‚n@‚n‚n‚l‚n‚s‚n<E><E><E><E>?‚‡‚•‚‰‚”‚‚’?<E><E>‚g‚h‚c‚d‚`‚j‚h@‚`‚h‚g‚`‚q‚`"
-          .SDATAZ "?‚o‚q‚n‚f‚q‚`‚l?<E><E>‚h‚b‚g‚h‚q‚n‚t@‚s‚`‚j‚t‚v‚`<E><E><E><E><E><E>?‚r‚n‚t‚m‚c@‚d‚e‚e‚d‚b‚s?<E><E><E>‚s‚n‚l‚n‚l‚h‚s‚r‚t@‚l‚`‚s‚r‚t‚r‚g‚h‚s‚`<E><E>‚x‚n‚r‚g‚h‚x‚t‚j‚h@‚j‚`‚c‚n‚n‚j‚`"
-          .SDATAZ "i—LŒÀ‰ïŽÐƒeƒB[ƒYƒ~ƒ…[ƒWƒbƒNj<E><E><E><E><E><E>?‚h‚m‚s‚d‚q‚e‚`‚b‚d•‚o‚`‚b‚j‚`‚f‚d?<E><E><E>?‚„‚‰‚’‚…‚ƒ‚”‚‚’?<E><E>‚g‚h‚c‚d‚m‚n‚q‚h@‚j‚`‚v‚`‚j‚`‚l‚h"
+          .SDATAZ "<E><E><E>`‚‚‚‚“‚“`<E><E>‚l‚`‚r‚`‚s‚n‚l‚n@‚n‚n‚l‚n‚s‚n<E><E><E><E>`‚‡‚•‚‰‚”‚‚’`<E><E>‚g‚h‚c‚d‚`‚j‚h@‚`‚h‚g‚`‚q‚`"
+          .SDATAZ "`‚o‚q‚n‚f‚q‚`‚l`<E><E>‚h‚b‚g‚h‚q‚n‚t@‚s‚`‚j‚t‚v‚`<E><E><E><E><E><E>`‚r‚n‚t‚m‚c@‚d‚e‚e‚d‚b‚s`<E><E><E>‚s‚n‚l‚n‚l‚h‚s‚r‚t@‚l‚`‚s‚r‚t‚r‚g‚h‚s‚`<E><E>‚x‚n‚r‚g‚h‚x‚t‚j‚h@‚j‚`‚c‚n‚n‚j‚`"
+          .SDATAZ "i—LŒÀ‰ïŽÐƒeƒB[ƒYƒ~ƒ…[ƒWƒbƒNj<E><E><E><E><E><E>`‚h‚m‚s‚d‚q‚e‚`‚b‚d•‚o‚`‚b‚j‚`‚f‚d`<E><E><E>`‚„‚‰‚’‚…‚ƒ‚”‚‚’`<E><E>‚g‚h‚c‚d‚m‚n‚q‚h@‚j‚`‚v‚`‚j‚`‚l‚h"
           .RES.B 2
-          .SDATAZ "?‚„‚…‚“‚‰‚‡‚Ž‚…‚’?<E><E>‚s‚`‚j‚d‚r‚g‚h@‚`‚q‚`‚h<E><E><E><E><E><E>?‚o‚q‚n‚l‚n‚s‚h‚n‚m?<E><E><E>‚s‚n‚l‚n‚l‚h@‚j‚h‚x‚n‚m‚n"
+          .SDATAZ "`‚„‚…‚“‚‰‚‡‚Ž‚…‚’`<E><E>‚s‚`‚j‚d‚r‚g‚h@‚`‚q‚`‚h<E><E><E><E><E><E>`‚o‚q‚n‚l‚n‚s‚h‚n‚m`<E><E><E>‚s‚n‚l‚n‚l‚h@‚j‚h‚x‚n‚m‚n"
           .RES.B 2
-          .SDATAZ "<E><E>?‚r‚o‚d‚b‚h‚`‚k@‚s‚g‚`‚m‚j‚r?<E><E><E>‚g‚h‚q‚n‚x‚t‚j‚h@‚l‚h‚x‚`‚m‚n<E><E>‚x‚`‚r‚t‚r‚g‚h@‚x‚`‚l‚`‚r‚g‚h‚s‚`<E><E>‚j‚`‚y‚t‚g‚h‚j‚n@‚l‚n‚q‚h‚h<E><E>‚i‚t‚m‚h‚b‚g‚h@‚r‚g‚h‚l‚h‚y‚t<E><E>‚x‚n‚r‚g‚h‚l‚h‚s‚r‚t@‚v‚`‚j‚`‚h"
+          .SDATAZ "<E><E>`‚r‚o‚d‚b‚h‚`‚k@‚s‚g‚`‚m‚j‚r`<E><E><E>‚g‚h‚q‚n‚x‚t‚j‚h@‚l‚h‚x‚`‚m‚n<E><E>‚x‚`‚r‚t‚r‚g‚h@‚x‚`‚l‚`‚r‚g‚h‚s‚`<E><E>‚j‚`‚y‚t‚g‚h‚j‚n@‚l‚n‚q‚h‚h<E><E>‚i‚t‚m‚h‚b‚g‚h@‚r‚g‚h‚l‚h‚y‚t<E><E>‚x‚n‚r‚g‚h‚l‚h‚s‚r‚t@‚v‚`‚j‚`‚h"
           .RES.B 2
           .SDATAZ "‚s‚`‚c‚`‚r‚g‚h@‚s‚`‚j‚d‚y‚`‚j‚h<E><E>iŠ”Ž®‰ïŽÐƒZƒKEƒGƒ“ƒ^[ƒvƒ‰ƒCƒ[ƒXj<E><E><E>‚l‚`‚r‚`‚m‚n‚a‚t@‚s‚r‚t‚j‚`‚l‚n‚s‚n<E><E>iŠ”Ž®‰ïŽÐƒ‰ƒ“ƒhEƒz[Ij<E><E><E>‚j‚d‚m@‚`‚r‚n<E><E>iƒfƒWƒvƒ‰ƒlƒbƒg—LŒÀ‰ïŽÐj"
           .RES.B 1
           .SDATAZ "—LŒÀ‰ïŽÐƒ}ƒ‰ƒJƒX“d‹C‰ÈŠw<E><E><E>‚s‚`‚j‚d‚r‚g‚h@‚g‚`‚r‚d‚f‚`‚v‚`<E><E>‚l‚`‚m‚`‚a‚t@‚r‚`‚h‚s‚n‚t<E><E>‚i‚t‚m‚x‚`@‚`‚a‚d<E><E>‚g‚h‚c‚d‚x‚t‚j‚h@‚m‚`‚r‚t"
           .RES.B 2
-          .SDATAZ "<E><E><E><E><E>?‚o‚q‚n‚c‚t‚b‚s@‚o‚k‚`‚m‚m‚h‚m‚f?<E><E><E>‚x‚n‚r‚g‚h‚l‚h@‚r‚`‚s‚n<E><E>‚s‚`‚h‚r‚d‚j‚h@‚m‚`‚f‚`‚l‚h‚m‚d<E><E>i”„‚ê‚éƒRƒ~ƒ…ƒjƒP[ƒVƒ‡ƒ“Š”Ž®‰ïŽÐj"
+          .SDATAZ "<E><E><E><E><E>`‚o‚q‚n‚c‚t‚b‚s@‚o‚k‚`‚m‚m‚h‚m‚f`<E><E><E>‚x‚n‚r‚g‚h‚l‚h@‚r‚`‚s‚n<E><E>‚s‚`‚h‚r‚d‚j‚h@‚m‚`‚f‚`‚l‚h‚m‚d<E><E>i”„‚ê‚éƒRƒ~ƒ…ƒjƒP[ƒVƒ‡ƒ“Š”Ž®‰ïŽÐj"
           .RES.B 3
           .SDATAZ "‚x‚`‚r‚t‚e‚t‚l‚h@‚r‚`‚j‚`‚r‚g‚h‚s‚`<E><E>‚j‚d‚m‚i‚h@‚m‚`‚j‚`‚m‚n"
           .RES.B 1
-          .SDATAZ "?‚c‚h‚q‚d‚b‚s‚n‚q?<E><E><E>‚j‚d‚m‚i‚h@‚m‚`‚j‚`‚m‚n"
+          .SDATAZ "`‚c‚h‚q‚d‚b‚s‚n‚q`<E><E><E>‚j‚d‚m‚i‚h@‚m‚`‚j‚`‚m‚n"
           .RES.B 2
-          .SDATAZ "<E>?‚o‚q‚n‚c‚t‚b‚d‚q?<E><E><E>‚x‚`‚r‚t‚e‚t‚l‚h@‚r‚`‚j‚`‚r‚g‚h‚s‚`"
+          .SDATAZ "<E>`‚o‚q‚n‚c‚t‚b‚d‚q`<E><E><E>‚x‚`‚r‚t‚e‚t‚l‚h@‚r‚`‚j‚`‚r‚g‚h‚s‚`"
           .RES.B 3
-          .SDATAZ "<E><E>?‚d‚w‚d‚b‚s‚h‚u‚d@‚o‚q‚n‚c‚t‚b‚d‚q?<E><E><E>‚g‚h‚c‚d‚`‚j‚h@‚s‚r‚t‚i‚h‚j‚`‚v‚`"
+          .SDATAZ "<E><E>`‚d‚w‚d‚b‚s‚h‚u‚d@‚o‚q‚n‚c‚t‚b‚d‚q`<E><E><E>‚g‚h‚c‚d‚`‚j‚h@‚s‚r‚t‚i‚h‚j‚`‚v‚`"
           .SDATAZ "<E><E><E>‹¦—Í@“Œ‹ž“sŒð’Ê‹Ç"
           .SDATAZ "<E><E><E><E><E>Šé‰æEŠJ”­@Š”Ž®‰ïŽÐƒtƒH[ƒeƒBƒtƒ@ƒCƒu<E><E>»‘¢”Ì”„@Š”Ž®‰ïŽÐ@ƒZƒKEƒGƒ“ƒ^[ƒvƒ‰ƒCƒ[ƒX<E><E>›‚e‚n‚q‚s‚x‚e‚h‚u‚d@‚P‚X‚X‚X"
 
