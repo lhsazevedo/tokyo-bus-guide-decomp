@@ -1,3 +1,4 @@
+          .IMPORT     _gdFsChangeDir
           .IMPORT     _gdFsOpen
           .IMPORT     _gdFsClose
           .IMPORT     _gdFsGetFileSize
@@ -24,8 +25,10 @@
           .IMPORT     _sdMidiSetFxLev
           .IMPORT     _sdMidiSetPitch
           .IMPORT     _sdMidiSetVol
+          .IMPORT     _sdMidiStopAll
           .IMPORT     _ADXT_Init
           .IMPORT     _ADXT_Create
+          .IMPORT     _ADXT_StartAfs
           .IMPORT     _ADXT_Stop
           .IMPORT     _ADXT_GetStat
           .IMPORT     _ADXT_SetOutVol
@@ -33,6 +36,7 @@
           .IMPORT     _ADXF_LoadPartition
           .IMPORT     _ADXF_GetPtinfoSize
           .IMPORT     _strncmp
+          .IMPORT     _memset
           .IMPORT     _strlen
           .IMPORT     __8c0fcd50
           .IMPORT     _adxtHandles_8c0fcd20
@@ -56,11 +60,7 @@
           .IMPORT     _const127_8c03bd90
           .IMPORT     _const_int_arr_8c0332b0
           .IMPORT     __8c03bd8c
-          .IMPORT     _ADXT_StartAfs
-          .IMPORT     _sdMidiStopAll
           .IMPORT     __8c0fcd24
-          .IMPORT     _memset
-          .IMPORT     _gdFsChangeDir
           .EXPORT     _midiResetFxAndPlay_8c010846
           .EXPORT     _FUN_8c010ca6
           .EXPORT     _snd_8c010cd6
@@ -681,7 +681,7 @@ _usr_adx_err_func_8c010532:      ; function: usr_adx_err_func_8c010532
           STS.L       PR,@-R15
           ADD         #-16,R15
           MOV         R15,R1
-          MOV.L       L21+22,R2; L54
+          MOV.L       L21+22,R2; L80
           MOV.L       L21+26,R3; __slow_mvn
           MOV         R15,R14
           MOV.L       R5,@R15
@@ -1525,13 +1525,13 @@ _FUN_8c010bae:                   ; function: FUN_8c010bae
                                  ; frame size=4
                                  ; used runtime library name:
                                  ; __divls
-          MOV.L       L67+14,R5
-          MOV.W       L67+0,R3
+          MOV.L       L67+14,R5 ; __8c157a34
+          MOV.W       L67,R3    ; H'00F0
           STS.L       PR,@-R15
           MOV.L       @R5,R6
           TST         R6,R3
           BF          L66
-          MOV.W       L67+2,R7
+          MOV.W       L67+2,R7  ; __8c03bd88
           TST         R4,R4
           BF          L65
           MOV         #15,R0
@@ -1540,8 +1540,8 @@ _FUN_8c010bae:                   ; function: FUN_8c010bae
           BT          L65
           MOV.L       L67+6,R6
           MOV.L       @R5,R0
-          MOV.W       L67+4,R3
-          MOV.L       L67+18,R2
+          MOV.W       L67+4,R3 ; H'FED4
+          MOV.L       L67+18,R2; __divls
           OR          #1,R0
           MOV.L       R0,@R5
           MOV.L       @R6,R1
@@ -1556,15 +1556,15 @@ L65:
           MOV         R4,R0
           CMP/EQ      #1,R0
           BF          L66
-          MOV.L       L67+14,R2
+          MOV.L       L67+14,R2 ; __8c157a34
           MOV.L       @R2,R0
           AND         #15,R0
           CMP/EQ      #2,R0
           BT          L66
           MOV.L       L67+10,R4
           MOV.L       @R5,R0
-          MOV.W       L67+4,R3
-          MOV.L       L67+18,R2
+          MOV.W       L67+4,R3 ; H'FED4
+          MOV.L       L67+18,R2; __divls
           OR          #2,R0
           MOV.L       R0,@R5
           MOV.L       @R4,R1
@@ -1588,8 +1588,11 @@ L67:
           .DATA.L     __8c157a34
           .DATA.L     __divls
 
-_FUN_8c010c2c:
-          MOV.L       L74+4,R5
+_FUN_8c010c2c:                   ; function: FUN_8c010c2c
+                                 ; frame size=4
+                                 ; used runtime library name:
+                                 ; __divls
+          MOV.L       L74+4,R5 ; __8c157a34
           STS.L       PR,@-R15
           MOV.L       @R5,R0
           TST         #15,R0
@@ -1623,7 +1626,8 @@ L68:
           LDS.L       @R15+,PR
           RTS
           NOP
-_FUN_8c010c6e:
+_FUN_8c010c6e:                   ; function: FUN_8c010c6e
+                                 ; frame size=4
           STS.L       PR,@-R15
           BSR         _midiSetVol_8c010128
           NOP
@@ -1631,13 +1635,14 @@ _FUN_8c010c6e:
           NOP
           BRA         _FUN_8c0102d8
           LDS.L       @R15+,PR
-_FUN_8c010c7c:
+_FUN_8c010c7c:                   ; function: FUN_8c010c7c
+                                 ; frame size=16
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
-          MOV.L       L74+20,R4
+          MOV.L       L74+20,R4; _adxtHandles_8c0fcd20
           MOV.L       R12,@-R15
           STS.L       PR,@-R15
-          MOV.L       L74+24,R13
+          MOV.L       L74+24,R13; _ADXT_Stop
           MOV         R4,R12
           ADD         #8,R12
           MOV         R4,R14
@@ -1646,7 +1651,7 @@ L69:
           MOV.L       @R14+,R4
           CMP/HS      R12,R14
           BF          L69
-          MOV.L       L74+8,R3
+          MOV.L       L74+8,R3; __8c03bd80
           MOV         #0,R2
           MOV.L       R2,@R3
           LDS.L       @R15+,PR
@@ -1654,10 +1659,11 @@ L69:
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-_FUN_8c010ca6:
+_FUN_8c010ca6:                   ; function: FUN_8c010ca6
+                                 ; frame size=4
           MOV.L       R14,@-R15
           MOV         R4,R14
-          MOV.L       L74+8,R4
+          MOV.L       L74+8,R4 ; __8c03bd80
           TST         R14,R14
           BF          L70
           MOV.L       @R4,R2
@@ -1674,14 +1680,15 @@ L70:
           AND         R3,R2
           MOV.L       R2,@R4
 L71:
-          MOV.L       L74+20,R0
+          MOV.L       L74+20,R0 ; _adxtHandles_8c0fcd20
           MOV         R14,R4
           SHLL2       R4
-          MOV.L       L74+24,R3
+          MOV.L       L74+24,R3; _ADXT_Stop
           MOV.L       @(R0,R4),R4
           JMP         @R3
           MOV.L       @R15+,R14
-_snd_8c010cd6:
+_snd_8c010cd6:                   ; function: snd_8c010cd6
+                                 ; frame size=24
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           MOV.L       R12,@-R15
