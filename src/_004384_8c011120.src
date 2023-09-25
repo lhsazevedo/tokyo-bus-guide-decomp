@@ -1,14 +1,13 @@
           .IMPORT     _gdFsChangeDir
           .IMPORT     _gdFsOpen
           .IMPORT     _gdFsClose
-          .IMPORT     _gdFsGetFileSize
+          .IMPORT     _gdFsGetFileSctSize
           .IMPORT     _gdFsRead
           .IMPORT     _gdFsGetStat
           .IMPORT     _gdFsTrans32
           .IMPORT     _gdFsGetTransStat
           .IMPORT     _syMalloc
           .IMPORT     _syFree
-          .IMPORT     _memcpy
           .IMPORT     _pushTask_8c014ae8
           .IMPORT     _freeTask_8c014b66
           .IMPORT     __8c157a80_basedir
@@ -17,14 +16,10 @@
           .IMPORT     __8c157a90_current
           .IMPORT     __8c157a94_end
           .IMPORT     __8c157a98
-          ; .IMPORT     _str_DATA_EMPTY_8c03334c
           .IMPORT     _tasks_8c1ba3c8
-          .IMPORT     __slow_strcmp1
           .IMPORT     _strcmp
-          .IMPORT     _ptr_str_DATA_EMPTY_8c03be7c
-          .IMPORT     _gdFsGetFileSctSize
           .IMPORT     __quick_evn_mvn
-          .IMPORT     _syCfgExit
+          .EXPORT     __8c03334c
           .EXPORT     _nop_8c011120
           .EXPORT     _initDatQueue_8c011124
           .EXPORT     _FUN_8c01116a
@@ -38,7 +33,7 @@ _nop_8c011120:                   ; function: nop_8c011120
                                  ; frame size=0
           RTS
           NOP
-_initDatQueue_8c011124:                   ; function: initDatQueue_8c011124
+_initDatQueue_8c011124:          ; function: initDatQueue_8c011124
                                  ; frame size=16
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
@@ -81,16 +76,16 @@ L3:
           MOV.L       @R15+,R14
 _FUN_8c01116a:                   ; function: FUN_8c01116a
                                  ; frame size=0
-          MOV.L       L14,R2     ; __8c157a8c_start
-          MOV.L       L14+12,R1  ; __8c157a90_current
+          MOV.L       L14,R2   ; __8c157a8c_start
+          MOV.L       L14+12,R1; __8c157a90_current
           MOV.L       @R2,R3
-          MOV.L       L14+20,R2  ; __8c157a80_basedir
+          MOV.L       L14+20,R2; __8c157a80_basedir
           MOV.L       R3,@R1
           MOV         #1,R1
-          MOV.L       L14+16,R3  ; _ptr_str_DATA_EMPTY_8c03be7c
+          MOV.L       L14+16,R3; __8c03334c
           MOV.L       @R3,R0
           MOV.L       R0,@R2
-          MOV.L       L14+24,R0  ; __8c157a98
+          MOV.L       L14+24,R0; __8c157a98
           RTS
           MOV.L       R1,@R0
 _request_dat_8c011182:           ; function: request_dat_8c011182
@@ -98,8 +93,8 @@ _request_dat_8c011182:           ; function: request_dat_8c011182
           MOV.B       @R5,R3
           TST         R3,R3
           BT          L4
-          MOV.L       L14+8,R2   ; __8c157a94_end
-          MOV.L       L14+12,R7  ; __8c157a90_current
+          MOV.L       L14+8,R2 ; __8c157a94_end
+          MOV.L       L14+12,R7; __8c157a90_current
           MOV.L       @R2,R3
           MOV.L       @R7,R0
           CMP/HS      R3,R0
@@ -123,9 +118,10 @@ L5:
 L6:                               
           RTS
           NOP
-
 _task_8c0111b4:                  ; function: task_8c0111b4
                                  ; frame size=32
+                                 ; used runtime library name:
+                                 ; _strcmp
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           MOV.L       R12,@-R15
@@ -145,8 +141,8 @@ _task_8c0111b4:                  ; function: task_8c0111b4
           BT          L12
           BRA         L19
           NOP
-L7:
-          MOV.L       L14+12,R2 ; __8c157a90_current
+L7:                               
+          MOV.L       L14+12,R2; __8c157a90_current
           MOV.L       L14+20,R12 ; __8c157a80_basedir
           MOV.L       @R2,R3
           CMP/HS      R3,R14
@@ -173,14 +169,14 @@ L8:
           JSR         @R2
           MOV         R3,R4
 L9:
-          MOV.L       L14+40,R3
+          MOV.L       L14+40,R3; _gdFsOpen
           MOV         #0,R5
           JSR         @R3
           MOV.L       @(4,R14),R4
           TST         R0,R0
           BT/S        L17
           MOV.L       R0,@(12,R13)
-          MOV.L       L14+44,R2
+          MOV.L       L14+44,R2; _gdFsGetFileSctSize
           MOV         R15,R5
           JSR         @R2
           MOV.L       @(12,R13),R4
@@ -213,7 +209,7 @@ L10:
           MOV.L       @R1,R3
           MOV.L       R3,@(24,R13)
           MOV.L       R0,@R11
-          MOV.L       L14+16,R0 ; _ptr_str_DATA_EMPTY_8c03be7c
+          MOV.L       L14+16,R0 ; __8c03334c
           MOV.L       @R0,R3
           BRA         L19
           MOV.L       R3,@R12
@@ -247,7 +243,7 @@ L14:
           .DATA.L     _syMalloc ; H'8c011290
           .DATA.L     __8c157a94_end
           .DATA.L     __8c157a90_current
-          .DATA.L     _ptr_str_DATA_EMPTY_8c03be7c
+          .DATA.L     __8c03334c
           .DATA.L     __8c157a80_basedir ; H'8c0112a0
           .DATA.L     __8c157a98
           .DATA.L     __8c157a88
@@ -406,13 +402,12 @@ L26:
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-
-_get_8c157a98_8c0113d2:                   ; function: get_8c157a98_8c0113d2
+_get_8c157a98_8c0113d2:          ; function: get_8c157a98_8c0113d2
                                  ; frame size=0
           MOV.L       L28+28,R3; __8c157a98
           RTS
           MOV.L       @R3,R0
-_freeDatQueue_8c0113d8:                   ; function: freeDatQueue_8c0113d8
+_freeDatQueue_8c0113d8:          ; function: freeDatQueue_8c0113d8
                                  ; frame size=0
           MOV.L       L28+24,R2; __8c157a8c_start
           MOV.L       @R2,R0
@@ -422,30 +417,31 @@ _freeDatQueue_8c0113d8:                   ; function: freeDatQueue_8c0113d8
           MOV.L       L28+16,R3
           JMP         @R3
           NOP
-
 L27:
           RTS
           NOP
-
 L28:
           .DATA.W     H'0800
           .RES.W      1 ; H'8c0113ec
-          .DATA.L     _gdFsGetTransStat ; H'8c0113f0
+          .DATA.L     _gdFsGetTransStat
           .DATA.L     _gdFsTrans32
           .DATA.L     _gdFsClose
           .DATA.L     _syFree
-          .DATA.L     __8c157a90_current ; H'8c011400
+          .DATA.L     __8c157a90_current
           .DATA.L     __8c157a8c_start
           .DATA.L     __8c157a98
           .DATA.L     _syMalloc
-          .DATA.L     _strcmp ; H'8c011410
+          .DATA.L     _strcmp
           .DATA.L     __quick_evn_mvn
           .DATA.L     _task_8c0111b4
           .DATA.L     _tasks_8c1ba3c8
-          .DATA.L     _pushTask_8c014ae8 ; H'8c011420
+          .DATA.L     _pushTask_8c014ae8
           .DATA.L     __8c157a88
-          .DATA.L     _ptr_str_DATA_EMPTY_8c03be7c
+          .DATA.L     __8c03334c
           .DATA.L     __8c157a80_basedir
+          .SECTION    D,DATA,ALIGN=4
+__8c03334c:                      ; static: _8c03334c
+          .DATA.L     L29
           .SECTION    C,DATA,ALIGN=4
 L29:
           .SDATA      "DATA EMPTY"

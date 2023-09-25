@@ -22,11 +22,13 @@ struct Test {
     int field_0x0c;
 };
 
-extern Test _8c157a58;
-extern void* _8c157a58_2;
+// extern Test _8c157a58;
 extern Test3* _8c157a5c;
 extern int aa;
 extern int ab;
+
+/* === Uninitialized vars === */
+extern Test _8c157a58;
 
 FUN_8c010fe8(Test2* p1, Test3* p2) {
     _8c157a58.field_0x00 = p1;

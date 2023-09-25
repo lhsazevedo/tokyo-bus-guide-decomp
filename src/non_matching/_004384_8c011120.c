@@ -22,6 +22,9 @@ typedef struct {
     int field_0x1c;
 } _8c0111b4_Task;
 
+/* === Initialized vars === */
+char *_8c03334c = "DATA EMPTY";
+
 /* Matched :) */
 void nop_8c011120() {
     /* Empty body */
@@ -45,7 +48,7 @@ int initDatQueue_8c011124(int param) {
 /* Matched */
 FUN_8c01116a() {
       _8c157a90_current = _8c157a8c_start;
-      _8c157a80_basedir = "DATA EMPTY";
+      _8c157a80_basedir = _8c03334c;
       _8c157a98 = 1;
 }
 
@@ -148,7 +151,7 @@ void task_8c0111b4(_8c0111b4_Task* task, void* state) {
             /* 8c011250 */
             task->queuedDat_0x18 = _8c157a8c_start;
             _8c157a88 = 0;
-            _8c157a80_basedir = "DATA EMPTY";
+            _8c157a80_basedir = _8c03334c;
             return;
         } else {
             /* 8c011262 */
@@ -243,7 +246,7 @@ FUN_8c011310() {
     created_task->field_0x18 = _8c157a8c_start;
     created_task->field_0x08 = 0;
     _8c157a88 = 0;
-    _8c157a80_basedir = "DATA EMPTY";
+    _8c157a80_basedir = _8c03334c;
 
     return 1;
 }

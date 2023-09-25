@@ -167,5 +167,8 @@ L7:
           .DATA.L     H'8C157A58
           .DATA.L     H'8C157A5C
           .DATA.L     H'8C02FB50
+          .SECTION    B,DATA,ALIGN=4
+__8c157a58:                      ; static: _8c157a58
+          .RES.L      4
           .END
 

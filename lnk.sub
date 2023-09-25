@@ -18,8 +18,6 @@ define __slow_mvn(8C02FED0)
 define _memset(8C0300b8)
 define _strcmp(8C030108)
 define _strlen(8C030130)
-define _ptr_str_DATA_EMPTY_8c03be7c(8C03BE7C)
-define __8c03be5c(8C03BE5C)
 
 define _ADXT_Init(8C04F7A2)
 define _ADXT_GetStat(8C04FCFC)
