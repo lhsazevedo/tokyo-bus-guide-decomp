@@ -38,14 +38,6 @@
           .IMPORT     _strncmp
           .IMPORT     _memset
           .IMPORT     _strlen
-          .IMPORT     __8c0fcd50
-          .IMPORT     _adxtHandles_8c0fcd20
-          .IMPORT     _midiHandles_8c0fcd28
-          .IMPORT     _work_8c0fcd74
-          .IMPORT     _memblkSource_8c0fcd48
-          .IMPORT     _memblkSource_8c0fcd4c
-          .IMPORT     _adxf_work_8c156efc
-          .IMPORT     __8c157a34
           .IMPORT     __8c1bbcb0
           .IMPORT     __8c226468
           .IMPORT     __divls
@@ -56,6 +48,14 @@
           .EXPORT     __8c03bd88
           .EXPORT     __8c03bd90
           .EXPORT     _adxfPartitionInfo_8c03bd94
+          .EXPORT     _adxtHandles_8c0fcd20
+          .EXPORT     _midiHandles_8c0fcd28
+          .EXPORT     _memblkSource_8c0fcd48
+          .EXPORT     _memblkSource_8c0fcd4c
+          .EXPORT     __8c0fcd50
+          .EXPORT     _work_8c0fcd74
+          .EXPORT     _adxf_work_8c156efc
+          .EXPORT     __8c157a34
           .EXPORT     _midiResetFxAndPlay_8c010846
           .EXPORT     _FUN_8c010ca6
           .EXPORT     _snd_8c010cd6
@@ -1936,4 +1936,21 @@ L85:
           .RES.W      1
 L86:
           .DATA.B     H'00
+          .SECTION    B,DATA,ALIGN=4
+_adxtHandles_8c0fcd20:           ; static: adxtHandles_8c0fcd20
+          .RES.L      2
+_midiHandles_8c0fcd28:           ; static: midiHandles_8c0fcd28
+          .RES.L      8
+_memblkSource_8c0fcd48:          ; static: memblkSource_8c0fcd48
+          .RES.L      1
+_memblkSource_8c0fcd4c:          ; static: memblkSource_8c0fcd4c
+          .RES.L      1
+__8c0fcd50:                      ; static: _8c0fcd50
+          .RES.L      9
+_work_8c0fcd74:                  ; static: work_8c0fcd74
+          .RES.B      369032
+_adxf_work_8c156efc:             ; static: adxf_work_8c156efc
+          .RES.B      2872
+__8c157a34:                      ; static: _8c157a34
+          .RES.L      5
           .END

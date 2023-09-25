@@ -1,5 +1,6 @@
 #include <shinobi.h>
 
+/* === Structs === */
 struct s_8c157a48 {
     int field_0x00;
     int field_0x04;
@@ -16,8 +17,11 @@ struct ukn_01 {
 }
 typedef s_ukn_01;
 
-extern s_8c157a48 _8c157a48;
+/* === External vars === */
 extern s_ukn_01* _8c03be5c;
+
+/* === Uninitialized vars === */
+s_8c157a48 _8c157a48;
 
 void FUN_8c010e90(int port) {
     PDS_VIBPARAM param;

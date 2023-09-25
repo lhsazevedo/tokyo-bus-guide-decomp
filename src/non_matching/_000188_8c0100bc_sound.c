@@ -17,6 +17,7 @@ struct s_8c0fcd50 {
 }
 typedef s_8c0fcd50;
 
+/* === Structs === */
 struct s_8c226468 {
     float var0;
 }
@@ -43,26 +44,26 @@ struct s_8c157a34 {
 }
 typedef s_8c157a34;
 
-
-extern s_8c0fcd50 _8c0fcd50;
-extern ADXT adxtHandles_8c0fcd20[2];
-extern SDMIDI midiHandles_8c0fcd28[7];
-
-#define WKSIZE 184516
-extern char work_8c0fcd74[WKSIZE * 2];
-
-extern void* memblkSource_8c0fcd48;
-extern void* memblkSource_8c0fcd4c;
-
-extern char adxf_work_8c156efc[];
-extern s_8c157a34 _8c157a34;
+/* === External vars === */
 extern Uint32 _8c1bbcb0;
-
 extern s_8c226468 _8c226468;
 
-/* TODO: Const or init? Move to section */
-extern const int const990_8c03bd8c;
+/* === Uninitialized vars === */
+ADXT adxtHandles_8c0fcd20[2];
+SDMIDI midiHandles_8c0fcd28[8];
+void* memblkSource_8c0fcd48;
+void* memblkSource_8c0fcd4c;
+s_8c0fcd50 _8c0fcd50;
 
+#define WKSIZE 184516
+// #define	MAX_NFILES (256)
+#define	MAX_NFILES (1424)
+char work_8c0fcd74[WKSIZE * 2];
+char adxf_work_8c156efc[ADXF_CALC_PTINFO_SIZE(MAX_NFILES)];
+
+s_8c157a34 _8c157a34;
+
+/* === Initialized vars === */
 int _8c03bd80 = 0;
 int _8c03bd84 = 1;
 s_8c03bd88 _8c03bd88 = {
