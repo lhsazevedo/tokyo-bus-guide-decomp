@@ -18,11 +18,8 @@ define __slow_mvn(8C02FED0)
 define _memset(8C0300b8)
 define _strcmp(8C030108)
 define _strlen(8C030130)
-define _const_adx_E8101214(8C0332A4)
 define _ptr_str_DATA_EMPTY_8c03be7c(8C03BE7C)
-define __8c03bd80(8C03BD80)
 define _const127_8c03bd90(8C03BD90)
-define __8c03bd84(8C03BD84)
 define __8c03be5c(8C03BE5C)
 
 define _ADXT_Init(8C04F7A2)
@@ -130,24 +127,19 @@ define __8c02af32(8C02AF32)
 define _ADXT_Create(8C04F8C0)
 define _adxtHandles_8c0fcd20(8C0FCD20)
 define _memblkSource_8c0fcd48(8C0FCD48)
-define _adxfPartitionInfo_8c03bd94(8C03BD94)
 define _work_8c0fcd74(8C0FCD74)
 define _strncmp(8c030140)
 define _adxf_work_8c156efc(8C156EFC)
-define __8c03bd88(8C03BD88)
 define _syCfgGetSoundMode(8C056162)
 define _syCfgSetSoundMode(8C05612C)
 define _ADXT_Stop(8C04FC64)
 define _ADXT_StartAfs(8C050128)
-define __8c03bd8c(8C03BD8C)
 define _const_int_arr_8c0332b0(8C0332B0)
 define _sdSndSetPanMode(8C051364)
-define __8c03bd90(8C03BD90)
 define _syCfgInit(8C056110)
 define __quick_evn_mvn(8C02FE2C)
 define _syCfgExit(8C056122)
 define __8c157a34(8C157A34)
-define __8c0fcd24(8C0FCD24)
 define _sdMidiStopAll(8C051974)
 define _gdFsChangeDir(8C0532AC)
 define _gdFsGetStat(8C053874)
@@ -179,9 +171,9 @@ input build\_024908_8c01614c.obj
 input build\_143996_8c03327c_strt1_sectionC.obj
 input build\_144036_8c0332a4_sectionC.obj
 input build\_179584_8c03bd80_sectionD.obj
-input build\_259776_8c04f6c0_sectionPSG.obj
+input build\_259776_8c04f6c0_SDK.obj
 
 print build\tbg.map 
 form a 
-start P(8C010000)
+start P,C,D,SDK(8C010000)
 exit 

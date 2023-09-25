@@ -1,18 +1,6 @@
-          .SECTION P, CODE, ALIGN=4
+          .SECTION C, DATA, ALIGN=4
 
-          .SDATAZ "E8101214"
-          .RES.B 3
-
-          .DATA.L 0, 110, 220, 330, 440, 550, 660, 770, 880, 990
-
-          .DATA.L 0, 25, 51, 76, 102, 127, 153, 178, 204, 229
-
-          .SDATAZ "bgm.afs" ; H'8c033300
-          .SDATAZ "voice.afs" ; H'8c033308
-
-          .DATA.B H'00, H'00, H'00, H'00 ; H'8c033314
-
-          .DATAB.B 54, H'00 ; H'8c033318
+          .DATAB.B 52, H'00 ; H'8c033318
 
 s_DATA_EMPTY_8c03334c:
           .SDATAZ "DATA EMPTY" ; H'8c03334c

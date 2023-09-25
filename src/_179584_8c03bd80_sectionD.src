@@ -1,7 +1,5 @@
-          .SECTION P, CODE, ALIGN=4
-          .DATA.B H'00, H'00, H'00, H'00, H'01, H'00, H'00, H'00, H'DE, H'03, H'00, H'00, H'DE, H'03, H'00, H'00 ; H'8c03bd80
-          .DATA.B H'7F, H'00, H'00, H'00, H'00, H'33, H'03, H'8C, H'50, H'00, H'00, H'00, H'08, H'33, H'03, H'8C ; H'8c03bd90
-          .DATA.B H'2E, H'05, H'00, H'00, H'14, H'33, H'03, H'8C, H'00, H'00, H'00, H'00, H'14, H'00, H'00, H'00 ; H'8c03bda0
+          .SECTION D, DATA, ALIGN=4
+          .DATA.B H'14, H'00, H'00, H'00 ; H'8c03bdac
           .DATA.B H'01, H'FF, H'0F, H'00, H'64, H'00, H'00, H'00, H'01, H'FE, H'1E, H'00, H'00, H'00, H'00, H'00 ; H'8c03bdb0
           .DATA.B H'00, H'00, H'00, H'00, H'1E, H'00, H'00, H'00, H'01, H'03, H'1E, H'00, H'14, H'00, H'00, H'00 ; H'8c03bdc0
           .DATA.B H'01, H'00, H'00, H'00, H'1E, H'00, H'00, H'00, H'01, H'03, H'1E, H'00, H'00, H'00, H'00, H'00 ; H'8c03bdd0

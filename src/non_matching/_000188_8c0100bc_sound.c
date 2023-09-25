@@ -51,14 +51,6 @@ extern SDMIDI midiHandles_8c0fcd28[7];
 #define WKSIZE 184516
 extern char work_8c0fcd74[WKSIZE * 2];
 
-extern char _8c0332b0[];
-extern s_8c03bd88 _8c03bd88;
-extern int _8c03bd88_a;
-extern int _8c03bd88_b;
-extern int _8c03bd90; /* = 127; */
-extern AdxfPartitionInfo adxfPartitionInfo_8c03bd94[2];
-extern int _8c03bd80;
-extern int _8c03bd84;
 extern void* memblkSource_8c0fcd48;
 extern void* memblkSource_8c0fcd4c;
 
@@ -70,7 +62,19 @@ extern s_8c226468 _8c226468;
 
 /* TODO: Const or init? Move to section */
 extern const int const990_8c03bd8c;
-extern const int const127_8c03bd90;
+
+int _8c03bd80 = 0;
+int _8c03bd84 = 1;
+s_8c03bd88 _8c03bd88 = {
+    990,
+    990
+};
+int _8c03bd90 = 127;
+AdxfPartitionInfo adxfPartitionInfo_8c03bd94[] = {
+    { "bgm.afs", 0x50 },
+    { "voice.afs", 0x52e },
+    { "", 0 },
+};
 
 /* === Prototypes === */
 void midiResetFxAndPlay_8c010846(int hld_idx, int data_num);
@@ -80,12 +84,12 @@ int snd_8c010cd6(int p1, int p2);
 
 
 void FUN_sound_8c0100bc() {
-    _8c0fcd50.field_0x18 = (float) const127_8c03bd90 / 2600;
+    _8c0fcd50.field_0x18 = (float) _8c03bd90 / 2600;
     _8c0fcd50.field_0x1c = _8c0fcd50.field_0x18 * 2600 / 3000;
-    _8c0fcd50.field_0x14 = const127_8c03bd90 * 30 / 100;
-    _8c0fcd50.field_0x08 = const127_8c03bd90 * 40 / 100;
+    _8c0fcd50.field_0x14 = _8c03bd90 * 30 / 100;
+    _8c0fcd50.field_0x08 = _8c03bd90 * 40 / 100;
     _8c0fcd50.field_0x0c = _8c0fcd50.field_0x18 * 3000;
-    _8c0fcd50.field_0x20 = (float) const127_8c03bd90 / 3900;
+    _8c0fcd50.field_0x20 = (float) _8c03bd90 / 3900;
 }
 
 void midiSetVol_8c010128() {
@@ -270,7 +274,6 @@ void* FUN_8c0104d6(char* fname)
 /* Matched */
 void usr_adx_err_func_8c010532(void *obj, char *msg)
 {
-    // TODO:
     char lmsg[9] = "E8101214";
 
     if (strncmp(msg, lmsg, strlen(lmsg)) == 0)
@@ -636,7 +639,7 @@ void FUN_8c010c2c(Bool param1) {
         if (param1 == 1) {
             if ((_8c157a34.flags_0x00 & 0xf0) != 0x20) {
                 _8c157a34.flags_0x00 |= 0x20; 
-                _8c157a34.field_0x08 = 90 / const990_8c03bd8c;
+                _8c157a34.field_0x08 = 90 / _8c03bd88.field_0x04;
                 _8c157a34.field_0x10 = -990;
                 _8c03bd80 &= 0xffffffef;
             }
@@ -686,6 +689,7 @@ int snd_8c010cd6(int p1, int p2) {
 
         case 1: {
             ADXT_Stop(adxtHandles_8c0fcd20[p1]);
+            p2 == 0x7FFFFFFF;
             ADXT_StartAfs(adxtHandles_8c0fcd20[p1], 0, p2);
             _8c03bd80 |= 0x10;
             return 1;
