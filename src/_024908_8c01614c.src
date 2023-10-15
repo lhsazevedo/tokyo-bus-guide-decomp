@@ -1,40 +1,309 @@
           .SECTION P, CODE, ALIGN=4
-          .DATA.B H'E6, H'2F, H'22, H'4F ; H'8c01614c
-          .DATA.B H'8A, H'D3, H'0B, H'43,  H'09, H'00, H'8A, H'D2,  H'0B, H'42, H'09, H'00,  H'89, H'D3, H'0B, H'43 ; H'8c016150
-          .DATA.B H'09, H'00, H'8A, H'D4,  H'88, H'DE, H'0B, H'4E,  H'09, H'00, H'89, H'D4,  H'0B, H'4E, H'09, H'00 ; H'8c016160
-          .DATA.B H'88, H'D4, H'0B, H'4E,  H'09, H'00, H'88, H'D4,  H'0B, H'4E, H'09, H'00,  H'26, H'4F, H'0B, H'00 ; H'8c016170
-          .DATA.B H'F6, H'6E, H'E6, H'2F,  H'D6, H'2F, H'C6, H'2F,  H'22, H'4F, H'84, H'D3,  H'0B, H'43, H'09, H'00 ; H'8c016180
-          .DATA.B H'83, H'D2, H'0B, H'42,  H'09, H'00, H'83, H'D3,  H'32, H'60, H'FF, H'88,  H'03, H'8D, H'03, H'64 ; H'8c016190
-          .DATA.B H'81, H'D1, H'0B, H'41,  H'09, H'00, H'81, H'D3,  H'0B, H'43, H'09, H'00,  H'CE, H'BF, H'09, H'00 ; H'8c0161a0
-          .DATA.B H'75, H'D3, H'7F, H'D4,  H'0B, H'43, H'09, H'00,  H'7E, H'D2, H'0B, H'42,  H'09, H'00, H'7E, H'D3 ; H'8c0161b0
-          .DATA.B H'0B, H'43, H'09, H'00,  H'7D, H'D2, H'0B, H'42,  H'09, H'00, H'7D, H'D3,  H'0B, H'43, H'09, H'00 ; H'8c0161c0
-          .DATA.B H'7D, H'D4, H'7C, H'DE,  H'0B, H'4E, H'09, H'00,  H'7C, H'D4, H'0B, H'4E,  H'09, H'00, H'7C, H'D4 ; H'8c0161d0
-          .DATA.B H'0B, H'4E, H'09, H'00,  H'7B, H'D2, H'0B, H'42,  H'09, H'00, H'7B, H'D3,  H'0B, H'43, H'09, H'00 ; H'8c0161e0
-          .DATA.B H'7A, H'DD, H'FF, H'EC,  H'7A, H'DE, H'D1, H'50,  H'FF, H'88, H'29, H'8D,  H'03, H'64, H'0B, H'4E ; H'8c0161f0
-          .DATA.B H'09, H'00, H'0B, H'4E,  H'D2, H'54, H'0B, H'4E,  H'D4, H'54, H'0B, H'4E,  H'D5, H'54, H'0B, H'4E ; H'8c016200
-          .DATA.B H'D6, H'54, H'0B, H'4E,  H'D7, H'54, H'0B, H'4E,  H'D8, H'54, H'0B, H'4E,  H'D9, H'54, H'0B, H'4E ; H'8c016210
-          .DATA.B H'DA, H'54, H'0B, H'4E,  H'DB, H'54, H'0B, H'4E,  H'DC, H'54, H'0B, H'4E,  H'DD, H'54, H'0B, H'4E ; H'8c016220
-          .DATA.B H'DE, H'54, H'0B, H'4E,  H'DF, H'54, H'40, H'E0,  H'0B, H'4E, H'DE, H'04,  H'44, H'E0, H'0B, H'4E ; H'8c016230
-          .DATA.B H'DE, H'04, H'48, H'E0,  H'0B, H'4E, H'DE, H'04,  H'4C, H'E0, H'0B, H'4E,  H'DE, H'04, H'C1, H'1D ; H'8c016240
-          .DATA.B H'64, H'D3, H'32, H'60,  H'FF, H'88, H'04, H'8D,  H'03, H'64, H'0B, H'4E,  H'09, H'00, H'61, H'D3 ; H'8c016250
-          .DATA.B H'C2, H'23, H'61, H'D2,  H'22, H'60, H'FF, H'88,  H'04, H'8D, H'03, H'64,  H'0B, H'4E, H'09, H'00 ; H'8c016260
-          .DATA.B H'5D, H'D2, H'C2, H'22,  H'5D, H'D3, H'0B, H'43,  H'09, H'00, H'5D, H'D1,  H'0B, H'41, H'09, H'00 ; H'8c016270
-          .DATA.B H'26, H'4F, H'5C, H'D3,  H'F6, H'6C, H'F6, H'6D,  H'2B, H'43, H'F6, H'6E,  H'E6, H'2F, H'D6, H'2F ; H'8c016280
-          .DATA.B H'C6, H'2F, H'B6, H'2F,  H'A6, H'2F, H'96, H'2F,  H'86, H'2F, H'22, H'4F,  H'FC, H'7F, H'59, H'D0 ; H'8c016290
-          .DATA.B H'53, H'6D, H'57, H'D8,  H'01, H'EC, H'58, H'D3,  H'00, H'EB, H'53, H'D7,  H'08, H'E9, H'D4, H'56 ; H'8c0162a0
-          .DATA.B H'D1, H'5E, H'02, H'2F,  H'D2, H'60, H'51, H'DA,  H'00, H'88, H'20, H'8D,  H'32, H'65, H'01, H'88 ; H'8c0162b0
-          .DATA.B H'30, H'89, H'02, H'88,  H'01, H'8B, H'0B, H'A1,  H'09, H'00, H'03, H'88,  H'01, H'8B, H'2D, H'A1 ; H'8c0162c0
-          .DATA.B H'09, H'00, H'04, H'88,  H'01, H'8B, H'4F, H'A1,  H'09, H'00, H'05, H'88,  H'01, H'8B, H'5A, H'A1 ; H'8c0162d0
-          .DATA.B H'09, H'00, H'06, H'88,  H'01, H'8B, H'5E, H'A1,  H'09, H'00, H'07, H'88,  H'01, H'8B, H'7B, H'A1 ; H'8c0162e0
-          .DATA.B H'09, H'00, H'08, H'88,  H'01, H'8B, H'85, H'A1,  H'09, H'00, H'91, H'A1,  H'09, H'00, H'D3, H'52 ; H'8c0162f0
-          .DATA.B H'0A, H'E1, H'01, H'72,  H'16, H'32, H'23, H'1D,  H'01, H'89, H'89, H'A1,  H'09, H'00, H'3F, H'D2 ; H'8c016300
-          .DATA.B H'3C, H'D4, H'0B, H'42,  H'1E, H'E5, H'08, H'20,  H'01, H'89, H'6B, H'A1,  H'09, H'00, H'07, H'E2 ; H'8c016310
-          .DATA.B H'7E, H'A1, H'22, H'2D,  H'39, H'D2, H'1E, H'E5,  H'0B, H'42, H'F2, H'64,  H'38, H'DC, H'0F, H'A0 ; H'8c016320
-          .DATA.B H'B3, H'6A, H'A3, H'60,  H'08, H'40, H'CE, H'03,  H'38, H'23, H'08, H'89,  H'A3, H'64, H'35, H'D3 ; H'8c016330
-          .DATA.B H'35, H'D2, H'00, H'44,  H'01, H'E6, H'A3, H'65,  H'08, H'74, H'0B, H'42,  H'3B, H'24, H'01, H'7A ; H'8c016340
-          .DATA.B H'93, H'3A, H'EE, H'8B,  H'32, H'D4, H'31, H'D5,  H'0B, H'48, H'09, H'00,  H'E3, H'60, H'08, H'40 ; H'8c016350
-          .DATA.B H'CE, H'03, H'38, H'23,  H'5E, H'8B, H'01, H'A0,  H'B3, H'6E, H'01, H'7E,  H'E3, H'60, H'08, H'40 ; H'8c016360
-          .DATA.B H'CE, H'03, H'38, H'23,  H'F9, H'89, H'A1, H'A0,  H'09, H'00, H'00, H'00,  H'DA, H'97, H'02, H'8C ; H'8c016370
+          FUN_8c01614c:
+          MOV.L       R14,@-R15
+          STS.L       PR,@-R15
+          MOV.L       H'8c01637c,R3
+          JSR         @R3
+          NOP
+          MOV.L       H'8c016380,R2
+          JSR         @R2
+          NOP
+          MOV.L       H'8c016384,R3
+          JSR         @R3
+          NOP
+          MOV.L       H'8c01638c,R4
+          MOV.L       H'8c016388,R14
+          JSR         @R14
+          NOP
+          MOV.L       H'8c016390,R4
+          JSR         @R14
+          NOP
+          MOV.L       H'8c016394,R4
+          JSR         @R14
+          NOP
+          MOV.L       H'8c016398,R4
+          JSR         @R14
+          NOP
+          LDS.L       @R15+,PR
+          RTS
+          MOV.L       @R15+,R14
+FUN_8c016182:
+          MOV.L       R14,@-R15
+          MOV.L       R13,@-R15
+          MOV.L       R12,@-R15
+          STS.L       PR,@-R15
+          MOV.L       H'8c01639c,R3
+          JSR         @R3
+          NOP
+          MOV.L       H'8c0163a0,R2
+          JSR         @R2
+          NOP
+          MOV.L       H'8c0163a4,R3
+          MOV.L       @R3,R0
+          CMP/EQ      #-H'1,R0
+          BT/S        H'8c0161a6
+          MOV         R0,R4
+          MOV.L       H'8c0163a8,R1
+          JSR         @R1
+          NOP
+LAB_8c0161a6:
+          MOV.L       H'8c0163ac,R3
+          JSR         @R3
+          NOP
+          BSR         H'8c01614c
+          NOP
+          MOV.L       H'8c016388,R3
+          MOV.L       H'8c0163b0,R4
+          JSR         @R3
+          NOP
+          MOV.L       H'8c0163b4,R2
+          JSR         @R2
+          NOP
+          MOV.L       H'8c0163b8,R3
+          JSR         @R3
+          NOP
+          MOV.L       H'8c0163bc,R2
+          JSR         @R2
+          NOP
+          MOV.L       H'8c0163c0,R3
+          JSR         @R3
+          NOP
+          MOV.L       H'8c0163c8,R4
+          MOV.L       H'8c0163c4,R14
+          JSR         @R14
+          NOP
+          MOV.L       H'8c0163cc,R4
+          JSR         @R14
+          NOP
+          MOV.L       H'8c0163d0,R4
+          JSR         @R14
+          NOP
+          MOV.L       H'8c0163d4,R2
+          JSR         @R2
+          NOP
+          MOV.L       H'8c0163d8,R3
+          JSR         @R3
+          NOP
+          MOV.L       H'8c0163dc,R13
+          MOV         #-H'1,R12
+          MOV.L       H'8c0163e0,R14
+          MOV.L       @(H'4,R13),R0
+          CMP/EQ      #-H'1,R0
+          BT/S        H'8c016250
+          MOV         R0,R4
+          JSR         @R14
+          NOP
+          JSR         @R14
+          MOV.L       @(H'8,R13),R4
+          JSR         @R14
+          MOV.L       @(H'10,R13),R4
+          JSR         @R14
+          MOV.L       @(H'14,R13),R4
+          JSR         @R14
+          MOV.L       @(H'18,R13),R4
+          JSR         @R14
+          MOV.L       @(H'1c,R13),R4
+          JSR         @R14
+          MOV.L       @(H'20,R13),R4
+          JSR         @R14
+          MOV.L       @(H'24,R13),R4
+          JSR         @R14
+          MOV.L       @(H'28,R13),R4
+          JSR         @R14
+          MOV.L       @(H'2c,R13),R4
+          JSR         @R14
+          MOV.L       @(H'30,R13),R4
+          JSR         @R14
+          MOV.L       @(H'34,R13),R4
+          JSR         @R14
+          MOV.L       @(H'38,R13),R4
+          JSR         @R14
+          MOV.L       @(H'3c,R13),R4
+          MOV         #H'40,R0
+          JSR         @R14
+          MOV.L       @(R0,R13),R4
+          MOV         #H'44,R0
+          JSR         @R14
+          MOV.L       @(R0,R13),R4
+          MOV         #H'48,R0
+          JSR         @R14
+          MOV.L       @(R0,R13),R4
+          MOV         #H'4c,R0
+          JSR         @R14
+          MOV.L       @(R0,R13),R4
+          MOV.L       R12,@(H'4,R13)
+LAB_8c016250:
+          MOV.L       H'8c0163e4,R3
+          MOV.L       @R3,R0
+          CMP/EQ      #-H'1,R0
+          BT/S        H'8c016262
+          MOV         R0,R4
+          JSR         @R14
+          NOP
+          MOV.L       H'8c0163e4,R3
+          MOV.L       R12,@R3
+LAB_8c016262:
+          MOV.L       H'8c0163e8,R2
+          MOV.L       @R2,R0
+          CMP/EQ      #-H'1,R0
+          BT/S        H'8c016274
+          MOV         R0,R4
+          JSR         @R14
+          NOP
+          MOV.L       H'8c0163e8,R2
+          MOV.L       R12,@R2
+LAB_8c016274:
+          MOV.L       H'8c0163ec,R3
+          JSR         @R3
+          NOP
+          MOV.L       H'8c0163f0,R1
+          JSR         @R1
+          NOP
+          LDS.L       @R15+,PR
+          MOV.L       H'8c0163f4,R3
+          MOV.L       @R15+,R12
+          MOV.L       @R15+,R13
+          JMP         @R3
+          MOV.L       @R15+,R14
+FUN_8c01628c:
+          MOV.L       R14,@-R15
+          MOV.L       R13,@-R15
+          MOV.L       R12,@-R15
+          MOV.L       R11,@-R15
+          MOV.L       R10,@-R15
+          MOV.L       R9,@-R15
+          MOV.L       R8,@-R15
+          STS.L       PR,@-R15
+          ADD         #-H'4,R15
+          MOV.L       H'8c016404,R0
+          MOV         R5,R13
+          MOV.L       H'8c016400,R8
+          MOV         #H'1,R12
+          MOV.L       H'8c016408,R3
+          MOV         #H'0,R11
+          MOV.L       H'8c0163f8,R7
+          MOV         #H'8,R9
+          MOV.L       @(H'10,R13),R6
+          MOV.L       @(H'4,R13),R14
+          MOV.L       R0,@R15
+          MOV.L       @R13,R0
+          MOV.L       H'8c0163fc,R10
+          CMP/EQ      #H'0,R0
+          BT/S        H'8c0162fe
+          MOV.L       @R3,R5
+          CMP/EQ      #H'1,R0
+          BT          H'8c016324
+          CMP/EQ      #H'2,R0
+          BF          H'8c0162ca
+          BRA         H'8c0164e0
+          NOP
+LAB_8c0162ca:
+          CMP/EQ      #H'3,R0
+          BF          H'8c0162d2
+          BRA         H'8c01652c
+          NOP
+LAB_8c0162d2:
+          CMP/EQ      #H'4,R0
+          BF          H'8c0162da
+          BRA         H'8c016578
+          NOP
+LAB_8c0162da:
+          CMP/EQ      #H'5,R0
+          BF          H'8c0162e2
+          BRA         H'8c016596
+          NOP
+LAB_8c0162e2:
+          CMP/EQ      #H'6,R0
+          BF          H'8c0162ea
+          BRA         H'8c0165a6
+          NOP
+LAB_8c0162ea:
+          CMP/EQ      #H'7,R0
+          BF          H'8c0162f2
+          BRA         H'8c0165e8
+          NOP
+LAB_8c0162f2:
+          CMP/EQ      #H'8,R0
+          BF          H'8c0162fa
+          BRA         H'8c016604
+          NOP
+LAB_8c0162fa:
+          BRA         H'8c016620
+          NOP
+LAB_8c0162fe:
+          MOV.L       @(H'c,R13),R2
+          MOV         #H'a,R1
+          ADD         #H'1,R2
+          CMP/HI      R1,R2
+          MOV.L       R2,@(H'c,R13)
+          BT          H'8c01630e
+          BRA         H'8c016620
+          NOP
+LAB_8c01630e:
+          MOV.L       H'8c01640c,R2
+          MOV.L       H'8c016404,R4
+          JSR         @R2
+          MOV         #H'1e,R5
+          TST         R0,R0
+          BT          H'8c01631e
+          BRA         H'8c0165f4
+          NOP
+LAB_8c01631e:
+          MOV         #H'7,R2
+          BRA         H'8c016620
+          MOV.L       R2,@R13
+LAB_8c016324:
+          MOV.L       H'8c01640c,R2
+          MOV         #H'1e,R5
+          JSR         @R2
+          MOV.L       @R15,R4
+          MOV.L       H'8c016410,R12
+          BRA         H'8c016350
+          MOV         R11,R10
+LAB_8c016332:
+          MOV         R10,R0
+          SHLL2       R0
+          MOV.L       @(R0,R12),R3
+          TST         R3,R3
+          BT          H'8c01634e
+          MOV         R10,R4
+          MOV.L       H'8c016414,R3
+          MOV.L       H'8c016418,R2
+          SHLL        R4
+          MOV         #H'1,R6
+          MOV         R10,R5
+          ADD         #H'8,R4
+          JSR         @R2
+          OR          R3,R4
+LAB_8c01634e:
+          ADD         #H'1,R10
+LAB_8c016350:
+          CMP/GE      R9,R10
+          BF          H'8c016332
+          MOV.L       H'8c016420,R4
+          MOV.L       H'8c01641c,R5
+          JSR         @R8
+          NOP
+          MOV         R14,R0
+          SHLL2       R0
+          MOV.L       @(R0,R12),R3
+          TST         R3,R3
+          BF          H'8c016424
+          BRA         H'8c01636c
+          MOV         R11,R14
+LAB_8c01636a:
+          ADD         #H'1,R14
+LAB_8c01636c:
+          MOV         R14,R0
+          SHLL2       R0
+          MOV.L       @(R0,R12),R3
+          TST         R3,R3
+          BT          H'8c01636a
+          BRA         H'8c0164bc
+          NOP
+          .RES.W      1
+
+          .DATA.B H'DA, H'97, H'02, H'8C ; H'8c01637c
           .DATA.B H'BE, H'88, H'02, H'8C,  H'96, H'CA, H'02, H'8C,  H'B4, H'4A, H'01, H'8C,  H'48, H'B4, H'1B, H'8C ; H'8c016380
           .DATA.B H'28, H'AC, H'1B, H'8C,  H'08, H'A8, H'1B, H'8C,  H'E8, H'A5, H'1B, H'8C,  H'7C, H'0C, H'01, H'8C ; H'8c016390
           .DATA.B H'74, H'19, H'05, H'8C,  H'54, H'A3, H'1B, H'8C,  H'50, H'64, H'05, H'8C,  H'BE, H'0F, H'01, H'8C ; H'8c0163a0
@@ -45,284 +314,2121 @@
           .DATA.B H'D0, H'87, H'01, H'8C,  H'04, H'95, H'01, H'8C,  H'4C, H'A3, H'1B, H'8C,  H'0A, H'00, H'0A, H'00 ; H'8c0163f0
           .DATA.B H'C0, H'95, H'07, H'8C,  H'94, H'42, H'04, H'8C,  H'6C, H'A3, H'1B, H'8C,  H'50, H'95, H'01, H'8C ; H'8c016400
           .DATA.B H'48, H'60, H'22, H'8C,  H'00, H'00, H'0F, H'00,  H'20, H'97, H'07, H'8C,  H'A4, H'60, H'03, H'8C ; H'8c016410
-          .DATA.B H'18, H'00, H'0F, H'00,  H'29, H'D2, H'22, H'60,  H'10, H'C8, H'13, H'89,  H'FF, H'7E, H'E3, H'60 ; H'8c016420
-          .DATA.B H'08, H'40, H'CE, H'03,  H'38, H'23, H'01, H'8B,  H'11, H'4E, H'F7, H'89,  H'11, H'4E, H'3D, H'89 ; H'8c016430
-          .DATA.B H'01, H'A0, H'93, H'6E,  H'FF, H'7E, H'E3, H'60,  H'08, H'40, H'CE, H'03,  H'38, H'23, H'F9, H'89 ; H'8c016440
-          .DATA.B H'34, H'A0, H'09, H'00,  H'1D, H'D3, H'32, H'60,  H'20, H'C8, H'15, H'89,  H'01, H'7E, H'E3, H'60 ; H'8c016450
-          .DATA.B H'08, H'40, H'CE, H'03,  H'38, H'23, H'02, H'8B,  H'09, H'E1, H'13, H'3E,  H'F6, H'8B, H'09, H'E2 ; H'8c016460
-          .DATA.B H'23, H'3E, H'23, H'8B,  H'01, H'A0, H'B3, H'6E,  H'01, H'7E, H'E3, H'60,  H'08, H'40, H'CE, H'03 ; H'8c016470
-          .DATA.B H'38, H'23, H'F9, H'89,  H'1A, H'A0, H'09, H'00,  H'10, H'D1, H'12, H'60,  H'04, H'C8, H'15, H'89 ; H'8c016480
-          .DATA.B H'E3, H'60, H'08, H'88,  H'10, H'89, H'0E, H'D2,  H'E3, H'6C, H'E2, H'1D,  H'0B, H'42, H'E3, H'64 ; H'8c016490
-          .DATA.B H'03, H'64, H'04, H'1D,  H'50, H'E0, H'4E, H'03,  H'38, H'23, H'02, H'8B,  H'09, H'D3, H'0B, H'43 ; H'8c0164a0
-          .DATA.B H'C3, H'64, H'02, H'E2,  H'02, H'A0, H'22, H'2D,  H'04, H'E0, H'02, H'2D,  H'E3, H'64, H'07, H'D3 ; H'8c0164b0
-          .DATA.B H'00, H'44, H'05, H'D5,  H'08, H'74, H'75, H'A0,  H'3B, H'24, H'00, H'00,  H'6C, H'A3, H'1B, H'8C ; H'8c0164c0
+          .DATA.B H'18, H'00, H'0F, H'00 ; H'8c016420
+
+          LAB_8c016424:
+          MOV.L       H'8c0164cc,R2
+          MOV.L       @R2,R0
+          TST         #H'10,R0
+          BT          H'8c016454
+LAB_8c01642c:
+          ADD         #-H'1,R14
+          MOV         R14,R0
+          SHLL2       R0
+          MOV.L       @(R0,R12),R3
+          TST         R3,R3
+          BF          H'8c01643c
+          CMP/PZ      R14
+          BT          H'8c01642c
+LAB_8c01643c:
+          CMP/PZ      R14
+          BT          H'8c0164bc
+          BRA         H'8c016446
+          MOV         R9,R14
+LAB_8c016444:
+          ADD         #-H'1,R14
+LAB_8c016446:
+          MOV         R14,R0
+          SHLL2       R0
+          MOV.L       @(R0,R12),R3
+          TST         R3,R3
+          BT          H'8c016444
+          BRA         H'8c0164bc
+          NOP
+LAB_8c016454:
+          MOV.L       H'8c0164cc,R3
+          MOV.L       @R3,R0
+          TST         #H'20,R0
+          BT          H'8c016488
+LAB_8c01645c:
+          ADD         #H'1,R14
+          MOV         R14,R0
+          SHLL2       R0
+          MOV.L       @(R0,R12),R3
+          TST         R3,R3
+          BF          H'8c01646e
+          MOV         #H'9,R1
+          CMP/GE      R1,R14
+          BF          H'8c01645c
+LAB_8c01646e:
+          MOV         #H'9,R2
+          CMP/GE      R2,R14
+          BF          H'8c0164bc
+          BRA         H'8c01647a
+          MOV         R11,R14
+LAB_8c016478:
+          ADD         #H'1,R14
+LAB_8c01647a:
+          MOV         R14,R0
+          SHLL2       R0
+          MOV.L       @(R0,R12),R3
+          TST         R3,R3
+          BT          H'8c016478
+          BRA         H'8c0164bc
+          NOP
+LAB_8c016488:
+          MOV.L       H'8c0164cc,R1
+          MOV.L       @R1,R0
+          TST         #H'4,R0
+          BT          H'8c0164bc
+          MOV         R14,R0
+          CMP/EQ      #H'8,R0
+          BT          H'8c0164b8
+          MOV.L       H'8c0164d0,R2
+          MOV         R14,R12
+          MOV.L       R14,@(H'8,R13)
+          JSR         @R2
+          MOV         R14,R4
+          MOV         R0,R4
+          MOV.L       R0,@(H'10,R13)
+          MOV         #H'50,R0
+          MOV.L       @(R0,R4),R3
+          TST         R3,R3
+          BF          H'8c0164b2
+          MOV.L       H'8c0164d4,R3
+          JSR         @R3
+          MOV         R12,R4
+LAB_8c0164b2:
+          MOV         #H'2,R2
+          BRA         H'8c0164bc
+          MOV.L       R2,@R13
+LAB_8c0164b8:
+          MOV         #H'4,R0
+          MOV.L       R0,@R13
+LAB_8c0164bc:
+          MOV         R14,R4
+          MOV.L       H'8c0164dc,R3
+          SHLL        R4
+          MOV.L       H'8c0164d8,R5
+          ADD         #H'8,R4
+          BRA         H'8c0165b4
+          OR          R3,R4
+          .RES.W      1
+          .DATA.B H'6C, H'A3, H'1B, H'8C ; H'8c0164cc
           .DATA.B H'BA, H'4B, H'01, H'8C,  H'00, H'4C, H'01, H'8C,  H'B0, H'60, H'03, H'8C,  H'00, H'00, H'0A, H'00 ; H'8c0164d0
-          .DATA.B H'61, H'61, H'18, H'21,  H'1B, H'89, H'61, H'85,  H'08, H'20, H'15, H'89,  H'63, H'62, H'14, H'72 ; H'8c0164e0
-          .DATA.B H'22, H'2F, H'34, H'D2,  H'32, H'D5, H'0B, H'42,  H'D2, H'54, H'5F, H'93,  H'30, H'30, H'08, H'8B ; H'8c0164f0
-          .DATA.B H'F2, H'61, H'26, H'E0,  H'1D, H'02, H'1E, H'E1,  H'2D, H'62, H'13, H'32,  H'01, H'89, H'04, H'A0 ; H'8c016500
-          .DATA.B H'06, H'E2, H'03, H'E1,  H'84, H'A0, H'12, H'2D,  H'05, H'E2, H'81, H'A0,  H'22, H'2D, H'2A, H'D1 ; H'8c016510
-          .DATA.B H'2A, H'D2, H'16, H'2F,  H'0B, H'42, H'A3, H'64,  H'7A, H'A0, H'04, H'7F,  H'04, H'E2, H'58, H'22 ; H'8c016520
-          .DATA.B H'03, H'89, H'92, H'2D,  H'D2, H'52, H'73, H'A0,  H'22, H'27, H'02, H'E0,  H'08, H'25, H'0A, H'89 ; H'8c016530
-          .DATA.B H'50, H'E0, H'C2, H'2D,  H'B1, H'1D, H'6E, H'01,  H'18, H'21, H'69, H'89,  H'20, H'D2, H'0B, H'42 ; H'8c016540
-          .DATA.B H'D2, H'54, H'65, H'A0,  H'09, H'00, H'63, H'6C,  H'22, H'E0, H'14, H'7C,  H'1B, H'D3, H'CD, H'02 ; H'8c016550
-          .DATA.B H'26, H'E0, H'2D, H'62,  H'26, H'2F, H'CD, H'01,  H'1A, H'D2, H'1D, H'61,  H'16, H'2F, H'26, H'2F ; H'8c016560
-          .DATA.B H'0B, H'43, H'A3, H'64,  H'54, H'A0, H'0C, H'7F,  H'04, H'E1, H'58, H'21,  H'03, H'89, H'FF, H'E1 ; H'8c016570
-          .DATA.B H'92, H'2D, H'05, H'A0,  H'12, H'27, H'02, H'E0,  H'08, H'25, H'01, H'89,  H'C2, H'2D, H'B1, H'1D ; H'8c016580
-          .DATA.B H'11, H'D5, H'0F, H'A0,  H'A3, H'64, H'06, H'E2,  H'28, H'25, H'01, H'89,  H'C2, H'2D, H'B1, H'1D ; H'8c016590
-          .DATA.B H'0E, H'D5, H'07, H'A0,  H'A3, H'64, H'06, H'E2,  H'28, H'25, H'01, H'89,  H'C2, H'2D, H'B1, H'1D ; H'8c0165a0
-          .DATA.B H'0C, H'D4, H'0B, H'D5,  H'0B, H'48, H'09, H'00,  H'32, H'A0, H'09, H'00,  H'05, H'FF, H'00, H'00 ; H'8c0165b0
+
+          LAB_8c0164e0:
+          MOV.W       @R6,R1
+          TST         R1,R1
+          BT          H'8c01651e
+          MOV.W       @(H'2,R6),R0
+          TST         R0,R0
+          BT          H'8c016518
+          MOV         R6,R2
+          ADD         #H'14,R2
+          MOV.L       R2,@R15
+          MOV.L       H'8c0165c4,R2
+          MOV.L       H'8c0165c0,R5
+          JSR         @R2
+          MOV.L       @(H'8,R13),R4
+          MOV.W       H'8c0165bc,R3
+          CMP/EQ      R3,R0
+          BF          H'8c016512
+          MOV.L       @R15,R1
+          MOV         #H'26,R0
+          MOV.W       @(R0,R1),R2
+          MOV         #H'1e,R1
+          EXTU.W      R2,R2
+          CMP/GE      R1,R2
+          BT          H'8c016512
+          BRA         H'8c01651a
+          MOV         #H'6,R2
+LAB_8c016512:
+          MOV         #H'3,R1
+          BRA         H'8c016620
+          MOV.L       R1,@R13
+LAB_8c016518:
+          MOV         #H'5,R2
+LAB_8c01651a:
+          BRA         H'8c016620
+          MOV.L       R2,@R13
+LAB_8c01651e:
+          MOV.L       H'8c0165c8,R1
+          MOV.L       H'8c0165cc,R2
+          MOV.L       R1,@-R15
+          JSR         @R2
+          MOV         R10,R4
+          BRA         H'8c016620
+          ADD         #H'4,R15
+LAB_8c01652c:
+          MOV         #H'4,R2
+          TST         R5,R2
+          BT          H'8c01653a
+          MOV.L       R9,@R13
+          MOV.L       @(H'8,R13),R2
+          BRA         H'8c016620
+          MOV.L       R2,@R7
+LAB_8c01653a:
+          MOV         #H'2,R0
+          TST         R0,R5
+          BT          H'8c016556
+          MOV         #H'50,R0
+          MOV.L       R12,@R13
+          MOV.L       R11,@(H'4,R13)
+          MOV.L       @(R0,R6),R1
+          TST         R1,R1
+          BT          H'8c016620
+          MOV.L       H'8c0165d0,R2
+          JSR         @R2
+          MOV.L       @(H'8,R13),R4
+          BRA         H'8c016620
+          NOP
+LAB_8c016556:
+          MOV         R6,R12
+          MOV         #H'22,R0
+          ADD         #H'14,R12
+          MOV.L       H'8c0165cc,R3
+          MOV.W       @(R0,R12),R2
+          MOV         #H'26,R0
+          EXTU.W      R2,R2
+          MOV.L       R2,@-R15
+          MOV.W       @(R0,R12),R1
+          MOV.L       H'8c0165d4,R2
+          EXTU.W      R1,R1
+          MOV.L       R1,@-R15
+          MOV.L       R2,@-R15
+          JSR         @R3
+          MOV         R10,R4
+          BRA         H'8c016620
+          ADD         #H'c,R15
+LAB_8c016578:
+          MOV         #H'4,R1
+          TST         R5,R1
+          BT          H'8c016586
+          MOV         #-H'1,R1
+          MOV.L       R9,@R13
+          BRA         H'8c016590
+          MOV.L       R1,@R7
+LAB_8c016586:
+          MOV         #H'2,R0
+          TST         R0,R5
+          BT          H'8c016590
+          MOV.L       R12,@R13
+          MOV.L       R11,@(H'4,R13)
+LAB_8c016590:
+          MOV.L       H'8c0165d8,R5
+          BRA         H'8c0165b4
+          MOV         R10,R4
+LAB_8c016596:
+          MOV         #H'6,R2
+          TST         R2,R5
+          BT          H'8c0165a0
+          MOV.L       R12,@R13
+          MOV.L       R11,@(H'4,R13)
+LAB_8c0165a0:
+          MOV.L       H'8c0165dc,R5
+          BRA         H'8c0165b4
+          MOV         R10,R4
+LAB_8c0165a6:
+          MOV         #H'6,R2
+          TST         R2,R5
+          BT          H'8c0165b0
+          MOV.L       R12,@R13
+          MOV.L       R11,@(H'4,R13)
+LAB_8c0165b0:
+          MOV.L       H'8c0165e4,R4
+          MOV.L       H'8c0165e0,R5
+LAB_8c0165b4:
+          JSR         @R8
+          NOP
+          BRA         H'8c016620
+          NOP
+
+          .DATA.B H'05, H'FF, H'00, H'00 ; H'8c0165bc
           .DATA.B H'60, H'61, H'03, H'8C,  H'10, H'59, H'05, H'8C,  H'B4, H'60, H'03, H'8C,  H'B0, H'9D, H'07, H'8C ; H'8c0165c0
           .DATA.B H'46, H'4C, H'01, H'8C,  H'C0, H'60, H'03, H'8C,  H'D4, H'60, H'03, H'8C,  H'E4, H'60, H'03, H'8C ; H'8c0165d0
-          .DATA.B H'FC, H'60, H'03, H'8C,  H'0A, H'00, H'02, H'00,  H'8E, H'D2, H'1E, H'E5,  H'0B, H'42, H'F2, H'64 ; H'8c0165e0
-          .DATA.B H'08, H'20, H'02, H'89,  H'C2, H'2D, H'13, H'A0,  H'B1, H'1D, H'8B, H'D5,  H'0B, H'48, H'A3, H'64 ; H'8c0165f0
-          .DATA.B H'0E, H'A0, H'09, H'00,  H'89, H'D2, H'0B, H'42,  H'09, H'00, H'00, H'E4,  H'04, H'7F, H'26, H'4F ; H'8c016600
-          .DATA.B H'F6, H'68, H'F6, H'69,  H'F6, H'6A, H'F6, H'6B,  H'F6, H'6C, H'F6, H'6D,  H'8D, H'A0, H'F6, H'6E ; H'8c016610
-          .DATA.B H'E1, H'1D, H'04, H'7F,  H'26, H'4F, H'F6, H'68,  H'F6, H'69, H'F6, H'6A,  H'F6, H'6B, H'F6, H'6C ; H'8c016620
-          .DATA.B H'F6, H'6D, H'0B, H'00,  H'F6, H'6E, H'22, H'4F,  H'F8, H'7F, H'7E, H'D3,  H'00, H'E5, H'7C, H'D6 ; H'8c016630
-          .DATA.B H'0B, H'43, H'53, H'64,  H'14, H'E2, H'7D, H'D4,  H'26, H'2F, H'7B, H'D5,  H'F3, H'67, H'7C, H'D3 ; H'8c016640
-          .DATA.B H'04, H'77, H'F3, H'66,  H'0B, H'43, H'08, H'76,  H'F1, H'52, H'00, H'E3,  H'32, H'22, H'F1, H'52 ; H'8c016650
-          .DATA.B H'33, H'12, H'0C, H'7F,  H'26, H'4F, H'0B, H'00,  H'09, H'00, H'E6, H'2F,  H'D6, H'2F, H'C6, H'2F ; H'8c016660
-          .DATA.B H'B6, H'2F, H'A6, H'2F,  H'96, H'2F, H'86, H'2F,  H'22, H'4F, H'FC, H'7F,  H'72, H'D3, H'43, H'68 ; H'8c016670
-          .DATA.B H'70, H'DC, H'32, H'60,  H'04, H'C8, H'19, H'8D,  H'82, H'5E, H'68, H'D1,  H'0B, H'41, H'83, H'64 ; H'8c016680
-          .DATA.B H'E3, H'63, H'08, H'4E,  H'3C, H'3E, H'6D, H'D2,  H'08, H'4E, H'CC, H'3E,  H'E3, H'63, H'08, H'73 ; H'8c016690
-          .DATA.B H'E2, H'2F, H'32, H'22,  H'F2, H'61, H'11, H'53,  H'04, H'7F, H'26, H'4F,  H'F6, H'68, H'F6, H'69 ; H'8c0166a0
-          .DATA.B H'F6, H'6A, H'F6, H'6B,  H'F6, H'6C, H'F6, H'6D,  H'2B, H'43, H'F6, H'6E,  H'65, H'DA, H'00, H'ED ; H'8c0166b0
-          .DATA.B H'63, H'D9, H'0C, H'A0,  H'08, H'EB, H'D3, H'65,  H'08, H'45, H'D3, H'63,  H'3C, H'35, H'08, H'45 ; H'8c0166c0
-          .DATA.B H'B3, H'64, H'CC, H'35,  H'52, H'65, H'0B, H'49,  H'AB, H'24, H'01, H'7B,  H'01, H'7D, H'D3, H'62 ; H'8c0166d0
-          .DATA.B H'08, H'42, H'D3, H'63,  H'3C, H'32, H'08, H'42,  H'CC, H'32, H'22, H'61,  H'10, H'63, H'38, H'23 ; H'8c0166e0
-          .DATA.B H'E9, H'8B, H'55, H'D1,  H'10, H'E3, H'12, H'64,  H'48, H'23, H'05, H'89,  H'FF, H'7E, H'11, H'4E ; H'8c0166f0
-          .DATA.B H'09, H'89, H'D3, H'6E,  H'07, H'A0, H'FF, H'7E,  H'20, H'E3, H'38, H'24,  H'03, H'89, H'01, H'7E ; H'8c016700
-          .DATA.B H'D3, H'3E, H'00, H'8B,  H'00, H'EE, H'51, H'D3,  H'E3, H'64, H'4F, H'D5,  H'08, H'74, H'0B, H'49 ; H'8c016710
-          .DATA.B H'3B, H'24, H'E2, H'18,  H'04, H'7F, H'26, H'4F,  H'4D, H'D2, H'F6, H'68,  H'F6, H'69, H'F6, H'6A ; H'8c016720
-          .DATA.B H'F6, H'6B, H'F6, H'6C,  H'F6, H'6D, H'2B, H'42,  H'F6, H'6E, H'22, H'4F,  H'F8, H'7F, H'3D, H'D3 ; H'8c016730
-          .DATA.B H'00, H'E6, H'63, H'65,  H'0B, H'43, H'63, H'64,  H'46, H'D2, H'0B, H'42,  H'00, H'E4, H'00, H'E3 ; H'8c016740
-          .DATA.B H'3A, H'D4, H'36, H'2F,  H'44, H'D5, H'F3, H'67,  H'39, H'D2, H'08, H'77,  H'F3, H'66, H'0B, H'42 ; H'8c016750
-          .DATA.B H'04, H'76, H'F1, H'53,  H'00, H'E2, H'22, H'13,  H'0C, H'7F, H'26, H'4F,  H'0B, H'00, H'09, H'00 ; H'8c016760
-          .DATA.B H'3F, H'D1, H'00, H'E2,  H'3D, H'D3, H'3F, H'D0,  H'32, H'21, H'0B, H'00,  H'22, H'20, H'3E, H'D2 ; H'8c016770
-          .DATA.B H'01, H'E3, H'22, H'61,  H'33, H'31, H'19, H'8B,  H'39, H'D4, H'3C, H'D2,  H'42, H'61, H'22, H'31 ; H'8c016780
-          .DATA.B H'14, H'89, H'3B, H'D5,  H'52, H'50, H'08, H'20,  H'02, H'8D, H'42, H'61,  H'01, H'A0, H'01, H'E3 ; H'8c016790
-          .DATA.B H'00, H'E3, H'32, H'21,  H'5E, H'85, H'42, H'61,  H'14, H'80, H'5C, H'85,  H'42, H'63, H'35, H'80 ; H'8c0167a0
-          .DATA.B H'5D, H'85, H'42, H'63,  H'36, H'80, H'42, H'63,  H'08, H'73, H'32, H'24,  H'0B, H'00, H'09, H'00 ; H'8c0167b0
-          .DATA.B H'31, H'D3, H'00, H'E2,  H'2F, H'D1, H'2B, H'43,  H'22, H'21, H'E6, H'2F,  H'43, H'6E, H'D6, H'2F ; H'8c0167c0
-          .DATA.B H'C6, H'2F, H'B6, H'2F,  H'22, H'4F, H'E2, H'53,  H'38, H'23, H'01, H'8B,  H'92, H'A0, H'09, H'00 ; H'8c0167d0
-          .DATA.B H'E3, H'50, H'2C, H'DD,  H'29, H'DB, H'00, H'88,  H'29, H'DC, H'07, H'89,  H'01, H'88, H'55, H'89 ; H'8c0167e0
-          .DATA.B H'02, H'88, H'5C, H'89,  H'03, H'88, H'67, H'89,  H'8E, H'A0, H'09, H'00,  H'0B, H'4B, H'D2, H'64 ; H'8c0167f0
-          .DATA.B H'03, H'64, H'4C, H'E0,  H'4E, H'03, H'38, H'23,  H'09, H'89, H'50, H'E0,  H'4E, H'03, H'38, H'23 ; H'8c016800
-          .DATA.B H'4A, H'8B, H'21, H'D3,  H'0B, H'43, H'D2, H'64,  H'01, H'E2, H'7D, H'A0,  H'23, H'1E, H'00, H'E1 ; H'8c016810
-          .DATA.B H'7A, H'A0, H'12, H'1E,  H'50, H'95, H'01, H'8C,  H'20, H'61, H'03, H'8C,  H'66, H'4B, H'01, H'8C ; H'8c016820
+          .DATA.B H'FC, H'60, H'03, H'8C,  H'0A, H'00, H'02, H'00 ; H'8c0165e0
+
+          LAB_8c0165e8:
+          MOV.L       H'8c016824,R2
+          MOV         #H'1e,R5
+          JSR         @R2
+          MOV.L       @R15,R4
+          TST         R0,R0
+          BT          H'8c0165fa
+LAB_8c0165f4:
+          MOV.L       R12,@R13
+          BRA         H'8c016620
+          MOV.L       R11,@(H'4,R13)
+LAB_8c0165fa:
+          MOV.L       H'8c016828,R5
+          JSR         @R8
+          MOV         R10,R4
+          BRA         H'8c016620
+          NOP
+LAB_8c016604:
+          MOV.L       H'8c01682c,R2
+          JSR         @R2
+          NOP
+          MOV         #H'0,R4
+          ADD         #H'4,R15
+          LDS.L       @R15+,PR
+          MOV.L       @R15+,R8
+          MOV.L       @R15+,R9
+          MOV.L       @R15+,R10
+          MOV.L       @R15+,R11
+          MOV.L       @R15+,R12
+          MOV.L       @R15+,R13
+          BRA         H'8c01673a
+          MOV.L       @R15+,R14
+LAB_8c016620:
+          MOV.L       R14,@(H'4,R13)
+          ADD         #H'4,R15
+          LDS.L       @R15+,PR
+          MOV.L       @R15+,R8
+          MOV.L       @R15+,R9
+          MOV.L       @R15+,R10
+          MOV.L       @R15+,R11
+          MOV.L       @R15+,R12
+          MOV.L       @R15+,R13
+          RTS
+          MOV.L       @R15+,R14
+FUN_8c016636:
+          STS.L       PR,@-R15
+          ADD         #-H'8,R15
+          MOV.L       H'8c016834,R3
+          MOV         #H'0,R5
+          MOV.L       H'8c016830,R6
+          JSR         @R3
+          MOV         R5,R4
+          MOV         #H'14,R2
+          MOV.L       H'8c01683c,R4
+          MOV.L       R2,@-R15
+          MOV.L       H'8c016838,R5
+          MOV         R15,R7
+          MOV.L       H'8c016840,R3
+          ADD         #H'4,R7
+          MOV         R15,R6
+          JSR         @R3
+          ADD         #H'8,R6
+          MOV.L       @(H'4,R15),R2
+          MOV         #H'0,R3
+          MOV.L       R3,@R2
+          MOV.L       @(H'4,R15),R2
+          MOV.L       R3,@(H'c,R2)
+          ADD         #H'c,R15
+          LDS.L       @R15+,PR
+          RTS
+          NOP
+FUN_8c01666a:
+          MOV.L       R14,@-R15
+          MOV.L       R13,@-R15
+          MOV.L       R12,@-R15
+          MOV.L       R11,@-R15
+          MOV.L       R10,@-R15
+          MOV.L       R9,@-R15
+          MOV.L       R8,@-R15
+          STS.L       PR,@-R15
+          ADD         #-H'4,R15
+          MOV.L       H'8c016848,R3
+          MOV         R4,R8
+          MOV.L       H'8c016844,R12
+          MOV.L       @R3,R0
+          TST         #H'4,R0
+          BT/S        H'8c0166bc
+          MOV.L       @(H'8,R8),R14
+          MOV.L       H'8c01682c,R1
+          JSR         @R1
+          MOV         R8,R4
+          MOV         R14,R3
+          SHLL2       R14
+          ADD         R3,R14
+          MOV.L       H'8c01684c,R2
+          SHLL2       R14
+          ADD         R12,R14
+          MOV         R14,R3
+          ADD         #H'8,R3
+          MOV.L       R14,@R15
+          MOV.L       R3,@R2
+          MOV.L       @R15,R1
+          MOV.L       @(H'4,R1),R3
+          ADD         #H'4,R15
+          LDS.L       @R15+,PR
+          MOV.L       @R15+,R8
+          MOV.L       @R15+,R9
+          MOV.L       @R15+,R10
+          MOV.L       @R15+,R11
+          MOV.L       @R15+,R12
+          MOV.L       @R15+,R13
+          JMP         @R3
+          MOV.L       @R15+,R14
+LAB_8c0166bc:
+          MOV.L       H'8c016854,R10
+          MOV         #H'0,R13
+          MOV.L       H'8c016850,R9
+          BRA         H'8c0166de
+          MOV         #H'8,R11
+LAB_8c0166c6:
+          MOV         R13,R5
+          SHLL2       R5
+          MOV         R13,R3
+          ADD         R3,R5
+          SHLL2       R5
+          MOV         R11,R4
+          ADD         R12,R5
+          MOV.L       @R5,R5
+          JSR         @R9
+          OR          R10,R4
+          ADD         #H'1,R11
+          ADD         #H'1,R13
+LAB_8c0166de:
+          MOV         R13,R2
+          SHLL2       R2
+          MOV         R13,R3
+          ADD         R3,R2
+          SHLL2       R2
+          ADD         R12,R2
+          MOV.L       @R2,R1
+          MOV.B       @R1,R3
+          TST         R3,R3
+          BF          H'8c0166c6
+          MOV.L       H'8c016848,R1
+          MOV         #H'10,R3
+          MOV.L       @R1,R4
+          TST         R4,R3
+          BT          H'8c016708
+          ADD         #-H'1,R14
+          CMP/PZ      R14
+          BT          H'8c016716
+          MOV         R13,R14
+          BRA         H'8c016716
+          ADD         #-H'1,R14
+LAB_8c016708:
+          MOV         #H'20,R3
+          TST         R3,R4
+          BT          H'8c016716
+          ADD         #H'1,R14
+          CMP/GE      R13,R14
+          BF          H'8c016716
+          MOV         #H'0,R14
+LAB_8c016716:
+          MOV.L       H'8c01685c,R3
+          MOV         R14,R4
+          MOV.L       H'8c016858,R5
+          ADD         #H'8,R4
+          JSR         @R9
+          OR          R3,R4
+          MOV.L       R14,@(H'8,R8)
+          ADD         #H'4,R15
+          LDS.L       @R15+,PR
+          MOV.L       H'8c016860,R2
+          MOV.L       @R15+,R8
+          MOV.L       @R15+,R9
+          MOV.L       @R15+,R10
+          MOV.L       @R15+,R11
+          MOV.L       @R15+,R12
+          MOV.L       @R15+,R13
+          JMP         @R2
+          MOV.L       @R15+,R14
+FUN_8c01673a:
+          STS.L       PR,@-R15
+          ADD         #-H'8,R15
+          MOV.L       H'8c016834,R3
+          MOV         #H'0,R6
+          MOV         R6,R5
+          JSR         @R3
+          MOV         R6,R4
+          MOV.L       H'8c016864,R2
+          JSR         @R2
+          MOV         #H'0,R4
+          MOV         #H'0,R3
+          MOV.L       H'8c01683c,R4
+          MOV.L       R3,@-R15
+          MOV.L       H'8c016868,R5
+          MOV         R15,R7
+          MOV.L       H'8c016840,R2
+          ADD         #H'8,R7
+          MOV         R15,R6
+          JSR         @R2
+          ADD         #H'4,R6
+          MOV.L       @(H'4,R15),R3
+          MOV         #H'0,R2
+          MOV.L       R2,@(H'8,R3)
+          ADD         #H'c,R15
+          LDS.L       @R15+,PR
+          RTS
+          NOP
+FUN_8c016770:
+          MOV.L       H'8c016870,R1
+          MOV         #H'0,R2
+          MOV.L       H'8c01686c,R3
+          MOV.L       H'8c016874,R0
+          MOV.L       R3,@R1
+          RTS
+          MOV.L       R2,@R0
+FUN_8c01677e:
+          MOV.L       H'8c016878,R2
+          MOV         #H'1,R3
+          MOV.L       @R2,R1
+          CMP/GE      R3,R1
+          BF          H'8c0167bc
+          MOV.L       H'8c016870,R4
+          MOV.L       H'8c01687c,R2
+          MOV.L       @R4,R1
+          CMP/HS      R2,R1
+          BT          H'8c0167bc
+          MOV.L       H'8c016880,R5
+          MOV.L       @(H'8,R5),R0
+          TST         R0,R0
+          BT/S        H'8c0167a0
+          MOV.L       @R4,R1
+          BRA         H'8c0167a2
+          MOV         #H'1,R3
+LAB_8c0167a0:
+          MOV         #H'0,R3
+LAB_8c0167a2:
+          MOV.L       R3,@R1
+          MOV.W       @(H'1c,R5),R0
+          MOV.L       @R4,R1
+          MOV.B       R0,@(H'4,R1)
+          MOV.W       @(H'18,R5),R0
+          MOV.L       @R4,R3
+          MOV.B       R0,@(H'5,R3)
+          MOV.W       @(H'1a,R5),R0
+          MOV.L       @R4,R3
+          MOV.B       R0,@(H'6,R3)
+          MOV.L       @R4,R3
+          ADD         #H'8,R3
+          MOV.L       R3,@R4
+LAB_8c0167bc:
+          RTS
+          NOP
+FUN_8c0167c0:
+          MOV.L       H'8c016888,R3
+          MOV         #H'0,R2
+          MOV.L       H'8c016884,R1
+          JMP         @R3
+          MOV.L       R2,@R1
+FUN_8c0167ca:
+          MOV.L       R14,@-R15
+          MOV         R4,R14
+          MOV.L       R13,@-R15
+          MOV.L       R12,@-R15
+          MOV.L       R11,@-R15
+          STS.L       PR,@-R15
+          MOV.L       @(H'8,R14),R3
+          TST         R3,R3
+          BF          H'8c0167e0
+          BRA         H'8c016904
+          NOP
+LAB_8c0167e0:
+          MOV.L       @(H'c,R14),R0
+          MOV.L       H'8c016894,R13
+          MOV.L       H'8c01688c,R11
+          CMP/EQ      #H'0,R0
+          MOV.L       H'8c016890,R12
+          BT          H'8c0167fc
+          CMP/EQ      #H'1,R0
+          BT          H'8c01689c
+          CMP/EQ      #H'2,R0
+          BT          H'8c0168ae
+          CMP/EQ      #H'3,R0
+          BT          H'8c0168c8
+          BRA         H'8c016918
+          NOP
+LAB_8c0167fc:
+          JSR         @R11
+          MOV.L       @R13,R4
+          MOV         R0,R4
+          MOV         #H'4c,R0
+          MOV.L       @(R0,R4),R3
+          TST         R3,R3
+          BT          H'8c01681e
+          MOV         #H'50,R0
+          MOV.L       @(R0,R4),R3
+          TST         R3,R3
+          BF          H'8c0168a8
+          MOV.L       H'8c016898,R3
+          JSR         @R3
+          MOV.L       @R13,R4
+          MOV         #H'1,R2
+          BRA         H'8c016918
+          MOV.L       R2,@(H'c,R14)
+LAB_8c01681e:
+          MOV         #H'0,R1
+          BRA         H'8c016918
+          MOV.L       R1,@(H'8,R14)
+          .DATA.B H'50, H'95, H'01, H'8C,  H'20, H'61, H'03, H'8C,  H'66, H'4B, H'01, H'8C ; H'8c016824
           .DATA.B H'60, H'C0, H'00, H'00,  H'8A, H'73, H'05, H'8C,  H'8C, H'62, H'01, H'8C,  H'C8, H'A3, H'1B, H'8C ; H'8c016830
           .DATA.B H'E8, H'4A, H'01, H'8C,  H'9C, H'42, H'04, H'8C,  H'6C, H'A3, H'1B, H'8C,  H'24, H'C8, H'1B, H'8C ; H'8c016840
           .DATA.B H'C0, H'95, H'07, H'8C,  H'00, H'00, H'0C, H'00,  H'B0, H'60, H'03, H'8C,  H'00, H'00, H'0A, H'00 ; H'8c016850
           .DATA.B H'66, H'21, H'01, H'8C,  H'CC, H'28, H'01, H'8C,  H'6A, H'66, H'01, H'8C,  H'28, H'C8, H'1B, H'8C ; H'8c016860
           .DATA.B H'A8, H'5F, H'22, H'8C,  H'AC, H'5F, H'22, H'8C,  H'84, H'BC, H'1B, H'8C,  H'A8, H'5F, H'22, H'8C ; H'8c016870
           .DATA.B H'5C, H'A3, H'1B, H'8C,  H'D0, H'B8, H'1B, H'8C,  H'8C, H'32, H'01, H'8C,  H'BA, H'4B, H'01, H'8C ; H'8c016880
-          .DATA.B H'C4, H'A3, H'1B, H'8C,  H'4C, H'A3, H'1B, H'8C,  H'00, H'4C, H'01, H'8C,  H'0B, H'4B, H'D2, H'64 ; H'8c016890
-          .DATA.B H'03, H'64, H'41, H'62,  H'28, H'22, H'37, H'89,  H'02, H'E3, H'35, H'A0,  H'33, H'1E, H'62, H'D2 ; H'8c0168a0
-          .DATA.B H'62, H'D5, H'22, H'67,  H'62, H'D1, H'10, H'77,  H'C2, H'66, H'19, H'47,  H'01, H'47, H'01, H'77 ; H'8c0168b0
-          .DATA.B H'0B, H'41, H'D2, H'64,  H'03, H'E3, H'33, H'1E,  H'0B, H'4B, H'D2, H'64,  H'03, H'6B, H'B2, H'52 ; H'8c0168c0
-          .DATA.B H'64, H'E3, H'37, H'02,  H'5B, H'D2, H'1A, H'01,  H'0B, H'42, H'B3, H'50,  H'5B, H'D4, H'5C, H'D2 ; H'8c0168d0
-          .DATA.B H'59, H'D1, H'06, H'2F,  H'0B, H'42, H'16, H'2F,  H'08, H'7F, H'5A, H'D3,  H'0B, H'43, H'D2, H'64 ; H'8c0168e0
-          .DATA.B H'08, H'20, H'11, H'8B,  H'58, H'D3, H'0B, H'43,  H'C2, H'64, H'58, H'D3,  H'FF, H'E2, H'22, H'2C ; H'8c0168f0
-          .DATA.B H'0B, H'43, H'D2, H'64,  H'56, H'D3, H'0B, H'43,  H'E3, H'64, H'26, H'4F,  H'55, H'D2, H'F6, H'6B ; H'8c016900
-          .DATA.B H'F6, H'6C, H'F6, H'6D,  H'2B, H'42, H'F6, H'6E,  H'26, H'4F, H'F6, H'6B,  H'F6, H'6C, H'F6, H'6D ; H'8c016910
-          .DATA.B H'0B, H'00, H'F6, H'6E,  H'E6, H'2F, H'D6, H'2F,  H'C6, H'2F, H'22, H'4F,  H'F4, H'7F, H'00, H'E3 ; H'8c016920
-          .DATA.B H'4E, H'D4, H'36, H'2F,  H'4C, H'D5, H'F3, H'67,  H'4D, H'D2, H'0C, H'77,  H'F3, H'66, H'0B, H'42 ; H'8c016930
-          .DATA.B H'04, H'76, H'4C, H'D3,  H'32, H'60, H'FF, H'88,  H'2F, H'8D, H'04, H'7F,  H'4B, H'D0, H'4A, H'D1 ; H'8c016940
-          .DATA.B H'02, H'62, H'12, H'32,  H'29, H'89, H'49, H'D2,  H'49, H'D3, H'22, H'6D,  H'49, H'DC, H'4A, H'D1 ; H'8c016950
-          .DATA.B H'38, H'3D, H'10, H'7D,  H'0B, H'41, H'D3, H'64,  H'03, H'63, H'48, H'D2,  H'02, H'2C, H'10, H'73 ; H'8c016960
-          .DATA.B H'03, H'6E, H'0B, H'42,  H'31, H'1F, H'42, H'D4,  H'D3, H'66, H'45, H'D3,  H'F3, H'65, H'0B, H'43 ; H'8c016970
-          .DATA.B H'04, H'75, H'44, H'D0,  H'2C, H'D3, H'32, H'62,  H'22, H'2E, H'02, H'61,  H'11, H'1E, H'42, H'D1 ; H'8c016980
-          .DATA.B H'12, H'62, H'22, H'1E,  H'41, H'D2, H'22, H'63,  H'33, H'1E, H'01, H'E3,  H'F2, H'60, H'32, H'10 ; H'8c016990
-          .DATA.B H'00, H'E3, H'F2, H'60,  H'33, H'10, H'03, H'A0,  H'09, H'00, H'F2, H'62,  H'00, H'E3, H'32, H'12 ; H'8c0169a0
-          .DATA.B H'0C, H'7F, H'26, H'4F,  H'F6, H'6C, H'F6, H'6D,  H'0B, H'00, H'F6, H'6E,  H'E6, H'2F, H'D6, H'2F ; H'8c0169b0
-          .DATA.B H'C6, H'2F, H'B6, H'2F,  H'A6, H'2F, H'22, H'4F,  H'F4, H'7F, H'2A, H'DE,  H'43, H'6C, H'E2, H'60 ; H'8c0169c0
-          .DATA.B H'FF, H'88, H'02, H'8F,  H'03, H'6B, H'AB, H'A0,  H'09, H'00, H'C2, H'50,  H'29, H'DD, H'30, H'DA ; H'8c0169d0
-          .DATA.B H'00, H'88, H'07, H'89,  H'01, H'88, H'1C, H'89,  H'02, H'88, H'5F, H'89,  H'03, H'88, H'69, H'89 ; H'8c0169e0
-          .DATA.B H'A4, H'A0, H'09, H'00,  H'0B, H'4A, H'B3, H'64,  H'03, H'64, H'4C, H'E0,  H'4E, H'02, H'28, H'22 ; H'8c0169f0
-          .DATA.B H'09, H'89, H'50, H'E0,  H'4E, H'03, H'38, H'23,  H'13, H'8B, H'26, H'D3,  H'0B, H'43, H'E2, H'64 ; H'8c016a00
-          .DATA.B H'01, H'E2, H'93, H'A0,  H'22, H'1C, H'24, H'D2,  H'FF, H'E1, H'00, H'E3,  H'12, H'2E, H'8D, H'A0 ; H'8c016a10
-          .DATA.B H'32, H'22, H'0B, H'4A,  H'B3, H'64, H'03, H'64,  H'41, H'63, H'38, H'23,  H'01, H'8B, H'85, H'A0 ; H'8c016a20
-          .DATA.B H'09, H'00, H'02, H'E3,  H'82, H'A0, H'32, H'1C,  H'A4, H'8B, H'22, H'8C,  H'60, H'61, H'03, H'8C ; H'8c016a30
+          .DATA.B H'C4, H'A3, H'1B, H'8C,  H'4C, H'A3, H'1B, H'8C,  H'00, H'4C, H'01, H'8C ; H'8c016890
+
+          LAB_8c01689c:
+          JSR         @R11
+          MOV.L       @R13,R4
+          MOV         R0,R4
+          MOV.W       @R4,R2
+          TST         R2,R2
+          BT          H'8c016918
+LAB_8c0168a8:
+          MOV         #H'2,R3
+          BRA         H'8c016918
+          MOV.L       R3,@(H'c,R14)
+LAB_8c0168ae:
+          MOV.L       H'8c016a38,R2
+          MOV.L       H'8c016a3c,R5
+          MOV.L       @R2,R7
+          MOV.L       H'8c016a40,R1
+          ADD         #H'10,R7
+          MOV.L       @R12,R6
+          SHLR8       R7
+          SHLR        R7
+          ADD         #H'1,R7
+          JSR         @R1
+          MOV.L       @R13,R4
+          MOV         #H'3,R3
+          MOV.L       R3,@(H'c,R14)
+LAB_8c0168c8:
+          JSR         @R11
+          MOV.L       @R13,R4
+          MOV         R0,R11
+          MOV.L       @(H'8,R11),R2
+          MOV         #H'64,R3
+          MUL.L       R3,R2
+          MOV.L       H'8c016a44,R2
+          STS         MACL,R1
+          JSR         @R2
+          MOV.L       @(H'c,R11),R0
+          MOV.L       H'8c016a4c,R4
+          MOV.L       H'8c016a50,R2
+          MOV.L       H'8c016a48,R1
+          MOV.L       R0,@-R15
+          JSR         @R2
+          MOV.L       R1,@-R15
+          ADD         #H'8,R15
+          MOV.L       H'8c016a54,R3
+          JSR         @R3
+          MOV.L       @R13,R4
+          TST         R0,R0
+          BF          H'8c016918
+          MOV.L       H'8c016a58,R3
+          JSR         @R3
+          MOV.L       @R12,R4
+          MOV.L       H'8c016a5c,R3
+          MOV         #-H'1,R2
+          MOV.L       R2,@R12
+          JSR         @R3
+          MOV.L       @R13,R4
+LAB_8c016904:
+          MOV.L       H'8c016a60,R3
+          JSR         @R3
+          MOV         R14,R4
+          LDS.L       @R15+,PR
+          MOV.L       H'8c016a64,R2
+          MOV.L       @R15+,R11
+          MOV.L       @R15+,R12
+          MOV.L       @R15+,R13
+          JMP         @R2
+          MOV.L       @R15+,R14
+LAB_8c016918:
+          LDS.L       @R15+,PR
+          MOV.L       @R15+,R11
+          MOV.L       @R15+,R12
+          MOV.L       @R15+,R13
+          RTS
+          MOV.L       @R15+,R14
+FUN_8c016924:
+          MOV.L       R14,@-R15
+          MOV.L       R13,@-R15
+          MOV.L       R12,@-R15
+          STS.L       PR,@-R15
+          ADD         #-H'c,R15
+          MOV         #H'0,R3
+          MOV.L       H'8c016a6c,R4
+          MOV.L       R3,@-R15
+          MOV.L       H'8c016a68,R5
+          MOV         R15,R7
+          MOV.L       H'8c016a70,R2
+          ADD         #H'c,R7
+          MOV         R15,R6
+          JSR         @R2
+          ADD         #H'4,R6
+          MOV.L       H'8c016a74,R3
+          MOV.L       @R3,R0
+          CMP/EQ      #-H'1,R0
+          BT/S        H'8c0169aa
+          ADD         #H'4,R15
+          MOV.L       H'8c016a7c,R0
+          MOV.L       H'8c016a78,R1
+          MOV.L       @R0,R2
+          CMP/HS      R1,R2
+          BT          H'8c0169aa
+          MOV.L       H'8c016a7c,R2
+          MOV.L       H'8c016a80,R3
+          MOV.L       @R2,R13
+          MOV.L       H'8c016a84,R12
+          MOV.L       H'8c016a88,R1
+          SUB         R3,R13
+          ADD         #H'10,R13
+          JSR         @R1
+          MOV         R13,R4
+          MOV         R0,R3
+          MOV.L       H'8c016a8c,R2
+          MOV.L       R0,@R12
+          ADD         #H'10,R3
+          MOV         R0,R14
+          JSR         @R2
+          MOV.L       R3,@(H'4,R15)
+          MOV.L       H'8c016a80,R4
+          MOV         R13,R6
+          MOV.L       H'8c016a90,R3
+          MOV         R15,R5
+          JSR         @R3
+          ADD         #H'4,R5
+          MOV.L       H'8c016a94,R0
+          MOV.L       H'8c016a38,R3
+          MOV.L       @R3,R2
+          MOV.L       R2,@R14
+          MOV.L       @R0,R1
+          MOV.L       R1,@(H'4,R14)
+          MOV.L       H'8c016a98,R1
+          MOV.L       @R1,R2
+          MOV.L       R2,@(H'8,R14)
+          MOV.L       H'8c016a9c,R2
+          MOV.L       @R2,R3
+          MOV.L       R3,@(H'c,R14)
+          MOV         #H'1,R3
+          MOV.L       @R15,R0
+          MOV.L       R3,@(H'8,R0)
+          MOV         #H'0,R3
+          MOV.L       @R15,R0
+          MOV.L       R3,@(H'c,R0)
+          BRA         H'8c0169b0
+          NOP
+LAB_8c0169aa:
+          MOV.L       @R15,R2
+          MOV         #H'0,R3
+          MOV.L       R3,@(H'8,R2)
+LAB_8c0169b0:
+          ADD         #H'c,R15
+          LDS.L       @R15+,PR
+          MOV.L       @R15+,R12
+          MOV.L       @R15+,R13
+          RTS
+          MOV.L       @R15+,R14
+FUN_8c0169bc:
+          MOV.L       R14,@-R15
+          MOV.L       R13,@-R15
+          MOV.L       R12,@-R15
+          MOV.L       R11,@-R15
+          MOV.L       R10,@-R15
+          STS.L       PR,@-R15
+          ADD         #-H'c,R15
+          MOV.L       H'8c016a74,R14
+          MOV         R4,R12
+          MOV.L       @R14,R0
+          CMP/EQ      #-H'1,R0
+          BF/S        H'8c0169da
+          MOV         R0,R11
+          BRA         H'8c016b30
+          NOP
+LAB_8c0169da:
+          MOV.L       @(H'8,R12),R0
+          MOV.L       H'8c016a84,R13
+          MOV.L       H'8c016aa0,R10
+          CMP/EQ      #H'0,R0
+          BT          H'8c0169f4
+          CMP/EQ      #H'1,R0
+          BT          H'8c016a22
+          CMP/EQ      #H'2,R0
+          BT          H'8c016aac
+          CMP/EQ      #H'3,R0
+          BT          H'8c016ac4
+          BRA         H'8c016b3c
+          NOP
+LAB_8c0169f4:
+          JSR         @R10
+          MOV         R11,R4
+          MOV         R0,R4
+          MOV         #H'4c,R0
+          MOV.L       @(R0,R4),R2
+          TST         R2,R2
+          BT          H'8c016a16
+          MOV         #H'50,R0
+          MOV.L       @(R0,R4),R3
+          TST         R3,R3
+          BF          H'8c016a32
+          MOV.L       H'8c016aa4,R3
+          JSR         @R3
+          MOV.L       @R14,R4
+          MOV         #H'1,R2
+          BRA         H'8c016b3c
+          MOV.L       R2,@(H'8,R12)
+LAB_8c016a16:
+          MOV.L       H'8c016aa8,R2
+          MOV         #-H'1,R1
+          MOV         #H'0,R3
+          MOV.L       R1,@R14
+          BRA         H'8c016b3c
+          MOV.L       R3,@R2
+LAB_8c016a22:
+          JSR         @R10
+          MOV         R11,R4
+          MOV         R0,R4
+          MOV.W       @R4,R3
+          TST         R3,R3
+          BF          H'8c016a32
+          BRA         H'8c016b3c
+          NOP
+LAB_8c016a32:
+          MOV         #H'2,R3
+          BRA         H'8c016b3c
+          MOV.L       R3,@(H'8,R12)
+          .DATA.B H'A4, H'8B, H'22, H'8C,  H'60, H'61, H'03, H'8C ; H'8c016a38
           .DATA.B H'CC, H'4B, H'01, H'8C,  H'04, H'FC, H'02, H'8C,  H'30, H'61, H'03, H'8C,  H'08, H'00, H'04, H'00 ; H'8c016a40
           .DATA.B H'B0, H'9D, H'07, H'8C,  H'70, H'59, H'05, H'8C,  H'A4, H'45, H'05, H'8C,  H'46, H'4C, H'01, H'8C ; H'8c016a50
           .DATA.B H'66, H'4B, H'01, H'8C,  H'F2, H'7E, H'01, H'8C,  H'CA, H'67, H'01, H'8C,  H'C8, H'A3, H'1B, H'8C ; H'8c016a60
           .DATA.B H'E8, H'4A, H'01, H'8C,  H'4C, H'A3, H'1B, H'8C,  H'A8, H'5F, H'22, H'8C,  H'A8, H'5F, H'22, H'8C ; H'8c016a70
           .DATA.B H'28, H'C8, H'1B, H'8C,  H'C4, H'A3, H'1B, H'8C,  H'D6, H'44, H'05, H'8C,  H'20, H'F3, H'02, H'8C ; H'8c016a80
           .DATA.B H'34, H'F9, H'02, H'8C,  H'68, H'B8, H'1B, H'8C,  H'C8, H'B8, H'1B, H'8C,  H'64, H'7A, H'15, H'8C ; H'8c016a90
-          .DATA.B H'BA, H'4B, H'01, H'8C,  H'00, H'4C, H'01, H'8C,  H'D0, H'B8, H'1B, H'8C,  H'39, H'D3, H'70, H'94 ; H'8c016aa0
-          .DATA.B H'0B, H'43, H'09, H'00,  H'38, H'D5, H'03, H'66,  H'38, H'D2, H'02, H'2D,  H'0B, H'42, H'E2, H'64 ; H'8c016ab0
-          .DATA.B H'03, H'E3, H'32, H'1C,  H'0B, H'4A, H'E2, H'64,  H'03, H'6B, H'B2, H'52,  H'64, H'E3, H'37, H'02 ; H'8c016ac0
-          .DATA.B H'33, H'D2, H'1A, H'01,  H'0B, H'42, H'B3, H'50,  H'33, H'D4, H'34, H'D2,  H'31, H'D1, H'06, H'2F ; H'8c016ad0
-          .DATA.B H'0B, H'42, H'16, H'2F,  H'08, H'7F, H'32, H'D3,  H'0B, H'43, H'E2, H'64,  H'08, H'20, H'25, H'8B ; H'8c016ae0
-          .DATA.B H'D2, H'63, H'31, H'D0,  H'10, H'73, H'2F, H'D1,  H'32, H'1F, H'D2, H'64,  H'42, H'63, H'31, H'1F ; H'8c016af0
-          .DATA.B H'41, H'52, H'22, H'21,  H'42, H'53, H'2E, H'D1,  H'32, H'20, H'2C, H'D3,  H'43, H'52, H'22, H'23 ; H'8c016b00
-          .DATA.B H'2C, H'D2, H'0B, H'42,  H'12, H'2F, H'2C, H'D3,  H'F3, H'65, H'F1, H'56,  H'0B, H'43, H'F2, H'54 ; H'8c016b10
-          .DATA.B H'2A, H'D2, H'0B, H'42,  H'D2, H'64, H'2A, H'D2,  H'FF, H'E3, H'32, H'2D,  H'0B, H'42, H'E2, H'64 ; H'8c016b20
-          .DATA.B H'28, H'D2, H'0B, H'42,  H'C3, H'64, H'28, H'D3,  H'0B, H'43, H'09, H'00,  H'0C, H'7F, H'26, H'4F ; H'8c016b30
-          .DATA.B H'F6, H'6A, H'F6, H'6B,  H'F6, H'6C, H'F6, H'6D,  H'0B, H'00, H'F6, H'6E,  H'E6, H'2F, H'22, H'4F ; H'8c016b40
-          .DATA.B H'F8, H'7F, H'23, H'D3,  H'21, H'D4, H'32, H'60,  H'FF, H'88, H'15, H'8D,  H'00, H'EE, H'02, H'E1 ; H'8c016b50
-          .DATA.B H'20, H'D2, H'12, H'24,  H'00, H'E1, H'21, H'D4,  H'1F, H'D5, H'21, H'D3,  H'E2, H'22, H'16, H'2F ; H'8c016b60
-          .DATA.B H'F3, H'67, H'08, H'77,  H'F3, H'66, H'0B, H'43,  H'04, H'76, H'04, H'7F,  H'F2, H'62, H'E2, H'12 ; H'8c016b70
-          .DATA.B H'08, H'7F, H'26, H'4F,  H'0B, H'00, H'F6, H'6E,  H'E2, H'24, H'08, H'7F,  H'26, H'4F, H'0B, H'00 ; H'8c016b80
-          .DATA.B H'F6, H'6E, H'00, H'40,  H'D6, H'44, H'05, H'8C,  H'60, H'61, H'03, H'8C,  H'C6, H'4B, H'01, H'8C ; H'8c016b90
+          .DATA.B H'BA, H'4B, H'01, H'8C,  H'00, H'4C, H'01, H'8C,  H'D0, H'B8, H'1B, H'8C ; H'8c016aa0
+          LAB_8c016aac:
+          MOV.L       H'8c016b94,R3
+          MOV.W       H'8c016b92,R4
+          JSR         @R3
+          NOP
+          MOV.L       H'8c016b98,R5
+          MOV         R0,R6
+          MOV.L       H'8c016b9c,R2
+          MOV.L       R0,@R13
+          JSR         @R2
+          MOV.L       @R14,R4
+          MOV         #H'3,R3
+          MOV.L       R3,@(H'8,R12)
+LAB_8c016ac4:
+          JSR         @R10
+          MOV.L       @R14,R4
+          MOV         R0,R11
+          MOV.L       @(H'8,R11),R2
+          MOV         #H'64,R3
+          MUL.L       R3,R2
+          MOV.L       H'8c016ba0,R2
+          STS         MACL,R1
+          JSR         @R2
+          MOV.L       @(H'c,R11),R0
+          MOV.L       H'8c016ba8,R4
+          MOV.L       H'8c016bac,R2
+          MOV.L       H'8c016ba4,R1
+          MOV.L       R0,@-R15
+          JSR         @R2
+          MOV.L       R1,@-R15
+          ADD         #H'8,R15
+          MOV.L       H'8c016bb0,R3
+          JSR         @R3
+          MOV.L       @R14,R4
+          TST         R0,R0
+          BF          H'8c016b3c
+          MOV.L       @R13,R3
+          MOV.L       H'8c016bb8,R0
+          ADD         #H'10,R3
+          MOV.L       H'8c016bb4,R1
+          MOV.L       R3,@(H'8,R15)
+          MOV.L       @R13,R4
+          MOV.L       @R4,R3
+          MOV.L       R3,@(H'4,R15)
+          MOV.L       @(H'4,R4),R2
+          MOV.L       R2,@R1
+          MOV.L       @(H'8,R4),R3
+          MOV.L       H'8c016bc0,R1
+          MOV.L       R3,@R0
+          MOV.L       H'8c016bbc,R3
+          MOV.L       @(H'c,R4),R2
+          MOV.L       R2,@R3
+          MOV.L       H'8c016bc4,R2
+          JSR         @R2
+          MOV.L       R1,@R15
+          MOV.L       H'8c016bc8,R3
+          MOV         R15,R5
+          MOV.L       @(H'4,R15),R6
+          JSR         @R3
+          MOV.L       @(H'8,R15),R4
+          MOV.L       H'8c016bcc,R2
+          JSR         @R2
+          MOV.L       @R13,R4
+          MOV.L       H'8c016bd0,R2
+          MOV         #-H'1,R3
+          MOV.L       R3,@R13
+          JSR         @R2
+          MOV.L       @R14,R4
+LAB_8c016b30:
+          MOV.L       H'8c016bd4,R2
+          JSR         @R2
+          MOV         R12,R4
+          MOV.L       H'8c016bd8,R3
+          JSR         @R3
+          NOP
+LAB_8c016b3c:
+          ADD         #H'c,R15
+          LDS.L       @R15+,PR
+          MOV.L       @R15+,R10
+          MOV.L       @R15+,R11
+          MOV.L       @R15+,R12
+          MOV.L       @R15+,R13
+          RTS
+          MOV.L       @R15+,R14
+FUN_8c016b4c:
+          MOV.L       R14,@-R15
+          STS.L       PR,@-R15
+          ADD         #-H'8,R15
+          MOV.L       H'8c016be0,R3
+          MOV.L       H'8c016bdc,R4
+          MOV.L       @R3,R0
+          CMP/EQ      #-H'1,R0
+          BT/S        H'8c016b88
+          MOV         #H'0,R14
+          MOV         #H'2,R1
+          MOV.L       H'8c016be4,R2
+          MOV.L       R1,@R4
+          MOV         #H'0,R1
+          MOV.L       H'8c016bec,R4
+          MOV.L       H'8c016be8,R5
+          MOV.L       H'8c016bf0,R3
+          MOV.L       R14,@R2
+          MOV.L       R1,@-R15
+          MOV         R15,R7
+          ADD         #H'8,R7
+          MOV         R15,R6
+          JSR         @R3
+          ADD         #H'4,R6
+          ADD         #H'4,R15
+          MOV.L       @R15,R2
+          MOV.L       R14,@(H'8,R2)
+          ADD         #H'8,R15
+          LDS.L       @R15+,PR
+          RTS
+          MOV.L       @R15+,R14
+LAB_8c016b88:
+          MOV.L       R14,@R4
+          ADD         #H'8,R15
+          LDS.L       @R15+,PR
+          RTS
+          MOV.L       @R15+,R14
+          .DATA.B H'00, H'40,  H'D6, H'44, H'05, H'8C,  H'60, H'61, H'03, H'8C,  H'C6, H'4B, H'01, H'8C ; H'8c016b92
           .DATA.B H'04, H'FC, H'02, H'8C,  H'48, H'61, H'03, H'8C,  H'08, H'00, H'04, H'00,  H'B0, H'9D, H'07, H'8C ; H'8c016ba0
           .DATA.B H'70, H'59, H'05, H'8C,  H'68, H'B8, H'1B, H'8C,  H'C8, H'B8, H'1B, H'8C,  H'64, H'7A, H'15, H'8C ; H'8c016bb0
           .DATA.B H'28, H'C8, H'1B, H'8C,  H'20, H'F3, H'02, H'8C,  H'14, H'FA, H'02, H'8C,  H'A4, H'45, H'05, H'8C ; H'8c016bc0
           .DATA.B H'46, H'4C, H'01, H'8C,  H'66, H'4B, H'01, H'8C,  H'8C, H'32, H'01, H'8C,  H'D0, H'B8, H'1B, H'8C ; H'8c016bd0
           .DATA.B H'4C, H'A3, H'1B, H'8C,  H'D4, H'B8, H'1B, H'8C,  H'BC, H'69, H'01, H'8C,  H'C8, H'A3, H'1B, H'8C ; H'8c016be0
-          .DATA.B H'E8, H'4A, H'01, H'8C,  H'FC, H'7F, H'13, H'D1,  H'01, H'E3, H'12, H'62,  H'33, H'32, H'1F, H'8B ; H'8c016bf0
-          .DATA.B H'11, H'D5, H'12, H'D2,  H'52, H'66, H'22, H'36,  H'1A, H'89, H'62, H'60,  H'10, H'D4, H'03, H'67 ; H'8c016c00
-          .DATA.B H'10, H'D6, H'02, H'14,  H'62, H'61, H'7A, H'21,  H'13, H'63, H'39, H'27,  H'12, H'2F, H'74, H'14 ; H'8c016c10
-          .DATA.B H'42, H'53, H'32, H'26,  H'52, H'60, H'04, H'84,  H'4E, H'81, H'52, H'60,  H'05, H'84, H'0C, H'60 ; H'8c016c20
-          .DATA.B H'4C, H'81, H'52, H'60,  H'06, H'84, H'0C, H'60,  H'4D, H'81, H'52, H'63,  H'08, H'73, H'32, H'25 ; H'8c016c30
-          .DATA.B H'0B, H'00, H'04, H'7F,  H'84, H'BC, H'1B, H'8C,  H'A8, H'5F, H'22, H'8C,  H'A8, H'5F, H'22, H'8C ; H'8c016c40
-          .DATA.B H'5C, H'A3, H'1B, H'8C,  H'AC, H'5F, H'22, H'8C,  H'E6, H'2F, H'22, H'4F,  H'FC, H'7F, H'2F, H'D3 ; H'8c016c50
-          .DATA.B H'43, H'6E, H'40, H'E2,  H'42, H'2F, H'32, H'66,  H'00, H'E7, H'E2, H'6E,  H'68, H'22, H'06, H'8D ; H'8c016c60
-          .DATA.B H'73, H'64, H'FF, H'7E,  H'11, H'4E, H'09, H'89,  H'53, H'6E, H'07, H'A0,  H'FF, H'7E, H'4C, H'91 ; H'8c016c70
-          .DATA.B H'18, H'26, H'0B, H'89,  H'01, H'7E, H'53, H'3E,  H'00, H'8B, H'73, H'6E,  H'24, H'D4, H'01, H'E5 ; H'8c016c80
-          .DATA.B H'24, H'D3, H'00, H'E7,  H'03, H'E6, H'0B, H'43,  H'42, H'64, H'01, H'E4,  H'F2, H'62, H'43, H'60 ; H'8c016c90
-          .DATA.B H'E2, H'22, H'04, H'7F,  H'26, H'4F, H'0B, H'00,  H'F6, H'6E, H'E6, H'2F,  H'43, H'6E, H'D6, H'2F ; H'8c016ca0
-          .DATA.B H'C6, H'2F, H'B6, H'2F,  H'22, H'4F, H'E2, H'63,  H'1B, H'DD, H'19, H'DB,  H'38, H'23, H'19, H'DC ; H'8c016cb0
-          .DATA.B H'04, H'8B, H'D4, H'50,  H'80, H'C8, H'0B, H'89,  H'04, H'A0, H'01, H'E2,  H'D4, H'50, H'40, H'C8 ; H'8c016cc0
-          .DATA.B H'06, H'89, H'00, H'E2,  H'03, H'E6, H'22, H'2E,  H'01, H'E5, H'00, H'E7,  H'0B, H'4C, H'B2, H'64 ; H'8c016cd0
-          .DATA.B H'D4, H'50, H'04, H'C8,  H'09, H'89, H'E2, H'62,  H'28, H'22, H'08, H'8B,  H'00, H'E7, H'01, H'E5 ; H'8c016ce0
-          .DATA.B H'73, H'66, H'0B, H'4C,  H'B2, H'64, H'0A, H'A0,  H'01, H'E0, H'02, H'C8,  H'06, H'89, H'01, H'E6 ; H'8c016cf0
-          .DATA.B H'63, H'65, H'00, H'E7,  H'0B, H'4C, H'B2, H'64,  H'01, H'A0, H'02, H'E0,  H'00, H'E0, H'26, H'4F ; H'8c016d00
-          .DATA.B H'F6, H'6B, H'F6, H'6C,  H'F6, H'6D, H'0B, H'00,  H'F6, H'6E, H'80, H'00,  H'6C, H'A3, H'1B, H'8C ; H'8c016d10
-          .DATA.B H'28, H'CD, H'0F, H'8C,  H'18, H'16, H'05, H'8C,  H'5C, H'A3, H'1B, H'8C,  H'45, H'D4, H'30, H'E1 ; H'8c016d20
-          .DATA.B H'20, H'E0, H'4C, H'31,  H'22, H'4F, H'46, H'F2,  H'18, H'F3, H'34, H'E1,  H'4C, H'31, H'30, H'F2 ; H'8c016d30
-          .DATA.B H'27, H'F4, H'24, H'E0,  H'18, H'F3, H'46, H'F2,  H'30, H'F2, H'8D, H'F3,  H'27, H'F4, H'30, H'E0 ; H'8c016d40
-          .DATA.B H'46, H'F2, H'34, H'F2,  H'13, H'89, H'46, H'F4,  H'45, H'F3, H'05, H'8B,  H'28, H'E0, H'46, H'F3 ; H'8c016d50
-          .DATA.B H'20, H'E0, H'46, H'F2,  H'35, H'F2, H'20, H'8B,  H'8D, H'F3, H'35, H'F4,  H'27, H'8B, H'28, H'E0 ; H'8c016d60
-          .DATA.B H'46, H'F3, H'20, H'E0,  H'46, H'F2, H'35, H'F2,  H'21, H'8B, H'16, H'A0,  H'09, H'00, H'34, H'E0 ; H'8c016d70
-          .DATA.B H'46, H'F0, H'34, H'F0,  H'18, H'89, H'8D, H'F3,  H'05, H'F3, H'05, H'8B,  H'2F, H'D2, H'2E, H'D3 ; H'8c016d80
-          .DATA.B H'28, H'F1, H'38, H'F2,  H'25, H'F1, H'08, H'8B,  H'8D, H'F3, H'35, H'F0,  H'0F, H'8B, H'2B, H'D2 ; H'8c016d90
-          .DATA.B H'29, H'D3, H'28, H'F1,  H'38, H'F2, H'25, H'F1,  H'09, H'8B, H'43, H'62,  H'28, H'D3, H'43, H'61 ; H'8c016da0
-          .DATA.B H'28, H'72, H'20, H'71,  H'0B, H'43, H'08, H'E0,  H'26, H'4F, H'0B, H'00,  H'01, H'E0, H'00, H'E0 ; H'8c016db0
-          .DATA.B H'26, H'4F, H'0B, H'00,  H'09, H'00, H'1F, H'D4,  H'40, H'E0, H'3A, H'93,  H'22, H'4F, H'4E, H'02 ; H'8c016dc0
-          .DATA.B H'4F, H'51, H'37, H'02,  H'1C, H'E2, H'1F, H'D0,  H'1A, H'05, H'27, H'01,  H'0C, H'35, H'08, H'E0 ; H'8c016dd0
-          .DATA.B H'1A, H'02, H'2C, H'35,  H'56, H'F4, H'0C, H'E0,  H'56, H'F5, H'20, H'E0,  H'46, H'F3, H'44, H'F3 ; H'8c016de0
-          .DATA.B H'06, H'8B, H'24, H'E0,  H'46, H'F3, H'54, H'F3,  H'02, H'8B, H'26, H'4F,  H'0B, H'00, H'00, H'E0 ; H'8c016df0
-          .DATA.B H'28, H'E0, H'17, H'D3,  H'47, H'F4, H'2C, H'E0,  H'57, H'F4, H'13, H'C7,  H'08, H'F6, H'20, H'E0 ; H'8c016e00
-          .DATA.B H'46, H'F3, H'30, H'E0,  H'01, H'E5, H'31, H'F4,  H'00, H'E7, H'03, H'E6,  H'63, H'F4, H'47, H'F4 ; H'8c016e10
-          .DATA.B H'24, H'E0, H'46, H'F3,  H'34, H'E0, H'31, H'F5,  H'63, H'F5, H'57, H'F4,  H'0B, H'D4, H'0B, H'43 ; H'8c016e20
-          .DATA.B H'42, H'64, H'0D, H'D2,  H'0B, H'D4, H'0B, H'42,  H'09, H'00, H'01, H'E0,  H'26, H'4F, H'0B, H'00 ; H'8c016e30
-          .DATA.B H'09, H'00, H'8C, H'00,  H'A8, H'C7, H'1B, H'8C,  H'D4, H'C7, H'1B, H'8C,  H'CC, H'C7, H'1B, H'8C ; H'8c016e40
+          .DATA.B H'E8, H'4A, H'01, H'8C ; H'8c016bf0
+
+          FUN_8c016bf4:
+          ADD         #-H'4,R15
+          MOV.L       H'8c016c44,R1
+          MOV         #H'1,R3
+          MOV.L       @R1,R2
+          CMP/GE      R3,R2
+          BF          H'8c016c40
+          MOV.L       H'8c016c48,R5
+          MOV.L       H'8c016c4c,R2
+          MOV.L       @R5,R6
+          CMP/HS      R2,R6
+          BT          H'8c016c40
+          MOV.L       @R6,R0
+          MOV.L       H'8c016c50,R4
+          MOV         R0,R7
+          MOV.L       H'8c016c54,R6
+          MOV.L       R0,@(H'8,R4)
+          MOV.L       @R6,R1
+          XOR         R7,R1
+          MOV         R1,R3
+          AND         R3,R7
+          MOV.L       R1,@R15
+          MOV.L       R7,@(H'10,R4)
+          MOV.L       @(H'8,R4),R3
+          MOV.L       R3,@R6
+          MOV.L       @R5,R0
+          MOV.B       @(H'4,R0),R0
+          MOV.W       R0,@(H'1c,R4)
+          MOV.L       @R5,R0
+          MOV.B       @(H'5,R0),R0
+          EXTU.B      R0,R0
+          MOV.W       R0,@(H'18,R4)
+          MOV.L       @R5,R0
+          MOV.B       @(H'6,R0),R0
+          EXTU.B      R0,R0
+          MOV.W       R0,@(H'1a,R4)
+          MOV.L       @R5,R3
+          ADD         #H'8,R3
+          MOV.L       R3,@R5
+LAB_8c016c40:
+          RTS
+          ADD         #H'4,R15
+          .DATA.B H'84, H'BC, H'1B, H'8C,  H'A8, H'5F, H'22, H'8C,  H'A8, H'5F, H'22, H'8C ; H'8c016c40
+          .DATA.B H'5C, H'A3, H'1B, H'8C,  H'AC, H'5F, H'22, H'8C ; H'8c016c50
+
+          FUN_8c016c58:
+          MOV.L       R14,@-R15
+          STS.L       PR,@-R15
+          ADD         #-H'4,R15
+          MOV.L       H'8c016d1c,R3
+          MOV         R4,R14
+          MOV         #H'40,R2
+          MOV.L       R4,@R15
+          MOV.L       @R3,R6
+          MOV         #H'0,R7
+          MOV.L       @R14,R14
+          TST         R6,R2
+          BT/S        H'8c016c7e
+          MOV         R7,R4
+          ADD         #-H'1,R14
+          CMP/PZ      R14
+          BT          H'8c016c8c
+          MOV         R5,R14
+          BRA         H'8c016c8c
+          ADD         #-H'1,R14
+LAB_8c016c7e:
+          MOV.W       H'8c016d1a,R1
+          TST         R1,R6
+          BT          H'8c016c9c
+          ADD         #H'1,R14
+          CMP/GE      R5,R14
+          BF          H'8c016c8c
+          MOV         R7,R14
+LAB_8c016c8c:
+          MOV.L       H'8c016d20,R4
+          MOV         #H'1,R5
+          MOV.L       H'8c016d24,R3
+          MOV         #H'0,R7
+          MOV         #H'3,R6
+          JSR         @R3
+          MOV.L       @R4,R4
+          MOV         #H'1,R4
+LAB_8c016c9c:
+          MOV.L       @R15,R2
+          MOV         R4,R0
+          MOV.L       R14,@R2
+          ADD         #H'4,R15
+          LDS.L       @R15+,PR
+          RTS
+          MOV.L       @R15+,R14
+FUN_8c016caa:
+          MOV.L       R14,@-R15
+          MOV         R4,R14
+          MOV.L       R13,@-R15
+          MOV.L       R12,@-R15
+          MOV.L       R11,@-R15
+          STS.L       PR,@-R15
+          MOV.L       @R14,R3
+          MOV.L       H'8c016d28,R13
+          MOV.L       H'8c016d20,R11
+          TST         R3,R3
+          MOV.L       H'8c016d24,R12
+          BF          H'8c016ccc
+          MOV.L       @(H'10,R13),R0
+          TST         #H'80,R0
+          BT          H'8c016ce0
+          BRA         H'8c016cd4
+          MOV         #H'1,R2
+LAB_8c016ccc:
+          MOV.L       @(H'10,R13),R0
+          TST         #H'40,R0
+          BT          H'8c016ce0
+          MOV         #H'0,R2
+LAB_8c016cd4:
+          MOV         #H'3,R6
+          MOV.L       R2,@R14
+          MOV         #H'1,R5
+          MOV         #H'0,R7
+          JSR         @R12
+          MOV.L       @R11,R4
+LAB_8c016ce0:
+          MOV.L       @(H'10,R13),R0
+          TST         #H'4,R0
+          BT          H'8c016cfa
+          MOV.L       @R14,R2
+          TST         R2,R2
+          BF          H'8c016cfe
+          MOV         #H'0,R7
+          MOV         #H'1,R5
+          MOV         R7,R6
+          JSR         @R12
+          MOV.L       @R11,R4
+          BRA         H'8c016d0e
+          MOV         #H'1,R0
+LAB_8c016cfa:
+          TST         #H'2,R0
+          BT          H'8c016d0c
+LAB_8c016cfe:
+          MOV         #H'1,R6
+          MOV         R6,R5
+          MOV         #H'0,R7
+          JSR         @R12
+          MOV.L       @R11,R4
+          BRA         H'8c016d0e
+          MOV         #H'2,R0
+LAB_8c016d0c:
+          MOV         #H'0,R0
+LAB_8c016d0e:
+          LDS.L       @R15+,PR
+          MOV.L       @R15+,R11
+          MOV.L       @R15+,R12
+          MOV.L       @R15+,R13
+          RTS
+          MOV.L       @R15+,R14
+          .DATA.B H'80, H'00,  H'6C, H'A3, H'1B, H'8C ; H'8c016d10
+          .DATA.B H'28, H'CD, H'0F, H'8C,  H'18, H'16, H'05, H'8C,  H'5C, H'A3, H'1B, H'8C ; H'8c016d20
+
+          FUN_8c016d2c:
+          MOV.L       H'8c016e44,R4
+          MOV         #H'30,R1
+          MOV         #H'20,R0
+          ADD         R4,R1
+          STS.L       PR,@-R15
+          FMOV.S      @(R0,R4),FR2
+          FMOV.S      @R1,FR3
+          MOV         #H'34,R1
+          ADD         R4,R1
+          FADD        FR3,FR2
+          FMOV        FR2,@(R0,R4)
+          MOV         #H'24,R0
+          FMOV.S      @R1,FR3
+          FMOV.S      @(R0,R4),FR2
+          FADD        FR3,FR2
+          FLDI0       FR3
+          FMOV        FR2,@(R0,R4)
+          MOV         #H'30,R0
+          FMOV.S      @(R0,R4),FR2
+          FCMP/EQ     FR3,FR2
+          BT          H'8c016d7e
+          FMOV.S      @(R0,R4),FR4
+          FCMP/GT     FR4,FR3
+          BF          H'8c016d68
+          MOV         #H'28,R0
+          FMOV.S      @(R0,R4),FR3
+          MOV         #H'20,R0
+          FMOV.S      @(R0,R4),FR2
+          FCMP/GT     FR3,FR2
+          BF          H'8c016daa
+LAB_8c016d68:
+          FLDI0       FR3
+          FCMP/GT     FR3,FR4
+          BF          H'8c016dbe
+          MOV         #H'28,R0
+          FMOV.S      @(R0,R4),FR3
+          MOV         #H'20,R0
+          FMOV.S      @(R0,R4),FR2
+          FCMP/GT     FR3,FR2
+          BF          H'8c016dbe
+          BRA         H'8c016daa
+          NOP
+LAB_8c016d7e:
+          MOV         #H'34,R0
+          FMOV.S      @(R0,R4),FR0
+          FCMP/EQ     FR3,FR0
+          BT          H'8c016db8
+          FLDI0       FR3
+          FCMP/GT     FR0,FR3
+          BF          H'8c016d98
+          MOV.L       H'8c016e4c,R2
+          MOV.L       H'8c016e48,R3
+          FMOV.S      @R2,FR1
+          FMOV.S      @R3,FR2
+          FCMP/GT     FR2,FR1
+          BF          H'8c016daa
+LAB_8c016d98:
+          FLDI0       FR3
+          FCMP/GT     FR3,FR0
+          BF          H'8c016dbe
+          MOV.L       H'8c016e4c,R2
+          MOV.L       H'8c016e48,R3
+          FMOV.S      @R2,FR1
+          FMOV.S      @R3,FR2
+          FCMP/GT     FR2,FR1
+          BF          H'8c016dbe
+LAB_8c016daa:
+          MOV         R4,R2
+          MOV.L       H'8c016e50,R3
+          MOV         R4,R1
+          ADD         #H'28,R2
+          ADD         #H'20,R1
+          JSR         @R3
+          MOV         #H'8,R0
+LAB_8c016db8:
+          LDS.L       @R15+,PR
+          RTS
+          MOV         #H'1,R0
+LAB_8c016dbe:
+          MOV         #H'0,R0
+          LDS.L       @R15+,PR
+          RTS
+          NOP
+FUN_8c016dc6:
+          MOV.L       H'8c016e44,R4
+          MOV         #H'40,R0
+          MOV.W       H'8c016e42,R3
+          STS.L       PR,@-R15
+          MOV.L       @(R0,R4),R2
+          MOV.L       @(H'3c,R4),R1
+          MUL.L       R3,R2
+          MOV         #H'1c,R2
+          MOV.L       H'8c016e54,R0
+          STS         MACL,R5
+          MUL.L       R2,R1
+          ADD         R0,R5
+          MOV         #H'8,R0
+          STS         MACL,R2
+          ADD         R2,R5
+          FMOV.S      @(R0,R5),FR4
+          MOV         #H'c,R0
+          FMOV.S      @(R0,R5),FR5
+          MOV         #H'20,R0
+          FMOV.S      @(R0,R4),FR3
+          FCMP/EQ     FR4,FR3
+          BF          H'8c016e00
+          MOV         #H'24,R0
+          FMOV.S      @(R0,R4),FR3
+          FCMP/EQ     FR5,FR3
+          BF          H'8c016e00
+          LDS.L       @R15+,PR
+          RTS
+          MOV         #H'0,R0
+LAB_8c016e00:
+          MOV         #H'28,R0
+          MOV.L       H'8c016e60,R3
+          FMOV        FR4,@(R0,R4)
+          MOV         #H'2c,R0
+          FMOV        FR5,@(R0,R4)
+          MOVA        H'8c016e58,R0
+          FMOV.S      @R0,FR6
+          MOV         #H'20,R0
+          FMOV.S      @(R0,R4),FR3
+          MOV         #H'30,R0
+          MOV         #H'1,R5
+          FSUB        FR3,FR4
+          MOV         #H'0,R7
+          MOV         #H'3,R6
+          FDIV        FR6,FR4
+          FMOV        FR4,@(R0,R4)
+          MOV         #H'24,R0
+          FMOV.S      @(R0,R4),FR3
+          MOV         #H'34,R0
+          FSUB        FR3,FR5
+          FDIV        FR6,FR5
+          FMOV        FR5,@(R0,R4)
+          MOV.L       H'8c016e5c,R4
+          JSR         @R3
+          MOV.L       @R4,R4
+          MOV.L       H'8c016e68,R2
+          MOV.L       H'8c016e64,R4
+          JSR         @R2
+          NOP
+          MOV         #H'1,R0
+          LDS.L       @R15+,PR
+          RTS
+          NOP
+          .DATA.B H'8C, H'00,  H'A8, H'C7, H'1B, H'8C,  H'D4, H'C7, H'1B, H'8C,  H'CC, H'C7, H'1B, H'8C ; H'8c016e42
           .DATA.B H'2C, H'FE, H'02, H'8C,  H'2C, H'44, H'04, H'8C,  H'00, H'00, H'C0, H'40,  H'28, H'CD, H'0F, H'8C ; H'8c016e50
-          .DATA.B H'18, H'16, H'05, H'8C,  H'8C, H'62, H'03, H'8C,  H'FC, H'AE, H'02, H'8C,  H'E6, H'2F, H'3F, H'C7 ; H'8c016e60
-          .DATA.B H'D6, H'2F, H'0A, H'EE,  H'C6, H'2F, H'43, H'6D,  H'B6, H'2F, H'A6, H'2F,  H'FB, H'FF, H'EB, H'FF ; H'8c016e70
-          .DATA.B H'DB, H'FF, H'CB, H'FF,  H'22, H'4F, H'08, H'FD,  H'39, H'C7, H'08, H'FE,  H'36, H'DB, H'35, H'DA ; H'8c016e80
-          .DATA.B H'5C, H'FC, H'4C, H'FF,  H'37, H'D3, H'D3, H'61,  H'0B, H'43, H'E3, H'60,  H'03, H'65, H'DC, H'F6 ; H'8c016e90
-          .DATA.B H'CC, H'F5, H'A3, H'64,  H'03, H'6C, H'0F, H'75,  H'0B, H'4B, H'FC, H'F4,  H'32, H'D2, H'E3, H'60 ; H'8c016ea0
-          .DATA.B H'0B, H'42, H'D3, H'61,  H'03, H'6D, H'D8, H'2D,  H'EC, H'8F, H'E1, H'FF,  H'26, H'4F, H'F9, H'FC ; H'8c016eb0
-          .DATA.B H'F9, H'FD, H'F9, H'FE,  H'F9, H'FF, H'F6, H'6A,  H'F6, H'6B, H'F6, H'6C,  H'F6, H'6D, H'0B, H'00 ; H'8c016ec0
-          .DATA.B H'F6, H'6E, H'2A, H'D3,  H'22, H'4F, H'32, H'61,  H'29, H'D2, H'01, H'71,  H'0B, H'42, H'07, H'E0 ; H'8c016ed0
-          .DATA.B H'26, H'4F, H'0B, H'00,  H'09, H'00, H'E6, H'2F,  H'0A, H'E3, H'D6, H'2F,  H'25, H'C7, H'C6, H'2F ; H'8c016ee0
-          .DATA.B H'FB, H'FF, H'22, H'DE,  H'EB, H'FF, H'DB, H'FF,  H'22, H'4F, H'E2, H'64,  H'33, H'34, H'04, H'8D ; H'8c016ef0
-          .DATA.B H'08, H'FF, H'21, H'C7,  H'FC, H'F5, H'03, H'A0,  H'08, H'F4, H'20, H'C7,  H'FC, H'F5, H'08, H'F4 ; H'8c016f00
-          .DATA.B H'AC, H'BF, H'09, H'00,  H'15, H'C7, H'13, H'DC,  H'08, H'FD, H'1D, H'C7,  H'08, H'FE, H'E2, H'60 ; H'8c016f10
-          .DATA.B H'11, H'DD, H'0F, H'88,  H'03, H'89, H'17, H'88,  H'03, H'89, H'04, H'A0,  H'09, H'00, H'06, H'A0 ; H'8c016f20
-          .DATA.B H'0D, H'E5, H'04, H'A0,  H'0E, H'E5, H'CC, H'BF,  H'09, H'00, H'03, H'65,  H'06, H'75, H'FC, H'F5 ; H'8c016f30
-          .DATA.B H'C3, H'64, H'DC, H'F6,  H'0B, H'4D, H'EC, H'F4,  H'26, H'4F, H'FC, H'F5,  H'09, H'90, H'F9, H'FD ; H'8c016f40
-          .DATA.B H'EE, H'04, H'10, H'C7,  H'F9, H'FE, H'08, H'F4,  H'F9, H'FF, H'F6, H'6C,  H'F6, H'6D, H'85, H'AF ; H'8c016f50
-          .DATA.B H'F6, H'6E, H'90, H'00,  H'A8, H'C7, H'1B, H'8C,  H'54, H'4F, H'01, H'8C,  H'00, H'00, H'80, H'C0 ; H'8c016f60
+          .DATA.B H'18, H'16, H'05, H'8C,  H'8C, H'62, H'03, H'8C,  H'FC, H'AE, H'02, H'8C ; H'8c016e60
+          FUN_8c016e6c:
+          MOV.L       R14,@-R15
+          MOVA        H'8c016f6c,R0
+          MOV.L       R13,@-R15
+          MOV         #H'a,R14
+          MOV.L       R12,@-R15
+          MOV         R4,R13
+          MOV.L       R11,@-R15
+          MOV.L       R10,@-R15
+          FMOV.S      FR15,@-R15
+          FMOV.S      FR14,@-R15
+          FMOV.S      FR13,@-R15
+          FMOV.S      FR12,@-R15
+          STS.L       PR,@-R15
+          FMOV.S      @R0,FR13
+          MOVA        H'8c016f70,R0
+          FMOV.S      @R0,FR14
+          MOV.L       H'8c016f68,R11
+          MOV.L       H'8c016f64,R10
+          FMOV        FR5,FR12
+          FMOV        FR4,FR15
+LAB_8c016e94:
+          MOV.L       H'8c016f74,R3
+          MOV         R13,R1
+          JSR         @R3
+          MOV         R14,R0
+          MOV         R0,R5
+          FMOV        FR13,FR6
+          FMOV        FR12,FR5
+          MOV         R10,R4
+          MOV         R0,R12
+          ADD         #H'f,R5
+          JSR         @R11
+          FMOV        FR15,FR4
+          MOV.L       H'8c016f78,R2
+          MOV         R14,R0
+          JSR         @R2
+          MOV         R13,R1
+          MOV         R0,R13
+          TST         R13,R13
+          BF/S        H'8c016e94
+          FSUB        FR14,FR15
+          LDS.L       @R15+,PR
+          FMOV.S      @R15+,FR12
+          FMOV.S      @R15+,FR13
+          FMOV.S      @R15+,FR14
+          FMOV.S      @R15+,FR15
+          MOV.L       @R15+,R10
+          MOV.L       @R15+,R11
+          MOV.L       @R15+,R12
+          MOV.L       @R15+,R13
+          RTS
+          MOV.L       @R15+,R14
+FUN_8c016ed2:
+          MOV.L       H'8c016f7c,R3
+          STS.L       PR,@-R15
+          MOV.L       @R3,R1
+          MOV.L       H'8c016f80,R2
+          ADD         #H'1,R1
+          JSR         @R2
+          MOV         #H'7,R0
+          LDS.L       @R15+,PR
+          RTS
+          NOP
+FUN_8c016ee6:
+          MOV.L       R14,@-R15
+          MOV         #H'a,R3
+          MOV.L       R13,@-R15
+          MOVA        H'8c016f84,R0
+          MOV.L       R12,@-R15
+          FMOV.S      FR15,@-R15
+          MOV.L       H'8c016f7c,R14
+          FMOV.S      FR14,@-R15
+          FMOV.S      FR13,@-R15
+          STS.L       PR,@-R15
+          MOV.L       @R14,R4
+          CMP/GE      R3,R4
+          BT/S        H'8c016f0a
+          FMOV.S      @R0,FR15
+          MOVA        H'8c016f88,R0
+          FMOV        FR15,FR5
+          BRA         H'8c016f10
+          FMOV.S      @R0,FR4
+LAB_8c016f0a:
+          MOVA        H'8c016f8c,R0
+          FMOV        FR15,FR5
+          FMOV.S      @R0,FR4
+LAB_8c016f10:
+          BSR         H'8c016e6c
+          NOP
+          MOVA        H'8c016f6c,R0
+          MOV.L       H'8c016f64,R12
+          FMOV.S      @R0,FR13
+          MOVA        H'8c016f90,R0
+          FMOV.S      @R0,FR14
+          MOV.L       @R14,R0
+          MOV.L       H'8c016f68,R13
+          CMP/EQ      #H'f,R0
+          BT          H'8c016f2e
+          CMP/EQ      #H'17,R0
+          BT          H'8c016f32
+          BRA         H'8c016f36
+          NOP
+LAB_8c016f2e:
+          BRA         H'8c016f3e
+          MOV         #H'd,R5
+LAB_8c016f32:
+          BRA         H'8c016f3e
+          MOV         #H'e,R5
+LAB_8c016f36:
+          BSR         H'8c016ed2
+          NOP
+          MOV         R0,R5
+          ADD         #H'6,R5
+LAB_8c016f3e:
+          FMOV        FR15,FR5
+          MOV         R12,R4
+          FMOV        FR13,FR6
+          JSR         @R13
+          FMOV        FR14,FR4
+          LDS.L       @R15+,PR
+          FMOV        FR15,FR5
+          MOV.W       H'8c016f62,R0
+          FMOV.S      @R15+,FR13
+          MOV.L       @(R0,R14),R4
+          MOVA        H'8c016f94,R0
+          FMOV.S      @R15+,FR14
+          FMOV.S      @R0,FR4
+          FMOV.S      @R15+,FR15
+          MOV.L       @R15+,R12
+          MOV.L       @R15+,R13
+          BRA         H'8c016e6c
+          MOV.L       @R15+,R14
+          .DATA.B H'90, H'00,  H'A8, H'C7, H'1B, H'8C,  H'54, H'4F, H'01, H'8C,  H'00, H'00, H'80, H'C0 ; H'8c016f62
           .DATA.B H'00, H'00, H'20, H'41,  H'AC, H'FC, H'02, H'8C,  H'50, H'FB, H'02, H'8C,  H'CC, H'A1, H'1B, H'8C ; H'8c016f70
           .DATA.B H'74, H'FD, H'02, H'8C,  H'00, H'00, H'A4, H'42,  H'00, H'00, H'A8, H'42,  H'00, H'00, H'BE, H'42 ; H'8c016f80
-          .DATA.B H'00, H'00, H'E0, H'42,  H'00, H'80, H'05, H'44,  H'E6, H'2F, H'53, H'6E,  H'D6, H'2F, H'04, H'E6 ; H'8c016f90
-          .DATA.B H'C6, H'2F, H'00, H'ED,  H'B6, H'2F, H'43, H'6B,  H'2D, H'D5, H'22, H'4F,  H'E2, H'60, H'54, H'54 ; H'8c016fa0
-          .DATA.B H'00, H'88, H'08, H'8D,  H'69, H'24, H'01, H'88,  H'2C, H'89, H'02, H'88,  H'41, H'89, H'03, H'88 ; H'8c016fb0
-          .DATA.B H'5C, H'89, H'77, H'A0,  H'09, H'00, H'E1, H'53,  H'32, H'62, H'20, H'61,  H'18, H'21, H'09, H'8B ; H'8c016fc0
-          .DATA.B H'B3, H'64, H'24, H'D2,  H'24, H'D3, H'D2, H'22,  H'26, H'4F, H'F6, H'6B,  H'F6, H'6C, H'F6, H'6D ; H'8c016fd0
-          .DATA.B H'2B, H'43, H'F6, H'6E,  H'B6, H'5C, H'C8, H'2C,  H'07, H'89, H'C2, H'63,  H'38, H'23, H'04, H'89 ; H'8c016fe0
-          .DATA.B H'1E, H'D3, H'C6, H'65,  H'0B, H'43, H'02, H'E4,  H'C6, H'1B, H'1D, H'D3,  H'E1, H'54, H'0B, H'43 ; H'8c016ff0
-          .DATA.B H'42, H'64, H'1C, H'D1,  H'02, H'1E, H'E1, H'52,  H'21, H'53, H'01, H'E2,  H'32, H'21, H'23, H'1E ; H'8c017000
-          .DATA.B H'23, H'A0, H'D4, H'1E,  H'48, H'24, H'06, H'89,  H'63, H'E2, H'24, H'1E,  H'02, H'E3, H'16, H'D2 ; H'8c017010
-          .DATA.B H'32, H'2E, H'0B, H'42,  H'01, H'E4, H'E4, H'53,  H'02, H'E2, H'01, H'73,  H'27, H'33, H'34, H'1E ; H'8c017020
-          .DATA.B H'40, H'8B, H'E3, H'51,  H'01, H'71, H'13, H'1E,  H'E2, H'53, H'33, H'31,  H'0A, H'89, H'39, H'A0 ; H'8c017030
-          .DATA.B H'D4, H'1E, H'52, H'52,  H'28, H'26, H'08, H'89,  H'E3, H'51, H'02, H'71,  H'13, H'1E, H'E2, H'53 ; H'8c017040
-          .DATA.B H'33, H'31, H'2F, H'8B,  H'03, H'E1, H'2D, H'A0,  H'12, H'2E, H'01, H'E2,  H'2A, H'A0, H'22, H'2E ; H'8c017050
+          .DATA.B H'00, H'00, H'E0, H'42,  H'00, H'80, H'05, H'44 ; H'8c016f90
+
+          FUN_8c016f98:
+          MOV.L       R14,@-R15
+          MOV         R5,R14
+          MOV.L       R13,@-R15
+          MOV         #H'4,R6
+          MOV.L       R12,@-R15
+          MOV         #H'0,R13
+          MOV.L       R11,@-R15
+          MOV         R4,R11
+          MOV.L       H'8c017060,R5
+          STS.L       PR,@-R15
+          MOV.L       @R14,R0
+          MOV.L       @(H'10,R5),R4
+          CMP/EQ      #H'0,R0
+          BT/S        H'8c016fc6
+          AND         R6,R4
+          CMP/EQ      #H'1,R0
+          BT          H'8c017014
+          CMP/EQ      #H'2,R0
+          BT          H'8c017042
+          CMP/EQ      #H'3,R0
+          BT          H'8c01707c
+          BRA         H'8c0170b4
+          NOP
+LAB_8c016fc6:
+          MOV.L       @(H'4,R14),R3
+          MOV.L       @R3,R2
+          MOV.B       @R2,R1
+          TST         R1,R1
+          BF          H'8c016fe4
+          MOV         R11,R4
+          MOV.L       H'8c017064,R2
+          MOV.L       H'8c017068,R3
+          MOV.L       R13,@R2
+          LDS.L       @R15+,PR
+          MOV.L       @R15+,R11
+          MOV.L       @R15+,R12
+          MOV.L       @R15+,R13
+          JMP         @R3
+          MOV.L       @R15+,R14
+LAB_8c016fe4:
+          MOV.L       @(H'18,R11),R12
+          TST         R12,R12
+          BT          H'8c016ffa
+          MOV.L       @R12,R3
+          TST         R3,R3
+          BT          H'8c016ffa
+          MOV.L       H'8c01706c,R3
+          MOV.L       @R12+,R5
+          JSR         @R3
+          MOV         #H'2,R4
+          MOV.L       R12,@(H'18,R11)
+LAB_8c016ffa:
+          MOV.L       H'8c017070,R3
+          MOV.L       @(H'4,R14),R4
+          JSR         @R3
+          MOV.L       @R4,R4
+          MOV.L       H'8c017074,R1
+          MOV.L       R0,@(H'8,R14)
+          MOV.L       @(H'4,R14),R2
+          MOV.L       @(H'4,R2),R3
+          MOV         #H'1,R2
+          MOV.L       R3,@R1
+          MOV.L       R2,@(H'c,R14)
+          BRA         H'8c01705a
+          MOV.L       R13,@(H'10,R14)
+LAB_8c017014:
+          TST         R4,R4
+          BT          H'8c017026
+          MOV         #H'63,R2
+          MOV.L       R2,@(H'10,R14)
+          MOV         #H'2,R3
+          MOV.L       H'8c017078,R2
+          MOV.L       R3,@R14
+          JSR         @R2
+          MOV         #H'1,R4
+LAB_8c017026:
+          MOV.L       @(H'10,R14),R3
+          MOV         #H'2,R2
+          ADD         #H'1,R3
+          CMP/GT      R2,R3
+          MOV.L       R3,@(H'10,R14)
+          BF          H'8c0170b4
+          MOV.L       @(H'c,R14),R1
+          ADD         #H'1,R1
+          MOV.L       R1,@(H'c,R14)
+          MOV.L       @(H'8,R14),R3
+          CMP/GE      R3,R1
+          BT          H'8c017054
+          BRA         H'8c0170b4
+          MOV.L       R13,@(H'10,R14)
+LAB_8c017042:
+          MOV.L       @(H'8,R5),R2
+          TST         R2,R6
+          BT          H'8c01705a
+          MOV.L       @(H'c,R14),R1
+          ADD         #H'2,R1
+          MOV.L       R1,@(H'c,R14)
+          MOV.L       @(H'8,R14),R3
+          CMP/GE      R3,R1
+          BF          H'8c0170b4
+LAB_8c017054:
+          MOV         #H'3,R1
+          BRA         H'8c0170b4
+          MOV.L       R1,@R14
+LAB_8c01705a:
+          MOV         #H'1,R2
+          BRA         H'8c0170b4
+          MOV.L       R2,@R14
           .DATA.B H'5C, H'A3, H'1B, H'8C,  H'B4, H'5F, H'22, H'8C,  H'66, H'4B, H'01, H'8C,  H'D6, H'0C, H'01, H'8C ; H'8c017060
-          .DATA.B H'FC, H'AE, H'02, H'8C,  H'08, H'C8, H'1B, H'8C,  H'A6, H'0C, H'01, H'8C,  H'48, H'24, H'03, H'89 ; H'8c017070
-          .DATA.B H'E1, H'53, H'08, H'73,  H'31, H'1E, H'D2, H'2E,  H'E5, H'52, H'7C, H'93,  H'3C, H'32, H'23, H'64 ; H'8c017080
-          .DATA.B H'25, H'1E, H'3D, H'D2,  H'0B, H'42, H'09, H'00,  H'3C, H'C7, H'0C, H'F3,  H'08, H'F5, H'3C, H'C7 ; H'8c017090
-          .DATA.B H'08, H'F0, H'3C, H'C7,  H'08, H'F4, H'3C, H'C7,  H'3E, H'F5, H'3D, H'D3,  H'3B, H'D4, H'08, H'F6 ; H'8c0170a0
-          .DATA.B H'0B, H'43, H'2C, H'E5,  H'E3, H'53, H'3B, H'D2,  H'32, H'22, H'26, H'4F,  H'F6, H'6B, H'F6, H'6C ; H'8c0170b0
-          .DATA.B H'F6, H'6D, H'0B, H'00,  H'F6, H'6E, H'22, H'4F,  H'F0, H'7F, H'18, H'E3,  H'42, H'1F, H'53, H'1F ; H'8c0170c0
-          .DATA.B H'36, H'2F, H'35, H'D5,  H'F3, H'67, H'35, H'D4,  H'04, H'77, H'35, H'D2,  H'F3, H'66, H'0B, H'42 ; H'8c0170d0
-          .DATA.B H'08, H'76, H'F4, H'52,  H'F2, H'53, H'33, H'D0,  H'26, H'13, H'00, H'E2,  H'F1, H'53, H'32, H'D1 ; H'8c0170e0
-          .DATA.B H'22, H'23, H'F3, H'52,  H'F1, H'53, H'08, H'42,  H'2E, H'02, H'21, H'13,  H'01, H'E3, H'32, H'21 ; H'8c0170f0
-          .DATA.B H'14, H'7F, H'26, H'4F,  H'0B, H'00, H'09, H'00,  H'22, H'4F, H'FC, H'7F,  H'29, H'D0, H'42, H'2F ; H'8c017100
-          .DATA.B H'08, H'44, H'2A, H'D3,  H'4E, H'04, H'0B, H'43,  H'42, H'64, H'22, H'D2,  H'02, H'22, H'04, H'7F ; H'8c017110
-          .DATA.B H'26, H'4F, H'0B, H'00,  H'09, H'00, H'E6, H'2F,  H'D6, H'2F, H'C6, H'2F,  H'1C, H'EC, H'B6, H'2F ; H'8c017120
-          .DATA.B H'C3, H'6D, H'24, H'D2,  H'A6, H'2F, H'04, H'EA,  H'96, H'2F, H'05, H'E9,  H'22, H'4F, H'22, H'63 ; H'8c017130
-          .DATA.B H'1F, H'DB, H'16, H'DE,  H'A8, H'23, H'4E, H'8D,  H'70, H'7D, H'40, H'E0,  H'EF, H'53, H'EE, H'00 ; H'8c017140
-          .DATA.B H'D7, H'00, H'1A, H'00,  H'C7, H'03, H'BC, H'30,  H'1A, H'03, H'3C, H'30,  H'01, H'51, H'18, H'21 ; H'8c017150
-          .DATA.B H'38, H'89, H'19, H'D3,  H'0B, H'43, H'00, H'E4,  H'17, H'D2, H'0B, H'42,  H'01, H'E4, H'17, H'D4 ; H'8c017160
-          .DATA.B H'00, H'E7, H'17, H'D3,  H'73, H'66, H'01, H'E5,  H'0B, H'43, H'42, H'64,  H'68, H'E0, H'96, H'1E ; H'8c017170
-          .DATA.B H'00, H'E2, H'30, H'A0,  H'26, H'0E, H'11, H'11,  H'48, H'37, H'07, H'8C,  H'00, H'00, H'80, H'C1 ; H'8c017180
+          .DATA.B H'FC, H'AE, H'02, H'8C,  H'08, H'C8, H'1B, H'8C,  H'A6, H'0C, H'01, H'8C ; H'8c017070
+
+          LAB_8c01707c:
+          TST         R4,R4
+          BT          H'8c017088
+          MOV.L       @(H'4,R14),R3
+          ADD         #H'8,R3
+          MOV.L       R3,@(H'4,R14)
+          MOV.L       R13,@R14
+LAB_8c017088:
+          MOV.L       @(H'14,R14),R2
+          MOV.W       H'8c017186,R3
+          ADD         R3,R2
+          MOV         R2,R4
+          MOV.L       R2,@(H'14,R14)
+          MOV.L       H'8c017188,R2
+          JSR         @R2
+          NOP
+          MOVA        H'8c01718c,R0
+          FMOV        FR0,FR3
+          FMOV.S      @R0,FR5
+          MOVA        H'8c017190,R0
+          FMOV.S      @R0,FR0
+          MOVA        H'8c017194,R0
+          FMOV.S      @R0,FR4
+          MOVA        H'8c017198,R0
+          FMAC        FR0,FR3,FR5
+          MOV.L       H'8c0171a0,R3
+          MOV.L       H'8c01719c,R4
+          FMOV.S      @R0,FR6
+          JSR         @R3
+          MOV         #H'2c,R5
+LAB_8c0170b4:
+          MOV.L       @(H'c,R14),R3
+          MOV.L       H'8c0171a4,R2
+          MOV.L       R3,@R2
+          LDS.L       @R15+,PR
+          MOV.L       @R15+,R11
+          MOV.L       @R15+,R12
+          MOV.L       @R15+,R13
+          RTS
+          MOV.L       @R15+,R14
+FUN_8c0170c6:
+          STS.L       PR,@-R15
+          ADD         #-H'10,R15
+          MOV         #H'18,R3
+          MOV.L       R4,@(H'8,R15)
+          MOV.L       R5,@(H'c,R15)
+          MOV.L       R3,@-R15
+          MOV.L       H'8c0171a8,R5
+          MOV         R15,R7
+          MOV.L       H'8c0171ac,R4
+          ADD         #H'4,R7
+          MOV.L       H'8c0171b0,R2
+          MOV         R15,R6
+          JSR         @R2
+          ADD         #H'8,R6
+          MOV.L       @(H'10,R15),R2
+          MOV.L       @(H'8,R15),R3
+          MOV.L       H'8c0171b4,R0
+          MOV.L       R2,@(H'18,R3)
+          MOV         #H'0,R2
+          MOV.L       @(H'4,R15),R3
+          MOV.L       H'8c0171b8,R1
+          MOV.L       R2,@R3
+          MOV.L       @(H'c,R15),R2
+          MOV.L       @(H'4,R15),R3
+          SHLL2       R2
+          MOV.L       @(R0,R2),R2
+          MOV.L       R2,@(H'4,R3)
+          MOV         #H'1,R3
+          MOV.L       R3,@R1
+          ADD         #H'14,R15
+          LDS.L       @R15+,PR
+          RTS
+          NOP
+FUN_8c017108:
+          STS.L       PR,@-R15
+          ADD         #-H'4,R15
+          MOV.L       H'8c0171b4,R0
+          MOV.L       R4,@R15
+          SHLL2       R4
+          MOV.L       H'8c0171bc,R3
+          MOV.L       @(R0,R4),R4
+          JSR         @R3
+          MOV.L       @R4,R4
+          MOV.L       H'8c0171a4,R2
+          MOV.L       R0,@R2
+          ADD         #H'4,R15
+          LDS.L       @R15+,PR
+          RTS
+          NOP
+FUN_8c017126:
+          MOV.L       R14,@-R15
+          MOV.L       R13,@-R15
+          MOV.L       R12,@-R15
+          MOV         #H'1c,R12
+          MOV.L       R11,@-R15
+          MOV         R12,R13
+          MOV.L       H'8c0171c4,R2
+          MOV.L       R10,@-R15
+          MOV         #H'4,R10
+          MOV.L       R9,@-R15
+          MOV         #H'5,R9
+          STS.L       PR,@-R15
+          MOV.L       @R2,R3
+          MOV.L       H'8c0171c0,R11
+          MOV.L       H'8c01719c,R14
+          TST         R10,R3
+          BT/S        H'8c0171e6
+          ADD         #H'70,R13
+          MOV         #H'40,R0
+          MOV.L       @(H'3c,R14),R3
+          MOV.L       @(R0,R14),R0
+          MUL.L       R13,R0
+          STS         MACL,R0
+          MUL.L       R12,R3
+          ADD         R11,R0
+          STS         MACL,R3
+          ADD         R3,R0
+          MOV.L       @(H'4,R0),R1
+          TST         R1,R1
+          BT          H'8c0171d4
+          MOV.L       H'8c0171c8,R3
+          JSR         @R3
+          MOV         #H'0,R4
+          MOV.L       H'8c0171c8,R2
+          JSR         @R2
+          MOV         #H'1,R4
+          MOV.L       H'8c0171cc,R4
+          MOV         #H'0,R7
+          MOV.L       H'8c0171d0,R3
+          MOV         R7,R6
+          MOV         #H'1,R5
+          JSR         @R3
+          MOV.L       @R4,R4
+          MOV         #H'68,R0
+          MOV.L       R9,@(H'18,R14)
+          MOV         #H'0,R2
+          BRA         H'8c0171e6
+          MOV.L       R2,@(R0,R14)
+          .DATA.B H'11, H'11,  H'48, H'37, H'07, H'8C,  H'00, H'00, H'80, H'C1 ; H'8c017180
           .DATA.B H'00, H'00, H'00, H'41,  H'00, H'00, H'00, H'42,  H'00, H'00, H'40, H'C0,  H'A8, H'C7, H'1B, H'8C ; H'8c017190
           .DATA.B H'54, H'4F, H'01, H'8C,  H'B8, H'5F, H'22, H'8C,  H'98, H'6F, H'01, H'8C,  H'C8, H'A3, H'1B, H'8C ; H'8c0171a0
           .DATA.B H'E8, H'4A, H'01, H'8C,  H'08, H'4C, H'04, H'8C,  H'B4, H'5F, H'22, H'8C,  H'FC, H'AE, H'02, H'8C ; H'8c0171b0
           .DATA.B H'2C, H'44, H'04, H'8C,  H'6C, H'A3, H'1B, H'8C,  H'AE, H'0B, H'01, H'8C,  H'28, H'CD, H'0F, H'8C ; H'8c0171c0
-          .DATA.B H'18, H'16, H'05, H'8C,  H'3E, H'D4, H'01, H'E5,  H'3E, H'D1, H'00, H'E7,  H'02, H'E6, H'0B, H'41 ; H'8c0171d0
-          .DATA.B H'42, H'64, H'91, H'BF,  H'0F, H'E4, H'3C, H'D2,  H'10, H'E3, H'22, H'65,  H'58, H'23, H'15, H'89 ; H'8c0171e0
-          .DATA.B H'02, H'E4, H'40, H'E0,  H'EE, H'03, H'FF, H'73,  H'33, H'62, H'11, H'42,  H'36, H'0E, H'00, H'89 ; H'8c0171f0
-          .DATA.B H'46, H'0E, H'EE, H'03,  H'EF, H'52, H'D7, H'03,  H'1A, H'03, H'C7, H'02,  H'BC, H'33, H'1A, H'02 ; H'8c017200
-          .DATA.B H'2C, H'33, H'32, H'61,  H'18, H'21, H'EC, H'89,  H'18, H'A0, H'09, H'00,  H'20, H'E3, H'58, H'23 ; H'8c017210
-          .DATA.B H'1A, H'8D, H'00, H'E4,  H'03, H'E5, H'40, H'E0,  H'EE, H'03, H'01, H'73,  H'33, H'62, H'53, H'32 ; H'8c017220
-          .DATA.B H'36, H'0E, H'00, H'8B,  H'46, H'0E, H'EE, H'03,  H'EF, H'52, H'D7, H'03,  H'1A, H'03, H'C7, H'02 ; H'8c017230
-          .DATA.B H'BC, H'33, H'1A, H'02,  H'2C, H'33, H'32, H'61,  H'18, H'21, H'EC, H'89,  H'BB, H'BD, H'09, H'00 ; H'8c017240
-          .DATA.B H'08, H'20, H'34, H'89,  H'32, H'A0, H'09, H'00,  H'40, H'E1, H'58, H'21,  H'14, H'89, H'EF, H'52 ; H'8c017250
-          .DATA.B H'FF, H'72, H'23, H'63,  H'11, H'43, H'2F, H'1E,  H'01, H'8D, H'40, H'E0,  H'AF, H'1E, H'EE, H'03 ; H'8c017260
-          .DATA.B H'EF, H'52, H'D7, H'03,  H'1A, H'03, H'C7, H'02,  H'BC, H'33, H'1A, H'02,  H'2C, H'33, H'32, H'61 ; H'8c017270
-          .DATA.B H'18, H'21, H'EC, H'89,  H'16, H'A0, H'09, H'00,  H'21, H'90, H'08, H'25,  H'17, H'89, H'EF, H'52 ; H'8c017280
-          .DATA.B H'01, H'72, H'23, H'63,  H'93, H'33, H'2F, H'1E,  H'01, H'8F, H'40, H'E0,  H'4F, H'1E, H'EE, H'03 ; H'8c017290
-          .DATA.B H'EF, H'52, H'D7, H'03,  H'1A, H'03, H'C7, H'02,  H'BC, H'33, H'1A, H'02,  H'2C, H'33, H'32, H'61 ; H'8c0172a0
-          .DATA.B H'18, H'21, H'EC, H'89,  H'87, H'BD, H'09, H'00,  H'08, H'20, H'00, H'89,  H'A6, H'1E, H'26, H'4F ; H'8c0172b0
-          .DATA.B H'F6, H'69, H'F6, H'6A,  H'F6, H'6B, H'F6, H'6C,  H'F6, H'6D, H'0B, H'00,  H'F6, H'6E, H'80, H'00 ; H'8c0172c0
-          .DATA.B H'28, H'CD, H'0F, H'8C,  H'18, H'16, H'05, H'8C,  H'6C, H'A3, H'1B, H'8C,  H'00, H'E4, H'E6, H'2F ; H'8c0172d0
-          .DATA.B H'43, H'67, H'D6, H'2F,  H'74, H'A0, H'43, H'65,  H'2C, H'DD, H'53, H'62,  H'08, H'42, H'D3, H'63 ; H'8c0172e0
-          .DATA.B H'44, H'73, H'00, H'42,  H'3C, H'32, H'20, H'61,  H'18, H'21, H'01, H'89,  H'67, H'A0, H'09, H'00 ; H'8c0172f0
-          .DATA.B H'53, H'60, H'00, H'88,  H'02, H'8F, H'D2, H'64,  H'61, H'A0, H'09, H'00,  H'06, H'88, H'5E, H'89 ; H'8c017300
-          .DATA.B H'01, H'88, H'0D, H'89,  H'02, H'88, H'15, H'89,  H'03, H'88, H'1C, H'89,  H'04, H'88, H'24, H'89 ; H'8c017310
-          .DATA.B H'05, H'88, H'2C, H'89,  H'07, H'88, H'3D, H'89,  H'08, H'88, H'45, H'89,  H'4F, H'A0, H'09, H'00 ; H'8c017320
-          .DATA.B H'08, H'E6, H'63, H'34,  H'4B, H'8B, H'1A, H'D1,  H'2B, H'93, H'12, H'62,  H'33, H'32, H'43, H'89 ; H'8c017330
-          .DATA.B H'45, H'A0, H'09, H'00,  H'63, H'34, H'42, H'8B,  H'15, H'D1, H'23, H'93,  H'12, H'62, H'33, H'32 ; H'8c017340
-          .DATA.B H'3D, H'8B, H'39, H'A0,  H'09, H'00, H'05, H'E6,  H'63, H'34, H'38, H'8B,  H'10, H'D1, H'1A, H'92 ; H'8c017350
-          .DATA.B H'12, H'63, H'23, H'33,  H'33, H'8B, H'2F, H'A0,  H'09, H'00, H'0B, H'E6,  H'63, H'34, H'2E, H'8B ; H'8c017360
-          .DATA.B H'0B, H'D1, H'11, H'93,  H'12, H'62, H'33, H'32,  H'26, H'89, H'28, H'A0,  H'09, H'00, H'0D, H'E6 ; H'8c017370
-          .DATA.B H'63, H'34, H'24, H'8B,  H'06, H'D1, H'08, H'92,  H'12, H'63, H'23, H'33,  H'1F, H'8B, H'1B, H'A0 ; H'8c017380
-          .DATA.B H'09, H'00, H'A0, H'0F,  H'7C, H'15, H'D0, H'07,  H'40, H'1F, H'E0, H'2E,  H'CC, H'A1, H'1B, H'8C ; H'8c017390
-          .DATA.B H'5C, H'A2, H'1B, H'8C,  H'03, H'E6, H'63, H'34,  H'11, H'8B, H'3C, H'D1,  H'73, H'93, H'12, H'62 ; H'8c0173a0
-          .DATA.B H'33, H'32, H'0C, H'8B,  H'08, H'A0, H'09, H'00,  H'06, H'E6, H'63, H'34,  H'07, H'8B, H'37, H'D1 ; H'8c0173b0
-          .DATA.B H'6A, H'92, H'12, H'63,  H'23, H'33, H'02, H'8B,  H'73, H'60, H'54, H'0E,  H'01, H'77, H'01, H'75 ; H'8c0173c0
-          .DATA.B H'09, H'E6, H'33, H'D4,  H'63, H'35, H'87, H'8F,  H'43, H'6E, H'5E, H'93,  H'73, H'60, H'34, H'0E ; H'8c0173d0
-          .DATA.B H'F6, H'6D, H'0B, H'00,  H'F6, H'6E, H'D6, H'2F,  H'00, H'E6, H'C6, H'2F,  H'55, H'9D, H'2C, H'DC ; H'8c0173e0
-          .DATA.B H'2C, H'D5, H'0D, H'A0,  H'01, H'E4, H'13, H'67,  H'53, H'62, H'08, H'47,  H'53, H'63, H'44, H'72 ; H'8c0173f0
-          .DATA.B H'43, H'60, H'00, H'47,  H'44, H'73, H'7C, H'32,  H'3C, H'37, H'40, H'22,  H'01, H'76, H'71, H'80 ; H'8c017400
-          .DATA.B H'63, H'60, H'CC, H'01,  H'1C, H'61, H'D0, H'31,  H'ED, H'8B, H'F6, H'6C,  H'0B, H'00, H'F6, H'6D ; H'8c017410
-          .DATA.B H'E6, H'2F, H'D6, H'2F,  H'C6, H'2F, H'B6, H'2F,  H'00, H'EB, H'A6, H'2F,  H'B3, H'6E, H'96, H'2F ; H'8c017420
-          .DATA.B H'86, H'2F, H'B3, H'68,  H'22, H'4F, H'8A, H'A0,  H'B3, H'6C, H'1A, H'DA,  H'C3, H'60, H'00, H'88 ; H'8c017430
-          .DATA.B H'06, H'E6, H'07, H'E5,  H'01, H'E9, H'0C, H'8D,  H'A2, H'67, H'01, H'88,  H'01, H'8B, H'7D, H'A0 ; H'8c017440
-          .DATA.B H'09, H'00, H'02, H'88,  H'4F, H'89, H'03, H'88,  H'57, H'89, H'04, H'88,  H'72, H'89, H'75, H'A0 ; H'8c017450
-          .DATA.B H'09, H'00, H'11, H'DA,  H'A2, H'62, H'28, H'22,  H'0F, H'89, H'73, H'60,  H'01, H'88, H'04, H'8B ; H'8c017460
-          .DATA.B H'E3, H'60, H'08, H'40,  H'01, H'7E, H'08, H'A0,  H'B6, H'04, H'0C, H'D7,  H'72, H'63, H'38, H'23 ; H'8c017470
-          .DATA.B H'16, H'89, H'E3, H'60,  H'08, H'40, H'56, H'04,  H'01, H'7E, H'E3, H'60,  H'08, H'40, H'66, H'0D ; H'8c017480
-          .DATA.B H'01, H'7E, H'5B, H'A0,  H'93, H'68, H'F4, H'01,  H'B8, H'0B, H'FF, H'00,  H'5C, H'A2, H'1B, H'8C ; H'8c017490
+          .DATA.B H'18, H'16, H'05, H'8C ; H'8c0171d0
+          LAB_8c0171d4:
+          MOV.L       H'8c0172d0,R4
+          MOV         #H'1,R5
+          MOV.L       H'8c0172d4,R1
+          MOV         #H'0,R7
+          MOV         #H'2,R6
+          JSR         @R1
+          MOV.L       @R4,R4
+          BSR         H'8c017108
+          MOV         #H'f,R4
+LAB_8c0171e6:
+          MOV.L       H'8c0172d8,R2
+          MOV         #H'10,R3
+          MOV.L       @R2,R5
+          TST         R5,R3
+          BT          H'8c01721c
+          MOV         #H'2,R4
+LAB_8c0171f2:
+          MOV         #H'40,R0
+          MOV.L       @(R0,R14),R3
+          ADD         #-H'1,R3
+          MOV         R3,R2
+          CMP/PZ      R2
+          MOV.L       R3,@(R0,R14)
+          BT          H'8c017202
+          MOV.L       R4,@(R0,R14)
+LAB_8c017202:
+          MOV.L       @(R0,R14),R3
+          MOV.L       @(H'3c,R14),R2
+          MUL.L       R13,R3
+          STS         MACL,R3
+          MUL.L       R12,R2
+          ADD         R11,R3
+          STS         MACL,R2
+          ADD         R2,R3
+          MOV.L       @R3,R1
+          TST         R1,R1
+          BT          H'8c0171f2
+          BRA         H'8c01724c
+          NOP
+LAB_8c01721c:
+          MOV         #H'20,R3
+          TST         R5,R3
+          BT/S        H'8c017258
+          MOV         #H'0,R4
+          MOV         #H'3,R5
+LAB_8c017226:
+          MOV         #H'40,R0
+          MOV.L       @(R0,R14),R3
+          ADD         #H'1,R3
+          MOV         R3,R2
+          CMP/GE      R5,R2
+          MOV.L       R3,@(R0,R14)
+          BF          H'8c017236
+          MOV.L       R4,@(R0,R14)
+LAB_8c017236:
+          MOV.L       @(R0,R14),R3
+          MOV.L       @(H'3c,R14),R2
+          MUL.L       R13,R3
+          STS         MACL,R3
+          MUL.L       R12,R2
+          ADD         R11,R3
+          STS         MACL,R2
+          ADD         R2,R3
+          MOV.L       @R3,R1
+          TST         R1,R1
+          BT          H'8c017226
+LAB_8c01724c:
+          BSR         H'8c016dc6
+          NOP
+          TST         R0,R0
+          BT          H'8c0172be
+          BRA         H'8c0172bc
+          NOP
+LAB_8c017258:
+          MOV         #H'40,R1
+          TST         R5,R1
+          BT          H'8c017288
+LAB_8c01725e:
+          MOV.L       @(H'3c,R14),R2
+          ADD         #-H'1,R2
+          MOV         R2,R3
+          CMP/PZ      R3
+          MOV.L       R2,@(H'3c,R14)
+          BT/S        H'8c01726e
+          MOV         #H'40,R0
+          MOV.L       R10,@(H'3c,R14)
+LAB_8c01726e:
+          MOV.L       @(R0,R14),R3
+          MOV.L       @(H'3c,R14),R2
+          MUL.L       R13,R3
+          STS         MACL,R3
+          MUL.L       R12,R2
+          ADD         R11,R3
+          STS         MACL,R2
+          ADD         R2,R3
+          MOV.L       @R3,R1
+          TST         R1,R1
+          BT          H'8c01725e
+          BRA         H'8c0172b4
+          NOP
+LAB_8c017288:
+          MOV.W       H'8c0172ce,R0
+          TST         R0,R5
+          BT          H'8c0172be
+LAB_8c01728e:
+          MOV.L       @(H'3c,R14),R2
+          ADD         #H'1,R2
+          MOV         R2,R3
+          CMP/GE      R9,R3
+          MOV.L       R2,@(H'3c,R14)
+          BF/S        H'8c01729e
+          MOV         #H'40,R0
+          MOV.L       R4,@(H'3c,R14)
+LAB_8c01729e:
+          MOV.L       @(R0,R14),R3
+          MOV.L       @(H'3c,R14),R2
+          MUL.L       R13,R3
+          STS         MACL,R3
+          MUL.L       R12,R2
+          ADD         R11,R3
+          STS         MACL,R2
+          ADD         R2,R3
+          MOV.L       @R3,R1
+          TST         R1,R1
+          BT          H'8c01728e
+LAB_8c0172b4:
+          BSR         H'8c016dc6
+          NOP
+          TST         R0,R0
+          BT          H'8c0172be
+LAB_8c0172bc:
+          MOV.L       R10,@(H'18,R14)
+LAB_8c0172be:
+          LDS.L       @R15+,PR
+          MOV.L       @R15+,R9
+          MOV.L       @R15+,R10
+          MOV.L       @R15+,R11
+          MOV.L       @R15+,R12
+          MOV.L       @R15+,R13
+          RTS
+          MOV.L       @R15+,R14
+          .DATA.B H'80, H'00 ; H'8c0172ce
+          .DATA.B H'28, H'CD, H'0F, H'8C,  H'18, H'16, H'05, H'8C,  H'6C, H'A3, H'1B, H'8C ; H'8c0172d0
+          FUN_8c0172dc:
+          MOV         #H'0,R4
+          MOV.L       R14,@-R15
+          MOV         R4,R7
+          MOV.L       R13,@-R15
+          BRA         H'8c0173d0
+          MOV         R4,R5
+LAB_8c0172e8:
+          MOV.L       H'8c01739c,R13
+          MOV         R5,R2
+          SHLL2       R2
+          MOV         R13,R3
+          ADD         #H'44,R3
+          SHLL        R2
+          ADD         R3,R2
+          MOV.B       @R2,R1
+          TST         R1,R1
+          BT          H'8c017300
+          BRA         H'8c0173ce
+          NOP
+LAB_8c017300:
+          MOV         R5,R0
+          CMP/EQ      #H'0,R0
+          BF/S        H'8c01730c
+          MOV.L       @R13,R4
+          BRA         H'8c0173ce
+          NOP
+LAB_8c01730c:
+          CMP/EQ      #H'6,R0
+          BT          H'8c0173ce
+          CMP/EQ      #H'1,R0
+          BT          H'8c017330
+          CMP/EQ      #H'2,R0
+          BT          H'8c017344
+          CMP/EQ      #H'3,R0
+          BT          H'8c017356
+          CMP/EQ      #H'4,R0
+          BT          H'8c01736a
+          CMP/EQ      #H'5,R0
+          BT          H'8c01737e
+          CMP/EQ      #H'7,R0
+          BT          H'8c0173a4
+          CMP/EQ      #H'8,R0
+          BT          H'8c0173b8
+          BRA         H'8c0173ce
+          NOP
+LAB_8c017330:
+          MOV         #H'8,R6
+          CMP/GE      R6,R4
+          BF          H'8c0173ce
+          MOV.L       H'8c0173a0,R1
+          MOV.W       H'8c017392,R3
+          MOV.L       @R1,R2
+          CMP/GE      R3,R2
+          BT          H'8c0173c8
+          BRA         H'8c0173ce
+          NOP
+LAB_8c017344:
+          CMP/GE      R6,R4
+          BF          H'8c0173ce
+          MOV.L       H'8c0173a0,R1
+          MOV.W       H'8c017394,R3
+          MOV.L       @R1,R2
+          CMP/GE      R3,R2
+          BF          H'8c0173ce
+          BRA         H'8c0173c8
+          NOP
+LAB_8c017356:
+          MOV         #H'5,R6
+          CMP/GE      R6,R4
+          BF          H'8c0173ce
+          MOV.L       H'8c0173a0,R1
+          MOV.W       H'8c017396,R2
+          MOV.L       @R1,R3
+          CMP/GE      R2,R3
+          BF          H'8c0173ce
+          BRA         H'8c0173c8
+          NOP
+LAB_8c01736a:
+          MOV         #H'b,R6
+          CMP/GE      R6,R4
+          BF          H'8c0173ce
+          MOV.L       H'8c0173a0,R1
+          MOV.W       H'8c017398,R3
+          MOV.L       @R1,R2
+          CMP/GE      R3,R2
+          BT          H'8c0173c8
+          BRA         H'8c0173ce
+          NOP
+LAB_8c01737e:
+          MOV         #H'd,R6
+          CMP/GE      R6,R4
+          BF          H'8c0173ce
+          MOV.L       H'8c0173a0,R1
+          MOV.W       H'8c01739a,R2
+          MOV.L       @R1,R3
+          CMP/GE      R2,R3
+          BF          H'8c0173ce
+          BRA         H'8c0173c8
+          NOP
+          .DATA.B H'A0, H'0F,  H'7C, H'15, H'D0, H'07,  H'40, H'1F, H'E0, H'2E,  H'CC, H'A1, H'1B, H'8C ; H'8c017392
+          .DATA.B H'5C, H'A2, H'1B, H'8C ; H'8c0173a0
+
+          LAB_8c0173a4:
+          MOV         #H'3,R6
+          CMP/GE      R6,R4
+          BF          H'8c0173ce
+          MOV.L       H'8c01749c,R1
+          MOV.W       H'8c017496,R3
+          MOV.L       @R1,R2
+          CMP/GE      R3,R2
+          BF          H'8c0173ce
+          BRA         H'8c0173c8
+          NOP
+LAB_8c0173b8:
+          MOV         #H'6,R6
+          CMP/GE      R6,R4
+          BF          H'8c0173ce
+          MOV.L       H'8c01749c,R1
+          MOV.W       H'8c017498,R2
+          MOV.L       @R1,R3
+          CMP/GE      R2,R3
+          BF          H'8c0173ce
+LAB_8c0173c8:
+          MOV         R7,R0
+          MOV.B       R5,@(R0,R14)
+          ADD         #H'1,R7
+LAB_8c0173ce:
+          ADD         #H'1,R5
+LAB_8c0173d0:
+          MOV         #H'9,R6
+          MOV.L       H'8c0174a0,R4
+          CMP/GE      R6,R5
+          BF/S        H'8c0172e8
+          MOV         R4,R14
+          MOV.W       H'8c01749a,R3
+          MOV         R7,R0
+          MOV.B       R3,@(R0,R14)
+          MOV.L       @R15+,R13
+          RTS
+          MOV.L       @R15+,R14
+FUN_8c0173e6:
+          MOV.L       R13,@-R15
+          MOV         #H'0,R6
+          MOV.L       R12,@-R15
+          MOV.W       H'8c01749a,R13
+          MOV.L       H'8c0174a0,R12
+          MOV.L       H'8c0174a4,R5
+          BRA         H'8c017410
+          MOV         #H'1,R4
+LAB_8c0173f6:
+          MOV         R1,R7
+          MOV         R5,R2
+          SHLL2       R7
+          MOV         R5,R3
+          ADD         #H'44,R2
+          MOV         R4,R0
+          SHLL        R7
+          ADD         #H'44,R3
+          ADD         R7,R2
+          ADD         R3,R7
+          MOV.B       R4,@R2
+          ADD         #H'1,R6
+          MOV.B       R0,@(H'1,R7)
+LAB_8c017410:
+          MOV         R6,R0
+          MOV.B       @(R0,R12),R1
+          EXTU.B      R1,R1
+          CMP/EQ      R13,R1
+          BF          H'8c0173f6
+          MOV.L       @R15+,R12
+          RTS
+          MOV.L       @R15+,R13
+FUN_8c017420:
+          MOV.L       R14,@-R15
+          MOV.L       R13,@-R15
+          MOV.L       R12,@-R15
+          MOV.L       R11,@-R15
+          MOV         #H'0,R11
+          MOV.L       R10,@-R15
+          MOV         R11,R14
+          MOV.L       R9,@-R15
+          MOV.L       R8,@-R15
+          MOV         R11,R8
+          STS.L       PR,@-R15
+          BRA         H'8c01754e
+          MOV         R11,R12
+LAB_8c01743a:
+          MOV.L       H'8c0174a4,R10
+          MOV         R12,R0
+          CMP/EQ      #H'0,R0
+          MOV         #H'6,R6
+          MOV         #H'7,R5
+          MOV         #H'1,R9
+          BT/S        H'8c017462
+          MOV.L       @R10,R7
+          CMP/EQ      #H'1,R0
+          BF          H'8c017452
+          BRA         H'8c01754c
+          NOP
+LAB_8c017452:
+          CMP/EQ      #H'2,R0
+          BT          H'8c0174f6
+          CMP/EQ      #H'3,R0
+          BT          H'8c01750a
+          CMP/EQ      #H'4,R0
+          BT          H'8c017544
+          BRA         H'8c01754c
+          NOP
+LAB_8c017462:
+          MOV.L       H'8c0174a8,R10
+          MOV.L       @R10,R2
+          TST         R2,R2
+          BT          H'8c01748a
+          MOV         R7,R0
+          CMP/EQ      #H'1,R0
+          BF          H'8c01747a
+          MOV         R14,R0
+          SHLL2       R0
+          ADD         #H'1,R14
+          BRA         H'8c01748a
+          MOV.L       R11,@(R0,R4)
+LAB_8c01747a:
+          MOV.L       H'8c0174ac,R7
+          MOV.L       @R7,R3
+          TST         R3,R3
+          BT          H'8c0174b0
+          MOV         R14,R0
+          SHLL2       R0
+          MOV.L       R5,@(R0,R4)
+          ADD         #H'1,R14
+LAB_8c01748a:
+          MOV         R14,R0
+          SHLL2       R0
+          MOV.L       R6,@(R0,R13)
+          ADD         #H'1,R14
+          BRA         H'8c01754c
+          MOV         R9,R8
+          .DATA.B H'F4, H'01,  H'B8, H'0B, H'FF, H'00,  H'5C, H'A2, H'1B, H'8C ; H'8c017490
           .DATA.B H'D4, H'5F, H'22, H'8C,  H'CC, H'A1, H'1B, H'8C,  H'B8, H'B8, H'1B, H'8C,  H'BC, H'B8, H'1B, H'8C ; H'8c0174a0
-          .DATA.B H'32, H'D5, H'52, H'63,  H'38, H'23, H'18, H'89,  H'31, H'D5, H'50, H'60,  H'0C, H'60, H'00, H'88 ; H'8c0174b0
-          .DATA.B H'07, H'89, H'01, H'88,  H'07, H'89, H'02, H'88,  H'07, H'89, H'03, H'88,  H'07, H'89, H'3D, H'A0 ; H'8c0174c0
-          .DATA.B H'09, H'00, H'05, H'A0,  H'08, H'E5, H'03, H'A0,  H'0B, H'E5, H'01, H'A0,  H'0A, H'E5, H'09, H'E5 ; H'8c0174d0
-          .DATA.B H'E3, H'60, H'08, H'40,  H'01, H'7E, H'31, H'A0,  H'56, H'04, H'E3, H'60,  H'08, H'40, H'01, H'7E ; H'8c0174e0
-          .DATA.B H'0C, H'E5, H'2B, H'A0,  H'56, H'04, H'F1, H'BE,  H'09, H'00, H'08, H'20,  H'26, H'89, H'E3, H'60 ; H'8c0174f0
-          .DATA.B H'08, H'40, H'01, H'7E,  H'0D, H'E4, H'21, H'A0,  H'46, H'0D, H'1E, H'D3,  H'73, H'61, H'01, H'71 ; H'8c017500
-          .DATA.B H'0B, H'43, H'53, H'60,  H'08, H'20, H'19, H'8B,  H'1B, H'D3, H'0B, H'43,  H'06, H'E4, H'A3, H'62 ; H'8c017510
-          .DATA.B H'03, H'64, H'2C, H'72,  H'08, H'44, H'4C, H'32,  H'22, H'63, H'38, H'23,  H'0E, H'8F, H'03, H'65 ; H'8c017520
-          .DATA.B H'A3, H'63, H'2C, H'73,  H'3C, H'34, H'E3, H'60,  H'92, H'24, H'08, H'40,  H'01, H'7E, H'0E, H'E4 ; H'8c017530
-          .DATA.B H'04, H'A0, H'46, H'0D,  H'E3, H'60, H'08, H'40,  H'66, H'04, H'01, H'7E,  H'01, H'7C, H'0F, H'DD ; H'8c017540
-          .DATA.B H'05, H'E5, H'53, H'3C,  H'04, H'8D, H'D3, H'64,  H'88, H'28, H'01, H'8B,  H'6D, H'AF, H'09, H'00 ; H'8c017550
-          .DATA.B H'E3, H'60, H'08, H'40,  H'FF, H'E3, H'36, H'04,  H'26, H'4F, H'F6, H'68,  H'F6, H'69, H'F6, H'6A ; H'8c017560
-          .DATA.B H'F6, H'6B, H'F6, H'6C,  H'F6, H'6D, H'0B, H'00,  H'F6, H'6E, H'00, H'00,  H'DC, H'B8, H'1B, H'8C ; H'8c017570
+
+          LAB_8c0174b0:
+          MOV.L       H'8c01757c,R5
+          MOV.L       @R5,R3
+          TST         R3,R3
+          BT          H'8c0174ea
+          MOV.L       H'8c017580,R5
+          MOV.B       @R5,R0
+          EXTU.B      R0,R0
+          CMP/EQ      #H'0,R0
+          BT          H'8c0174d2
+          CMP/EQ      #H'1,R0
+          BT          H'8c0174d6
+          CMP/EQ      #H'2,R0
+          BT          H'8c0174da
+          CMP/EQ      #H'3,R0
+          BT          H'8c0174de
+          BRA         H'8c01754c
+          NOP
+LAB_8c0174d2:
+          BRA         H'8c0174e0
+          MOV         #H'8,R5
+LAB_8c0174d6:
+          BRA         H'8c0174e0
+          MOV         #H'b,R5
+LAB_8c0174da:
+          BRA         H'8c0174e0
+          MOV         #H'a,R5
+LAB_8c0174de:
+          MOV         #H'9,R5
+LAB_8c0174e0:
+          MOV         R14,R0
+          SHLL2       R0
+          ADD         #H'1,R14
+          BRA         H'8c01754c
+          MOV.L       R5,@(R0,R4)
+LAB_8c0174ea:
+          MOV         R14,R0
+          SHLL2       R0
+          ADD         #H'1,R14
+          MOV         #H'c,R5
+          BRA         H'8c01754c
+          MOV.L       R5,@(R0,R4)
+LAB_8c0174f6:
+          BSR         H'8c0172dc
+          NOP
+          TST         R0,R0
+          BT          H'8c01754c
+          MOV         R14,R0
+          SHLL2       R0
+          ADD         #H'1,R14
+          MOV         #H'd,R4
+          BRA         H'8c01754c
+          MOV.L       R4,@(R0,R13)
+LAB_8c01750a:
+          MOV.L       H'8c017584,R3
+          MOV         R7,R1
+          ADD         #H'1,R1
+          JSR         @R3
+          MOV         R5,R0
+          TST         R0,R0
+          BF          H'8c01754c
+          MOV.L       H'8c017588,R3
+          JSR         @R3
+          MOV         #H'6,R4
+          MOV         R10,R2
+          MOV         R0,R4
+          ADD         #H'2c,R2
+          SHLL2       R4
+          ADD         R4,R2
+          MOV.L       @R2,R3
+          TST         R3,R3
+          BF/S        H'8c01754c
+          MOV         R0,R5
+          MOV         R10,R3
+          ADD         #H'2c,R3
+          ADD         R3,R4
+          MOV         R14,R0
+          MOV.L       R9,@R4
+          SHLL2       R0
+          ADD         #H'1,R14
+          MOV         #H'e,R4
+          BRA         H'8c01754c
+          MOV.L       R4,@(R0,R13)
+LAB_8c017544:
+          MOV         R14,R0
+          SHLL2       R0
+          MOV.L       R6,@(R0,R4)
+          ADD         #H'1,R14
+LAB_8c01754c:
+          ADD         #H'1,R12
+LAB_8c01754e:
+          MOV.L       H'8c01758c,R13
+          MOV         #H'5,R5
+          CMP/GE      R5,R12
+          BT/S        H'8c017560
+          MOV         R13,R4
+          TST         R8,R8
+          BF          H'8c017560
+          BRA         H'8c01743a
+          NOP
+LAB_8c017560:
+          MOV         R14,R0
+          SHLL2       R0
+          MOV         #-H'1,R3
+          MOV.L       R3,@(R0,R4)
+          LDS.L       @R15+,PR
+          MOV.L       @R15+,R8
+          MOV.L       @R15+,R9
+          MOV.L       @R15+,R10
+          MOV.L       @R15+,R11
+          MOV.L       @R15+,R12
+          MOV.L       @R15+,R13
+          RTS
+          MOV.L       @R15+,R14
+          .RES.W      1
+          .DATA.B H'DC, H'B8, H'1B, H'8C ; H'8c01757c
           .DATA.B H'F8, H'B8, H'1B, H'8C,  H'AC, H'FC, H'02, H'8C,  H'BE, H'21, H'01, H'8C,  H'BC, H'5F, H'22, H'8C ; H'8c017580
           .DATA.B H'E6, H'2F, H'D6, H'2F,  H'C6, H'2F, H'B6, H'2F,  H'A6, H'2F, H'96, H'2F,  H'86, H'2F, H'FB, H'FF ; H'8c017590
           .DATA.B H'EB, H'FF, H'DB, H'FF,  H'CB, H'FF, H'22, H'4F,  H'F8, H'7F, H'38, H'DC,  H'48, H'E0, H'36, H'DA ; H'8c0175a0
