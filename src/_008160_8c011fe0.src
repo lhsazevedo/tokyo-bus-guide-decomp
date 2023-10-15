@@ -4657,5 +4657,298 @@ LAB_8c0148c0:
           .DATA.B H'6C, H'7A, H'15, H'8C, H'64, H'9A, H'05, H'8C, H'38, H'C4, H'1B, H'8C, H'6E, H'30, H'01, H'8C ; H'8c014910
           .DATA.B H'70, H'29, H'01, H'8C, H'00, H'00, H'A0, H'C0, H'54, H'4F, H'01, H'8C, H'AC, H'FC, H'02, H'8C ; H'8c014920
           .DATA.B H'00, H'00, H'80, H'C0 ; H'8c014930
-
+          .SECTION    C,DATA,ALIGN=4
+L999901:
+          .SDATA      "FortyFive"
+          .DATA.B     H'00
+          .RES.W      1
+L999902:
+          .SDATA      "\SOUND"
+          .DATA.B     H'00
+          .RES.B      1
+L999903:
+          .SDATA      "manatee.drv" ; H'8c03336c
+          .DATA.B     H'00
+L999904:
+          .SDATA      "bus.mlt" ; H'8c033378
+          .DATA.B     H'00
+L999905:
+          .SDATA      "\SYSTEM" ; H'8c033380
+          .DATA.B     H'00
+L999906:
+          .SDATA      "mark_parts.dat" ; H'8c033388
+          .DATA.B     H'00
+          .RES.B 1
+L999907:
+          .SDATA      "mark.dat" ; H'8c033398
+          .DATA.B     H'00
+          .RES.B 3
+L999908:
+          .SDATA      "busstop_parts.dat" ; H'8c0333a4
+          .DATA.B     H'00
+          .RES.B 2
+L999909:
+          .SDATA      "busstop.dat" ; H'8c0333b8
+          .DATA.B     H'00
+s_loading_pvm_8c0333c4:
+          .SDATA      "loading.pvm" ; H'8c0333c4
+          .DATA.B     H'00
+s_load_parts_dat_8c0333d0:
+          .SDATA      "load_parts.dat" ; H'8c0333d0
+          .DATA.B     H'00
+          .RES.B 1
+s_loading_dat_8c0333e0:
+          .SDATA      "loading.dat" ; H'8c0333e0
+          .DATA.B     H'00
+s_bus_font_fff_8c0333ec:
+          .SDATA      "bus_font.fff" ; H'8c0333ec
+          .DATA.B     H'00
+          .RES.B 3
+s_vm_bus_lcd_8c0333fc:
+          .SDATA      "vm_bus.lcd" ; H'8c0333fc
+          .DATA.B     H'00
+          .RES.B 1
+s_vm_danger_lcd_8c033408:
+          .SDATA      "vm_danger.lcd" ; H'8c033408
+          .DATA.B     H'00
+          .RES.B 2
+s_now_loading_lcd_8c033418:
+          .SDATA      "now_loading.lcd" ; H'8c033418
+          .DATA.B     H'00
+s_fuu_pvm_8c033428:
+          .SDATA      "fuu.pvm" ; H'8c033428
+          .DATA.B     H'00
+s_fuu_njd_8c033430:
+          .SDATA      "fuu.njd" ; H'8c033430
+          .DATA.B     H'00
+s_fuu_njm_8c033438:
+          .SDATA      "fuu.njm" ; H'8c033438
+          .DATA.B     H'00
+s_SD_COMMON_8c033440:
+          .SDATA  "\SD_COMMON" ; H'8c033440
+          .DATA.B     H'00
+          .RES.B 1
+s_3s_bus_m2_njm_8c03344c:
+          .SDATA      "3s_bus_m2.njm" ; H'8c03344c
+          .DATA.B     H'00
+          .RES.B 2
+s_3s_bus_m2_njs_8c03345c:
+          .SDATA      "3s_bus_m2.njs" ; H'8c03345c
+          .DATA.B     H'00
+          .RES.B 2
+s_DUMMY_8c03346c:
+          .SDATA      "DUMMY" ; H'8c03346c
+          .DATA.B     H'00
+          .RES.B 2
+DAT_8c033474:
+          .DATA.B H'00
+          .DATA.B H'00
+          .DATA.B H'00
+          .DATA.B H'00
+s_front_njd_8c033478:
+          .SDATA      "front.njd" ; H'8c033478
+          .DATA.B     H'00
+          .RES.B 2
+s_front_pvm_8c033484:
+          .SDATA      "front.pvm" ; H'8c033484
+          .DATA.B     H'00
+          .RES.B 2
+s_syanai_njd_8c033490:
+          .SDATA      "syanai.njd" ; H'8c033490
+          .DATA.B     H'00
+          .RES.B 1
+s_syanai_pvm_8c03349c:
+          .SDATA      "syanai.pvm" ; H'8c03349c
+          .DATA.B     H'00
+          .RES.B 1
+s_mark_pvm_8c0334a8:
+          .SDATA      "mark.pvm" ; H'8c0334a8
+          .DATA.B     H'00
+          .RES.B 3
+s_busstop_pvm_8c0334b4:
+          .SDATA      "busstop.pvm" ; H'8c0334b4
+          .DATA.B     H'00
+s_SD_COMMON_8c0334c0:
+          .SDATA      "\SD_COMMON" ; H'8c0334c0
+          .DATA.B     H'00
+          .RES.B 1
+s_SD_PVR_8c0334cc:
+          .SDATA      "\SD_PVR" ; H'8c0334cc
+          .DATA.B     H'00
+s_SN_COMMON_8c0334d4:
+          .SDATA      "\SN_COMMON" ; H'8c0334d4
+          .DATA.B     H'00
+          .RES.B 1
+s_SN_PVR_8c0334e0:
+          .SDATA      "\SN_PVR" ; H'8c0334e0
+          .DATA.B     H'00
+s_WD_COMMON_8c0334e8:
+          .SDATA      "\WD_COMMON" ; H'8c0334e8
+          .DATA.B     H'00
+          .RES.B 1
+s_WD_PVR_8c0334f4:
+          .SDATA      "\WD_PVR" ; H'8c0334f4
+          .DATA.B     H'00
+s_WN_COMMON_8c0334fc:
+          .SDATA      "\WN_COMMON" ; H'8c0334fc
+          .DATA.B     H'00
+          .RES.B 1
+s_WN_PVR_8c033508:
+          .SDATA      "\WN_PVR" ; H'8c033508
+          .DATA.B     H'00
+s_OD_COMMON_8c033510:
+          .SDATA      "\OD_COMMON" ; H'8c033510
+          .DATA.B     H'00
+          .RES.B 1
+s_OD_PVR_8c03351c:
+          .SDATA      "\OD_PVR" ; H'8c03351c
+          .DATA.B     H'00
+s_ON_COMMON_8c033524:
+          .SDATA      "\ON_COMMON" ; H'8c033524
+          .DATA.B     H'00
+          .RES.B 1
+s_ON_PVR_8c033530:
+          .SDATA      "\ON_PVR" ; H'8c033530
+          .DATA.B     H'00
+          .SDATA      "o_road0.pac" ; H'8c033538
+          .DATA.B     H'00
+          .SDATA      "o_machi0.pac" ; H'8c033544
+          .DATA.B     H'00
+          .RES.B 3
+          .SDATA      "o_uv0.pac" ; H'8c033554
+          .DATA.B     H'00
+          .RES.B 2
+          .SDATA      "O_ROAD_UV_OHDAN0.pac" ; H'8c033560
+          .DATA.B     H'00
+          .RES.B 3
+          .SDATA      "o_road1_1.pac" ; H'8c033578
+          .DATA.B     H'00
+          .RES.B 2
+          .SDATA      "o_machi1_1.pac" ; H'8c033588
+          .DATA.B     H'00
+          .RES.B 1
+          .SDATA      "o_uv1_1.pac" ; H'8c033598
+          .DATA.B     H'00
+          .SDATA      "O_ROAD_UV_OHDAN1_1.pac" ; H'8c0335a4
+          .DATA.B     H'00
+          .RES.B 1
+          .SDATA      "o_road1_2.pac" ; H'8c0335bc
+          .DATA.B     H'00
+          .RES.B 2
+          .SDATA      "o_machi1_2.pac" ; H'8c0335cc
+          .DATA.B     H'00
+          .RES.B 1
+          .SDATA      "o_uv1_2.pac" ; H'8c0335dc
+          .DATA.B     H'00
+          .SDATA      "O_ROAD_UV_OHDAN1_2.pac" ; H'8c0335e8
+          .DATA.B     H'00
+          .RES.B 1
+          .SDATA      "o_road2.pac" ; H'8c033600
+          .DATA.B     H'00
+          .SDATA      "o_machi2.pac" ; H'8c03360c
+          .DATA.B     H'00
+          .RES.B 3
+          .SDATA      "o_uv2.pac" ; H'8c03361c
+          .DATA.B     H'00
+          .RES.B 2
+          .SDATA      "O_ROAD_UV_OHDAN2.pac" ; H'8c033628
+          .DATA.B     H'00
+          .RES.B 3
+          .SDATA      "o_road3_1.pac" ; H'8c033640
+          .DATA.B     H'00
+          .RES.B 2
+          .SDATA      "o_machi3_1.pac" ; H'8c033650
+          .DATA.B     H'00
+          .RES.B 1
+          .SDATA      "o_uv3_1.pac" ; H'8c033660
+          .DATA.B     H'00
+          .SDATA      "O_ROAD_UV_OHDAN3_1.pac" ; H'8c03366c
+          .DATA.B     H'00
+          .RES.B 1
+          .SDATA      "o_road3_2.pac" ; H'8c033684
+          .DATA.B     H'00
+          .RES.B 2
+          .SDATA      "o_machi3_2.pac" ; H'8c033694
+          .DATA.B     H'00
+          .RES.B 1
+          .SDATA      "o_uv3_2.pac" ; H'8c0336a4
+          .DATA.B     H'00
+          .SDATA      "O_ROAD_UV_OHDAN3_2.pac" ; H'8c0336b0
+          .DATA.B     H'00
+          .RES.B 1
+          .SDATA      "o_road4_1.pac" ; H'8c0336c8
+          .DATA.B     H'00
+          .RES.B 2
+          .SDATA      "o_machi4_1.pac" ; H'8c0336d8
+          .DATA.B     H'00
+          .RES.B 1
+          .SDATA      "o_uv4_1.pac" ; H'8c0336e8
+          .DATA.B     H'00
+          .SDATA      "O_ROAD_UV_OHDAN4_1.pac" ; H'8c0336f4
+          .DATA.B     H'00
+          .RES.B 1
+          .SDATA      "o_road4_2.pac" ; H'8c03370c
+          .DATA.B     H'00
+          .RES.B 2
+          .SDATA      "o_machi4_2.pac" ; H'8c03371c
+          .DATA.B     H'00
+          .RES.B 1
+          .SDATA      "o_uv4_2.pac" ; H'8c03372c
+          .DATA.B     H'00
+          .SDATA      "O_ROAD_UV_OHDAN4_2.pac" ; H'8c033738
+          .DATA.B     H'00
+          .RES.B 1
+          .SDATA      "h.njd" ; H'8c033750
+          .DATA.B     H'00
+          .RES.B 2
+          .SDATA      "h.pvm" ; H'8c033758
+          .DATA.B     H'00
+          .RES.B 2
+          .SDATA      "o08_her0.njm" ; H'8c033760
+          .DATA.B     H'00
+          .RES.B 3
+          .SDATA      "od_hodoukyou.njd" ; H'8c033770
+          .DATA.B     H'00
+          .RES.B 3
+          .SDATA      "od_hodoukyou.pvm" ; H'8c033784
+          .DATA.B     H'00
+          .RES.B 3
+          .SDATA      "o_fumi_00.njd" ; H'8c033798
+          .DATA.B     H'00
+          .RES.B 2
+          .SDATA      "o_fumi.pvm" ; H'8c0337a8
+          .DATA.B     H'00
+          .RES.B 1
+          .SDATA      "o_fumi_lamp.njd" ; H'8c0337b4
+          .DATA.B     H'00
+          .SDATA      "o_fumi_lamp.pvm" ; H'8c0337c4
+          .DATA.B     H'00
+          .SDATA      "od_okutama.njd" ; H'8c0337d4
+          .DATA.B     H'00
+          .RES.B 1
+          .SDATA      "od_okutama.pvm" ; H'8c0337e4
+          .DATA.B     H'00
+          .RES.B 1
+          .SDATA      "o_syougai.njd" ; H'8c0337f4
+          .DATA.B     H'00
+          .RES.B 2
+          .SDATA      "o_syougai.pvm" ; H'8c033804
+          .DATA.B     H'00
+          .RES.B 2
+          .SDATA      "o_syougai2.njd" ; H'8c033814
+          .DATA.B     H'00
+          .RES.B 1
+          .SDATA      "o_syougai2.pvm" ; H'8c033824
+          .DATA.B     H'00
+          .RES.B 1
+          .SDATA      "o_syougai3.njd" ; H'8c033834
+          .DATA.B     H'00
+          .RES.B 1
+          .SDATA      "o_syougai3.pvm" ; H'8c033844
+          .DATA.B     H'00
+          .RES.B 1
+          .SDATA      "od_dome.njd" ; H'8c033854
+          .DATA.B     H'00
+          .SDATA      "od_dome.pvm" ; H'8c033860
+          .DATA.B     H'00
           .END
