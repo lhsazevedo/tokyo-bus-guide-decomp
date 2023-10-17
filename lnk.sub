@@ -140,6 +140,21 @@ define _queuedNjFilesEnd_8c157aa4(8C157AA4)
 define _queuedNjFilesCursor_8c157aa0(8C157AA0)
 define __8c157aa8(8C157AA8)
 
+define _buInit(8c0550d8)
+define _buExit(8c0551be)
+define _buLoadFile(8c055a94)
+define _buSaveFile(8c055aec)
+define _buDeleteFile(8c05581e)
+define _buUnmount(8c0553fa)
+define _buSetCompleteCallback(8c055360)
+define _buSetProgressCallback(8c055366)
+define _buMountDisk(8c055ce8)
+define _buGetDiskInfo(8c0554e8)
+define _syRtcGetDate(8c05489e)
+define _buStat(8c055970)
+define _gBupInfo(8c1bc4ac)
+define _gBupTime(8c04411c)
+
 input build\_000000_8c010000.obj
 input build\_000128_8c010080_main.obj
 input build\_000188_8c0100bc_sound.obj

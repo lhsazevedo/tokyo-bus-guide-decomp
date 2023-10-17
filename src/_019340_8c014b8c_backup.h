@@ -1,14 +1,7 @@
-/********************************************************************
- *  Shinobi Library Sample
- *  Copyright (c) 1998 SEGA
- *
- *  Library : Backup Library
- *  Module  : Library Sample Header(Dynamic memory allocation version)
- *  File    : backup.h
- *  Date    : 1999-01-14
- *  Version : 1.00
- *
- ********************************************************************/
+/*
+ *  Adjusted backup sample from SDK 155j
+ */
+
 #ifndef _BACKUP_H_
 #define _BACKUP_H_
 
@@ -18,32 +11,18 @@
 extern "C" {
 #endif /* __cplusplus */
 
-
-/******** メモリカード情報構造体 *******************************************/
-/******** Memory card information structure ********************************/
 typedef struct {
-	Uint16 Ready;               /* メモリカードがマウントされているか      */
-	                            /* Is memory card mounted ?                */
-	Uint16 IsFormat;            /* フォーマットされているかどうか          */
-	                            /* Is memory card formatted ?              */
-	Uint32 LastError;           /* 最後に発生したエラーコード              */
-	                            /* Error code which occured last.          */
-	Uint32 ProgressCount;       /* 処理経過カウント                        */
-	                            /* Operation progress count.               */
-	Uint32 ProgressMax;         /* 処理経過カウント最大                    */
-	                            /* Operattion progress count maximum.      */
-	Uint32 Operation;           /* 処理中のオペレーションコード            */
-	                            /* Operation code in handling now.         */
-	BUS_DISKINFO DiskInfo;      /* ドライブ情報                            */
-	                            /* Drive information.                      */
-	Uint32 Connect;             /* メモリーカードが接続されているか        */
-	                            /* Is memory card connected ?              */
-	void* Work;                 /* ワークアドレス                          */
-	                            /* Work address.                           */
-	Uint32 WorkSize;            /* ワークサイズ                            */
-	                            /* Work size (bytes).                      */
-	Uint32 Capacity;            /* メモリカードの容量フラグ(BUD_CAPACITY)  */
-	                            /* Capacity flag of memory card.           */
+	Uint16 Ready;
+	Uint16 IsFormat;
+	Uint32 LastError;
+	Uint32 ProgressCount;
+	Uint32 ProgressMax;
+	Uint32 Operation;
+	BUS_DISKINFO DiskInfo;
+	Uint32 Connect;
+	void* Work;
+	Uint32 WorkSize;
+	Uint32 Capacity;
 } BACKUPINFO;
 
 
@@ -63,5 +42,3 @@ void BupUnmount(Sint32 drive);
 #endif /* __cplusplus */
 
 #endif /* _BACKUP_H_ */
-
-/******************************* end of file *******************************/

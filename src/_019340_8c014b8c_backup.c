@@ -1,64 +1,38 @@
-/********************************************************************
- *  Shinobi Library Sample
- *  Copyright (c) 1998 SEGA
- *
- *  Library : Backup Library
- *  Module  : Library Sample(Dynamic memory allocation version)
- *  File    : backup.c
- *  Date    : 1999-01-14
- *  Version : 1.00
- *
- ********************************************************************/
+/*
+ * Adjusted backup sample from SDK 155j
+ */
 
 #include <shinobi.h>
 #include "_019340_8c014b8c_backup.h"
 
-/*===============================================================*/
-/* 対応するメモリーカードの最大容量                              */
-/* Mamimum volume to use.                                        */
-/*===============================================================*/
-
+/*
+ * Mamimum volume to use.
+ */
 #define MAX_CAPS BUD_CAPACITY_1MB
 
-
-/*===============================================================*/
-/* 対応するメモリーカードのドライブ数                            */
-/* Number of memory card to use.                                 */
-/*===============================================================*/
-
+/*
+ * Number of memory card to use.
+ */
 #define MAX_DRIVES 8
 #define USE_DRIVES BUD_USE_DRIVE_ALL
 
-
-/*===============================================================*/
-/* メモリーカードの状態を格納しておく構造体                      */
-/* (backup.h を参照)                                             */
-/* Structure to store the information of memory card.            */
-/* (See backup.h)                                                */
-/*===============================================================*/
-
+/*
+ * Structure to store the information of memory card.
+ * (See backup.h)
+ */
 extern BACKUPINFO gBupInfo[8];
 
 
 
-/*===============================================================*/
-/*      スタティック関数のプロトタイプ宣言                       */
-/*      Prototypes of static functions.                          */
-/*===============================================================*/
-
+/*
+ * Prototypes of static functions.
+ */
 static Sint32 BupComplete(Sint32 drive, Sint32 op, Sint32 stat, Uint32 param);
 static Sint32 BupProgress(Sint32 drive, Sint32 op, Sint32 count, Sint32 max);
 static void BupInitCallback(void);
 static void ClearInfo(Sint32 drive);
 
 
-/*===============================================================*/
-/*      バックアップライブラリ初期化                             */
-/*      動的メモリ確保をするため、ワークアドレスにはNULLを指定   */
-/*      Initialize backup library.                               */
-/*      Please set NULL to work address to allocate memory       */
-/*      dynamically.                                             */
-/*===============================================================*/
 
 void BupInit(void)
 {
@@ -66,54 +40,20 @@ void BupInit(void)
     buInit(MAX_CAPS, USE_DRIVES, NULL, BupInitCallback);
 }
 
-
-/*===============================================================*/
-/*      バックアップライブラリ終了                               */
-/*      Finalize backup library.                                 */
-/*===============================================================*/
-
 void BupExit(void)
 {
     do {} while (buExit() != BUD_ERR_OK);
 }
-
-
-/*===============================================================*/
-/*      メモリーカードの状態を取得                               */
-/*      Get information of memory card.                          */
-/*===============================================================*/
 
 const BACKUPINFO* BupGetInfo(Sint32 drive)
 {
     return (const BACKUPINFO*)&gBupInfo[drive];
 }
 
-
-/*===============================================================*/
-/*      ファイルのロード                                         */
-/*      Load a file.                                             */
-/*===============================================================*/
-
 Sint32 BupLoad(Sint32 drive, const char* fname, void* buf)
 {
     return buLoadFile(drive, fname, buf, 0);
 }
-
-
-/*===============================================================*/
-/*      ファイルのセーブ                                         */
-/*      Save a file.                                             */
-/*===============================================================*/
-
-enum {
-    Sunday = 0,
-    Monday,
-    Tuesday,
-    Wednesday,
-    Thursday,
-    Friday,
-    Saturday
-};
 
 extern SYS_RTC_DATE gBupTime;
 
@@ -124,25 +64,10 @@ Sint32 BupSave(Sint32 drive, const char* fname, void* buf, Sint32 nblock)
                             BUD_FLAG_VERIFY | BUD_FLAG_COPY(0));
 }
 
-
-/*===============================================================*/
-/*      ファイルの削除                                           */
-/*      Delete a file.                                           */
-/*===============================================================*/
-
 Sint32 BupDelete(Sint32 drive, const char* fname)
 {
     return buDeleteFile(drive, fname);
 }
-
-/*===============================================================*/
-/*      ワークの確保とマウント                                   */
-/*      この処理が終了し、マウントコールバックが返ってから       */
-/*      今までどおりファイルアクセスが可能になります             */
-/*      Allocate memory and mount drive.                         */
-/*      File access becomes possible as before after this        */
-/*      operation is finished and mount callback occured.         */
-/*===============================================================*/
 
 void BupMount(Sint32 drive)
 {
@@ -150,34 +75,12 @@ void BupMount(Sint32 drive)
 
     info = &gBupInfo[drive];
 
-    if (info->Work) return;		/* すでにマウント済み */
+    if (info->Work) return;
 
     info->Work = syMalloc(info->WorkSize);
 
     buMountDisk(drive, info->Work, info->WorkSize);
 }
-
-/*===============================================================*/
-/*      アンマウント                                             */
-/*        これ以降そのドライブにはアクセスできません             */
-/*        再びアクセスしたい場合は、もう一度ワークの確保と       */
-/*        マウントを行ってください                               */
-/*      buUnmount()使用上の注意(※重要)                          */
-/*       ・BUD_OP_UNMOUNTコールバックは発生しません              */
-/*       ・buUnmount()が成功しない場合、そのドライブはアクセス中 */
-/*         です。ワークを開放してはいけません。                  */
-/*       ・buUnmount()が成功した場合、直後にワークを開放しても   */
-/*         問題ありません                                        */
-/*      Unmount                                                  */
-/*        You cannot access the drive after this.                */
-/*        Please allocate memory and mount when want to access   */
-/*        again.                                                 */
-/*      ATTENTION ON USE buUnmount():*** Important ***           */
-/*        .When buUnmount() was not successful, the drive is in  */
-/*         access, and must not open up work buffer              */
-/*        .When buUnmount() was successful, you can open up work */
-/*         buffer immmediately after.                            */
-/*===============================================================*/
 
 void BupUnmount(Sint32 drive)
 {
@@ -186,13 +89,7 @@ void BupUnmount(Sint32 drive)
 
     info = &gBupInfo[drive];
 
-    if (info->Work == NULL) return;		/* マウントされていない  */
-                                        /* Drive is not mounted. */
-
-    /* アンマウント関数が成功しない場合、そのドライブは       */
-    /* アクセス中である。その場合、ワークを開放してはならない */
-    /* When buUnmount() was not successful, the drive is in   */
-    /* access, and must not open up work buffer               */
+    if (info->Work == NULL) return;
 
     if (buStat(drive) == BUD_STAT_READY) {
         buUnmount(drive);
@@ -214,11 +111,6 @@ static void ClearInfo(Sint32 drive)
     info->Work = NULL;
     memset(&info->DiskInfo, 0, sizeof(BUS_DISKINFO));
 }
-
-/*===============================================================*/
-/*      エラーコードを文字列に変換                               */
-/*      Convert error code into character string.                */
-/*===============================================================*/
 
 const char* BupGetErrorString(Sint32 err)
 {
@@ -243,12 +135,6 @@ const char* BupGetErrorString(Sint32 err)
     }
 }
 
-
-/*===============================================================*/
-/*      オペレーションコードを文字列に変換                       */
-/*      Convert operation code into character string.            */
-/*===============================================================*/
-
 const char* BupGetOperationString(Sint32 op)
 {
     switch (op) {
@@ -265,30 +151,17 @@ const char* BupGetOperationString(Sint32 op)
 }
 
 
-/*===============================================================*/
-/*      コールバック関数                                         */
-/*      Callback functions.                                      */
-/*===============================================================*/
-
 /*
-** 初期化終了コールバック関数
-** Callback function when initialization of library was finished.
-*/
+ * Callback functions.
+ */
 
 static void BupInitCallback(void)
 {
     Sint32 i;
 
-    /* 完了、経過コールバック関数を設定する */
     buSetCompleteCallback(BupComplete);
     buSetProgressCallback(BupProgress);
 }
-
-
-/*
-** 完了コールバック関数
-** Callback function when operation was finished.
-*/
 
 static Sint32 BupComplete(Sint32 drive, Sint32 op, Sint32 stat, Uint32 param)
 {
@@ -299,14 +172,11 @@ static Sint32 BupComplete(Sint32 drive, Sint32 op, Sint32 stat, Uint32 param)
     info = &gBupInfo[drive];
 
     switch (op) {
-        /* メモリーカードが接続された */
-        /* Memory card was connected.  */
         case BUD_OP_CONNECT:
             info->Connect = TRUE;
             info->WorkSize = BUM_WORK_SIZE(stat, 1);
             info->Capacity = stat;
             break;
-        /* バックアップRAMがマウントされた */
         case BUD_OP_MOUNT:
             if (stat == BUD_ERR_OK) {
                 info->Ready = TRUE;
@@ -314,40 +184,24 @@ static Sint32 BupComplete(Sint32 drive, Sint32 op, Sint32 stat, Uint32 param)
                 if (ret == BUD_ERR_OK) {
                     info->IsFormat = TRUE;
                 }
-                /* エラー状態をクリア */
-                /* Clear error status */
                 info->LastError = BUD_ERR_OK;
             }
             break;
-        /* メモリーカードが取り外された */
-        /* Memory card was removed.     */
         case BUD_OP_UNMOUNT:
             if (info->Work) syFree(info->Work);
             ClearInfo(drive);
             info->Connect = FALSE;
             break;
         default:
-            /* エラー状態を格納 */
-            /* Store error code. */
             info->LastError = stat;
 
-            /* 情報を更新する */
-            /* Update information of memory card. */
             buGetDiskInfo(drive, &info->DiskInfo);
     }
 
-    /* オペレーションコードをクリア */
-    /* Clear operation code.        */
     info->Operation = 0;
 
     return BUD_CBRET_OK;
 }
-
-
-/*
-** 経過コールバック関数
-** Callback function through operation progress.
-*/
 
 static Sint32 BupProgress(Sint32 drive, Sint32 op, Sint32 count, Sint32 max)
 {
@@ -355,15 +209,9 @@ static Sint32 BupProgress(Sint32 drive, Sint32 op, Sint32 count, Sint32 max)
 
     info = &gBupInfo[drive];
 
-    /* 経過状態、オペレーションコードを格納 */
-    /* Store operation code.                */
     info->ProgressCount = count;
     info->ProgressMax = max;
     info->Operation = op;
 
     return BUD_CBRET_OK;
 }
-
-
-
-/******************************* end of file *******************************/
