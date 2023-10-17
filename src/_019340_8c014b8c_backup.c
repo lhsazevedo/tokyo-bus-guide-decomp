@@ -56,13 +56,13 @@ Sint32 BupLoad(Sint32 drive, const char* fname, void* buf)
 }
 
 enum {
-	Sunday = 0,
-	Monday,
-	Tuesday,
-	Wednesday,
-	Thursday,
-	Friday,
-	Saturday
+    Sunday = 0,
+    Monday,
+    Tuesday,
+    Wednesday,
+    Thursday,
+    Friday,
+    Saturday
 };
 
 static SYS_RTC_DATE gBupTime_8c04411c = {
@@ -129,38 +129,36 @@ static void ClearInfo(Sint32 drive)
 const char* BupGetErrorString(Sint32 err)
 {
     switch (err) {
-        // TODO: Fix as soon as we catch up with the constant integration
-        case BUD_ERR_OK:				return (char*) 0x8c035dd4; /* "OK\0" */
-        case BUD_ERR_BUSY:				return (char*) 0x8c035dd8; /* "BUSY\0" */
-        case BUD_ERR_INVALID_PARAM:		return (char*) 0x8c035de0; /* "INVALID PARAMETER\0" */
-        case BUD_ERR_ILLEGAL_DISK:		return (char*) 0x8c035df4; /* "ILLEGAL DISK\0" */
-        case BUD_ERR_UNKNOWN_DISK:		return (char*) 0x8c035e04; /* "UNKNOWN DISK\0" */
-        case BUD_ERR_NO_DISK:			return (char*) 0x8c035e14; /* "NO DISK\0" */
-        case BUD_ERR_UNFORMAT:			return (char*) 0x8c035e20; /* "UNFORMAT\0" */
-        case BUD_ERR_DISK_FULL:			return (char*) 0x8c035e2c; /* "DISK FULL\0" */
-        case BUD_ERR_FILE_NOT_FOUND:	return (char*) 0x8c035e38; /* "FILE NOT FOUND\0" */
-        case BUD_ERR_FILE_EXIST:		return (char*) 0x8c035e48; /* "FILE EXIST\0" */
-        case BUD_ERR_CANNOT_OPEN:		return (char*) 0x8c035e54; /* "CANNOT OPEN\0" */
-        case BUD_ERR_CANNOT_CREATE:		return (char*) 0x8c035e64; /* "CANNOT CREATE\0" */
-        case BUD_ERR_EXECFILE_EXIST:	return (char*) 0x8c035e74; /* "EXECUTABLE FILE EXIST\0" */
-        case BUD_ERR_ACCESS_DENIED:		return (char*) 0x8c035e8c; /* "ACCESS DENIED\0" */
-        case BUD_ERR_VERIFY:			return (char*) 0x8c035e9c; /* "VERIFY ERROR\0" */
-        default:						return (char*) 0x8c035eac; /* "GENERIC ERROR\0" */
+        case BUD_ERR_OK:             return "OK\0";
+        case BUD_ERR_BUSY:           return "BUSY\0";
+        case BUD_ERR_INVALID_PARAM:  return "INVALID PARAMETER\0";
+        case BUD_ERR_ILLEGAL_DISK:   return "ILLEGAL DISK\0";
+        case BUD_ERR_UNKNOWN_DISK:   return "UNKNOWN DISK\0";
+        case BUD_ERR_NO_DISK:        return "NO DISK\0";
+        case BUD_ERR_UNFORMAT:       return "UNFORMAT\0";
+        case BUD_ERR_DISK_FULL:      return "DISK FULL\0";
+        case BUD_ERR_FILE_NOT_FOUND: return "FILE NOT FOUND\0";
+        case BUD_ERR_FILE_EXIST:     return "FILE EXIST\0";
+        case BUD_ERR_CANNOT_OPEN:    return "CANNOT OPEN\0";
+        case BUD_ERR_CANNOT_CREATE:  return "CANNOT CREATE\0";
+        case BUD_ERR_EXECFILE_EXIST: return "EXECUTABLE FILE EXIST\0";
+        case BUD_ERR_ACCESS_DENIED:  return "ACCESS DENIED\0";
+        case BUD_ERR_VERIFY:         return "VERIFY ERROR\0";
+        default:						    return "GENERIC ERROR\0";
     }
 }
 
 const char* BupGetOperationString(Sint32 op)
 {
     switch (op) {
-        // TODO: Fix as soon as we catch up with the constant integration
-        case BUD_OP_CONNECT:		return (char *) 0x8c035ebc; /* "CONNECTED\0" */
-        case BUD_OP_MOUNT:			return (char *) 0x8c035ec8; /* "MOUNTED\0" */
-        case BUD_OP_UNMOUNT:		return (char *) 0x8c035ed4; /* "UNMOUNTED\0" */
-        case BUD_OP_FORMATDISK:		return (char *) 0x8c035ee0; /* "FORMATDISK\0" */
-        case BUD_OP_DELETEFILE:		return (char *) 0x8c035eec; /* "DELETEFILE\0" */
-        case BUD_OP_LOADFILE:		return (char *) 0x8c035ef8; /* "LOADFILE\0" */
-        case BUD_OP_SAVEFILE:		return (char *) 0x8c035f04; /* "SAVEFILE\0" */
-        default:					return (char *) 0x8c035f10; /* "UNKNOWN OPERATION\0" */
+        case BUD_OP_CONNECT:         return "CONNECTED\0";
+        case BUD_OP_MOUNT:           return "MOUNTED\0";
+        case BUD_OP_UNMOUNT:         return "UNMOUNTED\0";
+        case BUD_OP_FORMATDISK:      return "FORMATDISK\0";
+        case BUD_OP_DELETEFILE:      return "DELETEFILE\0";
+        case BUD_OP_LOADFILE:        return "LOADFILE\0";
+        case BUD_OP_SAVEFILE:        return "SAVEFILE\0";
+        default:                     return "UNKNOWN OPERATION\0";
     }
 }
 
