@@ -135,10 +135,5 @@ void sbExitSystem(void)
     /* Disable interrupt. */
     set_imask(15);
 
-    // TODO
-    _8c056358();
+    syBtExit();
 }
-
-
-/******************************* end of file *******************************/
-

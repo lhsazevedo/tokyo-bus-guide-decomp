@@ -154,6 +154,7 @@ define _syRtcGetDate(8c05489e)
 define _buStat(8c055970)
 define _gBupInfo(8c1bc4ac)
 define _gBupTime(8c04411c)
+define _syBtExit(8c056358)
 
 input build\_000000_8c010000.obj
 input build\_000128_8c010080_main.obj
@@ -166,7 +167,8 @@ input build\_008160_8c011fe0.obj
 input build\_018740_8c014934.obj
 input build\_018864_8c0149b0_sbinit.obj
 input build\_019100_8c014a9c_tasks.obj
-input build\_019340_8c014b8c.obj
+input build\_019340_8c014b8c_backup.obj
+input build\_020308_8c014f54.obj
 input build\_023224_8c015ab8_title.obj
 input build\_024840_8c016108.obj
 input build\_024908_8c01614c.obj
