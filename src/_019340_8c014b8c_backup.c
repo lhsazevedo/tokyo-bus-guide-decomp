@@ -55,12 +55,26 @@ Sint32 BupLoad(Sint32 drive, const char* fname, void* buf)
     return buLoadFile(drive, fname, buf, 0);
 }
 
-extern SYS_RTC_DATE gBupTime;
+enum {
+	Sunday = 0,
+	Monday,
+	Tuesday,
+	Wednesday,
+	Thursday,
+	Friday,
+	Saturday
+};
+
+static SYS_RTC_DATE gBupTime_8c04411c = {
+    1998, 12, 31,   /* year, month, day     */
+    23, 59, 59,     /* hour, minute, second */
+    Thursday, 0     /* day of week, age of moon */
+};
 
 Sint32 BupSave(Sint32 drive, const char* fname, void* buf, Sint32 nblock)
 {
-    syRtcGetDate(&gBupTime);
-    return buSaveFile(drive, fname, buf, nblock, &gBupTime,
+    syRtcGetDate(&gBupTime_8c04411c);
+    return buSaveFile(drive, fname, buf, nblock, &gBupTime_8c04411c,
                             BUD_FLAG_VERIFY | BUD_FLAG_COPY(0));
 }
 

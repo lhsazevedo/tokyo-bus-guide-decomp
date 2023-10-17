@@ -153,7 +153,7 @@ define _buGetDiskInfo(8c0554e8)
 define _syRtcGetDate(8c05489e)
 define _buStat(8c055970)
 define _gBupInfo(8c1bc4ac)
-define _gBupTime(8c04411c)
+define _gBupTime_8c04411c(8c04411c)
 define _syBtExit(8c056358)
 
 input build\_000000_8c010000.obj
