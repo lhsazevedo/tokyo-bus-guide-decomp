@@ -15,7 +15,7 @@
           .IMPORT     __8c014b66
           .IMPORT     _gdFsGetStat
           .IMPORT     _gdFsClose
-          .IMPORT     __8c0770d8
+          .IMPORT     _njReadBinary
           .IMPORT     __8c0537c8
           .IMPORT     _gdFsTrans32
           .IMPORT     __8c02fe38
@@ -28,8 +28,8 @@
           .IMPORT     __8c157ab0
           .IMPORT     __8c157a68
           .IMPORT     __8c157ab8
-          .IMPORT     __8c059e84
-          .IMPORT     __8c05804c
+          .IMPORT     _njSetTexture
+          .IMPORT     _njLoadTextureNum
           .IMPORT     __8c01183e
           .IMPORT     __8c157abc
           .IMPORT     __8c157ac4
@@ -37,12 +37,12 @@
           .IMPORT     __8c157ac8
           .IMPORT     __8c277ca0
           .IMPORT     __8c157a84
-          .IMPORT     __8c0583c4
-          .IMPORT     __8c059294
+          .IMPORT     _njSetPvmTextureList
+          .IMPORT     _njLoadTexturePvmMemory
           .IMPORT     __8c157a6c
           .IMPORT     __quick_evn_mvn
           .IMPORT     __8c011b00
-          .IMPORT     __8c059a64
+          .IMPORT     _njReleaseTexture
           .IMPORT     __8c01c8fc
           .IMPORT     __8c01c910
           .IMPORT     __8c157a60
@@ -427,7 +427,7 @@ L27:
 L28:
           .DATA.W     H'0800 ; L28
           .DATA.L     _gdFsClose ; L28+2
-          .DATA.L     __8c0770d8
+          .DATA.L     _njReadBinary
           .DATA.L     __8c0537c8
           .DATA.L     _gdFsTrans32
           .DATA.L     __8c157a88 ; L28+18
@@ -776,8 +776,8 @@ L55:
           .DATA.L     __8c157a68
           .DATA.L     __8c157ab8 ; L55+64
           .DATA.L     _gdFsChangeDir
-          .DATA.L     __8c059e84
-          .DATA.L     __8c05804c
+          .DATA.L     _njSetTexture
+          .DATA.L     _njLoadTextureNum
 
 LAB_8c0119a0:
           MOV.L       R13,@(4,R9)
@@ -1284,8 +1284,8 @@ L91:
 L92:
           .DATA.W     H'0800 ; L92
           .RES.W      1
-          .DATA.L     __8c0583c4
-          .DATA.L     __8c059294
+          .DATA.L     _njSetPvmTextureList
+          .DATA.L     _njLoadTexturePvmMemory
           .DATA.L     _syFree ; L92+12
           .DATA.L     __8c0537c8
           .DATA.L     _gdFsTrans32
@@ -1595,7 +1595,7 @@ L110:
           .DATA.L     __8c157a80_basedir ; L110+32
           .DATA.L     __8c157ac8
           .DATA.L     __8c157abc
-          .DATA.L     __8c059a64
+          .DATA.L     _njReleaseTexture
           .DATA.L     __8c014b66 ; L110+48
           .DATA.L     __8c01c8fc
           .DATA.L     __8c01c910
