@@ -11,6 +11,14 @@
           .IMPORT     __8c03be80
           .IMPORT     __8c03beb8
           .IMPORT     __8c03bef0
+          .IMPORT     _peripheral_8c1ba35c
+          .IMPORT     __8c157a78
+          .IMPORT     __8c1ba358
+          .IMPORT     __8c054240
+          .IMPORT     __8c157a70
+          .IMPORT     __8c02fe38
+          .IMPORT     __8c157ae4
+          .IMPORT     __8c157ae8
           .SECTION P, CODE, ALIGN=4
 
 FUN_8c011fe0:
@@ -474,18 +482,18 @@ task_8c012324:
           MOV.L       R12,@-R15
           MOV.L       R11,@-R15
           MOV         #H'1,R11
-          MOV.L       H'8c012410,R3
+          MOV.L       LP_GEN_72787+6,R3
           STS.L       PR,@-R15
-          MOV.L       H'8c012414,R12
-          MOV.L       H'8c01240c,R14
-          MOV.L       H'8c012418,R2
+          MOV.L       LP_GEN_72787+10,R12
+          MOV.L       LP_GEN_72787+2,R14
+          MOV.L       LP_GEN_72787+14,R2
           MOV.L       R13,@R3
           JSR         @R2
           MOV         R13,R4
           MOV         R0,R3
           MOV         R0,R7
-          MOV.L       H'8c012420,R6
-          MOV.L       H'8c01241c,R5
+          MOV.L       LP_GEN_72787+22,R6
+          MOV.L       LP_GEN_72787+18,R5
           MOV.L       R0,@R12
           MOV.L       @(H'30,R3),R2
           MOV.L       @(H'4,R7),R4
@@ -498,24 +506,24 @@ task_8c012324:
 LAB_8c01235a:
           CMP/EQ      R5,R4
           BT          LAB_8c012368
-          MOV.L       H'8c012424,R3
+          MOV.L       LP_GEN_72787+26,R3
           CMP/EQ      R3,R4
           BT          LAB_8c012368
           BRA         LAB_8c012464
           NOP
 LAB_8c012368:
-          MOV.L       H'8c012428,R3
+          MOV.L       LP_GEN_72787+30,R3
           MOV         R7,R2
           MOV         R14,R1
           JSR         @R3
           MOV         #H'34,R0
-          MOV.L       H'8c01241c,R1
+          MOV.L       LP_GEN_72787+18,R1
           MOV         R4,R0
           MOV.L       R4,@R6
           CMP/EQ      R1,R0
           BT/S        LAB_8c012388
           MOV         #H'8,R7
-          MOV.L       H'8c012424,R1
+          MOV.L       LP_GEN_72787+26,R1
           CMP/EQ      R1,R0
           BT          LAB_8c01244e
           BRA         LAB_8c012476
@@ -523,7 +531,7 @@ LAB_8c012368:
 LAB_8c012388:
           MOV.W       @(H'1c,R14),R0
           MOV         #-H'40,R3
-          MOV.L       H'8c01242c,R5
+          MOV.L       LP_GEN_72787+34,R5
           MOV         R0,R6
           CMP/GE      R3,R6
           BT/S        LAB_8c0123ac
@@ -544,7 +552,7 @@ LAB_8c0123ac:
           CMP/GT      R4,R6
           BF          LAB_8c0123c8
           MOV.L       @(H'8,R14),R1
-          MOV.W       H'8c01240a,R6
+          MOV.W       LP_GEN_72787+0,R6
           OR          R6,R1
           MOV.L       R1,@(H'8,R14)
           MOV.L       @R5,R2
@@ -561,7 +569,7 @@ LAB_8c0123c8:
 LAB_8c0123ca:
           MOV.W       @(H'1e,R14),R0
           MOV         #-H'40,R3
-          MOV.L       H'8c012430,R5
+          MOV.L       LP_GEN_72787+38,R5
           MOV         R0,R6
           CMP/GE      R3,R6
           BT          LAB_8c0123ee
@@ -594,17 +602,18 @@ LAB_8c012406:
           BRA         LAB_8c012436
           MOV.L       R4,@R5
 
-          .DATA.B H'80, H'00 ; H'8c01240a
-          .DATA.L H'8C1BA35C
-          .DATA.L H'8C157A78
-          .DATA.L H'8C1BA358
-          .DATA.L H'8C054240
-          .DATA.B H'FE, H'06, H'0F, H'00
-          .DATA.L H'8C157A70
-          .DATA.B H'FE, H'00, H'07, H'00
-          .DATA.L H'8C02FE38
-          .DATA.L H'8C157AE4
-          .DATA.L H'8C157AE8
+LP_GEN_72787:
+          .DATA.W H'0080 ; LP_GEN_72787+0
+          .DATA.L _peripheral_8c1ba35c
+          .DATA.L __8c157a78
+          .DATA.L __8c1ba358
+          .DATA.L __8c054240
+          .DATA.L H'000F06FE
+          .DATA.L __8c157a70
+          .DATA.L H'000700FE
+          .DATA.L __8c02fe38
+          .DATA.L __8c157ae4
+          .DATA.L __8c157ae8
 
 LAB_8c012434:
           MOV.L       R13,@R5
@@ -709,9 +718,9 @@ LAB_8c0124ce:
 
           .DATA.B H'06, H'06 ; H'8c0124e2
           .DATA.B H'F0, H'00, H'00, H'00
-          .DATA.L H'8C157A78
+          .DATA.L __8c157a78
           .DATA.L H'8C033318
-          .DATA.L H'8C02FE38
+          .DATA.L __8c02fe38
           .DATA.L H'8C1BA354
           .DATA.L H'8C157AD4
           .DATA.L H'8C01C910
@@ -845,13 +854,13 @@ LAB_8c0125de:
           ADD         #H'28,R0
 
           .DATA.B H'06, H'06 ; H'8c0125ea
-          .DATA.L H'8C054240
+          .DATA.L __8c054240
           .DATA.L H'8C1BA354
-          .DATA.L H'8C157A78
-          .DATA.L H'8C1BA358
+          .DATA.L __8c157a78
+          .DATA.L __8c1ba358
           .DATA.B H'FE, H'06, H'0F, H'00
-          .DATA.L H'8C157A70
-          .DATA.L H'8C1BA35C
+          .DATA.L __8c157a70
+          .DATA.L _peripheral_8c1ba35c
           .DATA.B H'FE, H'00, H'07, H'00
           .DATA.L __8c03be80
           .DATA.L __8c03bef0
@@ -991,9 +1000,9 @@ LAB_8c0126e0:
           .RES.W 1
           .DATA.L H'8C1BBC4C
           .DATA.L H'8C1BBCC4
-          .DATA.L H'8C157A78
+          .DATA.L __8c157a78
           .DATA.L H'8C033318
-          .DATA.L H'8C02FE38
+          .DATA.L __8c02fe38
           .DATA.L H'8C01C910
 
           ; UNIT BOUNDARY?
@@ -1125,14 +1134,14 @@ LAB_8c0127f0:
           ADD         #H'28,R9
 
           .DATA.B H'06, H'06, H'00, H'00 ; H'8c0127fc
-          .DATA.L H'8C054240
+          .DATA.L __8c054240
           .DATA.L H'8C1BA354
-          .DATA.L H'8C157A78
-          .DATA.L H'8C1BA358 ; H'8c012800
+          .DATA.L __8c157a78
+          .DATA.L __8c1ba358 ; H'8c012800
           .DATA.B H'FE, H'06, H'0F, H'00
-          .DATA.L H'8C1BA35C
+          .DATA.L _peripheral_8c1ba35c
           .DATA.B H'FE, H'00, H'07, H'00
-          .DATA.L H'8C157A70 ; H'8c012810
+          .DATA.L __8c157a70 ; H'8c012810
           .DATA.L __8c03beb8
           .DATA.L __8c03bf18
 
@@ -1265,17 +1274,17 @@ LAB_8c0128e6:
           MOV.L       R2,@R1
 
           .DATA.B H'00, H'01 ; H'8c01290a
-          .DATA.L H'8C157A78
+          .DATA.L __8c157a78
           .DATA.L H'8C033318
-          .DATA.L H'8C02FE38
-          .DATA.L H'8C157A70
+          .DATA.L __8c02fe38
+          .DATA.L __8c157a70
           .DATA.L H'8C01C910
           .DATA.L __8c014ae8
           .DATA.L _tasks_8c1ba3c8
           .DATA.L H'8C157A74
           .DATA.L H'8C012324
-          .DATA.L H'8C157AE4
-          .DATA.L H'8C157AE8
+          .DATA.L __8c157ae4
+          .DATA.L __8c157ae8
           .DATA.L H'8C157AD4
 
 LAB_8c01293c:
@@ -1631,8 +1640,8 @@ LAB_8c012ba6:
           .DATA.L H'8C18AD04
           .DATA.L H'8C0FCD28
           .DATA.L H'8C051618
-          .DATA.L H'8C1BA358
-          .DATA.L H'8C157A70
+          .DATA.L __8c1ba358
+          .DATA.L __8c157a70
           .DATA.L H'8C22847C
           .DATA.L H'8C18AD10
           .DATA.L H'8C0107D2
@@ -1919,7 +1928,7 @@ LAB_8c012db0:
           .DATA.L H'8C22640C
           .DATA.L H'8C1BC7E0
           .DATA.L H'8C01F21C
-          .DATA.L H'8C157A78
+          .DATA.L __8c157a78
           .DATA.L H'8C157A7C
           .DATA.L H'8C157A60
           .DATA.L H'8C015FD6
@@ -1928,7 +1937,7 @@ LAB_8c012db0:
           .DATA.L H'8C014B42
           .DATA.L H'8C022560
           .DATA.L H'8C1BB8CC
-          .DATA.L H'8C1BA358
+          .DATA.L __8c1ba358
           .DATA.L H'8C022910
           .DATA.L H'8C03BD80
           .DATA.L H'8C03BD84
@@ -2166,7 +2175,7 @@ LAB_8c012ffc:
 
           .DATA.B H'7C, H'02, H'C0, H'03 ; H'8c013008
           .DATA.B H'68, H'02, H'00, H'00
-          .DATA.L H'8C157A78
+          .DATA.L __8c157a78
           .DATA.L H'8C157A7C
           .DATA.L H'8C010CA6
           .DATA.L H'8C051974

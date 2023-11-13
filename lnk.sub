@@ -199,6 +199,12 @@ define __8c03bf18(8C03BF18)
 define __8c03be80(8C03BE80)
 define __8c03beb8(8C03BEB8)
 define __8c03bef0(8C03BEF0)
+define __8c157a78(8C157A78)
+define __8c1ba358(8C1BA358)
+define __8c054240(8C054240)
+define __8c157a70(8C157A70)
+define __8c157ae4(8C157AE4)
+define __8c157ae8(8C157AE8)
 
 input build\_000000_8c010000.obj
 input build\_000128_8c010080_main.obj
