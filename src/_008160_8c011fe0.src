@@ -68,7 +68,7 @@ FUN_8c012030:
           MOV.L       R4,@R15
           MOV.L       R6,@(H'c,R15)
           MOV         R5,R9
-          BRA         H'8c012050
+          BRA         LAB_8c012050
           MOV         R8,R13
 LAB_8c01204e:
           ADD         #H'1,R13
@@ -80,14 +80,14 @@ LAB_8c012050:
           MOV.L       @(R0,R9),R3
           MOV.B       @R3,R2
           TST         R2,R2
-          BF          H'8c01204e
+          BF          LAB_8c01204e
           MOV         R4,R0
           ADD         #H'1,R0
           SHLL2       R0
           MOV.L       @(R0,R9),R3
           MOV.B       @R3,R2
           TST         R2,R2
-          BF          H'8c01204e
+          BF          LAB_8c01204e
           MOV         R13,R4
           MOV.L       LP_GEN_90004+14,R3
           ADD         #H'1,R4
@@ -103,7 +103,7 @@ LAB_8c012050:
           ADD         R9,R11
           MOV.L       R4,@(H'8,R15)
           MOV.L       R4,@(H'4,R15)
-          BF/S        H'8c0120e0
+          BF/S        LAB_8c0120e0
           MOV         #-H'1,R10
 LAB_8c012090:
           MOV         R14,R0
@@ -119,7 +119,7 @@ LAB_8c012090:
           BSR         H'8c011492
           MOV.L       @R15,R4
           TST         R0,R0
-          BF          H'8c0120b6
+          BF          LAB_8c0120b6
           MOV         R14,R3
           SHLL2       R3
           SHLL        R3
@@ -133,7 +133,7 @@ LAB_8c0120b6:
           BSR         H'8c011ac0
           MOV.L       @(H'4,R15),R4
           TST         R0,R0
-          BF/S        H'8c0120cc
+          BF/S        LAB_8c0120cc
           ADD         #H'4,R15
           MOV.L       @(H'8,R15),R3
           MOV.L       R10,@R3
@@ -146,7 +146,7 @@ LAB_8c0120cc:
           MOV.L       R3,@(H'8,R15)
           MOV.L       @(H'4,R15),R2
           ADD         #H'8,R2
-          BF/S        H'8c012090
+          BF/S        LAB_8c012090
           MOV.L       R2,@(H'4,R15)
 LAB_8c0120e0:
           SHLL2       R13
@@ -176,9 +176,9 @@ FUN_8c0120fe:
           MOV.L       @R13,R13
           MOV         R13,R0
           CMP/EQ      #-H'1,R0
-          BT          H'8c012152
+          BT          LAB_8c012152
           MOV.L       LP_GEN_90004+18,R11
-          BRA         H'8c01213a
+          BRA         LAB_8c01213a
           MOV         #H'0,R12
 LAB_8c01211c:
           MOV         R12,R14
@@ -187,13 +187,13 @@ LAB_8c01211c:
           ADD         R13,R14
           MOV.L       @R14,R0
           CMP/EQ      #-H'1,R0
-          BT          H'8c01212e
+          BT          LAB_8c01212e
           BSR         H'8c011e3c
           MOV.L       @R14,R4
 LAB_8c01212e:
           MOV.L       @(H'4,R14),R0
           CMP/EQ      #-H'1,R0
-          BT          H'8c012138
+          BT          LAB_8c012138
           JSR         @R11
           MOV.L       @(H'4,R14),R4
 LAB_8c012138:
@@ -205,7 +205,7 @@ LAB_8c01213a:
           ADD         R13,R2
           MOV.L       @R2,R3
           TST         R3,R3
-          BF          H'8c01211c
+          BF          LAB_8c01211c
           JSR         @R11
           MOV         R13,R4
           MOV.L       @R15,R3
@@ -238,7 +238,7 @@ FUN_8c012178:
           ADD         #-H'4,R15
           MOV         R4,R3
           TST         R3,R3
-          BT/S        H'8c012198
+          BT/S        LAB_8c012198
           MOV.L       R4,@R15
           BSR         H'8c012166
           NOP
@@ -277,7 +277,7 @@ FUN_8c0121be:
           ADD         #-H'4,R15
           MOV         R4,R3
           TST         R3,R3
-          BT/S        H'8c0121de
+          BT/S        LAB_8c0121de
           MOV.L       R4,@R15
           BSR         H'8c0121a8
           NOP
@@ -309,7 +309,7 @@ FUN_8c0121e8:
           MOV         R7,R4
           MOV.L       LP_GEN_90004+38,R5
           MOV         #H'8,R10
-          BRA         H'8c01223a
+          BRA         LAB_8c01223a
           ADD         #H'38,R0
 
 LP_GEN_90004:
@@ -332,22 +332,22 @@ LAB_8c012234:
           ADD         #H'8,R4
 LAB_8c01223a:
           CMP/HS      R0,R4
-          BF          H'8c012234
+          BF          LAB_8c012234
           MOV.W       LP_GEN_88006+0,R0
           MOV.B       @(R0,R12),R0
           CMP/EQ      #H'0,R0
-          BT/S        H'8c012260
+          BT/S        LAB_8c012260
           MOV         R7,R4
           CMP/EQ      #H'1,R0
-          BT          H'8c012254
+          BT          LAB_8c012254
           CMP/EQ      #H'2,R0
-          BT          H'8c01225c
-          BRA         H'8c012260
+          BT          LAB_8c01225c
+          BRA         LAB_8c012260
           NOP
 LAB_8c012254:
           MOV.W       LP_GEN_88006+2,R2
           MOV.L       R6,@R4
-          BRA         H'8c012260
+          BRA         LAB_8c012260
           MOV.L       R2,@(H'18,R7)
 LAB_8c01225c:
           MOV.L       R6,@(H'8,R4)
@@ -356,7 +356,7 @@ LAB_8c012260:
           MOV.L       LP_GEN_88006+14,R7
           MOV         R7,R0
           MOV         R7,R4
-          BRA         H'8c012270
+          BRA         LAB_8c012270
           ADD         #H'38,R0
 LAB_8c01226a:
           MOV.L       @(H'4,R4),R2
@@ -364,7 +364,7 @@ LAB_8c01226a:
           ADD         #H'8,R4
 LAB_8c012270:
           CMP/HS      R0,R4
-          BF          H'8c01226a
+          BF          LAB_8c01226a
           MOV.W       LP_GEN_88006+6,R0
           MOV         #H'40,R2
           MOV.W       LP_GEN_88006+4,R3
@@ -372,18 +372,18 @@ LAB_8c012270:
           MOV.L       R3,@(H'28,R7)
           MOV.B       @(R0,R12),R0
           CMP/EQ      #H'0,R0
-          BT/S        H'8c01229e
+          BT/S        LAB_8c01229e
           MOV         R7,R4
           CMP/EQ      #H'1,R0
-          BT          H'8c012292
+          BT          LAB_8c012292
           CMP/EQ      #H'2,R0
-          BT          H'8c01229a
-          BRA         H'8c01229e
+          BT          LAB_8c01229a
+          BRA         LAB_8c01229e
           NOP
 LAB_8c012292:
           MOV.W       LP_GEN_88006+2,R2
           MOV.L       R6,@R4
-          BRA         H'8c01229e
+          BRA         LAB_8c01229e
           MOV.L       R2,@(H'18,R7)
 LAB_8c01229a:
           MOV.L       R6,@(H'8,R4)
@@ -393,18 +393,18 @@ LAB_8c01229e:
           MOV.L       LP_GEN_88006+18,R4
           MOV.B       @(R0,R12),R0
           CMP/EQ      #H'0,R0
-          BT/S        H'8c0122b2
+          BT/S        LAB_8c0122b2
           MOV         R4,R7
           CMP/EQ      #H'1,R0
-          BT          H'8c0122be
-          BRA         H'8c0122b2
+          BT          LAB_8c0122be
+          BRA         LAB_8c0122b2
           NOP
 LAB_8c0122b2:
           MOV         #H'10,R3
           MOV.L       R13,@R7
           MOV.L       R3,@(H'8,R4)
           MOV.L       R14,@(H'10,R4)
-          BRA         H'8c0122c8
+          BRA         LAB_8c0122c8
           MOV.L       R6,@(H'18,R4)
 LAB_8c0122be:
           MOV         #H'10,R2
@@ -417,13 +417,13 @@ LAB_8c0122c8:
           MOV.L       R10,@(H'20,R4)
           MOV.B       @(R0,R12),R0
           CMP/EQ      #H'0,R0
-          BT/S        H'8c0122e0
+          BT/S        LAB_8c0122e0
           MOV         R5,R4
           CMP/EQ      #H'1,R0
-          BT          H'8c0122ee
+          BT          LAB_8c0122ee
           CMP/EQ      #H'2,R0
-          BT          H'8c0122f4
-          BRA         H'8c0122e0
+          BT          LAB_8c0122f4
+          BRA         LAB_8c0122e0
           NOP
 LAB_8c0122e0:
           MOV         #H'10,R3
@@ -431,11 +431,11 @@ LAB_8c0122e0:
           MOV.L       R3,@(H'8,R5)
           MOV.L       R14,@(H'10,R5)
           MOV.L       R6,@(H'18,R5)
-          BRA         H'8c012304
+          BRA         LAB_8c012304
           MOV.L       R10,@(H'20,R5)
 LAB_8c0122ee:
           MOV.L       R14,@R4
-          BRA         H'8c0122fc
+          BRA         LAB_8c0122fc
           MOV.L       R6,@(H'8,R5)
 LAB_8c0122f4:
           MOV.W       LP_GEN_88006+4,R2
@@ -491,17 +491,17 @@ task_8c012324:
           MOV.L       @(H'4,R7),R4
           MOV.L       @R2,R1
           TST         R11,R1
-          BF/S        H'8c01235a
+          BF/S        LAB_8c01235a
           AND         R5,R4
-          BRA         H'8c012464
+          BRA         LAB_8c012464
           NOP
 LAB_8c01235a:
           CMP/EQ      R5,R4
-          BT          H'8c012368
+          BT          LAB_8c012368
           MOV.L       H'8c012424,R3
           CMP/EQ      R3,R4
-          BT          H'8c012368
-          BRA         H'8c012464
+          BT          LAB_8c012368
+          BRA         LAB_8c012464
           NOP
 LAB_8c012368:
           MOV.L       H'8c012428,R3
@@ -513,12 +513,12 @@ LAB_8c012368:
           MOV         R4,R0
           MOV.L       R4,@R6
           CMP/EQ      R1,R0
-          BT/S        H'8c012388
+          BT/S        LAB_8c012388
           MOV         #H'8,R7
           MOV.L       H'8c012424,R1
           CMP/EQ      R1,R0
-          BT          H'8c01244e
-          BRA         H'8c012476
+          BT          LAB_8c01244e
+          BRA         LAB_8c012476
           NOP
 LAB_8c012388:
           MOV.W       @(H'1c,R14),R0
@@ -526,35 +526,35 @@ LAB_8c012388:
           MOV.L       H'8c01242c,R5
           MOV         R0,R6
           CMP/GE      R3,R6
-          BT/S        H'8c0123ac
+          BT/S        LAB_8c0123ac
           MOV         #H'40,R4
           MOV.L       @(H'8,R14),R1
           OR          R4,R1
           MOV.L       R1,@(H'8,R14)
           MOV.L       @R5,R2
           TST         R4,R2
-          BF          H'8c0123a8
+          BF          LAB_8c0123a8
           MOV.L       @(H'10,R14),R0
           OR          R4,R0
           MOV.L       R0,@(H'10,R14)
 LAB_8c0123a8:
-          BRA         H'8c0123ca
+          BRA         LAB_8c0123ca
           MOV.L       R4,@R5
 LAB_8c0123ac:
           CMP/GT      R4,R6
-          BF          H'8c0123c8
+          BF          LAB_8c0123c8
           MOV.L       @(H'8,R14),R1
           MOV.W       H'8c01240a,R6
           OR          R6,R1
           MOV.L       R1,@(H'8,R14)
           MOV.L       @R5,R2
           TST         R6,R2
-          BF          H'8c0123c4
+          BF          LAB_8c0123c4
           MOV.L       @(H'10,R14),R0
           OR          R6,R0
           MOV.L       R0,@(H'10,R14)
 LAB_8c0123c4:
-          BRA         H'8c0123ca
+          BRA         LAB_8c0123ca
           MOV.L       R6,@R5
 LAB_8c0123c8:
           MOV.L       R13,@R5
@@ -564,34 +564,34 @@ LAB_8c0123ca:
           MOV.L       H'8c012430,R5
           MOV         R0,R6
           CMP/GE      R3,R6
-          BT          H'8c0123ee
+          BT          LAB_8c0123ee
           MOV.L       @(H'8,R14),R1
           MOV         #H'10,R4
           OR          R4,R1
           MOV.L       R1,@(H'8,R14)
           MOV.L       @R5,R2
           TST         R4,R2
-          BF          H'8c012406
+          BF          LAB_8c012406
           MOV.L       @(H'10,R14),R0
           OR          R4,R0
           MOV.L       R0,@(H'10,R14)
-          BRA         H'8c012406
+          BRA         LAB_8c012406
           NOP
 LAB_8c0123ee:
           CMP/GT      R4,R6
-          BF          H'8c012434
+          BF          LAB_8c012434
           MOV.L       @(H'8,R14),R1
           MOV         #H'20,R4
           OR          R4,R1
           MOV.L       R1,@(H'8,R14)
           MOV.L       @R5,R2
           TST         R4,R2
-          BF          H'8c012406
+          BF          LAB_8c012406
           MOV.L       @(H'10,R14),R0
           OR          R4,R0
           MOV.L       R0,@(H'10,R14)
 LAB_8c012406:
-          BRA         H'8c012436
+          BRA         LAB_8c012436
           MOV.L       R4,@R5
 
           .DATA.B H'80, H'00 ; H'8c01240a
@@ -612,27 +612,27 @@ LAB_8c012436:
           MOV.L       @R12,R2
           MOV.L       @(H'10,R2),R3
           TST         R3,R7
-          BT          H'8c012476
+          BT          LAB_8c012476
           MOV.L       @R12,R1
           MOV.W       H'8c0124e2,R3
           MOV.L       @(H'8,R1),R2
           AND         R3,R2
           CMP/EQ      R3,R2
-          BT          H'8c01245e
-          BRA         H'8c012476
+          BT          LAB_8c01245e
+          BRA         LAB_8c012476
           NOP
 LAB_8c01244e:
           MOV.L       @R12,R4
           MOV.L       @(H'10,R4),R3
           TST         R3,R7
-          BT          H'8c012476
+          BT          LAB_8c012476
           MOV.L       @(H'8,R4),R0
           AND         #H'6,R0
           CMP/EQ      #H'6,R0
-          BF          H'8c012476
+          BF          LAB_8c012476
 LAB_8c01245e:
           MOV.L       H'8c0124e8,R2
-          BRA         H'8c012476
+          BRA         LAB_8c012476
           MOV.L       R11,@R2
 LAB_8c012464:
           MOV.L       H'8c0124f0,R3
@@ -650,30 +650,30 @@ LAB_8c012476:
           MOV.L       @R4,R0
           MOV.W       H'8c0124e4,R6
           CMP/EQ      #H'0,R0
-          BT/S        H'8c01248c
+          BT/S        LAB_8c01248c
           AND         R6,R5
           CMP/EQ      #H'1,R0
-          BT          H'8c01249c
-          BRA         H'8c0124ce
+          BT          LAB_8c01249c
+          BRA         LAB_8c0124ce
           NOP
 LAB_8c01248c:
           TST         R5,R5
-          BT          H'8c0124ce
+          BT          LAB_8c0124ce
           MOV         #H'f,R2
           MOV.L       R11,@R4
           MOV.L       R13,@(H'4,R4)
           MOV.L       R2,@(H'8,R4)
-          BRA         H'8c0124ce
+          BRA         LAB_8c0124ce
           MOV.L       R13,@(H'c,R4)
 LAB_8c01249c:
           TST         R5,R5
-          BT          H'8c0124cc
+          BT          LAB_8c0124cc
           MOV.L       @(H'4,R4),R3
           ADD         #H'1,R3
           MOV.L       R3,@(H'4,R4)
           MOV.L       @(H'8,R4),R2
           CMP/GE      R2,R3
-          BF          H'8c0124bc
+          BF          LAB_8c0124bc
           MOV         #H'6,R2
           MOV.L       R13,@(H'4,R4)
           MOV.L       R2,@(H'8,R4)
@@ -688,8 +688,8 @@ LAB_8c0124bc:
           ADD         #H'1,R3
           CMP/GT      R2,R3
           MOV.L       R3,@(H'c,R4)
-          BF          H'8c0124ce
-          BRA         H'8c0124ce
+          BF          LAB_8c0124ce
+          BRA         LAB_8c0124ce
           MOV.L       R11,@(H'8,R4)
 LAB_8c0124cc:
           MOV.L       R13,@R4
@@ -746,17 +746,17 @@ LAB_8c0124ce:
           MOV.L       @(H'4,R6),R5
           TST         R12,R0
           MOV.L       H'8c012600,R7
-          BF/S        H'8c012544
+          BF/S        LAB_8c012544
           AND         R3,R5
-          BRA         H'8c0126d2
+          BRA         LAB_8c0126d2
           NOP
 LAB_8c012544:
           CMP/EQ      R3,R5
-          BT          H'8c012552
+          BT          LAB_8c012552
           MOV.L       H'8c012608,R2
           CMP/EQ      R2,R5
-          BT          H'8c012552
-          BRA         H'8c0126d2
+          BT          LAB_8c012552
+          BRA         LAB_8c0126d2
           NOP
 LAB_8c012552:
           MOV.W       @(H'18,R6),R0
@@ -773,26 +773,26 @@ LAB_8c012552:
           MOV.L       R9,@(H'8,R4)
           MOV.L       R9,@(H'10,R4)
           MOV.L       R5,@R7
-          BT/S        H'8c01257c
+          BT/S        LAB_8c01257c
           MOV         #H'8,R7
           MOV.L       H'8c012608,R1
           CMP/EQ      R1,R0
-          BT          H'8c0125de
-          BRA         H'8c0126a4
+          BT          LAB_8c0125de
+          BRA         LAB_8c0126a4
           NOP
 LAB_8c01257c:
           MOV.L       H'8c01260c,R9
           MOV         R9,R0
           MOV         R9,R6
           MOV         R9,R5
-          BRA         H'8c01259e
+          BRA         LAB_8c01259e
           ADD         #H'38,R0
 LAB_8c012588:
           MOV.L       @R14,R2
           MOV.L       @R5,R3
           MOV.L       @(H'8,R2),R1
           TST         R3,R1
-          BT          H'8c01259a
+          BT          LAB_8c01259a
           MOV.L       @(H'8,R4),R2
           MOV.L       @(H'4,R6),R3
           OR          R3,R2
@@ -802,18 +802,18 @@ LAB_8c01259a:
           ADD         #H'8,R6
 LAB_8c01259e:
           CMP/HS      R0,R5
-          BF          H'8c012588
+          BF          LAB_8c012588
           MOV         R9,R6
           MOV         R9,R5
           MOV.L       R9,@R15
-          BRA         H'8c0125c2
+          BRA         LAB_8c0125c2
           ADD         #H'38,R9
 LAB_8c0125ac:
           MOV.L       @R14,R2
           MOV.L       @R5,R3
           MOV.L       @(H'10,R2),R1
           TST         R3,R1
-          BT          H'8c0125be
+          BT          LAB_8c0125be
           MOV.L       @(H'10,R4),R2
           MOV.L       @(H'4,R6),R3
           OR          R3,R2
@@ -823,25 +823,25 @@ LAB_8c0125be:
           ADD         #H'8,R6
 LAB_8c0125c2:
           CMP/HS      R9,R5
-          BF          H'8c0125ac
+          BF          LAB_8c0125ac
           MOV.L       @R14,R2
           MOV.L       @(H'10,R2),R3
           TST         R3,R7
-          BT          H'8c0126a4
+          BT          LAB_8c0126a4
           MOV.L       @R14,R1
           MOV.W       H'8c0125ea,R3
           MOV.L       @(H'8,R1),R2
           AND         R3,R2
           CMP/EQ      R3,R2
-          BT          H'8c0126a0
-          BRA         H'8c0126a4
+          BT          LAB_8c0126a0
+          BRA         LAB_8c0126a4
           NOP
 LAB_8c0125de:
           MOV.L       H'8c012610,R9
           MOV         R9,R0
           MOV         R9,R6
           MOV         R9,R5
-          BRA         H'8c01262a
+          BRA         LAB_8c01262a
           ADD         #H'28,R0
 
           .DATA.B H'06, H'06 ; H'8c0125ea
@@ -861,7 +861,7 @@ LAB_8c012614:
           MOV.L       @R5,R3
           MOV.L       @(H'8,R2),R1
           TST         R3,R1
-          BT          H'8c012626
+          BT          LAB_8c012626
           MOV.L       @(H'8,R4),R2
           MOV.L       @(H'4,R6),R3
           OR          R3,R2
@@ -871,18 +871,18 @@ LAB_8c012626:
           ADD         #H'8,R6
 LAB_8c01262a:
           CMP/HS      R0,R5
-          BF          H'8c012614
+          BF          LAB_8c012614
           MOV         R9,R6
           MOV         R9,R5
           MOV.L       R9,@R15
-          BRA         H'8c01264e
+          BRA         LAB_8c01264e
           ADD         #H'28,R9
 LAB_8c012638:
           MOV.L       @R14,R2
           MOV.L       @R5,R3
           MOV.L       @(H'10,R2),R1
           TST         R3,R1
-          BT          H'8c01264a
+          BT          LAB_8c01264a
           MOV.L       @(H'10,R4),R2
           MOV.L       @(H'4,R6),R3
           OR          R3,R2
@@ -892,48 +892,48 @@ LAB_8c01264a:
           ADD         #H'8,R6
 LAB_8c01264e:
           CMP/HS      R9,R5
-          BF          H'8c012638
+          BF          LAB_8c012638
           MOV.L       @(H'10,R4),R2
           MOV.W       H'8c0126f4,R3
           TST         R3,R2
-          BT          H'8c012690
+          BT          LAB_8c012690
           MOV.L       H'8c012700,R1
           FLDI0       FR3
           FMOV.S      @R1,FR2
           FCMP/EQ     FR3,FR2
-          BF          H'8c012690
+          BF          LAB_8c012690
           MOV.W       @(H'1a,R4),R0
           MOV.W       H'8c0126f6,R2
           EXTU.W      R0,R0
           CMP/GT      R2,R0
-          BF          H'8c012690
+          BF          LAB_8c012690
           MOV.L       H'8c012704,R3
           MOV.L       @R3,R0
           CMP/EQ      #H'5,R0
-          BF/S        H'8c012682
+          BF/S        LAB_8c012682
           MOV         R0,R5
           MOV.L       @(H'10,R4),R1
           MOV.W       H'8c0126f8,R2
           XOR         R2,R1
-          BRA         H'8c0126a4
+          BRA         LAB_8c0126a4
           MOV.L       R1,@(H'10,R4)
 LAB_8c012682:
           TST         R5,R5
-          BF          H'8c0126a4
+          BF          LAB_8c0126a4
           MOV.L       @(H'10,R4),R0
           MOV.W       H'8c0126fa,R2
           XOR         R2,R0
-          BRA         H'8c0126a4
+          BRA         LAB_8c0126a4
           MOV.L       R0,@(H'10,R4)
 LAB_8c012690:
           MOV.L       @R14,R4
           MOV.L       @(H'10,R4),R2
           TST         R2,R7
-          BT          H'8c0126a4
+          BT          LAB_8c0126a4
           MOV.L       @(H'8,R4),R0
           AND         #H'6,R0
           CMP/EQ      #H'6,R0
-          BF          H'8c0126a4
+          BF          LAB_8c0126a4
 LAB_8c0126a0:
           MOV.L       H'8c012708,R3
           MOV.L       R12,@R3
@@ -945,8 +945,8 @@ LAB_8c0126a4:
           MOV.W       H'8c0126fc,R2
           MOV.L       @R3,R1
           TST         R2,R1
-          BT          H'8c0126b8
-          BRA         H'8c0126e0
+          BT          LAB_8c0126b8
+          BRA         LAB_8c0126e0
           MOV.L       R12,@R13
 LAB_8c0126b8:
           JSR         @R10
@@ -956,12 +956,12 @@ LAB_8c0126b8:
           MOV.W       H'8c0126fc,R2
           MOV.L       @R3,R1
           TST         R2,R1
-          BT          H'8c0126ce
+          BT          LAB_8c0126ce
           MOV         #H'2,R0
-          BRA         H'8c0126e0
+          BRA         LAB_8c0126e0
           MOV.L       R0,@R13
 LAB_8c0126ce:
-          BRA         H'8c0126e0
+          BRA         LAB_8c0126e0
           MOV.L       R11,@R13
 LAB_8c0126d2:
           MOV.L       H'8c012710,R3
@@ -1026,17 +1026,17 @@ LAB_8c0126e0:
           MOV.L       @(H'4,R7),R5
           MOV.L       @R3,R1
           TST         R12,R1
-          BF/S        H'8c012756
+          BF/S        LAB_8c012756
           AND         R6,R5
-          BRA         H'8c0128a8
+          BRA         LAB_8c0128a8
           NOP
 LAB_8c012756:
           CMP/EQ      R6,R5
-          BT          H'8c012764
+          BT          LAB_8c012764
           MOV.L       H'8c012818,R3
           CMP/EQ      R3,R5
-          BT          H'8c012764
-          BRA         H'8c0128a8
+          BT          LAB_8c012764
+          BRA         LAB_8c0128a8
           NOP
 LAB_8c012764:
           MOV.W       @(H'18,R7),R0
@@ -1053,26 +1053,26 @@ LAB_8c012764:
           CMP/EQ      R1,R0
           MOV.L       R9,@(H'8,R4)
           MOV.L       R9,@(H'10,R4)
-          BT/S        H'8c01278e
+          BT/S        LAB_8c01278e
           MOV.L       R5,@R3
           MOV.L       H'8c012818,R1
           CMP/EQ      R1,R0
-          BT          H'8c0127f0
-          BRA         H'8c01287a
+          BT          LAB_8c0127f0
+          BRA         LAB_8c01287a
           NOP
 LAB_8c01278e:
           MOV.L       H'8c012820,R7
           MOV         R7,R9
           MOV         R7,R6
           MOV         R7,R5
-          BRA         H'8c0127b0
+          BRA         LAB_8c0127b0
           ADD         #H'38,R9
 LAB_8c01279a:
           MOV.L       @R14,R3
           MOV.L       @R5,R2
           MOV.L       @(H'8,R3),R1
           TST         R2,R1
-          BT          H'8c0127ac
+          BT          LAB_8c0127ac
           MOV.L       @(H'8,R4),R0
           MOV.L       @(H'4,R6),R3
           OR          R3,R0
@@ -1082,18 +1082,18 @@ LAB_8c0127ac:
           ADD         #H'8,R6
 LAB_8c0127b0:
           CMP/HS      R9,R5
-          BF          H'8c01279a
+          BF          LAB_8c01279a
           MOV         R7,R6
           MOV         R7,R5
           MOV.L       R7,@R15
-          BRA         H'8c0127d4
+          BRA         LAB_8c0127d4
           ADD         #H'38,R7
 LAB_8c0127be:
           MOV.L       @R14,R2
           MOV.L       @R5,R3
           MOV.L       @(H'10,R2),R1
           TST         R3,R1
-          BT          H'8c0127d0
+          BT          LAB_8c0127d0
           MOV.L       @(H'10,R4),R2
           MOV.L       @(H'4,R6),R3
           OR          R3,R2
@@ -1103,25 +1103,25 @@ LAB_8c0127d0:
           ADD         #H'8,R6
 LAB_8c0127d4:
           CMP/HS      R7,R5
-          BF          H'8c0127be
+          BF          LAB_8c0127be
           MOV.L       @R14,R0
           MOV.L       @(H'10,R0),R0
           TST         #H'8,R0
-          BT          H'8c01287a
+          BT          LAB_8c01287a
           MOV.L       @R14,R2
           MOV.W       H'8c0127fc,R3
           MOV.L       @(H'8,R2),R1
           AND         R3,R1
           CMP/EQ      R3,R1
-          BT          H'8c012876
-          BRA         H'8c01287a
+          BT          LAB_8c012876
+          BRA         LAB_8c01287a
           NOP
 LAB_8c0127f0:
           MOV.L       H'8c012824,R7
           MOV         R7,R9
           MOV         R7,R6
           MOV         R7,R5
-          BRA         H'8c01283e
+          BRA         LAB_8c01283e
           ADD         #H'28,R9
 
           .DATA.B H'06, H'06, H'00, H'00 ; H'8c0127fc
@@ -1141,7 +1141,7 @@ LAB_8c012828:
           MOV.L       @R5,R2
           MOV.L       @(H'8,R3),R1
           TST         R2,R1
-          BT          H'8c01283a
+          BT          LAB_8c01283a
           MOV.L       @(H'8,R4),R0
           MOV.L       @(H'4,R6),R3
           OR          R3,R0
@@ -1151,18 +1151,18 @@ LAB_8c01283a:
           ADD         #H'8,R6
 LAB_8c01283e:
           CMP/HS      R9,R5
-          BF          H'8c012828
+          BF          LAB_8c012828
           MOV         R7,R6
           MOV         R7,R5
           MOV.L       R7,@R15
-          BRA         H'8c012862
+          BRA         LAB_8c012862
           ADD         #H'28,R7
 LAB_8c01284c:
           MOV.L       @R14,R2
           MOV.L       @R5,R3
           MOV.L       @(H'10,R2),R1
           TST         R3,R1
-          BT          H'8c01285e
+          BT          LAB_8c01285e
           MOV.L       @(H'10,R4),R2
           MOV.L       @(H'4,R6),R3
           OR          R3,R2
@@ -1172,15 +1172,15 @@ LAB_8c01285e:
           ADD         #H'8,R6
 LAB_8c012862:
           CMP/HS      R7,R5
-          BF          H'8c01284c
+          BF          LAB_8c01284c
           MOV.L       @R14,R4
           MOV.L       @(H'10,R4),R0
           TST         #H'8,R0
-          BT          H'8c01287a
+          BT          LAB_8c01287a
           MOV.L       @(H'8,R4),R0
           AND         #H'6,R0
           CMP/EQ      #H'6,R0
-          BF          H'8c01287a
+          BF          LAB_8c01287a
 LAB_8c012876:
           MOV.L       H'8c01290c,R2
           MOV.L       R12,@R2
@@ -1192,8 +1192,8 @@ LAB_8c01287a:
           MOV.W       H'8c01290a,R3
           MOV.L       @R2,R1
           TST         R3,R1
-          BT          H'8c01288e
-          BRA         H'8c0128b8
+          BT          LAB_8c01288e
+          BRA         LAB_8c0128b8
           MOV.L       R12,@R13
 LAB_8c01288e:
           JSR         @R10
@@ -1203,12 +1203,12 @@ LAB_8c01288e:
           MOV.W       H'8c01290a,R2
           MOV.L       @R3,R1
           TST         R2,R1
-          BT          H'8c0128a4
+          BT          LAB_8c0128a4
           MOV         #H'2,R0
-          BRA         H'8c0128b8
+          BRA         LAB_8c0128b8
           MOV.L       R0,@R13
 LAB_8c0128a4:
-          BRA         H'8c0128b8
+          BRA         LAB_8c0128b8
           MOV.L       R11,@R13
 LAB_8c0128a8:
           MOV.L       H'8c012914,R3
@@ -1239,10 +1239,10 @@ FUN_8c0128cc:
           MOV.L       H'8c012924,R14
           MOV.L       H'8c012920,R13
           CMP/EQ      #H'0,R0
-          BT          H'8c0128e6
+          BT          LAB_8c0128e6
           CMP/EQ      #H'1,R0
-          BT          H'8c01293c
-          BRA         H'8c012966
+          BT          LAB_8c01293c
+          BRA         LAB_8c012966
           NOP
 LAB_8c0128e6:
           MOV         #H'0,R3
@@ -1261,7 +1261,7 @@ LAB_8c0128e6:
           MOV.L       H'8c012938,R1
           MOV.L       R2,@R3
           MOV.L       R2,@R0
-          BRA         H'8c012966
+          BRA         LAB_8c012966
           MOV.L       R2,@R1
 
           .DATA.B H'00, H'01 ; H'8c01290a
@@ -1282,14 +1282,14 @@ LAB_8c01293c:
           MOV.L       H'8c0129ac,R3
           MOV.L       @R3,R0
           TST         R0,R0
-          BF/S        H'8c012954
+          BF/S        LAB_8c012954
           MOV         R14,R4
           MOV         #H'0,R0
           MOV.L       H'8c0129b0,R6
           MOV.L       H'8c0129b4,R5
           MOV.L       R0,@-R15
           MOV         R15,R7
-          BRA         H'8c012960
+          BRA         LAB_8c012960
           ADD         #H'4,R7
 LAB_8c012954:
           MOV         #H'0,R2
@@ -1312,13 +1312,13 @@ LAB_8c012970:
           MOV.L       H'8c0129ac,R2
           MOV.L       @R2,R3
           TST         R3,R3
-          BF          H'8c01297e
+          BF          LAB_8c01297e
           MOV         #H'0,R5
-          BRA         H'8c012504
+          BRA         task_8c012504
           MOV         R5,R4
 LAB_8c01297e:
           MOV         #H'0,R5
-          BRA         H'8c012718
+          BRA         FUN_8c012718
           MOV         R5,R4
 FUN_8c012984:
           STS.L       PR,@-R15
@@ -1328,7 +1328,7 @@ FUN_8c012984:
           JSR         @R2
           MOV.L       @R3,R5
           TST         R0,R0
-          BT          H'8c0129a4
+          BT          LAB_8c0129a4
           MOV.L       H'8c0129c8,R3
           MOV.L       H'8c0129c0,R4
           MOV.L       H'8c0129bc,R2
@@ -1372,22 +1372,22 @@ LAB_8c0129a4:
           MOV.L       H'8c012bbc,R12
           TST         R3,R3
           MOV.L       H'8c012bb8,R4
-          BF/S        H'8c012a38
+          BF/S        LAB_8c012a38
           MOV         #H'0,R14
           MOV.L       H'8c012bc4,R3
           MOV.L       @R3,R0
           MOV.L       @(H'10,R0),R0
           TST         #H'8,R0
-          BF          H'8c012a04
+          BF          LAB_8c012a04
           MOV.L       H'8c012bc8,R1
           MOV.L       @R1,R0
           CMP/EQ      #-H'1,R0
-          BF          H'8c012a34
+          BF          LAB_8c012a34
 LAB_8c012a04:
           MOV.L       H'8c012bcc,R2
           MOV.L       @R2,R3
           TST         R3,R3
-          BF          H'8c012a34
+          BF          LAB_8c012a34
           MOV.L       H'8c012bd0,R3
           MOV.L       H'8c012bd4,R2
           MOV.L       R10,@R8
@@ -1403,25 +1403,25 @@ LAB_8c012a04:
           MOV.L       H'8c012bd8,R3
           MOV.L       @R3,R0
           CMP/EQ      #-H'1,R0
-          BT/S        H'8c012a34
+          BT/S        LAB_8c012a34
           MOV         R0,R4
           MOV.L       H'8c012bdc,R1
           JSR         @R1
           NOP
 LAB_8c012a34:
-          BRA         H'8c012ca6
+          BRA         LAB_8c012ca6
           MOV         #H'1,R0
 LAB_8c012a38:
           MOV.L       @R4,R0
           CMP/EQ      #H'0,R0
-          BT/S        H'8c012a4c
+          BT/S        LAB_8c012a4c
           MOV         #H'4,R9
           CMP/EQ      #H'1,R0
-          BF          H'8c012a48
-          BRA         H'8c012c6c
+          BF          LAB_8c012a48
+          BRA         LAB_8c012c6c
           NOP
 LAB_8c012a48:
-          BRA         H'8c012ca4
+          BRA         LAB_8c012ca4
           NOP
 LAB_8c012a4c:
           MOV.L       H'8c012be0,R2
@@ -1432,13 +1432,13 @@ LAB_8c012a4c:
           MOV.L       @R3,R0
           MOV.L       @(H'10,R0),R0
           TST         #H'8,R0
-          BT/S        H'8c012a6c
+          BT/S        LAB_8c012a6c
           FLDI0       FR15
           MOV.L       H'8c012bd4,R1
           MOV.L       R14,@R8
           JSR         @R1
           MOV         #H'0,R4
-          BRA         H'8c012c50
+          BRA         LAB_8c012c50
           NOP
 LAB_8c012a6c:
           MOV.L       H'8c012bd0,R1
@@ -1448,11 +1448,11 @@ LAB_8c012a6c:
           MOV.L       H'8c012be8,R6
           FMOV.S      @R0,FR14
           TST         R2,R2
-          BF/S        H'8c012abe
+          BF/S        LAB_8c012abe
           MOV.L       @R3,R4
           MOV.L       @(H'10,R4),R2
           TST         R2,R9
-          BT          H'8c012a9a
+          BT          LAB_8c012a9a
           MOV.L       H'8c012bd4,R2
           MOV.L       R14,@R8
           JSR         @R2
@@ -1462,16 +1462,16 @@ LAB_8c012a6c:
           MOV         R7,R6
           JSR         @R13
           MOV.L       @R12,R4
-          BRA         H'8c012aba
+          BRA         LAB_8c012aba
           NOP
 LAB_8c012a9a:
           MOV.L       @(H'10,R4),R0
           TST         #H'20,R0
-          BF          H'8c012aa8
+          BF          LAB_8c012aa8
           MOV.W       @(H'1e,R4),R0
           MOV         #H'40,R2
           CMP/GT      R2,R0
-          BF          H'8c012aba
+          BF          LAB_8c012aba
 LAB_8c012aa8:
           MOV.L       H'8c012bd0,R3
           MOV         #H'0,R7
@@ -1483,41 +1483,41 @@ LAB_8c012aa8:
           JSR         @R13
           MOV.L       @R12,R4
 LAB_8c012aba:
-          BRA         H'8c012b08
+          BRA         LAB_8c012b08
           MOV         #H'75,R5
 LAB_8c012abe:
           MOV.L       @R5,R0
           CMP/EQ      #H'0,R0
-          BT          H'8c012ad4
+          BT          LAB_8c012ad4
           CMP/EQ      #H'1,R0
-          BT          H'8c012b16
+          BT          LAB_8c012b16
           CMP/EQ      #H'2,R0
-          BF          H'8c012ad0
-          BRA         H'8c012bfc
+          BF          LAB_8c012ad0
+          BRA         LAB_8c012bfc
           NOP
 LAB_8c012ad0:
-          BRA         H'8c012c50
+          BRA         LAB_8c012c50
           NOP
 LAB_8c012ad4:
           MOV.L       @(H'10,R4),R1
           TST         R1,R9
-          BT          H'8c012aea
+          BT          LAB_8c012aea
           MOV         #H'0,R7
           MOV.L       R10,@R5
           MOV         #H'1,R5
           MOV         R7,R6
           JSR         @R13
           MOV.L       @R12,R4
-          BRA         H'8c012b06
+          BRA         LAB_8c012b06
           NOP
 LAB_8c012aea:
           MOV.L       @(H'10,R4),R0
           TST         #H'10,R0
-          BF          H'8c012af8
+          BF          LAB_8c012af8
           MOV.W       @(H'1e,R4),R0
           MOV         #-H'40,R2
           CMP/GE      R2,R0
-          BT          H'8c012b06
+          BT          LAB_8c012b06
 LAB_8c012af8:
           MOV.L       H'8c012bd0,R3
           MOV         #H'3,R6
@@ -1534,13 +1534,13 @@ LAB_8c012b08:
           FMOV        FR14,FR6
           JSR         @R11
           FMOV        FR15,FR4
-          BRA         H'8c012c50
+          BRA         LAB_8c012c50
           NOP
 LAB_8c012b16:
           MOV.L       @(H'10,R4),R1
           MOV         #H'2,R7
           TST         R7,R1
-          BT          H'8c012b3a
+          BT          LAB_8c012b3a
           MOV.L       H'8c012bf4,R4
           MOV.L       R14,@R5
           MOV         #H'7a,R5
@@ -1554,31 +1554,31 @@ LAB_8c012b16:
 LAB_8c012b32:
           JSR         @R13
           MOV.L       @R12,R4
-          BRA         H'8c012c50
+          BRA         LAB_8c012c50
           NOP
 LAB_8c012b3a:
           MOV.L       @R6,R2
           TST         R2,R2
-          BF          H'8c012b74
+          BF          LAB_8c012b74
           MOV.L       @(H'10,R4),R2
           TST         R2,R9
-          BT          H'8c012b56
+          BT          LAB_8c012b56
           MOV.L       H'8c012bf8,R2
           MOV.L       R7,@R5
           JSR         @R2
           MOV         #H'a,R4
           MOV         #H'0,R7
           MOV         R7,R6
-          BRA         H'8c012b32
+          BRA         LAB_8c012b32
           MOV         #H'1,R5
 LAB_8c012b56:
           MOV.L       @(H'10,R4),R0
           TST         #H'80,R0
-          BF          H'8c012b64
+          BF          LAB_8c012b64
           MOV.W       @(H'1c,R4),R0
           MOV         #H'40,R2
           CMP/GT      R2,R0
-          BF          H'8c012b70
+          BF          LAB_8c012b70
 LAB_8c012b64:
           MOV.L       R10,@R6
           MOV         #H'1,R5
@@ -1587,28 +1587,28 @@ LAB_8c012b64:
           JSR         @R13
           MOV.L       @R12,R4
 LAB_8c012b70:
-          BRA         H'8c012ba6
+          BRA         LAB_8c012ba6
           MOV         #H'76,R5
 LAB_8c012b74:
           MOV.L       @(H'10,R4),R2
           TST         R2,R9
-          BT          H'8c012b8a
+          BT          LAB_8c012b8a
           MOV         #H'0,R7
           MOV.L       R14,@R5
           MOV         #H'1,R5
           MOV         R7,R6
           JSR         @R13
           MOV.L       @R12,R4
-          BRA         H'8c012ba4
+          BRA         LAB_8c012ba4
           NOP
 LAB_8c012b8a:
           MOV.L       @(H'10,R4),R0
           TST         #H'40,R0
-          BF          H'8c012b98
+          BF          LAB_8c012b98
           MOV.W       @(H'1c,R4),R0
           MOV         #-H'40,R2
           CMP/GE      R2,R0
-          BT          H'8c012ba4
+          BT          LAB_8c012ba4
 LAB_8c012b98:
           MOV.L       R14,@R6
           MOV         #H'1,R5
@@ -1624,7 +1624,7 @@ LAB_8c012ba6:
           FMOV        FR14,FR6
           JSR         @R11
           FMOV        FR15,FR4
-          BRA         H'8c012c50
+          BRA         LAB_8c012c50
           NOP
 
           .DATA.B H'CC, H'B8, H'1B, H'8C  ; H'8c012bb4
@@ -1650,7 +1650,7 @@ LAB_8c012bfc:
           MOV.L       H'8c012dd0,R1
           MOV.L       @R1,R2
           TST         R2,R2
-          BF          H'8c012c48
+          BF          LAB_8c012c48
           MOV.L       H'8c012dd4,R2
           MOV.L       H'8c012dd8,R3
           MOV.L       R14,@R2
@@ -1662,12 +1662,12 @@ LAB_8c012bfc:
           MOV.L       H'8c012de4,R3
           MOV.L       @R3,R0
           CMP/EQ      #H'1,R0
-          BT          H'8c012c98
+          BT          LAB_8c012c98
           MOV         R14,R4
           MOV.L       H'8c012df0,R5
           MOV.L       H'8c012dec,R7
           MOV.L       H'8c012de8,R14
-          BRA         H'8c012c40
+          BRA         LAB_8c012c40
           MOV         #H'14,R6
 LAB_8c012c28:
           MOV         R4,R0
@@ -1684,13 +1684,13 @@ LAB_8c012c28:
           MOV.L       R2,@R3
 LAB_8c012c40:
           CMP/HS      R6,R4
-          BF          H'8c012c28
-          BRA         H'8c012c8e
+          BF          LAB_8c012c28
+          BRA         LAB_8c012c8e
           NOP
 LAB_8c012c48:
           MOV.L       H'8c012df4,R4
           MOV         #H'76,R5
-          BRA         H'8c012c58
+          BRA         LAB_8c012c58
           FMOV        FR14,FR6
 LAB_8c012c50:
           MOVA        H'8c012df8,R0
@@ -1706,13 +1706,13 @@ LAB_8c012c58:
           MOV.L       H'8c012dfc,R4
           JSR         @R3
           MOV         #H'4,R5
-          BRA         H'8c012ca4
+          BRA         LAB_8c012ca4
           NOP
 LAB_8c012c6c:
           MOV.L       @R4,R3
           ADD         #H'1,R3
           CMP/GT      R9,R3
-          BF/S        H'8c012ca4
+          BF/S        LAB_8c012ca4
           MOV.L       R3,@R4
           MOV.L       H'8c012dd4,R3
           MOV.L       H'8c012dd8,R2
@@ -1725,12 +1725,12 @@ LAB_8c012c6c:
           MOV.L       H'8c012de4,R2
           MOV.L       @R2,R0
           CMP/EQ      #H'1,R0
-          BT          H'8c012c98
+          BT          LAB_8c012c98
 LAB_8c012c8e:
           MOV.L       H'8c012e04,R1
           JSR         @R1
           NOP
-          BRA         H'8c012ca4
+          BRA         LAB_8c012ca4
           NOP
 LAB_8c012c98:
           MOV.L       H'8c012e08,R3
@@ -1758,15 +1758,15 @@ FUN_8c012cbc:
           STS.L       PR,@-R15
           MOV.L       @R2,R3
           TST         R3,R3
-          BT          H'8c012ce4
+          BT          LAB_8c012ce4
           MOV.L       H'8c012e18,R1
           MOV.L       @R1,R3
           TST         R3,R3
-          BF          H'8c012ce4
+          BF          LAB_8c012ce4
           MOV.L       H'8c012e1c,R0
           MOV.L       @R0,R3
           TST         R3,R3
-          BF          H'8c012ce4
+          BF          LAB_8c012ce4
           MOV.L       H'8c012de0,R3
           JSR         @R3
           NOP
@@ -1778,7 +1778,7 @@ LAB_8c012ce4:
           BSR         H'8c0129cc
           NOP
           TST         R0,R0
-          BT          H'8c012d00
+          BT          LAB_8c012d00
           MOV.L       H'8c012e24,R3
           JSR         @R3
           NOP
@@ -1798,15 +1798,15 @@ FUN_8c012d06:
           STS.L       PR,@-R15
           MOV.L       @R2,R3
           TST         R3,R3
-          BT          H'8c012d2e
+          BT          LAB_8c012d2e
           MOV.L       H'8c012e18,R1
           MOV.L       @R1,R3
           TST         R3,R3
-          BF          H'8c012d2e
+          BF          LAB_8c012d2e
           MOV.L       H'8c012e1c,R0
           MOV.L       @R0,R3
           TST         R3,R3
-          BF          H'8c012d2e
+          BF          LAB_8c012d2e
           MOV.L       H'8c012de0,R3
           JSR         @R3
           NOP
@@ -1820,14 +1820,14 @@ LAB_8c012d2e:
           MOV.L       @R3,R0
           MOV.L       @(H'10,R0),R0
           TST         #H'8,R0
-          BT          H'8c012d40
+          BT          LAB_8c012d40
           MOV.L       @R4,R0
           XOR         #H'1,R0
           MOV.L       R0,@R4
 LAB_8c012d40:
           MOV.L       @R4,R3
           TST         R3,R3
-          BF          H'8c012d54
+          BF          LAB_8c012d54
           MOV.L       H'8c012e24,R3
           JSR         @R3
           NOP
@@ -1851,16 +1851,16 @@ LAB_8c012d5a:
           MOV.L       H'8c012e40,R12
           MOV.L       H'8c012de0,R13
           TST         R3,R3
-          BT/S        H'8c012d96
+          BT/S        LAB_8c012d96
           MOV         R4,R14
           MOV.L       H'8c012e18,R1
           MOV.L       @R1,R3
           TST         R3,R3
-          BF          H'8c012d96
+          BF          LAB_8c012d96
           MOV.L       H'8c012e1c,R0
           MOV.L       @R0,R3
           TST         R3,R3
-          BF          H'8c012d96
+          BF          LAB_8c012d96
           JSR         @R13
           NOP
           MOV.L       H'8c012e44,R1
@@ -1868,7 +1868,7 @@ LAB_8c012d5a:
           MOV         #H'1,R3
           MOV.L       R3,@R12
           MOV.L       R2,@R1
-          BRA         H'8c012f10
+          BRA         LAB_8c012f10
           NOP
 LAB_8c012d96:
           MOV.L       H'8c012e48,R3
@@ -1877,19 +1877,19 @@ LAB_8c012d96:
           MOV.L       @(H'8,R14),R0
           MOV.L       H'8c012dd0,R4
           CMP/EQ      #H'0,R0
-          BT          H'8c012db0
+          BT          LAB_8c012db0
           CMP/EQ      #H'1,R0
-          BT          H'8c012e7e
+          BT          LAB_8c012e7e
           CMP/EQ      #H'2,R0
-          BT          H'8c012ea0
-          BRA         H'8c012ec8
+          BT          LAB_8c012ea0
+          BRA         LAB_8c012ec8
           NOP
 LAB_8c012db0:
           MOV.L       H'8c012e50,R2
           MOV.L       H'8c012e4c,R13
           MOV.L       @R2,R0
           TST         #H'8,R0
-          BT          H'8c012e5c
+          BT          LAB_8c012e5c
           MOV.L       H'8c012e54,R4
           MOV         #H'0,R7
           MOV.L       H'8c012e58,R1
@@ -1898,7 +1898,7 @@ LAB_8c012db0:
           JSR         @R1
           MOV.L       @R4,R4
           MOV         #H'1,R3
-          BRA         H'8c012e6c
+          BRA         LAB_8c012e6c
           MOV.L       R3,@(H'8,R14)
 
           .RES.W      1
@@ -1944,7 +1944,7 @@ LAB_8c012e5c:
           ADD         #H'1,R1
           CMP/GT      R3,R1
           MOV.L       R1,@(H'c,R14)
-          BF          H'8c012ec8
+          BF          LAB_8c012ec8
           MOV         #H'2,R0
           MOV.L       R0,@(H'8,R14)
 LAB_8c012e6c:
@@ -1955,15 +1955,15 @@ LAB_8c012e6c:
           MOV.L       H'8c012f20,R3
           JSR         @R3
           MOV         #H'1e,R4
-          BRA         H'8c012ec8
+          BRA         LAB_8c012ec8
           NOP
 LAB_8c012e7e:
           MOV.L       @R4,R3
           TST         R3,R3
-          BF          H'8c012ec2
+          BF          LAB_8c012ec2
           MOV.L       @R12,R3
           TST         R3,R3
-          BF          H'8c012f10
+          BF          LAB_8c012f10
           JSR         @R13
           NOP
           LDS.L       @R15+,PR
@@ -1978,10 +1978,10 @@ LAB_8c012e7e:
 LAB_8c012ea0:
           MOV.L       @R4,R2
           TST         R2,R2
-          BF          H'8c012ec2
+          BF          LAB_8c012ec2
           MOV.L       @R12,R3
           TST         R3,R3
-          BF          H'8c012f10
+          BF          LAB_8c012f10
           JSR         @R13
           NOP
           LDS.L       @R15+,PR
@@ -2020,7 +2020,7 @@ LAB_8c012ec8:
           FMOV        FR15,FR4
           MOV.L       @(H'c,R14),R0
           TST         #H'18,R0
-          BT          H'8c012f10
+          BT          LAB_8c012f10
           LDS.L       @R15+,PR
           FMOV        FR14,FR6
           MOV         #H'7c,R5
@@ -2059,11 +2059,11 @@ task_8c012f44:
           STS.L       PR,@-R15
           MOV.L       @R2,R3
           TST         R3,R3
-          BT          H'8c012f96
+          BT          LAB_8c012f96
           MOV.L       H'8c013014,R1
           MOV.L       @R1,R3
           TST         R3,R3
-          BF          H'8c012f96
+          BF          LAB_8c012f96
           MOV.L       H'8c013018,R3
           JSR         @R3
           MOV         #H'0,R4
@@ -2073,7 +2073,7 @@ task_8c012f44:
           MOV.L       H'8c013020,R3
           MOV.L       @R3,R0
           CMP/EQ      #-H'1,R0
-          BT/S        H'8c012f72
+          BT/S        LAB_8c012f72
           MOV         R0,R4
           MOV.L       H'8c013024,R1
           JSR         @R1
@@ -2085,13 +2085,13 @@ LAB_8c012f72:
           MOV.L       H'8c01302c,R3
           MOV.L       @R3,R2
           TST         R2,R2
-          BT          H'8c012f8e
+          BT          LAB_8c012f8e
           MOV.L       H'8c013030,R1
           MOV         #H'1,R2
           MOV         #H'0,R0
           MOV.L       R2,@R1
           MOV.L       H'8c013034,R2
-          BRA         H'8c012f96
+          BRA         LAB_8c012f96
           MOV.L       R0,@R2
 LAB_8c012f8e:
           MOV.L       H'8c013038,R2
@@ -2108,17 +2108,17 @@ LAB_8c012f9c:
           STS.L       PR,@-R15
           MOV.L       @R3,R0
           CMP/EQ      #H'1,R0
-          BT/S        H'8c012fbe
+          BT/S        LAB_8c012fbe
           MOV         #H'0,R6
           MOV.L       H'8c013040,R1
           MOV.L       @R1,R0
           CMP/EQ      #H'2,R0
-          BF          H'8c012fbe
+          BF          LAB_8c012fbe
           MOV.L       H'8c013044,R2
           MOV.L       @R2,R0
           TST         R0,R0
-          BF          H'8c012fbe
-          BRA         H'8c012fc0
+          BF          LAB_8c012fbe
+          BRA         LAB_8c012fc0
           MOV         #H'1,R7
 LAB_8c012fbe:
           MOV         R6,R7
@@ -2129,39 +2129,39 @@ LAB_8c012fc0:
           FMOV.S      @(R0,R5),FR2
           MOV.L       H'8c013048,R14
           FCMP/EQ     FR3,FR2
-          BF          H'8c013050
+          BF          LAB_8c013050
           MOV.L       @(H'8,R4),R0
           CMP/EQ      #H'0,R0
-          BT          H'8c012fdc
+          BT          LAB_8c012fdc
           CMP/EQ      #H'1,R0
-          BT          H'8c013064
-          BRA         H'8c013064
+          BT          LAB_8c013064
+          BRA         LAB_8c013064
           NOP
 LAB_8c012fdc:
           MOV.W       H'8c01300a,R0
           MOV.L       @(R0,R5),R2
           TST         R2,R2
-          BF          H'8c012ffc
+          BF          LAB_8c012ffc
           TST         R7,R7
-          BF/S        H'8c012ff2
+          BF/S        LAB_8c012ff2
           MOV.L       R6,@R14
           MOV.W       H'8c01300c,R0
           MOV         #H'2,R2
-          BRA         H'8c012ff6
+          BRA         LAB_8c012ff6
           MOV.L       R2,@(R0,R5)
 LAB_8c012ff2:
           MOV.W       H'8c01300c,R0
           MOV.L       R6,@(R0,R5)
 LAB_8c012ff6:
           MOV         #H'1,R3
-          BRA         H'8c013064
+          BRA         LAB_8c013064
           MOV.L       R3,@(H'8,R4)
 LAB_8c012ffc:
           MOV.W       H'8c01300c,R0
           MOV.L       @(R0,R5),R0
           CMP/EQ      #H'3,R0
-          BT          H'8c013064
-          BRA         H'8c01305e
+          BT          LAB_8c013064
+          BRA         LAB_8c01305e
           MOV.L       R6,@R14
 
           .DATA.B H'7C, H'02, H'C0, H'03 ; H'8c013008
@@ -2185,7 +2185,7 @@ LAB_8c012ffc:
 
 LAB_8c013050:
           TST         R7,R7
-          BF/S        H'8c01305a
+          BF/S        LAB_8c01305a
           MOV.L       R6,@R14
           MOV.W       H'8c013168,R0
           MOV.L       R6,@(R0,R5)
@@ -2293,7 +2293,7 @@ FUN_8c01306e:
           MOV.L       @R3,R0
           MOV.L       H'8c0131cc,R4
           CMP/EQ      #H'2,R0
-          BT/S        H'8c01314c
+          BT/S        LAB_8c01314c
           MOV         #H'0,R13
           MOV         #H'0,R1
           MOV.L       H'8c0131d4,R5
@@ -2312,13 +2312,13 @@ FUN_8c01306e:
           ADD         #H'c,R7
           JSR         @R14
           MOV         R12,R4
-          BRA         H'8c013216
+          BRA         LAB_8c013216
           ADD         #H'8,R15
 LAB_8c01314c:
           MOV.L       H'8c0131dc,R2
           MOV.L       @R2,R1
           TST         R1,R1
-          BF          H'8c0131e4
+          BF          LAB_8c0131e4
           MOV         #H'0,R1
           MOV.L       H'8c0131e0,R5
           MOV.L       R1,@-R15
@@ -2327,7 +2327,7 @@ LAB_8c01314c:
           ADD         #H'8,R7
           JSR         @R14
           ADD         #H'4,R6
-          BRA         H'8c0131fe
+          BRA         LAB_8c0131fe
           ADD         #H'4,R15
 
           .DATA.B H'5C, H'02, H'68, H'02, H'80, H'00, H'00, H'00 ; H'8c013168
@@ -2401,7 +2401,7 @@ LAB_8c013216:
           MOV.L       H'8c0133c0,R1
           MOV.L       @R1,R0
           CMP/EQ      #H'2,R0
-          BT          H'8c013236
+          BT          LAB_8c013236
           MOV.L       H'8c0133c4,R2
           JSR         @R2
           NOP
@@ -2457,7 +2457,7 @@ FUN_8c01328c:
           MOV.L       H'8c0133f0,R5
           MOV.L       H'8c0133f4,R14
           TST         R4,R4
-          BF          H'8c0132bc
+          BF          LAB_8c0132bc
           MOV.L       H'8c0133f8,R4
           MOV.L       H'8c0133fc,R0
           MOV.L       @R4,R1
@@ -2472,17 +2472,17 @@ FUN_8c01328c:
           MOV.L       H'8c013400,R1
           JSR         @R3
           MOV.L       R2,@R1
-          BRA         H'8c0132e2
+          BRA         LAB_8c0132e2
           MOV.L       R0,@R14
 LAB_8c0132bc:
           MOV         R4,R0
           MOV.L       H'8c013408,R6
           CMP/EQ      #H'2,R0
-          BF          H'8c0132de
+          BF          LAB_8c0132de
           MOV.L       H'8c01340c,R1
           MOV.L       @R1,R2
           TST         R2,R2
-          BT          H'8c0132de
+          BT          LAB_8c0132de
           MOV.L       @R5,R3
           MOV.L       H'8c013410,R0
           ADD         #-H'26,R3
@@ -2490,7 +2490,7 @@ LAB_8c0132bc:
           MOV.L       H'8c013414,R3
           JSR         @R3
           MOV.L       R2,@R6
-          BRA         H'8c0132e2
+          BRA         LAB_8c0132e2
           NOP
 LAB_8c0132de:
           MOV         #H'0,R3
@@ -2529,7 +2529,7 @@ LAB_8c013310:
           MOV.L       H'8c0133f4,R14
           MOV.L       H'8c0133f0,R6
           CMP/EQ      #H'2,R0
-          BT/S        H'8c01333c
+          BT/S        LAB_8c01333c
           MOV         R0,R5
           MOV.L       H'8c0133fc,R1
           MOV.L       H'8c013438,R0
@@ -2540,22 +2540,22 @@ LAB_8c013310:
           MOV.B       @R0,R2
           JSR         @R1
           MOV.L       R2,@R3
-          BRA         H'8c01335a
+          BRA         LAB_8c01335a
           MOV.L       R0,@R14
 LAB_8c01333c:
           MOV         R5,R0
           MOV.L       H'8c013408,R4
           CMP/EQ      #H'2,R0
-          BF          H'8c013358
+          BF          LAB_8c013358
           MOV.L       H'8c01340c,R2
           MOV.L       @R2,R1
           TST         R1,R1
-          BT          H'8c013358
+          BT          LAB_8c013358
           MOV.L       @R6,R3
           MOV.L       H'8c013410,R0
           ADD         #-H'26,R3
           MOV.B       @(R0,R3),R2
-          BRA         H'8c01335a
+          BRA         LAB_8c01335a
           MOV.L       R2,@R4
 LAB_8c013358:
           MOV.L       R13,@R4
@@ -2591,14 +2591,17 @@ task_8c013388:
           MOV.L       @(H'8,R14),R0
           MOV.L       H'8c01343c,R13
           CMP/EQ      #H'0,R0
-          BT          H'8c013440
+          BT          LAB_8c013440
           CMP/EQ      #H'1,R0
-          BF          H'8c0133a0
-          BRA         H'8c0134a0
+          BF          LAB_8c0133a0
+          BRA         LAB_8c0134a0
           NOP
 
-          .DATA.B H'95, H'A0, H'09, H'00 ; H'8c0133a0
-          .DATA.B H'5A, H'2D, H'01, H'8C 
+LAB_8c0133a0:
+          BRA         LAB_8c0134ce
+          NOP
+
+          .DATA.L H'8C012D5A 
           .DATA.L H'8C016BF4
           .DATA.L H'8C025AF4
           .DATA.L H'8C1BB8CC
@@ -2643,7 +2646,7 @@ LAB_8c013440:
           JSR         @R3
           NOP
           TST         R0,R0
-          BT          H'8c0134ce
+          BT          LAB_8c0134ce
           MOV.L       H'8c01351c,R1
           MOV.L       @(H'8,R14),R3
           ADD         #H'1,R3
@@ -2652,7 +2655,7 @@ LAB_8c013440:
           MOV.L       @(H'4,R2),R3
           LDS         R3,FPUL
           CMP/PZ      R3
-          BT/S        H'8c013464
+          BT/S        LAB_8c013464
           FLOAT       FPUL,FR3
           MOVA        H'8c013520,R0
           FMOV.S      @R0,FR2
@@ -2686,14 +2689,14 @@ LAB_8c013464:
           MOV.L       R2,@-R15
           JSR         @R3
           MOV         R7,R5
-          BRA         H'8c0134ce
+          BRA         LAB_8c0134ce
           ADD         #H'4,R15
 LAB_8c0134a0:
           MOV.L       H'8c013518,R3
           JSR         @R3
           NOP
           TST         R0,R0
-          BT          H'8c0134ce
+          BT          LAB_8c0134ce
           MOV.L       H'8c013550,R3
           JSR         @R3
           NOP
@@ -2720,10 +2723,10 @@ LAB_8c0134ce:
 FUN_8c0134d6:
           MOV         R5,R0
           CMP/EQ      #-H'17,R0
-          BT          H'8c0134e2
+          BT          LAB_8c0134e2
           MOV         R5,R0
           CMP/EQ      #-H'21,R0
-          BF          H'8c0134e8
+          BF          LAB_8c0134e8
 LAB_8c0134e2:
           MOV.L       H'8c013564,R2
           MOV         #H'1,R3
@@ -2746,13 +2749,13 @@ njUserInit:
           JSR         @R2
           NOP
           TST         R0,R0
-          BF          H'8c013578
+          BF          LAB_8c013578
           MOV.L       H'8c013574,R2
           MOV         #H'0,R5
           MOV         #H'2,R6
           JSR         @R2
           MOV         #H'31,R4
-          BRA         H'8c01358c
+          BRA         LAB_8c01358c
           NOP
 
           .DATA.L H'8C01432A ; H'8c013518
@@ -2840,8 +2843,8 @@ LAB_8c01358c:
           MOV.B       R0,@R2
           EXTS.B      R0,R0
           CMP/PZ      R0
-          BF          H'8c013654
-          BRA         H'8c013656
+          BF          LAB_8c013654
+          BRA         LAB_8c013656
           MOV.B       @R2,R4
 
           .DATA.B H'00, H'08 ; H'8c0135f2
@@ -2999,7 +3002,7 @@ LAB_8c013656:
           MOV.L       H'8c013820,R3
           JSR         @R3
           MOV         R12,R4
-          BRA         H'8c013824
+          BRA         LAB_8c013824
           MOV         #H'3,R4
 
           .DATA.B H'00, H'02 ; H'8c013754
@@ -3199,35 +3202,35 @@ njUserMain:
           MOV.L       @R2,R3
           MOV.L       H'8c013ab0,R14
           TST         R3,R3
-          BT          H'8c013956
+          BT          LAB_8c013956
           MOV.L       H'8c013ab8,R1
           MOV.L       @R1,R3
           TST         R3,R3
-          BF          H'8c0139c2
+          BF          LAB_8c0139c2
           MOV.L       @R14,R0
           CMP/EQ      #-H'1,R0
-          BT          H'8c0139be
+          BT          LAB_8c0139be
           MOV.L       H'8c013abc,R3
           JSR         @R3
           MOV.L       @R14,R4
-          BRA         H'8c0139be
+          BRA         LAB_8c0139be
           NOP
 LAB_8c013956:
           MOV.L       H'8c013ac0,R1
           MOV.L       @R1,R3
           TST         R3,R3
-          BF          H'8c01398a
+          BF          LAB_8c01398a
           MOV.L       H'8c013ac4,R13
           MOV.L       @R13,R3
           TST         R3,R3
-          BF          H'8c013976
+          BF          LAB_8c013976
           MOV.L       H'8c013ac8,R3
           JSR         @R3
           NOP
           TST         R0,R0
-          BF          H'8c01398a
+          BF          LAB_8c01398a
           MOV         #H'1,R3
-          BRA         H'8c01398a
+          BRA         LAB_8c01398a
           MOV.L       R3,@R13
 LAB_8c013976:
           MOV.L       H'8c013acc,R3
@@ -3237,7 +3240,7 @@ LAB_8c013976:
           JSR         @R2
           MOV         R0,R4
           CMP/EQ      #H'4,R0
-          BT          H'8c01398a
+          BT          LAB_8c01398a
           MOV         #H'0,R2
           MOV.L       R2,@R13
 LAB_8c01398a:
@@ -3245,15 +3248,15 @@ LAB_8c01398a:
           JSR         @R3
           NOP
           CMP/EQ      #H'6,R0
-          BT          H'8c0139b2
+          BT          LAB_8c0139b2
           MOV.L       H'8c013ad4,R3
           JSR         @R3
           NOP
           CMP/EQ      #H'6,R0
-          BT/S        H'8c0139a4
+          BT/S        LAB_8c0139a4
           MOV         R0,R4
           TST         R4,R4
-          BF          H'8c0139aa
+          BF          LAB_8c0139aa
 LAB_8c0139a4:
           MOV.L       H'8c013ac8,R2
           JSR         @R2
@@ -3262,16 +3265,16 @@ LAB_8c0139aa:
           MOV.L       H'8c013aa4,R2
           MOV.L       @R2,R3
           TST         R3,R3
-          BT          H'8c0139c2
+          BT          LAB_8c0139c2
 LAB_8c0139b2:
           MOV.L       @R14,R0
           CMP/EQ      #-H'1,R0
-          BT          H'8c0139be
+          BT          LAB_8c0139be
           MOV.L       H'8c013abc,R2
           JSR         @R2
           MOV.L       @R14,R4
 LAB_8c0139be:
-          BRA         H'8c0139cc
+          BRA         LAB_8c0139cc
           MOV         #-H'1,R0
 LAB_8c0139c2:
           MOV.L       H'8c013ad8,R3
@@ -3429,13 +3432,13 @@ FUN_8c013b5a:
           STS.L       PR,@-R15
           MOV.L       @R14,R0
           CMP/EQ      #-H'1,R0
-          BT/S        H'8c013bb2
+          BT/S        LAB_8c013bb2
           MOV         R0,R4
           MOV.L       H'8c013c24,R2
           JSR         @R2
           NOP
           MOV.L       H'8c013c28,R12
-          BRA         H'8c013b7e
+          BRA         LAB_8c013b7e
           MOV         #H'0,R13
 LAB_8c013b78:
           JSR         @R12
@@ -3445,7 +3448,7 @@ LAB_8c013b7e:
           MOV.L       @R14,R2
           MOV.L       @(H'4,R2),R3
           CMP/HS      R3,R13
-          BF          H'8c013b78
+          BF          LAB_8c013b78
           MOV.L       H'8c013c2c,R13
           JSR         @R13
           MOV.L       @R14,R4
@@ -3480,13 +3483,13 @@ FUN_8c013bbc:
           SHLL2       R5
           ADD         R4,R5
           CMP/HS      R4,R5
-          BF/S        H'8c013bd2
+          BF/S        LAB_8c013bd2
           MOV         #-H'1,R6
 LAB_8c013bca:
           MOV.L       R6,@(H'8,R5)
           ADD         #-H'10,R5
           CMP/HS      R4,R5
-          BT          H'8c013bca
+          BT          LAB_8c013bca
 LAB_8c013bd2:
           RTS
           NOP
@@ -3538,8 +3541,8 @@ LAB_8c013c50:
           MOV.L       R6,@(H'4,R5)
           ADD         #H'10,R5
           CMP/HS      R7,R5
-          BF          H'8c013c50
-          BRA         H'8c013c78
+          BF          LAB_8c013c50
+          BRA         LAB_8c013c78
           MOV         #H'1,R5
 LAB_8c013c5e:
           MOV         R7,R14
@@ -3549,7 +3552,7 @@ LAB_8c013c5e:
           MOV.L       R5,@R14
           MOV.L       @(H'8,R14),R0
           CMP/EQ      #-H'1,R0
-          BF/S        H'8c013c78
+          BF/S        LAB_8c013c78
           ADD         #H'1,R4
           SHLL2       R7
           SHLL2       R7
@@ -3558,7 +3561,7 @@ LAB_8c013c5e:
 LAB_8c013c78:
           MOV.B       @R4,R0
           CMP/EQ      #-H'1,R0
-          BF/S        H'8c013c5e
+          BF/S        LAB_8c013c5e
           MOV         R0,R7
           MOV.L       H'8c013d54,R10
           MOV         R13,R4
@@ -3573,13 +3576,13 @@ LAB_8c013c8c:
           ADD         R13,R14
           MOV.L       @(H'4,R14),R3
           TST         R3,R3
-          BT          H'8c013cfe
+          BT          LAB_8c013cfe
           MOV.L       H'8c013d58,R3
           MOV         R9,R11
           SHLL        R11
           MOV.L       @R3,R0
           CMP/EQ      #H'2,R0
-          BT/S        H'8c013cce
+          BT/S        LAB_8c013cce
           MOV         R10,R4
           MOV         R11,R5
           MOV.L       H'8c013d5c,R0
@@ -3598,7 +3601,7 @@ LAB_8c013c8c:
           MOV.L       R3,@-R15
           MOV         #H'60,R7
           ADD         #H'8,R6
-          BRA         H'8c013cf2
+          BRA         LAB_8c013cf2
           SHLL2       R5
 LAB_8c013cce:
           MOV         R11,R5
@@ -3624,16 +3627,16 @@ LAB_8c013cf2:
           MOV.L       @(R0,R5),R5
           JSR         @R2
           MOV         R10,R4
-          BRA         H'8c013d1c
+          BRA         LAB_8c013d1c
           ADD         #H'4,R15
 LAB_8c013cfe:
           MOV.L       @R15,R2
           MOV.L       @R2,R3
           TST         R3,R3
-          BF          H'8c013d1c
+          BF          LAB_8c013d1c
           MOV.L       @(H'8,R8),R0
           CMP/EQ      #-H'1,R0
-          BT          H'8c013d1c
+          BT          LAB_8c013d1c
           MOV.L       H'8c013d6c,R2
           JSR         @R2
           MOV.L       @(H'8,R12),R4
@@ -3650,7 +3653,7 @@ LAB_8c013d1c:
           CMP/GE      R2,R9
           ADD         #H'10,R8
           ADD         #H'10,R3
-          BF/S        H'8c013c8c
+          BF/S        LAB_8c013c8c
           MOV.L       R3,@R15
           ADD         #H'4,R15
           LDS.L       @R15+,PR
@@ -3730,7 +3733,7 @@ FUN_8c013dae:
 LAB_8c013dce:
           MOV.L       @(H'8,R13),R0
           CMP/EQ      #-H'1,R0
-          BT          H'8c013dde
+          BT          LAB_8c013dde
           JSR         @R9
           MOV.L       @(H'8,R14),R4
           JSR         @R10
@@ -3739,7 +3742,7 @@ LAB_8c013dce:
 LAB_8c013dde:
           ADD         #H'10,R13
           CMP/HS      R11,R13
-          BF/S        H'8c013dce
+          BF/S        LAB_8c013dce
           ADD         #H'10,R14
           LDS.L       @R15+,PR
           MOV.L       @R15+,R9
@@ -3768,8 +3771,8 @@ LAB_8c013e10:
           MOV.L       R6,@(H'4,R5)
           ADD         #H'10,R5
           CMP/HS      R7,R5
-          BF          H'8c013e10
-          BRA         H'8c013e38
+          BF          LAB_8c013e10
+          BRA         LAB_8c013e38
           MOV         #H'1,R5
 LAB_8c013e1e:
           MOV         R7,R13
@@ -3779,7 +3782,7 @@ LAB_8c013e1e:
           MOV.L       R5,@R13
           MOV.L       @(H'8,R13),R0
           CMP/EQ      #-H'1,R0
-          BF/S        H'8c013e38
+          BF/S        LAB_8c013e38
           ADD         #H'1,R4
           SHLL2       R7
           SHLL2       R7
@@ -3788,7 +3791,7 @@ LAB_8c013e1e:
 LAB_8c013e38:
           MOV.B       @R4,R0
           CMP/EQ      #-H'1,R0
-          BF/S        H'8c013e1e
+          BF/S        LAB_8c013e1e
           MOV         R0,R7
           MOV         R14,R10
           MOV         #H'41,R8
@@ -3803,7 +3806,7 @@ LAB_8c013e4c:
           ADD         R14,R9
           MOV.L       @(H'4,R9),R3
           TST         R3,R3
-          BT          H'8c013eb0
+          BT          LAB_8c013eb0
           MOV         R9,R6
           MOV.L       H'8c013ea4,R0
           MOV         R13,R5
@@ -3816,7 +3819,7 @@ LAB_8c013e4c:
           ADD         #H'8,R6
           JSR         @R2
           MOV.L       @(R0,R5),R5
-          BRA         H'8c013ec6
+          BRA         LAB_8c013ec6
           ADD         #H'4,R15
 
           .DATA.B H'00, H'02 ; H'8c013e76
@@ -3839,10 +3842,10 @@ LAB_8c013e4c:
 LAB_8c013eb0:
           MOV.L       @R11,R2
           TST         R2,R2
-          BF          H'8c013ec6
+          BF          LAB_8c013ec6
           MOV.L       @(H'8,R10),R0
           CMP/EQ      #-H'1,R0
-          BT          H'8c013ec6
+          BT          LAB_8c013ec6
           MOV.L       H'8c013f5c,R2
           JSR         @R2
           MOV.L       @(H'8,R12),R4
@@ -3853,7 +3856,7 @@ LAB_8c013ec6:
           CMP/GE      R8,R13
           ADD         #H'10,R10
           ADD         #H'10,R12
-          BF/S        H'8c013e4c
+          BF/S        LAB_8c013e4c
           ADD         #H'10,R11
           LDS.L       @R15+,PR
           MOV.L       @R15+,R8
@@ -3882,14 +3885,14 @@ FUN_8c013ee4:
 LAB_8c013f00:
           MOV.L       @(H'8,R13),R0
           CMP/EQ      #-H'1,R0
-          BT          H'8c013f0c
+          BT          LAB_8c013f0c
           JSR         @R11
           MOV.L       @(H'8,R14),R4
           MOV.L       R12,@(H'8,R14)
 LAB_8c013f0c:
           ADD         #H'10,R13
           CMP/HS      R10,R13
-          BF/S        H'8c013f00
+          BF/S        LAB_8c013f00
           ADD         #H'10,R14
           LDS.L       @R15+,PR
           MOV.L       @R15+,R10
@@ -3912,7 +3915,7 @@ FUN_8c013f22:
           ADD         R2,R14
           MOV.L       @(H'28,R14),R3
           TST         R3,R3
-          BT          H'8c013f46
+          BT          LAB_8c013f46
           MOV.L       H'8c013f70,R3
           MOV.L       H'8c013f6c,R4
           JSR         @R3
@@ -3920,7 +3923,7 @@ FUN_8c013f22:
 LAB_8c013f46:
           MOV.L       @(H'c,R14),R2
           TST         R2,R2
-          BT          H'8c013f54
+          BT          LAB_8c013f54
           LDS.L       @R15+,PR
           MOV.L       H'8c013f74,R3
           JMP         @R3
@@ -3959,7 +3962,7 @@ FUN_8c013f78:
           ADD         R2,R14
           MOV.L       @(H'24,R14),R3
           TST         R3,R3
-          BT          H'8c013fc8
+          BT          LAB_8c013fc8
           MOV.L       @(H'24,R14),R3
           MOV         #H'4,R0
           MOV.L       H'8c01414c,R4
@@ -3983,7 +3986,7 @@ FUN_8c013f78:
 LAB_8c013fc8:
           MOV.L       @(H'28,R14),R3
           TST         R3,R3
-          BT          H'8c013fdc
+          BT          LAB_8c013fdc
           MOV.L       H'8c014160,R3
           MOV         #H'10,R6
           MOV.L       H'8c01415c,R4
@@ -3996,25 +3999,25 @@ LAB_8c013fdc:
           MOV.L       H'8c014168,R4
           MOV.L       @R2,R3
           TST         R3,R3
-          BT          H'8c013fee
+          BT          LAB_8c013fee
           MOV.L       H'8c014170,R1
           MOV.L       @R1,R3
           TST         R3,R3
-          BT          H'8c014000
+          BT          LAB_8c014000
 LAB_8c013fee:
           MOV.L       @(H'10,R14),R3
           TST         R3,R3
-          BT          H'8c014010
+          BT          LAB_8c014010
           MOV.L       @(H'10,R14),R3
           MOV.L       R3,@R4
           BSR         H'8c013c34
           MOV.L       @(H'10,R14),R4
-          BRA         H'8c014010
+          BRA         LAB_8c014010
           NOP
 LAB_8c014000:
           MOV.L       @(H'10,R14),R2
           TST         R2,R2
-          BT          H'8c01400a
+          BT          LAB_8c01400a
           MOV.L       @(H'10,R14),R3
           MOV.L       R3,@R4
 LAB_8c01400a:
@@ -4024,7 +4027,7 @@ LAB_8c01400a:
 LAB_8c014010:
           MOV.L       @(H'18,R14),R3
           TST         R3,R3
-          BT          H'8c01401a
+          BT          LAB_8c01401a
           BSR         H'8c013df6
           MOV.L       @(H'18,R14),R4
 LAB_8c01401a:
@@ -4034,7 +4037,7 @@ LAB_8c01401a:
           MOV.L       @(H'c,R14),R3
           MOV.L       H'8c01417c,R4
           TST         R3,R3
-          BT          H'8c01404e
+          BT          LAB_8c01404e
           MOV.L       @(H'c,R14),R3
           MOV         #H'0,R13
           MOV.L       H'8c014188,R10
@@ -4052,8 +4055,8 @@ LAB_8c014038:
           MOV         R9,R4
           ADD         #H'1,R13
           CMP/GE      R11,R13
-          BF          H'8c014038
-          BRA         H'8c014052
+          BF          LAB_8c014038
+          BRA         LAB_8c014052
           NOP
 LAB_8c01404e:
           MOV         #-H'1,R3
@@ -4062,11 +4065,11 @@ LAB_8c014052:
           MOV.L       H'8c01416c,R1
           MOV.L       @R1,R2
           TST         R2,R2
-          BT          H'8c014076
+          BT          LAB_8c014076
           MOV.L       H'8c014170,R0
           MOV.L       @R0,R2
           TST         R2,R2
-          BF          H'8c014076
+          BF          LAB_8c014076
           LDS.L       @R15+,PR
           MOV.L       H'8c01418c,R2
           MOV.L       @R15+,R8
@@ -4119,30 +4122,30 @@ load_route_models_8c014088:
           MOV.L       @R7,R0
           MOV.L       @R6,R5
           CMP/EQ      #H'0,R0
-          BT/S        H'8c0140d6
+          BT/S        LAB_8c0140d6
           MOV         R13,R4
           CMP/EQ      #H'1,R0
-          BT          H'8c014104
+          BT          LAB_8c014104
           CMP/EQ      #H'2,R0
-          BT          H'8c014132
-          BRA         H'8c0141e4
+          BT          LAB_8c014132
+          BRA         LAB_8c0141e4
           NOP
 LAB_8c0140d6:
           MOV         R5,R0
           CMP/EQ      #H'0,R0
-          BT          H'8c0140e8
+          BT          LAB_8c0140e8
           CMP/EQ      #H'1,R0
-          BT          H'8c0140e8
+          BT          LAB_8c0140e8
           CMP/EQ      #H'2,R0
-          BT          H'8c0140f4
-          BRA         H'8c0141e4
+          BT          LAB_8c0140f4
+          BRA         LAB_8c0141e4
           NOP
 LAB_8c0140e8:
           MOV.L       H'8c0141ac,R5
           JSR         @R11
           NOP
           MOV.L       H'8c0141b0,R5
-          BRA         H'8c0140fc
+          BRA         LAB_8c0140fc
           NOP
 LAB_8c0140f4:
           MOV.L       H'8c0141b4,R5
@@ -4152,24 +4155,24 @@ LAB_8c0140f4:
 LAB_8c0140fc:
           JSR         @R11
           MOV         R10,R4
-          BRA         H'8c0141e4
+          BRA         LAB_8c0141e4
           NOP
 LAB_8c014104:
           MOV         R5,R0
           CMP/EQ      #H'0,R0
-          BT          H'8c014116
+          BT          LAB_8c014116
           CMP/EQ      #H'1,R0
-          BT          H'8c014116
+          BT          LAB_8c014116
           CMP/EQ      #H'2,R0
-          BT          H'8c014122
-          BRA         H'8c0141e4
+          BT          LAB_8c014122
+          BRA         LAB_8c0141e4
           NOP
 LAB_8c014116:
           MOV.L       H'8c0141bc,R5
           JSR         @R11
           NOP
           MOV.L       H'8c0141c0,R5
-          BRA         H'8c01412a
+          BRA         LAB_8c01412a
           NOP
 LAB_8c014122:
           MOV.L       H'8c0141c4,R5
@@ -4179,17 +4182,17 @@ LAB_8c014122:
 LAB_8c01412a:
           JSR         @R11
           MOV         R10,R4
-          BRA         H'8c0141e4
+          BRA         LAB_8c0141e4
           NOP
 LAB_8c014132:
           MOV         R5,R0
           CMP/EQ      #H'0,R0
-          BT          H'8c0141cc
+          BT          LAB_8c0141cc
           CMP/EQ      #H'1,R0
-          BT          H'8c0141cc
+          BT          LAB_8c0141cc
           CMP/EQ      #H'2,R0
-          BT          H'8c0141d8
-          BRA         H'8c0141e4
+          BT          LAB_8c0141d8
+          BRA         LAB_8c0141e4
           NOP
 
           .DATA.L H'8C18AD18 ; H'8c014144
@@ -4232,7 +4235,7 @@ LAB_8c0141cc:
           JSR         @R11
           NOP
           MOV.L       H'8c014430,R5
-          BRA         H'8c0141e0
+          BRA         LAB_8c0141e0
           NOP
 LAB_8c0141d8:
           MOV.L       H'8c014434,R5
@@ -4425,16 +4428,16 @@ task_load_8c014338:
           MOV.L       @(H'8,R14),R0
           MOV.L       H'8c01445c,R13
           CMP/EQ      #H'0,R0
-          BT          H'8c01435e
+          BT          LAB_8c01435e
           CMP/EQ      #H'1,R0
-          BT          H'8c01438c
+          BT          LAB_8c01438c
           CMP/EQ      #H'2,R0
-          BT          H'8c0143e6
+          BT          LAB_8c0143e6
           CMP/EQ      #H'3,R0
-          BT          H'8c0143f8
+          BT          LAB_8c0143f8
           CMP/EQ      #H'4,R0
-          BT          H'8c014400
-          BRA         H'8c0144b4
+          BT          LAB_8c014400
+          BRA         LAB_8c0144b4
           NOP
 LAB_8c01435e:
           MOV.L       H'8c014460,R3
@@ -4458,14 +4461,14 @@ LAB_8c01435e:
           MOV.L       R2,@-R15
           JSR         @R3
           MOV         R7,R5
-          BRA         H'8c0143ee
+          BRA         LAB_8c0143ee
           ADD         #H'4,R15
 LAB_8c01438c:
           BSR         H'8c01432a
           NOP
           TST         R0,R0
-          BF          H'8c014398
-          BRA         H'8c0144b4
+          BF          LAB_8c014398
+          BRA         LAB_8c0144b4
           NOP
 LAB_8c014398:
           MOV.L       H'8c014478,R3
@@ -4505,23 +4508,23 @@ LAB_8c014398:
           ADD         #H'4,R15
           MOV.L       @(H'8,R14),R2
           ADD         #H'1,R2
-          BRA         H'8c0144b4
+          BRA         LAB_8c0144b4
           MOV.L       R2,@(H'8,R14)
 LAB_8c0143e6:
           BSR         H'8c01432a
           NOP
           TST         R0,R0
-          BT          H'8c0144b4
+          BT          LAB_8c0144b4
 LAB_8c0143ee:
           MOV.L       @(H'8,R14),R1
           ADD         #H'1,R1
           MOV.L       R1,@(H'8,R14)
-          BRA         H'8c0144f2
+          BRA         LAB_8c0144f2
           NOP
 LAB_8c0143f8:
           MOV.L       @(H'8,R14),R2
           ADD         #H'1,R2
-          BRA         H'8c0144f2
+          BRA         LAB_8c0144f2
           MOV.L       R2,@(H'8,R14)
 LAB_8c014400:
           MOV.L       H'8c01449c,R3
@@ -4670,14 +4673,14 @@ LAB_8c014550:
           STS.L       PR,@-R15
           MOV.L       @(H'8,R14),R0
           CMP/EQ      #H'0,R0
-          BT          H'8c01456e
+          BT          LAB_8c01456e
           CMP/EQ      #H'1,R0
-          BT          H'8c01459c
+          BT          LAB_8c01459c
           CMP/EQ      #H'2,R0
-          BT          H'8c0145ae
+          BT          LAB_8c0145ae
           CMP/EQ      #H'3,R0
-          BT          H'8c014610
-          BRA         H'8c01464a
+          BT          LAB_8c014610
+          BRA         LAB_8c01464a
           NOP
 LAB_8c01456e:
           MOV.L       H'8c0145f4,R3
@@ -4701,22 +4704,22 @@ LAB_8c01456e:
           ADD         #H'4,R15
           MOV.L       @(H'8,R14),R3
           ADD         #H'1,R3
-          BRA         H'8c01464a
+          BRA         LAB_8c01464a
           MOV.L       R3,@(H'8,R14)
 LAB_8c01459c:
           BSR         H'8c01432a
           NOP
           TST         R0,R0
-          BT          H'8c01464a
+          BT          LAB_8c01464a
           MOV.L       @(H'8,R14),R1
           ADD         #H'1,R1
           MOV.L       R1,@(H'8,R14)
-          BRA         H'8c014686
+          BRA         LAB_8c014686
           NOP
 LAB_8c0145ae:
           MOV.L       @(H'8,R14),R2
           ADD         #H'1,R2
-          BRA         H'8c014686
+          BRA         LAB_8c014686
           MOV.L       R2,@(H'8,R14)
 
           .DATA.B H'00, H'0C ; H'8c0145b6
@@ -4818,11 +4821,11 @@ LAB_8c01468e:
           MOV         #H'2,R1
           MOV.B       @R2,R3
           CMP/GE      R1,R3
-          BF          H'8c0146a6
+          BF          LAB_8c0146a6
           MOV.L       H'8c01475c,R3
           MOV.L       @R3,R0
           CMP/EQ      #H'1,R0
-          BF          H'8c0146ba
+          BF          LAB_8c0146ba
 LAB_8c0146a6:
           MOV.L       H'8c014760,R4
           MOV.L       @(H'c,R4),R3
@@ -4831,7 +4834,7 @@ LAB_8c0146a6:
           MOV.L       R3,@(H'c,R4)
           MOV.L       @(H'10,R4),R2
           CMP/GT      R2,R1
-          BF          H'8c0146ba
+          BF          LAB_8c0146ba
           MOV.L       @(H'10,R4),R0
           MOV.L       R0,@(H'c,R4)
 LAB_8c0146ba:
@@ -4921,16 +4924,16 @@ prob_task_8c014784:
           MOV.L       @(H'8,R14),R0
           MOV.L       H'8c0148cc,R13
           CMP/EQ      #H'0,R0
-          BT          H'8c0147aa
+          BT          LAB_8c0147aa
           CMP/EQ      #H'1,R0
-          BT          H'8c0147d8
+          BT          LAB_8c0147d8
           CMP/EQ      #H'2,R0
-          BT          H'8c01482e
+          BT          LAB_8c01482e
           CMP/EQ      #H'3,R0
-          BT          H'8c014840
+          BT          LAB_8c014840
           CMP/EQ      #H'4,R0
-          BT          H'8c014848
-          BRA         H'8c014882
+          BT          LAB_8c014848
+          BRA         LAB_8c014882
           NOP
 LAB_8c0147aa:
           MOV.L       H'8c0148d0,R3
@@ -4954,13 +4957,13 @@ LAB_8c0147aa:
           MOV.L       R2,@-R15
           JSR         @R3
           MOV         R7,R5
-          BRA         H'8c014824
+          BRA         LAB_8c014824
           NOP
 LAB_8c0147d8:
           BSR         H'8c01432a
           NOP
           TST         R0,R0
-          BT          H'8c014882
+          BT          LAB_8c014882
           MOV.L       H'8c0148e8,R2
           JSR         @R2
           NOP
@@ -4999,22 +5002,22 @@ LAB_8c014824:
           ADD         #H'4,R15
           MOV.L       @(H'8,R14),R3
           ADD         #H'1,R3
-          BRA         H'8c014882
+          BRA         LAB_8c014882
           MOV.L       R3,@(H'8,R14)
 LAB_8c01482e:
           BSR         H'8c01432a
           NOP
           TST         R0,R0
-          BT          H'8c014882
+          BT          LAB_8c014882
           MOV.L       @(H'8,R14),R1
           ADD         #H'1,R1
           MOV.L       R1,@(H'8,R14)
-          BRA         H'8c0148c0
+          BRA         LAB_8c0148c0
           NOP
 LAB_8c014840:
           MOV.L       @(H'8,R14),R2
           ADD         #H'1,R2
-          BRA         H'8c0148c0
+          BRA         LAB_8c0148c0
           MOV.L       R2,@(H'8,R14)
 LAB_8c014848:
           MOV.L       H'8c014908,R3
