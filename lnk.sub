@@ -190,6 +190,15 @@ define __8c157ac4(8C157AC4)
 define __8c157ac8(8C157AC8)
 define _gBupInfo(8c1bc4ac)
 define __8c277ca0(8C277CA0)
+define __8c011e80(8C011E80)
+define __8c157acc(8C157ACC)
+define __8c02fd74(8C02FD74)
+define __8c157ad0(8C157AD0)
+define __8c1ba1cc(8C1BA1CC)
+define __8c03bf18(8C03BF18)
+define __8c03be80(8C03BE80)
+define __8c03beb8(8C03BEB8)
+define __8c03bef0(8C03BEF0)
 
 input build\_000000_8c010000.obj
 input build\_000128_8c010080_main.obj
