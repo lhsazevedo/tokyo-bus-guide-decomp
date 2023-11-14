@@ -16,7 +16,7 @@
           .IMPORT     _gdFsGetStat
           .IMPORT     _gdFsClose
           .IMPORT     _njReadBinary
-          .IMPORT     __8c0537c8
+          .IMPORT     _gdFsGetTransStat
           .IMPORT     _gdFsTrans32
           .IMPORT     __8c02fe38
           .IMPORT     _syFree
@@ -428,7 +428,7 @@ L28:
           .DATA.W     H'0800 ; L28
           .DATA.L     _gdFsClose ; L28+2
           .DATA.L     _njReadBinary
-          .DATA.L     __8c0537c8
+          .DATA.L     _gdFsGetTransStat
           .DATA.L     _gdFsTrans32
           .DATA.L     __8c157a88 ; L28+18
           .DATA.L     _queuedNjFilesCursor_8c157aa0
@@ -1287,7 +1287,7 @@ L92:
           .DATA.L     _njSetPvmTextureList
           .DATA.L     _njLoadTexturePvmMemory
           .DATA.L     _syFree ; L92+12
-          .DATA.L     __8c0537c8
+          .DATA.L     _gdFsGetTransStat
           .DATA.L     _gdFsTrans32
           .DATA.L     _gdFsClose
           .DATA.L     __8c157a88 ; L92+28
