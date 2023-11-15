@@ -1,4 +1,3 @@
-          .SECTION P, CODE, ALIGN=4
           .IMPORT     _queuedNjFiles_8c157a9c
           .IMPORT     _queuedNjFilesEnd_8c157aa4
           .IMPORT     _queuedNjFilesCursor_8c157aa0
@@ -54,6 +53,7 @@
           .IMPORT     _freeDatQueue_8c0113d8
           .IMPORT     FUN_8c0117a4
           .EXPORT     _FUN_8c011f36
+          .SECTION P, CODE, ALIGN=4
 _initNjQueue_8c011430:           ; function: initNjQueue
                                  ; frame size=16
           MOV.L       R14,@-R15
