@@ -19,7 +19,6 @@
           .IMPORT     _gdFsTrans32
           .IMPORT     __8c02fe38
           .IMPORT     _syFree
-          .IMPORT     __8c0114cc
           .IMPORT     _tasks_8c1ba3c8
           .IMPORT     __8c014ae8
           .IMPORT     __8c157aac
@@ -29,7 +28,6 @@
           .IMPORT     __8c157ab8
           .IMPORT     _njSetTexture
           .IMPORT     _njLoadTextureNum
-          .IMPORT     __8c01183e
           .IMPORT     __8c157abc
           .IMPORT     __8c157ac4
           .IMPORT     __8c157ac0
@@ -40,19 +38,21 @@
           .IMPORT     _njLoadTexturePvmMemory
           .IMPORT     __8c157a6c
           .IMPORT     __quick_evn_mvn
-          .IMPORT     __8c011b00
           .IMPORT     _njReleaseTexture
-          .IMPORT     __8c01c8fc
-          .IMPORT     __8c01c910
+          .IMPORT     FUN_8c01c8fc
+          .IMPORT     FUN_8c01c910
           .IMPORT     __8c157a60
           .IMPORT     _get_8c157a98_8c0113d2
-          .IMPORT     FUN_8c01179e
           .IMPORT     _initDatQueue_8c011124
-          .IMPORT     FUN_8c01116a
-          .IMPORT     FUN_8c01147a
+          .IMPORT     _FUN_8c01116a
           .IMPORT     _freeDatQueue_8c0113d8
-          .IMPORT     FUN_8c0117a4
           .EXPORT     _FUN_8c011f36
+          .EXPORT     _requestNj_8c011492
+          .EXPORT     FUN_8c01181c
+          .EXPORT     freeTexlist_8c011e3c
+          .EXPORT     task_8c011e80
+          .EXPORT     FUN_8c011f6c
+          .EXPORT     FUN_8c011f7e
           .SECTION P, CODE, ALIGN=4
 _initNjQueue_8c011430:           ; function: initNjQueue
                                  ; frame size=16
@@ -97,7 +97,7 @@ L3:
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-_FUN_8c01147a:                   ; function: FUN_8c01147a
+_FUN_8c01147a:                   ; function: _FUN_8c01147a
                                  ; frame size=0
           MOV.L       L7+2,R2 ; _queuedNjFiles_8c157a9c
           MOV.L       L7+14,R1; _queuedNjFilesCursor_8c157aa0
@@ -512,12 +512,12 @@ L34:
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-_FUN_8c01179e:                   ; function: FUN_8c01179e
+_FUN_8c01179e:                   ; function: _FUN_8c01179e
                                  ; frame size=0
           MOV.L       L55+36,R3
           RTS
           MOV.L       @R3,R0
-_FUN_8c0117a4:                   ; function: FUN_8c0117a4
+_FUN_8c0117a4:                   ; function: _FUN_8c0117a4
                                  ; frame size=0
           MOV.L       L55+40,R2
           MOV.L       @R2,R0
@@ -762,7 +762,7 @@ L55:
           .DATA.L     _strcmp ; L55
           .DATA.L     __8c02fe38
           .DATA.L     _syFree
-          .DATA.L     __8c0114cc
+          .DATA.L     _task_8c0114cc
           .DATA.L     _tasks_8c1ba3c8 ; L55+16
           .DATA.L     __8c014ae8
           .DATA.L     __8c157a88
@@ -1020,7 +1020,7 @@ L72:
           .DATA.L     __8c157ab8
           .DATA.L     __8c014b66 ; L72+12
           .DATA.L     __8c157aac
-          .DATA.L     __8c01183e
+          .DATA.L     task_8c01183e
           .DATA.L     _tasks_8c1ba3c8
           .DATA.L     __8c014ae8 ; L72+28
           .DATA.L     _syFree
@@ -1462,7 +1462,7 @@ L102:
           BRA         L108
           NOP
 L103:
-          BSR         FUN_8c01179e
+          BSR         _FUN_8c01179e
           NOP
           TST         R0,R0
           BT          L108
@@ -1557,9 +1557,9 @@ _FUN_8c011f36:
           NOP
 FUN_8c011f6c:
           STS.L       PR,@-R15
-          BSR         FUN_8c01116a
+          BSR         _FUN_8c01116a
           NOP
-          BSR         FUN_8c01147a
+          BSR         _FUN_8c01147a
           NOP
           BSR         FUN_8c0117fe
           NOP
@@ -1569,7 +1569,7 @@ FUN_8c011f7e:
           STS.L       PR,@-R15
           BSR         _freeDatQueue_8c0113d8
           NOP
-          BSR         FUN_8c0117a4
+          BSR         _FUN_8c0117a4
           NOP
           BSR         FUN_8c011a48
           NOP
@@ -1588,7 +1588,7 @@ L110:
           .DATA.L     _strcmp ; L110
           .DATA.L     __quick_evn_mvn
           .DATA.L     _syFree
-          .DATA.L     __8c011b00
+          .DATA.L     task_8c011b00
           .DATA.L     _tasks_8c1ba3c8 ; L110+16
           .DATA.L     __8c014ae8
           .DATA.L     __8c157a88
@@ -1598,7 +1598,7 @@ L110:
           .DATA.L     __8c157abc
           .DATA.L     _njReleaseTexture
           .DATA.L     __8c014b66 ; L110+48
-          .DATA.L     __8c01c8fc
-          .DATA.L     __8c01c910
+          .DATA.L     FUN_8c01c8fc
+          .DATA.L     FUN_8c01c910
           .DATA.L     __8c157a60
           .END

@@ -3,8 +3,8 @@
           .IMPORT     _sdMidiPlay
           .IMPORT     _pushTask_8c014ae8
           .IMPORT     _getUknPvmBool_8c01432a
-          .IMPORT     __8c011f7e
-          .IMPORT     __8c01940e
+          .IMPORT     FUN_8c011f7e
+          .IMPORT     FUN_8c01940e
           .IMPORT     _push_fadein_8c022a9c
           .IMPORT     _midiHandles_8c0fcd28
           .IMPORT     _isFading_8c226568
@@ -17,26 +17,26 @@
           .IMPORT     _menuState_8c1bc7a8
           .IMPORT     _peripheral_8c1ba35c
           .IMPORT     _tasks_8c1ba3c8
-          .IMPORT     _task_8c012f44
+          .IMPORT     task_8c012f44
           .IMPORT     __8c157af8
-          .IMPORT     _FUN_8c02ae3e
+          .IMPORT     FUN_8c02ae3e
           .IMPORT     _FUN_8c011f36
           .IMPORT     _nop_8c011120
           .IMPORT     _resetUknPvmBool_8c014322
           .IMPORT     __8c225fb0
-          .IMPORT     _FUN_8c019550
-          .IMPORT     __8c019e44
-          .IMPORT     __8c016182
-          .IMPORT     __8c0159ac
-          .IMPORT     _FUN_8c011f6c
+          .IMPORT     FUN_8c019550
+          .IMPORT     FUN_8c019e44
+          .IMPORT     FUN_8c016182
+          .IMPORT     FUN_8c0159ac
+          .IMPORT     FUN_8c011f6c
           .IMPORT     _request_sys_resgrp_8c018568
           .IMPORT     _requestCommonResources_8c01852c
           .IMPORT     _setUknPvmBool_8c014330
-          .IMPORT     _FUN_8c011fe0
+          .IMPORT     FUN_8c011fe0
           .IMPORT     _snd_8c010cd6
-          .IMPORT     __8c012984
+          .IMPORT     FUN_8c012984
           .IMPORT     _FUN_8c010bae
-          .IMPORT     _FUN_8c0128cc
+          .IMPORT     FUN_8c0128cc
           .EXPORT     _task_title_8c015ab8
           .EXPORT     _FUN_8c015fd6
           .SECTION    P,CODE,ALIGN=4
@@ -149,10 +149,10 @@ L5:                               ; case label 0
           BRA         L52
           NOP
 L6:                               
-          MOV.L       L37+4,R3;__8c011f7e
+          MOV.L       L37+4,R3;FUN_8c011f7e
           JSR         @R3
           NOP
-          MOV.L       L37+8,R2;__8c01940e
+          MOV.L       L37+8,R2;FUN_8c01940e
           JSR         @R2
           NOP
           MOV.L       @R15,R3
@@ -465,13 +465,13 @@ L36:
 
 L37:                              
           .DATA.L     _getUknPvmBool_8c01432a ; H'8c015dcc
-          .DATA.L     __8c011f7e ; H'8c015dd0
-          .DATA.L     __8c01940e
+          .DATA.L     FUN_8c011f7e ; H'8c015dd0
+          .DATA.L     FUN_8c01940e
           .DATA.L     H'FF000000
           .DATA.L     _njSetBackColor
-          .DATA.L     __8c012984 ; H'8c015de0
+          .DATA.L     FUN_8c012984 ; H'8c015de0
           .DATA.L     _saveNames_8c044d50
-          .DATA.L     _FUN_8c019550
+          .DATA.L     FUN_8c019550
           .DATA.L     _midiHandles_8c0fcd28
           .DATA.L     _sdMidiPlay ; H'8c015df0
           .DATA.L     H'44200000 ; 640.0
@@ -644,12 +644,12 @@ L48:
           .DATA.L     _midiHandles_8c0fcd28
           .DATA.L     _sdMidiPlay ; H'8c015f40
           .DATA.L     _saveNames_8c044d50
-          .DATA.L     _FUN_8c019550
+          .DATA.L     FUN_8c019550
           .DATA.L     __8c03bd80
           .DATA.L     __8c1bb8c4 ; H'8c015f50
-          .DATA.L     __8c019e44
-          .DATA.L     __8c016182
-          .DATA.L     __8c0159ac
+          .DATA.L     FUN_8c019e44
+          .DATA.L     FUN_8c016182
+          .DATA.L     FUN_8c0159ac
 
 L49:                              
           MOV         R14,R4
@@ -720,14 +720,14 @@ _FUN_8c015fd6:                   ; function: FUN_8c015fd6
           MOV.L       R14,@-R15
           STS.L       PR,@-R15
           ADD         #-12,R15
-          MOV.L       L53+24,R3; _FUN_8c0128cc
+          MOV.L       L53+24,R3; FUN_8c0128cc
           MOV.L       R4,@(8,R15)
           JSR         @R3
           MOV         #0,R4
           MOV         #0,R2
           MOV.L       L53+32,R4; _tasks_8c1ba3c8
           MOV.L       R2,@-R15
-          MOV.L       L53+28,R5; _task_8c012f44
+          MOV.L       L53+28,R5; task_8c012f44
           MOV         R15,R7
           MOV.L       L53+36,R3; _pushTask_8c014ae8
           ADD         #8,R7
@@ -771,7 +771,7 @@ _FUN_8c015fd6:                   ; function: FUN_8c015fd6
           MOVA        L53+64,R0; -2.0
           MOV.L       R2,@-R15
           MOV         #0,R3
-          MOV.L       L53+68,R1; _FUN_8c02ae3e
+          MOV.L       L53+68,R1; FUN_8c02ae3e
           MOV.L       R3,@-R15
           MOV         #64,R7
           MOV.W       L53+4,R5; H'0178
@@ -785,7 +785,7 @@ _FUN_8c015fd6:                   ; function: FUN_8c015fd6
           MOV         R6,R5
           JSR         @R3
           MOV         R7,R4
-          MOV.L       L53+76,R2; _FUN_8c011f6c
+          MOV.L       L53+76,R2; FUN_8c011f6c
           JSR         @R2
           NOP
           MOV.L       L53+80,R2; __8c225fb0
@@ -806,7 +806,7 @@ _FUN_8c015fd6:                   ; function: FUN_8c015fd6
           MOV         #0,R7
           MOV.L       L53+104,R4; _nop_8c011120
           MOV         R7,R6
-          MOV.L       L53+108,R3; _FUN_8c011fe0
+          MOV.L       L53+108,R3; FUN_8c011fe0
           MOV.L       R2,@-R15
           JSR         @R3
           MOV         R7,R5
@@ -824,8 +824,8 @@ L53:
           .DATA.L     H'43970000 ; 302.0
           .DATA.L     H'43340000 ; 180.0
           .DATA.L     H'C0E00000 ; -7.0
-          .DATA.L     _FUN_8c0128cc ; H'8c0160b0
-          .DATA.L     _task_8c012f44
+          .DATA.L     FUN_8c0128cc ; H'8c0160b0
+          .DATA.L     task_8c012f44
           .DATA.L     _tasks_8c1ba3c8
           .DATA.L     _pushTask_8c014ae8
           .DATA.L     _njSetBackColor ; H'8c0160c0
@@ -835,9 +835,9 @@ L53:
           .DATA.L     __8c157af8 ; H'8c0160d0
           .DATA.L     _njGarbageTexture
           .DATA.L     H'C0000000 ; -2.0
-          .DATA.L     _FUN_8c02ae3e
+          .DATA.L     FUN_8c02ae3e
           .DATA.L     _FUN_8c011f36 ; H'8c0160e0
-          .DATA.L     _FUN_8c011f6c
+          .DATA.L     FUN_8c011f6c
           .DATA.L     __8c225fb0
           .DATA.L     _titleResourceGroup_8c044254
           .DATA.L     _request_sys_resgrp_8c018568 ; H'8c0160f0
@@ -845,5 +845,5 @@ L53:
           .DATA.L     _setUknPvmBool_8c014330
           .DATA.L     _resetUknPvmBool_8c014322
           .DATA.L     _nop_8c011120
-          .DATA.L     _FUN_8c011fe0
+          .DATA.L     FUN_8c011fe0
           .END

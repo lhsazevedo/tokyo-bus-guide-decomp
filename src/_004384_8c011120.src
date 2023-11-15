@@ -74,7 +74,7 @@ L3:
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-_FUN_8c01116a:                   ; function: FUN_8c01116a
+_FUN_8c01116a:                   ; function: _FUN_8c01116a
                                  ; frame size=0
           MOV.L       L14,R2   ; __8c157a8c_start
           MOV.L       L14+12,R1; __8c157a90_current

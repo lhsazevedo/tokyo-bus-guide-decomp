@@ -11,6 +11,6 @@ void freeResourceGroups_8c016108()
     freeResourceGroup_8c0185c4(&menuState_8c1bc7a8.drawDatStruct1_0x0c);
     freeResourceGroup_8c0185c4(&_8c2263a8);
 
-    _8c02af32();
+    FUN_8c02af32();
     _8c225fb0 = (void *) -1;
 }

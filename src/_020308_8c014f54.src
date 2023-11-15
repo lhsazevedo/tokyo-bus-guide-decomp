@@ -23,29 +23,35 @@
           .IMPORT     __8c1bb8c8
           .IMPORT     __8c157a64
           .IMPORT     __8c1bc828
-          .IMPORT     __8c02f320
-          .IMPORT     __8c02fa14
+          .IMPORT     FUN_8c02f320
+          .IMPORT     FUN_8c02fa14
           .IMPORT     __8c014b66
-          .IMPORT     __8c01328c
-          .IMPORT     __8c01594c
+          .IMPORT     FUN_8c01328c
           .IMPORT     _tasks_8c1ba3c8
           .IMPORT     __8c014ae8
           .IMPORT     __8c1bb8d0
           .IMPORT     __8c1bb8d4
           .IMPORT     __8c1bb8d8
           .IMPORT     _FUN_8c011f36
-          .IMPORT     _FUN_8c011f6c
+          .IMPORT     FUN_8c011f6c
           .IMPORT     __8c044154
           .IMPORT     __8c035f74
-          .IMPORT     __8c011182
+          .IMPORT     _request_dat_8c011182
           .IMPORT     __8c227e14
           .IMPORT     __8c22822c
           .IMPORT     _resetUknPvmBool_8c014322
           .IMPORT     _setUknPvmBool_8c014330
-          .IMPORT     __8c011120
-          .IMPORT     _FUN_8c011fe0
+          .IMPORT     _nop_8c011120
+          .IMPORT     FUN_8c011fe0
           .IMPORT     njDrawSprite2D
           .EXPORT     _drawSprite_8c014f54
+          .EXPORT     FUN_8c01524c
+          .EXPORT     FUN_8c01529c
+          .EXPORT     FUN_8c0152fc
+          .EXPORT     FUN_8c015410
+          .EXPORT     FUN_8c01543a
+          .EXPORT     menuTextboxTextSub_8c0155e0
+          .EXPORT     FUN_8c0159ac
           .SECTION    P,CODE,ALIGN=4
 _drawSprite_8c014f54:
           MOV.L       R14,@-R15
@@ -1523,28 +1529,28 @@ LP_GEN_51554:
           .DATA.L __8c1bb8c8
           .DATA.L __8c157a64
           .DATA.L __8c1bc828
-          .DATA.L __8c02f320
-          .DATA.L __8c02fa14
+          .DATA.L FUN_8c02f320
+          .DATA.L FUN_8c02fa14
           .DATA.L _syFree
           .DATA.L __8c014b66
-          .DATA.L __8c01328c
-          .DATA.L __8c01594c
+          .DATA.L FUN_8c01328c
+          .DATA.L FUN_8c01594c
           .DATA.L _tasks_8c1ba3c8
           .DATA.L __8c014ae8
           .DATA.L __8c1bb8d0
           .DATA.L __8c1bb8d4
           .DATA.L __8c1bb8d8
           .DATA.L _FUN_8c011f36
-          .DATA.L _FUN_8c011f6c
+          .DATA.L FUN_8c011f6c
           .DATA.L __8c044154
           .DATA.L __8c035f74
-          .DATA.L __8c011182
+          .DATA.L _request_dat_8c011182
           .DATA.L __8c227e14
           .DATA.L __8c22822c
           .DATA.L _resetUknPvmBool_8c014322
           .DATA.L _setUknPvmBool_8c014330
-          .DATA.L __8c011120
-          .DATA.L _FUN_8c011fe0
+          .DATA.L _nop_8c011120
+          .DATA.L FUN_8c011fe0
 
           .END
 
