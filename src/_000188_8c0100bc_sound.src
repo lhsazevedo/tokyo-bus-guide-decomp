@@ -43,6 +43,7 @@
           .IMPORT     __divls
           .IMPORT     __slow_mvn
           .IMPORT     __quick_evn_mvn
+          .IMPORT     __8c0332d8
           .EXPORT     __8c03bd80
           .EXPORT     __8c03bd84
           .EXPORT     __8c03bd88
@@ -1440,7 +1441,7 @@ L59:
           .DATA.L     __8c03bd88+4 ; L59+6
           .DATA.L     H'00000004+_adxtHandles_8c0fcd20
           .DATA.L     _ADXT_SetOutVol
-          .DATA.L     H'8C0332D8 ; Initialized var
+          .DATA.L     __8c0332d8 ; Initialized var
           .DATA.L     __quick_evn_mvn ; L59+22
           .DATA.L     __8c03bd90
           .DATA.L     H'00000008+_adxtHandles_8c0fcd20
