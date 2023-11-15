@@ -167,7 +167,7 @@
           .IMPORT     _syRtcInit
           .IMPORT     __8c010924
           .IMPORT     __8c226070
-          .IMPORT     __8c0108c0
+          .IMPORT     _setSoundMode_8c0108c0
           .IMPORT     __8c010fbe
           .IMPORT     __8c014b8c
           .IMPORT     _njSetTextureInfo
@@ -3349,7 +3349,7 @@ LP_GEN_90231:
           .DATA.W H'0100
           .DATA.W H'0B01
           .DATA.W H'03E7
-          .DATA.L __8c0108c0
+          .DATA.L _setSoundMode_8c0108c0
           .DATA.L __8c010fbe
           .DATA.L __8c014b8c
           .DATA.L __8c277ca0
