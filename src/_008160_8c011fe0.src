@@ -210,7 +210,7 @@
           .IMPORT     _njSetBorderColor
           .IMPORT     __8c01c8fc
           .IMPORT     __8c013388
-          .IMPORT     __8c011f36
+          .IMPORT     _FUN_8c011f36
           .IMPORT     __8c033380
           .IMPORT     __8c1bc41c
           .IMPORT     __8c033388
@@ -326,6 +326,10 @@
           .IMPORT     __8c2285c4
           .IMPORT     __8c014550
           .IMPORT     __8c1bbcc4
+          .EXPORT     _njUserInit
+          .EXPORT     _njUserMain
+          .EXPORT     _njUserExit
+          .EXPORT     _prob_task_8c014784
           .SECTION P, CODE, ALIGN=4
 
 FUN_8c011fe0:
@@ -3067,7 +3071,7 @@ LAB_8c0134e2:
 LAB_8c0134e8:
           RTS
           NOP
-njUserInit:
+_njUserInit:
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           MOV.L       R12,@-R15
@@ -3530,7 +3534,7 @@ LAB_8c013824:
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-njUserMain:
+_njUserMain:
           MOV.L       LP_GEN_19861+204,R2
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
@@ -3623,7 +3627,7 @@ LAB_8c0139cc:
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-njUserExit:
+_njUserExit:
           STS.L       PR,@-R15
           MOV.L       LP_GEN_19861+244,R3
           JSR         @R3
@@ -3641,7 +3645,7 @@ LP_GEN_19861:
           .DATA.L __8c013388
           .DATA.L _tasks_8c1ba3c8
           .DATA.L __8c014ae8
-          .DATA.L __8c011f36
+          .DATA.L _FUN_8c011f36
           .DATA.L _FUN_8c011f6c
           .DATA.L __8c011182
           .DATA.L __8c033380
@@ -4165,7 +4169,7 @@ LP_GEN_38230:
           .DATA.W H'0200 ; LP_GEN_38230+0
           .DATA.W H'0410
           .RES.W 1
-          .DATA.L __8c011f36
+          .DATA.L _FUN_8c011f36
           .DATA.L _FUN_8c011f6c
           .DATA.L __8c18adb0
           .DATA.L __8c013d42
@@ -5082,7 +5086,7 @@ LP_GEN_28406:
           .DATA.L __8c014ae8
           .DATA.L __8c157af8
           .DATA.L _njGarbageTexture
-          .DATA.L __8c011f36
+          .DATA.L _FUN_8c011f36
           .DATA.L __8c02b170
           .DATA.L _FUN_8c011f6c
           .DATA.L _setUknPvmBool_8c014330
@@ -5257,11 +5261,11 @@ LP_GEN_17698:
           .DATA.L __8c014ae8
           .DATA.L __8c157af8
           .DATA.L _njGarbageTexture
-          .DATA.L __8c011f36
+          .DATA.L _FUN_8c011f36
           .DATA.L H'FF418DFF
           .DATA.L _njSetBackColor
 
-prob_task_8c014784:
+_prob_task_8c014784:
           MOV.L       R14,@-R15
           MOV         R4,R14
           MOV.L       R13,@-R15

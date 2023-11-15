@@ -17,7 +17,6 @@
           .IMPORT     _njSetTextureInfo
           .IMPORT     _njSetTextureName
           .IMPORT     _njLoadTexture
-          .IMPORT     _drawSprite_8c014f54
           .IMPORT     _getUknPvmBool_8c01432a
           .IMPORT     __8c1ba3c4
           .IMPORT     __8c1bb868
@@ -34,7 +33,7 @@
           .IMPORT     __8c1bb8d0
           .IMPORT     __8c1bb8d4
           .IMPORT     __8c1bb8d8
-          .IMPORT     __8c011f36
+          .IMPORT     _FUN_8c011f36
           .IMPORT     _FUN_8c011f6c
           .IMPORT     __8c044154
           .IMPORT     __8c035f74
@@ -46,8 +45,9 @@
           .IMPORT     __8c011120
           .IMPORT     _FUN_8c011fe0
           .IMPORT     njDrawSprite2D
+          .EXPORT     _drawSprite_8c014f54
           .SECTION    P,CODE,ALIGN=4
-drawSprite_8c014f54:
+_drawSprite_8c014f54:
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           MOV.L       R12,@-R15
@@ -1534,7 +1534,7 @@ LP_GEN_51554:
           .DATA.L __8c1bb8d0
           .DATA.L __8c1bb8d4
           .DATA.L __8c1bb8d8
-          .DATA.L __8c011f36
+          .DATA.L _FUN_8c011f36
           .DATA.L _FUN_8c011f6c
           .DATA.L __8c044154
           .DATA.L __8c035f74

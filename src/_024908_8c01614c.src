@@ -118,11 +118,9 @@
           .IMPORT     _getUknPvmBool_8c01432a
           .IMPORT     __8c011f7e
           .IMPORT     __8c010d8a
-          .IMPORT     _push_fadein_8c022a9c
           .IMPORT     __8c1ba210
           .IMPORT     __8c0fcd3c
           .IMPORT     __8c010846
-          .IMPORT     _push_fadeout_8c022b60
           .IMPORT     __8c225fb0
           .IMPORT     __8c01a09a
           .IMPORT     __8c02af1c
@@ -132,7 +130,7 @@
           .IMPORT     __8c017ada
           .IMPORT     __8c157af8
           .IMPORT     _njGarbageTexture
-          .IMPORT     __8c011f36
+          .IMPORT     _FUN_8c011f36
           .IMPORT     _FUN_8c011f6c
           .IMPORT     __8c044264
           .IMPORT     _setUknPvmBool_8c014330
@@ -1064,7 +1062,8 @@
           .IMPORT     __8c03bd4c
           .IMPORT     __8c03bd54
           .IMPORT     __8c03325c
-          .IMPORT DUMMY
+          .EXPORT     _push_fadein_8c022a9c
+          .EXPORT     _push_fadeout_8c022b60
           .SECTION P, CODE, ALIGN=4
 FUN_8c01614c:
           MOV.L       R14,@-R15
@@ -4923,7 +4922,7 @@ LP_GEN_67544:
           .DATA.L __8c1bb8d0 ; H'8C017F54
           .DATA.L __8c157af8 ; H'8C017F58
           .DATA.L _njGarbageTexture ; H'8C017F5C
-          .DATA.L __8c011f36 ; H'8C017F60
+          .DATA.L _FUN_8c011f36 ; H'8C017F60
           .DATA.L _FUN_8c011f6c ; H'8C017F64
           .DATA.L __8c044264 ; H'8C017F68
           .DATA.L _setUknPvmBool_8c014330 ; H'8C017F6C
@@ -5096,7 +5095,7 @@ LP_GEN_56170:
           .DATA.L __8c03628c ; H'8C0180DC
           .DATA.L __8c02aefc ; H'8C0180E0
           .DATA.L __8c1bb8d0 ; H'8C0180E4
-          .DATA.L __8c011f36 ; H'8C0180E8
+          .DATA.L _FUN_8c011f36 ; H'8C0180E8
           .DATA.L _FUN_8c011f6c ; H'8C0180EC
           .DATA.L __8c044264 ; H'8C0180F0
           .DATA.L _setUknPvmBool_8c014330 ; H'8C0180F4
@@ -5729,7 +5728,7 @@ LP_GEN_93008:
           .DATA.L __8c0181b6 ; H'8C0185F8
           .DATA.L __8c014b3e ; H'8C0185FC
           .DATA.L _menuState_8c1bc7a8 ; H'8C018600
-          .DATA.L __8c011f36 ; H'8C018604
+          .DATA.L _FUN_8c011f36 ; H'8C018604
           .DATA.L _FUN_8c011f6c ; H'8C018608
           .DATA.L __8c044d40 ; H'8C01860C
           .DATA.L _setUknPvmBool_8c014330 ; H'8C018610
@@ -9265,7 +9264,7 @@ LP_GEN_13822:
           .DATA.L __8c019e98 ; H'8C01A11C
           .DATA.L __8c014b3e ; H'8C01A120
           .DATA.L _menuState_8c1bc7a8 ; H'8C01A124
-          .DATA.L __8c011f36 ; H'8C01A128
+          .DATA.L _FUN_8c011f36 ; H'8C01A128
           .DATA.L _FUN_8c011f6c ; H'8C01A12C
           .DATA.L __8c044264 ; H'8C01A130
           .DATA.L _request_sys_resgrp_8c018568 ; H'8C01A134
@@ -12601,7 +12600,7 @@ LP_GEN_62205:
           .DATA.L __8c0380c8 ; H'8C01BB14
           .DATA.L __8c02aefc ; H'8C01BB18
           .DATA.L _push_fadein_8c022a9c ; H'8C01BB1C
-          .DATA.L __8c011f36 ; H'8C01BB20
+          .DATA.L _FUN_8c011f36 ; H'8C01BB20
           .DATA.L _FUN_8c011f6c ; H'8C01BB24
           .DATA.L __8c1ba344 ; H'8C01BB28
           .DATA.L __8c038454 ; H'8C01BB2C
@@ -14468,7 +14467,7 @@ LP_GEN_73212:
           .DATA.L __8c01bfec ; H'8C01C920
           .DATA.L __8c014b3e ; H'8C01C924
           .DATA.L _menuState_8c1bc7a8 ; H'8C01C928
-          .DATA.L __8c011f36 ; H'8C01C92C
+          .DATA.L _FUN_8c011f36 ; H'8C01C92C
           .DATA.L _FUN_8c011f6c ; H'8C01C930
           .DATA.L __8c044e90 ; H'8C01C934
           .DATA.L __8c2263a8 ; H'8C01C938
@@ -14902,7 +14901,7 @@ LP_GEN_72378:
           .DATA.L _freeResourceGroup_8c0185c4 ; H'8C01CCB8
           .DATA.L __8c157af8 ; H'8C01CCBC
           .DATA.L _njGarbageTexture ; H'8C01CCC0
-          .DATA.L __8c011f36 ; H'8C01CCC4
+          .DATA.L _FUN_8c011f36 ; H'8C01CCC4
           .DATA.L _FUN_8c011f6c ; H'8C01CCC8
           .DATA.L _request_sys_resgrp_8c018568 ; H'8C01CCCC
           .DATA.L _setUknPvmBool_8c014330 ; H'8C01CCD0
@@ -15649,7 +15648,7 @@ LP_GEN_13275:
           .DATA.L _freeResourceGroup_8c0185c4 ; H'8C01D264
           .DATA.L __8c157af8 ; H'8C01D268
           .DATA.L _njGarbageTexture ; H'8C01D26C
-          .DATA.L __8c011f36 ; H'8C01D270
+          .DATA.L _FUN_8c011f36 ; H'8C01D270
           .DATA.L _FUN_8c011f6c ; H'8C01D274
           .DATA.L __8c0450d8 ; H'8C01D278
           .DATA.L _request_sys_resgrp_8c018568 ; H'8C01D27C
@@ -16359,7 +16358,7 @@ LP_GEN_20271:
           .DATA.L _freeResourceGroup_8c0185c4 ; H'8C01D7D0
           .DATA.L __8c157af8 ; H'8C01D7D4
           .DATA.L _njGarbageTexture ; H'8C01D7D8
-          .DATA.L __8c011f36 ; H'8C01D7DC
+          .DATA.L _FUN_8c011f36 ; H'8C01D7DC
           .DATA.L _FUN_8c011f6c ; H'8C01D7E0
           .DATA.L __8c045160 ; H'8C01D7E4
           .DATA.L _request_sys_resgrp_8c018568 ; H'8C01D7E8
@@ -17436,7 +17435,7 @@ LP_GEN_43538:
           .DATA.L _njGarbageTexture ; H'8C01E070
           .DATA.L H'C0000000 ; H'8C01E074
           .DATA.L _FUN_8c02ae3e ; H'8C01E078
-          .DATA.L __8c011f36 ; H'8C01E07C
+          .DATA.L _FUN_8c011f36 ; H'8C01E07C
           .DATA.L _FUN_8c011f6c ; H'8C01E080
           .DATA.L _titleResourceGroup_8c044254 ; H'8C01E084
           .DATA.L __8c1bc7b4 ; H'8C01E088
@@ -18141,7 +18140,7 @@ LP_GEN_38636:
           .DATA.L __8c01e27c ; H'8C01E60C
           .DATA.L __8c014b3e ; H'8C01E610
           .DATA.L __8c1bc7c0 ; H'8C01E614
-          .DATA.L __8c011f36 ; H'8C01E618
+          .DATA.L _FUN_8c011f36 ; H'8C01E618
           .DATA.L _FUN_8c011f6c ; H'8C01E61C
           .DATA.L __8c044284 ; H'8C01E620
           .DATA.L __8c1bc7b4 ; H'8C01E624
@@ -18827,7 +18826,7 @@ LP_GEN_88702:
           .DATA.L _menuState_8c1bc7a8 ; H'8C01EB50
           .DATA.L __8c038984 ; H'8C01EB54
           .DATA.L __8c02aefc ; H'8C01EB58
-          .DATA.L __8c011f36 ; H'8C01EB5C
+          .DATA.L _FUN_8c011f36 ; H'8C01EB5C
           .DATA.L _FUN_8c011f6c ; H'8C01EB60
           .DATA.L __8c044274 ; H'8C01EB64
           .DATA.L _request_sys_resgrp_8c018568 ; H'8C01EB68
@@ -19639,7 +19638,7 @@ LP_GEN_22524:
           .DATA.L _njSetBackColor ; H'8C01F1E8
           .DATA.L __8c157af8 ; H'8C01F1EC
           .DATA.L _njGarbageTexture ; H'8C01F1F0
-          .DATA.L __8c011f36 ; H'8C01F1F4
+          .DATA.L _FUN_8c011f36 ; H'8C01F1F4
           .DATA.L _FUN_8c011f6c ; H'8C01F1F8
           .DATA.L __8c044274 ; H'8C01F1FC
           .DATA.L _request_sys_resgrp_8c018568 ; H'8C01F200
@@ -19823,7 +19822,7 @@ LP_GEN_37649:
           .DATA.L _FUN_8c02ae3e ; H'8C01F38C
           .DATA.L __8c038984 ; H'8C01F390
           .DATA.L __8c02aefc ; H'8C01F394
-          .DATA.L __8c011f36 ; H'8C01F398
+          .DATA.L _FUN_8c011f36 ; H'8C01F398
           .DATA.L _FUN_8c011f6c ; H'8C01F39C
           .DATA.L __8c225fb0 ; H'8C01F3A0
           .DATA.L __8c044274 ; H'8C01F3A4
@@ -20660,7 +20659,7 @@ LP_GEN_38893:
           .DATA.L __8c039f48 ; H'8C01FA48
           .DATA.L __8c02aefc ; H'8C01FA4C
           .DATA.L __8c225fb8 ; H'8C01FA50
-          .DATA.L __8c011f36 ; H'8C01FA54
+          .DATA.L _FUN_8c011f36 ; H'8C01FA54
           .DATA.L _FUN_8c011f6c ; H'8C01FA58
           .DATA.L __8c045324 ; H'8C01FA5C
           .DATA.L _request_sys_resgrp_8c018568 ; H'8C01FA60
@@ -26917,7 +26916,7 @@ LAB_8c022a8e:
           MOV.L       LP_GEN_18675+44,R2
           JMP         @R2
           MOV.L       @R15+,R14
-push_fadein_8c022a9c:
+_push_fadein_8c022a9c:
           STS.L       PR,@-R15
           ADD         #-H'c,R15
           MOV         #H'0,R3
@@ -27021,7 +27020,7 @@ LAB_8c022b3c:
           MOV.L       @R15+,R13
           JMP         @R2
           MOV.L       @R15+,R14
-push_fadeout_8c022b60:
+_push_fadeout_8c022b60:
           STS.L       PR,@-R15
           ADD         #-H'c,R15
           MOV         #H'0,R3

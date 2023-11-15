@@ -4,14 +4,6 @@ debug
 elf 
 output build\tbg.elf
 
-define _FUN_8c011f36(8C011F36)
-define _njUserInit(8C0134EC)
-define _njUserMain(8C01392E)
-define _njUserExit(8C0139D4)
-define _prob_task_8c014784(8C014784)
-define _drawSprite_8c014f54(8C014F54)
-define _push_fadein_8c022a9c(8C022A9C)
-define _push_fadeout_8c022b60(8C022B60)
 define __divls(8C02FB50)
 define __slow_mvn(8C02FED0)
 define _memset(8C0300b8)
@@ -114,7 +106,6 @@ define __8c011ac0(8C011AC0)
 define __8c011b00(8C011B00)
 define __8c011e3c(8C011E3C)
 define __8c011e80(8C011E80)
-define __8c011f36(8C011F36)
 define _FUN_8c011f6c(8C011F6C)
 define __8c011f7e(8C011F7E)
 define _FUN_8c011fe0(8C011FE0)

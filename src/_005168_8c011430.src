@@ -53,6 +53,7 @@
           .IMPORT     FUN_8c01147a
           .IMPORT     _freeDatQueue_8c0113d8
           .IMPORT     FUN_8c0117a4
+          .EXPORT     _FUN_8c011f36
 _initNjQueue_8c011430:           ; function: initNjQueue
                                  ; frame size=16
           MOV.L       R14,@-R15
@@ -1526,7 +1527,7 @@ L109:
           LDS.L       @R15+,PR
           RTS
           MOV.L       @R15+,R14
-FUN_8c011f36:
+_FUN_8c011f36:
           STS.L       PR,@-R15
           ADD         #-H'10,R15
           MOV.L       R4,@(H'c,R15)
