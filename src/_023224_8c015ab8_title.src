@@ -493,9 +493,9 @@ L38:                              ; case label e
           MOV         #0,R4
           JSR         @R12
           MOV         #1,R4
-          MOV.L       H'8c015f3c,R4
+          MOV.L       L48+6,R4
           MOV         #0,R7
-          MOV.L       H'8c015f40,R3
+          MOV.L       L48+10,R3
           MOV         R7,R6
           MOV         #1,R5
           JSR         @R3
@@ -508,7 +508,7 @@ L38:                              ; case label e
           MOV.L       R3,@(R0,R14)
 L39:                              
           MOV         #100,R0
-          MOV.W       H'8c015f36,R2
+          MOV.W       L48,R2
           MOV.L       @(R0,R14),R3
           ADD         #1,R3
           CMP/GT      R2,R3
@@ -554,26 +554,26 @@ L42:
           BRA         L50
           NOP
 L43:                              ; case label 10
-          MOV.L       H'8c015f48,R2
-          MOV.L       H'8c015f44,R4
+          MOV.L       L48+18,R2
+          MOV.L       L48+14,R4
           JSR         @R2
           MOV         #3,R5
           MOV.L       @R12,R3
           TST         R3,R3
           BF          L45
-          MOV.L       H'8c015f4c,R2
+          MOV.L       L48+22,R2
           MOV.L       @R2,R3
           TST         R3,R3
           BT          L44
           BRA         L52
           NOP
 L44:                              
-          MOV.L       H'8c015f50,R3
+          MOV.L       L48+26,R3
           MOV.L       R10,@R3
           MOV.L       @R15,R4
           ADD         #4,R15
           LDS.L       @R15+,PR
-          MOV.L       H'8c015f54,R1
+          MOV.L       L48+30,R1
           FMOV.S      @R15+,FR12
           FMOV.S      @R15+,FR13
           FMOV.S      @R15+,FR14
@@ -615,16 +615,16 @@ L47:                              ; case label 11
           MOV.L       @R12,R3
           TST         R3,R3
           BF          L49
-          MOV.L       H'8c015f4c,R2
+          MOV.L       L48+22,R2
           MOV.L       @R2,R3
           TST         R3,R3
           BF          L52
-          MOV.L       H'8c015f58,R3
+          MOV.L       L48+34,R3
           JSR         @R3
           NOP
           ADD         #4,R15
           LDS.L       @R15+,PR
-          MOV.L       H'8c015f5c,R2
+          MOV.L       L48+38,R2
           FMOV.S      @R15+,FR12
           FMOV.S      @R15+,FR13
           FMOV.S      @R15+,FR14
@@ -667,10 +667,10 @@ L49:
           JSR         @R13
           FMOV.S      FR15,FR4
 L50:                              
-          MOVA        H'8c0160a0,R0
+          MOVA        L53+8,R0
           MOV         R14,R4
           FMOV.S      @R0,FR5
-          MOVA        H'8c0160a4,R0
+          MOVA        L53+12,R0
           MOV         #4,R5
           FMOV.S      FR12,FR6
           ADD         #12,R4
@@ -678,7 +678,7 @@ L50:
           FMOV.S      @R0,FR4
           MOV         R14,R4
           FMOV.S      FR15,FR5
-          MOVA        H'8c0160a8,R0
+          MOVA        L53+16,R0
           FMOV.S      FR13,FR6
           MOV         #1,R5
           ADD         #12,R4
@@ -691,7 +691,7 @@ L50:
           ADD         #12,R4
           JSR         @R13
           FMOV.S      FR15,FR4
-          MOVA        H'8c0160ac,R0
+          MOVA        L53+20,R0
           MOV         R14,R4
           FMOV.S      @R0,FR6
           MOV         #46,R5
