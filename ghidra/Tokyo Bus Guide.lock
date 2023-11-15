@@ -1,9 +1,9 @@
 #Ghidra Lock File
-#Sat Aug 12 21:55:25 BRT 2023
+#Tue Nov 14 19:38:03 BRT 2023
 OS\ Name=Linux
-OS\ Version=5.4.0-148-generic
+OS\ Version=5.4.0-166-generic
 Username=lhsazevedo
 Hostname=lhsazevedo-pc
 <META>\ Supports\ File\ Channel\ Locking=Channel Lock
 OS\ Architecture=amd64
-Timestamp=8/12/23, 9\:55 PM
+Timestamp=11/14/23, 7\:38 PM
