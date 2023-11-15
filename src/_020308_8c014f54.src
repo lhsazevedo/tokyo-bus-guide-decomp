@@ -1,7 +1,7 @@
           .IMPORT     __8c035f24
           .IMPORT     __slow_mvn
           .IMPORT     __divls
-          .IMPORT     __8c05a190
+          .IMPORT     _njTwiddledTexture
           .IMPORT     __8c1bc7a0
           .IMPORT     _syMalloc
           .IMPORT     __8c1bc7a4
@@ -45,7 +45,7 @@
           .IMPORT     _setUknPvmBool_8c014330
           .IMPORT     __8c011120
           .IMPORT     _FUN_8c011fe0
-          .IMPORT     __8c074c08
+          .IMPORT     njDrawSprite2D
           .SECTION    P,CODE,ALIGN=4
 drawSprite_8c014f54:
           MOV.L       R14,@-R15
@@ -163,7 +163,7 @@ FUN_8c014ff6:
 LP_GEN_55719:
           .DATA.W H'07D0 ; LP_GEN_55719+0
           .RES.W 1
-          .DATA.L __8c074c08
+          .DATA.L njDrawSprite2D
           .DATA.L H'38D1B717
 
 FUN_8c015034:
@@ -460,7 +460,7 @@ LP_GEN_73990:
           .DATA.W H'0B0C
           .RES.W 1
           .DATA.L __divls
-          .DATA.L __8c05a190
+          .DATA.L _njTwiddledTexture
 
           FUN_8c01524c:
           MOV.L       R14,@-R15

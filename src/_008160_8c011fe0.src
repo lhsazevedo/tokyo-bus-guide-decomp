@@ -253,7 +253,7 @@
           .IMPORT     FUN_8c053c5c
           .IMPORT     __8c059e14
           .IMPORT     __8c014a24
-          .IMPORT     __8c056358
+          .IMPORT     _syBtExit
           .IMPORT     __8c18ad6c
           .IMPORT     __8c1bc434
           .IMPORT     __8c033478
@@ -3699,7 +3699,7 @@ LP_GEN_19861:
           .DATA.L __8c014b42
           .DATA.L __8c059e14
           .DATA.L __8c014a24
-          .DATA.L __8c056358
+          .DATA.L _syBtExit
 
           ; UNIT BOUNDARY?
 
