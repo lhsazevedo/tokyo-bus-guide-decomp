@@ -7,10 +7,10 @@
           .IMPORT     __8c02fd74
           .IMPORT     __8c157ad0
           .IMPORT     __8c1ba1cc
-          .IMPORT     __8c03bf18
-          .IMPORT     __8c03be80
-          .IMPORT     __8c03beb8
-          .IMPORT     __8c03bef0
+          .IMPORT     init_8c03bf18
+          .IMPORT     init_8c03be80
+          .IMPORT     init_8c03beb8
+          .IMPORT     init_8c03bef0
           .IMPORT     _peripheral_8c1ba35c
           .IMPORT     __8c157a78
           .IMPORT     __8c1ba358
@@ -27,7 +27,7 @@
           .IMPORT     __8c1bbc4c
           .IMPORT     __8c157a74
           .IMPORT     __8c1bb8c8
-          .IMPORT     __8c03bf40
+          .IMPORT     init_8c03bf40
           .IMPORT     __8c157aec
           .IMPORT     _strcmp
           .IMPORT     strcpy_8c03011c
@@ -53,7 +53,7 @@
           .IMPORT     __8c1bb8d0
           .IMPORT     __8c1ba2cc
           .IMPORT     __8c1ba2b8
-          .IMPORT     __8c03bf4c
+          .IMPORT     init_8c03bf4c
           .IMPORT     _njDrawPolygon
           .IMPORT     FUN_8c017ef2
           .IMPORT     __8c22640c
@@ -115,7 +115,7 @@
           .IMPORT     __8c1bc824
           .IMPORT     __8c228704
           .IMPORT     __8c227dd4
-          .IMPORT     __8c0460b0
+          .IMPORT     init_8c0460b0
           .IMPORT     FUN_8c01895e
           .IMPORT     __8c1ba292
           .IMPORT     __8c227da0
@@ -160,7 +160,7 @@
           .IMPORT     __8c18acf8
           .IMPORT     _njSetTextureName
           .IMPORT     _njSetRenderWidth
-          .IMPORT     __8c03bf44
+          .IMPORT     init_8c03bf44
           .IMPORT     _njLoadTexture
           .IMPORT     __8c1bb86c
           .IMPORT     __8c1bbddc
@@ -216,7 +216,7 @@
           .IMPORT     __8c1bc410
           .IMPORT     __8c1bc414
           .IMPORT     FUN_8c053c2e
-          .IMPORT     __8c03bfa8
+          .IMPORT     init_8c03bfa8
           .IMPORT     FUN_8c053c74
           .IMPORT     FUN_8c053c02
           .IMPORT     _gdFsGetStat
@@ -229,32 +229,32 @@
           .IMPORT     __8c1bc430
           .IMPORT     __8c1bc43c
           .IMPORT     __8c1bc424
-          .IMPORT     __8c043d64
+          .IMPORT     init_8c043d64
           .IMPORT     _njSetTexture
           .IMPORT     _njReleaseCacheTextureNum
           .IMPORT     freeTexlist_8c011e3c
           .IMPORT     __8c18ad20
-          .IMPORT     __8c043dc4
-          .IMPORT     __8c043ecc
+          .IMPORT     init_8c043dc4
+          .IMPORT     init_8c043ecc
           .IMPORT     __8c18adb0
-          .IMPORT     __8c043fd8
+          .IMPORT     init_8c043fd8
           .IMPORT     __8c18ad18
           .IMPORT     FUN_8c021a24
           .IMPORT     __8c226504
           .IMPORT     __8c226508
           .IMPORT     __8c227dd0
           .IMPORT     __8c1bb900
-          .IMPORT     __8c043fd4
+          .IMPORT     init_8c043fd4
           .IMPORT     SUB_8c029ad4
           .IMPORT     __8c226534
           .IMPORT     __8c18adb4
           .IMPORT     __8c18ad2c
           .IMPORT     LAB_8c02aa36
-          .IMPORT     __8c043ca4
+          .IMPORT     init_8c043ca4
           .IMPORT     __8c18ad24
           .IMPORT     __8c18ad4c
           .IMPORT     __8c18ad8c
-          .IMPORT     __8c0440dc
+          .IMPORT     init_8c0440dc
           .IMPORT     __8c18adac
           .IMPORT     _njLoadCacheTexture
           .IMPORT     FUN_8c02175a
@@ -606,8 +606,8 @@ LP_GEN_90004:
           .DATA.L     __8c02fd74
           .DATA.L     __8c157ad0
           .DATA.L     __8c1ba1cc
-          .DATA.L     __8c03bf18
-          .DATA.L     __8c03be80
+          .DATA.L     init_8c03bf18
+          .DATA.L     init_8c03be80
 
 LAB_8c012234:
           MOV.L       @(H'4,R4),R2
@@ -745,8 +745,8 @@ LP_GEN_88006:
           .DATA.W H'00CE
           .DATA.W H'00CF
           .DATA.W H'0000
-          .DATA.L __8c03beb8
-          .DATA.L __8c03bef0
+          .DATA.L init_8c03beb8
+          .DATA.L init_8c03bef0
 
           ; UNIT BOUNDARY?
 
@@ -1138,8 +1138,8 @@ LP_GEN_80518:
           .DATA.L __8c157a70
           .DATA.L _peripheral_8c1ba35c
           .DATA.L H'000700FE
-          .DATA.L __8c03be80
-          .DATA.L __8c03bef0
+          .DATA.L init_8c03be80
+          .DATA.L init_8c03bef0
 
 LAB_8c012614:
           MOV.L       @R14,R2
@@ -1421,8 +1421,8 @@ LP_GEN_64371:
           .DATA.L _peripheral_8c1ba35c
           .DATA.L H'000700FE
           .DATA.L __8c157a70
-          .DATA.L __8c03beb8
-          .DATA.L __8c03bf18
+          .DATA.L init_8c03beb8
+          .DATA.L init_8c03bf18
 
 LAB_8c012828:
           MOV.L       @R14,R3
@@ -1637,7 +1637,7 @@ LP_GEN_44279:
           .DATA.L __8c157a74
           .DATA.L task_8c012504
           .DATA.L FUN_8c012718
-          .DATA.L __8c03bf40
+          .DATA.L init_8c03bf40
           .DATA.L __8c157aec
           .DATA.L _strcmp
           .DATA.L strcpy_8c03011c
@@ -2205,7 +2205,7 @@ LP_GEN_43727:
           .DATA.L __8c1ba1cc
           .DATA.L __8c1bc418
           .DATA.L H'BF8CCCCD
-          .DATA.L __8c03bf4c
+          .DATA.L init_8c03bf4c
           .DATA.L _njDrawPolygon
           .DATA.L FUN_8c017ef2
           .DATA.L __8c22640c
@@ -2929,7 +2929,7 @@ LP_GEN_38000:
           .DATA.L FUN_8c012166
           .DATA.L __8c227dd4
           .DATA.L __8c1bb8d4
-          .DATA.L __8c0460b0
+          .DATA.L init_8c0460b0
           .DATA.L FUN_8c01895e
           .DATA.L FUN_8c0300fc
           .DATA.L FUN_8c012160
@@ -3322,7 +3322,7 @@ LP_GEN_90231:
           .DATA.L __8c18acf8
           .DATA.L _njSetTextureName
           .DATA.L _njSetRenderWidth
-          .DATA.L __8c03bf44
+          .DATA.L init_8c03bf44
           .DATA.L _njLoadTexture
           .DATA.L _clearTasks_8c014a9c
           .DATA.L _tasks_8c1ba3c8
@@ -3659,7 +3659,7 @@ LP_GEN_19861:
           .DATA.L __8c03bd84
           .DATA.L _pdVibMxStop
           .DATA.L __8c157a60
-          .DATA.L __8c03bfa8
+          .DATA.L init_8c03bfa8
           .DATA.L FUN_8c053c74
           .DATA.L FUN_8c053c02
           .DATA.L _gdFsGetStat
@@ -3817,7 +3817,7 @@ LP_GEN_83755:
           .DATA.L s_mark_pvm_8c0334a8
           .DATA.L __8c1bc424
           .DATA.L s_busstop_pvm_8c0334b4
-          .DATA.L __8c043d64
+          .DATA.L init_8c043d64
           .DATA.L FUN_8c012030
           .DATA.L __8c1bc3f4
           .DATA.L _njSetTexture
@@ -3984,9 +3984,9 @@ LP_GEN_93614:
           .DATA.L __8c1bbddc
           .DATA.L __8c18ad6c
           .DATA.L __8c18ad20
-          .DATA.L __8c043dc4
+          .DATA.L init_8c043dc4
           .DATA.L _requestNj_8c011492
-          .DATA.L __8c043ecc
+          .DATA.L init_8c043ecc
           .DATA.L _requestPvm_8c011ac0
           .DATA.L freeTexlist_8c011e3c
           .DATA.L _syFree
@@ -4143,7 +4143,7 @@ LP_GEN_38230:
           .DATA.L freeTexlist_8c011e3c
           .DATA.L _syFree
           .DATA.L __8c1bbfdc
-          .DATA.L __8c043fd8
+          .DATA.L init_8c043fd8
           .DATA.L __8c18ad6c
           .DATA.L _requestPvm_8c011ac0
 
@@ -4517,7 +4517,7 @@ LP_GEN_25668:
           .DATA.L __8c18adb0
           .DATA.L __8c1bb900
           .DATA.L __8c1bb8d0
-          .DATA.L __8c043fd4
+          .DATA.L init_8c043fd4
           .DATA.L SUB_8c029ad4
           .DATA.L __8c226534
           .DATA.L __8c18adb4
@@ -4525,7 +4525,7 @@ LP_GEN_25668:
           .DATA.L _request_dat_8c011182
           .DATA.L LAB_8c02aa36
           .DATA.L __8c1bb868
-          .DATA.L __8c043ca4
+          .DATA.L init_8c043ca4
           .DATA.L __8c18ad1c
           .DATA.L __8c18ad20
           .DATA.L __8c18ad24
@@ -4869,7 +4869,7 @@ LP_GEN_90737:
           .DATA.L __8c18ad2c
           .DATA.L _requestNj_8c011492
           .DATA.L _request_dat_8c011182
-          .DATA.L __8c0440dc
+          .DATA.L init_8c0440dc
           .DATA.L FUN_8c012030
           .DATA.L __8c1bc3ec
           .DATA.L __8c18adac

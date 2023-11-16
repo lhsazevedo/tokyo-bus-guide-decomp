@@ -23,7 +23,7 @@
           .IMPORT     _freeResourceGroups_8c016108
           .IMPORT     __8c1ba34c
           .IMPORT     _njPrintC
-          .IMPORT     __8c044294
+          .IMPORT     init_8c044294
           .IMPORT     __8c1ba36c
           .IMPORT     __8c226048
           .IMPORT     _njPrintD
@@ -44,7 +44,7 @@
           .IMPORT     _freeTask_8c014b66
           .IMPORT     _njSetBackColor
           .IMPORT     _pushTask_8c014ae8
-          .IMPORT     __8c04429c
+          .IMPORT     init_8c04429c
           .IMPORT     __8c1bc824
           .IMPORT     FUN_8c012166
           .IMPORT     FUN_8c0128cc
@@ -71,7 +71,7 @@
           .IMPORT     _menuState_8c1bc7a8
           .IMPORT     __8c1bc7d4
           .IMPORT     __8c1bc7cc
-          .IMPORT     __8c04442c
+          .IMPORT     init_8c04442c
           .IMPORT     const_8c03628c
           .IMPORT     _drawSprite_8c014f54
           .IMPORT     __8c02fcac
@@ -83,7 +83,7 @@
           .IMPORT     _FUN_8c010ca6
           .IMPORT     FUN_8c073748
           .IMPORT     __8c225fb8
-          .IMPORT     __8c044c08
+          .IMPORT     init_8c044c08
           .IMPORT     _FUN_8c010bae
           .IMPORT     __8c1ba25c
           .IMPORT     __8c225fd4
@@ -109,14 +109,14 @@
           .IMPORT     _njGarbageTexture
           .IMPORT     _FUN_8c011f36
           .IMPORT     FUN_8c011f6c
-          .IMPORT     __8c044264
+          .IMPORT     init_8c044264
           .IMPORT     _setUknPvmBool_8c014330
           .IMPORT     _resetUknPvmBool_8c014322
           .IMPORT     _nop_8c011120
           .IMPORT     FUN_8c011fe0
           .IMPORT     task_8c012f44
-          .IMPORT     __8c044d2e
-          .IMPORT     __8c044d2f
+          .IMPORT     init_8c044d2e
+          .IMPORT     init_8c044d2f
           .IMPORT     __8c1bb8e0
           .IMPORT     __8c1bb8e8
           .IMPORT     __8c1bb8e4
@@ -125,9 +125,9 @@
           .IMPORT     __8c1bb8f4
           .IMPORT     __8c1ba2cc
           .IMPORT     __8c1ba2b8
-          .IMPORT     __8c044d10
+          .IMPORT     init_8c044d10
           .IMPORT     LAB_8c013310
-          .IMPORT     __8c044d40
+          .IMPORT     init_8c044d40
           .IMPORT     const_8c036290
           .IMPORT     const_8c036298
           .IMPORT     _request_dat_8c011182
@@ -164,13 +164,13 @@
           .IMPORT     const_8c037ecc
           .IMPORT     _ClearInfo_8c014c8a
           .IMPORT     __8c1bc4ac
-          .IMPORT     __8c044d7c
-          .IMPORT     __8c044dc4
+          .IMPORT     init_8c044d7c
+          .IMPORT     init_8c044dc4
           .IMPORT     const_8c037ef8
           .IMPORT     const_8c037f0c
           .IMPORT     __8c226074
-          .IMPORT     __8c044de0
-          .IMPORT     __8c044de8
+          .IMPORT     init_8c044de0
+          .IMPORT     init_8c044de8
           .IMPORT     _njDrawPolygon
           .IMPORT     __8c157a70
           .IMPORT     _sdMidiStop
@@ -181,14 +181,14 @@
           .IMPORT     _FUN_8c0106d2
           .IMPORT     __8c226088
           .IMPORT     _FUN_8c010720
-          .IMPORT     __8c044e28
+          .IMPORT     init_8c044e28
           .IMPORT     __8c1ba290
           .IMPORT     __8c226098
           .IMPORT     const_8c0380a4
           .IMPORT     __8c2263a4
           .IMPORT     __8c0300b8
           .IMPORT     const_8c0380b0
-          .IMPORT     __8c04410c
+          .IMPORT     init_8c04410c
           .IMPORT     _buCalcBackupFileSize
           .IMPORT     _buMakeBackupFileImage
           .IMPORT     const_8c0380c8
@@ -234,11 +234,11 @@
           .IMPORT     _buLoadFileEx
           .IMPORT     __8c055bfe
           .IMPORT     __8c2263a8
-          .IMPORT     __8c044e50
+          .IMPORT     init_8c044e50
           .IMPORT     const_8c038460
           .IMPORT     const_8c03847c
           .IMPORT     const_8c03867c
-          .IMPORT     __8c044e48
+          .IMPORT     init_8c044e48
           .IMPORT     const_8c038498
           .IMPORT     const_8c0384b0
           .IMPORT     const_8c0384e8
@@ -254,19 +254,19 @@
           .IMPORT     const_8c038618
           .IMPORT     const_8c038638
           .IMPORT     const_8c0385f8
-          .IMPORT     __8c044e90
+          .IMPORT     init_8c044e90
           .IMPORT     const_8c038660
           .IMPORT     const_8c038658
           .IMPORT     __8c2260ac
           .IMPORT     __8c2260c4
           .IMPORT     __8c2263a0
-          .IMPORT     __8c044e38
+          .IMPORT     init_8c044e38
           .IMPORT     __8c2263b4
-          .IMPORT     __8c044ffc
-          .IMPORT     __8c045148
-          .IMPORT     __8c0450d8
-          .IMPORT     __8c045170
-          .IMPORT     __8c045160
+          .IMPORT     init_8c044ffc
+          .IMPORT     init_8c045148
+          .IMPORT     init_8c0450d8
+          .IMPORT     init_8c045170
+          .IMPORT     init_8c045160
           .IMPORT     __8c226408
           .IMPORT     __8c0fcd38
           .IMPORT     __8c226404
@@ -292,53 +292,53 @@
           .IMPORT     const_8c038958
           .IMPORT     __8c18ad20
           .IMPORT     __8c18ad1c
-          .IMPORT     __8c0451a0
+          .IMPORT     init_8c0451a0
           .IMPORT     __8c2285d0
           .IMPORT     __8c22640c
-          .IMPORT     __8c0451b4
+          .IMPORT     init_8c0451b4
           .IMPORT     const_8c03896c
-          .IMPORT     __8c0451c0
+          .IMPORT     init_8c0451c0
           .IMPORT     __8c226410
-          .IMPORT     __8c044284
-          .IMPORT     __8c0451ec
-          .IMPORT     __8c0451f8
+          .IMPORT     init_8c044284
+          .IMPORT     init_8c0451ec
+          .IMPORT     init_8c0451f8
           .IMPORT     _njUserClipping
           .IMPORT     const_8c038984
-          .IMPORT     __8c044274
-          .IMPORT     __8c045208
+          .IMPORT     init_8c044274
+          .IMPORT     init_8c045208
           .IMPORT     __8c226414
           .IMPORT     const_8c038988
           .IMPORT     __8c22642c
           .IMPORT     __8c1ba264
           .IMPORT     __8c226430
-          .IMPORT     __8c04522c
-          .IMPORT     __8c045244
-          .IMPORT     __8c04525c
-          .IMPORT     __8c045278
+          .IMPORT     init_8c04522c
+          .IMPORT     init_8c045244
+          .IMPORT     init_8c04525c
+          .IMPORT     init_8c045278
           .IMPORT     __8c1bc404
-          .IMPORT     __8c04528c
+          .IMPORT     init_8c04528c
           .IMPORT     FUN_8c01543a
           .IMPORT     menuTextboxTextSub_8c0155e0
           .IMPORT     FUN_8c01524c
           .IMPORT     FUN_8c0152fc
           .IMPORT     __8c1bc408
-          .IMPORT     __8c045290
+          .IMPORT     init_8c045290
           .IMPORT     const_8c039f48
-          .IMPORT     __8c045324
+          .IMPORT     init_8c045324
           .IMPORT     __8c2264a8
           .IMPORT     __8c1bc424
           .IMPORT     __8c2285c4
           .IMPORT     __8c1bb9d0
           .IMPORT     __8c22643c
           .IMPORT     __8c1bc418
-          .IMPORT     __8c045334
-          .IMPORT     __8c045374
-          .IMPORT     __8c0453b4
+          .IMPORT     init_8c045334
+          .IMPORT     init_8c045374
+          .IMPORT     init_8c0453b4
           .IMPORT     __8c1bc46c
           .IMPORT     _njUnitMatrix
           .IMPORT     _njTranslate
           .IMPORT     FUN_8c073564
-          .IMPORT     __8c045414
+          .IMPORT     init_8c045414
           .IMPORT     __8c226478
           .IMPORT     _njCalcPoint
           .IMPORT     __8c22870c
@@ -401,30 +401,30 @@
           .IMPORT     _njMultiMatrix
           .IMPORT     _njDrawObject
           .IMPORT     _njCnkDrawObject
-          .IMPORT     __8c045598
+          .IMPORT     init_8c045598
           .IMPORT     __8c226560
           .IMPORT     _njDrawTexture
           .IMPORT     FUN_8c079330
           .IMPORT     __8c22655c
-          .IMPORT     __8c045578
+          .IMPORT     init_8c045578
           .IMPORT     __8c1bbc38
-          .IMPORT     __8c0455fc
-          .IMPORT     __8c03bf44
+          .IMPORT     init_8c0455fc
+          .IMPORT     init_8c03bf44
           .IMPORT     _njRenderTextureNumG
-          .IMPORT     __8c045558
-          .IMPORT     __8c045438
-          .IMPORT     __8c045568
-          .IMPORT     __8c045498
-          .IMPORT     __8c0455e8
-          .IMPORT     __8c045588
-          .IMPORT     __8c045610
-          .IMPORT     __8c045624
+          .IMPORT     init_8c045558
+          .IMPORT     init_8c045438
+          .IMPORT     init_8c045568
+          .IMPORT     init_8c045498
+          .IMPORT     init_8c0455e8
+          .IMPORT     init_8c045588
+          .IMPORT     init_8c045610
+          .IMPORT     init_8c045624
           .IMPORT     __8c1bb984
-          .IMPORT     __8c0454f8
+          .IMPORT     init_8c0454f8
           .IMPORT     __8c227d7c
           .IMPORT     __8c227d80
           .IMPORT     __8c226564
-          .IMPORT     __8c0455a8
+          .IMPORT     init_8c0455a8
           .IMPORT     __8c22656c
           .IMPORT     __8c228660
           .IMPORT     __8c227db0
@@ -447,7 +447,7 @@
           .IMPORT     __8c1bbc2c
           .IMPORT     __8c1ba374
           .IMPORT     __8c1ba29c
-          .IMPORT     __8c045638
+          .IMPORT     init_8c045638
           .IMPORT     __8c1bbcb4
           .IMPORT     __8c22864c
           .IMPORT     __8c02ff58
@@ -487,9 +487,9 @@
           .IMPORT     __8c227dd4
           .IMPORT     __8c227e0c
           .IMPORT     __8c02fe38
-          .IMPORT     __8c045674
-          .IMPORT     __8c045b60
-          .IMPORT     __8c045ee4
+          .IMPORT     init_8c045674
+          .IMPORT     init_8c045b60
+          .IMPORT     init_8c045ee4
           .IMPORT     __8c1bb878
           .IMPORT     __8c2264d0
           .IMPORT     __8c1bb888
@@ -497,23 +497,23 @@
           .IMPORT     __8c1bbac4
           .IMPORT     __8c1bbacc
           .IMPORT     __8c227e1c
-          .IMPORT     __8c0460bc
+          .IMPORT     init_8c0460bc
           .IMPORT     __8c1bbdb0
           .IMPORT     __8c1bbdd0
-          .IMPORT     __8c0460c8
-          .IMPORT     __8c0461c8
+          .IMPORT     init_8c0460c8
+          .IMPORT     init_8c0461c8
           .IMPORT     __8c227e24
-          .IMPORT     __8c046208
+          .IMPORT     init_8c046208
           .IMPORT     __8c1bbddc
-          .IMPORT     __8c04622c
+          .IMPORT     init_8c04622c
           .IMPORT     __8c228b44
           .IMPORT     __8c1bbd8c
           .IMPORT     __8c227e18
           .IMPORT     _execTasks_8c014b42
           .IMPORT     __8c228b40
-          .IMPORT     __8c04c980
-          .IMPORT     __8c04caec
-          .IMPORT     __8c04cd38
+          .IMPORT     init_8c04c980
+          .IMPORT     init_8c04caec
+          .IMPORT     init_8c04cd38
           .IMPORT     __8c1bbda8
           .IMPORT     __8c1bbdc4
           .IMPORT     __8c1bbda0
@@ -541,17 +541,17 @@
           .IMPORT     __8c228238
           .IMPORT     __8c0300d0
           .IMPORT     __8c1bbfdc
-          .IMPORT     __8c04623c
+          .IMPORT     init_8c04623c
           .IMPORT     __8c22822c
           .IMPORT     __8c22823c
           .IMPORT     __8c228240
-          .IMPORT     __8c04650c
+          .IMPORT     init_8c04650c
           .IMPORT     __8c1bba54
-          .IMPORT     __8c046518
+          .IMPORT     init_8c046518
           .IMPORT     __8c228278
-          .IMPORT     __8c0465d8
-          .IMPORT     __8c046524
-          .IMPORT     __8c0466a4
+          .IMPORT     init_8c0465d8
+          .IMPORT     init_8c046524
+          .IMPORT     init_8c0466a4
           .IMPORT     __8c1bbac8
           .IMPORT     __8c228408
           .IMPORT     _requestNj_8c011492
@@ -587,19 +587,19 @@
           .IMPORT     __8c228518
           .IMPORT     __8c228480
           .IMPORT     __8c18ad6c
-          .IMPORT     __8c049a6c
+          .IMPORT     init_8c049a6c
           .IMPORT     const_8c03a17c
-          .IMPORT     __8c04843c
+          .IMPORT     init_8c04843c
           .IMPORT     const_8c03a188
-          .IMPORT     __8c04a9c8
+          .IMPORT     init_8c04a9c8
           .IMPORT     const_8c03a194
           .IMPORT     __8c228484
           .IMPORT     __8c228478
-          .IMPORT     __8c046758
+          .IMPORT     init_8c046758
           .IMPORT     __8c1ba358
           .IMPORT     FUN_8c013d78
           .IMPORT     __8c22847c
-          .IMPORT     __8c04ab3c
+          .IMPORT     init_8c04ab3c
           .IMPORT     FUN_8c073d44
           .IMPORT     _FUN_8c0106ac
           .IMPORT     __8c1bc40c
@@ -610,9 +610,9 @@
           .IMPORT     __8c1ba2b4
           .IMPORT     __8c228560
           .IMPORT     __8c22851c
-          .IMPORT     __8c04b1f0
-          .IMPORT     __8c04abb0
-          .IMPORT     __8c04b920
+          .IMPORT     init_8c04b1f0
+          .IMPORT     init_8c04abb0
+          .IMPORT     init_8c04b920
           .IMPORT     __8c228520
           .IMPORT     __8c2285dc
           .IMPORT     __8c2285d8
@@ -623,7 +623,7 @@
           .IMPORT     _njSetQuadTextureG
           .IMPORT     __8c228564
           .IMPORT     _njDrawTexture3DHExEnd
-          .IMPORT     __8c04c35c
+          .IMPORT     init_8c04c35c
           .IMPORT     __8c228690
           .IMPORT     __8c228694
           .IMPORT     __8c228698
@@ -679,13 +679,13 @@
           .IMPORT     __8c228928
           .IMPORT     __8c228910
           .IMPORT     __8c22891c
-          .IMPORT     __8c04c3e4
+          .IMPORT     init_8c04c3e4
           .IMPORT     __8c228958
           .IMPORT     __8c228934
           .IMPORT     __8c228940
           .IMPORT     __8c22894c
           .IMPORT     _njLoadCacheTexture
-          .IMPORT     __8c04c4dc
+          .IMPORT     init_8c04c4dc
           .IMPORT     __8c1bbb50
           .IMPORT     __8c1bbb5c
           .IMPORT     __8c1bbb38
@@ -694,8 +694,8 @@
           .IMPORT     __8c228974
           .IMPORT     _njCalcPoints
           .IMPORT     __8c228978
-          .IMPORT     __8c04c820
-          .IMPORT     __8c04c940
+          .IMPORT     init_8c04c820
+          .IMPORT     init_8c04c940
           .IMPORT     __8c2289d8
           .IMPORT     _njCollisionCheckBB
           .IMPORT     __8c228b38
@@ -727,7 +727,7 @@
           .IMPORT     __8c02fe8c
           .IMPORT     __8c0303bc
           .IMPORT     __8c0304b0
-          .IMPORT     __8c04f6a8
+          .IMPORT     init_8c04f6a8
           .IMPORT     __8c0302f8
           .IMPORT     __8c030244
           .IMPORT     const_8c03b9b4
@@ -1198,7 +1198,7 @@ LP_GEN_42967:
           .DATA.L __8c1ba34c ; H'8C0163F8
           .DATA.L H'000A000A ; H'8C0163FC
           .DATA.L _njPrintC ; H'8C016400
-          .DATA.L __8c044294 ; H'8C016404
+          .DATA.L init_8c044294 ; H'8C016404
           .DATA.L __8c1ba36c ; H'8C016408
           .DATA.L FUN_8c019550 ; H'8C01640C
           .DATA.L __8c226048 ; H'8C016410
@@ -1767,7 +1767,7 @@ LP_GEN_94139:
           .DATA.L FUN_8c01628c ; H'8C016838
           .DATA.L _tasks_8c1ba3c8 ; H'8C01683C
           .DATA.L _pushTask_8c014ae8 ; H'8C016840
-          .DATA.L __8c04429c ; H'8C016844
+          .DATA.L init_8c04429c ; H'8C016844
           .DATA.L __8c1ba36c ; H'8C016848
           .DATA.L __8c1bc824 ; H'8C01684C
           .DATA.L _njPrintC ; H'8C016850
@@ -2504,7 +2504,7 @@ LP_GEN_57345:
           .DATA.L __8c1bc7d4 ; H'8C016E48
           .DATA.L __8c1bc7cc ; H'8C016E4C
           .DATA.L __quick_evn_mvn ; H'8C016E50
-          .DATA.L __8c04442c ; H'8C016E54
+          .DATA.L init_8c04442c ; H'8C016E54
           .DATA.L H'40C00000 ; H'8C016E58
           .DATA.L _midiHandles_8c0fcd28 ; H'8C016E5C
           .DATA.L _sdMidiPlay ; H'8C016E60
@@ -2927,10 +2927,10 @@ LP_GEN_21301:
           .DATA.L FUN_8c016f98 ; H'8C0171A8
           .DATA.L _tasks_8c1ba3c8 ; H'8C0171AC
           .DATA.L _pushTask_8c014ae8 ; H'8C0171B0
-          .DATA.L __8c044c08 ; H'8C0171B4
+          .DATA.L init_8c044c08 ; H'8C0171B4
           .DATA.L __8c225fb4 ; H'8C0171B8
           .DATA.L FUN_8c02aefc ; H'8C0171BC
-          .DATA.L __8c04442c ; H'8C0171C0
+          .DATA.L init_8c04442c ; H'8C0171C0
           .DATA.L __8c1ba36c ; H'8C0171C4
           .DATA.L _FUN_8c010bae ; H'8C0171C8
           .DATA.L _midiHandles_8c0fcd28 ; H'8C0171CC
@@ -3590,7 +3590,7 @@ LP_GEN_35911:
           .DATA.L _drawSprite_8c014f54 ; H'8C017688
           .DATA.L _menuState_8c1bc7a8 ; H'8C01768C
           .DATA.L H'C0400000 ; H'8C017690
-          .DATA.L __8c04442c ; H'8C017694
+          .DATA.L init_8c04442c ; H'8C017694
           .DATA.L H'C0800000 ; H'8C017698
           .DATA.L H'43700000 ; H'8C01769C
           .DATA.L H'42BA0000 ; H'8C0176A0
@@ -4085,7 +4085,7 @@ LAB_8c017a38:
 LP_GEN_86103:
           .RES.W 1 ; H'8C017A46
           .DATA.L __8c225fb4 ; H'8C017A48
-          .DATA.L __8c04442c ; H'8C017A4C
+          .DATA.L init_8c04442c ; H'8C017A4C
           .DATA.L __8c1ba210 ; H'8C017A50
           .DATA.L __8c0fcd3c ; H'8C017A54
           .DATA.L _sdMidiPlay ; H'8C017A58
@@ -4447,7 +4447,7 @@ LP_GEN_85439:
           .DATA.W H'008C ; H'8C017D28
           .RES.W 1 ; H'8C017D2A
           .DATA.L __8c225fb0 ; H'8C017D2C
-          .DATA.L __8c04442c ; H'8C017D30
+          .DATA.L init_8c04442c ; H'8C017D30
           .DATA.L FUN_8c01a09a ; H'8C017D34
           .DATA.L H'C0A00000 ; H'8C017D38
           .DATA.L _drawSprite_8c014f54 ; H'8C017D3C
@@ -4583,7 +4583,7 @@ LP_GEN_59651:
           .DATA.W H'008C ; H'8C017E3A
           .DATA.L _menuState_8c1bc7a8 ; H'8C017E3C
           .DATA.L __quick_evn_mvn ; H'8C017E40
-          .DATA.L __8c04442c ; H'8C017E44
+          .DATA.L init_8c04442c ; H'8C017E44
           .DATA.L __8c1ba1cc ; H'8C017E48
           .DATA.L __8c1bb8fc ; H'8C017E4C
           .DATA.L LAB_8c017718 ; H'8C017E50
@@ -4712,14 +4712,14 @@ LP_GEN_67544:
           .DATA.L _setTaskAction_8c014b3e ; H'8C017F40
           .DATA.L _menuState_8c1bc7a8 ; H'8C017F44
           .DATA.L __8c225fbc ; H'8C017F48
-          .DATA.L __8c044c08 ; H'8C017F4C
+          .DATA.L init_8c044c08 ; H'8C017F4C
           .DATA.L __8c225fb8 ; H'8C017F50
           .DATA.L __8c1bb8d0 ; H'8C017F54
           .DATA.L __8c157af8 ; H'8C017F58
           .DATA.L _njGarbageTexture ; H'8C017F5C
           .DATA.L _FUN_8c011f36 ; H'8C017F60
           .DATA.L FUN_8c011f6c ; H'8C017F64
-          .DATA.L __8c044264 ; H'8C017F68
+          .DATA.L init_8c044264 ; H'8C017F68
           .DATA.L _setUknPvmBool_8c014330 ; H'8C017F6C
           .DATA.L _resetUknPvmBool_8c014322 ; H'8C017F70
           .DATA.L _nop_8c011120 ; H'8C017F74
@@ -4881,7 +4881,7 @@ LP_GEN_56170:
           .DATA.L task_menu_freerun_8c017ada ; H'8C0180B8
           .DATA.L _menuState_8c1bc7a8 ; H'8C0180BC
           .DATA.L __8c225fbc ; H'8C0180C0
-          .DATA.L __8c044c08 ; H'8C0180C4
+          .DATA.L init_8c044c08 ; H'8C0180C4
           .DATA.L __8c225fb8 ; H'8C0180C8
           .DATA.L __8c157af8 ; H'8C0180CC
           .DATA.L _njGarbageTexture ; H'8C0180D0
@@ -4892,7 +4892,7 @@ LP_GEN_56170:
           .DATA.L __8c1bb8d0 ; H'8C0180E4
           .DATA.L _FUN_8c011f36 ; H'8C0180E8
           .DATA.L FUN_8c011f6c ; H'8C0180EC
-          .DATA.L __8c044264 ; H'8C0180F0
+          .DATA.L init_8c044264 ; H'8C0180F0
           .DATA.L _setUknPvmBool_8c014330 ; H'8C0180F4
           .DATA.L _resetUknPvmBool_8c014322 ; H'8C0180F8
           .DATA.L _nop_8c011120 ; H'8C0180FC
@@ -5212,9 +5212,9 @@ LP_GEN_82242:
           .DATA.L H'42DC0000 ; H'8C01835C
           .DATA.L H'438C8000 ; H'8C018360
           .DATA.L _drawSprite_8c014f54 ; H'8C018364
-          .DATA.L __8c044d2e ; H'8C018368
+          .DATA.L init_8c044d2e ; H'8C018368
           .DATA.L H'43D28000 ; H'8C01836C
-          .DATA.L __8c044d2f ; H'8C018370
+          .DATA.L init_8c044d2f ; H'8C018370
           .DATA.L H'43EB8000 ; H'8C018374
           .DATA.L H'C0E00000 ; H'8C018378
           .DATA.L __8c03bd80 ; H'8C01837C
@@ -5355,7 +5355,7 @@ LAB_8c018494:
           RTS
           MOV.L       @R15+,R14
 LP_GEN_86610:
-          .DATA.L __8c044d10 ; H'8C0184A8
+          .DATA.L init_8c044d10 ; H'8C0184A8
           .DATA.L LAB_8c013310 ; H'8C0184AC
           .DATA.L __8c225fb0 ; H'8C0184B0
           .DATA.L H'C0800000 ; H'8C0184B4
@@ -5525,7 +5525,7 @@ LP_GEN_93008:
           .DATA.L _menuState_8c1bc7a8 ; H'8C018600
           .DATA.L _FUN_8c011f36 ; H'8C018604
           .DATA.L FUN_8c011f6c ; H'8C018608
-          .DATA.L __8c044d40 ; H'8C01860C
+          .DATA.L init_8c044d40 ; H'8C01860C
           .DATA.L _setUknPvmBool_8c014330 ; H'8C018610
           .DATA.L _resetUknPvmBool_8c014322 ; H'8C018614
           .DATA.L _nop_8c011120 ; H'8C018618
@@ -8111,7 +8111,7 @@ LAB_8c0199ca:
           MOV         R9,R14
 LP_GEN_31723:
           .RES.W 1 ; H'8C0199DE
-          .DATA.L __8c044d7c ; H'8C0199E0
+          .DATA.L init_8c044d7c ; H'8C0199E0
           .DATA.L _menuState_8c1bc7a8 ; H'8C0199E4
           .DATA.L H'40C00000 ; H'8C0199E8
           .DATA.L _drawSprite_8c014f54 ; H'8C0199EC
@@ -8126,7 +8126,7 @@ LP_GEN_31723:
           .DATA.L _isFading_8c226568 ; H'8C019A10
           .DATA.L _saveNames_8c044d50 ; H'8C019A14
           .DATA.L __quick_evn_mvn ; H'8C019A18
-          .DATA.L __8c044dc4 ; H'8C019A1C
+          .DATA.L init_8c044dc4 ; H'8C019A1C
           .DATA.L FUN_8c02aefc ; H'8C019A20
           .DATA.L _FUN_8c010d8a ; H'8C019A24
           .DATA.L _snd_8c010cd6 ; H'8C019A28
@@ -8385,7 +8385,7 @@ LP_GEN_27695:
           .DATA.L _BupGetInfo_8c014bba ; H'8C019BF0
           .DATA.L const_8c037f0c ; H'8C019BF4
           .DATA.L _midiHandles_8c0fcd28 ; H'8C019BF8
-          .DATA.L __8c044dc4 ; H'8C019BFC
+          .DATA.L init_8c044dc4 ; H'8C019BFC
           .DATA.L FUN_8c016d2c ; H'8C019C00
 LAB_8c019c04:
           MOV.L       LP_GEN_17403+4,R3
@@ -8510,7 +8510,7 @@ LP_GEN_17403:
           .DATA.L FUN_8c016caa ; H'8C019CDC
           .DATA.L __8c1ba34c ; H'8C019CE0
           .DATA.L _push_fadeout_8c022b60 ; H'8C019CE4
-          .DATA.L __8c044dc4 ; H'8C019CE8
+          .DATA.L init_8c044dc4 ; H'8C019CE8
           .DATA.L FUN_8c02aefc ; H'8C019CEC
           .DATA.L FUN_8c01895e ; H'8C019CF0
           .DATA.L _FUN_8c010bae ; H'8C019CF4
@@ -8717,7 +8717,7 @@ LP_GEN_77899:
           .DATA.L __8c1ba34c ; H'8C019E64
           .DATA.L FUN_8c01895e ; H'8C019E68
           .DATA.L __quick_evn_mvn ; H'8C019E6C
-          .DATA.L __8c044dc4 ; H'8C019E70
+          .DATA.L init_8c044dc4 ; H'8C019E70
           .DATA.L FUN_8c02aefc ; H'8C019E74
           .DATA.L _push_fadeout_8c022b60 ; H'8C019E78
           .DATA.L FUN_8c019334 ; H'8C019E7C
@@ -9061,7 +9061,7 @@ LP_GEN_13822:
           .DATA.L _menuState_8c1bc7a8 ; H'8C01A124
           .DATA.L _FUN_8c011f36 ; H'8C01A128
           .DATA.L FUN_8c011f6c ; H'8C01A12C
-          .DATA.L __8c044264 ; H'8C01A130
+          .DATA.L init_8c044264 ; H'8C01A130
           .DATA.L _request_sys_resgrp_8c018568 ; H'8C01A134
           .DATA.L _setUknPvmBool_8c014330 ; H'8C01A138
           .DATA.L _resetUknPvmBool_8c014322 ; H'8C01A13C
@@ -9220,7 +9220,7 @@ LP_GEN_11111:
           .DATA.L _isFading_8c226568 ; H'8C01A260
           .DATA.L FUN_8c018862 ; H'8C01A264
           .DATA.L _push_fadeout_8c022b60 ; H'8C01A268
-          .DATA.L __8c044de0 ; H'8C01A26C
+          .DATA.L init_8c044de0 ; H'8C01A26C
 LAB_8c01a270:
           MOV.W       LP_GEN_35922,R0
           TST         R0,R5
@@ -9509,7 +9509,7 @@ LP_GEN_85851:
           .DATA.L _sdMidiPlay ; H'8C01A49C
           .DATA.L H'43800000 ; H'8C01A4A0
           .DATA.L H'43A00000 ; H'8C01A4A4
-          .DATA.L __8c044de8 ; H'8C01A4A8
+          .DATA.L init_8c044de8 ; H'8C01A4A8
           .DATA.L H'41A00000 ; H'8C01A4AC
           .DATA.L _njDrawPolygon ; H'8C01A4B0
 FUN_8c01a4b4:
@@ -11214,7 +11214,7 @@ LP_GEN_51773:
           .DATA.L _midiHandles_8c0fcd28 ; H'8C01B16C
           .DATA.L _sdMidiPlay ; H'8C01B170
           .DATA.L __8c1ba36c ; H'8C01B174
-          .DATA.L __8c044e28 ; H'8C01B178
+          .DATA.L init_8c044e28 ; H'8C01B178
           .DATA.L _push_fadeout_8c022b60 ; H'8C01B17C
           .DATA.L FUN_8c01a09a ; H'8C01B180
           .DATA.L _drawSprite_8c014f54 ; H'8C01B184
@@ -11451,7 +11451,7 @@ LP_GEN_27906:
           .DATA.L _njMemCopy ; H'8C01B374
           .DATA.L const_8c0380b0 ; H'8C01B378
           .DATA.L strcpy_8c03011c ; H'8C01B37C
-          .DATA.L __8c04410c ; H'8C01B380
+          .DATA.L init_8c04410c ; H'8C01B380
           .DATA.L __8c1ba344 ; H'8C01B384
           .DATA.L _buCalcBackupFileSize ; H'8C01B388
           .DATA.L __8c1ba348 ; H'8C01B38C
@@ -13020,7 +13020,7 @@ LP_GEN_34738:
           .DATA.L H'C0C00000 ; H'8C01BFC8
           .DATA.L H'C089999A ; H'8C01BFCC
           .DATA.L H'C0E00000 ; H'8C01BFD0
-          .DATA.L __8c044e50 ; H'8C01BFD4
+          .DATA.L init_8c044e50 ; H'8C01BFD4
           .DATA.L H'40C00000 ; H'8C01BFD8
           .DATA.L FUN_8c02aefc ; H'8C01BFDC
           .DATA.L const_8c038460 ; H'8C01BFE0
@@ -13084,7 +13084,7 @@ LP_GEN_95139:
           .DATA.L H'C0E00000 ; H'8C01C054
           .DATA.L H'C0A00000 ; H'8C01C058
           .DATA.L _menuState_8c1bc7a8 ; H'8C01C05C
-          .DATA.L __8c044e48 ; H'8C01C060
+          .DATA.L init_8c044e48 ; H'8C01C060
           .DATA.L FUN_8c019550 ; H'8C01C064
           .DATA.L _isFading_8c226568 ; H'8C01C068
           .DATA.L FUN_8c02aefc ; H'8C01C06C
@@ -14264,7 +14264,7 @@ LP_GEN_73212:
           .DATA.L _menuState_8c1bc7a8 ; H'8C01C928
           .DATA.L _FUN_8c011f36 ; H'8C01C92C
           .DATA.L FUN_8c011f6c ; H'8C01C930
-          .DATA.L __8c044e90 ; H'8C01C934
+          .DATA.L init_8c044e90 ; H'8C01C934
           .DATA.L __8c2263a8 ; H'8C01C938
           .DATA.L _request_sys_resgrp_8c018568 ; H'8C01C93C
           .DATA.L __8c1bc454 ; H'8C01C940
@@ -14282,7 +14282,7 @@ LP_GEN_73212:
           .DATA.L __8c2260c4 ; H'8C01C970
           .DATA.L __8c2263a0 ; H'8C01C974
           .DATA.L __8c2260a8 ; H'8C01C978
-          .DATA.L __8c044e38 ; H'8C01C97C
+          .DATA.L init_8c044e38 ; H'8C01C97C
 FUN_8c01c980:
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
@@ -14438,7 +14438,7 @@ LP_GEN_27148:
           .DATA.W H'00FF ; H'8C01CA9A
           .DATA.L __8c2263a4 ; H'8C01CA9C
           .DATA.L __8c2263b4 ; H'8C01CAA0
-          .DATA.L __8c044ffc ; H'8C01CAA4
+          .DATA.L init_8c044ffc ; H'8C01CAA4
           .DATA.L FUN_8c02aff0 ; H'8C01CAA8
           .DATA.L H'C0400000 ; H'8C01CAAC
           .DATA.L _drawSprite_8c014f54 ; H'8C01CAB0
@@ -14576,7 +14576,7 @@ LAB_8c01cb80:
 LP_GEN_23877:
           .DATA.W H'00FF ; H'8C01CBB6
           .DATA.L _menuState_8c1bc7a8 ; H'8C01CBB8
-          .DATA.L __8c044ffc ; H'8C01CBBC
+          .DATA.L init_8c044ffc ; H'8C01CBBC
           .DATA.L H'42C00000 ; H'8C01CBC0
           .DATA.L H'43858000 ; H'8C01CBC4
           .DATA.L FUN_8c02aff0 ; H'8C01CBC8
@@ -14690,7 +14690,7 @@ LP_GEN_72378:
           .DATA.W H'0C00 ; H'8C01CCA4
           .RES.W 1 ; H'8C01CCA6
           .DATA.L _menuState_8c1bc7a8 ; H'8C01CCA8
-          .DATA.L __8c045148 ; H'8C01CCAC
+          .DATA.L init_8c045148 ; H'8C01CCAC
           .DATA.L __8c225fb0 ; H'8C01CCB0
           .DATA.L __8c2263a8 ; H'8C01CCB4
           .DATA.L _freeResourceGroup_8c0185c4 ; H'8C01CCB8
@@ -15445,7 +15445,7 @@ LP_GEN_13275:
           .DATA.L _njGarbageTexture ; H'8C01D26C
           .DATA.L _FUN_8c011f36 ; H'8C01D270
           .DATA.L FUN_8c011f6c ; H'8C01D274
-          .DATA.L __8c0450d8 ; H'8C01D278
+          .DATA.L init_8c0450d8 ; H'8C01D278
           .DATA.L _request_sys_resgrp_8c018568 ; H'8C01D27C
           .DATA.L _setUknPvmBool_8c014330 ; H'8C01D280
           .DATA.L _resetUknPvmBool_8c014322 ; H'8C01D284
@@ -15909,7 +15909,7 @@ LAB_8c01d596:
           NOP
 LP_GEN_25803:
           .DATA.W H'270F ; H'8C01D5E6
-          .DATA.L __8c045170 ; H'8C01D5E8
+          .DATA.L init_8c045170 ; H'8C01D5E8
           .DATA.L H'40C00000 ; H'8C01D5EC
           .DATA.L _midiHandles_8c0fcd28 ; H'8C01D5F0
           .DATA.L _sdMidiPlay ; H'8C01D5F4
@@ -16103,7 +16103,7 @@ LP_GEN_43132:
           .DATA.L LAB_8c01d300 ; H'8C01D768
           .DATA.L _setTaskAction_8c014b3e ; H'8C01D76C
           .DATA.L _menuState_8c1bc7a8 ; H'8C01D770
-          .DATA.L __8c045170 ; H'8C01D774
+          .DATA.L init_8c045170 ; H'8C01D774
           .DATA.L __8c1ba1cc ; H'8C01D778
 LAB_8c01d77c:
           MOV         #H'1,R3
@@ -16155,7 +16155,7 @@ LP_GEN_20271:
           .DATA.L _njGarbageTexture ; H'8C01D7D8
           .DATA.L _FUN_8c011f36 ; H'8C01D7DC
           .DATA.L FUN_8c011f6c ; H'8C01D7E0
-          .DATA.L __8c045160 ; H'8C01D7E4
+          .DATA.L init_8c045160 ; H'8C01D7E4
           .DATA.L _request_sys_resgrp_8c018568 ; H'8C01D7E8
           .DATA.L _setUknPvmBool_8c014330 ; H'8C01D7EC
           .DATA.L _resetUknPvmBool_8c014322 ; H'8C01D7F0
@@ -17369,7 +17369,7 @@ LP_GEN_76652:
           .DATA.L __8c18ad1c ; H'8C01E18C
           .DATA.L __8c2263ec ; H'8C01E190
           .DATA.L __8c1bb8dc ; H'8C01E194
-          .DATA.L __8c0451a0 ; H'8C01E198
+          .DATA.L init_8c0451a0 ; H'8C01E198
           .DATA.L __8c2263f0 ; H'8C01E19C
           .DATA.L __8c1bb8e0 ; H'8C01E1A0
           .DATA.L __8c2285d0 ; H'8C01E1A4
@@ -17624,7 +17624,7 @@ LP_GEN_72974:
           .DATA.L _isFading_8c226568 ; H'8C01E394
           .DATA.L _getUknPvmBool_8c01432a ; H'8C01E398
           .DATA.L FUN_8c011f7e ; H'8C01E39C
-          .DATA.L __8c0451b4 ; H'8C01E3A0
+          .DATA.L init_8c0451b4 ; H'8C01E3A0
           .DATA.L _snd_8c010cd6 ; H'8C01E3A4
           .DATA.L _push_fadein_8c022a9c ; H'8C01E3A8
           .DATA.L __8c1ba36c ; H'8C01E3AC
@@ -17929,7 +17929,7 @@ LP_GEN_38636:
           .DATA.L __8c1bb8f0 ; H'8C01E5F4
           .DATA.L __8c1bb8ec ; H'8C01E5F8
           .DATA.L __8c1bb8f4 ; H'8C01E5FC
-          .DATA.L __8c0451c0 ; H'8C01E600
+          .DATA.L init_8c0451c0 ; H'8C01E600
           .DATA.L __8c226410 ; H'8C01E604
           .DATA.L LAB_8c013310 ; H'8C01E608
           .DATA.L LAB_8c01e27c ; H'8C01E60C
@@ -17937,7 +17937,7 @@ LP_GEN_38636:
           .DATA.L __8c1bc7c0 ; H'8C01E614
           .DATA.L _FUN_8c011f36 ; H'8C01E618
           .DATA.L FUN_8c011f6c ; H'8C01E61C
-          .DATA.L __8c044284 ; H'8C01E620
+          .DATA.L init_8c044284 ; H'8C01E620
           .DATA.L __8c1bc7b4 ; H'8C01E624
           .DATA.L _request_sys_resgrp_8c018568 ; H'8C01E628
           .DATA.L _setUknPvmBool_8c014330 ; H'8C01E62C
@@ -18147,7 +18147,7 @@ LP_GEN_92116:
           .DATA.L _snd_8c010cd6 ; H'8C01E7B4
           .DATA.L _push_fadein_8c022a9c ; H'8C01E7B8
           .DATA.L _FUN_8c010bae ; H'8C01E7BC
-          .DATA.L __8c0451ec ; H'8C01E7C0
+          .DATA.L init_8c0451ec ; H'8C01E7C0
           .DATA.L _push_fadeout_8c022b60 ; H'8C01E7C4
           .DATA.L __8c03bd80 ; H'8C01E7C8
 LAB_8c01e7cc:
@@ -18302,13 +18302,13 @@ LP_GEN_46961:
           .DATA.L FUN_8c016ee6 ; H'8C01E8E4
           .DATA.L H'C0800000 ; H'8C01E8E8
           .DATA.L _drawSprite_8c014f54 ; H'8C01E8EC
-          .DATA.L __8c0451f8 ; H'8C01E8F0
+          .DATA.L init_8c0451f8 ; H'8C01E8F0
           .DATA.L _njUserClipping ; H'8C01E8F4
           .DATA.L H'41C00000 ; H'8C01E8F8
           .DATA.L H'43430000 ; H'8C01E8FC
           .DATA.L H'42820000 ; H'8C01E900
           .DATA.L H'C0900000 ; H'8C01E904
-          .DATA.L __8c0451ec ; H'8C01E908
+          .DATA.L init_8c0451ec ; H'8C01E908
           .DATA.L menuTextboxText_8c02af1c ; H'8C01E90C
           .DATA.L H'C0A00000 ; H'8C01E910
           .DATA.L H'C0C00000 ; H'8C01E914
@@ -18623,7 +18623,7 @@ LP_GEN_88702:
           .DATA.L FUN_8c02aefc ; H'8C01EB58
           .DATA.L _FUN_8c011f36 ; H'8C01EB5C
           .DATA.L FUN_8c011f6c ; H'8C01EB60
-          .DATA.L __8c044274 ; H'8C01EB64
+          .DATA.L init_8c044274 ; H'8C01EB64
           .DATA.L _request_sys_resgrp_8c018568 ; H'8C01EB68
           .DATA.L _setUknPvmBool_8c014330 ; H'8C01EB6C
           .DATA.L _resetUknPvmBool_8c014322 ; H'8C01EB70
@@ -18636,7 +18636,7 @@ LP_GEN_88702:
           .DATA.L __8c1bb8bc ; H'8C01EB8C
           .DATA.L __8c1ba1cc ; H'8C01EB90
           .DATA.L __8c1bb8f4 ; H'8C01EB94
-          .DATA.L __8c045208 ; H'8C01EB98
+          .DATA.L init_8c045208 ; H'8C01EB98
           .DATA.L __8c1bb8ec ; H'8C01EB9C
           .DATA.L __8c1bb8dc ; H'8C01EBA0
           .DATA.L __8c1bb8f8 ; H'8C01EBA4
@@ -19429,13 +19429,13 @@ LP_GEN_22524:
           .DATA.L __8c22642c ; H'8C01F1D8
           .DATA.L __8c1bb8f8 ; H'8C01F1DC
           .DATA.L __8c226414 ; H'8C01F1E0
-          .DATA.L __8c044c08 ; H'8C01F1E4
+          .DATA.L init_8c044c08 ; H'8C01F1E4
           .DATA.L _njSetBackColor ; H'8C01F1E8
           .DATA.L __8c157af8 ; H'8C01F1EC
           .DATA.L _njGarbageTexture ; H'8C01F1F0
           .DATA.L _FUN_8c011f36 ; H'8C01F1F4
           .DATA.L FUN_8c011f6c ; H'8C01F1F8
-          .DATA.L __8c044274 ; H'8C01F1FC
+          .DATA.L init_8c044274 ; H'8C01F1FC
           .DATA.L _request_sys_resgrp_8c018568 ; H'8C01F200
           .DATA.L _setUknPvmBool_8c014330 ; H'8C01F204
           .DATA.L _resetUknPvmBool_8c014322 ; H'8C01F208
@@ -19610,7 +19610,7 @@ LP_GEN_37649:
           .DATA.L _tasks_8c1ba3c8 ; H'8C01F370
           .DATA.L _pushTask_8c014ae8 ; H'8C01F374
           .DATA.L LAB_8c01ebf2 ; H'8C01F378
-          .DATA.L __8c044c08 ; H'8C01F37C
+          .DATA.L init_8c044c08 ; H'8C01F37C
           .DATA.L __8c157af8 ; H'8C01F380
           .DATA.L _njGarbageTexture ; H'8C01F384
           .DATA.L H'C0000000 ; H'8C01F388
@@ -19620,7 +19620,7 @@ LP_GEN_37649:
           .DATA.L _FUN_8c011f36 ; H'8C01F398
           .DATA.L FUN_8c011f6c ; H'8C01F39C
           .DATA.L __8c225fb0 ; H'8C01F3A0
-          .DATA.L __8c044274 ; H'8C01F3A4
+          .DATA.L init_8c044274 ; H'8C01F3A4
           .DATA.L _request_sys_resgrp_8c018568 ; H'8C01F3A8
           .DATA.L _requestCommonResources_8c01852c ; H'8C01F3AC
           .DATA.L _setUknPvmBool_8c014330 ; H'8C01F3B0
@@ -19908,10 +19908,10 @@ LP_GEN_39506:
           .DATA.L __8c1ba1cc ; H'8C01F5BC
           .DATA.L __8c226430 ; H'8C01F5C0
           .DATA.L __8c225fbc ; H'8C01F5C4
-          .DATA.L __8c04522c ; H'8C01F5C8
-          .DATA.L __8c045244 ; H'8C01F5CC
-          .DATA.L __8c04525c ; H'8C01F5D0
-          .DATA.L __8c045278 ; H'8C01F5D4
+          .DATA.L init_8c04522c ; H'8C01F5C8
+          .DATA.L init_8c045244 ; H'8C01F5CC
+          .DATA.L init_8c04525c ; H'8C01F5D0
+          .DATA.L init_8c045278 ; H'8C01F5D4
           .DATA.L H'3DCCCCCD ; H'8C01F5D8
           .DATA.L _menuState_8c1bc7a8 ; H'8C01F5DC
           .DATA.L H'43960000 ; H'8C01F5E0
@@ -19927,7 +19927,7 @@ LP_GEN_39506:
           .DATA.L __8c1bc404 ; H'8C01F608
           .DATA.L H'C3F00000 ; H'8C01F60C
           .DATA.L H'44700000 ; H'8C01F610
-          .DATA.L __8c04528c ; H'8C01F614
+          .DATA.L init_8c04528c ; H'8C01F614
           .DATA.L FUN_8c01543a ; H'8C01F618
 LAB_8c01f61c:
           MOV.L       R12,@(H'1c,R14)
@@ -20252,9 +20252,9 @@ LP_GEN_41910:
           .DATA.L __8c1bc404 ; H'8C01F894
           .DATA.L FUN_8c0152fc ; H'8C01F898
           .DATA.L __8c1bc408 ; H'8C01F89C
-          .DATA.L __8c04528c ; H'8C01F8A0
+          .DATA.L init_8c04528c ; H'8C01F8A0
           .DATA.L FUN_8c01543a ; H'8C01F8A4
-          .DATA.L __8c045290 ; H'8C01F8A8
+          .DATA.L init_8c045290 ; H'8C01F8A8
           .DATA.L _push_fadein_8c022a9c ; H'8C01F8AC
 LAB_8c01f8b0:
           MOV         #H'68,R0
@@ -20441,7 +20441,7 @@ LP_GEN_38893:
           .DATA.W H'0180 ; H'8C01FA16
           .DATA.L _menuState_8c1bc7a8 ; H'8C01FA18
           .DATA.L __8c225fbc ; H'8C01FA1C
-          .DATA.L __8c044c08 ; H'8C01FA20
+          .DATA.L init_8c044c08 ; H'8C01FA20
           .DATA.L FUN_8c0128cc ; H'8C01FA24
           .DATA.L task_8c012f44 ; H'8C01FA28
           .DATA.L _tasks_8c1ba3c8 ; H'8C01FA2C
@@ -20456,7 +20456,7 @@ LP_GEN_38893:
           .DATA.L __8c225fb8 ; H'8C01FA50
           .DATA.L _FUN_8c011f36 ; H'8C01FA54
           .DATA.L FUN_8c011f6c ; H'8C01FA58
-          .DATA.L __8c045324 ; H'8C01FA5C
+          .DATA.L init_8c045324 ; H'8C01FA5C
           .DATA.L _request_sys_resgrp_8c018568 ; H'8C01FA60
           .DATA.L _requestCommonResources_8c01852c ; H'8C01FA64
           .DATA.L _setUknPvmBool_8c014330 ; H'8C01FA68
@@ -20864,11 +20864,11 @@ LP_GEN_59952:
           .DATA.W H'02E0 ; H'8C01FD96
           .DATA.L __8c1bc424 ; H'8C01FD98
           .DATA.L H'42180000 ; H'8C01FD9C
-          .DATA.L __8c045334 ; H'8C01FDA0
+          .DATA.L init_8c045334 ; H'8C01FDA0
           .DATA.L H'434A0000 ; H'8C01FDA4
           .DATA.L H'C1800000 ; H'8C01FDA8
-          .DATA.L __8c045374 ; H'8C01FDAC
-          .DATA.L __8c0453b4 ; H'8C01FDB0
+          .DATA.L init_8c045374 ; H'8C01FDAC
+          .DATA.L init_8c0453b4 ; H'8C01FDB0
           .DATA.L H'43FA0000 ; H'8C01FDB4
           .DATA.L H'43480000 ; H'8C01FDB8
 LAB_8c01fdbc:
@@ -21049,7 +21049,7 @@ LP_GEN_41663:
           .DATA.L _njTranslate ; H'8C01FF0C
           .DATA.L __divls ; H'8C01FF10
           .DATA.L FUN_8c073564 ; H'8C01FF14
-          .DATA.L __8c045414 ; H'8C01FF18
+          .DATA.L init_8c045414 ; H'8C01FF18
           .DATA.L __8c226478 ; H'8C01FF1C
           .DATA.L _njCalcPoint ; H'8C01FF20
           .DATA.L H'47D2F000 ; H'8C01FF24
@@ -26201,7 +26201,7 @@ LAB_8c02264a:
 LP_GEN_55916:
           .DATA.W H'03E7 ; H'8C022654
           .DATA.W H'0100 ; H'8C022656
-          .DATA.L __8c045598 ; H'8C022658
+          .DATA.L init_8c045598 ; H'8C022658
           .DATA.L _njUserClipping ; H'8C02265C
           .DATA.L __8c226560 ; H'8C022660
           .DATA.L _drawSprite_8c014f54 ; H'8C022664
@@ -26211,19 +26211,19 @@ LP_GEN_55916:
           .DATA.L FUN_8c079330 ; H'8C022674
           .DATA.L __8c22655c ; H'8C022678
           .DATA.L FUN_8c05b7e0 ; H'8C02267C
-          .DATA.L __8c045578 ; H'8C022680
+          .DATA.L init_8c045578 ; H'8C022680
           .DATA.L __8c1bbc38 ; H'8C022684
-          .DATA.L __8c0455fc ; H'8C022688
+          .DATA.L init_8c0455fc ; H'8C022688
           .DATA.L __8c1bb944 ; H'8C02268C
-          .DATA.L __8c03bf44 ; H'8C022690
+          .DATA.L init_8c03bf44 ; H'8C022690
           .DATA.L _njSetTexture ; H'8C022694
           .DATA.L _njRenderTextureNumG ; H'8C022698
-          .DATA.L __8c045558 ; H'8C02269C
-          .DATA.L __8c045438 ; H'8C0226A0
+          .DATA.L init_8c045558 ; H'8C02269C
+          .DATA.L init_8c045438 ; H'8C0226A0
           .DATA.L __8c1bc424 ; H'8C0226A4
-          .DATA.L __8c045568 ; H'8C0226A8
-          .DATA.L __8c045498 ; H'8C0226AC
-          .DATA.L __8c0455e8 ; H'8C0226B0
+          .DATA.L init_8c045568 ; H'8C0226A8
+          .DATA.L init_8c045498 ; H'8C0226AC
+          .DATA.L init_8c0455e8 ; H'8C0226B0
 LAB_8c0226b4:
           MOV.L       LP_GEN_42584+4,R1
           MOV.W       LP_GEN_42584,R4
@@ -26350,16 +26350,16 @@ LP_GEN_42584:
           .DATA.W H'0100 ; H'8C0227A0
           .RES.W 1 ; H'8C0227A2
           .DATA.L FUN_8c05b7e0 ; H'8C0227A4
-          .DATA.L __8c045588 ; H'8C0227A8
-          .DATA.L __8c045610 ; H'8C0227AC
+          .DATA.L init_8c045588 ; H'8C0227A8
+          .DATA.L init_8c045610 ; H'8C0227AC
           .DATA.L __8c1bb944 ; H'8C0227B0
-          .DATA.L __8c03bf44 ; H'8C0227B4
+          .DATA.L init_8c03bf44 ; H'8C0227B4
           .DATA.L _njSetTexture ; H'8C0227B8
           .DATA.L _njRenderTextureNumG ; H'8C0227BC
-          .DATA.L __8c045624 ; H'8C0227C0
+          .DATA.L init_8c045624 ; H'8C0227C0
           .DATA.L __8c1bb984 ; H'8C0227C4
-          .DATA.L __8c0455e8 ; H'8C0227C8
-          .DATA.L __8c0454f8 ; H'8C0227CC
+          .DATA.L init_8c0455e8 ; H'8C0227C8
+          .DATA.L init_8c0454f8 ; H'8C0227CC
           .DATA.L __8c1bb904 ; H'8C0227D0
           .DATA.L __8c1bc424 ; H'8C0227D4
           .DATA.L _isFading_8c226568 ; H'8C0227D8
@@ -26506,7 +26506,7 @@ LP_GEN_82363:
           .DATA.L H'00044000 ; H'8C0228E4
           .DATA.L __8c226560 ; H'8C0228E8
           .DATA.L H'00FF0000 ; H'8C0228EC
-          .DATA.L __8c0455a8 ; H'8C0228F0
+          .DATA.L init_8c0455a8 ; H'8C0228F0
           .DATA.L _njDrawPolygon ; H'8C0228F4
           .DATA.L __8c22656c ; H'8C0228F8
           .DATA.L __8c22655c ; H'8C0228FC
@@ -26602,9 +26602,9 @@ LP_GEN_60768:
           .DATA.L __8c22656c ; H'8C0229AC
           .DATA.L __8c226560 ; H'8C0229B0
           .DATA.L FUN_8c05b7e0 ; H'8C0229B4
-          .DATA.L __8c045578 ; H'8C0229B8
+          .DATA.L init_8c045578 ; H'8C0229B8
           .DATA.L _njUserClipping ; H'8C0229BC
-          .DATA.L __8c0455e8 ; H'8C0229C0
+          .DATA.L init_8c0455e8 ; H'8C0229C0
           .DATA.L FUN_8c079330 ; H'8C0229C4
           .DATA.L __8c1bb904 ; H'8C0229C8
           .DATA.L __8c226558 ; H'8C0229CC
@@ -26850,7 +26850,7 @@ LP_GEN_18675:
           .DATA.L _isFading_8c226568 ; H'8C022BA0
           .DATA.L __8c226560 ; H'8C022BA4
           .DATA.L H'00FF0000 ; H'8C022BA8
-          .DATA.L __8c0455a8 ; H'8C022BAC
+          .DATA.L init_8c0455a8 ; H'8C022BAC
           .DATA.L _njDrawPolygon ; H'8C022BB0
           .DATA.L __8c226564 ; H'8C022BB4
           .DATA.L H'FF000000 ; H'8C022BB8
@@ -30012,7 +30012,7 @@ LP_GEN_79582:
           .DATA.L H'45BB8000 ; H'8C024448
           .DATA.L _midiHandles_8c0fcd28 ; H'8C02444C
           .DATA.L _sdMidiPlay ; H'8C024450
-          .DATA.L __8c045638 ; H'8C024454
+          .DATA.L init_8c045638 ; H'8C024454
           .DATA.L __8c1bb9d0 ; H'8C024458
           .DATA.L __8c1bbcb4 ; H'8C02445C
           .DATA.L FUN_8c073758 ; H'8C024460
@@ -30274,7 +30274,7 @@ LP_GEN_12192:
           .DATA.L __8c1bb9d0 ; H'8C02465C
           .DATA.L H'42400000 ; H'8C024660
           .DATA.L H'3B03126F ; H'8C024664
-          .DATA.L __8c045638 ; H'8C024668
+          .DATA.L init_8c045638 ; H'8C024668
           .DATA.L H'45BB8000 ; H'8C02466C
           .DATA.L __8c02ff58 ; H'8C024670
           .DATA.L H'47800000 ; H'8C024674
@@ -32937,9 +32937,9 @@ LP_GEN_72418:
           .DATA.L FUN_8c0223ea ; H'8C025B6C
           .DATA.L __8c227e0c ; H'8C025B70
           .DATA.L __8c18ad1c ; H'8C025B74
-          .DATA.L __8c045674 ; H'8C025B78
-          .DATA.L __8c045b60 ; H'8C025B7C
-          .DATA.L __8c045ee4 ; H'8C025B80
+          .DATA.L init_8c045674 ; H'8C025B78
+          .DATA.L init_8c045b60 ; H'8C025B7C
+          .DATA.L init_8c045ee4 ; H'8C025B80
           .DATA.L LAB_8c0259e8 ; H'8C025B84
           .DATA.L __8c1ba5e8 ; H'8C025B88
           .DATA.L _pushTask_8c014ae8 ; H'8C025B8C
@@ -34555,7 +34555,7 @@ LP_GEN_49807:
           .DATA.W H'0300 ; H'8C0267CC
           .RES.W 1 ; H'8C0267CE
           .DATA.L __8c227e1c ; H'8C0267D0
-          .DATA.L __8c0460bc ; H'8C0267D4
+          .DATA.L init_8c0460bc ; H'8C0267D4
 LAB_8c0267d8:
           MOV.W       LP_GEN_58523,R0
           MOV         R13,R14
@@ -34827,7 +34827,7 @@ LP_GEN_59685:
           .DATA.L H'C0000000 ; H'8C0269EC
           .DATA.L FUN_8c020914 ; H'8C0269F0
           .DATA.L FUN_8c020f7e ; H'8C0269F4
-          .DATA.L __8c0460c8 ; H'8C0269F8
+          .DATA.L init_8c0460c8 ; H'8C0269F8
 LAB_8c0269fc:
           MOV.L       LP_GEN_22736+32,R2
           MOV.W       LP_GEN_22736,R0
@@ -35031,7 +35031,7 @@ LP_GEN_22736:
           .DATA.L FUN_8c073748 ; H'8C026B80
           .DATA.L FUN_8c073758 ; H'8C026B84
           .DATA.L H'47800000 ; H'8C026B88
-          .DATA.L __8c0461c8 ; H'8C026B8C
+          .DATA.L init_8c0461c8 ; H'8C026B8C
           .DATA.L H'461C3C00 ; H'8C026B90
           .DATA.L FUN_8c012166 ; H'8C026B94
           .DATA.L H'4F800000 ; H'8C026B98
@@ -35388,7 +35388,7 @@ LP_GEN_70087:
           .DATA.L FUN_8c02cd6a ; H'8C026E44
           .DATA.L __8c227e24 ; H'8C026E48
           .DATA.L __8c1bb868 ; H'8C026E4C
-          .DATA.L __8c0460bc ; H'8C026E50
+          .DATA.L init_8c0460bc ; H'8C026E50
 LAB_8c026e54:
           CMP/EQ      #H'5,R0
           BF          LAB_8c026e62
@@ -36116,7 +36116,7 @@ LP_GEN_87611:
           .DATA.L __8c1ba1cc ; H'8C027394
           .DATA.L __8c18ad1c ; H'8C027398
           .DATA.L __8c18ad20 ; H'8C02739C
-          .DATA.L __8c046208 ; H'8C0273A0
+          .DATA.L init_8c046208 ; H'8C0273A0
           .DATA.L __8c1bac28 ; H'8C0273A4
           .DATA.L FUN_8c025b98 ; H'8C0273A8
           .DATA.L _pushTask_8c014ae8 ; H'8C0273AC
@@ -36383,7 +36383,7 @@ LP_GEN_41074:
           .DATA.L H'BF000000 ; H'8C0275AC
           .DATA.L H'4F800000 ; H'8C0275B0
           .DATA.L __8c227e14 ; H'8C0275B4
-          .DATA.L __8c04622c ; H'8C0275B8
+          .DATA.L init_8c04622c ; H'8C0275B8
           .DATA.L __8c1bc3f4 ; H'8C0275BC
           .DATA.L FUN_8c02786c ; H'8C0275C0
           .DATA.L __8c227db8 ; H'8C0275C4
@@ -36690,9 +36690,9 @@ LP_GEN_74201:
           .DATA.L __8c227e1c ; H'8C027824
           .DATA.L __8c228b40 ; H'8C027828
           .DATA.L __8c18ad1c ; H'8C02782C
-          .DATA.L __8c04c980 ; H'8C027830
-          .DATA.L __8c04caec ; H'8C027834
-          .DATA.L __8c04cd38 ; H'8C027838
+          .DATA.L init_8c04c980 ; H'8C027830
+          .DATA.L init_8c04caec ; H'8C027834
+          .DATA.L init_8c04cd38 ; H'8C027838
           .DATA.L __8c18ad20 ; H'8C02783C
           .DATA.L __8c1bbdb0 ; H'8C027840
           .DATA.L __8c18ad24 ; H'8C027844
@@ -40453,7 +40453,7 @@ LP_GEN_26341:
           .DATA.L H'3C75C28F ; H'8C02948C
           .DATA.L __8c1bbfdc ; H'8C029490
           .DATA.L _freeTask_8c014b66 ; H'8C029494
-          .DATA.L __8c04623c ; H'8C029498
+          .DATA.L init_8c04623c ; H'8C029498
           .DATA.L _execTasks_8c014b42 ; H'8C02949C
           .DATA.L _freeTasks_8c014ab4 ; H'8C0294A0
           .DATA.L _syFree ; H'8C0294A4
@@ -40627,11 +40627,11 @@ LP_GEN_46486:
           .DATA.L FUN_8c02e486 ; H'8C029604
           .DATA.L FUN_8c02890c ; H'8C029608
           .DATA.L __8c1bc460 ; H'8C02960C
-          .DATA.L __8c04650c ; H'8C029610
+          .DATA.L init_8c04650c ; H'8C029610
           .DATA.L __8c1bba54 ; H'8C029614
           .DATA.L _njCalcPoint ; H'8C029618
           .DATA.L __8c228268 ; H'8C02961C
-          .DATA.L __8c046518 ; H'8C029620
+          .DATA.L init_8c046518 ; H'8C029620
           .DATA.L __8c228270 ; H'8C029624
           .DATA.L __8c228244 ; H'8C029628
           .DATA.L __8c228248 ; H'8C02962C
@@ -41202,9 +41202,9 @@ LP_GEN_39842:
           .DATA.L FUN_8c022420 ; H'8C029A7C
           .DATA.L __8c1bc3ec ; H'8C029A80
           .DATA.L __8c18ad1c ; H'8C029A84
-          .DATA.L __8c0465d8 ; H'8C029A88
-          .DATA.L __8c046524 ; H'8C029A8C
-          .DATA.L __8c0466a4 ; H'8C029A90
+          .DATA.L init_8c0465d8 ; H'8C029A88
+          .DATA.L init_8c046524 ; H'8C029A8C
+          .DATA.L init_8c0466a4 ; H'8C029A90
           .DATA.L LAB_8c029904 ; H'8C029A94
           .DATA.L __8c1ba5e8 ; H'8C029A98
           .DATA.L _pushTask_8c014ae8 ; H'8C029A9C
@@ -43264,11 +43264,11 @@ LP_GEN_90475:
           .DATA.L _request_dat_8c011182 ; H'8C02AAB0
           .DATA.L __8c18ad6c ; H'8C02AAB4
           .DATA.L __8c18ad1c ; H'8C02AAB8
-          .DATA.L __8c049a6c ; H'8C02AABC
+          .DATA.L init_8c049a6c ; H'8C02AABC
           .DATA.L const_8c03a17c ; H'8C02AAC0
-          .DATA.L __8c04843c ; H'8C02AAC4
+          .DATA.L init_8c04843c ; H'8C02AAC4
           .DATA.L const_8c03a188 ; H'8C02AAC8
-          .DATA.L __8c04a9c8 ; H'8C02AACC
+          .DATA.L init_8c04a9c8 ; H'8C02AACC
           .DATA.L const_8c03a194 ; H'8C02AAD0
           .DATA.L __8c228484 ; H'8C02AAD4
           .DATA.L __8c228478 ; H'8C02AAD8
@@ -43394,7 +43394,7 @@ LAB_8c02ab7a:
 LP_GEN_97247:
           .DATA.W H'00DE ; H'8C02ABBC
           .RES.W 1 ; H'8C02ABBE
-          .DATA.L __8c046758 ; H'8C02ABC0
+          .DATA.L init_8c046758 ; H'8C02ABC0
           .DATA.L _requestPvm_8c011ac0 ; H'8C02ABC4
           .DATA.L H'0000FFFF ; H'8C02ABC8
           .DATA.L __8c1ba358 ; H'8C02ABCC
@@ -43613,7 +43613,7 @@ LP_GEN_90033:
           .DATA.L FUN_8c013d78 ; H'8C02AD60
           .DATA.L __8c226560 ; H'8C02AD64
           .DATA.L __8c22847c ; H'8C02AD68
-          .DATA.L __8c04ab3c ; H'8C02AD6C
+          .DATA.L init_8c04ab3c ; H'8C02AD6C
           .DATA.L H'C0400000 ; H'8C02AD70
           .DATA.L __8c228514 ; H'8C02AD74
           .DATA.L H'0000FFFF ; H'8C02AD78
@@ -44015,8 +44015,8 @@ LP_GEN_66558:
           .DATA.L __8c1bb8d0 ; H'8C02B098
           .DATA.L __8c22851c ; H'8C02B09C
           .DATA.L __8c18ad1c ; H'8C02B0A0
-          .DATA.L __8c04b1f0 ; H'8C02B0A4
-          .DATA.L __8c04abb0 ; H'8C02B0A8
+          .DATA.L init_8c04b1f0 ; H'8C02B0A4
+          .DATA.L init_8c04abb0 ; H'8C02B0A8
 LAB_8c02b0ac:
           MOV.L       LP_GEN_28749+8,R1
           MOV.L       R1,@R4
@@ -44120,7 +44120,7 @@ LP_GEN_28749:
           .DATA.W H'0100 ; H'8C02B156
           .DATA.W H'03FF ; H'8C02B158
           .RES.W 1 ; H'8C02B15A
-          .DATA.L __8c04b920 ; H'8C02B15C
+          .DATA.L init_8c04b920 ; H'8C02B15C
           .DATA.L __8c18ad20 ; H'8C02B160
           .DATA.L __8c1ba1cc ; H'8C02B164
           .DATA.L __8c228520 ; H'8C02B168
@@ -44636,7 +44636,7 @@ LP_GEN_45010:
           .DATA.L __8c0fcd3c ; H'8C02B568
           .DATA.L _sdMidiPlay ; H'8C02B56C
           .DATA.L __quick_evn_mvn ; H'8C02B570
-          .DATA.L __8c04c35c ; H'8C02B574
+          .DATA.L init_8c04c35c ; H'8C02B574
 FUN_8c02b578:
           MOV.L       LP_GEN_34364+24,R1
           MOV         #H'1,R5
@@ -47427,7 +47427,7 @@ LP_GEN_58192:
           .DATA.L __8c228718 ; H'8C02CB18
           .DATA.L H'3C656042 ; H'8C02CB1C
           .DATA.L __8c2288d8 ; H'8C02CB20
-          .DATA.L __8c04623c ; H'8C02CB24
+          .DATA.L init_8c04623c ; H'8C02CB24
           .DATA.L __8c228794 ; H'8C02CB28
           .DATA.L __8c1bb86c ; H'8C02CB2C
           .DATA.L __8c2264d4 ; H'8C02CB30
@@ -48533,7 +48533,7 @@ LP_GEN_53841:
           .DATA.L __8c22891c ; H'8C02D418
           .DATA.L FUN_8c012178 ; H'8C02D41C
           .DATA.L __8c228718 ; H'8C02D420
-          .DATA.L __8c04c3e4 ; H'8C02D424
+          .DATA.L init_8c04c3e4 ; H'8C02D424
           .DATA.L H'3E3851EC ; H'8C02D428
 LAB_8c02d42c:
           MOV.L       LP_GEN_80933+2,R3
@@ -49648,7 +49648,7 @@ LP_GEN_81852:
           .DATA.L _pushTask_8c014ae8 ; H'8C02DD0C
           .DATA.L __8c228798 ; H'8C02DD10
           .DATA.L __8c02fe38 ; H'8C02DD14
-          .DATA.L __8c04c4dc ; H'8C02DD18
+          .DATA.L init_8c04c4dc ; H'8C02DD18
           .DATA.L __8c228794 ; H'8C02DD1C
           .DATA.L _syMalloc ; H'8C02DD20
           .DATA.L H'3E3851EC ; H'8C02DD24
@@ -49919,11 +49919,11 @@ LP_GEN_19590:
           .DATA.L LAB_8c02d5ca ; H'8C02DF18
           .DATA.L __8c2288f8 ; H'8C02DF1C
           .DATA.L _pushTask_8c014ae8 ; H'8C02DF20
-          .DATA.L __8c04c3e4 ; H'8C02DF24
+          .DATA.L init_8c04c3e4 ; H'8C02DF24
           .DATA.L FUN_8c012178 ; H'8C02DF28
           .DATA.L __quick_evn_mvn ; H'8C02DF2C
           .DATA.L LAB_8c02d46c ; H'8C02DF30
-          .DATA.L __8c04c4dc ; H'8C02DF34
+          .DATA.L init_8c04c4dc ; H'8C02DF34
           .DATA.L _syFree ; H'8C02DF38
 FUN_8c02df3c:
           MOV.W       LP_GEN_79081+2,R0
@@ -50549,12 +50549,12 @@ LP_GEN_24334:
           .RES.W 1 ; H'8C02E3D6
           .DATA.L _njCalcPoints ; H'8C02E3D8
           .DATA.L __8c228978 ; H'8C02E3DC
-          .DATA.L __8c04c820 ; H'8C02E3E0
+          .DATA.L init_8c04c820 ; H'8C02E3E0
           .DATA.L __8c1bba54 ; H'8C02E3E4
           .DATA.L __8c228974 ; H'8C02E3E8
           .DATA.L __8c1bac28 ; H'8C02E3EC
           .DATA.L FUN_8c020842 ; H'8C02E3F0
-          .DATA.L __8c04c940 ; H'8C02E3F4
+          .DATA.L init_8c04c940 ; H'8C02E3F4
           .DATA.L H'41400000 ; H'8C02E3F8
           .DATA.L __8c2289d8 ; H'8C02E3FC
 FUN_8c02e400:
@@ -50693,7 +50693,7 @@ LAB_8c02e4e2:
 LP_GEN_17818:
           .DATA.W H'02E0 ; H'8C02E4F0
           .DATA.W H'0084 ; H'8C02E4F2
-          .DATA.L __8c04c940 ; H'8C02E4F4
+          .DATA.L init_8c04c940 ; H'8C02E4F4
           .DATA.L _njCalcPoints ; H'8C02E4F8
           .DATA.L __8c228978 ; H'8C02E4FC
           .DATA.L __8c228974 ; H'8C02E500
@@ -54431,7 +54431,7 @@ LP_GEN_98053:
           .DATA.W H'3039 ; H'8C0300EE
           .DATA.W H'7FFF ; H'8C0300F0
           .RES.W 1 ; H'8C0300F2
-          .DATA.L __8c04f6a8 ; H'8C0300F4
+          .DATA.L init_8c04f6a8 ; H'8C0300F4
           .DATA.L H'41C64E6D ; H'8C0300F8
 FUN_8c0300fc:
           MOV.L       LP_GEN_47458+2,R3
@@ -54439,7 +54439,7 @@ FUN_8c0300fc:
           MOV.L       R4,@R3
 LP_GEN_47458:
           .RES.W 1 ; H'8C030102
-          .DATA.L __8c04f6a8 ; H'8C030104
+          .DATA.L init_8c04f6a8 ; H'8C030104
 _strcmp:
           STS.L       PR,@-R15
           MOV.L       LP_GEN_33816+2,R3

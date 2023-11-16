@@ -8,8 +8,8 @@
           .IMPORT     __8c1bc78c
           .IMPORT     __8c1bc790
           .IMPORT     __8c1bc794
-          .IMPORT     __8c044128
-          .IMPORT     __8c04413c
+          .IMPORT     init_8c044128
+          .IMPORT     init_8c04413c
           .IMPORT     _njReleaseTexture
           .IMPORT     _syFree
           .IMPORT     _strlen
@@ -34,7 +34,7 @@
           .IMPORT     __8c1bb8d8
           .IMPORT     _FUN_8c011f36
           .IMPORT     FUN_8c011f6c
-          .IMPORT     __8c044154
+          .IMPORT     init_8c044154
           .IMPORT     const_8c035f74
           .IMPORT     _request_dat_8c011182
           .IMPORT     __8c227e14
@@ -649,8 +649,8 @@ LP_GEN_39385:
           .DATA.L __8c1bc78c
           .DATA.L __8c1bc790
           .DATA.L __8c1bc794
-          .DATA.L __8c044128
-          .DATA.L __8c04413c
+          .DATA.L init_8c044128
+          .DATA.L init_8c04413c
           .DATA.L _njReleaseTexture
           .DATA.L H'0000FFED
           .DATA.L _syFree
@@ -1542,7 +1542,7 @@ LP_GEN_51554:
           .DATA.L __8c1bb8d8
           .DATA.L _FUN_8c011f36
           .DATA.L FUN_8c011f6c
-          .DATA.L __8c044154
+          .DATA.L init_8c044154
           .DATA.L const_8c035f74
           .DATA.L _request_dat_8c011182
           .DATA.L __8c227e14
