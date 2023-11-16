@@ -121,15 +121,12 @@
           .IMPORT     var_8c227da0
           .IMPORT     var_8c227da8
           .IMPORT     var_8c1ba291
-          .IMPORT     const_8c033364
           .IMPORT     var_8c1bc448
           .IMPORT     var_8c1bc450
           .IMPORT     FUN_8c011f6c
           .IMPORT     _memblkSource_8c0fcd48
-          .IMPORT     const_8c03336c
           .IMPORT     _request_dat_8c011182
           .IMPORT     _memblkSource_8c0fcd4c
-          .IMPORT     const_8c033378
           .IMPORT     _nop_8c011120
           .IMPORT     FUN_8c011f7e
           .IMPORT     _FUN_8c010e18
@@ -195,15 +192,10 @@
           .IMPORT     _njSetBorderColor
           .IMPORT     FUN_8c01c8fc
           .IMPORT     _FUN_8c011f36
-          .IMPORT     const_8c033380
           .IMPORT     var_8c1bc41c
-          .IMPORT     const_8c033388
           .IMPORT     var_8c1bc420
-          .IMPORT     const_8c033398
           .IMPORT     var_8c1bc428
-          .IMPORT     const_8c0333a4
           .IMPORT     var_8c1bc42c
-          .IMPORT     const_8c0333b8
           .IMPORT     var_8c1bc3f8
           .IMPORT     _requestPvm_8c011ac0
           .IMPORT     var_8c1ba1c8
@@ -2940,7 +2932,7 @@ LP_GEN_38000:
           .DATA.L var_8c227da8
           .DATA.L LAB_8c0144fc
           .DATA.L var_8c1ba291
-          .DATA.L const_8c033364
+          .DATA.L L999902
 
 LAB_8c013440:
           MOV.L       LP_GEN_65923+0,R3
@@ -3066,10 +3058,10 @@ LP_GEN_65923:
           .DATA.L var_8c1bc450
           .DATA.L FUN_8c011f6c
           .DATA.L _memblkSource_8c0fcd48
-          .DATA.L const_8c03336c
+          .DATA.L L999903
           .DATA.L _request_dat_8c011182
           .DATA.L _memblkSource_8c0fcd4c
-          .DATA.L const_8c033378
+          .DATA.L L999904
           .DATA.L _resetUknPvmBool_8c014322
           .DATA.L _setUknPvmBool_8c014330
           .DATA.L _nop_8c011120
@@ -3612,15 +3604,15 @@ LP_GEN_19861:
           .DATA.L _FUN_8c011f36
           .DATA.L FUN_8c011f6c
           .DATA.L _request_dat_8c011182
-          .DATA.L const_8c033380
+          .DATA.L L999905
           .DATA.L var_8c1bc41c
-          .DATA.L const_8c033388
+          .DATA.L L999906
           .DATA.L var_8c1bc420
-          .DATA.L const_8c033398
+          .DATA.L L999907
           .DATA.L var_8c1bc428
-          .DATA.L const_8c0333a4
+          .DATA.L L999908
           .DATA.L var_8c1bc42c
-          .DATA.L const_8c0333b8
+          .DATA.L L999909
           .DATA.L var_8c1bc3f8
           .DATA.L H'80000000
           .DATA.L s_loading_pvm_8c0333c4
@@ -7528,7 +7520,7 @@ L999901:
           .DATA.B     H'00
           .RES.W      1
 L999902:
-          .SDATA      "\SOUND"
+          .SDATA      "\SOUND" ; H'8c033364
           .DATA.B     H'00
           .RES.B      1
 L999903:
