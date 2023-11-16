@@ -2,14 +2,14 @@
           .IMPORT     _queuedNjFilesEnd_8c157aa4
           .IMPORT     _queuedNjFilesCursor_8c157aa0
           .IMPORT     __8c157a80_basedir
-          .IMPORT     __8c157aa8
+          .IMPORT     var_8c157aa8
           .IMPORT     _strcmp
           .IMPORT     _gdFsChangeDir
           .IMPORT     _gdFsOpen
           .IMPORT     _gdFsGetFileSctSize
           .IMPORT     _syMalloc
           .IMPORT     _gdFsRead
-          .IMPORT     __8c157a88
+          .IMPORT     var_8c157a88
           .IMPORT     init_8c03be7c
           .IMPORT     _freeTask_8c014b66
           .IMPORT     _gdFsGetStat
@@ -21,27 +21,27 @@
           .IMPORT     _syFree
           .IMPORT     _tasks_8c1ba3c8
           .IMPORT     _pushTask_8c014ae8
-          .IMPORT     __8c157aac
-          .IMPORT     __8c157ab4
-          .IMPORT     __8c157ab0
-          .IMPORT     __8c157a68
-          .IMPORT     __8c157ab8
+          .IMPORT     var_8c157aac
+          .IMPORT     var_8c157ab4
+          .IMPORT     var_8c157ab0
+          .IMPORT     var_8c157a68
+          .IMPORT     var_8c157ab8
           .IMPORT     _njSetTexture
           .IMPORT     _njLoadTextureNum
-          .IMPORT     __8c157abc
-          .IMPORT     __8c157ac4
-          .IMPORT     __8c157ac0
-          .IMPORT     __8c157ac8
-          .IMPORT     __8c277ca0
-          .IMPORT     __8c157a84
+          .IMPORT     var_8c157abc
+          .IMPORT     var_8c157ac4
+          .IMPORT     var_8c157ac0
+          .IMPORT     var_8c157ac8
+          .IMPORT     var_8c277ca0
+          .IMPORT     var_8c157a84
           .IMPORT     _njSetPvmTextureList
           .IMPORT     _njLoadTexturePvmMemory
-          .IMPORT     __8c157a6c
+          .IMPORT     _var_8c157a6c
           .IMPORT     __quick_evn_mvn
           .IMPORT     _njReleaseTexture
           .IMPORT     FUN_8c01c8fc
           .IMPORT     FUN_8c01c910
-          .IMPORT     __8c157a60
+          .IMPORT     var_8c157a60
           .IMPORT     _get_8c157a98_8c0113d2
           .IMPORT     _initDatQueue_8c011124
           .IMPORT     _FUN_8c01116a
@@ -110,7 +110,7 @@ _FUN_8c01147a:                   ; function: _FUN_8c01147a
           MOV.L       L7+18,R3; _ptr_str_DATA_EMPTY_8c03be7c
           MOV.L       @R3,R0
           MOV.L       R0,@R2
-          MOV.L       L7+26,R0; __8c157aa8
+          MOV.L       L7+26,R0; var_8c157aa8
           RTS
           MOV.L       R1,@R0
 _requestNj_8c011492:             ; function: requestNj_8c011492
@@ -190,10 +190,10 @@ L7:
           .DATA.L     _queuedNjFilesCursor_8c157aa0
           .DATA.L     init_8c03be7c ; L7+18
           .DATA.L     __8c157a80_basedir
-          .DATA.L     __8c157aa8
+          .DATA.L     var_8c157aa8
           .DATA.L     _syFree
-          .DATA.L     __8c277ca0 ; L7+34
-          .DATA.L     __8c157a84 
+          .DATA.L     var_8c277ca0 ; L7+34
+          .DATA.L     var_8c157a84 
 
 L8:
           MOV.L       @R14,R2
@@ -298,10 +298,10 @@ L17:
           .DATA.L     _gdFsGetFileSctSize ; L17+16
           .DATA.L     _syMalloc
           .DATA.L     _gdFsRead
-          .DATA.L     __8c157a88
+          .DATA.L     var_8c157a88
           .DATA.L     _queuedNjFiles_8c157a9c ; L17+32
           .DATA.L     init_8c03be7c
-          .DATA.L     __8c157aa8
+          .DATA.L     var_8c157aa8
           .DATA.L     _freeTask_8c014b66
           .DATA.L     _gdFsGetStat ; L17+48
 
@@ -432,10 +432,10 @@ L28:
           .DATA.L     _njReadBinary
           .DATA.L     _gdFsGetTransStat
           .DATA.L     _gdFsTrans32
-          .DATA.L     __8c157a88 ; L28+18
+          .DATA.L     var_8c157a88 ; L28+18
           .DATA.L     _queuedNjFilesCursor_8c157aa0
           .DATA.L     _queuedNjFiles_8c157a9c
-          .DATA.L     __8c157aa8
+          .DATA.L     var_8c157aa8
           .DATA.L     _syMalloc ; L28+34
 
 L29:
@@ -766,17 +766,17 @@ L55:
           .DATA.L     _task_8c0114cc
           .DATA.L     _tasks_8c1ba3c8 ; L55+16
           .DATA.L     _pushTask_8c014ae8
-          .DATA.L     __8c157a88
+          .DATA.L     var_8c157a88
           .DATA.L     init_8c03be7c
           .DATA.L     __8c157a80_basedir ; L55+32
-          .DATA.L     __8c157aa8
+          .DATA.L     var_8c157aa8
           .DATA.L     _queuedNjFiles_8c157a9c
-          .DATA.L     __8c157aac
+          .DATA.L     var_8c157aac
           .DATA.L     _syMalloc ; L55+48
-          .DATA.L     __8c157ab4
-          .DATA.L     __8c157ab0
-          .DATA.L     __8c157a68
-          .DATA.L     __8c157ab8 ; L55+64
+          .DATA.L     var_8c157ab4
+          .DATA.L     var_8c157ab0
+          .DATA.L     var_8c157a68
+          .DATA.L     var_8c157ab8 ; L55+64
           .DATA.L     _gdFsChangeDir
           .DATA.L     _njSetTexture
           .DATA.L     _njLoadTextureNum
@@ -1016,24 +1016,24 @@ L71:
           ADD         #H'18,R14
 
 L72:
-          .DATA.L     __8c157a68 ; L72
-          .DATA.L     __8c157ab0
-          .DATA.L     __8c157ab8
+          .DATA.L     var_8c157a68 ; L72
+          .DATA.L     var_8c157ab0
+          .DATA.L     var_8c157ab8
           .DATA.L     _freeTask_8c014b66 ; L72+12
-          .DATA.L     __8c157aac
+          .DATA.L     var_8c157aac
           .DATA.L     task_8c01183e
           .DATA.L     _tasks_8c1ba3c8
           .DATA.L     _pushTask_8c014ae8 ; L72+28
           .DATA.L     _syFree
-          .DATA.L     __8c157abc
+          .DATA.L     var_8c157abc
           .DATA.L     _syMalloc
-          .DATA.L     __8c157ac4 ; L72+44
-          .DATA.L     __8c157ac0
+          .DATA.L     var_8c157ac4 ; L72+44
+          .DATA.L     var_8c157ac0
           .DATA.L     init_8c03be7c
           .DATA.L     __8c157a80_basedir
-          .DATA.L     __8c157ac8 ; L72+60
-          .DATA.L     __8c277ca0
-          .DATA.L     __8c157a84
+          .DATA.L     var_8c157ac8 ; L72+60
+          .DATA.L     var_8c277ca0
+          .DATA.L     var_8c157a84
 
 L73:
           MOV.L       @R14,R2
@@ -1161,10 +1161,10 @@ L84:
           .DATA.L     _gdFsOpen
           .DATA.L     _gdFsGetFileSctSize ; L84+16
           .DATA.L     _gdFsRead
-          .DATA.L     __8c157a88
-          .DATA.L     __8c157abc
+          .DATA.L     var_8c157a88
+          .DATA.L     var_8c157abc
           .DATA.L     init_8c03be7c ; L84+32
-          .DATA.L     __8c157ac8
+          .DATA.L     var_8c157ac8
           .DATA.L     _freeTask_8c014b66
           .DATA.L     _gdFsGetStat
           .DATA.L     _gdFsClose ; L84+48
@@ -1292,12 +1292,12 @@ L92:
           .DATA.L     _gdFsGetTransStat
           .DATA.L     _gdFsTrans32
           .DATA.L     _gdFsClose
-          .DATA.L     __8c157a88 ; L92+28
-          .DATA.L     __8c157ac0
-          .DATA.L     __8c157abc
-          .DATA.L     __8c157ac8
+          .DATA.L     var_8c157a88 ; L92+28
+          .DATA.L     var_8c157ac0
+          .DATA.L     var_8c157abc
+          .DATA.L     var_8c157ac8
           .DATA.L     _syMalloc ; L92+44
-          .DATA.L     __8c157a6c
+          .DATA.L     _var_8c157a6c
 
 L93:
           MOV.L       L110,R2
@@ -1592,14 +1592,14 @@ L110:
           .DATA.L     task_8c011b00
           .DATA.L     _tasks_8c1ba3c8 ; L110+16
           .DATA.L     _pushTask_8c014ae8
-          .DATA.L     __8c157a88
+          .DATA.L     var_8c157a88
           .DATA.L     init_8c03be7c
           .DATA.L     __8c157a80_basedir ; L110+32
-          .DATA.L     __8c157ac8
-          .DATA.L     __8c157abc
+          .DATA.L     var_8c157ac8
+          .DATA.L     var_8c157abc
           .DATA.L     _njReleaseTexture
           .DATA.L     _freeTask_8c014b66 ; L110+48
           .DATA.L     FUN_8c01c8fc
           .DATA.L     FUN_8c01c910
-          .DATA.L     __8c157a60
+          .DATA.L     var_8c157a60
           .END

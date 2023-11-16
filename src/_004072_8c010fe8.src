@@ -1,4 +1,4 @@
-          .IMPORT     __8c157a5c
+          .IMPORT     var_8c157a5c
           .IMPORT     __divls
           .EXPORT     _FUN_8c010fe8
           .SECTION    P,CODE,ALIGN=4
@@ -168,7 +168,7 @@ L6:
 L7:
           .DATA.B     H'00, H'00 ; H'8c011112
           .DATA.L     __8c157a58
-          .DATA.L     __8c157a5c
+          .DATA.L     var_8c157a5c
           .DATA.L     __divls
           .SECTION    B,DATA,ALIGN=4
 __8c157a58:                      ; static: _8c157a58

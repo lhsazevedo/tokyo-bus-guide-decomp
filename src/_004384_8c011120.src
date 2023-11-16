@@ -11,11 +11,11 @@
           .IMPORT     _pushTask_8c014ae8
           .IMPORT     _freeTask_8c014b66
           .IMPORT     __8c157a80_basedir
-          .IMPORT     __8c157a88
+          .IMPORT     var_8c157a88
           .IMPORT     __8c157a8c_start
           .IMPORT     __8c157a90_current
           .IMPORT     __8c157a94_end
-          .IMPORT     __8c157a98
+          .IMPORT     var_8c157a98
           .IMPORT     _tasks_8c1ba3c8
           .IMPORT     _strcmp
           .IMPORT     __quick_evn_mvn
@@ -85,7 +85,7 @@ _FUN_8c01116a:                   ; function: _FUN_8c01116a
           MOV.L       L14+16,R3; __8c03334c
           MOV.L       @R3,R0
           MOV.L       R0,@R2
-          MOV.L       L14+24,R0; __8c157a98
+          MOV.L       L14+24,R0; var_8c157a98
           RTS
           MOV.L       R1,@R0
 _request_dat_8c011182:           ; function: request_dat_8c011182
@@ -132,7 +132,7 @@ _task_8c0111b4:                  ; function: task_8c0111b4
           ADD         #-4,R15
           MOV         R4,R13
           MOV.L       @(8,R13),R0
-          MOV.L       L14+28,R11; __8c157a88
+          MOV.L       L14+28,R11; var_8c157a88
           MOV.L       @(24,R13),R14
           CMP/EQ      #0,R0
           BT/S        L7
@@ -214,7 +214,7 @@ L10:
           BRA         L19
           MOV.L       R3,@R12
 L11:
-          MOV.L       L14+24,R1 ; __8c157a98
+          MOV.L       L14+24,R1 ; var_8c157a98
           MOV.L       L14+52,R3
           MOV.L       R10,@R1
           JSR         @R3
@@ -245,8 +245,8 @@ L14:
           .DATA.L     __8c157a90_current
           .DATA.L     __8c03334c
           .DATA.L     __8c157a80_basedir ; H'8c0112a0
-          .DATA.L     __8c157a98
-          .DATA.L     __8c157a88
+          .DATA.L     var_8c157a98
+          .DATA.L     var_8c157a88
           .DATA.L     _strcmp
           .DATA.L     _gdFsChangeDir ; H'8c0112b0
           .DATA.L     _gdFsOpen
@@ -313,7 +313,7 @@ _FUN_8c011310:                   ; function: FUN_8c011310
           MOV.L       @R8,R3
           CMP/EQ      R3,R2
           BT          L24
-          MOV.L       L28+28,R2; __8c157a98
+          MOV.L       L28+28,R2; var_8c157a98
           MOV         #0,R10
           MOV.L       R10,@R2
           MOV.L       L28+32,R2;_syMalloc
@@ -404,7 +404,7 @@ L26:
           MOV.L       @R15+,R14
 _get_8c157a98_8c0113d2:          ; function: get_8c157a98_8c0113d2
                                  ; frame size=0
-          MOV.L       L28+28,R3; __8c157a98
+          MOV.L       L28+28,R3; var_8c157a98
           RTS
           MOV.L       @R3,R0
 _freeDatQueue_8c0113d8:          ; function: freeDatQueue_8c0113d8
@@ -429,14 +429,14 @@ L28:
           .DATA.L     _syFree
           .DATA.L     __8c157a90_current
           .DATA.L     __8c157a8c_start
-          .DATA.L     __8c157a98
+          .DATA.L     var_8c157a98
           .DATA.L     _syMalloc
           .DATA.L     _strcmp
           .DATA.L     __quick_evn_mvn
           .DATA.L     _task_8c0111b4
           .DATA.L     _tasks_8c1ba3c8
           .DATA.L     _pushTask_8c014ae8
-          .DATA.L     __8c157a88
+          .DATA.L     var_8c157a88
           .DATA.L     __8c03334c
           .DATA.L     __8c157a80_basedir
           .SECTION    D,DATA,ALIGN=4

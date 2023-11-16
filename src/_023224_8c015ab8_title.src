@@ -12,18 +12,18 @@
           .IMPORT     _push_fadeout_8c022b60
           .IMPORT     _saveNames_8c044d50
           .IMPORT     __8c03bd80
-          .IMPORT     __8c1bb8c4
+          .IMPORT     var_8c1bb8c4
           .IMPORT     _titleResourceGroup_8c044254
           .IMPORT     _menuState_8c1bc7a8
           .IMPORT     _peripheral_8c1ba35c
           .IMPORT     _tasks_8c1ba3c8
           .IMPORT     task_8c012f44
-          .IMPORT     __8c157af8
+          .IMPORT     _var_8c157af8
           .IMPORT     FUN_8c02ae3e
           .IMPORT     _FUN_8c011f36
           .IMPORT     _nop_8c011120
           .IMPORT     _resetUknPvmBool_8c014322
-          .IMPORT     __8c225fb0
+          .IMPORT     _var_8c225fb0
           .IMPORT     FUN_8c019550
           .IMPORT     FUN_8c019e44
           .IMPORT     FUN_8c016182
@@ -646,7 +646,7 @@ L48:
           .DATA.L     _saveNames_8c044d50
           .DATA.L     FUN_8c019550
           .DATA.L     __8c03bd80
-          .DATA.L     __8c1bb8c4 ; H'8c015f50
+          .DATA.L     var_8c1bb8c4 ; H'8c015f50
           .DATA.L     FUN_8c019e44
           .DATA.L     FUN_8c016182
           .DATA.L     FUN_8c0159ac
@@ -752,13 +752,13 @@ _FUN_8c015fd6:                   ; function: FUN_8c015fd6
           MOV.L       L53+48,R14; _menuState_8c1bc7a8
           MOV         #100,R0
           MOV         #0,R3
-          MOV.L       L53+52,R1; __8c1bb8c4
+          MOV.L       L53+52,R1; var_8c1bb8c4
           MOV.L       R3,@(24,R14)
           MOV         R3,R2
           MOV.L       R3,@(R0,R14)
           MOV.L       @(16,R15),R2
           MOV.L       @(8,R15),R3
-          MOV.L       L53+56,R4; __8c157af8
+          MOV.L       L53+56,R4; _var_8c157af8
           MOV.L       R2,@(8,R3)
           MOV         #1,R3
           MOV.L       R3,@R1
@@ -788,7 +788,7 @@ _FUN_8c015fd6:                   ; function: FUN_8c015fd6
           MOV.L       L53+76,R2; FUN_8c011f6c
           JSR         @R2
           NOP
-          MOV.L       L53+80,R2; __8c225fb0
+          MOV.L       L53+80,R2; _var_8c225fb0
           MOV         #-1,R3
           MOV.L       L53+84,R5; _titleResourceGroup_8c044254
           MOV         R14,R4
@@ -831,14 +831,14 @@ L53:
           .DATA.L     _njSetBackColor ; H'8c0160c0
           .DATA.L     _task_title_8c015ab8
           .DATA.L     _menuState_8c1bc7a8
-          .DATA.L     __8c1bb8c4
-          .DATA.L     __8c157af8 ; H'8c0160d0
+          .DATA.L     var_8c1bb8c4
+          .DATA.L     _var_8c157af8 ; H'8c0160d0
           .DATA.L     _njGarbageTexture
           .DATA.L     H'C0000000 ; -2.0
           .DATA.L     FUN_8c02ae3e
           .DATA.L     _FUN_8c011f36 ; H'8c0160e0
           .DATA.L     FUN_8c011f6c
-          .DATA.L     __8c225fb0
+          .DATA.L     _var_8c225fb0
           .DATA.L     _titleResourceGroup_8c044254
           .DATA.L     _request_sys_resgrp_8c018568 ; H'8c0160f0
           .DATA.L     _requestCommonResources_8c01852c

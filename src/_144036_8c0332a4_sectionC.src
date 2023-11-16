@@ -1,4 +1,4 @@
-          .SECTION C, DATA, ALIGN=4
+          .SECTION    C, DATA, ALIGN=4
           .DATA.B H'00, H'00, H'5E, H'00, H'6C, H'00, H'AA, H'00, H'FD, H'00, H'53, H'01 ; H'8c035f24
           .DATA.B H'83, H'01, H'C5, H'01, H'23, H'02, H'81, H'02, H'DF, H'02, H'3D, H'03, H'9B, H'03, H'F9, H'03 ; H'8c035f30
           .DATA.B H'57, H'04, H'B5, H'04, H'13, H'05, H'71, H'05, H'CF, H'05, H'2D, H'06, H'8B, H'06, H'E9, H'06 ; H'8c035f40
