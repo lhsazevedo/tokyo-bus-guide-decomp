@@ -63,7 +63,7 @@ extern Uint8 gdfscurdir[GDFS_DIRREC_SIZE(BUFFERS) + 32];
 ** Initialization function of the application.
 ** Arguments are compatible with njInitSystem().
 */
-void sbInitSystem(Int mode, Int frame, Int count)
+void sbInitSystem_8c0149b0(Int mode, Int frame, Int count)
 {
     /* Do standard initialization.                                */
     /* By this setting, many applications can get the greatest    */
@@ -118,7 +118,7 @@ void sbInitSystem(Int mode, Int frame, Int count)
 ** Finalize application.
 */
 
-void sbExitSystem(void)
+void sbExitSystem_8c014a24(void)
 {
     /* Finalize controller library.     */
     pdExitPeripheral();

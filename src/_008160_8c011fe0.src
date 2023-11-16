@@ -1,6 +1,6 @@
           .IMPORT     task_8c011e80
           .IMPORT     _tasks_8c1ba3c8
-          .IMPORT     __8c014ae8
+          .IMPORT     _pushTask_8c014ae8
           .IMPORT     _syMalloc
           .IMPORT     _syFree
           .IMPORT     __8c157acc
@@ -64,7 +64,7 @@
           .IMPORT     _FUN_8c015fd6
           .IMPORT     FUN_8c02239c
           .IMPORT     __8c1ba5e8
-          .IMPORT     __8c014b42
+          .IMPORT     _execTasks_8c014b42
           .IMPORT     FUN_8c022910
           .IMPORT     __8c03bd80
           .IMPORT     __8c03bd84
@@ -77,7 +77,7 @@
           .IMPORT     __8c228708
           .IMPORT     __8c22655c
           .IMPORT     __8c1bb9d0
-          .IMPORT     __8c014b66
+          .IMPORT     _freeTask_8c014b66
           .IMPORT     FUN_8c05b7e0
           .IMPORT     __8c2f8ca0
           .IMPORT     _njInitMatrix
@@ -89,7 +89,7 @@
           .IMPORT     FUN_8c0757dc
           .IMPORT     _kmSetCheapShadowMode
           .IMPORT     _kmSetFogTable
-          .IMPORT     __8c014a9c
+          .IMPORT     _clearTasks_8c014a9c
           .IMPORT     __8c1ba808
           .IMPORT     __8c1bac28
           .IMPORT     __8c1bb448
@@ -137,7 +137,7 @@
           .IMPORT     __8c18ad14
           .IMPORT     _njSetTextureMemorySize
           .IMPORT     _syCblCheckCable
-          .IMPORT     __8c0149b0
+          .IMPORT     _sbInitSystem_8c0149b0
           .IMPORT     _njSetAspect
           .IMPORT     __8c255ca0
           .IMPORT     _njInit3D
@@ -154,8 +154,8 @@
           .IMPORT     _FUN_8c010924
           .IMPORT     __8c226070
           .IMPORT     _setSoundMode_8c0108c0
-          .IMPORT     __8c010fbe
-          .IMPORT     __8c014b8c
+          .IMPORT     _FUN_8c010fbe
+          .IMPORT     _BupInit_8c014b8c
           .IMPORT     _njSetTextureInfo
           .IMPORT     __8c18acf8
           .IMPORT     _njSetTextureName
@@ -205,7 +205,7 @@
           .IMPORT     __8c1bc42c
           .IMPORT     __8c0333b8
           .IMPORT     __8c1bc3f8
-          .IMPORT     __8c011ac0
+          .IMPORT     _requestPvm_8c011ac0
           .IMPORT     __8c1ba1c8
           .IMPORT     __8c2260ac
           .IMPORT     __8c2260b8
@@ -222,7 +222,7 @@
           .IMPORT     _gdFsGetStat
           .IMPORT     FUN_8c053c5c
           .IMPORT     __8c059e14
-          .IMPORT     __8c014a24
+          .IMPORT     _sbExitSystem_8c014a24
           .IMPORT     _syBtExit
           .IMPORT     __8c18ad6c
           .IMPORT     __8c1bc434
@@ -599,7 +599,7 @@ LP_GEN_90004:
           .RES.W      1 ; H'8c012206
           .DATA.L     task_8c011e80
           .DATA.L     _tasks_8c1ba3c8
-          .DATA.L     __8c014ae8
+          .DATA.L     _pushTask_8c014ae8
           .DATA.L     _syMalloc
           .DATA.L     _syFree
           .DATA.L     __8c157acc
@@ -1559,7 +1559,7 @@ LP_GEN_17272:
           .DATA.L __8c02fe38
           .DATA.L __8c157a70
           .DATA.L FUN_8c01c910
-          .DATA.L __8c014ae8
+          .DATA.L _pushTask_8c014ae8
           .DATA.L _tasks_8c1ba3c8
           .DATA.L __8c157a74
           .DATA.L task_8c012324
@@ -2217,7 +2217,7 @@ LP_GEN_43727:
           .DATA.L _FUN_8c015fd6
           .DATA.L FUN_8c02239c
           .DATA.L __8c1ba5e8
-          .DATA.L __8c014b42
+          .DATA.L _execTasks_8c014b42
           .DATA.L FUN_8c022560
           .DATA.L __8c1bb8cc
           .DATA.L __8c1ba358
@@ -2341,7 +2341,7 @@ LP_GEN_94405:
           .DATA.L _FUN_8c015fd6
           .DATA.L FUN_8c02239c
           .DATA.L __8c1ba5e8
-          .DATA.L __8c014b42
+          .DATA.L _execTasks_8c014b42
           .DATA.L FUN_8c022910
           .DATA.L H'BF8CCCCD
           .DATA.L __8c1bc418
@@ -2631,7 +2631,7 @@ LP_GEN_31464:
           .DATA.W H'0268
           .DATA.W H'0080
           .RES.W 1
-          .DATA.L __8c014b66
+          .DATA.L _freeTask_8c014b66
           .DATA.L FUN_8c05b7e0
           .DATA.L __8c2f8ca0
           .DATA.L _njInitMatrix
@@ -2644,7 +2644,7 @@ LP_GEN_31464:
           .DATA.L _kmSetCheapShadowMode
           .DATA.L _kmSetFogTable
           .DATA.L __8c1ba5e8
-          .DATA.L __8c014a9c
+          .DATA.L _clearTasks_8c014a9c
           .DATA.L __8c1ba808
           .DATA.L __8c1bac28
           .DATA.L __8c1bb448
@@ -2653,7 +2653,7 @@ LP_GEN_31464:
           .DATA.L FUN_8c012160
           .DATA.L FUN_8c0121a2
           .DATA.L FUN_8c0128cc
-          .DATA.L __8c014ae8
+          .DATA.L _pushTask_8c014ae8
           .DATA.L _tasks_8c1ba3c8
           .DATA.L __8c1bb8d0
           .DATA.L FUN_8c012cbc
@@ -3075,7 +3075,7 @@ LP_GEN_65923:
           .DATA.L _nop_8c011120
           .DATA.L FUN_8c011fe0
           .DATA.L FUN_8c011f7e
-          .DATA.L __8c014b66
+          .DATA.L _freeTask_8c014b66
           .DATA.L _FUN_8c010e18
           .DATA.L __8c2260a8
           .DATA.L _FUN_8c015fd6
@@ -3083,7 +3083,7 @@ LP_GEN_65923:
           .DATA.L H'00100000
           .DATA.L _njSetTextureMemorySize
           .DATA.L _syCblCheckCable
-          .DATA.L __8c0149b0
+          .DATA.L _sbInitSystem_8c0149b0
 
 LAB_8c013578:
           MOV.L       LP_GEN_62735+6,R2
@@ -3153,7 +3153,7 @@ LP_GEN_62735:
           .DATA.W H'0800 ; LP_GEN_62735+0
           .DATA.W H'4E20
           .DATA.W H'0C00
-          .DATA.L __8c0149b0
+          .DATA.L _sbInitSystem_8c0149b0
           .DATA.L H'3F68F5C3
           .DATA.L _njSetAspect
           .DATA.L __8c2f8ca0
@@ -3314,8 +3314,8 @@ LP_GEN_90231:
           .DATA.W H'0B01
           .DATA.W H'03E7
           .DATA.L _setSoundMode_8c0108c0
-          .DATA.L __8c010fbe
-          .DATA.L __8c014b8c
+          .DATA.L _FUN_8c010fbe
+          .DATA.L _BupInit_8c014b8c
           .DATA.L __8c277ca0
           .DATA.L _njSetTextureInfo
           .DATA.L H'40800000
@@ -3324,7 +3324,7 @@ LP_GEN_90231:
           .DATA.L _njSetRenderWidth
           .DATA.L __8c03bf44
           .DATA.L _njLoadTexture
-          .DATA.L __8c014a9c
+          .DATA.L _clearTasks_8c014a9c
           .DATA.L _tasks_8c1ba3c8
           .DATA.L __8c1ba5e8
           .DATA.L __8c1ba808
@@ -3608,7 +3608,7 @@ LP_GEN_19861:
           .DATA.L FUN_8c01c910
           .DATA.L task_8c013388
           .DATA.L _tasks_8c1ba3c8
-          .DATA.L __8c014ae8
+          .DATA.L _pushTask_8c014ae8
           .DATA.L _FUN_8c011f36
           .DATA.L FUN_8c011f6c
           .DATA.L _request_dat_8c011182
@@ -3624,7 +3624,7 @@ LP_GEN_19861:
           .DATA.L __8c1bc3f8
           .DATA.L H'80000000
           .DATA.L s_loading_pvm_8c0333c4
-          .DATA.L __8c011ac0
+          .DATA.L _requestPvm_8c011ac0
           .DATA.L s_load_parts_dat_8c0333d0
           .DATA.L s_loading_dat_8c0333e0
           .DATA.L __8c1ba1c8
@@ -3664,9 +3664,9 @@ LP_GEN_19861:
           .DATA.L FUN_8c053c02
           .DATA.L _gdFsGetStat
           .DATA.L FUN_8c053c5c
-          .DATA.L __8c014b42
+          .DATA.L _execTasks_8c014b42
           .DATA.L __8c059e14
-          .DATA.L __8c014a24
+          .DATA.L _sbExitSystem_8c014a24
           .DATA.L _syBtExit
 
           ; UNIT BOUNDARY?
@@ -3805,7 +3805,7 @@ LP_GEN_83755:
           .DATA.L __8c1bc434
           .DATA.L s_front_njd_8c033478
           .DATA.L _requestNj_8c011492
-          .DATA.L __8c011ac0
+          .DATA.L _requestPvm_8c011ac0
           .DATA.L __8c1bc430
           .DATA.L s_front_pvm_8c033484
           .DATA.L __8c1bc43c
@@ -3987,7 +3987,7 @@ LP_GEN_93614:
           .DATA.L __8c043dc4
           .DATA.L _requestNj_8c011492
           .DATA.L __8c043ecc
-          .DATA.L __8c011ac0
+          .DATA.L _requestPvm_8c011ac0
           .DATA.L freeTexlist_8c011e3c
           .DATA.L _syFree
           .DATA.L FUN_8c011f7e
@@ -4145,7 +4145,7 @@ LP_GEN_38230:
           .DATA.L __8c1bbfdc
           .DATA.L __8c043fd8
           .DATA.L __8c18ad6c
-          .DATA.L __8c011ac0
+          .DATA.L _requestPvm_8c011ac0
 
 LAB_8c013eb0:
           MOV.L       @R11,R2
@@ -4889,7 +4889,7 @@ LP_GEN_90737:
           .DATA.L FUN_8c02b170
           .DATA.L LAB_8c02190a
           .DATA.L LAB_8c021810
-          .DATA.L __8c014b66
+          .DATA.L _freeTask_8c014b66
           .DATA.L FUN_8c011f7e
           .DATA.L __8c157a6c
           .DATA.L _njReleaseTexture
@@ -5047,7 +5047,7 @@ LP_GEN_28406:
           .DATA.L __8c157a6c
           .DATA.L task_load_8c014338
           .DATA.L _tasks_8c1ba3c8
-          .DATA.L __8c014ae8
+          .DATA.L _pushTask_8c014ae8
           .DATA.L __8c157af8
           .DATA.L _njGarbageTexture
           .DATA.L _FUN_8c011f36
@@ -5203,7 +5203,7 @@ LAB_8c0146ba:
 LP_GEN_17698:
           .DATA.W H'0C00 ; LP_GEN_17698+0
           .DATA.W H'0800
-          .DATA.L __8c014b66
+          .DATA.L _freeTask_8c014b66
           .DATA.L FUN_8c011f7e
           .DATA.L __8c157a6c
           .DATA.L __8c1bc3f8
@@ -5222,7 +5222,7 @@ LP_GEN_17698:
           .DATA.L __8c2285c4
           .DATA.L LAB_8c014550
           .DATA.L _tasks_8c1ba3c8
-          .DATA.L __8c014ae8
+          .DATA.L _pushTask_8c014ae8
           .DATA.L __8c157af8
           .DATA.L _njGarbageTexture
           .DATA.L _FUN_8c011f36
@@ -5419,7 +5419,7 @@ LP_GEN_48435:
           .DATA.L FUN_8c02caba
           .DATA.L FUN_8c02b170
           .DATA.L LAB_8c02190a
-          .DATA.L __8c014b66
+          .DATA.L _freeTask_8c014b66
           .DATA.L FUN_8c011f7e
           .DATA.L __8c157a6c
           .DATA.L _njReleaseTexture

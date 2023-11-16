@@ -1,4 +1,4 @@
-          .IMPORT     __8c014ab4
+          .IMPORT     _freeTasks_8c014ab4
           .IMPORT     __8c1bb448
           .IMPORT     __8c1bac28
           .IMPORT     __8c1ba808
@@ -7,7 +7,7 @@
           .IMPORT     _sdMidiStopAll
           .IMPORT     __8c1ba354
           .IMPORT     _pdVibMxStop
-          .IMPORT     __8c010fbe
+          .IMPORT     _FUN_8c010fbe
           .IMPORT     _tasks_8c1ba3c8
           .IMPORT     FUN_8c013ee4
           .IMPORT     FUN_8c013dae
@@ -20,7 +20,7 @@
           .IMPORT     _syFree
           .IMPORT     __8c1ba3c4
           .IMPORT     __8c1bc454
-          .IMPORT     __8c016108
+          .IMPORT     _freeResourceGroups_8c016108
           .IMPORT     __8c1ba34c
           .IMPORT     _njPrintC
           .IMPORT     __8c044294
@@ -28,22 +28,22 @@
           .IMPORT     __8c226048
           .IMPORT     _njPrintD
           .IMPORT     __8c0360a4
-          .IMPORT     __8c014bba
-          .IMPORT     __8c014c00
+          .IMPORT     _BupGetInfo_8c014bba
+          .IMPORT     _BupMount_8c014c00
           .IMPORT     __8c0360b0
           .IMPORT     __8c036160
           .IMPORT     _buIsExistFile
           .IMPORT     __8c0360b4
           .IMPORT     _njPrint
-          .IMPORT     __8c014c46
+          .IMPORT     _BupUnmount_8c014c46
           .IMPORT     __8c0360c0
           .IMPORT     __8c0360d4
           .IMPORT     __8c0360e4
           .IMPORT     __8c0360fc
           .IMPORT     __8c036120
-          .IMPORT     __8c014b66
+          .IMPORT     _freeTask_8c014b66
           .IMPORT     _njSetBackColor
-          .IMPORT     __8c014ae8
+          .IMPORT     _pushTask_8c014ae8
           .IMPORT     __8c04429c
           .IMPORT     __8c1bc824
           .IMPORT     FUN_8c012166
@@ -56,14 +56,14 @@
           .IMPORT     __8c1bb8d0
           .IMPORT     FUN_8c01328c
           .IMPORT     __8c228ba4
-          .IMPORT     __8c014bcc
+          .IMPORT     _BupSave_8c014bcc
           .IMPORT     __8c02fc04
           .IMPORT     __8c036130
           .IMPORT     _buStat
           .IMPORT     _syMalloc
           .IMPORT     __8c1bb8c8
           .IMPORT     __8c157a64
-          .IMPORT     __8c014bc6
+          .IMPORT     _BupLoad_8c014bc6
           .IMPORT     __8c036148
           .IMPORT     __8c1bb8d4
           .IMPORT     _midiHandles_8c0fcd28
@@ -104,7 +104,7 @@
           .IMPORT     _midiResetFxAndPlay_8c010846
           .IMPORT     __8c225fb0
           .IMPORT     __8c1bb8c0
-          .IMPORT     __8c014b3e
+          .IMPORT     _setTaskAction_8c014b3e
           .IMPORT     __8c157af8
           .IMPORT     _njGarbageTexture
           .IMPORT     _FUN_8c011f36
@@ -133,7 +133,7 @@
           .IMPORT     _request_dat_8c011182
           .IMPORT     __8c0362ac
           .IMPORT     __8c0362b8
-          .IMPORT     __8c011ac0
+          .IMPORT     _requestPvm_8c011ac0
           .IMPORT     freeTexlist_8c011e3c
           .IMPORT     __8c225fe0
           .IMPORT     __8c22600c
@@ -162,13 +162,12 @@
           .IMPORT     __8c037ec8
           .IMPORT     __8c22606c
           .IMPORT     __8c037ecc
-          .IMPORT     __8c014c8a
+          .IMPORT     _ClearInfo_8c014c8a
           .IMPORT     __8c1bc4ac
           .IMPORT     __8c044d7c
           .IMPORT     __8c044dc4
           .IMPORT     __8c037ef8
           .IMPORT     __8c037f0c
-          .IMPORT     __8c019e98
           .IMPORT     __8c226074
           .IMPORT     __8c044de0
           .IMPORT     __8c044de8
@@ -342,19 +341,17 @@
           .IMPORT     __8c045414
           .IMPORT     __8c226478
           .IMPORT     _njCalcPoint
-          .IMPORT     __8c01fbac
-          .IMPORT     __8c01ff48
           .IMPORT     __8c22870c
           .IMPORT     __8c2264b8
           .IMPORT     __8c1bbc4c
           .IMPORT     __8c2264bc
           .IMPORT     FUN_8c0121a8
-          .IMPORT     __8c010f7a
+          .IMPORT     _FUN_8c010f7a
           .IMPORT     __8c228710
           .IMPORT     __8c2285e4
           .IMPORT     __8c227d9c
           .IMPORT     __8c1ba293
-          .IMPORT     __8c010fae
+          .IMPORT     _FUN_8c010fae
           .IMPORT     _njSqrt
           .IMPORT     __8c02ffa8
           .IMPORT     _njDistanceP2P
@@ -512,7 +509,7 @@
           .IMPORT     __8c228b44
           .IMPORT     __8c1bbd8c
           .IMPORT     __8c227e18
-          .IMPORT     __8c014b42
+          .IMPORT     _execTasks_8c014b42
           .IMPORT     __8c228b40
           .IMPORT     __8c04c980
           .IMPORT     __8c04caec
@@ -529,7 +526,7 @@
           .IMPORT     __8c1bb890
           .IMPORT     __8c1bb8a0
           .IMPORT     __8c227e28
-          .IMPORT     __8c014a9c
+          .IMPORT     _clearTasks_8c014a9c
           .IMPORT     __8c227e2c
           .IMPORT     __8c22802c
           .IMPORT     __8c228230
@@ -851,7 +848,6 @@
           .EXPORT     FUN_8c01c8fc
           .EXPORT     FUN_8c01895e
           .EXPORT     FUN_8c016182
-          .EXPORT     FUN_8c01c8fc
           .EXPORT     FUN_8c01f21c
           .EXPORT     strcpy_8c03011c
           .EXPORT     FUN_8c017ef2
@@ -862,6 +858,7 @@
           .EXPORT     FUN_8c02ae3e
           .EXPORT     _freeResourceGroup_8c0185c4
           .EXPORT     _FUN_8c02af32
+          .EXPORT     _task_mainmenu_8c019e98
           .SECTION P, CODE, ALIGN=4
 FUN_8c01614c:
           MOV.L       R14,@-R15
@@ -1170,7 +1167,7 @@ LP_GEN_42967:
           .DATA.L FUN_8c0297da ; H'8C01637C
           .DATA.L FUN_8c0288be ; H'8C016380
           .DATA.L FUN_8c02ca96 ; H'8C016384
-          .DATA.L __8c014ab4 ; H'8C016388
+          .DATA.L _freeTasks_8c014ab4 ; H'8C016388
           .DATA.L __8c1bb448 ; H'8C01638C
           .DATA.L __8c1bac28 ; H'8C016390
           .DATA.L __8c1ba808 ; H'8C016394
@@ -1179,7 +1176,7 @@ LP_GEN_42967:
           .DATA.L _sdMidiStopAll ; H'8C0163A0
           .DATA.L __8c1ba354 ; H'8C0163A4
           .DATA.L _pdVibMxStop ; H'8C0163A8
-          .DATA.L __8c010fbe ; H'8C0163AC
+          .DATA.L _FUN_8c010fbe ; H'8C0163AC
           .DATA.L _tasks_8c1ba3c8 ; H'8C0163B0
           .DATA.L FUN_8c02adee ; H'8C0163B4
           .DATA.L FUN_8c029cfe ; H'8C0163B8
@@ -1195,7 +1192,7 @@ LP_GEN_42967:
           .DATA.L _syFree ; H'8C0163E0
           .DATA.L __8c1ba3c4 ; H'8C0163E4
           .DATA.L __8c1bc454 ; H'8C0163E8
-          .DATA.L __8c016108 ; H'8C0163EC
+          .DATA.L _freeResourceGroups_8c016108 ; H'8C0163EC
           .DATA.L FUN_8c0187d0 ; H'8C0163F0
           .DATA.L LAB_8c019504 ; H'8C0163F4
           .DATA.L __8c1ba34c ; H'8C0163F8
@@ -1309,8 +1306,8 @@ LAB_8c0164bc:
 LP_GEN_63429:
           .RES.W 1 ; H'8C0164CA
           .DATA.L __8c1ba36c ; H'8C0164CC
-          .DATA.L __8c014bba ; H'8C0164D0
-          .DATA.L __8c014c00 ; H'8C0164D4
+          .DATA.L _BupGetInfo_8c014bba ; H'8C0164D0
+          .DATA.L _BupMount_8c014c00 ; H'8C0164D4
           .DATA.L __8c0360b0 ; H'8C0164D8
           .DATA.L H'000A0000 ; H'8C0164DC
 LAB_8c0164e0:
@@ -1446,7 +1443,7 @@ LP_GEN_88315:
           .DATA.L _buIsExistFile ; H'8C0165C4
           .DATA.L __8c0360b4 ; H'8C0165C8
           .DATA.L _njPrint ; H'8C0165CC
-          .DATA.L __8c014c46 ; H'8C0165D0
+          .DATA.L _BupUnmount_8c014c46 ; H'8C0165D0
           .DATA.L __8c0360c0 ; H'8C0165D4
           .DATA.L __8c0360d4 ; H'8C0165D8
           .DATA.L __8c0360e4 ; H'8C0165DC
@@ -1764,12 +1761,12 @@ LAB_8c01681e:
 LP_GEN_94139:
           .DATA.L FUN_8c019550 ; H'8C016824
           .DATA.L __8c036120 ; H'8C016828
-          .DATA.L __8c014b66 ; H'8C01682C
+          .DATA.L _freeTask_8c014b66 ; H'8C01682C
           .DATA.L H'0000C060 ; H'8C016830
           .DATA.L _njSetBackColor ; H'8C016834
           .DATA.L FUN_8c01628c ; H'8C016838
           .DATA.L _tasks_8c1ba3c8 ; H'8C01683C
-          .DATA.L __8c014ae8 ; H'8C016840
+          .DATA.L _pushTask_8c014ae8 ; H'8C016840
           .DATA.L __8c04429c ; H'8C016844
           .DATA.L __8c1ba36c ; H'8C016848
           .DATA.L __8c1bc824 ; H'8C01684C
@@ -1788,10 +1785,10 @@ LP_GEN_94139:
           .DATA.L _peripheral_8c1ba35c ; H'8C016880
           .DATA.L __8c1bb8d0 ; H'8C016884
           .DATA.L FUN_8c01328c ; H'8C016888
-          .DATA.L __8c014bba ; H'8C01688C
+          .DATA.L _BupGetInfo_8c014bba ; H'8C01688C
           .DATA.L __8c1ba3c4 ; H'8C016890
           .DATA.L __8c1ba34c ; H'8C016894
-          .DATA.L __8c014c00 ; H'8C016898
+          .DATA.L _BupMount_8c014c00 ; H'8C016898
 LAB_8c01689c:
           JSR         @R11
           MOV.L       @R13,R4
@@ -2016,19 +2013,19 @@ LAB_8c016a32:
 LP_GEN_65913:
           .DATA.L __8c228ba4 ; H'8C016A38
           .DATA.L __8c036160 ; H'8C016A3C
-          .DATA.L __8c014bcc ; H'8C016A40
+          .DATA.L _BupSave_8c014bcc ; H'8C016A40
           .DATA.L __8c02fc04 ; H'8C016A44
           .DATA.L __8c036130 ; H'8C016A48
           .DATA.L H'00040008 ; H'8C016A4C
           .DATA.L _njPrint ; H'8C016A50
           .DATA.L _buStat ; H'8C016A54
           .DATA.L _syFree ; H'8C016A58
-          .DATA.L __8c014c46 ; H'8C016A5C
-          .DATA.L __8c014b66 ; H'8C016A60
+          .DATA.L _BupUnmount_8c014c46 ; H'8C016A5C
+          .DATA.L _freeTask_8c014b66 ; H'8C016A60
           .DATA.L FUN_8c017ef2 ; H'8C016A64
           .DATA.L FUN_8c0167ca ; H'8C016A68
           .DATA.L _tasks_8c1ba3c8 ; H'8C016A6C
-          .DATA.L __8c014ae8 ; H'8C016A70
+          .DATA.L _pushTask_8c014ae8 ; H'8C016A70
           .DATA.L __8c1ba34c ; H'8C016A74
           .DATA.L __8c225fa8 ; H'8C016A78
           .DATA.L __8c225fa8 ; H'8C016A7C
@@ -2040,8 +2037,8 @@ LP_GEN_65913:
           .DATA.L __8c1bb868 ; H'8C016A94
           .DATA.L __8c1bb8c8 ; H'8C016A98
           .DATA.L __8c157a64 ; H'8C016A9C
-          .DATA.L __8c014bba ; H'8C016AA0
-          .DATA.L __8c014c00 ; H'8C016AA4
+          .DATA.L _BupGetInfo_8c014bba ; H'8C016AA0
+          .DATA.L _BupMount_8c014c00 ; H'8C016AA4
           .DATA.L __8c1bb8d0 ; H'8C016AA8
 LAB_8c016aac:
           MOV.L       LP_GEN_41084+2,R3
@@ -2168,7 +2165,7 @@ LP_GEN_41084:
           .DATA.W H'4000 ; H'8C016B92
           .DATA.L _syMalloc ; H'8C016B94
           .DATA.L __8c036160 ; H'8C016B98
-          .DATA.L __8c014bc6 ; H'8C016B9C
+          .DATA.L _BupLoad_8c014bc6 ; H'8C016B9C
           .DATA.L __8c02fc04 ; H'8C016BA0
           .DATA.L __8c036148 ; H'8C016BA4
           .DATA.L H'00040008 ; H'8C016BA8
@@ -2181,15 +2178,15 @@ LP_GEN_41084:
           .DATA.L FUN_8c02f320 ; H'8C016BC4
           .DATA.L FUN_8c02fa14 ; H'8C016BC8
           .DATA.L _syFree ; H'8C016BCC
-          .DATA.L __8c014c46 ; H'8C016BD0
-          .DATA.L __8c014b66 ; H'8C016BD4
+          .DATA.L _BupUnmount_8c014c46 ; H'8C016BD0
+          .DATA.L _freeTask_8c014b66 ; H'8C016BD4
           .DATA.L FUN_8c01328c ; H'8C016BD8
           .DATA.L __8c1bb8d0 ; H'8C016BDC
           .DATA.L __8c1ba34c ; H'8C016BE0
           .DATA.L __8c1bb8d4 ; H'8C016BE4
           .DATA.L FUN_8c0169bc ; H'8C016BE8
           .DATA.L _tasks_8c1ba3c8 ; H'8C016BEC
-          .DATA.L __8c014ae8 ; H'8C016BF0
+          .DATA.L _pushTask_8c014ae8 ; H'8C016BF0
 FUN_8c016bf4:
           ADD         #-H'4,R15
           MOV.L       LP_GEN_58691,R1
@@ -2773,7 +2770,7 @@ LAB_8c01705a:
 LP_GEN_49323:
           .DATA.L _peripheral_8c1ba35c ; H'8C017060
           .DATA.L __8c225fb4 ; H'8C017064
-          .DATA.L __8c014b66 ; H'8C017068
+          .DATA.L _freeTask_8c014b66 ; H'8C017068
           .DATA.L _snd_8c010cd6 ; H'8C01706C
           .DATA.L FUN_8c02aefc ; H'8C017070
           .DATA.L __8c1bc808 ; H'8C017074
@@ -2929,7 +2926,7 @@ LP_GEN_21301:
           .DATA.L __8c225fb8 ; H'8C0171A4
           .DATA.L FUN_8c016f98 ; H'8C0171A8
           .DATA.L _tasks_8c1ba3c8 ; H'8C0171AC
-          .DATA.L __8c014ae8 ; H'8C0171B0
+          .DATA.L _pushTask_8c014ae8 ; H'8C0171B0
           .DATA.L __8c044c08 ; H'8C0171B4
           .DATA.L __8c225fb4 ; H'8C0171B8
           .DATA.L FUN_8c02aefc ; H'8C0171BC
@@ -4590,7 +4587,7 @@ LP_GEN_59651:
           .DATA.L __8c1ba1cc ; H'8C017E48
           .DATA.L __8c1bb8fc ; H'8C017E4C
           .DATA.L LAB_8c017718 ; H'8C017E50
-          .DATA.L __8c014b3e ; H'8C017E54
+          .DATA.L _setTaskAction_8c014b3e ; H'8C017E54
 LAB_8c017e58:
           MOV.L       LP_GEN_67544+8,R1
           MOV.L       LP_GEN_67544+4,R5
@@ -4712,7 +4709,7 @@ LP_GEN_67544:
           .DATA.W H'0C00 ; H'8C017F38
           .RES.W 1 ; H'8C017F3A
           .DATA.L task_menu_freerun_8c017ada ; H'8C017F3C
-          .DATA.L __8c014b3e ; H'8C017F40
+          .DATA.L _setTaskAction_8c014b3e ; H'8C017F40
           .DATA.L _menuState_8c1bc7a8 ; H'8C017F44
           .DATA.L __8c225fbc ; H'8C017F48
           .DATA.L __8c044c08 ; H'8C017F4C
@@ -4731,7 +4728,7 @@ LP_GEN_67544:
           .DATA.L _push_fadein_8c022a9c ; H'8C017F80
           .DATA.L _snd_8c010cd6 ; H'8C017F84
           .DATA.L FUN_8c0128cc ; H'8C017F88
-          .DATA.L __8c014ae8 ; H'8C017F8C
+          .DATA.L _pushTask_8c014ae8 ; H'8C017F8C
           .DATA.L task_8c012f44 ; H'8C017F90
           .DATA.L _tasks_8c1ba3c8 ; H'8C017F94
           .DATA.L __8c1bb8fc ; H'8C017F98
@@ -5524,7 +5521,7 @@ LP_GEN_93008:
           .DATA.L __8c157af8 ; H'8C0185F0
           .DATA.L _njGarbageTexture ; H'8C0185F4
           .DATA.L FUN_8c0181b6 ; H'8C0185F8
-          .DATA.L __8c014b3e ; H'8C0185FC
+          .DATA.L _setTaskAction_8c014b3e ; H'8C0185FC
           .DATA.L _menuState_8c1bc7a8 ; H'8C018600
           .DATA.L _FUN_8c011f36 ; H'8C018604
           .DATA.L FUN_8c011f6c ; H'8C018608
@@ -5538,7 +5535,7 @@ LP_GEN_93008:
           .DATA.L _request_dat_8c011182 ; H'8C018628
           .DATA.L __8c0362ac ; H'8C01862C
           .DATA.L __8c0362b8 ; H'8C018630
-          .DATA.L __8c011ac0 ; H'8C018634
+          .DATA.L _requestPvm_8c011ac0 ; H'8C018634
           .DATA.L __8c225fb0 ; H'8C018638
           .DATA.L freeTexlist_8c011e3c ; H'8C01863C
           .DATA.L _syFree ; H'8C018640
@@ -5681,9 +5678,9 @@ LP_GEN_13769:
           .DATA.L __8c1ba34c ; H'8C018744
           .DATA.L __8c22600c ; H'8C018748
           .DATA.L _buIsExistFile ; H'8C01874C
-          .DATA.L __8c014bc6 ; H'8C018750
+          .DATA.L _BupLoad_8c014bc6 ; H'8C018750
           .DATA.L __8c225fe4 ; H'8C018754
-          .DATA.L __8c014b66 ; H'8C018758
+          .DATA.L _freeTask_8c014b66 ; H'8C018758
           .DATA.L __8c226010 ; H'8C01875C
           .DATA.L _buStat ; H'8C018760
           .DATA.L _buGetLastError ; H'8C018764
@@ -5837,7 +5834,7 @@ LP_GEN_28586:
           .RES.W 1 ; H'8C018886
           .DATA.L LAB_8c018644 ; H'8C018888
           .DATA.L _tasks_8c1ba3c8 ; H'8C01888C
-          .DATA.L __8c014ae8 ; H'8C018890
+          .DATA.L _pushTask_8c014ae8 ; H'8C018890
           .DATA.L __8c157a7c ; H'8C018894
           .DATA.L _saveNames_8c044d50 ; H'8C018898
           .DATA.L _syMalloc ; H'8C01889C
@@ -7266,7 +7263,7 @@ LP_GEN_41958:
           .DATA.L __8c22606c ; H'8C019394
           .DATA.L FUN_8c019e44 ; H'8C019398
           .DATA.L FUN_8c018e7e ; H'8C01939C
-          .DATA.L __8c014b3e ; H'8C0193A0
+          .DATA.L _setTaskAction_8c014b3e ; H'8C0193A0
           .DATA.L __8c22600c ; H'8C0193A4
           .DATA.L _menuState_8c1bc7a8 ; H'8C0193A8
           .DATA.L __8c1ba34c ; H'8C0193AC
@@ -7533,18 +7530,18 @@ LAB_8c019592:
           BRA         LAB_8c019616
           MOV.L       @(H'4,R15),R11
 LP_GEN_33095:
-          .DATA.L __8c014bba ; H'8C01959C
-          .DATA.L __8c014b66 ; H'8C0195A0
+          .DATA.L _BupGetInfo_8c014bba ; H'8C01959C
+          .DATA.L _freeTask_8c014b66 ; H'8C0195A0
           .DATA.L __8c22606c ; H'8C0195A4
-          .DATA.L __8c014c00 ; H'8C0195A8
+          .DATA.L _BupMount_8c014c00 ; H'8C0195A8
           .DATA.L LAB_8c0193c8 ; H'8C0195AC
           .DATA.L _tasks_8c1ba3c8 ; H'8C0195B0
-          .DATA.L __8c014ae8 ; H'8C0195B4
-          .DATA.L __8c014c46 ; H'8C0195B8
+          .DATA.L _pushTask_8c014ae8 ; H'8C0195B4
+          .DATA.L _BupUnmount_8c014c46 ; H'8C0195B8
           .DATA.L _buStat ; H'8C0195BC
           .DATA.L task_8c01946a ; H'8C0195C0
           .DATA.L _syFree ; H'8C0195C4
-          .DATA.L __8c014c8a ; H'8C0195C8
+          .DATA.L _ClearInfo_8c014c8a ; H'8C0195C8
           .DATA.L __8c1bc4ac ; H'8C0195CC
 LAB_8c0195d0:
           MOV.L       LP_GEN_86643+4,R2
@@ -7786,9 +7783,9 @@ LAB_8c01976a:
 LP_GEN_27799:
           .DATA.W H'FF03 ; H'8C019774
           .RES.W 1 ; H'8C019776
-          .DATA.L __8c014bba ; H'8C019778
+          .DATA.L _BupGetInfo_8c014bba ; H'8C019778
           .DATA.L __8c226048 ; H'8C01977C
-          .DATA.L __8c014c00 ; H'8C019780
+          .DATA.L _BupMount_8c014c00 ; H'8C019780
           .DATA.L _buIsExistFile ; H'8C019784
 FUN_8c019788:
           MOV         R4,R5
@@ -8385,7 +8382,7 @@ LP_GEN_27695:
           .DATA.L _sdMidiPlay ; H'8C019BE4
           .DATA.L __8c037ef8 ; H'8C019BE8
           .DATA.L FUN_8c02aefc ; H'8C019BEC
-          .DATA.L __8c014bba ; H'8C019BF0
+          .DATA.L _BupGetInfo_8c014bba ; H'8C019BF0
           .DATA.L __8c037f0c ; H'8C019BF4
           .DATA.L _midiHandles_8c0fcd28 ; H'8C019BF8
           .DATA.L __8c044dc4 ; H'8C019BFC
@@ -8728,9 +8725,9 @@ LP_GEN_77899:
           .DATA.L __8c03bd80 ; H'8C019E84
           .DATA.L FUN_8c01a09a ; H'8C019E88
           .DATA.L task_menu_8c0198a0 ; H'8C019E8C
-          .DATA.L __8c014b3e ; H'8C019E90
+          .DATA.L _setTaskAction_8c014b3e ; H'8C019E90
           .DATA.L _menuState_8c1bc7a8 ; H'8C019E94
-task_mainmenu:
+_task_mainmenu_8c019e98:
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           MOV.L       R12,@-R15
@@ -9059,8 +9056,8 @@ LP_GEN_13822:
           .DATA.L H'C0800000 ; H'8C01A110
           .DATA.L H'C0A00000 ; H'8C01A114
           .DATA.L H'C0E00000 ; H'8C01A118
-          .DATA.L __8c019e98 ; H'8C01A11C
-          .DATA.L __8c014b3e ; H'8C01A120
+          .DATA.L _task_mainmenu_8c019e98 ; H'8C01A11C
+          .DATA.L _setTaskAction_8c014b3e ; H'8C01A120
           .DATA.L _menuState_8c1bc7a8 ; H'8C01A124
           .DATA.L _FUN_8c011f36 ; H'8C01A128
           .DATA.L FUN_8c011f6c ; H'8C01A12C
@@ -9504,7 +9501,7 @@ LP_GEN_85851:
           .DATA.W H'0080 ; H'8C01A47E
           .DATA.L H'C0E00000 ; H'8C01A480
           .DATA.L LAB_8c01a148 ; H'8C01A484
-          .DATA.L __8c014b3e ; H'8C01A488
+          .DATA.L _setTaskAction_8c014b3e ; H'8C01A488
           .DATA.L _menuState_8c1bc7a8 ; H'8C01A48C
           .DATA.L _push_fadein_8c022a9c ; H'8C01A490
           .DATA.L __8c1ba36c ; H'8C01A494
@@ -10284,7 +10281,7 @@ LAB_8c01aa36:
 LP_GEN_75770:
           .DATA.L H'C0E00000 ; H'8C01AA40
           .DATA.L LAB_8c01a50c ; H'8C01AA44
-          .DATA.L __8c014b3e ; H'8C01AA48
+          .DATA.L _setTaskAction_8c014b3e ; H'8C01AA48
           .DATA.L _menuState_8c1bc7a8 ; H'8C01AA4C
           .DATA.L _push_fadein_8c022a9c ; H'8C01AA50
           .DATA.L __8c1ba36c ; H'8C01AA54
@@ -11207,7 +11204,7 @@ FUN_8c01b122:
 LP_GEN_51773:
           .DATA.L H'C0E00000 ; H'8C01B148
           .DATA.L LAB_8c01ab08 ; H'8C01B14C
-          .DATA.L __8c014b3e ; H'8C01B150
+          .DATA.L _setTaskAction_8c014b3e ; H'8C01B150
           .DATA.L _menuState_8c1bc7a8 ; H'8C01B154
           .DATA.L __8c226078 ; H'8C01B158
           .DATA.L __8c226080 ; H'8C01B15C
@@ -11463,7 +11460,7 @@ LP_GEN_27906:
           .DATA.L __8c1ba350 ; H'8C01B398
           .DATA.L _saveNames_8c044d50 ; H'8C01B39C
           .DATA.L __8c1ba34c ; H'8C01B3A0
-          .DATA.L __8c014bcc ; H'8C01B3A4
+          .DATA.L _BupSave_8c014bcc ; H'8C01B3A4
           .DATA.L __8c157a7c ; H'8C01B3A8
 LAB_8c01b3ac:
           MOV.L       R14,@-R15
@@ -11904,7 +11901,7 @@ LP_GEN_26888:
           .DATA.L __8c1ba2e0 ; H'8C01B6F8
           .DATA.L __8c1ba350 ; H'8C01B6FC
           .DATA.L _saveNames_8c044d50 ; H'8C01B700
-          .DATA.L __8c014bc6 ; H'8C01B704
+          .DATA.L _BupLoad_8c014bc6 ; H'8C01B704
           .DATA.L __8c157a7c ; H'8C01B708
           .DATA.L __8c038340 ; H'8C01B70C
           .DATA.L FUN_8c01c8fc ; H'8C01B710
@@ -12250,7 +12247,7 @@ LP_GEN_14610:
           .DATA.L __8c0380c8 ; H'8C01B9BC
           .DATA.L H'43850000 ; H'8C01B9C0
           .DATA.L __8c038414 ; H'8C01B9C4
-          .DATA.L __8c014bba ; H'8C01B9C8
+          .DATA.L _BupGetInfo_8c014bba ; H'8C01B9C8
           .DATA.L _buStat ; H'8C01B9CC
           .DATA.L _buGetLastError ; H'8C01B9D0
           .DATA.L __8c038428 ; H'8C01B9D4
@@ -12387,7 +12384,7 @@ LP_GEN_62205:
           .DATA.L menuTextboxText_8c02af1c ; H'8C01BAE8
           .DATA.L H'C0E00000 ; H'8C01BAEC
           .DATA.L LAB_8c01b3ac ; H'8C01BAF0
-          .DATA.L __8c014b3e ; H'8C01BAF4
+          .DATA.L _setTaskAction_8c014b3e ; H'8C01BAF4
           .DATA.L _menuState_8c1bc7a8 ; H'8C01BAF8
           .DATA.L _syMalloc ; H'8C01BAFC
           .DATA.L __8c1ba2e0 ; H'8C01BB00
@@ -12672,7 +12669,7 @@ LAB_8c01bd10:
           MOV.L       @R15+,R14
 LP_GEN_56602:
           .DATA.L __8c2260d0 ; H'8C01BD20
-          .DATA.L __8c014bba ; H'8C01BD24
+          .DATA.L _BupGetInfo_8c014bba ; H'8C01BD24
           .DATA.L _buStat ; H'8C01BD28
           .DATA.L _buGetLastError ; H'8C01BD2C
 FUN_8c01bd30:
@@ -14263,7 +14260,7 @@ FUN_8c01c910:
 LP_GEN_73212:
           .RES.W 1 ; H'8C01C91E
           .DATA.L LAB_8c01bfec ; H'8C01C920
-          .DATA.L __8c014b3e ; H'8C01C924
+          .DATA.L _setTaskAction_8c014b3e ; H'8C01C924
           .DATA.L _menuState_8c1bc7a8 ; H'8C01C928
           .DATA.L _FUN_8c011f36 ; H'8C01C92C
           .DATA.L FUN_8c011f6c ; H'8C01C930
@@ -15441,7 +15438,7 @@ LP_GEN_13275:
           .DATA.W H'0080 ; H'8C01D254
           .DATA.W H'0C00 ; H'8C01D256
           .DATA.L LAB_8c01ccec ; H'8C01D258
-          .DATA.L __8c014b3e ; H'8C01D25C
+          .DATA.L _setTaskAction_8c014b3e ; H'8C01D25C
           .DATA.L _menuState_8c1bc7a8 ; H'8C01D260
           .DATA.L _freeResourceGroup_8c0185c4 ; H'8C01D264
           .DATA.L __8c157af8 ; H'8C01D268
@@ -16104,7 +16101,7 @@ LP_GEN_43132:
           .DATA.L FUN_8c016182 ; H'8C01D760
           .DATA.L FUN_8c017ef2 ; H'8C01D764
           .DATA.L LAB_8c01d300 ; H'8C01D768
-          .DATA.L __8c014b3e ; H'8C01D76C
+          .DATA.L _setTaskAction_8c014b3e ; H'8C01D76C
           .DATA.L _menuState_8c1bc7a8 ; H'8C01D770
           .DATA.L __8c045170 ; H'8C01D774
           .DATA.L __8c1ba1cc ; H'8C01D778
@@ -17062,7 +17059,7 @@ LP_GEN_50614:
           .DATA.L FUN_8c01c8fc ; H'8C01DEE8
           .DATA.L _midiHandles_8c0fcd28 ; H'8C01DEEC
           .DATA.L _sdMidiPlay ; H'8C01DEF0
-          .DATA.L __8c014bba ; H'8C01DEF4
+          .DATA.L _BupGetInfo_8c014bba ; H'8C01DEF4
           .DATA.L _buStat ; H'8C01DEF8
           .DATA.L _buGetLastError ; H'8C01DEFC
           .DATA.L __8c038934 ; H'8C01DF00
@@ -17226,7 +17223,7 @@ LP_GEN_43538:
           .DATA.L FUN_8c0128cc ; H'8C01E054
           .DATA.L task_8c012f44 ; H'8C01E058
           .DATA.L _tasks_8c1ba3c8 ; H'8C01E05C
-          .DATA.L __8c014ae8 ; H'8C01E060
+          .DATA.L _pushTask_8c014ae8 ; H'8C01E060
           .DATA.L task_8c01d8e0 ; H'8C01E064
           .DATA.L __8c1bc7c0 ; H'8C01E068
           .DATA.L __8c157af8 ; H'8C01E06C
@@ -17936,7 +17933,7 @@ LP_GEN_38636:
           .DATA.L __8c226410 ; H'8C01E604
           .DATA.L LAB_8c013310 ; H'8C01E608
           .DATA.L LAB_8c01e27c ; H'8C01E60C
-          .DATA.L __8c014b3e ; H'8C01E610
+          .DATA.L _setTaskAction_8c014b3e ; H'8C01E610
           .DATA.L __8c1bc7c0 ; H'8C01E614
           .DATA.L _FUN_8c011f36 ; H'8C01E618
           .DATA.L FUN_8c011f6c ; H'8C01E61C
@@ -18620,7 +18617,7 @@ LAB_8c01eb08:
           MOV.L       @R15+,R14
 LP_GEN_88702:
           .DATA.L LAB_8c01e63c ; H'8C01EB48
-          .DATA.L __8c014b3e ; H'8C01EB4C
+          .DATA.L _setTaskAction_8c014b3e ; H'8C01EB4C
           .DATA.L _menuState_8c1bc7a8 ; H'8C01EB50
           .DATA.L __8c038984 ; H'8C01EB54
           .DATA.L FUN_8c02aefc ; H'8C01EB58
@@ -19427,7 +19424,7 @@ LP_GEN_22524:
           .DATA.W H'0C00 ; H'8C01F1C6
           .DATA.L __8c1bb8d0 ; H'8C01F1C8
           .DATA.L LAB_8c01ebf2 ; H'8C01F1CC
-          .DATA.L __8c014b3e ; H'8C01F1D0
+          .DATA.L _setTaskAction_8c014b3e ; H'8C01F1D0
           .DATA.L _menuState_8c1bc7a8 ; H'8C01F1D4
           .DATA.L __8c22642c ; H'8C01F1D8
           .DATA.L __8c1bb8f8 ; H'8C01F1DC
@@ -19611,7 +19608,7 @@ LP_GEN_37649:
           .DATA.L FUN_8c0128cc ; H'8C01F368
           .DATA.L task_8c012f44 ; H'8C01F36C
           .DATA.L _tasks_8c1ba3c8 ; H'8C01F370
-          .DATA.L __8c014ae8 ; H'8C01F374
+          .DATA.L _pushTask_8c014ae8 ; H'8C01F374
           .DATA.L LAB_8c01ebf2 ; H'8C01F378
           .DATA.L __8c044c08 ; H'8C01F37C
           .DATA.L __8c157af8 ; H'8C01F380
@@ -20448,7 +20445,7 @@ LP_GEN_38893:
           .DATA.L FUN_8c0128cc ; H'8C01FA24
           .DATA.L task_8c012f44 ; H'8C01FA28
           .DATA.L _tasks_8c1ba3c8 ; H'8C01FA2C
-          .DATA.L __8c014ae8 ; H'8C01FA30
+          .DATA.L _pushTask_8c014ae8 ; H'8C01FA30
           .DATA.L LAB_8c01f658 ; H'8C01FA34
           .DATA.L __8c157af8 ; H'8C01FA38
           .DATA.L _njGarbageTexture ; H'8C01FA3C
@@ -20610,6 +20607,7 @@ LP_GEN_77638:
           .DATA.L H'43E88000 ; H'8C01FBA0
           .DATA.L H'43FD0000 ; H'8C01FBA4
           .DATA.L H'43F70000 ; H'8C01FBA8
+FUN_8c01fbac:
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           MOV.L       R12,@-R15
@@ -21062,9 +21060,8 @@ LP_GEN_41663:
           .DATA.L H'439A0000 ; H'8C01FF38
           .DATA.L H'43C90000 ; H'8C01FF3C
           .DATA.L H'43D38000 ; H'8C01FF40
-LAB_8c01ff44:
-          ADD         #-H'5c,R0
-          BSR         FUN_8c01fe84
+          .DATA.L H'BF9D70A4 ; H'8C01FF40
+FUN_8c01ff48:
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           MOV.L       R12,@-R15
@@ -21421,11 +21418,11 @@ LP_GEN_28448:
           .RES.W 1 ; H'8C0201EA
           .DATA.L __8c2285d0 ; H'8C0201EC
           .DATA.L H'41A00000 ; H'8C0201F0
-          .DATA.L __8c01fbac ; H'8C0201F4
+          .DATA.L FUN_8c01fbac ; H'8C0201F4
           .DATA.L FUN_8c0223ea ; H'8C0201F8
-          .DATA.L __8c01ff48 ; H'8C0201FC
+          .DATA.L FUN_8c01ff48 ; H'8C0201FC
           .DATA.L __8c1ba5e8 ; H'8C020200
-          .DATA.L __8c014ae8 ; H'8C020204
+          .DATA.L _pushTask_8c014ae8 ; H'8C020204
           .DATA.L __8c22643c ; H'8C020208
           .DATA.L __8c226478 ; H'8C02020C
           .DATA.L H'FFFF0000 ; H'8C020210
@@ -21575,12 +21572,12 @@ LP_GEN_12106:
           .DATA.L __8c22870c ; H'8C020320
           .DATA.L __8c2264b8 ; H'8C020324
           .DATA.L __8c2285c4 ; H'8C020328
-          .DATA.L __8c014b66 ; H'8C02032C
+          .DATA.L _freeTask_8c014b66 ; H'8C02032C
           .DATA.L H'3DBDA12F ; H'8C020330
           .DATA.L __8c1bbc4c ; H'8C020334
           .DATA.L __8c2264bc ; H'8C020338
           .DATA.L FUN_8c0121a8 ; H'8C02033C
-          .DATA.L __8c010f7a ; H'8C020340
+          .DATA.L _FUN_8c010f7a ; H'8C020340
           .DATA.L __8c1bb8d0 ; H'8C020344
 LAB_8c020348:
           TST         R4,R4
@@ -21844,7 +21841,7 @@ LP_GEN_85437:
           .DATA.L FUN_8c0121a8 ; H'8C020518
           .DATA.L __8c1ba354 ; H'8C02051C
           .DATA.L __8c1ba293 ; H'8C020520
-          .DATA.L __8c010fae ; H'8C020524
+          .DATA.L _FUN_8c010fae ; H'8C020524
 FUN_8c020528:
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
@@ -21893,7 +21890,7 @@ LP_GEN_81210:
           .DATA.L __8c1bb8d0 ; H'8C02057C
           .DATA.L FUN_8c020214 ; H'8C020580
           .DATA.L __8c1ba5e8 ; H'8C020584
-          .DATA.L __8c014ae8 ; H'8C020588
+          .DATA.L _pushTask_8c014ae8 ; H'8C020588
           .DATA.L __8c2264b8 ; H'8C02058C
           .DATA.L FUN_8c0121be ; H'8C020590
 move_bus_model_8c020594:
@@ -25826,7 +25823,7 @@ LP_GEN_22999:
           .RES.W 1 ; H'8C022376
           .DATA.L LAB_8c0221d0 ; H'8C022378
           .DATA.L __8c1ba5e8 ; H'8C02237C
-          .DATA.L __8c014ae8 ; H'8C022380
+          .DATA.L _pushTask_8c014ae8 ; H'8C022380
           .DATA.L __8c1bc3f0 ; H'8C022384
           .DATA.L __8c226544 ; H'8C022388
           .DATA.L __8c18ad24 ; H'8C02238C
@@ -26859,10 +26856,10 @@ LP_GEN_18675:
           .DATA.L H'FF000000 ; H'8C022BB8
           .DATA.L __8c227d80 ; H'8C022BBC
           .DATA.L __8c02fc04 ; H'8C022BC0
-          .DATA.L __8c014b66 ; H'8C022BC4
+          .DATA.L _freeTask_8c014b66 ; H'8C022BC4
           .DATA.L task_fadein_8c022a54 ; H'8C022BC8
           .DATA.L _tasks_8c1ba3c8 ; H'8C022BCC
-          .DATA.L __8c014ae8 ; H'8C022BD0
+          .DATA.L _pushTask_8c014ae8 ; H'8C022BD0
           .DATA.L _njSetBackColor ; H'8C022BD4
           .DATA.L task_fadeout_8c022ad0 ; H'8C022BD8
 task_bus_8c022bdc:
@@ -28293,7 +28290,7 @@ LP_GEN_28893:
           .DATA.L __8c227db4 ; H'8C0236E0
           .DATA.L task_bus_8c022bdc ; H'8C0236E4
           .DATA.L __8c1ba5e8 ; H'8C0236E8
-          .DATA.L __8c014ae8 ; H'8C0236EC
+          .DATA.L _pushTask_8c014ae8 ; H'8C0236EC
           .DATA.L __8c1bb9d0 ; H'8C0236F0
           .DATA.L __8c1bbd9c ; H'8C0236F4
           .DATA.L __8c1bbf7c ; H'8C0236F8
@@ -30419,7 +30416,7 @@ LP_GEN_30719:
           .DATA.L _peripheral_8c1ba35c ; H'8C024784
           .DATA.L __8c1bb9d0 ; H'8C024788
           .DATA.L __8c1ba1cc ; H'8C02478C
-          .DATA.L __8c010f7a ; H'8C024790
+          .DATA.L _FUN_8c010f7a ; H'8C024790
 LAB_8c024794:
           MOV.W       LP_GEN_66287,R0
           MOV.L       LP_GEN_66287+16,R3
@@ -30683,7 +30680,7 @@ LP_GEN_83961:
           .DATA.W H'0268 ; H'8C02497A
           .DATA.L H'3C23D70A ; H'8C02497C
           .DATA.L H'46800000 ; H'8C024980
-          .DATA.L __8c010f7a ; H'8C024984
+          .DATA.L _FUN_8c010f7a ; H'8C024984
           .DATA.L H'10000000 ; H'8C024988
           .DATA.L __8c1bb8c8 ; H'8C02498C
 LAB_8c024990:
@@ -32945,7 +32942,7 @@ LP_GEN_72418:
           .DATA.L __8c045ee4 ; H'8C025B80
           .DATA.L LAB_8c0259e8 ; H'8C025B84
           .DATA.L __8c1ba5e8 ; H'8C025B88
-          .DATA.L __8c014ae8 ; H'8C025B8C
+          .DATA.L _pushTask_8c014ae8 ; H'8C025B8C
           .DATA.L FUN_8c02ae3e ; H'8C025B90
           .DATA.L __8c227e10 ; H'8C025B94
 FUN_8c025b98:
@@ -34336,7 +34333,7 @@ LP_GEN_51630:
           .DATA.L _njSqrt ; H'8C02660C
           .DATA.L H'43480000 ; H'8C026610
           .DATA.L __8c227e14 ; H'8C026614
-          .DATA.L __8c014b66 ; H'8C026618
+          .DATA.L _freeTask_8c014b66 ; H'8C026618
           .DATA.L LAB_8c027c3c ; H'8C02661C
           .DATA.L H'3DCCCCCD ; H'8C026620
           .DATA.L FUN_8c02e400 ; H'8C026624
@@ -34452,7 +34449,7 @@ LP_GEN_53982:
           .DATA.L _njSqrt ; H'8C0266FC
           .DATA.L H'43480000 ; H'8C026700
           .DATA.L __8c227e14 ; H'8C026704
-          .DATA.L __8c014b66 ; H'8C026708
+          .DATA.L _freeTask_8c014b66 ; H'8C026708
           .DATA.L LAB_8c027c3c ; H'8C02670C
 FUN_8c026710:
           MOV.W       LP_GEN_49807,R6
@@ -36122,7 +36119,7 @@ LP_GEN_87611:
           .DATA.L __8c046208 ; H'8C0273A0
           .DATA.L __8c1bac28 ; H'8C0273A4
           .DATA.L FUN_8c025b98 ; H'8C0273A8
-          .DATA.L __8c014ae8 ; H'8C0273AC
+          .DATA.L _pushTask_8c014ae8 ; H'8C0273AC
           .DATA.L LAB_8c02656a ; H'8C0273B0
           .DATA.L H'00008000 ; H'8C0273B4
           .DATA.L LAB_8c021290 ; H'8C0273B8
@@ -36217,7 +36214,7 @@ LP_GEN_50256:
           .DATA.L FUN_8c020b6c ; H'8C027460
           .DATA.L FUN_8c02e51c ; H'8C027464
           .DATA.L __8c1bbddc ; H'8C027468
-          .DATA.L __8c014b66 ; H'8C02746C
+          .DATA.L _freeTask_8c014b66 ; H'8C02746C
           .DATA.L FUN_8c012166 ; H'8C027470
           .DATA.L H'41000000 ; H'8C027474
           .DATA.L FUN_8c02f0c8 ; H'8C027478
@@ -36689,7 +36686,7 @@ LP_GEN_74201:
           .DATA.L LAB_8c02756a ; H'8C027814
           .DATA.L FUN_8c0223ea ; H'8C027818
           .DATA.L __8c1bac28 ; H'8C02781C
-          .DATA.L __8c014b42 ; H'8C027820
+          .DATA.L _execTasks_8c014b42 ; H'8C027820
           .DATA.L __8c227e1c ; H'8C027824
           .DATA.L __8c228b40 ; H'8C027828
           .DATA.L __8c18ad1c ; H'8C02782C
@@ -36707,7 +36704,7 @@ LP_GEN_74201:
           .DATA.L __8c1bbdb8 ; H'8C02785C
           .DATA.L LAB_8c0275d4 ; H'8C027860
           .DATA.L __8c1ba5e8 ; H'8C027864
-          .DATA.L __8c014ae8 ; H'8C027868
+          .DATA.L _pushTask_8c014ae8 ; H'8C027868
 FUN_8c02786c:
           MOV         #-H'3,R6
           MOV         R5,R0
@@ -38309,7 +38306,7 @@ LP_GEN_65253:
           .DATA.L LAB_8c0283d4 ; H'8C028498
           .DATA.L FUN_8c0223ea ; H'8C02849C
           .DATA.L __8c227e20 ; H'8C0284A0
-          .DATA.L __8c014b42 ; H'8C0284A4
+          .DATA.L _execTasks_8c014b42 ; H'8C0284A4
           .DATA.L __8c1bb890 ; H'8C0284A8
           .DATA.L __8c2264d4 ; H'8C0284AC
           .DATA.L __8c1bc460 ; H'8C0284B0
@@ -38412,7 +38409,7 @@ LP_GEN_52240:
           .DATA.L FUN_8c026dcc ; H'8C02856C
           .DATA.L __8c1bb8a0 ; H'8C028570
           .DATA.L __8c227e20 ; H'8C028574
-          .DATA.L __8c014a9c ; H'8C028578
+          .DATA.L _clearTasks_8c014a9c ; H'8C028578
           .DATA.L H'43B40000 ; H'8C02857C
           .DATA.L H'47800000 ; H'8C028580
           .DATA.L __8c1bc3ec ; H'8C028584
@@ -38586,7 +38583,7 @@ LP_GEN_92174:
           .DATA.W H'00B8 ; H'8C0286CC
           .RES.W 1 ; H'8C0286CE
           .DATA.L FUN_8c028258 ; H'8C0286D0
-          .DATA.L __8c014ae8 ; H'8C0286D4
+          .DATA.L _pushTask_8c014ae8 ; H'8C0286D4
           .DATA.L __8c02fe38 ; H'8C0286D8
           .DATA.L _njUnitMatrix ; H'8C0286DC
           .DATA.L _njTranslate ; H'8C0286E0
@@ -38748,7 +38745,7 @@ LP_GEN_58642:
           .DATA.L __8c227e28 ; H'8C028800
           .DATA.L __8c1bb8a0 ; H'8C028804
           .DATA.L LAB_8c02833c ; H'8C028808
-          .DATA.L __8c014ae8 ; H'8C02880C
+          .DATA.L _pushTask_8c014ae8 ; H'8C02880C
 LAB_8c028810:
           MOV.W       LP_GEN_38963,R0
           MOV.L       @(H'10,R4),R3
@@ -38916,11 +38913,11 @@ LP_GEN_38963:
           .DATA.W H'0200 ; H'8C028932
           .DATA.L LAB_8c0283e8 ; H'8C028934
           .DATA.L __8c1ba5e8 ; H'8C028938
-          .DATA.L __8c014ae8 ; H'8C02893C
+          .DATA.L _pushTask_8c014ae8 ; H'8C02893C
           .DATA.L __8c227e28 ; H'8C028940
           .DATA.L _syFree ; H'8C028944
           .DATA.L __8c227e20 ; H'8C028948
-          .DATA.L __8c014ab4 ; H'8C02894C
+          .DATA.L _freeTasks_8c014ab4 ; H'8C02894C
           .DATA.L __8c227e24 ; H'8C028950
           .DATA.L __8c227e2c ; H'8C028954
 FUN_8c028958:
@@ -40139,7 +40136,7 @@ LP_GEN_98778:
           .DATA.L H'0000FFFF ; H'8C029220
           .DATA.L __8c228238 ; H'8C029224
           .DATA.L task_pedestrian_8c028e00 ; H'8C029228
-          .DATA.L __8c014ae8 ; H'8C02922C
+          .DATA.L _pushTask_8c014ae8 ; H'8C02922C
           .DATA.L H'47000000 ; H'8C029230
           .DATA.L __8c0300d0 ; H'8C029234
           .DATA.L FUN_8c012166 ; H'8C029238
@@ -40450,15 +40447,15 @@ LAB_8c029464:
           MOV.L       R3,@(H'4,R15)
 LP_GEN_26341:
           .DATA.L LAB_8c02903e ; H'8C02947C
-          .DATA.L __8c014ae8 ; H'8C029480
+          .DATA.L _pushTask_8c014ae8 ; H'8C029480
           .DATA.L FUN_8c020914 ; H'8C029484
           .DATA.L FUN_8c020f7e ; H'8C029488
           .DATA.L H'3C75C28F ; H'8C02948C
           .DATA.L __8c1bbfdc ; H'8C029490
-          .DATA.L __8c014b66 ; H'8C029494
+          .DATA.L _freeTask_8c014b66 ; H'8C029494
           .DATA.L __8c04623c ; H'8C029498
-          .DATA.L __8c014b42 ; H'8C02949C
-          .DATA.L __8c014ab4 ; H'8C0294A0
+          .DATA.L _execTasks_8c014b42 ; H'8C02949C
+          .DATA.L _freeTasks_8c014ab4 ; H'8C0294A0
           .DATA.L _syFree ; H'8C0294A4
           .DATA.L __8c2285c4 ; H'8C0294A8
           .DATA.L __8c1bb890 ; H'8C0294AC
@@ -40622,10 +40619,10 @@ LAB_8c0295d6:
 LP_GEN_46486:
           .DATA.W H'0220 ; H'8C0295EA
           .DATA.L _syMalloc ; H'8C0295EC
-          .DATA.L __8c014a9c ; H'8C0295F0
+          .DATA.L _clearTasks_8c014a9c ; H'8C0295F0
           .DATA.L task_pedgroup_8c029078 ; H'8C0295F4
           .DATA.L __8c1ba808 ; H'8C0295F8
-          .DATA.L __8c014ae8 ; H'8C0295FC
+          .DATA.L _pushTask_8c014ae8 ; H'8C0295FC
           .DATA.L _syFree ; H'8C029600
           .DATA.L FUN_8c02e486 ; H'8C029604
           .DATA.L FUN_8c02890c ; H'8C029608
@@ -40762,7 +40759,7 @@ LP_GEN_59898:
           .DATA.L FUN_8c0206f0 ; H'8C029714
           .DATA.L __8c228234 ; H'8C029718
           .DATA.L __8c1ba808 ; H'8C02971C
-          .DATA.L __8c014b42 ; H'8C029720
+          .DATA.L _execTasks_8c014b42 ; H'8C029720
           .DATA.L FUN_8c0223ea ; H'8C029724
           .DATA.L __8c1bb8d0 ; H'8C029728
           .DATA.L FUN_8c028b74 ; H'8C02972C
@@ -40916,9 +40913,9 @@ LP_GEN_63109:
           .DATA.L _syMalloc ; H'8C02984C
           .DATA.L task_pedestrians_8c0293f6 ; H'8C029850
           .DATA.L __8c1ba5e8 ; H'8C029854
-          .DATA.L __8c014ae8 ; H'8C029858
+          .DATA.L _pushTask_8c014ae8 ; H'8C029858
           .DATA.L __8c228234 ; H'8C02985C
-          .DATA.L __8c014ab4 ; H'8C029860
+          .DATA.L _freeTasks_8c014ab4 ; H'8C029860
           .DATA.L _syFree ; H'8C029864
 FUN_8c029868:
           MOV.L       @R4,R5
@@ -41210,7 +41207,7 @@ LP_GEN_39842:
           .DATA.L __8c0466a4 ; H'8C029A90
           .DATA.L LAB_8c029904 ; H'8C029A94
           .DATA.L __8c1ba5e8 ; H'8C029A98
-          .DATA.L __8c014ae8 ; H'8C029A9C
+          .DATA.L _pushTask_8c014ae8 ; H'8C029A9C
           .DATA.L FUN_8c020f7e ; H'8C029AA0
           .DATA.L FUN_8c0734c8 ; H'8C029AA4
           .DATA.L H'47800000 ; H'8C029AA8
@@ -41549,7 +41546,7 @@ LAB_8c029d1c:
 LP_GEN_99465:
           .RES.W 1 ; H'8C029D2A
           .DATA.L __8c228408 ; H'8C029D2C
-          .DATA.L __8c011ac0 ; H'8C029D30
+          .DATA.L _requestPvm_8c011ac0 ; H'8C029D30
           .DATA.L _requestNj_8c011492 ; H'8C029D34
           .DATA.L __8c18ad8c ; H'8C029D38
           .DATA.L __8c228288 ; H'8C029D3C
@@ -41917,11 +41914,11 @@ LP_GEN_15421:
           .DATA.L _njCnkSimpleDrawMotionOld ; H'8C02A01C
           .DATA.L LAB_8c029e46 ; H'8C02A020
           .DATA.L FUN_8c0223ea ; H'8C02A024
-          .DATA.L __8c014b66 ; H'8C02A028
+          .DATA.L _freeTask_8c014b66 ; H'8C02A028
           .DATA.L FUN_8c012178 ; H'8C02A02C
           .DATA.L LAB_8c029e68 ; H'8C02A030
           .DATA.L __8c1bb448 ; H'8C02A034
-          .DATA.L __8c014ae8 ; H'8C02A038
+          .DATA.L _pushTask_8c014ae8 ; H'8C02A038
           .DATA.L __8c1bbddc ; H'8C02A03C
           .DATA.L _njCnkSimpleDrawObject ; H'8C02A040
           .DATA.L LAB_8c029f2a ; H'8C02A044
@@ -42195,7 +42192,7 @@ LP_GEN_26723:
           .DATA.L __8c1bbd8c ; H'8C02A248
           .DATA.L LAB_8c02a0d6 ; H'8C02A24C
           .DATA.L FUN_8c0223ea ; H'8C02A250
-          .DATA.L __8c014b66 ; H'8C02A254
+          .DATA.L _freeTask_8c014b66 ; H'8C02A254
           .DATA.L FUN_8c05b7e0 ; H'8C02A258
           .DATA.L _njFogDisable ; H'8C02A25C
           .DATA.L _njSetTexture ; H'8C02A260
@@ -42735,7 +42732,7 @@ LP_GEN_23851:
           .DATA.L __8c2285c4 ; H'8C02A69C
           .DATA.L LAB_8c02a5d0 ; H'8C02A6A0
           .DATA.L __8c1bb448 ; H'8C02A6A4
-          .DATA.L __8c014b42 ; H'8C02A6A8
+          .DATA.L _execTasks_8c014b42 ; H'8C02A6A8
 FUN_8c02a6ac:
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
@@ -43079,7 +43076,7 @@ LP_GEN_67201:
           .RES.W 1 ; H'8C02A932
           .DATA.L __8c228408 ; H'8C02A934
           .DATA.L __8c228288 ; H'8C02A938
-          .DATA.L __8c014ae8 ; H'8C02A93C
+          .DATA.L _pushTask_8c014ae8 ; H'8C02A93C
           .DATA.L __8c1bb448 ; H'8C02A940
           .DATA.L LAB_8c029e94 ; H'8C02A944
           .DATA.L H'4F800000 ; H'8C02A948
@@ -43398,7 +43395,7 @@ LP_GEN_97247:
           .DATA.W H'00DE ; H'8C02ABBC
           .RES.W 1 ; H'8C02ABBE
           .DATA.L __8c046758 ; H'8C02ABC0
-          .DATA.L __8c011ac0 ; H'8C02ABC4
+          .DATA.L _requestPvm_8c011ac0 ; H'8C02ABC4
           .DATA.L H'0000FFFF ; H'8C02ABC8
           .DATA.L __8c1ba358 ; H'8C02ABCC
 LAB_8c02abd0:
@@ -43611,7 +43608,7 @@ LP_GEN_90033:
           .DATA.L _FUN_8c010ca6 ; H'8C02AD4C
           .DATA.L __8c226564 ; H'8C02AD50
           .DATA.L _isFading_8c226568 ; H'8C02AD54
-          .DATA.L __8c014b66 ; H'8C02AD58
+          .DATA.L _freeTask_8c014b66 ; H'8C02AD58
           .DATA.L FUN_8c02b292 ; H'8C02AD5C
           .DATA.L FUN_8c013d78 ; H'8C02AD60
           .DATA.L __8c226560 ; H'8C02AD64
@@ -43783,7 +43780,7 @@ LP_GEN_16602:
           .DATA.L __8c228518 ; H'8C02AEB4
           .DATA.L LAB_8c02ab7a ; H'8C02AEB8
           .DATA.L _tasks_8c1ba3c8 ; H'8C02AEBC
-          .DATA.L __8c014ae8 ; H'8C02AEC0
+          .DATA.L _pushTask_8c014ae8 ; H'8C02AEC0
           .DATA.L __8c228478 ; H'8C02AEC4
           .DATA.L __8c228480 ; H'8C02AEC8
           .DATA.L H'C0000000 ; H'8C02AECC
@@ -44772,7 +44769,7 @@ LP_GEN_34364:
           .DATA.L __8c228668 ; H'8C02B678
           .DATA.L H'3E0E38E4 ; H'8C02B67C
           .DATA.L H'3E8E38E4 ; H'8C02B680
-          .DATA.L __8c010f7a ; H'8C02B684
+          .DATA.L _FUN_8c010f7a ; H'8C02B684
           .DATA.L __8c22866c ; H'8C02B688
 LAB_8c02b68c:
           MOV         #H'6,R4
@@ -45892,7 +45889,7 @@ LP_GEN_20612:
           .RES.W 1 ; H'8C02BF16
           .DATA.L __8c1ba374 ; H'8C02BF18
           .DATA.L H'3C23D70A ; H'8C02BF1C
-          .DATA.L __8c010f7a ; H'8C02BF20
+          .DATA.L _FUN_8c010f7a ; H'8C02BF20
           .DATA.L __8c1bb8c8 ; H'8C02BF24
           .DATA.L H'C4FA0000 ; H'8C02BF28
           .DATA.L H'44FA0000 ; H'8C02BF2C
@@ -46271,7 +46268,7 @@ LP_GEN_52528:
           .DATA.L __8c22867c ; H'8C02C208
           .DATA.L H'0F000000 ; H'8C02C20C
           .DATA.L __8c228660 ; H'8C02C210
-          .DATA.L __8c010f7a ; H'8C02C214
+          .DATA.L _FUN_8c010f7a ; H'8C02C214
 LAB_8c02c218:
           MOV         #H'6,R4
 LAB_8c02c21a:
@@ -46624,7 +46621,7 @@ LP_GEN_93947:
           .DATA.L FUN_8c0223ea ; H'8C02C4C8
           .DATA.L LAB_8c02c072 ; H'8C02C4CC
           .DATA.L __8c1ba5e8 ; H'8C02C4D0
-          .DATA.L __8c014ae8 ; H'8C02C4D4
+          .DATA.L _pushTask_8c014ae8 ; H'8C02C4D4
           .DATA.L __8c2285c4 ; H'8C02C4D8
           .DATA.L __8c1bb8d0 ; H'8C02C4DC
           .DATA.L __8c226410 ; H'8C02C4E0
@@ -47045,7 +47042,7 @@ LP_GEN_25024:
           .DATA.L __8c228710 ; H'8C02C800
           .DATA.L FUN_8c0297da ; H'8C02C804
           .DATA.L FUN_8c0288be ; H'8C02C808
-          .DATA.L __8c014ab4 ; H'8C02C80C
+          .DATA.L _freeTasks_8c014ab4 ; H'8C02C80C
           .DATA.L __8c1bb448 ; H'8C02C810
           .DATA.L __8c1bac28 ; H'8C02C814
           .DATA.L __8c1ba5e8 ; H'8C02C818
@@ -47070,7 +47067,7 @@ LP_GEN_25024:
           .DATA.L _drawSprite_8c014f54 ; H'8C02C864
           .DATA.L FUN_8c01614c ; H'8C02C868
           .DATA.L LAB_8c02c69a ; H'8C02C86C
-          .DATA.L __8c014ae8 ; H'8C02C870
+          .DATA.L _pushTask_8c014ae8 ; H'8C02C870
           .DATA.L _push_fadein_8c022a9c ; H'8C02C874
           .DATA.L __8c2285d0 ; H'8C02C878
           .DATA.L __8c22640c ; H'8C02C87C
@@ -47450,7 +47447,7 @@ LP_GEN_58192:
           .DATA.L __8c0300d0 ; H'8C02CB68
           .DATA.L _syFree ; H'8C02CB6C
           .DATA.L __8c2288f8 ; H'8C02CB70
-          .DATA.L __8c014ab4 ; H'8C02CB74
+          .DATA.L _freeTasks_8c014ab4 ; H'8C02CB74
           .DATA.L __8c18ad18 ; H'8C02CB78
           .DATA.L FUN_8c02b03c ; H'8C02CB7C
           .DATA.L __8c228520 ; H'8C02CB80
@@ -48810,7 +48807,7 @@ LP_GEN_80933:
           .DATA.L __8c02fe38 ; H'8C02D628
           .DATA.L FUN_8c0121be ; H'8C02D62C
           .DATA.L __8c22894c ; H'8C02D630
-          .DATA.L __8c014b66 ; H'8C02D634
+          .DATA.L _freeTask_8c014b66 ; H'8C02D634
           .DATA.L FUN_8c0223ea ; H'8C02D638
           .DATA.L __8c2285c4 ; H'8C02D63C
           .DATA.L __divls ; H'8C02D640
@@ -49054,7 +49051,7 @@ LP_GEN_70221:
           .DATA.L __8c228960 ; H'8C02D804
           .DATA.L __8c228958 ; H'8C02D808
           .DATA.L __8c2288f8 ; H'8C02D80C
-          .DATA.L __8c014b42 ; H'8C02D810
+          .DATA.L _execTasks_8c014b42 ; H'8C02D810
           .DATA.L __8c1bb900 ; H'8C02D814
           .DATA.L __8c226564 ; H'8C02D818
           .DATA.L __8c226560 ; H'8C02D81C
@@ -49203,7 +49200,7 @@ LP_GEN_72278:
           .DATA.L __8c22655c ; H'8C02D940
           .DATA.L __8c18ad20 ; H'8C02D944
           .DATA.L _snd_8c010cd6 ; H'8C02D948
-          .DATA.L __8c014b66 ; H'8C02D94C
+          .DATA.L _freeTask_8c014b66 ; H'8C02D94C
           .DATA.L LAB_8c02d146 ; H'8C02D950
           .DATA.L _isFading_8c226568 ; H'8C02D954
           .DATA.L __8c1bbc84 ; H'8C02D958
@@ -49474,7 +49471,7 @@ LP_GEN_52173:
           .DATA.L __8c1bb8d0 ; H'8C02DB60
           .DATA.L __8c226410 ; H'8C02DB64
           .DATA.L LAB_8c02d644 ; H'8C02DB68
-          .DATA.L __8c014ae8 ; H'8C02DB6C
+          .DATA.L _pushTask_8c014ae8 ; H'8C02DB6C
           .DATA.L FUN_8c02d8f0 ; H'8C02DB70
           .DATA.L __8c2285c4 ; H'8C02DB74
           .DATA.L __8c1bc438 ; H'8C02DB78
@@ -49507,7 +49504,7 @@ LP_GEN_52173:
           .DATA.L __8c228794 ; H'8C02DBE4
           .DATA.L _syMalloc ; H'8C02DBE8
           .DATA.L __8c2288f8 ; H'8C02DBEC
-          .DATA.L __8c014a9c ; H'8C02DBF0
+          .DATA.L _clearTasks_8c014a9c ; H'8C02DBF0
           .DATA.L __8c1bb8e4 ; H'8C02DBF4
           .DATA.L __8c0300d0 ; H'8C02DBF8
           .DATA.L H'3E4CCCCD ; H'8C02DBFC
@@ -49648,7 +49645,7 @@ LP_GEN_81852:
           .RES.W 1 ; H'8C02DD02
           .DATA.L LAB_8c02d21c ; H'8C02DD04
           .DATA.L __8c2288f8 ; H'8C02DD08
-          .DATA.L __8c014ae8 ; H'8C02DD0C
+          .DATA.L _pushTask_8c014ae8 ; H'8C02DD0C
           .DATA.L __8c228798 ; H'8C02DD10
           .DATA.L __8c02fe38 ; H'8C02DD14
           .DATA.L __8c04c4dc ; H'8C02DD18
@@ -49921,7 +49918,7 @@ LP_GEN_19590:
           .RES.W 1 ; H'8C02DF16
           .DATA.L LAB_8c02d5ca ; H'8C02DF18
           .DATA.L __8c2288f8 ; H'8C02DF1C
-          .DATA.L __8c014ae8 ; H'8C02DF20
+          .DATA.L _pushTask_8c014ae8 ; H'8C02DF20
           .DATA.L __8c04c3e4 ; H'8C02DF24
           .DATA.L FUN_8c012178 ; H'8C02DF28
           .DATA.L __quick_evn_mvn ; H'8C02DF2C

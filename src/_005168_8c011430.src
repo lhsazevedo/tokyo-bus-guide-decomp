@@ -11,7 +11,7 @@
           .IMPORT     _gdFsRead
           .IMPORT     __8c157a88
           .IMPORT     __8c03be7c
-          .IMPORT     __8c014b66
+          .IMPORT     _freeTask_8c014b66
           .IMPORT     _gdFsGetStat
           .IMPORT     _gdFsClose
           .IMPORT     _njReadBinary
@@ -20,7 +20,7 @@
           .IMPORT     __8c02fe38
           .IMPORT     _syFree
           .IMPORT     _tasks_8c1ba3c8
-          .IMPORT     __8c014ae8
+          .IMPORT     _pushTask_8c014ae8
           .IMPORT     __8c157aac
           .IMPORT     __8c157ab4
           .IMPORT     __8c157ab0
@@ -53,6 +53,7 @@
           .EXPORT     task_8c011e80
           .EXPORT     FUN_8c011f6c
           .EXPORT     FUN_8c011f7e
+          .EXPORT     _requestPvm_8c011ac0
           .SECTION P, CODE, ALIGN=4
 _initNjQueue_8c011430:           ; function: initNjQueue
                                  ; frame size=16
@@ -301,7 +302,7 @@ L17:
           .DATA.L     _queuedNjFiles_8c157a9c ; L17+32
           .DATA.L     __8c03be7c
           .DATA.L     __8c157aa8
-          .DATA.L     __8c014b66
+          .DATA.L     _freeTask_8c014b66
           .DATA.L     _gdFsGetStat ; L17+48
 
 L18:
@@ -764,7 +765,7 @@ L55:
           .DATA.L     _syFree
           .DATA.L     _task_8c0114cc
           .DATA.L     _tasks_8c1ba3c8 ; L55+16
-          .DATA.L     __8c014ae8
+          .DATA.L     _pushTask_8c014ae8
           .DATA.L     __8c157a88
           .DATA.L     __8c03be7c
           .DATA.L     __8c157a80_basedir ; L55+32
@@ -941,7 +942,7 @@ L67:
           MOV.L       L72+60,R0
           RTS
           MOV.L       R1,@R0
-request_pvm:
+_requestPvm_8c011ac0:
           MOV.L       R14,@-R15
           MOV.B       @R5,R3
           TST         R3,R3
@@ -1018,11 +1019,11 @@ L72:
           .DATA.L     __8c157a68 ; L72
           .DATA.L     __8c157ab0
           .DATA.L     __8c157ab8
-          .DATA.L     __8c014b66 ; L72+12
+          .DATA.L     _freeTask_8c014b66 ; L72+12
           .DATA.L     __8c157aac
           .DATA.L     task_8c01183e
           .DATA.L     _tasks_8c1ba3c8
-          .DATA.L     __8c014ae8 ; L72+28
+          .DATA.L     _pushTask_8c014ae8 ; L72+28
           .DATA.L     _syFree
           .DATA.L     __8c157abc
           .DATA.L     _syMalloc
@@ -1164,7 +1165,7 @@ L84:
           .DATA.L     __8c157abc
           .DATA.L     __8c03be7c ; L84+32
           .DATA.L     __8c157ac8
-          .DATA.L     __8c014b66
+          .DATA.L     _freeTask_8c014b66
           .DATA.L     _gdFsGetStat
           .DATA.L     _gdFsClose ; L84+48
 
@@ -1590,14 +1591,14 @@ L110:
           .DATA.L     _syFree
           .DATA.L     task_8c011b00
           .DATA.L     _tasks_8c1ba3c8 ; L110+16
-          .DATA.L     __8c014ae8
+          .DATA.L     _pushTask_8c014ae8
           .DATA.L     __8c157a88
           .DATA.L     __8c03be7c
           .DATA.L     __8c157a80_basedir ; L110+32
           .DATA.L     __8c157ac8
           .DATA.L     __8c157abc
           .DATA.L     _njReleaseTexture
-          .DATA.L     __8c014b66 ; L110+48
+          .DATA.L     _freeTask_8c014b66 ; L110+48
           .DATA.L     FUN_8c01c8fc
           .DATA.L     FUN_8c01c910
           .DATA.L     __8c157a60

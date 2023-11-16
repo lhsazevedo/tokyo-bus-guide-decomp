@@ -27,17 +27,17 @@ extern BACKUPINFO gBupInfo[8];
 /*
  * Prototypes of static functions.
  */
-static Sint32 BupComplete(Sint32 drive, Sint32 op, Sint32 stat, Uint32 param);
-static Sint32 BupProgress(Sint32 drive, Sint32 op, Sint32 count, Sint32 max);
-static void BupInitCallback(void);
-static void ClearInfo(Sint32 drive);
+static Sint32 BupComplete_8c014e70(Sint32 drive, Sint32 op, Sint32 stat, Uint32 param);
+static Sint32 BupProgress_8c014f04(Sint32 drive, Sint32 op, Sint32 count, Sint32 max);
+static void BupInitCallback_8c014e5e(void);
+void ClearInfo_8c014c8a(Sint32 drive);
 
 
 
-void BupInit(void)
+void BupInit_8c014b8c(void)
 {
     memset(gBupInfo, 0, sizeof(gBupInfo));
-    buInit(MAX_CAPS, USE_DRIVES, NULL, BupInitCallback);
+    buInit(MAX_CAPS, USE_DRIVES, NULL, BupInitCallback_8c014e5e);
 }
 
 void BupExit(void)
@@ -45,12 +45,12 @@ void BupExit(void)
     do {} while (buExit() != BUD_ERR_OK);
 }
 
-const BACKUPINFO* BupGetInfo(Sint32 drive)
+const BACKUPINFO* BupGetInfo_8c014bba(Sint32 drive)
 {
     return (const BACKUPINFO*)&gBupInfo[drive];
 }
 
-Sint32 BupLoad(Sint32 drive, const char* fname, void* buf)
+Sint32 BupLoad_8c014bc6(Sint32 drive, const char* fname, void* buf)
 {
     return buLoadFile(drive, fname, buf, 0);
 }
@@ -71,19 +71,19 @@ static SYS_RTC_DATE gBupTime_8c04411c = {
     Thursday, 0     /* day of week, age of moon */
 };
 
-Sint32 BupSave(Sint32 drive, const char* fname, void* buf, Sint32 nblock)
+Sint32 BupSave_8c014bcc(Sint32 drive, const char* fname, void* buf, Sint32 nblock)
 {
     syRtcGetDate(&gBupTime_8c04411c);
     return buSaveFile(drive, fname, buf, nblock, &gBupTime_8c04411c,
                             BUD_FLAG_VERIFY | BUD_FLAG_COPY(0));
 }
 
-Sint32 BupDelete(Sint32 drive, const char* fname)
+Sint32 BupDelete_8c014bfa(Sint32 drive, const char* fname)
 {
     return buDeleteFile(drive, fname);
 }
 
-void BupMount(Sint32 drive)
+void BupMount_8c014c00(Sint32 drive)
 {
     BACKUPINFO* info;
 
@@ -96,7 +96,7 @@ void BupMount(Sint32 drive)
     buMountDisk(drive, info->Work, info->WorkSize);
 }
 
-void BupUnmount(Sint32 drive)
+void BupUnmount_8c014c46(Sint32 drive)
 {
     BACKUPINFO* info;
     Sint32 err;
@@ -108,11 +108,11 @@ void BupUnmount(Sint32 drive)
     if (buStat(drive) == BUD_STAT_READY) {
         buUnmount(drive);
         syFree(info->Work);
-        ClearInfo(drive);
+        ClearInfo_8c014c8a(drive);
     }
 }
 
-static void ClearInfo(Sint32 drive)
+static void ClearInfo_8c014c8a(Sint32 drive)
 {
     BACKUPINFO* info;
 
@@ -126,7 +126,7 @@ static void ClearInfo(Sint32 drive)
     memset(&info->DiskInfo, 0, sizeof(BUS_DISKINFO));
 }
 
-const char* BupGetErrorString(Sint32 err)
+const char* BupGetErrorString_8c014cfc(Sint32 err)
 {
     switch (err) {
         case BUD_ERR_OK:             return "OK\0";
@@ -148,7 +148,7 @@ const char* BupGetErrorString(Sint32 err)
     }
 }
 
-const char* BupGetOperationString(Sint32 op)
+const char* BupGetOperationString_8c014e0c(Sint32 op)
 {
     switch (op) {
         case BUD_OP_CONNECT:         return "CONNECTED\0";
@@ -167,15 +167,15 @@ const char* BupGetOperationString(Sint32 op)
  * Callback functions.
  */
 
-static void BupInitCallback(void)
+static void BupInitCallback_8c014e5e(void)
 {
     Sint32 i;
 
-    buSetCompleteCallback(BupComplete);
-    buSetProgressCallback(BupProgress);
+    buSetCompleteCallback(BupComplete_8c014e70);
+    buSetProgressCallback(BupProgress_8c014f04);
 }
 
-static Sint32 BupComplete(Sint32 drive, Sint32 op, Sint32 stat, Uint32 param)
+static Sint32 BupComplete_8c014e70(Sint32 drive, Sint32 op, Sint32 stat, Uint32 param)
 {
     BACKUPINFO* info;
     Sint32 ret;
@@ -201,7 +201,7 @@ static Sint32 BupComplete(Sint32 drive, Sint32 op, Sint32 stat, Uint32 param)
             break;
         case BUD_OP_UNMOUNT:
             if (info->Work) syFree(info->Work);
-            ClearInfo(drive);
+            ClearInfo_8c014c8a(drive);
             info->Connect = FALSE;
             break;
         default:
@@ -215,7 +215,7 @@ static Sint32 BupComplete(Sint32 drive, Sint32 op, Sint32 stat, Uint32 param)
     return BUD_CBRET_OK;
 }
 
-static Sint32 BupProgress(Sint32 drive, Sint32 op, Sint32 count, Sint32 max)
+static Sint32 BupProgress_8c014f04(Sint32 drive, Sint32 op, Sint32 count, Sint32 max)
 {
     BACKUPINFO* info;
 
