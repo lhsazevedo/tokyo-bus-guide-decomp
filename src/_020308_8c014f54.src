@@ -1,4 +1,4 @@
-          .IMPORT     __8c035f24
+          .IMPORT     const_8c035f24
           .IMPORT     __slow_mvn
           .IMPORT     __divls
           .IMPORT     _njTwiddledTexture
@@ -35,7 +35,7 @@
           .IMPORT     _FUN_8c011f36
           .IMPORT     FUN_8c011f6c
           .IMPORT     __8c044154
-          .IMPORT     __8c035f74
+          .IMPORT     const_8c035f74
           .IMPORT     _request_dat_8c011182
           .IMPORT     __8c227e14
           .IMPORT     __8c22822c
@@ -292,7 +292,7 @@ LP_GEN_55759:
           .DATA.W H'00C0 ; LP_GEN_55759+0
           .DATA.W H'00BD
           .DATA.W H'00DF
-          .DATA.L __8c035f24
+          .DATA.L const_8c035f24
           .DATA.L __slow_mvn
           .DATA.L H'000081A6
 
@@ -1543,7 +1543,7 @@ LP_GEN_51554:
           .DATA.L _FUN_8c011f36
           .DATA.L FUN_8c011f6c
           .DATA.L __8c044154
-          .DATA.L __8c035f74
+          .DATA.L const_8c035f74
           .DATA.L _request_dat_8c011182
           .DATA.L __8c227e14
           .DATA.L __8c22822c

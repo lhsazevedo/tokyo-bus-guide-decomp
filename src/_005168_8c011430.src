@@ -10,7 +10,7 @@
           .IMPORT     _syMalloc
           .IMPORT     _gdFsRead
           .IMPORT     __8c157a88
-          .IMPORT     __8c03be7c
+          .IMPORT     const_8c03be7c
           .IMPORT     _freeTask_8c014b66
           .IMPORT     _gdFsGetStat
           .IMPORT     _gdFsClose
@@ -188,7 +188,7 @@ L7:
           .DATA.L     _syMalloc
           .DATA.L     _queuedNjFilesEnd_8c157aa4
           .DATA.L     _queuedNjFilesCursor_8c157aa0
-          .DATA.L     __8c03be7c ; L7+18
+          .DATA.L     const_8c03be7c ; L7+18
           .DATA.L     __8c157a80_basedir
           .DATA.L     __8c157aa8
           .DATA.L     _syFree
@@ -300,7 +300,7 @@ L17:
           .DATA.L     _gdFsRead
           .DATA.L     __8c157a88
           .DATA.L     _queuedNjFiles_8c157a9c ; L17+32
-          .DATA.L     __8c03be7c
+          .DATA.L     const_8c03be7c
           .DATA.L     __8c157aa8
           .DATA.L     _freeTask_8c014b66
           .DATA.L     _gdFsGetStat ; L17+48
@@ -767,7 +767,7 @@ L55:
           .DATA.L     _tasks_8c1ba3c8 ; L55+16
           .DATA.L     _pushTask_8c014ae8
           .DATA.L     __8c157a88
-          .DATA.L     __8c03be7c
+          .DATA.L     const_8c03be7c
           .DATA.L     __8c157a80_basedir ; L55+32
           .DATA.L     __8c157aa8
           .DATA.L     _queuedNjFiles_8c157a9c
@@ -1029,7 +1029,7 @@ L72:
           .DATA.L     _syMalloc
           .DATA.L     __8c157ac4 ; L72+44
           .DATA.L     __8c157ac0
-          .DATA.L     __8c03be7c
+          .DATA.L     const_8c03be7c
           .DATA.L     __8c157a80_basedir
           .DATA.L     __8c157ac8 ; L72+60
           .DATA.L     __8c277ca0
@@ -1163,7 +1163,7 @@ L84:
           .DATA.L     _gdFsRead
           .DATA.L     __8c157a88
           .DATA.L     __8c157abc
-          .DATA.L     __8c03be7c ; L84+32
+          .DATA.L     const_8c03be7c ; L84+32
           .DATA.L     __8c157ac8
           .DATA.L     _freeTask_8c014b66
           .DATA.L     _gdFsGetStat
@@ -1593,7 +1593,7 @@ L110:
           .DATA.L     _tasks_8c1ba3c8 ; L110+16
           .DATA.L     _pushTask_8c014ae8
           .DATA.L     __8c157a88
-          .DATA.L     __8c03be7c
+          .DATA.L     const_8c03be7c
           .DATA.L     __8c157a80_basedir ; L110+32
           .DATA.L     __8c157ac8
           .DATA.L     __8c157abc
