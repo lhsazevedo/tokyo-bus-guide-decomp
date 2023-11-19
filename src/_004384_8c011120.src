@@ -19,7 +19,7 @@
           .IMPORT     _tasks_8c1ba3c8
           .IMPORT     _strcmp
           .IMPORT     __quick_evn_mvn
-          .EXPORT     __8c03334c
+          .EXPORT     init_8c03be7c
           .EXPORT     _nop_8c011120
           .EXPORT     _initDatQueue_8c011124
           .EXPORT     _FUN_8c01116a
@@ -82,7 +82,7 @@ _FUN_8c01116a:                   ; function: _FUN_8c01116a
           MOV.L       L14+20,R2; __8c157a80_basedir
           MOV.L       R3,@R1
           MOV         #1,R1
-          MOV.L       L14+16,R3; __8c03334c
+          MOV.L       L14+16,R3; init_8c03be7c
           MOV.L       @R3,R0
           MOV.L       R0,@R2
           MOV.L       L14+24,R0; var_8c157a98
@@ -209,7 +209,7 @@ L10:
           MOV.L       @R1,R3
           MOV.L       R3,@(24,R13)
           MOV.L       R0,@R11
-          MOV.L       L14+16,R0 ; __8c03334c
+          MOV.L       L14+16,R0 ; init_8c03be7c
           MOV.L       @R0,R3
           BRA         L19
           MOV.L       R3,@R12
@@ -243,7 +243,7 @@ L14:
           .DATA.L     _syMalloc ; H'8c011290
           .DATA.L     __8c157a94_end
           .DATA.L     __8c157a90_current
-          .DATA.L     __8c03334c
+          .DATA.L     init_8c03be7c
           .DATA.L     __8c157a80_basedir ; H'8c0112a0
           .DATA.L     var_8c157a98
           .DATA.L     var_8c157a88
@@ -430,17 +430,17 @@ L28:
           .DATA.L     __8c157a90_current
           .DATA.L     __8c157a8c_start
           .DATA.L     var_8c157a98
-          .DATA.L     _syMalloc
+        .DATA.L     _syMalloc
           .DATA.L     _strcmp
           .DATA.L     __quick_evn_mvn
           .DATA.L     _task_8c0111b4
           .DATA.L     _tasks_8c1ba3c8
           .DATA.L     _pushTask_8c014ae8
           .DATA.L     var_8c157a88
-          .DATA.L     __8c03334c
+          .DATA.L     init_8c03be7c
           .DATA.L     __8c157a80_basedir
           .SECTION    D,DATA,ALIGN=4
-__8c03334c:                      ; static: _8c03334c
+init_8c03be7c:                      ; static: _8c03334c
           .DATA.L     L29
           .SECTION    C,DATA,ALIGN=4
 L29:
