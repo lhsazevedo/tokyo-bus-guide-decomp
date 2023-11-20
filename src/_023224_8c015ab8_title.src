@@ -12,7 +12,7 @@
           .IMPORT     _push_fadeout_8c022b60
           .IMPORT     _saveNames_8c044d50
           .IMPORT     __8c03bd80
-          .IMPORT     var_8c1bb8c4
+          .IMPORT     _var_8c1bb8c4
           .IMPORT     _titleResourceGroup_8c044254
           .IMPORT     _menuState_8c1bc7a8
           .IMPORT     _peripheral_8c1ba35c
@@ -646,7 +646,7 @@ L48:
           .DATA.L     _saveNames_8c044d50
           .DATA.L     FUN_8c019550
           .DATA.L     __8c03bd80
-          .DATA.L     var_8c1bb8c4 ; H'8c015f50
+          .DATA.L     _var_8c1bb8c4 ; H'8c015f50
           .DATA.L     FUN_8c019e44
           .DATA.L     FUN_8c016182
           .DATA.L     FUN_8c0159ac
@@ -752,7 +752,7 @@ _FUN_8c015fd6:                   ; function: FUN_8c015fd6
           MOV.L       L53+48,R14; _menuState_8c1bc7a8
           MOV         #100,R0
           MOV         #0,R3
-          MOV.L       L53+52,R1; var_8c1bb8c4
+          MOV.L       L53+52,R1; _var_8c1bb8c4
           MOV.L       R3,@(24,R14)
           MOV         R3,R2
           MOV.L       R3,@(R0,R14)
@@ -831,7 +831,7 @@ L53:
           .DATA.L     _njSetBackColor ; H'8c0160c0
           .DATA.L     _task_title_8c015ab8
           .DATA.L     _menuState_8c1bc7a8
-          .DATA.L     var_8c1bb8c4
+          .DATA.L     _var_8c1bb8c4
           .DATA.L     _var_8c157af8 ; H'8c0160d0
           .DATA.L     _njGarbageTexture
           .DATA.L     H'C0000000 ; -2.0

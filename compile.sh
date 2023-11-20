@@ -22,6 +22,7 @@ wine $SHC_BIN/asmsh.exe src\\_143996_8c03327c_strt1_sectionC.src -object=build\\
 wine $SHC_BIN/asmsh.exe src\\_144036_8c0332a4_sectionC.src -object=build\\_144036_8c0332a4_sectionC.obj $ASMSH_FLAGS
 wine $SHC_BIN/asmsh.exe src\\_179584_8c03bd80_sectionD.src -object=build\\_179584_8c03bd80_sectionD.obj $ASMSH_FLAGS
 wine $SHC_BIN/asmsh.exe src\\_259776_8c04f6c0_SDK.src -object=build\\_259776_8c04f6c0_SDK.obj $ASMSH_FLAGS
+wine $SHC_BIN/asmsh.exe src\\_970016_8c0fcd20_sectionB.src -object=build\\_970016_8c0fcd20_sectionB.obj $ASMSH_FLAGS
 
 wine $SHC_BIN/lnk.exe -sub=lnk.sub
 

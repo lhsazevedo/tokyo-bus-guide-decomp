@@ -2,43 +2,43 @@
           .IMPORT     __slow_mvn
           .IMPORT     __divls
           .IMPORT     _njTwiddledTexture
-          .IMPORT     var_8c1bc7a0
+          .IMPORT     _var_8c1bc7a0
           .IMPORT     _syMalloc
-          .IMPORT     var_8c1bc7a4
-          .IMPORT     var_8c1bc78c
-          .IMPORT     var_8c1bc790
-          .IMPORT     var_8c1bc794
+          .IMPORT     _var_8c1bc7a4
+          .IMPORT     _var_8c1bc78c
+          .IMPORT     _var_8c1bc790
+          .IMPORT     _var_8c1bc794
           .IMPORT     init_8c044128
           .IMPORT     init_8c04413c
           .IMPORT     _njReleaseTexture
           .IMPORT     _syFree
           .IMPORT     _strlen
-          .IMPORT     var_8c1ba1c8
+          .IMPORT     _var_8c1ba1c8
           .IMPORT     _njSetTextureInfo
           .IMPORT     _njSetTextureName
           .IMPORT     _njLoadTexture
           .IMPORT     _getUknPvmBool_8c01432a
-          .IMPORT     var_8c1ba3c4
-          .IMPORT     var_8c1bb868
-          .IMPORT     var_8c1bb8c8
-          .IMPORT     var_8c157a64
-          .IMPORT     var_8c1bc828
+          .IMPORT     _var_8c1ba3c4
+          .IMPORT     _var_8c1bb868
+          .IMPORT     _var_8c1bb8c8
+          .IMPORT     _var_8c157a64
+          .IMPORT     _var_8c1bc828
           .IMPORT     FUN_8c02f320
           .IMPORT     FUN_8c02fa14
           .IMPORT     _freeTask_8c014b66
           .IMPORT     FUN_8c01328c
           .IMPORT     _tasks_8c1ba3c8
           .IMPORT     _pushTask_8c014ae8
-          .IMPORT     var_8c1bb8d0
-          .IMPORT     var_8c1bb8d4
-          .IMPORT     var_8c1bb8d8
+          .IMPORT     _var_8c1bb8d0
+          .IMPORT     _var_8c1bb8d4
+          .IMPORT     _var_8c1bb8d8
           .IMPORT     _FUN_8c011f36
           .IMPORT     FUN_8c011f6c
           .IMPORT     init_8c044154
           .IMPORT     const_8c035f74
           .IMPORT     _request_dat_8c011182
-          .IMPORT     var_8c227e14
-          .IMPORT     var_8c22822c
+          .IMPORT     _var_8c227e14
+          .IMPORT     _var_8c22822c
           .IMPORT     _resetUknPvmBool_8c014322
           .IMPORT     _setUknPvmBool_8c014330
           .IMPORT     _nop_8c011120
@@ -642,13 +642,13 @@ LP_GEN_39385:
           .DATA.W H'1800
           .DATA.W H'1000
           .RES.W 1
-          .DATA.L var_8c1bc7a0
+          .DATA.L _var_8c1bc7a0
           .DATA.L _syMalloc
           .DATA.L H'0000FFFF
-          .DATA.L var_8c1bc7a4
-          .DATA.L var_8c1bc78c
-          .DATA.L var_8c1bc790
-          .DATA.L var_8c1bc794
+          .DATA.L _var_8c1bc7a4
+          .DATA.L _var_8c1bc78c
+          .DATA.L _var_8c1bc790
+          .DATA.L _var_8c1bc794
           .DATA.L init_8c044128
           .DATA.L init_8c04413c
           .DATA.L _njReleaseTexture
@@ -991,9 +991,9 @@ LP_GEN_86517:
           .DATA.L _syFree
           .DATA.L H'0000FFFF
           .DATA.L H'0000FFED
-          .DATA.L var_8c1bc790
+          .DATA.L _var_8c1bc790
           .DATA.L _njReleaseTexture
-          .DATA.L var_8c1bc7a0
+          .DATA.L _var_8c1bc7a0
           .DATA.L _strlen
 
 LAB_8c015648:
@@ -1110,7 +1110,7 @@ LAB_8c015706:
 LP_GEN_22452:
           .RES.W      1
           .DATA.L H'41C00000
-          .DATA.L var_8c1bc790
+          .DATA.L _var_8c1bc790
           .DATA.L H'0000FFFE
           .DATA.L H'0000FFFD
           .DATA.L H'0000A94A
@@ -1232,13 +1232,13 @@ LP_GEN_51911:
           .DATA.W H'0100 ; LP_GEN_51911+0
           .DATA.W H'0200
           .RES.W 1
-          .DATA.L var_8c1bc7a0
+          .DATA.L _var_8c1bc7a0
           .DATA.L H'0000FFFF
-          .DATA.L var_8c1bc7a4
-          .DATA.L var_8c1ba1c8
+          .DATA.L _var_8c1bc7a4
+          .DATA.L _var_8c1ba1c8
           .DATA.L _njSetTextureInfo
           .DATA.L H'40800000
-          .DATA.L var_8c1bc78c
+          .DATA.L _var_8c1bc78c
           .DATA.L _njSetTextureName
           .DATA.L _njLoadTexture
 
@@ -1387,7 +1387,7 @@ LP_GEN_90770:
           .DATA.W H'07D0 ; LP_GEN_90770+0
           .RES.W 1
           .DATA.L H'0000FFED
-          .DATA.L var_8c1bc794
+          .DATA.L _var_8c1bc794
           .DATA.L _drawSprite_8c014f54
           .DATA.L H'0000FFFE
 
@@ -1524,11 +1524,11 @@ LAB_8c0159ec
 
 LP_GEN_51554:
           .DATA.L _getUknPvmBool_8c01432a ; LP_GEN_51554+0
-          .DATA.L var_8c1ba3c4
-          .DATA.L var_8c1bb868
-          .DATA.L var_8c1bb8c8
-          .DATA.L var_8c157a64
-          .DATA.L var_8c1bc828
+          .DATA.L _var_8c1ba3c4
+          .DATA.L _var_8c1bb868
+          .DATA.L _var_8c1bb8c8
+          .DATA.L _var_8c157a64
+          .DATA.L _var_8c1bc828
           .DATA.L FUN_8c02f320
           .DATA.L FUN_8c02fa14
           .DATA.L _syFree
@@ -1537,16 +1537,16 @@ LP_GEN_51554:
           .DATA.L FUN_8c01594c
           .DATA.L _tasks_8c1ba3c8
           .DATA.L _pushTask_8c014ae8
-          .DATA.L var_8c1bb8d0
-          .DATA.L var_8c1bb8d4
-          .DATA.L var_8c1bb8d8
+          .DATA.L _var_8c1bb8d0
+          .DATA.L _var_8c1bb8d4
+          .DATA.L _var_8c1bb8d8
           .DATA.L _FUN_8c011f36
           .DATA.L FUN_8c011f6c
           .DATA.L init_8c044154
           .DATA.L const_8c035f74
           .DATA.L _request_dat_8c011182
-          .DATA.L var_8c227e14
-          .DATA.L var_8c22822c
+          .DATA.L _var_8c227e14
+          .DATA.L _var_8c22822c
           .DATA.L _resetUknPvmBool_8c014322
           .DATA.L _setUknPvmBool_8c014330
           .DATA.L _nop_8c011120

@@ -38,8 +38,8 @@
           .IMPORT     _strncmp
           .IMPORT     _memset
           .IMPORT     _strlen
-          .IMPORT     var_8c1bbcb0
-          .IMPORT     var_8c226468
+          .IMPORT     _var_8c1bbcb0
+          .IMPORT     _var_8c226468
           .IMPORT     __divls
           .IMPORT     __slow_mvn
           .IMPORT     __quick_evn_mvn
@@ -151,7 +151,7 @@ _FUN_sound_8c0100bc:             ; function: FUN_sound_8c0100bc
           FMOV.S      FR3,@(R0,R4)
 _midiSetVol_8c010128:            ; function: midiSetVol_8c010128
                                  ; frame size=32
-          MOV.L       L3+28,R3; var_8c226468
+          MOV.L       L3+28,R3; _var_8c226468
           MOVA        L3+36,R0
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
@@ -273,7 +273,7 @@ L3:
           .DATA.L     H'453B8000
           .DATA.L     __divls
           .DATA.L     H'4573C000
-          .DATA.L     var_8c226468
+          .DATA.L     _var_8c226468
           .DATA.L     _midiHandles_8c0fcd28
           .DATA.L     H'C2FE0000
           .DATA.L     _sdMidiSetVol
@@ -290,7 +290,7 @@ _midiSetPitch_8c01023c:          ; function: midiSetPitch_8c01023c
           FMOV.S      FR13,@-R15
           STS.L       PR,@-R15
           ADD         #-4,R15
-          MOV.L       L6+4,R3 ; var_8c226468
+          MOV.L       L6+4,R3 ; _var_8c226468
           MOVA        L6+8,R0
           FMOV.S      @R0,FR13
           MOVA        L6+12,R0
@@ -364,7 +364,7 @@ L5:
           MOV.L       @R15+,R14
 _FUN_8c0102d8:                   ; function: FUN_8c0102d8
                                  ; frame size=32
-          MOV.L       L6+4,R2 ; var_8c226468
+          MOV.L       L6+4,R2 ; _var_8c226468
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           MOV.L       R12,@-R15
@@ -373,7 +373,7 @@ _FUN_8c0102d8:                   ; function: FUN_8c0102d8
           MOV.L       R10,@-R15
           MOV.L       R9,@-R15
           MOV.L       R8,@-R15
-          MOV.L       L6+36,R3; var_8c1bbcb0
+          MOV.L       L6+36,R3; _var_8c1bbcb0
           MOV.L       L6+16,R9; _midiHandles_8c0fcd28
           STS.L       PR,@-R15
           FMOV.S      @R2,FR3
@@ -415,7 +415,7 @@ _FUN_8c0102d8:                   ; function: FUN_8c0102d8
 L6:                               
           .DATA.W     H'FF38
           .RES.W      1
-          .DATA.L     var_8c226468
+          .DATA.L     _var_8c226468
           .DATA.L     H'C1200000
           .DATA.L     H'3D4CCCCD
           .DATA.L     _midiHandles_8c0fcd28
@@ -423,7 +423,7 @@ L6:
           .DATA.L     H'41200000
           .DATA.L     H'453B8000
           .DATA.L     H'457A0000
-          .DATA.L     var_8c1bbcb0
+          .DATA.L     _var_8c1bbcb0
           .DATA.L     _sdMidiPlay
           .DATA.L     _sdMidiSetVol
           .DATA.L     __8c0fcd50
