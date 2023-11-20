@@ -1,4 +1,4 @@
-          .SECTION P, CODE, ALIGN=4
+          .SECTION    P, CODE, ALIGN=4
 
           ; Section DSGLH
           ; _START_SYS from strt1.obj

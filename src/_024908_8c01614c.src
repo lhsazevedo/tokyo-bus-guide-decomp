@@ -859,7 +859,7 @@
           .EXPORT     _freeResourceGroup_8c0185c4
           .EXPORT     _FUN_8c02af32
           .EXPORT     _task_mainmenu_8c019e98
-          .SECTION P, CODE, ALIGN=4
+          .SECTION    P, CODE, ALIGN=4
 FUN_8c01614c:
           MOV.L       R14,@-R15
           STS.L       PR,@-R15

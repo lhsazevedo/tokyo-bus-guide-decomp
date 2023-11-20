@@ -276,7 +276,7 @@
           .EXPORT     FUN_8c0120fe
           .EXPORT     init_8c03bf44
           .EXPORT     init_8c04410c
-          .SECTION P, CODE, ALIGN=4
+          .SECTION    P, CODE, ALIGN=4
 
 FUN_8c011fe0:
           STS.L       PR,@-R15

@@ -54,7 +54,7 @@
           .EXPORT     FUN_8c011f6c
           .EXPORT     FUN_8c011f7e
           .EXPORT     _requestPvm_8c011ac0
-          .SECTION P, CODE, ALIGN=4
+          .SECTION    P, CODE, ALIGN=4
 _initNjQueue_8c011430:           ; function: initNjQueue
                                  ; frame size=16
           MOV.L       R14,@-R15

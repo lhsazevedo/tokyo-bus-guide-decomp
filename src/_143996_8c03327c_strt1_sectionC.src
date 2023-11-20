@@ -1,4 +1,4 @@
-          .SECTION P, CODE, ALIGN=4
+          .SECTION    P, CODE, ALIGN=4
 
 __D_ROM:
           .DATA.L H'8C03BD80 ; H'8c03327c
