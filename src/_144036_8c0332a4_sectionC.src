@@ -334,6 +334,7 @@
           .EXPORT     const_8c039f78
           .EXPORT     const_8c039f80
           .EXPORT     const_8c039f84
+          .EXPORT     const_8c039f8c
           .EXPORT     const_8c039f98
           .EXPORT     const_8c039fa8
           .EXPORT     const_8c039fb0
@@ -3303,14 +3304,15 @@ const_8c039f78:        ; aggressive search
 const_8c039f80:        ; aggressive search
           .DATA.B      H'00, H'00, H'00, H'00
 const_8c039f84:        ; aggressive search
-          ;.SDATA      "àÍÉmã¥"
-          ;.DATA.B     H'00
-          ;.RES.B      1
-          ;.SDATA      "î—ëqï–í¨"
-          ;.DATA.B     H'00
-          ;.RES.B      3
-          .DATA.B      H'88, H'EA, H'83, H'6D, H'8B, H'B4, H'00, H'00, H'94, H'D1, H'91, H'71, H'95, H'D0, H'92, H'AC
-          .DATA.B      H'00, H'00, H'00, H'00
+          .SDATA      "àÍÉmã¥"
+          .DATA.B     H'00
+          .RES.B      1
+const_8c039f8c:
+          .SDATA      "î—ëqï–í¨"
+          .DATA.B     H'00
+          .RES.B      3
+          ; .DATA.B      H'88, H'EA, H'83, H'6D, H'8B, H'B4, H'00, H'00, H'94, H'D1, H'91, H'71, H'95, H'D0, H'92, H'AC
+          ; .DATA.B      H'00, H'00, H'00, H'00
 const_8c039f98:        ; aggressive search
           ;.SDATA      "òZñ{ñÿåç∑ì_"
           ;.DATA.B     H'00

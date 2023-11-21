@@ -837,7 +837,7 @@
           .EXPORT     SUB_8c029ad4
           .EXPORT     _FUN_8c02a6ac
           .EXPORT     _FUN_8c02aa28
-          .EXPORT     LAB_8c02aa36
+          .EXPORT     _FUN_8c02aa36
           .EXPORT     _FUN_8c02b170
           .EXPORT     _FUN_8c02c46a
           .EXPORT     _FUN_8c02caba
@@ -855,6 +855,18 @@
           .EXPORT     _freeResourceGroup_8c0185c4
           .EXPORT     _FUN_8c02af32
           .EXPORT     _task_mainmenu_8c019e98
+          .EXPORT     _FUN_8c01afd8
+          .EXPORT     _FUN_8c01a3c0
+          .EXPORT     _FUN_8c01a09a
+          .EXPORT     _FUN_8c01ba64
+          .EXPORT     _FUN_8c016b4c
+          .EXPORT     _FUN_8c01d6e2
+          .EXPORT     _FUN_8c0184cc
+          .EXPORT     _FUN_8c01d1c4
+          .EXPORT     _FUN_8c01a89c
+          .EXPORT     _FUN_8c01f114
+          .EXPORT     _FUN_8c0167c0
+          .EXPORT     _FUN_8c016636
           .SECTION    P, CODE, ALIGN=4
 _FUN_8c01614c:
           MOV.L       R14,@-R15
@@ -5360,6 +5372,7 @@ LP_GEN_86610:
           .DATA.L H'43BD0000 ; H'8C0184C0
           .DATA.L H'43BC0000 ; H'8C0184C4
           .DATA.L H'C0E00000 ; H'8C0184C8
+_FUN_8c0184cc:
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           STS.L       PR,@-R15
@@ -16036,6 +16049,7 @@ LAB_8c01d6cc:
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
+_FUN_8c01d6e2:
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           MOV.L       R12,@-R15
@@ -18128,7 +18142,7 @@ LAB_8c01e776:
           MOV.L       @R15+,R11
           MOV.L       @R15+,R12
           MOV.L       @R15+,R13
-          BRA         LAB_8c01f114
+          BRA         _FUN_8c01f114
           MOV.L       @R15+,R14
 LP_GEN_92116:
           .RES.W 1 ; H'8C01E792
@@ -19324,7 +19338,7 @@ LP_GEN_11294:
           .DATA.L H'C0400000 ; H'8C01F108
           .DATA.L _var_8c1bb8fc ; H'8C01F10C
           .DATA.L H'C1000000 ; H'8C01F110
-LAB_8c01f114:
+_FUN_8c01f114:
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           STS.L       PR,@-R15
@@ -43191,7 +43205,7 @@ _FUN_8c02aa28:
           MOV.L       R3,@R2
           RTS
           MOV.L       R1,@R0
-LAB_8c02aa36:
+_FUN_8c02aa36:
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           MOV.L       R12,@-R15
