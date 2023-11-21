@@ -21,13 +21,20 @@ wine $SHC_BIN/asmsh.exe src\\_144036_8c0332a4_sectionC.src -object=build\\_14403
 wine $SHC_BIN/asmsh.exe src\\_179584_8c03bd80_sectionD.src -object=build\\_179584_8c03bd80_sectionD.obj $ASMSH_FLAGS
 wine $SHC_BIN/asmsh.exe src\\_970016_8c0fcd20_sectionB.src -object=build\\_970016_8c0fcd20_sectionB.obj $ASMSH_FLAGS
 
-wine $SHC_BIN/lnk.exe -sub=lnk_matching.sub
+wine $SHC_BIN/lnk.exe -sub=lnk.sub
 
 rm -f build/tbg.bin
 wine $KATANA_SDK_DIR/bin/elf2bin.exe -s 8c010000 build/tbg.elf
 
 echo
 
+if ! sha1sum --status -c <<<"a6df9e0de39b2d11e9339aef915d20e35763ec81 *build/tbg.bin"; then
 echo "================"
 echo "Project built :)"
 echo "================"
+    exit
+fi
+
+echo "==========================="
+echo "Matching project built! \o/"
+echo "==========================="

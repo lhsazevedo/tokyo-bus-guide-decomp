@@ -14,7 +14,7 @@
           .IMPORT     __8c033318
           .IMPORT     _var_8c1ba354
           .IMPORT     _var_8c157ad4
-          .IMPORT     FUN_8c01c910
+          .IMPORT     _FUN_8c01c910
           .IMPORT     _FUN_adxVol_8c010a40
           .IMPORT     _var_8c1bbc4c
           .IMPORT     _var_8c157a74
@@ -29,7 +29,7 @@
           .IMPORT     _var_8c18ad10
           .IMPORT     _controlAdxtWithOutVol_8c0107d2
           .IMPORT     _pdVibMxStop
-          .IMPORT     FUN_8c022560
+          .IMPORT     _FUN_8c022560
           .IMPORT     _drawSprite_8c014f54
           .IMPORT     _var_8c18ad0c
           .IMPORT     _var_8c18ad08
@@ -39,21 +39,21 @@
           .IMPORT     _var_8c1bb8dc
           .IMPORT     _var_8c1bb8b8
           .IMPORT     _var_8c1bb8bc
-          .IMPORT     FUN_8c016182
+          .IMPORT     _FUN_8c016182
           .IMPORT     _var_8c1bb8d0
           .IMPORT     _var_8c1ba2cc
           .IMPORT     _var_8c1ba2b8
           .IMPORT     _njDrawPolygon
-          .IMPORT     FUN_8c017ef2
+          .IMPORT     _FUN_8c017ef2
           .IMPORT     _var_8c22640c
           .IMPORT     _var_8c1bc7e0
-          .IMPORT     FUN_8c01f21c
+          .IMPORT     _FUN_8c01f21c
           .IMPORT     _var_8c157a60
           .IMPORT     _FUN_8c015fd6
-          .IMPORT     FUN_8c02239c
+          .IMPORT     _FUN_8c02239c
           .IMPORT     _var_8c1ba5e8
           .IMPORT     _execTasks_8c014b42
-          .IMPORT     FUN_8c022910
+          .IMPORT     _FUN_8c022910
           .IMPORT     __8c03bd80
           .IMPORT     __8c03bd84
           .IMPORT     _FUN_8c010bae
@@ -83,40 +83,40 @@
           .IMPORT     _var_8c1bb448
           .IMPORT     _var_8c157a64
           .IMPORT     _srand
-          .IMPORT     FUN_8c01677e
+          .IMPORT     _FUN_8c01677e
           .IMPORT     _var_8c1bb8d4
-          .IMPORT     FUN_8c016bf4
-          .IMPORT     FUN_8c025af4
-          .IMPORT     FUN_8c023610
-          .IMPORT     FUN_8c02845a
-          .IMPORT     FUN_8c029920
-          .IMPORT     FUN_8c0296d6
-          .IMPORT     FUN_8c02769e
-          .IMPORT     FUN_8c0222dc
-          .IMPORT     FUN_8c02a6ac
-          .IMPORT     FUN_8c02c46a
-          .IMPORT     FUN_8c02018c
-          .IMPORT     FUN_8c02d968
-          .IMPORT     FUN_8c020528
-          .IMPORT     FUN_8c0228a2
+          .IMPORT     _FUN_8c016bf4
+          .IMPORT     _FUN_8c025af4
+          .IMPORT     _FUN_8c023610
+          .IMPORT     _FUN_8c02845a
+          .IMPORT     _FUN_8c029920
+          .IMPORT     _FUN_8c0296d6
+          .IMPORT     _FUN_8c02769e
+          .IMPORT     _FUN_8c0222dc
+          .IMPORT     _FUN_8c02a6ac
+          .IMPORT     _FUN_8c02c46a
+          .IMPORT     _FUN_8c02018c
+          .IMPORT     _FUN_8c02d968
+          .IMPORT     _FUN_8c020528
+          .IMPORT     _FUN_8c0228a2
           .IMPORT     _var_8c1bb868
           .IMPORT     _var_8c1bc824
           .IMPORT     _var_8c228704
           .IMPORT     _var_8c227dd4
           .IMPORT     init_8c0460b0
-          .IMPORT     FUN_8c01895e
+          .IMPORT     _FUN_8c01895e
           .IMPORT     _var_8c1ba292
           .IMPORT     _var_8c227da0
           .IMPORT     _var_8c227da8
           .IMPORT     _var_8c1ba291
           .IMPORT     _var_8c1bc448
           .IMPORT     _var_8c1bc450
-          .IMPORT     FUN_8c011f6c
+          .IMPORT     _FUN_8c011f6c
           .IMPORT     _memblkSource_8c0fcd48
           .IMPORT     _request_dat_8c011182
           .IMPORT     _memblkSource_8c0fcd4c
           .IMPORT     _nop_8c011120
-          .IMPORT     FUN_8c011f7e
+          .IMPORT     _FUN_8c011f7e
           .IMPORT     _FUN_8c010e18
           .IMPORT     _var_8c2260a8
           .IMPORT     _var_8c18ad14
@@ -151,9 +151,9 @@
           .IMPORT     _var_8c1bbfdc
           .IMPORT     _var_8c1bc3ec
           .IMPORT     _var_8c1bc3f0
-          .IMPORT     FUN_8c02171c
-          .IMPORT     FUN_8c029acc
-          .IMPORT     FUN_8c02aa28
+          .IMPORT     _FUN_8c02171c
+          .IMPORT     _FUN_8c029acc
+          .IMPORT     _FUN_8c02aa28
           .IMPORT     _var_8c1bc404
           .IMPORT     _var_8c226434
           .IMPORT     _var_8c226438
@@ -173,10 +173,10 @@
           .IMPORT     _var_8c1ba34c
           .IMPORT     _var_8c1bb8d8
           .IMPORT     _var_8c157a6c
-          .IMPORT     FUN_8c01c8dc
-          .IMPORT     FUN_8c0189d2
+          .IMPORT     _FUN_8c01c8dc
+          .IMPORT     _FUN_8c0189d2
           .IMPORT     _njSetBorderColor
-          .IMPORT     FUN_8c01c8fc
+          .IMPORT     _FUN_8c01c8fc
           .IMPORT     _FUN_8c011f36
           .IMPORT     _var_8c1bc41c
           .IMPORT     _var_8c1bc420
@@ -211,7 +211,7 @@
           .IMPORT     _var_8c18ad20
           .IMPORT     _var_8c18adb0
           .IMPORT     _var_8c18ad18
-          .IMPORT     FUN_8c021a24
+          .IMPORT     _FUN_8c021a24
           .IMPORT     _var_8c226504
           .IMPORT     _var_8c227dd0
           .IMPORT     _var_8c1bb900
@@ -222,11 +222,11 @@
           .IMPORT     _var_8c18ad8c
           .IMPORT     _var_8c18adac
           .IMPORT     _njLoadCacheTexture
-          .IMPORT     FUN_8c02175a
-          .IMPORT     FUN_8c026da4
-          .IMPORT     FUN_8c028dd0
-          .IMPORT     FUN_8c02caba
-          .IMPORT     FUN_8c02b170
+          .IMPORT     _FUN_8c02175a
+          .IMPORT     _FUN_8c026da4
+          .IMPORT     _FUN_8c028dd0
+          .IMPORT     _FUN_8c02caba
+          .IMPORT     _FUN_8c02b170
           .IMPORT     LAB_8c02190a
           .IMPORT     LAB_8c021810
           .IMPORT     __modls
@@ -236,7 +236,7 @@
           .IMPORT     _njReleaseTexture
           .IMPORT     _pdGetPeripheral
           .IMPORT     _peripheral_8c1ba35c
-          .IMPORT     FUN_8c028de8
+          .IMPORT     _FUN_8c028de8
           .IMPORT     _var_8c157a78
           .IMPORT     _var_8c157a7c
           .IMPORT     _var_8c18ad04
@@ -255,30 +255,30 @@
           .EXPORT     _njUserMain
           .EXPORT     _njUserExit
           .EXPORT     _prob_task_8c014784
-          .EXPORT     FUN_8c012178
-          .EXPORT     FUN_8c0121a8
-          .EXPORT     FUN_8c0121be
-          .EXPORT     FUN_8c012984
-          .EXPORT     task_8c012f44
-          .EXPORT     FUN_8c01328c
+          .EXPORT     _FUN_8c012178
+          .EXPORT     _FUN_8c0121a8
+          .EXPORT     _FUN_8c0121be
+          .EXPORT     _FUN_8c012984
+          .EXPORT     _task_8c012f44
+          .EXPORT     _FUN_8c01328c
           .EXPORT     LAB_8c013310
-          .EXPORT     FUN_8c013b5a
-          .EXPORT     FUN_8c013d78
-          .EXPORT     FUN_8c013dae
-          .EXPORT     FUN_8c013ee4
+          .EXPORT     _FUN_8c013b5a
+          .EXPORT     _FUN_8c013d78
+          .EXPORT     _FUN_8c013dae
+          .EXPORT     _FUN_8c013ee4
           .EXPORT     _resetUknPvmBool_8c014322
           .EXPORT     _getUknPvmBool_8c01432a
           .EXPORT     _setUknPvmBool_8c014330
           .EXPORT     LAB_8c01468e
-          .EXPORT     FUN_8c011fe0
-          .EXPORT     FUN_8c0128cc
-          .EXPORT     FUN_8c012166
-          .EXPORT     FUN_8c0120fe
+          .EXPORT     _FUN_8c011fe0
+          .EXPORT     _FUN_8c0128cc
+          .EXPORT     _FUN_8c012166
+          .EXPORT     _FUN_8c0120fe
           .EXPORT     init_8c03bf44
           .EXPORT     init_8c04410c
           .SECTION    P, CODE, ALIGN=4
 
-FUN_8c011fe0:
+_FUN_8c011fe0:
           STS.L       PR,@-R15
           ADD         #-H'18,R15
           MOV         #H'18,R3
@@ -319,7 +319,7 @@ FUN_8c011fe0:
           LDS.L       @R15+,PR
           RTS
           NOP
-FUN_8c012030:
+_FUN_8c012030:
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           MOV.L       R12,@-R15
@@ -429,7 +429,7 @@ LAB_8c0120e0:
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-FUN_8c0120fe:
+_FUN_8c0120fe:
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           MOV.L       R12,@-R15
@@ -484,11 +484,11 @@ LAB_8c012152:
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-FUN_8c012160:
+_FUN_8c012160:
           MOV.L       LP_GEN_90004+22,R3
           RTS
           MOV.L       R4,@R3
-FUN_8c012166:
+_FUN_8c012166:
           MOV.L       LP_GEN_90004+22,R4
           MOV.L       @R4,R3
           MOV         R3,R2
@@ -498,7 +498,7 @@ FUN_8c012166:
           MOV.L       R3,@R4
           RTS
           MOV         R3,R0
-FUN_8c012178:
+_FUN_8c012178:
           STS.L       PR,@-R15
           ADD         #-H'4,R15
           MOV         R4,R3
@@ -521,11 +521,11 @@ LAB_8c012198:
           LDS.L       @R15+,PR
           RTS
           NOP
-FUN_8c0121a2:
+_FUN_8c0121a2:
           MOV.L       LP_GEN_90004+30,R3
           RTS
           MOV.L       R4,@R3
-FUN_8c0121a8:
+_FUN_8c0121a8:
           MOV.L       LP_GEN_90004+30,R4
           MOV.L       @R4,R3
           SHAR        R3
@@ -537,7 +537,7 @@ FUN_8c0121a8:
           MOV.L       R1,@R4
           RTS
           MOV         R1,R0
-FUN_8c0121be:
+_FUN_8c0121be:
           STS.L       PR,@-R15
           ADD         #-H'4,R15
           MOV         R4,R3
@@ -560,7 +560,7 @@ LAB_8c0121de:
           LDS.L       @R15+,PR
           RTS
           NOP
-FUN_8c0121e8:
+_FUN_8c0121e8:
           MOV.L       R14,@-R15
           MOV         #H'4,R6
           MOV.L       R13,@-R15
@@ -980,7 +980,7 @@ LP_GEN_88452:
           .DATA.L __quick_odd_mvn
           .DATA.L _var_8c1ba354
           .DATA.L _var_8c157ad4
-          .DATA.L FUN_8c01c910
+          .DATA.L _FUN_8c01c910
           .DATA.L _FUN_adxVol_8c010a40
 
 task_8c012504:
@@ -1262,11 +1262,11 @@ LP_GEN_43503:
           .DATA.L _var_8c157a78
           .DATA.L __8c033318
           .DATA.L __quick_odd_mvn
-          .DATA.L FUN_8c01c910
+          .DATA.L _FUN_8c01c910
 
           ; UNIT BOUNDARY?
 
-FUN_8c012718:
+_FUN_8c012718:
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           MOV.L       R12,@-R15
@@ -1500,7 +1500,7 @@ LAB_8c0128b8:
           MOV.L       @R15+,R13
           JMP         @R3
           MOV.L       @R15+,R14
-FUN_8c0128cc:
+_FUN_8c0128cc:
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           STS.L       PR,@-R15
@@ -1540,7 +1540,7 @@ LP_GEN_17272:
           .DATA.L __8c033318
           .DATA.L __quick_odd_mvn
           .DATA.L _var_8c157a70
-          .DATA.L FUN_8c01c910
+          .DATA.L _FUN_8c01c910
           .DATA.L _pushTask_8c014ae8
           .DATA.L _tasks_8c1ba3c8
           .DATA.L _var_8c157a74
@@ -1589,9 +1589,9 @@ LAB_8c012970:
           MOV         R5,R4
 LAB_8c01297e:
           MOV         #H'0,R5
-          BRA         FUN_8c012718
+          BRA         _FUN_8c012718
           MOV         R5,R4
-FUN_8c012984:
+_FUN_8c012984:
           STS.L       PR,@-R15
           MOV.L       LP_GEN_44279+24,R2
           MOV.L       LP_GEN_44279+20,R4
@@ -1618,7 +1618,7 @@ LP_GEN_44279:
           .DATA.L _var_8c1bb8c8
           .DATA.L _var_8c157a74
           .DATA.L task_8c012504
-          .DATA.L FUN_8c012718
+          .DATA.L _FUN_8c012718
           .DATA.L init_8c03bf40
           .DATA.L _var_8c157aec
           .DATA.L _strcmp
@@ -1626,7 +1626,7 @@ LP_GEN_44279:
 
           ; UNIT BOUNDARY?
 
-          FUN_8c0129cc:
+          _FUN_8c0129cc:
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           MOV.L       R12,@-R15
@@ -1911,7 +1911,7 @@ LP_GEN_41107:
           .DATA.L _controlAdxtWithOutVol_8c0107d2
           .DATA.L _var_8c1ba354
           .DATA.L _pdVibMxStop
-          .DATA.L FUN_8c022560
+          .DATA.L _FUN_8c022560
           .DATA.L _drawSprite_8c014f54
           .DATA.L _var_8c18ad0c
           .DATA.L H'BF8B851F
@@ -2026,7 +2026,7 @@ LAB_8c012ca6:
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-FUN_8c012cbc:
+_FUN_8c012cbc:
           MOV.L       LP_GEN_43727+70,R2
           STS.L       PR,@-R15
           MOV.L       @R2,R3
@@ -2066,7 +2066,7 @@ LAB_8c012d00:
           LDS.L       @R15+,PR
           RTS
           NOP
-FUN_8c012d06:
+_FUN_8c012d06:
           MOV.L       LP_GEN_43727+70,R2
           STS.L       PR,@-R15
           MOV.L       @R2,R3
@@ -2180,7 +2180,7 @@ LP_GEN_43727:
           .DATA.L _var_8c1bb8dc
           .DATA.L _var_8c1bb8b8
           .DATA.L _var_8c1bb8bc
-          .DATA.L FUN_8c016182
+          .DATA.L _FUN_8c016182
           .DATA.L _var_8c1bb8d0
           .DATA.L _var_8c1ba2cc
           .DATA.L _var_8c1ba2b8
@@ -2189,21 +2189,21 @@ LP_GEN_43727:
           .DATA.L H'BF8CCCCD
           .DATA.L init_8c03bf4c
           .DATA.L _njDrawPolygon
-          .DATA.L FUN_8c017ef2
+          .DATA.L _FUN_8c017ef2
           .DATA.L _var_8c22640c
           .DATA.L _var_8c1bc7e0
-          .DATA.L FUN_8c01f21c
+          .DATA.L _FUN_8c01f21c
           .DATA.L _var_8c157a78
           .DATA.L _var_8c157a7c
           .DATA.L _var_8c157a60
           .DATA.L _FUN_8c015fd6
-          .DATA.L FUN_8c02239c
+          .DATA.L _FUN_8c02239c
           .DATA.L _var_8c1ba5e8
           .DATA.L _execTasks_8c014b42
-          .DATA.L FUN_8c022560
+          .DATA.L _FUN_8c022560
           .DATA.L _var_8c1bb8cc
           .DATA.L _var_8c1ba358
-          .DATA.L FUN_8c022910
+          .DATA.L _FUN_8c022910
           .DATA.L __8c03bd80
           .DATA.L __8c03bd84
           .DATA.L _FUN_adxVol_8c010a40
@@ -2321,15 +2321,15 @@ LP_GEN_94405:
           .DATA.W H'0708 ; LP_GEN_94405+0
           .DATA.L _push_fadeout_8c022b60
           .DATA.L _FUN_8c015fd6
-          .DATA.L FUN_8c02239c
+          .DATA.L _FUN_8c02239c
           .DATA.L _var_8c1ba5e8
           .DATA.L _execTasks_8c014b42
-          .DATA.L FUN_8c022910
+          .DATA.L _FUN_8c022910
           .DATA.L H'BF8CCCCD
           .DATA.L _var_8c1bc418
           .DATA.L _drawSprite_8c014f54
 
-task_8c012f44:
+_task_8c012f44:
           MOV.L       LP_GEN_99840+8,R2
           STS.L       PR,@-R15
           MOV.L       @R2,R3
@@ -2450,7 +2450,7 @@ LP_GEN_99840:
           .DATA.L _sdMidiStopAll
           .DATA.L _var_8c1ba354
           .DATA.L _pdVibMxStop
-          .DATA.L FUN_8c016182
+          .DATA.L _FUN_8c016182
           .DATA.L _var_8c1bb8c4
           .DATA.L __8c03bd80
           .DATA.L __8c03bd84
@@ -2480,7 +2480,7 @@ LAB_8c013064:
           MOV         #H'0,R4
           JMP         @R2
           MOV.L       @R15+,R14
-FUN_8c01306e:
+_FUN_8c01306e:
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           MOV.L       R12,@-R15
@@ -2632,16 +2632,16 @@ LP_GEN_31464:
           .DATA.L _var_8c1bb448
           .DATA.L _var_8c157a64
           .DATA.L _srand
-          .DATA.L FUN_8c012160
-          .DATA.L FUN_8c0121a2
-          .DATA.L FUN_8c0128cc
+          .DATA.L _FUN_8c012160
+          .DATA.L _FUN_8c0121a2
+          .DATA.L _FUN_8c0128cc
           .DATA.L _pushTask_8c014ae8
           .DATA.L _tasks_8c1ba3c8
           .DATA.L _var_8c1bb8d0
-          .DATA.L FUN_8c012cbc
-          .DATA.L FUN_8c01677e
+          .DATA.L _FUN_8c012cbc
+          .DATA.L _FUN_8c01677e
           .DATA.L _var_8c1bb8d4
-          .DATA.L FUN_8c012d06
+          .DATA.L _FUN_8c012d06
 
 LAB_8c0131e4:
           MOV         #H'0,R1
@@ -2731,7 +2731,7 @@ LAB_8c013236:
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-FUN_8c01328c:
+_FUN_8c01328c:
           MOV.L       LP_GEN_38000+28,R3
           MOV.L       R14,@-R15
           STS.L       PR,@-R15
@@ -2885,38 +2885,38 @@ LAB_8c0133a0:
 
 LP_GEN_38000:
           .DATA.L LAB_8c012d5a ; LP_GEN_38000+0
-          .DATA.L FUN_8c016bf4
-          .DATA.L FUN_8c025af4
+          .DATA.L _FUN_8c016bf4
+          .DATA.L _FUN_8c025af4
           .DATA.L _var_8c1bb8cc
           .DATA.L _var_8c22847c
-          .DATA.L FUN_8c023610
-          .DATA.L FUN_8c02845a
+          .DATA.L _FUN_8c023610
+          .DATA.L _FUN_8c02845a
           .DATA.L _var_8c1bb8d0
-          .DATA.L FUN_8c029920
-          .DATA.L FUN_8c0296d6
-          .DATA.L FUN_8c02769e
-          .DATA.L FUN_8c0222dc
-          .DATA.L FUN_8c02a6ac
-          .DATA.L FUN_8c02c46a
-          .DATA.L FUN_8c02018c
-          .DATA.L FUN_8c02d968
-          .DATA.L FUN_8c020528
+          .DATA.L _FUN_8c029920
+          .DATA.L _FUN_8c0296d6
+          .DATA.L _FUN_8c02769e
+          .DATA.L _FUN_8c0222dc
+          .DATA.L _FUN_8c02a6ac
+          .DATA.L _FUN_8c02c46a
+          .DATA.L _FUN_8c02018c
+          .DATA.L _FUN_8c02d968
+          .DATA.L _FUN_8c020528
           .DATA.L LAB_8c012f9c
-          .DATA.L FUN_8c0228a2
+          .DATA.L _FUN_8c0228a2
           .DATA.L _var_8c1bb868
           .DATA.L _var_8c157a64
           .DATA.L _var_8c1bc824
           .DATA.L _var_8c228704
           .DATA.L _var_8c1bb8c8
-          .DATA.L FUN_8c012166
+          .DATA.L _FUN_8c012166
           .DATA.L _var_8c227dd4
           .DATA.L _var_8c1bb8d4
           .DATA.L init_8c0460b0
-          .DATA.L FUN_8c01895e
+          .DATA.L _FUN_8c01895e
           .DATA.L _srand
-          .DATA.L FUN_8c012160
-          .DATA.L FUN_8c0121a2
-          .DATA.L FUN_8c0121e8
+          .DATA.L _FUN_8c012160
+          .DATA.L _FUN_8c0121a2
+          .DATA.L _FUN_8c0121e8
           .DATA.L _var_8c1ba292
           .DATA.L _var_8c227da0
           .DATA.L _var_8c227da8
@@ -3003,7 +3003,7 @@ LAB_8c0134ce:
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-FUN_8c0134d6:
+_FUN_8c0134d6:
           MOV         R5,R0
           CMP/EQ      #-H'17,R0
           BT          LAB_8c0134e2
@@ -3046,7 +3046,7 @@ LP_GEN_65923:
           .DATA.L _var_8c1bc448
           .DATA.L H'4F800000
           .DATA.L _var_8c1bc450
-          .DATA.L FUN_8c011f6c
+          .DATA.L _FUN_8c011f6c
           .DATA.L _memblkSource_8c0fcd48
           .DATA.L const_8c03336c
           .DATA.L _request_dat_8c011182
@@ -3055,8 +3055,8 @@ LP_GEN_65923:
           .DATA.L _resetUknPvmBool_8c014322
           .DATA.L _setUknPvmBool_8c014330
           .DATA.L _nop_8c011120
-          .DATA.L FUN_8c011fe0
-          .DATA.L FUN_8c011f7e
+          .DATA.L _FUN_8c011fe0
+          .DATA.L _FUN_8c011f7e
           .DATA.L _freeTask_8c014b66
           .DATA.L _FUN_8c010e18
           .DATA.L _var_8c2260a8
@@ -3314,14 +3314,14 @@ LP_GEN_90231:
           .DATA.L _var_8c1bb448
           .DATA.L _var_8c1bb86c
           .DATA.L _var_8c1bbddc
-          .DATA.L FUN_8c013bbc
+          .DATA.L _FUN_8c013bbc
           .DATA.L _var_8c1bbfdc
           .DATA.L _var_8c1bc3ec
           .DATA.L _var_8c1bc3f0
           .DATA.L _var_8c1bc3f4
-          .DATA.L FUN_8c02171c
-          .DATA.L FUN_8c029acc
-          .DATA.L FUN_8c02aa28
+          .DATA.L _FUN_8c02171c
+          .DATA.L _FUN_8c029acc
+          .DATA.L _FUN_8c02aa28
           .DATA.L _var_8c1bc404
           .DATA.L _var_8c226434
           .DATA.L _var_8c226438
@@ -3342,8 +3342,8 @@ LP_GEN_90231:
           .DATA.L _var_8c1bb8c4
           .DATA.L _var_8c1bb8d8
           .DATA.L _var_8c157a6c
-          .DATA.L FUN_8c01c8dc
-          .DATA.L FUN_8c0189d2
+          .DATA.L _FUN_8c01c8dc
+          .DATA.L _FUN_8c0189d2
           .DATA.L _njSetBorderColor
 
 LAB_8c013824:
@@ -3586,13 +3586,13 @@ _njUserExit:
           LDS.L       @R15+,PR
 
 LP_GEN_19861:
-          .DATA.L FUN_8c01c8fc ; LP_GEN_19861+0
-          .DATA.L FUN_8c01c910
+          .DATA.L _FUN_8c01c8fc ; LP_GEN_19861+0
+          .DATA.L _FUN_8c01c910
           .DATA.L task_8c013388
           .DATA.L _tasks_8c1ba3c8
           .DATA.L _pushTask_8c014ae8
           .DATA.L _FUN_8c011f36
-          .DATA.L FUN_8c011f6c
+          .DATA.L _FUN_8c011f6c
           .DATA.L _request_dat_8c011182
           .DATA.L const_8c033380
           .DATA.L _var_8c1bc41c
@@ -3632,9 +3632,9 @@ LP_GEN_19861:
           .DATA.L _resetUknPvmBool_8c014322
           .DATA.L _setUknPvmBool_8c014330
           .DATA.L _nop_8c011120
-          .DATA.L FUN_8c011fe0
+          .DATA.L _FUN_8c011fe0
           .DATA.L _var_8c18ad14
-          .DATA.L FUN_8c0134d6
+          .DATA.L _FUN_8c0134d6
           .DATA.L _gdFsEntryErrFuncAll
           .DATA.L _var_8c1ba354
           .DATA.L __8c03bd80
@@ -3711,7 +3711,7 @@ request_some_files_8c013ae8:
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-FUN_8c013b5a:
+_FUN_8c013b5a:
           MOV.L       R14,@-R15
           MOV.L       LP_GEN_83755+42,R14
           MOV.L       R13,@-R15
@@ -3764,7 +3764,7 @@ LAB_8c013bb2:
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-FUN_8c013bbc:
+_FUN_8c013bbc:
           ADD         #-H'1,R5
           SHLL2       R5
           SHLL2       R5
@@ -3800,7 +3800,7 @@ LP_GEN_83755:
           .DATA.L _var_8c1bc424
           .DATA.L s_busstop_pvm_8c0334b4
           .DATA.L init_8c043d64
-          .DATA.L FUN_8c012030
+          .DATA.L _FUN_8c012030
           .DATA.L _var_8c1bc3f4
           .DATA.L _njSetTexture
           .DATA.L _njReleaseCacheTextureNum
@@ -3809,7 +3809,7 @@ LP_GEN_83755:
 
           ; UNIT BOUNDARY?
 
-FUN_8c013c34:
+_FUN_8c013c34:
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           MOV.L       R12,@-R15
@@ -3953,7 +3953,7 @@ LAB_8c013d1c:
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-FUN_8c013d42:
+_FUN_8c013d42:
           STS.L       PR,@-R15
           BSR         H'8c014330
           NOP
@@ -3972,9 +3972,9 @@ LP_GEN_93614:
           .DATA.L _requestPvm_8c011ac0
           .DATA.L freeTexlist_8c011e3c
           .DATA.L _syFree
-          .DATA.L FUN_8c011f7e
+          .DATA.L _FUN_8c011f7e
 
-FUN_8c013d78:
+_FUN_8c013d78:
           STS.L       PR,@-R15
           MOV.L       LP_GEN_38230+6,R3
           MOV         #H'40,R7
@@ -4002,7 +4002,7 @@ FUN_8c013d78:
           LDS.L       @R15+,PR
           RTS
           NOP
-FUN_8c013dae:
+_FUN_8c013dae:
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           MOV.L       R12,@-R15
@@ -4041,7 +4041,7 @@ LAB_8c013dde:
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-FUN_8c013df6:
+_FUN_8c013df6:
           MOV.L       R14,@-R15
           MOV         #H'0,R6
           MOV.L       R13,@-R15
@@ -4116,11 +4116,11 @@ LP_GEN_38230:
           .DATA.W H'0410
           .RES.W 1
           .DATA.L _FUN_8c011f36
-          .DATA.L FUN_8c011f6c
+          .DATA.L _FUN_8c011f6c
           .DATA.L _var_8c18adb0
-          .DATA.L FUN_8c013d42
+          .DATA.L _FUN_8c013d42
           .DATA.L _nop_8c011120
-          .DATA.L FUN_8c011fe0
+          .DATA.L _FUN_8c011fe0
           .DATA.L _var_8c1bbddc
           .DATA.L freeTexlist_8c011e3c
           .DATA.L _syFree
@@ -4157,7 +4157,7 @@ LAB_8c013ec6:
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-FUN_8c013ee4:
+_FUN_8c013ee4:
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           MOV.L       R12,@-R15
@@ -4191,7 +4191,7 @@ LAB_8c013f0c:
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-FUN_8c013f22:
+_FUN_8c013f22:
           MOV.L       LP_GEN_91607+14,R0
           MOV         #H'2c,R2
           MOV.L       LP_GEN_91607+10,R3
@@ -4230,10 +4230,10 @@ LP_GEN_91607:
           .DATA.L _var_8c18ad18
           .DATA.L _var_8c228708
           .DATA.L _var_8c1bc3f0
-          .DATA.L FUN_8c0120fe
-          .DATA.L FUN_8c021a24
+          .DATA.L _FUN_8c0120fe
+          .DATA.L _FUN_8c021a24
 
-FUN_8c013f78:
+_FUN_8c013f78:
           MOV.L       LP_GEN_25668+4,R0
           MOV         #H'2c,R2
           MOV.L       LP_GEN_25668+0,R3
@@ -4494,7 +4494,7 @@ LP_GEN_25668:
           .DATA.L _var_8c226508
           .DATA.L _var_8c227dd0
           .DATA.L _var_8c18ad6c
-          .DATA.L FUN_8c012030
+          .DATA.L _FUN_8c012030
           .DATA.L _var_8c1bc3f0
           .DATA.L _var_8c18adb0
           .DATA.L _var_8c1bb900
@@ -4852,30 +4852,30 @@ LP_GEN_90737:
           .DATA.L _requestNj_8c011492
           .DATA.L _request_dat_8c011182
           .DATA.L init_8c0440dc
-          .DATA.L FUN_8c012030
+          .DATA.L _FUN_8c012030
           .DATA.L _var_8c1bc3ec
           .DATA.L _var_8c18adac
           .DATA.L _var_8c1bc3f8
-          .DATA.L FUN_8c011f6c
+          .DATA.L _FUN_8c011f6c
           .DATA.L _njSetTexture
           .DATA.L _njLoadCacheTexture
           .DATA.L _setUknPvmBool_8c014330
           .DATA.L _nop_8c011120
-          .DATA.L FUN_8c011fe0
-          .DATA.L FUN_8c02175a
+          .DATA.L _FUN_8c011fe0
+          .DATA.L _FUN_8c02175a
           .DATA.L _var_8c1bb868
-          .DATA.L FUN_8c026da4
-          .DATA.L FUN_8c028de8
-          .DATA.L FUN_8c028dd0
-          .DATA.L FUN_8c02caba
-          .DATA.L FUN_8c02b170
+          .DATA.L _FUN_8c026da4
+          .DATA.L _FUN_8c028de8
+          .DATA.L _FUN_8c028dd0
+          .DATA.L _FUN_8c02caba
+          .DATA.L _FUN_8c02b170
           .DATA.L LAB_8c02190a
           .DATA.L LAB_8c021810
           .DATA.L _freeTask_8c014b66
-          .DATA.L FUN_8c011f7e
+          .DATA.L _FUN_8c011f7e
           .DATA.L _var_8c157a6c
           .DATA.L _njReleaseTexture
-          .DATA.L FUN_8c01306e
+          .DATA.L _FUN_8c01306e
           .DATA.L LAB_8c012970
 
 LAB_8c0144b4:
@@ -5033,13 +5033,13 @@ LP_GEN_28406:
           .DATA.L _var_8c157af8
           .DATA.L _njGarbageTexture
           .DATA.L _FUN_8c011f36
-          .DATA.L FUN_8c02b170
-          .DATA.L FUN_8c011f6c
+          .DATA.L _FUN_8c02b170
+          .DATA.L _FUN_8c011f6c
           .DATA.L _setUknPvmBool_8c014330
           .DATA.L LAB_8c02190a
           .DATA.L LAB_8c021810
           .DATA.L _nop_8c011120
-          .DATA.L FUN_8c011fe0
+          .DATA.L _FUN_8c011fe0
 
 LAB_8c014610:
           MOV.L       LP_GEN_17698+4,R3
@@ -5186,14 +5186,14 @@ LP_GEN_17698:
           .DATA.W H'0C00 ; LP_GEN_17698+0
           .DATA.W H'0800
           .DATA.L _freeTask_8c014b66
-          .DATA.L FUN_8c011f7e
+          .DATA.L _FUN_8c011f7e
           .DATA.L _var_8c157a6c
           .DATA.L _var_8c1bc3f8
           .DATA.L _njReleaseTexture
           .DATA.L _var_8c1bc438
           .DATA.L _njSetTexture
           .DATA.L _njLoadCacheTexture
-          .DATA.L FUN_8c01306e
+          .DATA.L _FUN_8c01306e
           .DATA.L LAB_8c012970
           .DATA.L H'C0A00000
           .DATA.L _drawSprite_8c014f54
@@ -5387,26 +5387,26 @@ LAB_8c0148c0:
 LP_GEN_48435:
           .RES.W      1 ; H'8c0148ca
           .DATA.L _var_8c1bc3f8
-          .DATA.L FUN_8c011f6c
+          .DATA.L _FUN_8c011f6c
           .DATA.L _njSetTexture
           .DATA.L _njLoadCacheTexture
           .DATA.L _setUknPvmBool_8c014330
           .DATA.L _nop_8c011120
-          .DATA.L FUN_8c011fe0
-          .DATA.L FUN_8c02175a
+          .DATA.L _FUN_8c011fe0
+          .DATA.L _FUN_8c02175a
           .DATA.L _var_8c1bb868
-          .DATA.L FUN_8c026da4
-          .DATA.L FUN_8c028de8
-          .DATA.L FUN_8c028dd0
-          .DATA.L FUN_8c02caba
-          .DATA.L FUN_8c02b170
+          .DATA.L _FUN_8c026da4
+          .DATA.L _FUN_8c028de8
+          .DATA.L _FUN_8c028dd0
+          .DATA.L _FUN_8c02caba
+          .DATA.L _FUN_8c02b170
           .DATA.L LAB_8c02190a
           .DATA.L _freeTask_8c014b66
-          .DATA.L FUN_8c011f7e
+          .DATA.L _FUN_8c011f7e
           .DATA.L _var_8c157a6c
           .DATA.L _njReleaseTexture
           .DATA.L _var_8c1bc438
-          .DATA.L FUN_8c01306e
+          .DATA.L _FUN_8c01306e
           .DATA.L LAB_8c012970
           .DATA.L H'C0A00000
           .DATA.L _drawSprite_8c014f54

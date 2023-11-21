@@ -1723,7 +1723,7 @@ LAB_8c030716:
           MOV.L       R11,@(H'8,R10)
           MOV.B       R11,@R14
           MOV.B       R0,@(H'8,R15)
-          BSR         FUN_8c03104e
+          BSR         _FUN_8c03104e
           MOV         R10,R4
           TST         R0,R0
           BT          LAB_8c03072e
@@ -2281,7 +2281,7 @@ LAB_8c030afa:
           MOV.L       R3,@(H'8,R14)
 LAB_8c030b06:
           MOV.B       @R12,R6
-          BSR         FUN_8c030ddc
+          BSR         _FUN_8c030ddc
           MOV         R9,R5
           MOV.L       LP_GEN_33221+4,R3
           MOV.L       R9,@(H'4,R15)
@@ -2428,7 +2428,7 @@ LAB_8c030c00:
           MOV.L       R2,@(H'8,R14)
 LAB_8c030c0e:
           MOV         #H'78,R6
-          BSR         FUN_8c030ddc
+          BSR         _FUN_8c030ddc
           MOV         R9,R5
           MOV.L       LP_GEN_94151+4,R3
           MOV.L       R9,@(H'4,R15)
@@ -2510,7 +2510,7 @@ LAB_8c030c96:
           MOV         R14,R4
           MOV         #H'1,R5
           MOV         R10,R6
-          BSR         FUN_8c030fe6
+          BSR         _FUN_8c030fe6
           ADD         #H'1,R4
           MOV.L       @(H'28,R14),R2
           ADD         #-H'1,R2
@@ -2531,7 +2531,7 @@ LAB_8c030cac:
           BF          LAB_8c030cca
           MOV.L       @(H'c,R15),R5
           MOV         R10,R6
-          BSR         FUN_8c030fe6
+          BSR         _FUN_8c030fe6
           MOV.L       @(H'4,R15),R4
           BRA         LAB_8c030d58
           NOP
@@ -2543,7 +2543,7 @@ LAB_8c030cca:
           BF/S        LAB_8c030cfc
           MOV.L       R5,@R15
           MOV         R10,R6
-          BSR         FUN_8c030fe6
+          BSR         _FUN_8c030fe6
           MOV         R3,R4
           BRA         LAB_8c030cfc
           NOP
@@ -2556,7 +2556,7 @@ LAB_8c030cec:
           MOV         R15,R4
           MOV         #H'1,R5
           MOV         R10,R6
-          BSR         FUN_8c030fe6
+          BSR         _FUN_8c030fe6
           ADD         #H'8,R4
           MOV.L       @(H'1c,R14),R2
           ADD         #-H'1,R2
@@ -2574,7 +2574,7 @@ LAB_8c030cfc:
           BF/S        LAB_8c030d2c
           MOV.L       R2,@R15
           MOV         R10,R6
-          BSR         FUN_8c030fe6
+          BSR         _FUN_8c030fe6
           MOV.L       @(H'10,R14),R4
           BRA         LAB_8c030d2c
           NOP
@@ -2582,7 +2582,7 @@ LAB_8c030d1c:
           MOV         R15,R4
           MOV         #H'1,R5
           MOV         R10,R6
-          BSR         FUN_8c030fe6
+          BSR         _FUN_8c030fe6
           ADD         #H'8,R4
           MOV.L       @(H'20,R14),R3
           ADD         #-H'1,R3
@@ -2595,7 +2595,7 @@ LAB_8c030d2c:
           MOV         R10,R6
           MOV.L       @R15,R3
           SUB         R3,R5
-          BSR         FUN_8c030fe6
+          BSR         _FUN_8c030fe6
           MOV.L       @(H'14,R14),R4
           BRA         LAB_8c030d52
           NOP
@@ -2603,7 +2603,7 @@ LAB_8c030d42:
           MOV         R15,R4
           MOV         #H'1,R5
           MOV         R10,R6
-          BSR         FUN_8c030fe6
+          BSR         _FUN_8c030fe6
           ADD         #H'8,R4
           MOV.L       @(H'24,R14),R2
           ADD         #-H'1,R2
@@ -2625,7 +2625,7 @@ LAB_8c030d68:
           MOV         R14,R4
           MOV         #H'1,R5
           MOV         R10,R6
-          BSR         FUN_8c030fe6
+          BSR         _FUN_8c030fe6
           ADD         #H'1,R4
           MOV.L       @(H'28,R14),R2
           ADD         #-H'1,R2
@@ -2656,14 +2656,14 @@ LAB_8c030d9a:
           MOV.L       @R15,R5
           MOV         R10,R6
           SUB         R12,R5
-          BSR         FUN_8c030fe6
+          BSR         _FUN_8c030fe6
           MOV         R12,R4
           MOV.L       @R15,R12
 LAB_8c030da6:
           MOV.B       @R12,R3
           TST         R3,R3
           BT          LAB_8c030dbe
-          BSR         FUN_8c03104e
+          BSR         _FUN_8c03104e
           MOV         R10,R4
           TST         R0,R0
           BF          LAB_8c030dbe
@@ -2673,7 +2673,7 @@ LAB_8c030da6:
           BRA         LAB_8c03073c
           NOP
 LAB_8c030dbe:
-          BSR         FUN_8c03103e
+          BSR         _FUN_8c03103e
           MOV         R10,R4
           MOV.L       @(H'8,R10),R0
 LAB_8c030dc4:
@@ -2690,7 +2690,7 @@ LAB_8c030dc4:
           MOV.L       @R15+,R14
 LP_GEN_32777:
           .DATA.W H'00D0 ; H'8C030DDA
-FUN_8c030ddc:
+_FUN_8c030ddc:
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           MOV.L       R12,@-R15
@@ -2987,7 +2987,7 @@ LAB_8c030fd0:
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-FUN_8c030fe6:
+_FUN_8c030fe6:
           MOV.L       R14,@-R15
           MOV         R6,R14
           MOV.L       R13,@-R15
@@ -3035,7 +3035,7 @@ LAB_8c031032:
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-FUN_8c03103e:
+_FUN_8c03103e:
           MOV.L       @R4,R0
           CMP/EQ      #H'1,R0
           BF          LAB_8c03104a
@@ -3045,7 +3045,7 @@ FUN_8c03103e:
 LAB_8c03104a:
           RTS
           NOP
-FUN_8c03104e:
+_FUN_8c03104e:
           MOV.L       @R4,R0
           CMP/EQ      #H'1,R0
           BF          LAB_8c031058
@@ -4005,7 +4005,7 @@ LAB_8c03172c:
           AND         R3,R2
           LDS         R2,fpscr
           ADD         #H'1,R5
-          BSR         FUN_8c031b7a
+          BSR         _FUN_8c031b7a
           MOV         R12,R4
 LAB_8c031754:
           MOV.L       @R15,R2
@@ -4380,7 +4380,7 @@ LAB_8c0319d0:
           AND         R2,R3
           LDS         R3,fpscr
           ADD         #H'2,R5
-          BSR         FUN_8c031b7a
+          BSR         _FUN_8c031b7a
           MOV         R12,R4
 LAB_8c0319e8:
           MOV.L       @(H'c,R15),R0
@@ -4610,7 +4610,7 @@ LAB_8c031b66:
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-FUN_8c031b7a:
+_FUN_8c031b7a:
           ADD         #-H'4,R15
           MOV         R5,R6
           ADD         R4,R6
@@ -5669,7 +5669,7 @@ __log10:
           STS.L       PR,@-R15
           ADD         #-H'c,R15
           MOV         R15,R4
-          BSR         FUN_8c0323ae
+          BSR         _FUN_8c0323ae
           ADD         #H'8,R4
           STS         FPSCR,R3
           MOV.L       LP_GEN_47596+12,R1
@@ -5689,7 +5689,7 @@ __log10:
           FMOV        FR2,FR4
           FMUL        FR0,FR4
           LDS         R2,fpscr
-          BSR         FUN_8c03252c
+          BSR         _FUN_8c03252c
           MOV         R15,R4
           MOV         #H'4,R0
           MOV.L       LP_GEN_47596+12,R3
@@ -5703,7 +5703,7 @@ __log10:
           LDS.L       @R15+,PR
           RTS
           STS         FPUL,R0
-FUN_8c0323ae:
+_FUN_8c0323ae:
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           MOV.L       R12,@-R15
@@ -5896,7 +5896,7 @@ LAB_8c032518:
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-FUN_8c03252c:
+_FUN_8c03252c:
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           STS.L       PR,@-R15

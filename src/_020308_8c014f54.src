@@ -23,17 +23,17 @@
           .IMPORT     _var_8c1bb8c8
           .IMPORT     _var_8c157a64
           .IMPORT     _var_8c1bc828
-          .IMPORT     FUN_8c02f320
-          .IMPORT     FUN_8c02fa14
+          .IMPORT     _FUN_8c02f320
+          .IMPORT     _FUN_8c02fa14
           .IMPORT     _freeTask_8c014b66
-          .IMPORT     FUN_8c01328c
+          .IMPORT     _FUN_8c01328c
           .IMPORT     _tasks_8c1ba3c8
           .IMPORT     _pushTask_8c014ae8
           .IMPORT     _var_8c1bb8d0
           .IMPORT     _var_8c1bb8d4
           .IMPORT     _var_8c1bb8d8
           .IMPORT     _FUN_8c011f36
-          .IMPORT     FUN_8c011f6c
+          .IMPORT     _FUN_8c011f6c
           .IMPORT     init_8c044154
           .IMPORT     const_8c035f74
           .IMPORT     _request_dat_8c011182
@@ -42,16 +42,16 @@
           .IMPORT     _resetUknPvmBool_8c014322
           .IMPORT     _setUknPvmBool_8c014330
           .IMPORT     _nop_8c011120
-          .IMPORT     FUN_8c011fe0
+          .IMPORT     _FUN_8c011fe0
           .IMPORT     _njDrawSprite2D
           .EXPORT     _drawSprite_8c014f54
-          .EXPORT     FUN_8c01524c
-          .EXPORT     FUN_8c01529c
-          .EXPORT     FUN_8c0152fc
-          .EXPORT     FUN_8c015410
-          .EXPORT     FUN_8c01543a
+          .EXPORT     _FUN_8c01524c
+          .EXPORT     _FUN_8c01529c
+          .EXPORT     _FUN_8c0152fc
+          .EXPORT     _FUN_8c015410
+          .EXPORT     _FUN_8c01543a
           .EXPORT     menuTextboxTextSub_8c0155e0
-          .EXPORT     FUN_8c0159ac
+          .EXPORT     _FUN_8c0159ac
           .SECTION    P,CODE,ALIGN=4
 _drawSprite_8c014f54:
           MOV.L       R14,@-R15
@@ -139,7 +139,7 @@ LAB_8c014fd0:
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-FUN_8c014ff6:
+_FUN_8c014ff6:
           FMOV.S      FR15,@-R15
           FMOV.S      FR14,@-R15
           ADD         #-H'8,R15
@@ -172,7 +172,7 @@ LP_GEN_55719:
           .DATA.L _njDrawSprite2D
           .DATA.L H'38D1B717
 
-FUN_8c015034:
+_FUN_8c015034:
           STS.L       PR,@-R15
           ADD         #-H'50,R15
 LAB_8c015038:
@@ -296,7 +296,7 @@ LP_GEN_55759:
           .DATA.L __slow_mvn
           .DATA.L H'000081A6
 
-FUN_8c015110:
+_FUN_8c015110:
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           MOV.L       R12,@-R15
@@ -309,7 +309,7 @@ FUN_8c015110:
           ADD         R0,R15
           MOV         R6,R13
           MOV         R5,R9
-          BSR         FUN_8c015034
+          BSR         _FUN_8c015034
           MOV.L       R7,@(4,R15)
           MOV         R15,R12
           MOV         #0,R5
@@ -468,7 +468,7 @@ LP_GEN_73990:
           .DATA.L __divls
           .DATA.L _njTwiddledTexture
 
-          FUN_8c01524c:
+          _FUN_8c01524c:
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           MOV.L       R12,@-R15
@@ -510,7 +510,7 @@ LAB_8c015264:
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-FUN_8c01529c:
+_FUN_8c01529c:
           MOV.L       R14,@-R15
           MOV         #0,R4
           MOV.L       R13,@-R15
@@ -561,7 +561,7 @@ LAB_8c0152cc:
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-FUN_8c0152fc:
+_FUN_8c0152fc:
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           MOV.L       R12,@-R15
@@ -689,7 +689,7 @@ LAB_8c0153e2:
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-FUN_8c015410:
+_FUN_8c015410:
           MOV.L       R14,@-R15
           MOV         R4,R14
           MOV.L       R13,@-R15
@@ -713,7 +713,7 @@ LAB_8c01542e:
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-FUN_8c01543a:
+_FUN_8c01543a:
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           MOV.L       R12,@-R15
@@ -1153,7 +1153,7 @@ LAB_8c015742:
           OR          R2,R4
           MOV.L       LP_GEN_51911+18,R2
           MOV.L       @R2,R6
-          BSR         FUN_8c015110
+          BSR         _FUN_8c015110
           ADD         #H'24,R5
           MOV.L       LP_GEN_51911+14,R2
           MOV         #H'20,R3
@@ -1391,7 +1391,7 @@ LP_GEN_90770:
           .DATA.L _drawSprite_8c014f54
           .DATA.L H'0000FFFE
 
-FUN_8c01594c:
+_FUN_8c01594c:
           MOV.L       R14,@-R15
           STS.L       PR,@-R15
           ADD         #-16,R15
@@ -1441,7 +1441,7 @@ LAB_8c0159a4:
           LDS.L       @R15+,PR
           RTS
           MOV.L       @R15+,R14
-FUN_8c0159ac:
+_FUN_8c0159ac:
           MOV.L       R14,@-R15
           STS.L       PR,@-R15
           ADD         #-H'8,R15
@@ -1529,19 +1529,19 @@ LP_GEN_51554:
           .DATA.L _var_8c1bb8c8
           .DATA.L _var_8c157a64
           .DATA.L _var_8c1bc828
-          .DATA.L FUN_8c02f320
-          .DATA.L FUN_8c02fa14
+          .DATA.L _FUN_8c02f320
+          .DATA.L _FUN_8c02fa14
           .DATA.L _syFree
           .DATA.L _freeTask_8c014b66
-          .DATA.L FUN_8c01328c
-          .DATA.L FUN_8c01594c
+          .DATA.L _FUN_8c01328c
+          .DATA.L _FUN_8c01594c
           .DATA.L _tasks_8c1ba3c8
           .DATA.L _pushTask_8c014ae8
           .DATA.L _var_8c1bb8d0
           .DATA.L _var_8c1bb8d4
           .DATA.L _var_8c1bb8d8
           .DATA.L _FUN_8c011f36
-          .DATA.L FUN_8c011f6c
+          .DATA.L _FUN_8c011f6c
           .DATA.L init_8c044154
           .DATA.L const_8c035f74
           .DATA.L _request_dat_8c011182
@@ -1550,7 +1550,7 @@ LP_GEN_51554:
           .DATA.L _resetUknPvmBool_8c014322
           .DATA.L _setUknPvmBool_8c014330
           .DATA.L _nop_8c011120
-          .DATA.L FUN_8c011fe0
+          .DATA.L _FUN_8c011fe0
 
           .END
 

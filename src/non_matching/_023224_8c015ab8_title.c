@@ -7,10 +7,9 @@
 #include "_023224_8c015ab8_title.h"
 
 
-extern void _8c051618();
 extern Bool getUknPvmBool_8c01432a();
-extern void _8c011f7e();
-extern void _8c01940e();
+extern void FUN_8c011f7e();
+extern void FUN_8c01940e();
 extern void push_fadein_8c022a9c();
 extern SDMIDI midiHandles_8c0fcd28[7];
 extern Bool isFading_8c226568;
@@ -18,26 +17,29 @@ extern void drawSprite_8c014f54(ResourceGroup *r4, int r5, float fr4, float fr5,
 extern void push_fadeout_8c022b60();
 extern char* saveNames_8c044d50[11];
 extern Bool _8c03bd80;
-extern Bool _8c1bb8c4;
+extern Bool var_8c1bb8c4;
 extern ResourceGroupInfo titleResourceGroup_8c044254;
 extern PDS_PERIPHERAL peripheral_8c1ba35c[2];
 extern Task tasks_8c1ba3c8[16];
 extern void task_8c012f44(Task* task, void* state);
-extern NJS_TEXMEMLIST _8c157af8;
-extern FUN_8c02ae3e(int p1, int p2, int p3, int p4, float fp1, int p5, int p6, int p7);
+extern NJS_TEXMEMLIST var_8c157af8;
+extern FUN_8c02ae3e(int p1, int p2, float fp1, int p3, int p4, int p5, int p6, int p7);
 extern FUN_8c011f36(int p1, int p2, int p3, int p4);
 extern void nop_8c011120();
 extern void resetUknPvmBool_8c014322();
 extern FUN_8c019550(char** p1, int p2);
-extern void _8c019e44(Task* task);
-extern _8c016182();
-extern _8c0159ac();
+extern void FUN_8c019e44(Task* task);
+extern FUN_8c016182();
+extern FUN_8c0159ac();
 extern void FUN_8c011f6c();
 extern void request_sys_resgrp_8c018568(ResourceGroup* dds, ResourceGroupInfo* rg);
 extern void requestCommonResources_8c01852c();
 extern void setUknPvmBool_8c014330();
 extern void FUN_8c011fe0(void* p1, int p2, int p3, int p4, void* p2);
 extern void snd_8c010cd6(int p1, int p2);
+extern Bool FUN_8c012984(void);
+
+extern void* var_8c225fb0;
 
 void task_title_8c015ab8(Task* task, void *state) {
     /*
@@ -76,8 +78,8 @@ void task_title_8c015ab8(Task* task, void *state) {
         case TITLE_STATE_0X00_INIT: {
             if (getUknPvmBool_8c01432a() == FALSE) {
                 /* 8c015b96 */
-                _8c011f7e();
-                _8c01940e();
+                FUN_8c011f7e(); /* messes with vmu */
+                FUN_8c01940e();
 
                 if (task->field_0x08 == FALSE) {
                     /* 8c015bd8 */
@@ -108,7 +110,7 @@ void task_title_8c015ab8(Task* task, void *state) {
             }
 
             /* 0x8c015c1a (shared) */
-            drawSprite_8c014f54(menuState_8c1bc7a8.drawDatStruct1_0x0c, 0, 0.0, 0.0, -5.0);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.drawDatStruct1_0x0c, 0, 0.0, 0.0, -5.0);
 
             break;
         }
@@ -122,7 +124,7 @@ void task_title_8c015ab8(Task* task, void *state) {
             }
 
             /* 0x8c015c1a (shared) */
-            drawSprite_8c014f54(menuState_8c1bc7a8.drawDatStruct1_0x0c, 0, 0.0, 0.0, -5.0);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.drawDatStruct1_0x0c, 0, 0.0, 0.0, -5.0);
 
             break;
         }
@@ -136,7 +138,7 @@ void task_title_8c015ab8(Task* task, void *state) {
             }
             
             /* 0x8c015c1a (shared) */
-            drawSprite_8c014f54(menuState_8c1bc7a8.drawDatStruct1_0x0c, 0, 0.0, 0.0, -5.0);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.drawDatStruct1_0x0c, 0, 0.0, 0.0, -5.0);
 
             break;
         }
@@ -149,7 +151,7 @@ void task_title_8c015ab8(Task* task, void *state) {
             }
 
             /* 8c015c68 (shared) */
-            drawSprite_8c014f54(menuState_8c1bc7a8.drawDatStruct1_0x0c, 3, 0.0, 0.0, -5.0);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.drawDatStruct1_0x0c, 3, 0.0, 0.0, -5.0);
 
             break;
         }
@@ -163,7 +165,7 @@ void task_title_8c015ab8(Task* task, void *state) {
             }
 
             /* 8c015c68 (shared) */
-            drawSprite_8c014f54(menuState_8c1bc7a8.drawDatStruct1_0x0c, 3, 0.0, 0.0, -5.0);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.drawDatStruct1_0x0c, 3, 0.0, 0.0, -5.0);
 
             break;
         }
@@ -172,9 +174,10 @@ void task_title_8c015ab8(Task* task, void *state) {
         case TITLE_STATE_0X06_ADX_FADE_OUT: {
             if (isFading_8c226568 == FALSE) {
                 // VMU Check?
-                if (_8c012984() == FALSE || FUN_8c019550(saveNames_8c044d50, 3) == FALSE) {
+                if (FUN_8c012984() == FALSE || FUN_8c019550(saveNames_8c044d50, 3) == FALSE) {
                     /* 8c015c62 */
                     menuState_8c1bc7a8.state_0x18 = TITLE_STATE_0X07_VMU_WARNING_FADE_IN;
+                    push_fadein_8c022a9c(10);
                     return;
                 }
 
@@ -187,7 +190,7 @@ void task_title_8c015ab8(Task* task, void *state) {
             } 
 
             /* 8c015c68 (shared) */
-            drawSprite_8c014f54(menuState_8c1bc7a8.drawDatStruct1_0x0c, 3, 0.0, 0.0, -5.0);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.drawDatStruct1_0x0c, 3, 0.0, 0.0, -5.0);
 
             break;
         }
@@ -199,7 +202,7 @@ void task_title_8c015ab8(Task* task, void *state) {
             }
 
             /* 8c015c78 */
-            drawSprite_8c014f54(menuState_8c1bc7a8.drawDatStruct1_0x0c, 17, 0.0, 0.0, -5.0);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.drawDatStruct1_0x0c, 17, 0.0, 0.0, -5.0);
 
             /* 8c015c84 (shared) */
             njSetBackColor(0xffffffff, 0xffffffff, 0xffffffff);
@@ -218,7 +221,7 @@ void task_title_8c015ab8(Task* task, void *state) {
             }
 
             /* 8c015ce8 (shared) */
-            drawSprite_8c014f54(menuState_8c1bc7a8.drawDatStruct1_0x0c, 17, 0.0, 0.0, -5.0);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.drawDatStruct1_0x0c, 17, 0.0, 0.0, -5.0);
 
             break;
         }
@@ -232,7 +235,7 @@ void task_title_8c015ab8(Task* task, void *state) {
             }
 
             /* 8c015ce8 (shared) */
-            drawSprite_8c014f54(menuState_8c1bc7a8.drawDatStruct1_0x0c, 17, 0.0, 0.0, -5.0);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.drawDatStruct1_0x0c, 17, 0.0, 0.0, -5.0);
             break;
         }
 
@@ -248,8 +251,8 @@ void task_title_8c015ab8(Task* task, void *state) {
             }
 
             /* 8c015d7c (shared) - Draw title */
-            drawSprite_8c014f54(menuState_8c1bc7a8.drawDatStruct1_0x0c, 2, 0.0, 0.0, -5.0);
-            drawSprite_8c014f54(menuState_8c1bc7a8.drawDatStruct1_0x0c, 46, 0.0, 0.0, -7.0);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.drawDatStruct1_0x0c, 2, 0.0, 0.0, -5.0);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.field_0x00, 46, 0.0, 0.0, -7.0);
 
             break;
         }
@@ -262,21 +265,23 @@ void task_title_8c015ab8(Task* task, void *state) {
                 menuState_8c1bc7a8.state_0x18 = TITLE_STATE_0X0C_FLAG_REVEAL;
                 menuState_8c1bc7a8.flagY_0x24 = 167.0;
 
-                return;
+                /* Missing break! */
+                goto gambi;
             }
 
             /* 8c015d38 - Draw bus */
-            drawSprite_8c014f54(menuState_8c1bc7a8.drawDatStruct1_0x0c, 1, menuState_8c1bc7a8.busX_0x20, 0.0, -4.0);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.drawDatStruct1_0x0c, 1, menuState_8c1bc7a8.busX_0x20, 0.0, -4.0);
 
             /* 8c015d7c (shared) - Draw title */
-            drawSprite_8c014f54(menuState_8c1bc7a8.drawDatStruct1_0x0c, 2, 0.0, 0.0, -5.0);
-            drawSprite_8c014f54(menuState_8c1bc7a8.drawDatStruct1_0x0c, 46, 0.0, 0.0, -7.0);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.drawDatStruct1_0x0c, 2, 0.0, 0.0, -5.0);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.field_0x00, 46, 0.0, 0.0, -7.0);
 
-            /* Missing break! */
+            break;
         }
 
         /* 0x8c015d4a (0x8c015b32 + 4 + 0x214) */
         case TITLE_STATE_0X0C_FLAG_REVEAL: {
+            gambi:
             menuState_8c1bc7a8.flagY_0x24 -= 2.3333333; /* ~ 7/3 */
 
             if (menuState_8c1bc7a8.flagY_0x24 <= 97) {
@@ -284,14 +289,14 @@ void task_title_8c015ab8(Task* task, void *state) {
             }
 
             /* 8c015d6a - Draw flag */
-            drawSprite_8c014f54(menuState_8c1bc7a8.drawDatStruct1_0x0c, 4, 302, menuState_8c1bc7a8.flagY_0x24, -4.5);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.drawDatStruct1_0x0c, 4, 302, menuState_8c1bc7a8.flagY_0x24, -4.5);
 
             /* 8c015da4 - Draw bus */
-            drawSprite_8c014f54(menuState_8c1bc7a8.drawDatStruct1_0x0c, 1, 180, 0.0, -4.0);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.drawDatStruct1_0x0c, 1, 180, 0.0, -4.0);
 
             /* 8c015db4 - Draw title */
-            drawSprite_8c014f54(menuState_8c1bc7a8.drawDatStruct1_0x0c, 2, 0.0, 0.0, -5.0);
-            drawSprite_8c014f54(menuState_8c1bc7a8.drawDatStruct1_0x0c, 46, 0.0, 0.0, -7.0);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.drawDatStruct1_0x0c, 2, 0.0, 0.0, -5.0);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.field_0x00, 46, 0.0, 0.0, -7.0);
 
             break;
         }
@@ -303,12 +308,12 @@ void task_title_8c015ab8(Task* task, void *state) {
             }
 
             /* 8c015f60 (shared) */
-            drawSprite_8c014f54(menuState_8c1bc7a8.drawDatStruct1_0x0c, 5, 0, 0, -4.5);
-            drawSprite_8c014f54(menuState_8c1bc7a8.drawDatStruct1_0x0c, 6, 0, 0, -4.5);
-            drawSprite_8c014f54(menuState_8c1bc7a8.drawDatStruct1_0x0c, 4, 302, 97, -4.5);
-            drawSprite_8c014f54(menuState_8c1bc7a8.drawDatStruct1_0x0c, 1, 180, 0, -4.0);
-            drawSprite_8c014f54(menuState_8c1bc7a8.drawDatStruct1_0x0c, 2, 0, 0, -5.0);
-            drawSprite_8c014f54(menuState_8c1bc7a8.drawDatStruct1_0x0c, 46, 0, 0, -7.0);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.drawDatStruct1_0x0c, 5, 0, 0, -4.5);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.drawDatStruct1_0x0c, 6, 0, 0, -4.5);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.drawDatStruct1_0x0c, 4, 302, 97, -4.5);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.drawDatStruct1_0x0c, 1, 180, 0, -4.0);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.drawDatStruct1_0x0c, 2, 0, 0, -5.0);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.field_0x00, 46, 0, 0, -7.0);
 
             break;
         }
@@ -337,12 +342,12 @@ void task_title_8c015ab8(Task* task, void *state) {
             }
 
             /* 8c015f60 (shared) */
-            drawSprite_8c014f54(menuState_8c1bc7a8.drawDatStruct1_0x0c, 5, 0, 0, -4.5);
-            drawSprite_8c014f54(menuState_8c1bc7a8.drawDatStruct1_0x0c, 6, 0, 0, -4.5);
-            drawSprite_8c014f54(menuState_8c1bc7a8.drawDatStruct1_0x0c, 4, 302, 97, -4.5);
-            drawSprite_8c014f54(menuState_8c1bc7a8.drawDatStruct1_0x0c, 1, 180, 0, -4.0);
-            drawSprite_8c014f54(menuState_8c1bc7a8.drawDatStruct1_0x0c, 2, 0, 0, -5.0);
-            drawSprite_8c014f54(menuState_8c1bc7a8.drawDatStruct1_0x0c, 46, 0, 0, -7.0);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.drawDatStruct1_0x0c, 5, 0, 0, -4.5);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.drawDatStruct1_0x0c, 6, 0, 0, -4.5);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.drawDatStruct1_0x0c, 4, 302, 97, -4.5);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.drawDatStruct1_0x0c, 1, 180, 0, -4.0);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.drawDatStruct1_0x0c, 2, 0, 0, -5.0);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.field_0x00, 46, 0, 0, -7.0);
 
             break;
         }
@@ -355,15 +360,15 @@ void task_title_8c015ab8(Task* task, void *state) {
             }
 
             /* 8c015e7e */
-            drawSprite_8c014f54(menuState_8c1bc7a8.drawDatStruct1_0x0c, 5, 0, 0, -4.5);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.drawDatStruct1_0x0c, 5, 0, 0, -4.5);
             if ((menuState_8c1bc7a8.logo_timer_0x68 & 1) != 0) {
-                drawSprite_8c014f54(menuState_8c1bc7a8.drawDatStruct1_0x0c, 6, 0, 0, -4.5);
+                drawSprite_8c014f54(&menuState_8c1bc7a8.drawDatStruct1_0x0c, 6, 0, 0, -4.5);
             }
             /* 8c015f7c */
-            drawSprite_8c014f54(menuState_8c1bc7a8.drawDatStruct1_0x0c, 4, 302, 97, -4.5);
-            drawSprite_8c014f54(menuState_8c1bc7a8.drawDatStruct1_0x0c, 1, 180, 0, -4.0);
-            drawSprite_8c014f54(menuState_8c1bc7a8.drawDatStruct1_0x0c, 2, 0, 0, -5.0);
-            drawSprite_8c014f54(menuState_8c1bc7a8.drawDatStruct1_0x0c, 46, 0, 0, -7.0);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.drawDatStruct1_0x0c, 4, 302, 97, -4.5);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.drawDatStruct1_0x0c, 1, 180, 0, -4.0);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.drawDatStruct1_0x0c, 2, 0, 0, -5.0);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.field_0x00, 46, 0, 0, -7.0);
             break;
         }
 
@@ -374,26 +379,26 @@ void task_title_8c015ab8(Task* task, void *state) {
             if (isFading_8c226568 == FALSE) {
                 if (!_8c03bd80) {
                     /* 8c015eb2 */
-                    _8c1bb8c4 = FALSE;
+                    var_8c1bb8c4 = FALSE;
 
                     /* Push menu task */
-                    _8c019e44(task);
+                    FUN_8c019e44(task);
                 }
 
                 return;
             }
             
             /* 8c015ed6 */
-            drawSprite_8c014f54(menuState_8c1bc7a8.drawDatStruct1_0x0c, 5, 0, 0, -4.5);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.drawDatStruct1_0x0c, 5, 0, 0, -4.5);
 
             if ((++menuState_8c1bc7a8.logo_timer_0x68 & 1) != 0) {
-                drawSprite_8c014f54(menuState_8c1bc7a8.drawDatStruct1_0x0c, 6, 0, 0, -4.5);
+                drawSprite_8c014f54(&menuState_8c1bc7a8.drawDatStruct1_0x0c, 6, 0, 0, -4.5);
             }
             /* 8c015f7c */
-            drawSprite_8c014f54(menuState_8c1bc7a8.drawDatStruct1_0x0c, 4, 302, 97, -4.5);
-            drawSprite_8c014f54(menuState_8c1bc7a8.drawDatStruct1_0x0c, 1, 180, 0, -4.0);
-            drawSprite_8c014f54(menuState_8c1bc7a8.drawDatStruct1_0x0c, 2, 0, 0, -5.0);
-            drawSprite_8c014f54(menuState_8c1bc7a8.drawDatStruct1_0x0c, 46, 0, 0, -7.0);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.drawDatStruct1_0x0c, 4, 302, 97, -4.5);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.drawDatStruct1_0x0c, 1, 180, 0, -4.0);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.drawDatStruct1_0x0c, 2, 0, 0, -5.0);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.field_0x00, 46, 0, 0, -7.0);
 
             break;
         }
@@ -402,20 +407,20 @@ void task_title_8c015ab8(Task* task, void *state) {
         case TITLE_STATE_0X11_TIME_OUT: {
             if (isFading_8c226568 == FALSE) {
                 if (_8c03bd80 == FALSE) {
-                    _8c016182();
-                    _8c0159ac();
+                    FUN_8c016182();
+                    FUN_8c0159ac();
                 }
 
                 return;
             }
 
             /* 8c015f60 (shared) */
-            drawSprite_8c014f54(menuState_8c1bc7a8.drawDatStruct1_0x0c, 5, 0, 0, -4.5);
-            drawSprite_8c014f54(menuState_8c1bc7a8.drawDatStruct1_0x0c, 6, 0, 0, -4.5);
-            drawSprite_8c014f54(menuState_8c1bc7a8.drawDatStruct1_0x0c, 4, 302, 97, -4.5);
-            drawSprite_8c014f54(menuState_8c1bc7a8.drawDatStruct1_0x0c, 1, 180, 0, -4.0);
-            drawSprite_8c014f54(menuState_8c1bc7a8.drawDatStruct1_0x0c, 2, 0, 0, -5.0);
-            drawSprite_8c014f54(menuState_8c1bc7a8.drawDatStruct1_0x0c, 46, 0, 0, -7.0);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.drawDatStruct1_0x0c, 5, 0, 0, -4.5);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.drawDatStruct1_0x0c, 6, 0, 0, -4.5);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.drawDatStruct1_0x0c, 4, 302, 97, -4.5);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.drawDatStruct1_0x0c, 1, 180, 0, -4.0);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.drawDatStruct1_0x0c, 2, 0, 0, -5.0);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.field_0x00, 46, 0, 0, -7.0);
             break;
         }
 
@@ -439,13 +444,13 @@ void FUN_8c015fd6 (Bool direct) {
     FUN_8c0128cc(0);
 
     /* 8c015ff4 */
-    pushTask_8c014ae8(tasks_8c1ba3c8, task_8c012f44, &created_task, &created_state, 0);
+    pushTask_8c014ae8(tasks_8c1ba3c8, &task_8c012f44, &created_task, &created_state, 0);
 
     /* 8c015ffe */
     njSetBackColor(0,0,0);
 
     /* 8c016012 */
-    pushTask_8c014ae8(tasks_8c1ba3c8, task_title_8c015ab8, &created_task, &created_state, 0);
+    pushTask_8c014ae8(tasks_8c1ba3c8, &task_title_8c015ab8, &created_task, &created_state, 0);
 
     /* 8c01601e */
     menuState_8c1bc7a8.state_0x18 = 0;
@@ -463,13 +468,13 @@ void FUN_8c015fd6 (Bool direct) {
     created_task->field_0x08 = direct;
 
     /* 8c01602e */
-    _8c1bb8c4 = 1;
+    var_8c1bb8c4 = 1;
 
     /* 8c016034 */
-    njGarbageTexture(&_8c157af8, 3072);
+    njGarbageTexture(&var_8c157af8, 3072);
 
     /* 8c01604e */
-    FUN_8c02ae3e(0x20, 0x178, 0x240, 0x40, -2.0, 0, 0, -1);
+    FUN_8c02ae3e(0x20, 0x178, -2.0, 0x240, 0x40, 0, 0, -1);
 
     /* 8c01605a */
     FUN_8c011f36(8, 0, 0, 8);
@@ -478,10 +483,10 @@ void FUN_8c015fd6 (Bool direct) {
     FUN_8c011f6c();
 
     /* 8c01606c */
-    _8c225fb0 = (void *) -1;
+    var_8c225fb0 = (void *) -1;
 
     /* 8c016070 */
-    request_sys_resgrp_8c018568(menuState_8c1bc7a8.drawDatStruct1_0x0c, &titleResourceGroup_8c044254);
+    request_sys_resgrp_8c018568(&menuState_8c1bc7a8.drawDatStruct1_0x0c, &titleResourceGroup_8c044254);
 
     /* 8c016076 */
     requestCommonResources_8c01852c();
@@ -490,5 +495,5 @@ void FUN_8c015fd6 (Bool direct) {
     setUknPvmBool_8c014330();
 
     /* 8c01608c */
-    FUN_8c011fe0(nop_8c011120, 0, 0, 0, resetUknPvmBool_8c014322);
+    FUN_8c011fe0(&nop_8c011120, 0, 0, 0, &resetUknPvmBool_8c014322);
 }

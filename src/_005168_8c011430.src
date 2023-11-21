@@ -39,8 +39,8 @@
           .IMPORT     _var_8c157a6c
           .IMPORT     __quick_evn_mvn
           .IMPORT     _njReleaseTexture
-          .IMPORT     FUN_8c01c8fc
-          .IMPORT     FUN_8c01c910
+          .IMPORT     _FUN_8c01c8fc
+          .IMPORT     _FUN_8c01c910
           .IMPORT     _var_8c157a60
           .IMPORT     _get_8c157a98_8c0113d2
           .IMPORT     _initDatQueue_8c011124
@@ -48,11 +48,11 @@
           .IMPORT     _freeDatQueue_8c0113d8
           .EXPORT     _FUN_8c011f36
           .EXPORT     _requestNj_8c011492
-          .EXPORT     FUN_8c01181c
+          .EXPORT     _FUN_8c01181c
           .EXPORT     freeTexlist_8c011e3c
           .EXPORT     task_8c011e80
-          .EXPORT     FUN_8c011f6c
-          .EXPORT     FUN_8c011f7e
+          .EXPORT     _FUN_8c011f6c
+          .EXPORT     _FUN_8c011f7e
           .EXPORT     _requestPvm_8c011ac0
           .SECTION    P, CODE, ALIGN=4
 _initNjQueue_8c011430:           ; function: initNjQueue
@@ -395,7 +395,7 @@ L26:
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-FUN_8c0116b6:
+_FUN_8c0116b6:
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           MOV.L       R12,@-R15
@@ -531,7 +531,7 @@ _FUN_8c0117a4:                   ; function: _FUN_8c0117a4
 L35:
           RTS
           NOP
-FUN_8c0117b8:
+_FUN_8c0117b8:
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           STS.L       PR,@-R15
@@ -571,7 +571,7 @@ L39:
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-FUN_8c0117fe:
+_FUN_8c0117fe:
           MOV.L       L55+44,R2
           MOV.L       L55+56,R1
           MOV.L       @R2,R3
@@ -587,7 +587,7 @@ FUN_8c0117fe:
           MOV.L       L55+64,R1
           RTS
           MOV.L       R3,@R1
-FUN_8c01181c:
+_FUN_8c01181c:
           MOV.L       L55+52,R2
           MOV.L       L55+56,R6
           MOV.L       @R2,R3
@@ -830,7 +830,7 @@ L59:
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-FUN_8c0119f8:
+_FUN_8c0119f8:
           STS.L       PR,@-R15
           ADD         #-H'8,R15
           MOV.L       L72+16,R0
@@ -870,11 +870,11 @@ L61:
           LDS.L       @R15+,PR
           RTS
           NOP
-FUN_8c011a42:
+_FUN_8c011a42:
           MOV.L       L72+8,R3
           RTS
           MOV.L       @R3,R0
-FUN_8c011a48:
+_FUN_8c011a48:
           MOV.L       L72+16,R2
           MOV.L       @R2,R0
           CMP/EQ      #-1,R0
@@ -886,7 +886,7 @@ FUN_8c011a48:
 L62:
           RTS
           NOP
-FUN_8c011a5c:
+_FUN_8c011a5c:
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           STS.L       PR,@-R15
@@ -1248,7 +1248,7 @@ L90:
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-FUN_8c011d24:
+_FUN_8c011d24:
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           MOV.L       R12,@-R15
@@ -1375,11 +1375,11 @@ L99:
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-FUN_8c011e22:
+_FUN_8c011e22:
           MOV.L       L110+36,R3
           RTS
           MOV.L       @R3,R0
-FUN_8c011e28:
+_FUN_8c011e28:
           MOV.L       L110+40,R2
           MOV.L       @R2,R0
           CMP/EQ      #-1,R0
@@ -1410,7 +1410,7 @@ freeTexlist_8c011e3c:
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-FUN_8c011e60:
+_FUN_8c011e60:
           MOV.L       R14,@-R15
           MOV         R4,R14
           MOV.L       R13,@-R15
@@ -1458,7 +1458,7 @@ L101:
 L102:
           MOV.L       @R14,R2
           ADD         #1,R2
-          BSR         FUN_8c0116b6
+          BSR         _FUN_8c0116b6
           MOV.L       R2,@R14
           BRA         L108
           NOP
@@ -1476,12 +1476,12 @@ L103:
 L104:
           MOV.L       @R14,R2
           ADD         #1,R2
-          BSR         FUN_8c011d24
+          BSR         _FUN_8c011d24
           MOV.L       R2,@R14
           BRA         L108
           NOP
 L105:
-          BSR         FUN_8c011e22
+          BSR         _FUN_8c011e22
           NOP
           TST         R0,R0
           BT          L108
@@ -1494,12 +1494,12 @@ L105:
 L106:
           MOV.L       @R14,R2
           ADD         #1,R2
-          BSR         FUN_8c0119f8
+          BSR         _FUN_8c0119f8
           MOV.L       R2,@R14
           BRA         L108
           NOP
 L107:
-          BSR         FUN_8c011a42
+          BSR         _FUN_8c011a42
           NOP
           TST         R0,R0
           BT          L108
@@ -1539,9 +1539,9 @@ _FUN_8c011f36:
           MOV.L       @(H'c,R15),R4
           BSR         _initNjQueue_8c011430
           MOV.L       @(8,R15),R4
-          BSR         FUN_8c0117b8
+          BSR         _FUN_8c0117b8
           MOV.L       @(4,R15),R4
-          BSR         FUN_8c011a5c
+          BSR         _FUN_8c011a5c
           MOV.L       @R15,R4
           MOV.L       L110+52,R2
           JSR         @R2
@@ -1556,25 +1556,25 @@ _FUN_8c011f36:
           LDS.L       @R15+,PR
           RTS
           NOP
-FUN_8c011f6c:
+_FUN_8c011f6c:
           STS.L       PR,@-R15
           BSR         _FUN_8c01116a
           NOP
           BSR         _FUN_8c01147a
           NOP
-          BSR         FUN_8c0117fe
+          BSR         _FUN_8c0117fe
           NOP
           BRA         L67
           LDS.L       @R15+,PR
-FUN_8c011f7e:
+_FUN_8c011f7e:
           STS.L       PR,@-R15
           BSR         _freeDatQueue_8c0113d8
           NOP
           BSR         _FUN_8c0117a4
           NOP
-          BSR         FUN_8c011a48
+          BSR         _FUN_8c011a48
           NOP
-          BSR         FUN_8c011e28
+          BSR         _FUN_8c011e28
           NOP
           MOV.L       L110+52,R2
           JSR         @R2
@@ -1599,7 +1599,7 @@ L110:
           .DATA.L     _var_8c157abc
           .DATA.L     _njReleaseTexture
           .DATA.L     _freeTask_8c014b66 ; L110+48
-          .DATA.L     FUN_8c01c8fc
-          .DATA.L     FUN_8c01c910
+          .DATA.L     _FUN_8c01c8fc
+          .DATA.L     _FUN_8c01c910
           .DATA.L     _var_8c157a60
           .END
