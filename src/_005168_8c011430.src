@@ -17,7 +17,7 @@
           .IMPORT     _njReadBinary
           .IMPORT     _gdFsGetTransStat
           .IMPORT     _gdFsTrans32
-          .IMPORT     __8c02fe38
+          .IMPORT     __quick_odd_mvn
           .IMPORT     _syFree
           .IMPORT     _tasks_8c1ba3c8
           .IMPORT     _pushTask_8c014ae8
@@ -761,7 +761,7 @@ L54:
 
 L55:
           .DATA.L     _strcmp ; L55
-          .DATA.L     __8c02fe38
+          .DATA.L     __quick_odd_mvn
           .DATA.L     _syFree
           .DATA.L     _task_8c0114cc
           .DATA.L     _tasks_8c1ba3c8 ; L55+16

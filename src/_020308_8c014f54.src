@@ -43,7 +43,7 @@
           .IMPORT     _setUknPvmBool_8c014330
           .IMPORT     _nop_8c011120
           .IMPORT     FUN_8c011fe0
-          .IMPORT     njDrawSprite2D
+          .IMPORT     _njDrawSprite2D
           .EXPORT     _drawSprite_8c014f54
           .EXPORT     FUN_8c01524c
           .EXPORT     FUN_8c01529c
@@ -169,7 +169,7 @@ FUN_8c014ff6:
 LP_GEN_55719:
           .DATA.W H'07D0 ; LP_GEN_55719+0
           .RES.W 1
-          .DATA.L njDrawSprite2D
+          .DATA.L _njDrawSprite2D
           .DATA.L H'38D1B717
 
 FUN_8c015034:

@@ -4,17 +4,6 @@ An attempt to decompile the Sega Dreamcast game called "Tokyo Bus Guide".
 
 ![Main function hero](./tbg.png)
 
-## Progress
-
-Number of functions: 419.
-
-Status       | Count |
--------------|------:|
-Binary       | 362   |
-Disassembled | 34    |
-Decompiled   | 2     |
-Matched      | 21    |
-
 ## Updates
 See [this thread](https://twitter.com/lhs_azevedo/status/1508270685784793089).
 

@@ -1,4 +1,5 @@
-build/
+/build
+/diskroot
 
 # Ignore game binary
 1ST_READ.BIN

@@ -4,11 +4,11 @@
           .IMPORT     _syMalloc
           .IMPORT     _syFree
           .IMPORT     _var_8c157acc
-          .IMPORT     __8c02fd74
+          .IMPORT     __modlu
           .IMPORT     _var_8c157ad0
           .IMPORT     _var_8c1ba1cc
           .IMPORT     _var_8c157a70
-          .IMPORT     __8c02fe38
+          .IMPORT     __quick_odd_mvn
           .IMPORT     _var_8c157ae4
           .IMPORT     _var_8c157ae8
           .IMPORT     __8c033318
@@ -21,7 +21,7 @@
           .IMPORT     _var_8c1bb8c8
           .IMPORT     _var_8c157aec
           .IMPORT     _strcmp
-          .IMPORT     strcpy_8c03011c
+          .IMPORT     _strcpy
           .IMPORT     _var_8c1bb8cc
           .IMPORT     _midiHandles_8c0fcd28
           .IMPORT     _sdMidiPlay
@@ -66,15 +66,15 @@
           .IMPORT     _var_8c22655c
           .IMPORT     _var_8c1bb9d0
           .IMPORT     _freeTask_8c014b66
-          .IMPORT     FUN_8c05b7e0
+          .IMPORT     _njControl3D
           .IMPORT     _var_8c2f8ca0
           .IMPORT     _njInitMatrix
           .IMPORT     _njSetBackColor
           .IMPORT     _var_8c18ad28
-          .IMPORT     FUN_8c075938
+          .IMPORT     _njSetFogColor
           .IMPORT     _var_8c18aaf8
           .IMPORT     _njGenerateFogTable3
-          .IMPORT     FUN_8c0757dc
+          .IMPORT     _njFogEnable
           .IMPORT     _kmSetCheapShadowMode
           .IMPORT     _kmSetFogTable
           .IMPORT     _clearTasks_8c014a9c
@@ -82,7 +82,7 @@
           .IMPORT     _var_8c1bac28
           .IMPORT     _var_8c1bb448
           .IMPORT     _var_8c157a64
-          .IMPORT     FUN_8c0300fc
+          .IMPORT     _srand
           .IMPORT     FUN_8c01677e
           .IMPORT     _var_8c1bb8d4
           .IMPORT     FUN_8c016bf4
@@ -193,12 +193,12 @@
           .IMPORT     _var_8c1bc444
           .IMPORT     _var_8c1bc410
           .IMPORT     _var_8c1bc414
-          .IMPORT     FUN_8c053c2e
-          .IMPORT     FUN_8c053c74
-          .IMPORT     FUN_8c053c02
+          .IMPORT     _gdFsEntryErrFuncAll
+          .IMPORT     _gdFsReqDrvStat
+          .IMPORT     _gdFsGetSysHn
           .IMPORT     _gdFsGetStat
-          .IMPORT     FUN_8c053c5c
-          .IMPORT     __8c059e14
+          .IMPORT     _gdFsGetDrvStat
+          .IMPORT     _njExitTexture
           .IMPORT     _sbExitSystem_8c014a24
           .IMPORT     _syBtExit
           .IMPORT     _var_8c1bc434
@@ -229,7 +229,7 @@
           .IMPORT     FUN_8c02b170
           .IMPORT     LAB_8c02190a
           .IMPORT     LAB_8c021810
-          .IMPORT     __8c02fcac
+          .IMPORT     __modls
           .IMPORT     _njGarbageTexture
           .IMPORT     _var_8c1ba290
           .IMPORT     _var_8c1bbcc4
@@ -585,7 +585,7 @@ LP_GEN_90004:
           .DATA.L     _syMalloc
           .DATA.L     _syFree
           .DATA.L     _var_8c157acc
-          .DATA.L     __8c02fd74
+          .DATA.L     __modlu
           .DATA.L     _var_8c157ad0
           .DATA.L     _var_8c1ba1cc
           .DATA.L     init_8c03bf18
@@ -868,7 +868,7 @@ LP_GEN_72787:
           .DATA.L H'000F06FE
           .DATA.L _var_8c157a70
           .DATA.L H'000700FE
-          .DATA.L __8c02fe38
+          .DATA.L __quick_odd_mvn
           .DATA.L _var_8c157ae4
           .DATA.L _var_8c157ae8
 
@@ -977,7 +977,7 @@ LP_GEN_88452:
           .DATA.L H'000000F0
           .DATA.L _var_8c157a78
           .DATA.L __8c033318
-          .DATA.L __8c02fe38
+          .DATA.L __quick_odd_mvn
           .DATA.L _var_8c1ba354
           .DATA.L _var_8c157ad4
           .DATA.L FUN_8c01c910
@@ -1261,7 +1261,7 @@ LP_GEN_43503:
           .DATA.L _var_8c1bbcc4
           .DATA.L _var_8c157a78
           .DATA.L __8c033318
-          .DATA.L __8c02fe38
+          .DATA.L __quick_odd_mvn
           .DATA.L FUN_8c01c910
 
           ; UNIT BOUNDARY?
@@ -1538,7 +1538,7 @@ LP_GEN_17272:
           .DATA.W H'0100 ; LP_GEN_17272+0
           .DATA.L _var_8c157a78
           .DATA.L __8c033318
-          .DATA.L __8c02fe38
+          .DATA.L __quick_odd_mvn
           .DATA.L _var_8c157a70
           .DATA.L FUN_8c01c910
           .DATA.L _pushTask_8c014ae8
@@ -1622,7 +1622,7 @@ LP_GEN_44279:
           .DATA.L init_8c03bf40
           .DATA.L _var_8c157aec
           .DATA.L _strcmp
-          .DATA.L strcpy_8c03011c
+          .DATA.L _strcpy
 
           ; UNIT BOUNDARY?
 
@@ -2614,15 +2614,15 @@ LP_GEN_31464:
           .DATA.W H'0080
           .RES.W 1
           .DATA.L _freeTask_8c014b66
-          .DATA.L FUN_8c05b7e0
+          .DATA.L _njControl3D
           .DATA.L _var_8c2f8ca0
           .DATA.L _njInitMatrix
           .DATA.L _njSetBackColor
           .DATA.L _var_8c18ad28
-          .DATA.L FUN_8c075938
+          .DATA.L _njSetFogColor
           .DATA.L _var_8c18aaf8
           .DATA.L _njGenerateFogTable3
-          .DATA.L FUN_8c0757dc
+          .DATA.L _njFogEnable
           .DATA.L _kmSetCheapShadowMode
           .DATA.L _kmSetFogTable
           .DATA.L _var_8c1ba5e8
@@ -2631,7 +2631,7 @@ LP_GEN_31464:
           .DATA.L _var_8c1bac28
           .DATA.L _var_8c1bb448
           .DATA.L _var_8c157a64
-          .DATA.L FUN_8c0300fc
+          .DATA.L _srand
           .DATA.L FUN_8c012160
           .DATA.L FUN_8c0121a2
           .DATA.L FUN_8c0128cc
@@ -2913,7 +2913,7 @@ LP_GEN_38000:
           .DATA.L _var_8c1bb8d4
           .DATA.L init_8c0460b0
           .DATA.L FUN_8c01895e
-          .DATA.L FUN_8c0300fc
+          .DATA.L _srand
           .DATA.L FUN_8c012160
           .DATA.L FUN_8c0121a2
           .DATA.L FUN_8c0121e8
@@ -3635,19 +3635,19 @@ LP_GEN_19861:
           .DATA.L FUN_8c011fe0
           .DATA.L _var_8c18ad14
           .DATA.L FUN_8c0134d6
-          .DATA.L FUN_8c053c2e
+          .DATA.L _gdFsEntryErrFuncAll
           .DATA.L _var_8c1ba354
           .DATA.L __8c03bd80
           .DATA.L __8c03bd84
           .DATA.L _pdVibMxStop
           .DATA.L _var_8c157a60
           .DATA.L init_8c03bfa8
-          .DATA.L FUN_8c053c74
-          .DATA.L FUN_8c053c02
+          .DATA.L _gdFsReqDrvStat
+          .DATA.L _gdFsGetSysHn
           .DATA.L _gdFsGetStat
-          .DATA.L FUN_8c053c5c
+          .DATA.L _gdFsGetDrvStat
           .DATA.L _execTasks_8c014b42
-          .DATA.L __8c059e14
+          .DATA.L _njExitTexture
           .DATA.L _sbExitSystem_8c014a24
           .DATA.L _syBtExit
 
@@ -4512,7 +4512,7 @@ LP_GEN_25668:
           .DATA.L _var_8c18ad20
           .DATA.L _var_8c18ad24
           .DATA.L _var_8c18ad4c
-          .DATA.L strcpy_8c03011c
+          .DATA.L _strcpy
           .DATA.L s_SD_COMMON_8c0334c0
           .DATA.L s_SD_PVR_8c0334cc
           .DATA.L s_SN_COMMON_8c0334d4
@@ -5022,7 +5022,7 @@ LP_GEN_28406:
           .DATA.L _var_8c1bc3f8
           .DATA.L H'C0A00000
           .DATA.L _drawSprite_8c014f54
-          .DATA.L __8c02fcac
+          .DATA.L __modls
           .DATA.L H'C0800000
           .DATA.L H'FF418DFF
           .DATA.L _njSetBackColor
@@ -5197,7 +5197,7 @@ LP_GEN_17698:
           .DATA.L LAB_8c012970
           .DATA.L H'C0A00000
           .DATA.L _drawSprite_8c014f54
-          .DATA.L __8c02fcac
+          .DATA.L __modls
           .DATA.L H'C0800000
           .DATA.L _var_8c1ba290
           .DATA.L _var_8c1bb8d0
@@ -5410,7 +5410,7 @@ LP_GEN_48435:
           .DATA.L LAB_8c012970
           .DATA.L H'C0A00000
           .DATA.L _drawSprite_8c014f54
-          .DATA.L __8c02fcac
+          .DATA.L __modls
           .DATA.L H'C0800000
 
           .SECTION    D,DATA,ALIGN=4
