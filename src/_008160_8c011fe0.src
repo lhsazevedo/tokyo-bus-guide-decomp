@@ -215,7 +215,7 @@
           .IMPORT     _var_8c226504
           .IMPORT     _var_8c227dd0
           .IMPORT     _var_8c1bb900
-          .IMPORT     SUB_8c029ad4
+          .IMPORT     _FUN_8c029ad4
           .IMPORT     _var_8c226534
           .IMPORT     _FUN_8c02aa36
           .IMPORT     _var_8c18ad4c
@@ -4500,7 +4500,7 @@ LP_GEN_25668:
           .DATA.L _var_8c1bb900
           .DATA.L _var_8c1bb8d0
           .DATA.L init_8c043fd4
-          .DATA.L SUB_8c029ad4
+          .DATA.L _FUN_8c029ad4
           .DATA.L _var_8c226534
           .DATA.L _var_8c18adb4
           .DATA.L _var_8c18ad2c

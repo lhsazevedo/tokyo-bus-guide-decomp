@@ -807,7 +807,7 @@
           .EXPORT     _FUN_8c01677e
           .EXPORT     _FUN_8c016bf4
           .EXPORT     _requestCommonResources_8c01852c
-          .EXPORT     _request_sys_resgrp_8c018568
+          .EXPORT     _requestSysResgrp_8c018568
           .EXPORT     _FUN_8c0189d2
           .EXPORT     _FUN_8c01940e
           .EXPORT     _FUN_8c01c8dc
@@ -834,7 +834,7 @@
           .EXPORT     _FUN_8c0296d6
           .EXPORT     _FUN_8c029920
           .EXPORT     _FUN_8c029acc
-          .EXPORT     SUB_8c029ad4
+          .EXPORT     _FUN_8c029ad4
           .EXPORT     _FUN_8c02a6ac
           .EXPORT     _FUN_8c02aa28
           .EXPORT     _FUN_8c02aa36
@@ -3463,7 +3463,7 @@ LP_GEN_78741:
           .DATA.L __modls ; H'8C017584
           .DATA.L _FUN_8c0121be ; H'8C017588
           .DATA.L _var_8c225fbc ; H'8C01758C
-drawCoursesButtons_8c017590:
+_drawCoursesButtons_8c017590:
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           MOV.L       R12,@-R15
@@ -3994,7 +3994,7 @@ LAB_8c01795c:
 LAB_8c01798a:
           BSR         _FUN_8c016ee6
           NOP
-          BSR         drawCoursesButtons_8c017590
+          BSR         _drawCoursesButtons_8c017590
           NOP
           MOVA        LP_GEN_86103+58,R0
           MOV         R14,R4
@@ -4110,7 +4110,7 @@ LP_GEN_86103:
           .DATA.L _drawSprite_8c014f54 ; H'8C017A84
           .DATA.L H'C0800000 ; H'8C017A88
           .DATA.L _var_8c225fb8 ; H'8C017A8C
-          .DATA.L menuTextboxText_8c02af1c ; H'8C017A90
+          .DATA.L _menuTextboxText_8c02af1c ; H'8C017A90
           .DATA.L H'C0C00000 ; H'8C017A94
           .DATA.L H'C0E00000 ; H'8C017A98
           .DATA.L _FUN_8c012166 ; H'8C017A9C
@@ -4144,7 +4144,7 @@ LAB_8c017ac0:
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-task_menu_freerun_8c017ada:
+_task_menu_freerun_8c017ada:
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           MOV         R4,R13
@@ -4393,7 +4393,7 @@ LAB_8c017c98:
           JMP         @R3
           MOV.L       @R15+,R14
 LAB_8c017cb8:
-          BSR         drawCoursesButtons_8c017590
+          BSR         _drawCoursesButtons_8c017590
           NOP
           MOVA        LP_GEN_85439+16,R0
           MOV         R14,R4
@@ -4460,7 +4460,7 @@ LP_GEN_85439:
           .DATA.L H'C0A00000 ; H'8C017D38
           .DATA.L _drawSprite_8c014f54 ; H'8C017D3C
           .DATA.L _var_8c225fb8 ; H'8C017D40
-          .DATA.L menuTextboxText_8c02af1c ; H'8C017D44
+          .DATA.L _menuTextboxText_8c02af1c ; H'8C017D44
           .DATA.L H'C0C00000 ; H'8C017D48
           .DATA.L H'C0E00000 ; H'8C017D4C
           .DATA.L _FUN_8c012166 ; H'8C017D50
@@ -4636,7 +4636,7 @@ LAB_8c017e64:
           NOP
           MOV.L       LP_GEN_67544+48,R5
           MOV         R14,R4
-          BSR         _request_sys_resgrp_8c018568
+          BSR         _requestSysResgrp_8c018568
           ADD         #H'c,R4
           TST         R0,R0
           BT          LAB_8c017ec8
@@ -4716,7 +4716,7 @@ _FUN_8c017ef2:
 LP_GEN_67544:
           .DATA.W H'0C00 ; H'8C017F38
           .RES.W 1 ; H'8C017F3A
-          .DATA.L task_menu_freerun_8c017ada ; H'8C017F3C
+          .DATA.L _task_menu_freerun_8c017ada ; H'8C017F3C
           .DATA.L _setTaskAction_8c014b3e ; H'8C017F40
           .DATA.L _menuState_8c1bc7a8 ; H'8C017F44
           .DATA.L _var_8c225fbc ; H'8C017F48
@@ -4801,7 +4801,7 @@ LAB_8c017fb4:
           NOP
           MOV.L       LP_GEN_56170+62,R5
           MOV         R13,R4
-          BSR         _request_sys_resgrp_8c018568
+          BSR         _requestSysResgrp_8c018568
           ADD         #H'c,R4
           BSR         _requestCommonResources_8c01852c
           NOP
@@ -4886,7 +4886,7 @@ LP_GEN_56170:
           .DATA.W H'0C00 ; H'8C0180B2
           .DATA.W H'0240 ; H'8C0180B4
           .DATA.W H'0180 ; H'8C0180B6
-          .DATA.L task_menu_freerun_8c017ada ; H'8C0180B8
+          .DATA.L _task_menu_freerun_8c017ada ; H'8C0180B8
           .DATA.L _menuState_8c1bc7a8 ; H'8C0180BC
           .DATA.L _var_8c225fbc ; H'8C0180C0
           .DATA.L init_8c044c08 ; H'8C0180C4
@@ -5402,7 +5402,7 @@ _FUN_8c0184cc:
           NOP
           MOV.L       LP_GEN_93008+32,R5
           MOV         R14,R4
-          BSR         _request_sys_resgrp_8c018568
+          BSR         _requestSysResgrp_8c018568
           ADD         #H'c,R4
           MOV.L       LP_GEN_93008+36,R3
           JSR         @R3
@@ -5452,7 +5452,7 @@ _requestCommonResources_8c01852c:
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-_request_sys_resgrp_8c018568:
+_requestSysResgrp_8c018568:
           MOV.L       R14,@-R15
           MOV         R5,R14
           MOV.L       R13,@-R15
@@ -6845,7 +6845,7 @@ LP_GEN_98979:
           .DATA.W H'00FF ; H'8C01904E
           .DATA.W H'0600 ; H'8C019050
           .RES.W 1 ; H'8C019052
-          .DATA.L menuTextboxText_8c02af1c ; H'8C019054
+          .DATA.L _menuTextboxText_8c02af1c ; H'8C019054
           .DATA.L _FUN_8c01c8fc ; H'8C019058
           .DATA.L _var_8c225fe0 ; H'8C01905C
           .DATA.L _var_8c1ba2e0 ; H'8C019060
@@ -7153,7 +7153,7 @@ LP_GEN_73468:
           .DATA.L _FUN_8c010bae ; H'8C0192A8
           .DATA.L _push_fadeout_8c022b60 ; H'8C0192AC
           .DATA.L const_8c037ec8 ; H'8C0192B0
-          .DATA.L menuTextboxText_8c02af1c ; H'8C0192B4
+          .DATA.L _menuTextboxText_8c02af1c ; H'8C0192B4
           .DATA.L _FUN_8c0194de ; H'8C0192B8
           .DATA.L _var_8c22606c ; H'8C0192BC
           .DATA.L __8c03bd80 ; H'8C0192C0
@@ -7371,7 +7371,7 @@ LAB_8c01943c:
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-task_8c01946a:
+_task_8c01946a:
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           MOV.L       R12,@-R15
@@ -7548,7 +7548,7 @@ LP_GEN_33095:
           .DATA.L _pushTask_8c014ae8 ; H'8C0195B4
           .DATA.L _BupUnmount_8c014c46 ; H'8C0195B8
           .DATA.L _buStat ; H'8C0195BC
-          .DATA.L task_8c01946a ; H'8C0195C0
+          .DATA.L _task_8c01946a ; H'8C0195C0
           .DATA.L _syFree ; H'8C0195C4
           .DATA.L _ClearInfo_8c014c8a ; H'8C0195C8
           .DATA.L _gBupInfo_8c1bc4ac ; H'8C0195CC
@@ -7941,7 +7941,7 @@ _FUN_8c019852:
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-task_menu_8c0198a0:
+_task_menu_8c0198a0:
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           MOV.L       R12,@-R15
@@ -8524,7 +8524,7 @@ LP_GEN_17403:
           .DATA.L _FUN_8c01895e ; H'8C019CF0
           .DATA.L _FUN_8c010bae ; H'8C019CF4
           .DATA.L _drawSprite_8c014f54 ; H'8C019CF8
-          .DATA.L menuTextboxText_8c02af1c ; H'8C019CFC
+          .DATA.L _menuTextboxText_8c02af1c ; H'8C019CFC
 LAB_8c019d00:
           BSR         _FUN_8c019550
           MOV         #H'3,R5
@@ -8733,7 +8733,7 @@ LP_GEN_77899:
           .DATA.L _drawSprite_8c014f54 ; H'8C019E80
           .DATA.L __8c03bd80 ; H'8C019E84
           .DATA.L _FUN_8c01a09a ; H'8C019E88
-          .DATA.L task_menu_8c0198a0 ; H'8C019E8C
+          .DATA.L _task_menu_8c0198a0 ; H'8C019E8C
           .DATA.L _setTaskAction_8c014b3e ; H'8C019E90
           .DATA.L _menuState_8c1bc7a8 ; H'8C019E94
 _task_mainmenu_8c019e98:
@@ -9071,7 +9071,7 @@ LP_GEN_13822:
           .DATA.L _FUN_8c011f36 ; H'8C01A128
           .DATA.L _FUN_8c011f6c ; H'8C01A12C
           .DATA.L init_8c044264 ; H'8C01A130
-          .DATA.L _request_sys_resgrp_8c018568 ; H'8C01A134
+          .DATA.L _requestSysResgrp_8c018568 ; H'8C01A134
           .DATA.L _setUknPvmBool_8c014330 ; H'8C01A138
           .DATA.L _resetUknPvmBool_8c014322 ; H'8C01A13C
           .DATA.L _nop_8c011120 ; H'8C01A140
@@ -12064,7 +12064,7 @@ LP_GEN_43539:
           .DATA.L _var_8c1ba36c ; H'8C01B84C
           .DATA.L _FUN_8c016182 ; H'8C01B850
           .DATA.L _FUN_8c015fd6 ; H'8C01B854
-          .DATA.L menuTextboxText_8c02af1c ; H'8C01B858
+          .DATA.L _menuTextboxText_8c02af1c ; H'8C01B858
 LAB_8c01b85c:
           MOV.L       LP_GEN_14610+2,R2
           MOV         R14,R4
@@ -12390,7 +12390,7 @@ LP_GEN_62205:
           .DATA.W H'00FF ; H'8C01BAE2
           .DATA.W H'0600 ; H'8C01BAE4
           .RES.W 1 ; H'8C01BAE6
-          .DATA.L menuTextboxText_8c02af1c ; H'8C01BAE8
+          .DATA.L _menuTextboxText_8c02af1c ; H'8C01BAE8
           .DATA.L H'C0E00000 ; H'8C01BAEC
           .DATA.L LAB_8c01b3ac ; H'8C01BAF0
           .DATA.L _setTaskAction_8c014b3e ; H'8C01BAF4
@@ -14179,7 +14179,7 @@ LP_GEN_33412:
           .DATA.L _var_8c1bc454 ; H'8C01C868
           .DATA.L _syFree ; H'8C01C86C
           .DATA.L _FUN_8c01a09a ; H'8C01C870
-          .DATA.L menuTextboxText_8c02af1c ; H'8C01C874
+          .DATA.L _menuTextboxText_8c02af1c ; H'8C01C874
           .DATA.L H'C0800000 ; H'8C01C878
           .DATA.L _drawSprite_8c014f54 ; H'8C01C87C
 LAB_8c01c880:
@@ -14275,7 +14275,7 @@ LP_GEN_73212:
           .DATA.L _FUN_8c011f6c ; H'8C01C930
           .DATA.L init_8c044e90 ; H'8C01C934
           .DATA.L _var_8c2263a8 ; H'8C01C938
-          .DATA.L _request_sys_resgrp_8c018568 ; H'8C01C93C
+          .DATA.L _requestSysResgrp_8c018568 ; H'8C01C93C
           .DATA.L _var_8c1bc454 ; H'8C01C940
           .DATA.L const_8c038660 ; H'8C01C944
           .DATA.L const_8c038658 ; H'8C01C948
@@ -14707,7 +14707,7 @@ LP_GEN_72378:
           .DATA.L _njGarbageTexture ; H'8C01CCC0
           .DATA.L _FUN_8c011f36 ; H'8C01CCC4
           .DATA.L _FUN_8c011f6c ; H'8C01CCC8
-          .DATA.L _request_sys_resgrp_8c018568 ; H'8C01CCCC
+          .DATA.L _requestSysResgrp_8c018568 ; H'8C01CCCC
           .DATA.L _setUknPvmBool_8c014330 ; H'8C01CCD0
           .DATA.L _resetUknPvmBool_8c014322 ; H'8C01CCD4
           .DATA.L _nop_8c011120 ; H'8C01CCD8
@@ -15455,7 +15455,7 @@ LP_GEN_13275:
           .DATA.L _FUN_8c011f36 ; H'8C01D270
           .DATA.L _FUN_8c011f6c ; H'8C01D274
           .DATA.L init_8c0450d8 ; H'8C01D278
-          .DATA.L _request_sys_resgrp_8c018568 ; H'8C01D27C
+          .DATA.L _requestSysResgrp_8c018568 ; H'8C01D27C
           .DATA.L _setUknPvmBool_8c014330 ; H'8C01D280
           .DATA.L _resetUknPvmBool_8c014322 ; H'8C01D284
           .DATA.L _nop_8c011120 ; H'8C01D288
@@ -16166,7 +16166,7 @@ LP_GEN_20271:
           .DATA.L _FUN_8c011f36 ; H'8C01D7DC
           .DATA.L _FUN_8c011f6c ; H'8C01D7E0
           .DATA.L init_8c045160 ; H'8C01D7E4
-          .DATA.L _request_sys_resgrp_8c018568 ; H'8C01D7E8
+          .DATA.L _requestSysResgrp_8c018568 ; H'8C01D7E8
           .DATA.L _setUknPvmBool_8c014330 ; H'8C01D7EC
           .DATA.L _resetUknPvmBool_8c014322 ; H'8C01D7F0
           .DATA.L _nop_8c011120 ; H'8C01D7F4
@@ -16276,9 +16276,9 @@ LP_GEN_57051:
           .DATA.L H'C0A00000 ; H'8C01D8CC
           .DATA.L H'43960000 ; H'8C01D8D0
           .DATA.L H'43600000 ; H'8C01D8D4
-          .DATA.L menuTextboxText_8c02af1c ; H'8C01D8D8
+          .DATA.L _menuTextboxText_8c02af1c ; H'8C01D8D8
           .DATA.L H'C089999A ; H'8C01D8DC
-task_8c01d8e0:
+_task_8c01d8e0:
           MOV.L       R14,@-R15
           MOVA        LP_GEN_44131,R0
           MOV.L       R13,@-R15
@@ -16773,7 +16773,7 @@ LP_GEN_38701:
           .DATA.L _sdMidiPlay ; H'8C01DCB0
           .DATA.L _var_8c1ba36c ; H'8C01DCB4
           .DATA.L const_8c0388f0 ; H'8C01DCB8
-          .DATA.L menuTextboxText_8c02af1c ; H'8C01DCBC
+          .DATA.L _menuTextboxText_8c02af1c ; H'8C01DCBC
 caseD_6_2:
           MOV.L       LP_GEN_50614,R1
           MOV         #H'3,R6
@@ -17225,7 +17225,7 @@ LP_GEN_43538:
           .DATA.W H'0240 ; H'8C01E03A
           .DATA.W H'0180 ; H'8C01E03C
           .RES.W 1 ; H'8C01E03E
-          .DATA.L menuTextboxText_8c02af1c ; H'8C01E040
+          .DATA.L _menuTextboxText_8c02af1c ; H'8C01E040
           .DATA.L H'C089999A ; H'8C01E044
           .DATA.L _drawSprite_8c014f54 ; H'8C01E048
           .DATA.L H'FF418DFF ; H'8C01E04C
@@ -17234,7 +17234,7 @@ LP_GEN_43538:
           .DATA.L _task_8c012f44 ; H'8C01E058
           .DATA.L _tasks_8c1ba3c8 ; H'8C01E05C
           .DATA.L _pushTask_8c014ae8 ; H'8C01E060
-          .DATA.L task_8c01d8e0 ; H'8C01E064
+          .DATA.L _task_8c01d8e0 ; H'8C01E064
           .DATA.L _var_8c1bc7c0 ; H'8C01E068
           .DATA.L _var_8c157af8 ; H'8C01E06C
           .DATA.L _njGarbageTexture ; H'8C01E070
@@ -17244,7 +17244,7 @@ LP_GEN_43538:
           .DATA.L _FUN_8c011f6c ; H'8C01E080
           .DATA.L _titleResourceGroup_8c044254 ; H'8C01E084
           .DATA.L _var_8c1bc7b4 ; H'8C01E088
-          .DATA.L _request_sys_resgrp_8c018568 ; H'8C01E08C
+          .DATA.L _requestSysResgrp_8c018568 ; H'8C01E08C
           .DATA.L _requestCommonResources_8c01852c ; H'8C01E090
           .DATA.L _var_8c1ba344 ; H'8C01E094
           .DATA.L const_8c038960 ; H'8C01E098
@@ -17624,7 +17624,7 @@ LAB_8c01e356:
 LP_GEN_72974:
           .DATA.W H'00FF ; H'8C01E372
           .DATA.L H'C0800000 ; H'8C01E374
-          .DATA.L menuTextboxText_8c02af1c ; H'8C01E378
+          .DATA.L _menuTextboxText_8c02af1c ; H'8C01E378
           .DATA.L H'43600000 ; H'8C01E37C
           .DATA.L _drawSprite_8c014f54 ; H'8C01E380
           .DATA.L _menuState_8c1bc7a8 ; H'8C01E384
@@ -17949,7 +17949,7 @@ LP_GEN_38636:
           .DATA.L _FUN_8c011f6c ; H'8C01E61C
           .DATA.L init_8c044284 ; H'8C01E620
           .DATA.L _var_8c1bc7b4 ; H'8C01E624
-          .DATA.L _request_sys_resgrp_8c018568 ; H'8C01E628
+          .DATA.L _requestSysResgrp_8c018568 ; H'8C01E628
           .DATA.L _setUknPvmBool_8c014330 ; H'8C01E62C
           .DATA.L _resetUknPvmBool_8c014322 ; H'8C01E630
           .DATA.L _nop_8c011120 ; H'8C01E634
@@ -18319,7 +18319,7 @@ LP_GEN_46961:
           .DATA.L H'42820000 ; H'8C01E900
           .DATA.L H'C0900000 ; H'8C01E904
           .DATA.L init_8c0451ec ; H'8C01E908
-          .DATA.L menuTextboxText_8c02af1c ; H'8C01E90C
+          .DATA.L _menuTextboxText_8c02af1c ; H'8C01E90C
           .DATA.L H'C0A00000 ; H'8C01E910
           .DATA.L H'C0C00000 ; H'8C01E914
           .DATA.L H'C0E00000 ; H'8C01E918
@@ -18634,7 +18634,7 @@ LP_GEN_88702:
           .DATA.L _FUN_8c011f36 ; H'8C01EB5C
           .DATA.L _FUN_8c011f6c ; H'8C01EB60
           .DATA.L init_8c044274 ; H'8C01EB64
-          .DATA.L _request_sys_resgrp_8c018568 ; H'8C01EB68
+          .DATA.L _requestSysResgrp_8c018568 ; H'8C01EB68
           .DATA.L _setUknPvmBool_8c014330 ; H'8C01EB6C
           .DATA.L _resetUknPvmBool_8c014322 ; H'8C01EB70
           .DATA.L _nop_8c011120 ; H'8C01EB74
@@ -19332,7 +19332,7 @@ LP_GEN_11294:
           .DATA.L H'42040000 ; H'8C01F0F0
           .DATA.L H'C0000000 ; H'8C01F0F4
           .DATA.L _var_8c225fb8 ; H'8C01F0F8
-          .DATA.L menuTextboxText_8c02af1c ; H'8C01F0FC
+          .DATA.L _menuTextboxText_8c02af1c ; H'8C01F0FC
           .DATA.L H'C0A00000 ; H'8C01F100
           .DATA.L H'C0C00000 ; H'8C01F104
           .DATA.L H'C0400000 ; H'8C01F108
@@ -19446,7 +19446,7 @@ LP_GEN_22524:
           .DATA.L _FUN_8c011f36 ; H'8C01F1F4
           .DATA.L _FUN_8c011f6c ; H'8C01F1F8
           .DATA.L init_8c044274 ; H'8C01F1FC
-          .DATA.L _request_sys_resgrp_8c018568 ; H'8C01F200
+          .DATA.L _requestSysResgrp_8c018568 ; H'8C01F200
           .DATA.L _setUknPvmBool_8c014330 ; H'8C01F204
           .DATA.L _resetUknPvmBool_8c014322 ; H'8C01F208
           .DATA.L _nop_8c011120 ; H'8C01F20C
@@ -19631,7 +19631,7 @@ LP_GEN_37649:
           .DATA.L _FUN_8c011f6c ; H'8C01F39C
           .DATA.L _var_8c225fb0 ; H'8C01F3A0
           .DATA.L init_8c044274 ; H'8C01F3A4
-          .DATA.L _request_sys_resgrp_8c018568 ; H'8C01F3A8
+          .DATA.L _requestSysResgrp_8c018568 ; H'8C01F3A8
           .DATA.L _requestCommonResources_8c01852c ; H'8C01F3AC
           .DATA.L _setUknPvmBool_8c014330 ; H'8C01F3B0
           .DATA.L _resetUknPvmBool_8c014322 ; H'8C01F3B4
@@ -19929,7 +19929,7 @@ LP_GEN_39506:
           .DATA.L _drawSprite_8c014f54 ; H'8C01F5E8
           .DATA.L H'C1080000 ; H'8C01F5EC
           .DATA.L _var_8c225fb8 ; H'8C01F5F0
-          .DATA.L menuTextboxText_8c02af1c ; H'8C01F5F4
+          .DATA.L _menuTextboxText_8c02af1c ; H'8C01F5F4
           .DATA.L H'C0E00000 ; H'8C01F5F8
           .DATA.L H'C1000000 ; H'8C01F5FC
           .DATA.L H'005CA3D9 ; H'8C01F600
@@ -20467,7 +20467,7 @@ LP_GEN_38893:
           .DATA.L _FUN_8c011f36 ; H'8C01FA54
           .DATA.L _FUN_8c011f6c ; H'8C01FA58
           .DATA.L init_8c045324 ; H'8C01FA5C
-          .DATA.L _request_sys_resgrp_8c018568 ; H'8C01FA60
+          .DATA.L _requestSysResgrp_8c018568 ; H'8C01FA60
           .DATA.L _requestCommonResources_8c01852c ; H'8C01FA64
           .DATA.L _setUknPvmBool_8c014330 ; H'8C01FA68
           .DATA.L _resetUknPvmBool_8c014322 ; H'8C01FA6C
@@ -21903,7 +21903,7 @@ LP_GEN_81210:
           .DATA.L _pushTask_8c014ae8 ; H'8C020588
           .DATA.L _var_8c2264b8 ; H'8C02058C
           .DATA.L _FUN_8c0121be ; H'8C020590
-move_bus_model_8c020594:
+_move_bus_model_8c020594:
           MOV.L       R14,@-R15
           MOV         R4,R14
           MOV.W       LP_GEN_96031,R0
@@ -25946,7 +25946,7 @@ LP_GEN_14297:
           .RES.W 1 ; H'8C02245A
           .DATA.L _var_8c226570 ; H'8C02245C
           .DATA.L _var_8c22657c ; H'8C022460
-draw_8c022464:
+_draw_8c022464:
           MOV.L       R14,@-R15
           MOV         R4,R14
           MOV.L       R13,@-R15
@@ -26137,7 +26137,7 @@ LAB_8c0225b0:
           NOP
           MOV.L       LP_GEN_55916+56,R3
           MOV.L       R3,@R11
-          BSR         draw_8c022464
+          BSR         _draw_8c022464
           MOV         #H'1,R4
           MOV.L       LP_GEN_55916+64,R3
           MOV.L       LP_GEN_55916+60,R4
@@ -26247,7 +26247,7 @@ LAB_8c0226b4:
           NOP
           MOV.L       LP_GEN_42584+16,R3
           MOV.L       R3,@R11
-          BSR         draw_8c022464
+          BSR         _draw_8c022464
           MOV         #H'1,R4
           MOV.L       LP_GEN_42584+24,R3
           MOV.L       LP_GEN_42584+20,R4
@@ -26264,7 +26264,7 @@ LAB_8c0226b4:
           NOP
           MOV.L       LP_GEN_42584+36,R3
           MOV.L       R3,@R11
-          BSR         draw_8c022464
+          BSR         _draw_8c022464
           MOV         #H'2,R4
           MOV         R9,R5
           JSR         @R14
@@ -26279,7 +26279,7 @@ LAB_8c0226b4:
           MOV         #H'4,R5
           MOV.L       LP_GEN_42584+48,R3
           MOV.L       R3,@R11
-          BSR         draw_8c022464
+          BSR         _draw_8c022464
           MOV         #H'0,R4
           MOV         R9,R5
           JSR         @R14
@@ -26305,7 +26305,7 @@ LAB_8c022726:
           NOP
           MOV.L       LP_GEN_42584+16,R3
           MOV.L       R3,@R11
-          BSR         draw_8c022464
+          BSR         _draw_8c022464
           MOV         #H'1,R4
           MOV.L       LP_GEN_42584+24,R3
           MOV.L       LP_GEN_42584+20,R4
@@ -26334,7 +26334,7 @@ LAB_8c022726:
 LAB_8c022772:
           MOV.L       LP_GEN_42584+48,R3
           MOV.L       R3,@R11
-          BSR         draw_8c022464
+          BSR         _draw_8c022464
           MOV         #H'0,R4
 LAB_8c02277a:
           MOV         R9,R5
@@ -26549,7 +26549,7 @@ _FUN_8c022910:
           MOV.L       LP_GEN_60768+36,R3
           MOV.L       LP_GEN_60768+32,R2
           MOV.L       R2,@R3
-          BSR         draw_8c022464
+          BSR         _draw_8c022464
           MOV         #H'0,R4
 LAB_8c022944:
           MOV.L       LP_GEN_60768+48,R5
@@ -26683,7 +26683,7 @@ LAB_8c022a4a:
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-task_fadein_8c022a54:
+_task_fadein_8c022a54:
           MOV.L       R14,@-R15
           MOV.L       LP_GEN_18675+32,R7
           STS.L       PR,@-R15
@@ -26748,7 +26748,7 @@ _push_fadein_8c022a9c:
           LDS.L       @R15+,PR
           RTS
           NOP
-task_fadeout_8c022ad0:
+_task_fadeout_8c022ad0:
           MOV.L       R14,@-R15
           MOV         R4,R14
           MOV.L       R13,@-R15
@@ -26867,12 +26867,12 @@ LP_GEN_18675:
           .DATA.L _var_8c227d80 ; H'8C022BBC
           .DATA.L __divlu ; H'8C022BC0
           .DATA.L _freeTask_8c014b66 ; H'8C022BC4
-          .DATA.L task_fadein_8c022a54 ; H'8C022BC8
+          .DATA.L _task_fadein_8c022a54 ; H'8C022BC8
           .DATA.L _tasks_8c1ba3c8 ; H'8C022BCC
           .DATA.L _pushTask_8c014ae8 ; H'8C022BD0
           .DATA.L _njSetBackColor ; H'8C022BD4
-          .DATA.L task_fadeout_8c022ad0 ; H'8C022BD8
-task_bus_8c022bdc:
+          .DATA.L _task_fadeout_8c022ad0 ; H'8C022BD8
+_task_bus_8c022bdc:
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           MOV.L       R12,@-R15
@@ -26937,9 +26937,9 @@ LAB_8c022c44:
           MOV.W       LP_GEN_58738+8,R0
           MOV.L       @(R0,R14),R0
           CMP/EQ      #H'0,R0
-          BT          bus_state_boarding_8c022c7c
+          BT          LAB_bus_state_boarding_8c022c7c
           CMP/EQ      #H'1,R0
-          BT          bus_state_driving_8c022cca
+          BT          LAB_bus_state_driving_8c022cca
           CMP/EQ      #H'2,R0
           BF          LAB_8c022c68
           BRA         LAB_8c022e5a
@@ -26957,7 +26957,7 @@ LAB_8c022c70:
 LAB_8c022c78:
           BRA         LAB_8c022f72
           NOP
-bus_state_boarding_8c022c7c:
+LAB_bus_state_boarding_8c022c7c:
           MOV         R4,R0
           CMP/EQ      #H'0,R0
           BT          LAB_8c022c8a
@@ -27001,7 +27001,7 @@ LAB_8c022cbc:
           ADD         #H'4,R0
           BRA         LAB_8c022f72
           MOV.L       R13,@(R0,R14)
-bus_state_driving_8c022cca:
+LAB_bus_state_driving_8c022cca:
           MOV         R4,R0
           CMP/EQ      #H'2,R0
           BT          LAB_8c022d14
@@ -27766,7 +27766,7 @@ LP_GEN_14264:
           .DATA.L H'3E4CCCCD ; H'8C023294
           .DATA.L _var_8c18ad20 ; H'8C023298
           .DATA.L _var_8c1bbd9c ; H'8C02329C
-          .DATA.L prob_blinker_8c028022 ; H'8C0232A0
+          .DATA.L _prob_blinker_8c028022 ; H'8C0232A0
           .DATA.L _sdMidiStop ; H'8C0232A4
 LAB_8c0232a8:
           MOV.W       LP_GEN_51967,R0
@@ -27814,10 +27814,10 @@ LP_GEN_51967:
           .DATA.W H'0084 ; H'8C0232F4
           .RES.W 1 ; H'8C0232F6
           .DATA.L _var_8c1bbd9c ; H'8C0232F8
-          .DATA.L move_bus_model_8c020594 ; H'8C0232FC
+          .DATA.L _move_bus_model_8c020594 ; H'8C0232FC
           .DATA.L _var_8c1bb8d0 ; H'8C023300
-          .DATA.L gameplayRenderBusUpdateCamera_8c025078 ; H'8C023304
-          .DATA.L demoUpdateCamera_8c025906 ; H'8C023308
+          .DATA.L _gameplayRenderBusUpdateCamera_8c025078 ; H'8C023304
+          .DATA.L _demoUpdateCamera_8c025906 ; H'8C023308
           .DATA.L _FUN_8c025604 ; H'8C02330C
 _FUN_8c023310:
           MOV.L       R14,@-R15
@@ -28298,7 +28298,7 @@ LP_GEN_28893:
           .DATA.L _var_8c1bc410 ; H'8C0236D8
           .DATA.L H'4F800000 ; H'8C0236DC
           .DATA.L _var_8c227db4 ; H'8C0236E0
-          .DATA.L task_bus_8c022bdc ; H'8C0236E4
+          .DATA.L _task_bus_8c022bdc ; H'8C0236E4
           .DATA.L _var_8c1ba5e8 ; H'8C0236E8
           .DATA.L _pushTask_8c014ae8 ; H'8C0236EC
           .DATA.L _var_8c1bb9d0 ; H'8C0236F0
@@ -28482,7 +28482,7 @@ LP_GEN_45139:
           .DATA.L _FUN_8c023938 ; H'8C023864
           .DATA.L _FUN_8c023cba ; H'8C023868
           .DATA.L _var_8c1bbd9c ; H'8C02386C
-          .DATA.L move_bus_model_8c020594 ; H'8C023870
+          .DATA.L _move_bus_model_8c020594 ; H'8C023870
 LAB_8c023874:
           MOV.W       LP_GEN_98696,R0
           MOV.L       R13,@(R0,R14)
@@ -31577,7 +31577,7 @@ LP_GEN_98635:
           .DATA.W H'0304 ; H'8C02506E
           .DATA.L _var_8c227de0 ; H'8C025070
           .DATA.L _var_8c227d9c ; H'8C025074
-gameplayRenderBusUpdateCamera_8c025078:
+_gameplayRenderBusUpdateCamera_8c025078:
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           MOV.L       R12,@-R15
@@ -32648,7 +32648,7 @@ LAB_8c0258f2:
 LAB_8c025902:
           RTS
           MOV.L       @R15+,R14
-demoUpdateCamera_8c025906:
+_demoUpdateCamera_8c025906:
           MOV.L       R14,@-R15
           STS.L       PR,@-R15
           MOV.L       LP_GEN_52398+20,R3
@@ -32942,7 +32942,7 @@ LAB_8c025b20:
 LP_GEN_72418:
           .DATA.W H'023E ; H'8C025B60
           .DATA.W H'0180 ; H'8C025B62
-          .DATA.L menuTextboxText_8c02af1c ; H'8C025B64
+          .DATA.L _menuTextboxText_8c02af1c ; H'8C025B64
           .DATA.L LAB_8c024bb8 ; H'8C025B68
           .DATA.L _FUN_8c0223ea ; H'8C025B6C
           .DATA.L _var_8c227e0c ; H'8C025B70
@@ -34337,7 +34337,7 @@ LP_GEN_51630:
           .DATA.W H'01B0 ; H'8C0265FA
           .DATA.W H'029C ; H'8C0265FC
           .RES.W 1 ; H'8C0265FE
-          .DATA.L prob_blinker_8c028022 ; H'8C026600
+          .DATA.L _prob_blinker_8c028022 ; H'8C026600
           .DATA.L _var_8c1bbac4 ; H'8C026604
           .DATA.L _var_8c1bbacc ; H'8C026608
           .DATA.L _njSqrt ; H'8C02660C
@@ -37727,7 +37727,7 @@ LAB_8c02800a:
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-prob_blinker_8c028022:
+_prob_blinker_8c028022:
           MOV.W       LP_GEN_83484+28,R0
           MOV         #H'18,R3
           MOV.L       LP_GEN_83484+50,R6
@@ -37781,7 +37781,7 @@ LP_GEN_83484:
           .DATA.L _var_8c1bb86c ; H'8C028080
           .DATA.L _var_8c2264d4 ; H'8C028084
           .DATA.L _var_8c1bb880 ; H'8C028088
-          .DATA.L move_bus_model_8c020594 ; H'8C02808C
+          .DATA.L _move_bus_model_8c020594 ; H'8C02808C
           .DATA.L _var_8c1bbda0 ; H'8C028090
           .DATA.L _var_8c1bbdb8 ; H'8C028094
 LAB_8c028098:
@@ -39591,7 +39591,7 @@ LAB_8c028df6:
           BF          LAB_8c028dee
           RTS
           NOP
-task_pedestrian_8c028e00:
+_task_pedestrian_8c028e00:
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           MOV.L       R12,@-R15
@@ -39920,7 +39920,7 @@ LP_GEN_25196:
           .DATA.L H'40400000 ; H'8C02906C
           .DATA.L _FUN_8c020b6c ; H'8C029070
           .DATA.L _FUN_8c020f7e ; H'8C029074
-task_pedgroup_8c029078:
+_task_pedgroup_8c029078:
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           MOV.L       R12,@-R15
@@ -40145,7 +40145,7 @@ LP_GEN_98778:
           .DATA.L _var_8c228230 ; H'8C02921C
           .DATA.L H'0000FFFF ; H'8C029220
           .DATA.L _var_8c228238 ; H'8C029224
-          .DATA.L task_pedestrian_8c028e00 ; H'8C029228
+          .DATA.L _task_pedestrian_8c028e00 ; H'8C029228
           .DATA.L _pushTask_8c014ae8 ; H'8C02922C
           .DATA.L H'47000000 ; H'8C029230
           .DATA.L _rand ; H'8C029234
@@ -40381,7 +40381,7 @@ LAB_8c0293dc:
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-task_pedestrians_8c0293f6:
+_task_pedestrians_8c0293f6:
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           MOV.L       R12,@-R15
@@ -40630,7 +40630,7 @@ LP_GEN_46486:
           .DATA.W H'0220 ; H'8C0295EA
           .DATA.L _syMalloc ; H'8C0295EC
           .DATA.L _clearTasks_8c014a9c ; H'8C0295F0
-          .DATA.L task_pedgroup_8c029078 ; H'8C0295F4
+          .DATA.L _task_pedgroup_8c029078 ; H'8C0295F4
           .DATA.L _var_8c1ba808 ; H'8C0295F8
           .DATA.L _pushTask_8c014ae8 ; H'8C0295FC
           .DATA.L _syFree ; H'8C029600
@@ -40921,7 +40921,7 @@ LP_GEN_63109:
           .DATA.L _FUN_8c02e486 ; H'8C029844
           .DATA.L _var_8c228230 ; H'8C029848
           .DATA.L _syMalloc ; H'8C02984C
-          .DATA.L task_pedestrians_8c0293f6 ; H'8C029850
+          .DATA.L _task_pedestrians_8c0293f6 ; H'8C029850
           .DATA.L _var_8c1ba5e8 ; H'8C029854
           .DATA.L _pushTask_8c014ae8 ; H'8C029858
           .DATA.L _var_8c228234 ; H'8C02985C
@@ -41234,7 +41234,7 @@ _FUN_8c029acc:
           MOV         #-H'1,R3
           RTS
           MOV.L       R3,@R2
-SUB_8c029ad4:
+_FUN_8c029ad4:
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           MOV.L       R12,@-R15
@@ -43584,7 +43584,7 @@ LAB_8c02ad04:
           EXTU.W      R7,R3
           CMP/EQ      R9,R3
           BF          LAB_8c02acca
-          BSR         menuTextboxText_8c02af1c
+          BSR         _menuTextboxText_8c02af1c
           MOV.L       @(H'8,R14),R4
           ADD         #H'4,R15
           LDS.L       @R15+,PR
@@ -43822,7 +43822,7 @@ _FUN_8c02aefc:
           MOV.L       LP_GEN_47883+8,R3
           JMP         @R3
           MOV.L       @R15+,R14
-menuTextboxText_8c02af1c:
+_menuTextboxText_8c02af1c:
           ADD         #-H'4,R15
           MOV.L       LP_GEN_47883,R3
           MOV         R4,R5
