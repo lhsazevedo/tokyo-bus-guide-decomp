@@ -1,0 +1,5 @@
+          .IMPORT     _var_8c226570
+          .IMPORT     _var_8c22657c
+          .EXPORT     _FUN_8c022420
+          .SECTION     P, CODE, ALIGN=4
+          .END

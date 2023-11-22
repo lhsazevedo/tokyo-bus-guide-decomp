@@ -1,0 +1,55 @@
+          .IMPORT     _var_8c1bbc84
+          .IMPORT     _var_8c225fa8
+          .IMPORT     _peripheral_8c1ba35c
+          .IMPORT     _var_8c225fac
+          .EXPORT     _FUN_8c016bf4
+          .SECTION     P, CODE, ALIGN=4
+_FUN_8c016bf4:
+          ADD         #-H'4,R15
+          MOV.L       LP_GEN_58691,R1
+          MOV         #H'1,R3
+          MOV.L       @R1,R2
+          CMP/GE      R3,R2
+          BF          LAB_8c016c40
+          MOV.L       LP_GEN_58691+4,R5
+          MOV.L       LP_GEN_58691+8,R2
+          MOV.L       @R5,R6
+          CMP/HS      R2,R6
+          BT          LAB_8c016c40
+          MOV.L       @R6,R0
+          MOV.L       LP_GEN_58691+12,R4
+          MOV         R0,R7
+          MOV.L       LP_GEN_58691+16,R6
+          MOV.L       R0,@(H'8,R4)
+          MOV.L       @R6,R1
+          XOR         R7,R1
+          MOV         R1,R3
+          AND         R3,R7
+          MOV.L       R1,@R15
+          MOV.L       R7,@(H'10,R4)
+          MOV.L       @(H'8,R4),R3
+          MOV.L       R3,@R6
+          MOV.L       @R5,R0
+          MOV.B       @(H'4,R0),R0
+          MOV.W       R0,@(H'1c,R4)
+          MOV.L       @R5,R0
+          MOV.B       @(H'5,R0),R0
+          EXTU.B      R0,R0
+          MOV.W       R0,@(H'18,R4)
+          MOV.L       @R5,R0
+          MOV.B       @(H'6,R0),R0
+          EXTU.B      R0,R0
+          MOV.W       R0,@(H'1a,R4)
+          MOV.L       @R5,R3
+          ADD         #H'8,R3
+          MOV.L       R3,@R5
+LAB_8c016c40:
+          RTS
+          ADD         #H'4,R15
+LP_GEN_58691:
+          .DATA.L _var_8c1bbc84 ; H'8C016C44
+          .DATA.L _var_8c225fa8 ; H'8C016C48
+          .DATA.L _var_8c225fa8 ; H'8C016C4C
+          .DATA.L _peripheral_8c1ba35c ; H'8C016C50
+          .DATA.L _var_8c225fac ; H'8C016C54
+          .END

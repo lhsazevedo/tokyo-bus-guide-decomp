@@ -32,7 +32,7 @@ extern void FUN_8c019e44(Task* task);
 extern FUN_8c016182();
 extern FUN_8c0159ac();
 extern void FUN_8c011f6c();
-extern void request_sys_resgrp_8c018568(ResourceGroup* dds, ResourceGroupInfo* rg);
+extern void requestSysResgrp_8c018568(ResourceGroup* dds, ResourceGroupInfo* rg);
 extern void requestCommonResources_8c01852c();
 extern void setUknPvmBool_8c014330();
 extern void FUN_8c011fe0(void* p1, int p2, int p3, int p4, void* p2);
@@ -486,7 +486,7 @@ void FUN_8c015fd6 (Bool direct) {
     var_8c225fb0 = (void *) -1;
 
     /* 8c016070 */
-    request_sys_resgrp_8c018568(&menuState_8c1bc7a8.drawDatStruct1_0x0c, &titleResourceGroup_8c044254);
+    requestSysResgrp_8c018568(&menuState_8c1bc7a8.drawDatStruct1_0x0c, &titleResourceGroup_8c044254);
 
     /* 8c016076 */
     requestCommonResources_8c01852c();

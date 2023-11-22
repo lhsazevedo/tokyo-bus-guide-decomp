@@ -1,0 +1,1543 @@
+          .IMPORT     _FUN_8c02081c
+          .IMPORT     _FUN_8c02dfca
+          .IMPORT     _var_8c1bbd9c
+          .IMPORT     _var_8c1bb878
+          .IMPORT     _var_8c228b3c
+          .IMPORT     _FUN_8c02e51c
+          .IMPORT     _var_8c2264d0
+          .IMPORT     _var_8c1bb888
+          .IMPORT     _FUN_8c028900
+          .IMPORT     _FUN_8c02f28a
+          .IMPORT     _FUN_8c028998
+          .IMPORT     _FUN_8c028984
+          .IMPORT     _FUN_8c02f08a
+          .IMPORT     _var_8c1bc460
+          .IMPORT     _FUN_8c02f0c8
+          .IMPORT     _FUN_8c026eaa
+          .IMPORT     _FUN_8c026fcc
+          .IMPORT     _FUN_8c026f7e
+          .IMPORT     _FUN_8c026fb0
+          .IMPORT     _FUN_8c0207d4
+          .IMPORT     _FUN_8c026ca2
+          .IMPORT     _FUN_8c027012
+          .IMPORT     _var_8c227e14
+          .IMPORT     _FUN_8c026710
+          .IMPORT     _FUN_8c02e400
+          .IMPORT     _FUN_8c026bc4
+          .IMPORT     _var_8c18ad20
+          .IMPORT     _prob_blinker_8c028022
+          .IMPORT     _var_8c1bbac4
+          .IMPORT     _var_8c1bbacc
+          .IMPORT     _njSqrt
+          .IMPORT     _freeTask_8c014b66
+          .IMPORT     _FUN_8c027c3c
+          .EXPORT     _FUN_8c025b98
+          .EXPORT     _FUN_8c02656a
+          .SECTION     P, CODE, ALIGN=4
+_FUN_8c025b98:
+          MOV.L       R14,@-R15
+          MOV.L       R13,@-R15
+          MOV.L       R12,@-R15
+          MOV.L       R11,@-R15
+          MOV.L       R10,@-R15
+          MOV.L       R9,@-R15
+          MOV.L       R8,@-R15
+          FMOV.S      FR15,@-R15
+          FMOV.S      FR14,@-R15
+          FMOV.S      FR13,@-R15
+          FMOV.S      FR12,@-R15
+          STS.L       PR,@-R15
+          ADD         #-H'10,R15
+          MOVA        LP_GEN_90361+22,R0
+          MOV         R5,R14
+          FMOV.S      @R0,FR12
+          MOV         #H'1,R11
+          MOV         R11,R0
+          ADD         #H'7f,R0
+          MOV         #H'0,R12
+          MOV.L       LP_GEN_90361+18,R9
+          MOV.L       R12,@(R0,R14)
+          MOV         R4,R10
+          MOV.W       LP_GEN_90361,R0
+          FMOV.S      @(R0,R14),FR15
+          ADD         #H'38,R0
+          MOV.L       @(R0,R14),R0
+          CMP/EQ      #H'0,R0
+          BT/S        LAB_8c025bec
+          MOV         R5,R13
+          CMP/EQ      #H'2,R0
+          BT          LAB_8c025bec
+          CMP/EQ      #H'1,R0
+          BF          LAB_8c025be0
+          BRA         LAB_8c026332
+          NOP
+LAB_8c025be0:
+          CMP/EQ      #H'3,R0
+          BF          LAB_8c025be8
+          BRA         LAB_8c0263f0
+          NOP
+LAB_8c025be8:
+          BRA         LAB_8c02642c
+          NOP
+LAB_8c025bec:
+          FLDI0       FR3
+          FCMP/EQ     FR3,FR15
+          BT          LAB_8c025c1e
+          MOV.W       LP_GEN_90361+2,R0
+          MOV.W       LP_GEN_90361+6,R4
+          MOV.L       @(R0,R14),R2
+          MOV.W       LP_GEN_90361+4,R0
+          FMOV.S      @(R0,R14),FR6
+          ADD         #-H'4,R0
+          FMOV.S      @(R0,R14),FR5
+          ADD         #-H'4,R0
+          FMOV.S      @(R0,R14),FR4
+          JSR         @R2
+          ADD         R13,R4
+          TST         R0,R0
+          BT/S        LAB_8c025c18
+          MOV         R0,R4
+          MOV.L       @R4+,R8
+          MOV.W       LP_GEN_90361+8,R0
+          MOV.L       @R4,R3
+          BRA         LAB_8c025c1e
+          MOV.L       R3,@(R0,R14)
+LAB_8c025c18:
+          MOV.W       LP_GEN_90361+8,R0
+          MOV         #-H'1,R8
+          MOV.L       R12,@(R0,R14)
+LAB_8c025c1e:
+          MOV.W       LP_GEN_90361+10,R0
+          FMOV        FR15,FR2
+          MOV.L       R8,@(R0,R13)
+          MOV.W       LP_GEN_90361+12,R0
+          FMOV        FR12,FR14
+          MOV.L       R12,@(R0,R13)
+          MOVA        LP_GEN_90361+26,R0
+          FMOV.S      @R0,FR3
+          MOVA        LP_GEN_90361+30,R0
+          FMOV.S      @R0,FR1
+          MOVA        LP_GEN_90361+34,R0
+          FMUL        FR3,FR2
+          FMOV.S      @R0,FR0
+          MOV.W       LP_GEN_90361+14,R0
+          FMOV.S      @(R0,R13),FR3
+          ADD         #H'8,R0
+          FDIV        FR1,FR2
+          MOV.L       @(R0,R13),R3
+          TST         R3,R3
+          FDIV        FR0,FR2
+          FMOV        FR2,FR13
+          BF/S        LAB_8c025c84
+          FADD        FR3,FR13
+          MOV.L       LP_GEN_90361+38,R3
+          MOV         R13,R5
+          FMOV        FR13,FR4
+          JSR         @R3
+          MOV         R10,R4
+          BRA         LAB_8c025c94
+          NOP
+LP_GEN_90361:
+          .DATA.W H'027C ; H'8C025C5A
+          .DATA.W H'02CC ; H'8C025C5C
+          .DATA.W H'00FC ; H'8C025C5E
+          .DATA.W H'0404 ; H'8C025C60
+          .DATA.W H'02DC ; H'8C025C62
+          .DATA.W H'0410 ; H'8C025C64
+          .DATA.W H'050C ; H'8C025C66
+          .DATA.W H'041C ; H'8C025C68
+          .RES.W 1 ; H'8C025C6A
+          .DATA.L _FUN_8c02081c ; H'8C025C6C
+          .DATA.L H'461C3C00 ; H'8C025C70
+          .DATA.L H'47D2F000 ; H'8C025C74
+          .DATA.L H'447A0000 ; H'8C025C78
+          .DATA.L H'40400000 ; H'8C025C7C
+          .DATA.L _FUN_8c02dfca ; H'8C025C80
+LAB_8c025c84:
+          MOVA        LP_GEN_24120+30,R0
+          FMOV        FR13,FR4
+          FMOV.S      @R0,FR3
+          MOV         R13,R5
+          MOV.L       LP_GEN_24120+34,R3
+          FADD        FR3,FR4
+          JSR         @R3
+          MOV         R10,R4
+LAB_8c025c94:
+          MOV         R0,R3
+          TST         R3,R3
+          BT/S        LAB_8c025d32
+          MOV.L       R0,@(H'4,R15)
+          MOV.W       LP_GEN_24120,R5
+          MOV.L       @(H'4,R15),R4
+          MOV.W       LP_GEN_24120+2,R3
+          ADD         R14,R5
+          JSR         @R9
+          ADD         R3,R4
+          MOV.L       LP_GEN_24120+38,R1
+          MOV.L       @(H'4,R15),R3
+          MOV.L       @R1,R2
+          CMP/EQ      R2,R3
+          BF/S        LAB_8c025cce
+          FMOV        FR0,FR13
+          MOV.W       LP_GEN_24120,R5
+          MOV.L       @(H'4,R15),R4
+          MOV.W       LP_GEN_24120+4,R3
+          ADD         R14,R5
+          JSR         @R9
+          ADD         R3,R4
+          FMOV        FR0,FR4
+          FCMP/GT     FR4,FR13
+          BF          LAB_8c025cc8
+          FMOV        FR4,FR13
+LAB_8c025cc8:
+          MOVA        LP_GEN_24120+30,R0
+          FMOV.S      @R0,FR3
+          FSUB        FR3,FR13
+LAB_8c025cce:
+          MOV.W       LP_GEN_24120+6,R0
+          FMOV.S      @(R0,R13),FR3
+          FSUB        FR3,FR13
+          FLDI0       FR3
+          FCMP/GT     FR13,FR3
+          BF          LAB_8c025cdc
+          FMOV        FR3,FR13
+LAB_8c025cdc:
+          MOV.W       LP_GEN_24120+8,R0
+          MOV.L       @(H'4,R15),R2
+          MOV.L       @(R0,R2),R3
+          TST         R3,R3
+          BT/S        LAB_8c025d3c
+          MOV.L       R3,@(R0,R14)
+          MOV.W       LP_GEN_24120+10,R0
+          MOV.L       LP_GEN_24120+42,R2
+          MOV.L       LP_GEN_24120+46,R3
+          MOV.L       @R2,R1
+          MOV.W       LP_GEN_24120+12,R4
+          MOV.L       R1,@R3
+          FMOV.S      @(R0,R14),FR6
+          ADD         #-H'4,R0
+          FMOV.S      @(R0,R14),FR5
+          ADD         #-H'4,R0
+          MOV.L       LP_GEN_24120+50,R1
+          FMOV.S      @(R0,R14),FR4
+          JSR         @R1
+          ADD         R13,R4
+          TST         R0,R0
+          BT/S        LAB_8c025d28
+          MOV         R0,R4
+          MOV.L       @(H'c,R4),R2
+          MOV.L       LP_GEN_24120+54,R3
+          TST         R3,R2
+          BF          LAB_8c025d28
+          FLDI0       FR3
+          FCMP/EQ     FR3,FR15
+          MOV.W       LP_GEN_24120+14,R0
+          BF/S        LAB_8c025d28
+          MOV.L       R11,@(R0,R13)
+          MOV.W       LP_GEN_24120+16,R0
+          MOV.L       @(R0,R13),R0
+          CMP/EQ      #H'2,R0
+          BT          LAB_8c025d28
+          MOV.L       LP_GEN_24120+58,R3
+          MOV.L       R11,@R3
+LAB_8c025d28:
+          MOV.L       LP_GEN_24120+62,R1
+          MOV.L       LP_GEN_24120+46,R0
+          MOV.L       @R1,R2
+          BRA         LAB_8c025d3c
+          MOV.L       R2,@R0
+LAB_8c025d32:
+          MOV.W       LP_GEN_24120+18,R0
+          FMOV        FR12,FR13
+          MOV.L       R12,@(R0,R13)
+          MOV.W       LP_GEN_24120+8,R0
+          MOV.L       R12,@(R0,R14)
+LAB_8c025d3c:
+          MOV.W       LP_GEN_24120+20,R0
+          MOV.L       @(R0,R13),R0
+          CMP/EQ      #H'1,R0
+          BT          LAB_8c025d4c
+          CMP/EQ      #H'2,R0
+          BT          LAB_8c025d60
+          BRA         LAB_8c025dde
+          NOP
+LAB_8c025d4c:
+          MOV.W       LP_GEN_24120+22,R0
+          MOV.L       @(R0,R13),R3
+          CMP/EQ      R3,R8
+          BF          LAB_8c025dde
+          MOV.W       LP_GEN_24120+20,R0
+          MOV         #H'2,R1
+          MOV.L       R1,@(R0,R13)
+          MOV.W       LP_GEN_24120+24,R0
+          BRA         LAB_8c025dde
+          MOV.L       R12,@(R0,R14)
+LAB_8c025d60:
+          MOV.W       LP_GEN_24120+26,R0
+          MOV.L       @(R0,R13),R2
+          CMP/EQ      R2,R8
+          BF          LAB_8c025db0
+          MOV.W       LP_GEN_24120+20,R0
+          BRA         LAB_8c025dde
+          MOV.L       R12,@(R0,R13)
+LP_GEN_24120:
+          .DATA.W H'00EC ; H'8C025D6E
+          .DATA.W H'010C ; H'8C025D70
+          .DATA.W H'00F4 ; H'8C025D72
+          .DATA.W H'041C ; H'8C025D74
+          .DATA.W H'02D4 ; H'8C025D76
+          .DATA.W H'00FC ; H'8C025D78
+          .DATA.W H'0500 ; H'8C025D7A
+          .DATA.W H'050C ; H'8C025D7C
+          .DATA.W H'0468 ; H'8C025D7E
+          .DATA.W H'0424 ; H'8C025D80
+          .DATA.W H'042C ; H'8C025D82
+          .DATA.W H'0434 ; H'8C025D84
+          .DATA.W H'0260 ; H'8C025D86
+          .DATA.W H'0438 ; H'8C025D88
+          .RES.W 1 ; H'8C025D8A
+          .DATA.L H'40A00000 ; H'8C025D8C
+          .DATA.L _FUN_8c02dfca ; H'8C025D90
+          .DATA.L _var_8c1bbd9c ; H'8C025D94
+          .DATA.L _var_8c1bb878 ; H'8C025D98
+          .DATA.L _var_8c228b3c ; H'8C025D9C
+          .DATA.L _FUN_8c02e51c ; H'8C025DA0
+          .DATA.L H'0F000000 ; H'8C025DA4
+          .DATA.L _var_8c2264d0 ; H'8C025DA8
+          .DATA.L _var_8c1bb888 ; H'8C025DAC
+LAB_8c025db0:
+          MOV.W       LP_GEN_90300,R0
+          MOV         #H'10,R3
+          MOV.L       @(R0,R14),R2
+          TST         R3,R2
+          ADD         #H'1,R2
+          BF/S        LAB_8c025dde
+          MOV.L       R2,@(R0,R14)
+          MOV.W       LP_GEN_90300+2,R0
+          MOV.L       @(R0,R13),R0
+          TST         R0,R0
+          BF          LAB_8c025dd4
+          MOV.W       LP_GEN_90300+4,R0
+          MOV         #H'2,R2
+          MOV.L       @(R0,R14),R1
+          OR          R2,R1
+          MOV.L       R1,@(R0,R14)
+          BRA         LAB_8c025dde
+          NOP
+LAB_8c025dd4:
+          MOV.W       LP_GEN_90300+4,R0
+          MOV         #H'4,R2
+          MOV.L       @(R0,R14),R1
+          OR          R2,R1
+          MOV.L       R1,@(R0,R14)
+LAB_8c025dde:
+          MOV.W       LP_GEN_90300+6,R0
+          MOV.L       R12,@(H'4,R15)
+          MOV.L       @(R0,R13),R0
+          CMP/EQ      #H'2,R0
+          BF          LAB_8c025e14
+          MOV.W       LP_GEN_90300+8,R0
+          MOV.L       @(R0,R13),R3
+          MOV.W       LP_GEN_90300+10,R0
+          MOV.L       @(R0,R13),R2
+          CMP/EQ      R3,R2
+          BF          LAB_8c025e10
+          MOV.L       LP_GEN_90300+26,R3
+          MOV.W       LP_GEN_90300+12,R0
+          JSR         @R3
+          MOV.L       @(R0,R13),R4
+          CMP/EQ      #H'1,R0
+          BF          LAB_8c025e0c
+          MOV.L       LP_GEN_90300+30,R3
+          MOV.W       LP_GEN_90300+12,R0
+          JSR         @R3
+          MOV.L       @(R0,R13),R4
+          TST         R0,R0
+          BT          LAB_8c025e14
+LAB_8c025e0c:
+          BRA         LAB_8c025e14
+          MOV.L       R11,@(H'4,R15)
+LAB_8c025e10:
+          MOV.W       LP_GEN_90300+6,R0
+          MOV.L       R12,@(R0,R13)
+LAB_8c025e14:
+          MOV.W       LP_GEN_90300+14,R0
+          MOV.L       @(R0,R13),R0
+          CMP/EQ      #H'2,R0
+          BT          LAB_8c025e24
+          CMP/EQ      #H'3,R0
+          BT          LAB_8c025e46
+          BRA         LAB_8c025e5e
+          NOP
+LAB_8c025e24:
+          MOV.W       LP_GEN_90300+8,R0
+          MOV.L       @(R0,R13),R3
+          MOV.W       LP_GEN_90300+16,R0
+          MOV.L       @(R0,R13),R2
+          CMP/EQ      R3,R2
+          BF          LAB_8c025e40
+          MOV.L       LP_GEN_90300+34,R3
+          MOV.W       LP_GEN_90300+18,R0
+          JSR         @R3
+          MOV.L       @(R0,R13),R4
+          TST         R0,R0
+          BT          LAB_8c025e5e
+          BRA         LAB_8c025e5e
+          MOV.L       R11,@(H'4,R15)
+LAB_8c025e40:
+          MOV.W       LP_GEN_90300+14,R0
+          MOV         #H'3,R3
+          MOV.L       R3,@(R0,R13)
+LAB_8c025e46:
+          MOV.W       LP_GEN_90300+20,R0
+          MOV.L       @(R0,R13),R2
+          CMP/EQ      R2,R8
+          BT          LAB_8c025e5a
+          MOV.L       LP_GEN_90300+38,R3
+          MOV.W       LP_GEN_90300+18,R0
+          JSR         @R3
+          MOV.L       @(R0,R13),R4
+          BRA         LAB_8c025e5e
+          NOP
+LAB_8c025e5a:
+          MOV.W       LP_GEN_90300+14,R0
+          MOV.L       R12,@(R0,R13)
+LAB_8c025e5e:
+          MOV.W       LP_GEN_90300+22,R0
+          MOV.L       @(R0,R13),R3
+          TST         R3,R3
+          BT          LAB_8c025eac
+          MOV.W       LP_GEN_90300+8,R0
+          MOV.L       @(R0,R13),R3
+          MOV.W       LP_GEN_90300+16,R0
+          MOV.L       @(R0,R13),R2
+          CMP/EQ      R3,R2
+          BF          LAB_8c025ea8
+          MOV.L       LP_GEN_90300+38,R3
+          MOV.W       LP_GEN_90300+22,R0
+          JSR         @R3
+          MOV.L       @(R0,R13),R4
+          BRA         LAB_8c025eac
+          NOP
+LP_GEN_90300:
+          .DATA.W H'0260 ; H'8C025E7E
+          .DATA.W H'0430 ; H'8C025E80
+          .DATA.W H'0080 ; H'8C025E82
+          .DATA.W H'0448 ; H'8C025E84
+          .DATA.W H'0300 ; H'8C025E86
+          .DATA.W H'0454 ; H'8C025E88
+          .DATA.W H'0450 ; H'8C025E8A
+          .DATA.W H'0458 ; H'8C025E8C
+          .DATA.W H'0464 ; H'8C025E8E
+          .DATA.W H'045C ; H'8C025E90
+          .DATA.W H'0460 ; H'8C025E92
+          .DATA.W H'0498 ; H'8C025E94
+          .RES.W 1 ; H'8C025E96
+          .DATA.L _FUN_8c028900 ; H'8C025E98
+          .DATA.L _FUN_8c02f28a ; H'8C025E9C
+          .DATA.L _FUN_8c028998 ; H'8C025EA0
+          .DATA.L _FUN_8c028984 ; H'8C025EA4
+LAB_8c025ea8:
+          MOV.W       LP_GEN_70698,R0
+          MOV.L       R12,@(R0,R13)
+LAB_8c025eac:
+          MOV.W       LP_GEN_70698+2,R0
+          MOV.L       @(R0,R13),R0
+          CMP/EQ      #H'2,R0
+          BF          LAB_8c025ed6
+          MOV.W       LP_GEN_70698+4,R0
+          MOV.L       @(R0,R13),R3
+          MOV.W       LP_GEN_70698+6,R0
+          MOV.L       @(R0,R13),R2
+          CMP/EQ      R3,R2
+          BF          LAB_8c025ed2
+          MOV.W       LP_GEN_70698+8,R0
+          MOV.L       LP_GEN_70698+26,R3
+          MOV.L       @(R0,R13),R5
+          JSR         @R3
+          MOV         R10,R4
+          TST         R0,R0
+          BT          LAB_8c025ed6
+          BRA         LAB_8c025ed6
+          MOV.L       R11,@(H'4,R15)
+LAB_8c025ed2:
+          MOV.W       LP_GEN_70698+2,R0
+          MOV.L       R12,@(R0,R13)
+LAB_8c025ed6:
+          MOVA        LP_GEN_70698+30,R0
+          FMOV        FR15,FR3
+          FMOV.S      @R0,FR4
+          MOV.W       LP_GEN_70698+10,R0
+          FMUL        FR4,FR3
+          FMOV.S      FR3,@R15
+          MOV.L       @(R0,R13),R0
+          CMP/EQ      #H'1,R0
+          BT          LAB_8c025efc
+          CMP/EQ      #H'2,R0
+          BT          LAB_8c025f1a
+          CMP/EQ      #H'3,R0
+          BT          LAB_8c025f3a
+          CMP/EQ      #H'4,R0
+          BF          LAB_8c025ef8
+          BRA         LAB_8c026044
+          NOP
+LAB_8c025ef8:
+          BRA         LAB_8c026096
+          NOP
+LAB_8c025efc:
+          MOV.W       LP_GEN_70698+12,R0
+          MOV.L       @(R0,R13),R3
+          CMP/EQ      R3,R8
+          BT          LAB_8c025f08
+          BRA         LAB_8c026096
+          NOP
+LAB_8c025f08:
+          MOV.W       LP_GEN_70698+10,R0
+          MOV         #H'2,R1
+          MOV         #H'1e,R4
+          MOV.L       R1,@(R0,R13)
+          ADD         #H'14,R0
+          MOV.L       R4,@(R0,R13)
+          MOV.W       LP_GEN_70698+14,R0
+          BRA         LAB_8c026096
+          MOV.L       R4,@(R0,R14)
+LAB_8c025f1a:
+          MOV.W       LP_GEN_70698+16,R0
+          MOV.L       @(R0,R13),R2
+          CMP/PL      R2
+          ADD         #-H'1,R2
+          BF/S        LAB_8c025f2a
+          MOV.L       R2,@(R0,R13)
+          BRA         LAB_8c026090
+          NOP
+LAB_8c025f2a:
+          FMOV        FR15,FR3
+          FDIV        FR4,FR3
+          MOV.W       LP_GEN_70698+10,R0
+          MOV         #H'3,R2
+          MOV.L       R2,@(R0,R13)
+          ADD         #-H'54,R0
+          BRA         LAB_8c026090
+          FMOV        FR3,@(R0,R13)
+LAB_8c025f3a:
+          MOV.W       LP_GEN_70698+4,R0
+          MOV.L       LP_GEN_70698+34,R8
+          MOV.L       @(R0,R13),R2
+          MOV.W       LP_GEN_70698+18,R0
+          MOV.L       @(R0,R13),R3
+          CMP/EQ      R2,R3
+          BF          LAB_8c02600c
+          MOVA        LP_GEN_70698+38,R0
+          MOV.L       LP_GEN_70698+42,R3
+          FMOV.S      @R0,FR3
+          MOV         R13,R5
+          MOV.W       LP_GEN_70698+20,R0
+          FMOV.S      @(R0,R14),FR2
+          MOV         #H'c,R0
+          FADD        FR3,FR2
+          FMOV        FR2,@(R0,R15)
+          MOV.W       LP_GEN_70698+22,R0
+          FMOV.S      @R15,FR1
+          FMOV.S      @(R0,R14),FR4
+          ADD         #H'40,R0
+          FMOV        FR2,FR5
+          FADD        FR1,FR5
+          MOV.L       @(R0,R13),R7
+          FSUB        FR2,FR4
+          MOV.W       LP_GEN_70698+24,R0
+          MOV.L       @(R0,R13),R6
+          JSR         @R3
+          MOV         R10,R4
+          TST         R0,R0
+          BT/S        LAB_8c025fb4
+          MOV         R0,R5
+          MOV.L       LP_GEN_70698+46,R3
+          JSR         @R3
+          MOV         R14,R4
+          BRA         LAB_8c026090
+          FMOV        FR0,FR14
+LP_GEN_70698:
+          .DATA.W H'0498 ; H'8C025F82
+          .DATA.W H'0468 ; H'8C025F84
+          .DATA.W H'0300 ; H'8C025F86
+          .DATA.W H'0470 ; H'8C025F88
+          .DATA.W H'046C ; H'8C025F8A
+          .DATA.W H'0474 ; H'8C025F8C
+          .DATA.W H'0478 ; H'8C025F8E
+          .DATA.W H'0260 ; H'8C025F90
+          .DATA.W H'0488 ; H'8C025F92
+          .DATA.W H'0480 ; H'8C025F94
+          .DATA.W H'023C ; H'8C025F96
+          .DATA.W H'02C0 ; H'8C025F98
+          .DATA.W H'0484 ; H'8C025F9A
+          .DATA.L _FUN_8c02f08a ; H'8C025F9C
+          .DATA.L H'41F00000 ; H'8C025FA0
+          .DATA.L _var_8c1bc460 ; H'8C025FA4
+          .DATA.L H'41000000 ; H'8C025FA8
+          .DATA.L _FUN_8c02f0c8 ; H'8C025FAC
+          .DATA.L _FUN_8c026eaa ; H'8C025FB0
+LAB_8c025fb4:
+          MOV.W       LP_GEN_89798,R0
+          MOV         #H'4,R3
+          MOV.L       R3,@(R0,R13)
+          ADD         #H'10,R0
+          MOV.L       LP_GEN_89798+20,R3
+          MOV.L       @(R0,R13),R5
+          JSR         @R3
+          MOV         R14,R4
+          MOV.W       LP_GEN_89798+2,R0
+          FMOV.S      @R15,FR3
+          MOV.L       @(R0,R14),R4
+          ADD         #H'4,R0
+          FMOV.S      @(R0,R14),FR2
+          MOV.W       LP_GEN_89798+6,R5
+          FADD        FR3,FR2
+          FMOV        FR2,@(R0,R14)
+          ADD         #H'4,R0
+          FMOV.S      @(R0,R14),FR2
+          FMOV.S      @R15,FR3
+          FADD        FR3,FR2
+          FMOV        FR2,@(R0,R14)
+          MOV         #H'4,R0
+          FMOV.S      @(R0,R4),FR3
+          MOV         #H'c,R0
+          FMOV.S      @(R0,R4),FR0
+          MOV.W       LP_GEN_89798+4,R0
+          FMOV.S      @(R0,R14),FR2
+          MOV         #H'8,R0
+          FMAC        FR0,FR2,FR3
+          FMOV.S      FR3,@R8
+          FMOV.S      @(R0,R4),FR3
+          MOV         #H'10,R0
+          FMOV.S      @(R0,R4),FR0
+          MOV.W       LP_GEN_89798+4,R0
+          MOV.L       LP_GEN_89798+24,R4
+          FMOV.S      @(R0,R14),FR2
+          MOV         #H'4,R0
+          FMAC        FR0,FR2,FR3
+          FMOV        FR3,@(R0,R8)
+          JSR         @R9
+          ADD         R14,R5
+          MOV.W       LP_GEN_89798+8,R0
+          BRA         LAB_8c026090
+          FMOV        FR0,@(R0,R14)
+LAB_8c02600c:
+          MOV         #H'c,R0
+          MOV.W       LP_GEN_89798+6,R5
+          FMOV.S      @(R0,R15),FR3
+          MOV         #H'4,R0
+          MOV.L       LP_GEN_89798+24,R4
+          FMOV.S      FR3,@-R15
+          FMOV.S      @(R0,R15),FR3
+          MOV.W       LP_GEN_89798+4,R0
+          FMOV.S      @R15+,FR0
+          FMOV.S      @(R0,R14),FR2
+          MOV         #H'10,R0
+          FMAC        FR0,FR2,FR3
+          FMOV.S      FR3,@R8
+          FMOV.S      @(R0,R15),FR3
+          MOV         #H'8,R0
+          FMOV.S      FR3,@-R15
+          FMOV.S      @(R0,R15),FR3
+          MOV.W       LP_GEN_89798+4,R0
+          FMOV.S      @R15+,FR0
+          FMOV.S      @(R0,R14),FR2
+          MOV         #H'8,R0
+          FMAC        FR0,FR2,FR3
+          FMOV        FR3,@(R0,R8)
+          JSR         @R9
+          ADD         R14,R5
+          MOV.W       LP_GEN_89798+8,R0
+          BRA         LAB_8c026096
+          FMOV        FR0,@(R0,R14)
+LAB_8c026044:
+          FLDI1       FR3
+          FADD        FR3,FR3
+          MOV.W       LP_GEN_89798+8,R0
+          FMOV.S      @(R0,R14),FR2
+          FCMP/EQ     FR3,FR2
+          BF          LAB_8c026056
+          MOV.W       LP_GEN_89798,R0
+          BRA         LAB_8c026096
+          MOV.L       R12,@(R0,R13)
+LAB_8c026056:
+          MOVA        LP_GEN_89798+28,R0
+          MOV.L       LP_GEN_89798+32,R3
+          FMOV.S      @R0,FR2
+          MOV         R13,R5
+          MOV.W       LP_GEN_89798+10,R0
+          FMOV.S      @(R0,R14),FR1
+          MOV         #H'8,R0
+          FADD        FR2,FR1
+          FMOV        FR1,@(R0,R15)
+          MOV.W       LP_GEN_89798+12,R0
+          FMOV.S      @R15,FR3
+          FMOV.S      @(R0,R14),FR4
+          ADD         #H'40,R0
+          FMOV        FR1,FR5
+          FADD        FR3,FR5
+          MOV.L       @(R0,R13),R7
+          FMOV        FR1,FR3
+          FSUB        FR3,FR4
+          MOV.W       LP_GEN_89798+14,R0
+          MOV.L       @(R0,R13),R6
+          JSR         @R3
+          MOV         R10,R4
+          TST         R0,R0
+          BT/S        LAB_8c026090
+          MOV         R0,R5
+          MOV.L       LP_GEN_89798+36,R3
+          JSR         @R3
+          MOV         R14,R4
+          FMOV        FR0,FR14
+LAB_8c026090:
+          MOV.L       LP_GEN_89798+40,R2
+          JSR         @R2
+          MOV         R14,R4
+LAB_8c026096:
+          MOV.L       @(H'4,R15),R3
+          TST         R3,R3
+          BT          LAB_8c02610c
+          MOV.L       LP_GEN_89798+44,R3
+          JSR         @R3
+          MOV         R14,R4
+          MOV.W       LP_GEN_89798+16,R0
+          MOV.L       @(R0,R13),R2
+          TST         R2,R2
+          BF/S        LAB_8c026112
+          FMOV        FR0,FR5
+          MOVA        LP_GEN_89798+48,R0
+          FMOV        FR15,FR2
+          FMOV.S      @R0,FR3
+          MOVA        LP_GEN_89798+52,R0
+          FMOV.S      @R0,FR1
+          MOVA        LP_GEN_89798+56,R0
+          FMUL        FR3,FR2
+          FSUB        FR5,FR2
+          FMOV        FR2,FR4
+          FADD        FR1,FR4
+          FMOV.S      @R0,FR2
+          FCMP/GT     FR2,FR4
+          BT          LAB_8c0260cc
+          FLDI0       FR3
+          FCMP/GT     FR4,FR3
+          BF          LAB_8c026112
+LAB_8c0260cc:
+          BRA         LAB_8c026112
+          FMOV        FR12,FR5
+LP_GEN_89798:
+          .DATA.W H'0474 ; H'8C0260D0
+          .DATA.W H'02B8 ; H'8C0260D2
+          .DATA.W H'02BC ; H'8C0260D4
+          .DATA.W H'00EC ; H'8C0260D6
+          .DATA.W H'02C4 ; H'8C0260D8
+          .DATA.W H'023C ; H'8C0260DA
+          .DATA.W H'02C0 ; H'8C0260DC
+          .DATA.W H'0484 ; H'8C0260DE
+          .DATA.W H'0428 ; H'8C0260E0
+          .RES.W 1 ; H'8C0260E2
+          .DATA.L _FUN_8c026fcc ; H'8C0260E4
+          .DATA.L _var_8c1bc460 ; H'8C0260E8
+          .DATA.L H'41000000 ; H'8C0260EC
+          .DATA.L _FUN_8c02f0c8 ; H'8C0260F0
+          .DATA.L _FUN_8c026eaa ; H'8C0260F4
+          .DATA.L _FUN_8c026f7e ; H'8C0260F8
+          .DATA.L _FUN_8c026fb0 ; H'8C0260FC
+          .DATA.L H'41900000 ; H'8C026100
+          .DATA.L H'401A2D0E ; H'8C026104
+          .DATA.L H'3F000000 ; H'8C026108
+LAB_8c02610c:
+          MOV.W       LP_GEN_20796,R0
+          FMOV        FR12,FR5
+          MOV.L       R12,@(R0,R13)
+LAB_8c026112:
+          MOV.W       LP_GEN_20796+2,R0
+          FMOV.S      @(R0,R13),FR3
+          ADD         #-H'4,R0
+          FMOV.S      @(R0,R13),FR2
+          FCMP/GT     FR2,FR3
+          BF          LAB_8c026124
+          MOV.W       LP_GEN_20796+4,R0
+          BRA         LAB_8c026126
+          NOP
+LAB_8c026124:
+          MOV.W       LP_GEN_20796+2,R0
+LAB_8c026126:
+          FMOV.S      @(R0,R13),FR4
+          FCMP/GT     FR4,FR14
+          BF          LAB_8c02612e
+          FMOV        FR4,FR14
+LAB_8c02612e:
+          FCMP/EQ     FR12,FR13
+          BT          LAB_8c02614c
+          MOVA        LP_GEN_20796+8,R0
+          FMOV.S      @R0,FR3
+          MOVA        LP_GEN_20796+12,R0
+          FMOV.S      @R0,FR2
+          MOVA        LP_GEN_20796+16,R0
+          FMUL        FR3,FR13
+          FMOV.S      @R0,FR1
+          FMOV        FR13,FR4
+          FDIV        FR2,FR4
+          FCMP/GT     FR1,FR4
+          BT          LAB_8c02614e
+          BRA         LAB_8c02614e
+          FLDI0       FR4
+LAB_8c02614c:
+          FMOV        FR12,FR4
+LAB_8c02614e:
+          FCMP/EQ     FR12,FR5
+          MOVA        LP_GEN_20796+20,R0
+          FMOV.S      @R0,FR3
+          FMOV        FR15,FR6
+          BT/S        LAB_8c026180
+          FADD        FR3,FR6
+          MOVA        LP_GEN_20796+24,R0
+          FMOV.S      @R0,FR2
+          FCMP/GT     FR2,FR15
+          BF          LAB_8c026174
+          MOVA        LP_GEN_20796+28,R0
+          FMOV        FR15,FR0
+          FMOV.S      @R0,FR1
+          MOVA        LP_GEN_20796+32,R0
+          FMOV.S      @R0,FR3
+          FDIV        FR1,FR0
+          FMOV        FR0,FR13
+          BRA         LAB_8c026182
+          FMUL        FR3,FR13
+LAB_8c026174:
+          FLDI0       FR1
+          FMOV        FR6,FR13
+          FCMP/GT     FR13,FR1
+          BF          LAB_8c026182
+          BRA         LAB_8c026182
+          FMOV        FR1,FR13
+LAB_8c026180:
+          FMOV        FR12,FR13
+LAB_8c026182:
+          FCMP/EQ     FR12,FR4
+          BF          LAB_8c02618a
+          FCMP/EQ     FR12,FR13
+          BT          LAB_8c0261e8
+LAB_8c02618a:
+          FCMP/GT     FR4,FR13
+          BF          LAB_8c0261a8
+          FCMP/GT     FR4,FR14
+          BF          LAB_8c026198
+          MOV.W       LP_GEN_20796+6,R0
+          BRA         LAB_8c0261b0
+          FMOV        FR4,FR14
+LAB_8c026198:
+          FCMP/GT     FR14,FR15
+          BF          LAB_8c0261f6
+          FLDI0       FR3
+          FMOV        FR6,FR14
+          FCMP/GT     FR14,FR3
+          BT          LAB_8c0261f4
+          BRA         LAB_8c0261f6
+          NOP
+LAB_8c0261a8:
+          FCMP/GT     FR13,FR14
+          BF          LAB_8c0261b4
+          MOV.W       LP_GEN_20796,R0
+          FMOV        FR13,FR14
+LAB_8c0261b0:
+          BRA         LAB_8c0261f6
+          MOV.L       R11,@(R0,R13)
+LAB_8c0261b4:
+          FCMP/GT     FR14,FR15
+          BF          LAB_8c0261f6
+          FLDI0       FR3
+          FMOV        FR6,FR14
+          FCMP/GT     FR14,FR3
+          BF          LAB_8c0261f6
+          BRA         LAB_8c0261f4
+          NOP
+LP_GEN_20796:
+          .DATA.W H'0428 ; H'8C0261C4
+          .DATA.W H'0418 ; H'8C0261C6
+          .DATA.W H'0414 ; H'8C0261C8
+          .DATA.W H'0424 ; H'8C0261CA
+          .DATA.L H'453B8000 ; H'8C0261CC
+          .DATA.L H'47D2F000 ; H'8C0261D0
+          .DATA.L H'3B449BA6 ; H'8C0261D4
+          .DATA.L H'BB449BA6 ; H'8C0261D8
+          .DATA.L H'3DBDA12F ; H'8C0261DC
+          .DATA.L H'41900000 ; H'8C0261E0
+          .DATA.L H'41880000 ; H'8C0261E4
+LAB_8c0261e8:
+          FCMP/GT     FR14,FR15
+          BF          LAB_8c0261f6
+          FLDI0       FR3
+          FMOV        FR6,FR14
+          FCMP/GT     FR14,FR3
+          BF          LAB_8c0261f6
+LAB_8c0261f4:
+          FLDI0       FR14
+LAB_8c0261f6:
+          MOV.W       LP_GEN_37613,R0
+          MOV.L       @(R0,R13),R2
+          TST         R2,R2
+          BF          LAB_8c02620a
+          MOV.W       LP_GEN_37613+2,R0
+          MOV.L       @(R0,R13),R3
+          TST         R3,R3
+          BF          LAB_8c02620a
+          FCMP/GT     FR14,FR15
+          BF          LAB_8c02621a
+LAB_8c02620a:
+          FMOV        FR15,FR3
+          FSUB        FR14,FR3
+          MOVA        LP_GEN_37613+22,R0
+          FMOV.S      @R0,FR4
+          FCMP/GT     FR4,FR3
+          BF          LAB_8c026228
+          BRA         LAB_8c02622a
+          FSUB        FR4,FR15
+LAB_8c02621a:
+          FCMP/GT     FR15,FR14
+          BF          LAB_8c02622a
+          MOV.W       LP_GEN_37613+4,R0
+          FMOV.S      @(R0,R14),FR3
+          FADD        FR3,FR15
+          FCMP/GT     FR14,FR15
+          BF          LAB_8c02622a
+LAB_8c026228:
+          FMOV        FR14,FR15
+LAB_8c02622a:
+          FLDI0       FR3
+          FCMP/EQ     FR3,FR15
+          MOV.W       LP_GEN_37613+6,R0
+          BF/S        LAB_8c026238
+          FMOV        FR12,@(R0,R13)
+          BRA         LAB_8c026438
+          NOP
+LAB_8c026238:
+          MOV.W       LP_GEN_37613+8,R0
+          FMOV.S      @(R0,R14),FR2
+          FADD        FR15,FR2
+          FMOV        FR2,@(R0,R14)
+          ADD         #H'4,R0
+          FMOV.S      @(R0,R14),FR1
+          FADD        FR15,FR1
+          FMOV        FR1,@(R0,R14)
+          MOV.W       LP_GEN_37613+10,R0
+          FMOV.S      @(R0,R13),FR2
+          FSUB        FR15,FR2
+          FMOV        FR2,@(R0,R13)
+          MOV.W       LP_GEN_37613+12,R0
+          MOV.L       @(R0,R14),R0
+          CMP/EQ      #H'2,R0
+          BF          LAB_8c0262ca
+          MOV.W       LP_GEN_37613+16,R5
+          MOV.W       LP_GEN_37613+14,R6
+          MOV.W       LP_GEN_37613+18,R4
+          ADD         R14,R5
+          MOV.L       LP_GEN_37613+26,R2
+          ADD         R14,R6
+          JSR         @R2
+          ADD         R14,R4
+          FLDI0       FR3
+          FCMP/GT     FR0,FR3
+          BF          LAB_8c0262ca
+          FLDI1       FR2
+          FADD        FR2,FR2
+          MOV.W       LP_GEN_37613+20,R0
+          FMOV.S      @(R0,R14),FR1
+          FCMP/GT     FR2,FR1
+          BF          LAB_8c0262a8
+          FMOV.S      @(R0,R14),FR1
+          FSUB        FR15,FR1
+          FMOV        FR1,@(R0,R14)
+          FMOV.S      @(R0,R14),FR0
+          FCMP/GT     FR2,FR0
+          BF          LAB_8c0262be
+          BRA         LAB_8c0262ca
+          NOP
+LP_GEN_37613:
+          .DATA.W H'0424 ; H'8C02628A
+          .DATA.W H'0428 ; H'8C02628C
+          .DATA.W H'0290 ; H'8C02628E
+          .DATA.W H'0418 ; H'8C026290
+          .DATA.W H'02BC ; H'8C026292
+          .DATA.W H'04EC ; H'8C026294
+          .DATA.W H'02B4 ; H'8C026296
+          .DATA.W H'00EC ; H'8C026298
+          .DATA.W H'0100 ; H'8C02629A
+          .DATA.W H'00F4 ; H'8C02629C
+          .DATA.W H'02C4 ; H'8C02629E
+          .DATA.L H'3CA3D70A ; H'8C0262A0
+          .DATA.L _FUN_8c0207d4 ; H'8C0262A4
+LAB_8c0262a8:
+          MOV.W       LP_GEN_44316,R5
+          MOV.W       LP_GEN_44316+2,R4
+          ADD         R14,R5
+          JSR         @R9
+          ADD         R14,R4
+          FLDI1       FR3
+          FADD        FR3,FR3
+          MOV.W       LP_GEN_44316+4,R0
+          FCMP/GT     FR0,FR3
+          BT/S        LAB_8c0262ca
+          FMOV        FR0,@(R0,R14)
+LAB_8c0262be:
+          FLDI1       FR3
+          FADD        FR3,FR3
+          MOV.W       LP_GEN_44316+4,R0
+          FMOV        FR3,@(R0,R14)
+          ADD         #-H'10,R0
+          MOV.L       R12,@(R0,R14)
+LAB_8c0262ca:
+          MOV.L       LP_GEN_44316+30,R3
+          JSR         @R3
+          MOV         R14,R4
+          TST         R0,R0
+          BT          LAB_8c0262d8
+          BRA         LAB_8c02642c
+          NOP
+LAB_8c0262d8:
+          MOV.W       LP_GEN_44316+6,R0
+          MOV.L       @(R0,R13),R0
+          CMP/EQ      #H'2,R0
+          BF/S        LAB_8c0262ea
+          MOV         R13,R4
+          MOV.W       LP_GEN_44316+8,R0
+          MOV.L       @(R0,R13),R2
+          ADD         #H'3c,R0
+          MOV.L       R2,@(R0,R13)
+LAB_8c0262ea:
+          MOV.L       LP_GEN_44316+34,R3
+          JSR         @R3
+          NOP
+          TST         R0,R0
+          BT          LAB_8c0262fe
+          MOV.L       LP_GEN_44316+30,R3
+          JSR         @R3
+          MOV         R14,R4
+          BRA         LAB_8c02642c
+          NOP
+LAB_8c0262fe:
+          MOV.W       LP_GEN_44316+10,R0
+          MOV.L       LP_GEN_44316+38,R1
+          MOV.L       @(R0,R13),R2
+          MOV.L       @R1,R3
+          CMP/EQ      R3,R2
+          BT          LAB_8c02630e
+          BRA         LAB_8c026508
+          NOP
+LAB_8c02630e:
+          MOV.W       LP_GEN_44316+12,R0
+          MOV.L       @(R0,R13),R0
+          CMP/EQ      #H'3,R0
+          BT          LAB_8c02631a
+          BRA         LAB_8c026508
+          NOP
+LAB_8c02631a:
+          MOV.W       LP_GEN_44316+14,R0
+          MOV.L       LP_GEN_44316+42,R3
+          MOV.L       @(R0,R13),R2
+          ADD         #H'4,R0
+          MOV.L       R2,@(R0,R13)
+          MOV.L       @(R0,R13),R5
+          JSR         @R3
+          MOV         R13,R4
+          MOV.W       LP_GEN_44316+16,R0
+          MOV         #H'3,R2
+          BRA         LAB_8c02654e
+          MOV.L       R2,@(R0,R14)
+LAB_8c026332:
+          MOV.W       LP_GEN_44316+18,R0
+          MOV.L       @(R0,R14),R1
+          TST         R1,R1
+          BT          LAB_8c026356
+          MOV.W       LP_GEN_44316+20,R0
+          MOV.L       @(R0,R14),R3
+          TST         R3,R3
+          BT          LAB_8c026356
+          MOV.W       LP_GEN_44316+22,R0
+          MOV.L       @(R0,R14),R3
+          TST         R3,R3
+          BT          LAB_8c026356
+          MOV.L       LP_GEN_44316+46,R3
+          MOV         R14,R5
+          JSR         @R3
+          MOV         R10,R4
+          TST         R0,R0
+          BT          LAB_8c02635a
+LAB_8c026356:
+          BRA         LAB_8c026390
+          FLDI0       FR15
+LAB_8c02635a:
+          MOV.W       LP_GEN_44316+24,R0
+          FMOV        FR15,FR4
+          FMOV.S      @(R0,R14),FR3
+          ADD         #H'4,R0
+          FMOV        FR15,FR13
+          FMUL        FR3,FR4
+          FMOV.S      @(R0,R14),FR3
+          MOV.W       LP_GEN_44316+2,R0
+          FMUL        FR3,FR13
+          FMOV.S      @(R0,R14),FR3
+          FADD        FR4,FR3
+          FMOV        FR3,@(R0,R14)
+          ADD         #H'8,R0
+          FMOV.S      @(R0,R14),FR2
+          FADD        FR13,FR2
+          FMOV        FR2,@(R0,R14)
+          ADD         #H'4,R0
+          FMOV.S      @(R0,R14),FR3
+          FADD        FR4,FR3
+          FMOV        FR3,@(R0,R14)
+          ADD         #H'8,R0
+          FMOV.S      @(R0,R14),FR2
+          FADD        FR13,FR2
+          FMOV        FR2,@(R0,R14)
+          MOVA        LP_GEN_44316+50,R0
+          FMOV.S      @R0,FR3
+          FSUB        FR3,FR15
+LAB_8c026390:
+          FLDI0       FR3
+          FCMP/GT     FR3,FR15
+          BT          LAB_8c02642c
+          MOV.W       LP_GEN_44316,R5
+          MOV         #H'2,R2
+          MOV.W       LP_GEN_44316+16,R0
+          MOV.W       LP_GEN_44316+2,R4
+          ADD         R14,R5
+          MOV.L       R2,@(R0,R14)
+          JSR         @R9
+          ADD         R14,R4
+          MOV.W       LP_GEN_44316+4,R0
+          FLDI0       FR15
+          FMOV        FR0,@(R0,R14)
+          MOV.W       LP_GEN_44316+26,R0
+          MOV.L       R12,@(R0,R14)
+          ADD         #H'10,R0
+          MOV.L       R12,@(R0,R14)
+          ADD         #H'10,R0
+          BRA         LAB_8c02642c
+          MOV.L       R12,@(R0,R14)
+LP_GEN_44316:
+          .DATA.W H'00EC ; H'8C0263BA
+          .DATA.W H'00F4 ; H'8C0263BC
+          .DATA.W H'02C4 ; H'8C0263BE
+          .DATA.W H'0458 ; H'8C0263C0
+          .DATA.W H'045C ; H'8C0263C2
+          .DATA.W H'02F4 ; H'8C0263C4
+          .DATA.W H'048C ; H'8C0263C6
+          .DATA.W H'02F8 ; H'8C0263C8
+          .DATA.W H'02B4 ; H'8C0263CA
+          .DATA.W H'0190 ; H'8C0263CC
+          .DATA.W H'01A0 ; H'8C0263CE
+          .DATA.W H'01B0 ; H'8C0263D0
+          .DATA.W H'029C ; H'8C0263D2
+          .DATA.W H'019C ; H'8C0263D4
+          .RES.W 1 ; H'8C0263D6
+          .DATA.L _FUN_8c026ca2 ; H'8C0263D8
+          .DATA.L _FUN_8c027012 ; H'8C0263DC
+          .DATA.L _var_8c227e14 ; H'8C0263E0
+          .DATA.L _FUN_8c026710 ; H'8C0263E4
+          .DATA.L _FUN_8c02e400 ; H'8C0263E8
+          .DATA.L H'3DCCCCCD ; H'8C0263EC
+LAB_8c0263f0:
+          MOVA        LP_GEN_81398+10,R0
+          MOV.L       LP_GEN_81398+14,R3
+          FMOV.S      @R0,FR5
+          MOV         R13,R5
+          MOV.W       LP_GEN_81398,R0
+          MOV         #H'0,R7
+          FLDI0       FR4
+          MOV.L       @(R0,R13),R6
+          JSR         @R3
+          MOV         R10,R4
+          TST         R0,R0
+          BT          LAB_8c02640c
+          BRA         LAB_8c02654e
+          NOP
+LAB_8c02640c:
+          MOV         R13,R4
+          ADD         #H'10,R15
+          LDS.L       @R15+,PR
+          MOV.L       LP_GEN_81398+18,R3
+          FMOV.S      @R15+,FR12
+          FMOV.S      @R15+,FR13
+          FMOV.S      @R15+,FR14
+          FMOV.S      @R15+,FR15
+          MOV.L       @R15+,R8
+          MOV.L       @R15+,R9
+          MOV.L       @R15+,R10
+          MOV.L       @R15+,R11
+          MOV.L       @R15+,R12
+          MOV.L       @R15+,R13
+          JMP         @R3
+          MOV.L       @R15+,R14
+LAB_8c02642c:
+          FLDI0       FR3
+          FCMP/EQ     FR3,FR15
+          BT          LAB_8c026438
+          MOV.L       LP_GEN_81398+22,R2
+          JSR         @R2
+          MOV         R14,R4
+LAB_8c026438:
+          MOV.W       LP_GEN_81398+2,R6
+          FLDI0       FR14
+          ADD         R14,R6
+          MOV         R6,R5
+          MOV         R6,R4
+          BRA         LAB_8c02644e
+          ADD         #H'4,R5
+LAB_8c026446:
+          FMOV.S      @R5+,FR13
+          FADD        FR13,FR14
+          FMOV.S      FR13,@R4
+          ADD         #H'4,R4
+LAB_8c02644e:
+          MOV.W       LP_GEN_81398+2,R3
+          ADD         R14,R3
+          ADD         #H'10,R3
+          CMP/HS      R3,R5
+          BF          LAB_8c026446
+          MOV.W       LP_GEN_81398+4,R0
+          FMOV        FR15,FR4
+          FMOV.S      @(R0,R14),FR3
+          ADD         #H'10,R0
+          FMOV        FR13,@(R0,R14)
+          FSUB        FR3,FR4
+          FLDI0       FR3
+          FCMP/EQ     FR3,FR15
+          BT/S        LAB_8c026474
+          FADD        FR4,FR14
+          MOV         #H'78,R0
+          MOV.L       @(R0,R14),R2
+          CMP/PZ      R2
+          BT          LAB_8c02647c
+LAB_8c026474:
+          MOV.W       LP_GEN_81398+6,R0
+          MOV.L       @(R0,R14),R2
+          OR          R11,R2
+          MOV.L       R2,@(R0,R14)
+LAB_8c02647c:
+          MOV.W       LP_GEN_81398+8,R3
+          MOV.W       LP_GEN_81398+6,R0
+          ADD         R13,R3
+          MOV.L       LP_GEN_81398+26,R1
+          MOV.L       @(R0,R14),R2
+          MOV.L       @R3,R3
+          OR          R3,R2
+          MOV.L       R2,@(R0,R14)
+          MOV.L       @R1,R0
+          CMP/EQ      #H'1,R0
+          BT          LAB_8c02649a
+          CMP/EQ      #H'2,R0
+          BT          LAB_8c0264c4
+          BRA         LAB_8c0264ca
+          NOP
+LAB_8c02649a:
+          MOV.W       LP_GEN_81398+6,R0
+          MOV         #H'10,R3
+          MOV.L       @(R0,R14),R2
+          OR          R3,R2
+          BRA         LAB_8c0264ca
+          MOV.L       R2,@(R0,R14)
+LP_GEN_81398:
+          .DATA.W H'0304 ; H'8C0264A6
+          .DATA.W H'0280 ; H'8C0264A8
+          .DATA.W H'027C ; H'8C0264AA
+          .DATA.W H'0080 ; H'8C0264AC
+          .DATA.W H'0510 ; H'8C0264AE
+          .DATA.L H'41000000 ; H'8C0264B0
+          .DATA.L _FUN_8c02f0c8 ; H'8C0264B4
+          .DATA.L _FUN_8c027012 ; H'8C0264B8
+          .DATA.L _FUN_8c026bc4 ; H'8C0264BC
+          .DATA.L _var_8c18ad20 ; H'8C0264C0
+LAB_8c0264c4:
+          MOV.L       LP_GEN_51630+22,R3
+          JSR         @R3
+          MOV         R14,R4
+LAB_8c0264ca:
+          MOV.W       LP_GEN_51630,R0
+          MOV.L       LP_GEN_51630+30,R2
+          FMOV        FR15,@(R0,R14)
+          MOV.W       LP_GEN_51630+2,R0
+          FMOV.S      @R2,FR15
+          FMOV.S      @(R0,R14),FR3
+          ADD         #H'8,R0
+          FMOV.S      @(R0,R14),FR0
+          MOV.L       LP_GEN_51630+26,R3
+          FSUB        FR0,FR15
+          MOV.L       LP_GEN_51630+34,R1
+          FMOV.S      @R3,FR13
+          FSUB        FR3,FR13
+          FMOV        FR15,FR3
+          FMUL        FR15,FR3
+          FMOV        FR13,FR0
+          FMAC        FR0,FR13,FR3
+          JSR         @R1
+          FMOV        FR3,FR4
+          MOV.W       LP_GEN_51630+4,R0
+          FMOV        FR0,@(R0,R13)
+          MOVA        LP_GEN_51630+38,R0
+          FMOV.S      @R0,FR3
+          FCMP/GT     FR3,FR0
+          BF          LAB_8c026528
+          MOV.W       LP_GEN_51630+6,R0
+          MOV.L       LP_GEN_51630+42,R1
+          MOV.L       @(R0,R13),R3
+          MOV.L       @R1,R2
+          CMP/EQ      R2,R3
+          BT          LAB_8c026528
+LAB_8c026508:
+          MOV         R10,R4
+          ADD         #H'10,R15
+          LDS.L       @R15+,PR
+          MOV.L       LP_GEN_51630+46,R2
+          FMOV.S      @R15+,FR12
+          FMOV.S      @R15+,FR13
+          FMOV.S      @R15+,FR14
+          FMOV.S      @R15+,FR15
+          MOV.L       @R15+,R8
+          MOV.L       @R15+,R9
+          MOV.L       @R15+,R10
+          MOV.L       @R15+,R11
+          MOV.L       @R15+,R12
+          MOV.L       @R15+,R13
+          JMP         @R2
+          MOV.L       @R15+,R14
+LAB_8c026528:
+          MOV.W       LP_GEN_51630+8,R0
+          MOV         R14,R4
+          FMOV        FR14,FR4
+          MOV.L       R12,@(R0,R14)
+          ADD         #H'10,R15
+          LDS.L       @R15+,PR
+          MOV.L       LP_GEN_51630+50,R3
+          FMOV.S      @R15+,FR12
+          FMOV.S      @R15+,FR13
+          FMOV.S      @R15+,FR14
+          FMOV.S      @R15+,FR15
+          MOV.L       @R15+,R8
+          MOV.L       @R15+,R9
+          MOV.L       @R15+,R10
+          MOV.L       @R15+,R11
+          MOV.L       @R15+,R12
+          MOV.L       @R15+,R13
+          JMP         @R3
+          MOV.L       @R15+,R14
+LAB_8c02654e:
+          ADD         #H'10,R15
+          LDS.L       @R15+,PR
+          FMOV.S      @R15+,FR12
+          FMOV.S      @R15+,FR13
+          FMOV.S      @R15+,FR14
+          FMOV.S      @R15+,FR15
+          MOV.L       @R15+,R8
+          MOV.L       @R15+,R9
+          MOV.L       @R15+,R10
+          MOV.L       @R15+,R11
+          MOV.L       @R15+,R12
+          MOV.L       @R15+,R13
+          RTS
+          MOV.L       @R15+,R14
+_FUN_8c02656a:
+          MOV.L       R14,@-R15
+          MOV.L       R13,@-R15
+          FMOV.S      FR15,@-R15
+          FMOV.S      FR14,@-R15
+          FMOV.S      FR13,@-R15
+          STS.L       PR,@-R15
+          ADD         #-H'4,R15
+          MOV.W       LP_GEN_51630+10,R0
+          MOV         R5,R14
+          MOV         R5,R13
+          MOV.L       R4,@R15
+          MOV.L       @(R0,R14),R0
+          CMP/EQ      #H'1,R0
+          BF/S        LAB_8c02667e
+          FLDI0       FR14
+          MOV.W       LP_GEN_51630,R0
+          FMOV.S      @(R0,R14),FR15
+          MOVA        LP_GEN_51630+54,R0
+          FMOV.S      @R0,FR13
+          MOV.W       LP_GEN_51630+12,R0
+          MOV.L       @(R0,R14),R3
+          TST         R3,R3
+          BT          LAB_8c0265b4
+          MOV.W       LP_GEN_51630+14,R0
+          MOV.L       @(R0,R14),R3
+          TST         R3,R3
+          BT          LAB_8c0265b4
+          MOV.W       LP_GEN_51630+16,R0
+          MOV.L       @(R0,R14),R3
+          TST         R3,R3
+          BT          LAB_8c0265b4
+          MOV.L       LP_GEN_51630+58,R3
+          MOV         R14,R5
+          JSR         @R3
+          MOV.L       @R15,R4
+          TST         R0,R0
+          BT          LAB_8c026628
+LAB_8c0265b4:
+          FADD        FR13,FR15
+          MOV.W       LP_GEN_51630+18,R0
+          FMOV.S      @(R0,R14),FR3
+          ADD         #H'4,R0
+          FMOV        FR15,FR5
+          FMUL        FR3,FR5
+          FMOV.S      @(R0,R14),FR3
+          MOV.W       LP_GEN_51630+2,R0
+          FMOV        FR15,FR4
+          FMUL        FR3,FR4
+          FMOV.S      @(R0,R14),FR3
+          FSUB        FR5,FR3
+          FMOV        FR3,@(R0,R14)
+          ADD         #H'8,R0
+          FMOV.S      @(R0,R14),FR2
+          FSUB        FR4,FR2
+          FMOV        FR2,@(R0,R14)
+          ADD         #H'4,R0
+          FMOV.S      @(R0,R14),FR3
+          FSUB        FR5,FR3
+          FMOV        FR3,@(R0,R14)
+          ADD         #H'8,R0
+          FMOV.S      @(R0,R14),FR2
+          FSUB        FR4,FR2
+          FMOV        FR2,@(R0,R14)
+          BRA         LAB_8c02665a
+          FMOV        FR14,FR15
+LP_GEN_51630:
+          .DATA.W H'027C ; H'8C0265EA
+          .DATA.W H'00F4 ; H'8C0265EC
+          .DATA.W H'0490 ; H'8C0265EE
+          .DATA.W H'02F4 ; H'8C0265F0
+          .DATA.W H'0268 ; H'8C0265F2
+          .DATA.W H'02B4 ; H'8C0265F4
+          .DATA.W H'0190 ; H'8C0265F6
+          .DATA.W H'01A0 ; H'8C0265F8
+          .DATA.W H'01B0 ; H'8C0265FA
+          .DATA.W H'029C ; H'8C0265FC
+          .RES.W 1 ; H'8C0265FE
+          .DATA.L _prob_blinker_8c028022 ; H'8C026600
+          .DATA.L _var_8c1bbac4 ; H'8C026604
+          .DATA.L _var_8c1bbacc ; H'8C026608
+          .DATA.L _njSqrt ; H'8C02660C
+          .DATA.L H'43480000 ; H'8C026610
+          .DATA.L _var_8c227e14 ; H'8C026614
+          .DATA.L _freeTask_8c014b66 ; H'8C026618
+          .DATA.L _FUN_8c027c3c ; H'8C02661C
+          .DATA.L H'3DCCCCCD ; H'8C026620
+          .DATA.L _FUN_8c02e400 ; H'8C026624
+LAB_8c026628:
+          MOV.W       LP_GEN_53982,R0
+          FMOV        FR15,FR4
+          FMOV.S      @(R0,R14),FR3
+          ADD         #H'4,R0
+          FMOV        FR15,FR5
+          FSUB        FR13,FR15
+          FMUL        FR3,FR4
+          FMOV.S      @(R0,R14),FR3
+          MOV.W       LP_GEN_53982+2,R0
+          FMUL        FR3,FR5
+          FMOV.S      @(R0,R14),FR3
+          FADD        FR4,FR3
+          FMOV        FR3,@(R0,R14)
+          ADD         #H'8,R0
+          FMOV.S      @(R0,R14),FR2
+          FADD        FR5,FR2
+          FMOV        FR2,@(R0,R14)
+          ADD         #H'4,R0
+          FMOV.S      @(R0,R14),FR3
+          FADD        FR4,FR3
+          FMOV        FR3,@(R0,R14)
+          ADD         #H'8,R0
+          FMOV.S      @(R0,R14),FR2
+          FADD        FR5,FR2
+          FMOV        FR2,@(R0,R14)
+LAB_8c02665a:
+          FLDI0       FR3
+          FCMP/GT     FR3,FR15
+          BT          LAB_8c026674
+          MOV.W       LP_GEN_53982+4,R0
+          MOV         #H'0,R4
+          FMOV        FR14,FR15
+          MOV.L       R4,@(R0,R14)
+          MOV.W       LP_GEN_53982+6,R0
+          MOV.L       R4,@(R0,R14)
+          ADD         #H'10,R0
+          MOV.L       R4,@(R0,R14)
+          ADD         #H'10,R0
+          MOV.L       R4,@(R0,R14)
+LAB_8c026674:
+          MOV.W       LP_GEN_53982+8,R0
+          MOV.L       LP_GEN_53982+14,R3
+          FMOV        FR15,@(R0,R14)
+          JSR         @R3
+          MOV         R14,R4
+LAB_8c02667e:
+          MOV.W       LP_GEN_53982+2,R0
+          MOV.L       LP_GEN_53982+22,R2
+          FMOV.S      @(R0,R14),FR3
+          ADD         #H'8,R0
+          FMOV.S      @(R0,R14),FR0
+          FMOV.S      @R2,FR13
+          MOV.L       LP_GEN_53982+18,R3
+          FSUB        FR0,FR13
+          MOV.L       LP_GEN_53982+26,R1
+          FMOV.S      @R3,FR15
+          FSUB        FR3,FR15
+          FMOV        FR13,FR3
+          FMUL        FR13,FR3
+          FMOV        FR15,FR0
+          FMAC        FR0,FR15,FR3
+          JSR         @R1
+          FMOV        FR3,FR4
+          MOV.W       LP_GEN_53982+10,R0
+          FMOV        FR0,@(R0,R13)
+          MOVA        LP_GEN_53982+30,R0
+          FMOV.S      @R0,FR3
+          FCMP/GT     FR3,FR0
+          BF          LAB_8c0266cc
+          MOV.W       LP_GEN_53982+12,R0
+          MOV.L       LP_GEN_53982+34,R1
+          MOV.L       @(R0,R13),R3
+          MOV.L       @R1,R2
+          CMP/EQ      R2,R3
+          BT          LAB_8c0266cc
+          MOV.L       @R15,R4
+          ADD         #H'4,R15
+          LDS.L       @R15+,PR
+          MOV.L       LP_GEN_53982+38,R3
+          FMOV.S      @R15+,FR13
+          FMOV.S      @R15+,FR14
+          FMOV.S      @R15+,FR15
+          MOV.L       @R15+,R13
+          JMP         @R3
+          MOV.L       @R15+,R14
+LAB_8c0266cc:
+          MOV         R14,R4
+          FMOV        FR14,FR4
+          ADD         #H'4,R15
+          LDS.L       @R15+,PR
+          MOV.L       LP_GEN_53982+42,R2
+          FMOV.S      @R15+,FR13
+          FMOV.S      @R15+,FR14
+          FMOV.S      @R15+,FR15
+          MOV.L       @R15+,R13
+          JMP         @R2
+          MOV.L       @R15+,R14
+LP_GEN_53982:
+          .DATA.W H'029C ; H'8C0266E2
+          .DATA.W H'00F4 ; H'8C0266E4
+          .DATA.W H'02B4 ; H'8C0266E6
+          .DATA.W H'019C ; H'8C0266E8
+          .DATA.W H'027C ; H'8C0266EA
+          .DATA.W H'0490 ; H'8C0266EC
+          .DATA.W H'02F4 ; H'8C0266EE
+          .DATA.L _FUN_8c026bc4 ; H'8C0266F0
+          .DATA.L _var_8c1bbac4 ; H'8C0266F4
+          .DATA.L _var_8c1bbacc ; H'8C0266F8
+          .DATA.L _njSqrt ; H'8C0266FC
+          .DATA.L H'43480000 ; H'8C026700
+          .DATA.L _var_8c227e14 ; H'8C026704
+          .DATA.L _freeTask_8c014b66 ; H'8C026708
+          .DATA.L _FUN_8c027c3c ; H'8C02670C
+          .END
