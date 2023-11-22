@@ -251,6 +251,7 @@
           .IMPORT     _task_8c011e80
           .IMPORT     _FUN_8c02190a
           .IMPORT     _FUN_8c021810
+          .IMPORT     _FUN_8c011310
           .EXPORT     _FUN_8c0129cc
           .EXPORT     _njUserInit
           .EXPORT     _njUserMain
@@ -1445,7 +1446,7 @@ _FUN_8c011fe0:
           MOV.L       @(H'c,R15),R2
           MOV.L       @(H'4,R15),R3
           MOV.L       R2,@(H'4,R3)
-          BSR         H'8c011310
+          BSR         _FUN_8c011310
           NOP
           ADD         #H'1c,R15
           LDS.L       @R15+,PR
@@ -1513,7 +1514,7 @@ LAB_8c012090:
           MOV.L       @(R0,R9),R5
           ADD         #H'4,R7
           MOV         #H'0,R6
-          BSR         H'8c011492
+          BSR         _requestNj_8c011492
           MOV.L       @R15,R4
           TST         R0,R0
           BF          LAB_8c0120b6
@@ -1527,7 +1528,7 @@ LAB_8c0120b6:
           MOV.L       @R11,R5
           MOV.L       @(H'8,R15),R6
           MOV.L       @(H'10,R15),R7
-          BSR         H'8c011ac0
+          BSR         _requestPvm_8c011ac0
           MOV.L       @(H'4,R15),R4
           TST         R0,R0
           BF/S        LAB_8c0120cc
@@ -1585,7 +1586,7 @@ LAB_8c01211c:
           MOV.L       @R14,R0
           CMP/EQ      #-H'1,R0
           BT          LAB_8c01212e
-          BSR         H'8c011e3c
+          BSR         _freeTexlist_8c011e3c
           MOV.L       @R14,R4
 LAB_8c01212e:
           MOV.L       @(H'4,R14),R0
@@ -1637,7 +1638,7 @@ _FUN_8c012178:
           TST         R3,R3
           BT/S        LAB_8c012198
           MOV.L       R4,@R15
-          BSR         H'8c012166
+          BSR         _FUN_8c012166
           NOP
           MOV.L       LP_GEN_90004+26,R2
           MOV         R0,R1
@@ -1676,7 +1677,7 @@ _FUN_8c0121be:
           TST         R3,R3
           BT/S        LAB_8c0121de
           MOV.L       R4,@R15
-          BSR         H'8c0121a8
+          BSR         _FUN_8c0121a8
           NOP
           MOV.L       LP_GEN_90004+26,R2
           MOV         R0,R1
@@ -1864,7 +1865,7 @@ LP_GEN_88006:
 
           ; UNIT BOUNDARY?
 
-task_8c012324:
+_task_8c012324:
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           MOV         #H'0,R13
@@ -2676,7 +2677,7 @@ LP_GEN_17272:
           .DATA.L _pushTask_8c014ae8
           .DATA.L _tasks_8c1ba3c8
           .DATA.L _var_8c157a74
-          .DATA.L task_8c012324
+          .DATA.L _task_8c012324
           .DATA.L _var_8c157ae4
           .DATA.L _var_8c157ae8
           .DATA.L _var_8c157ad4
@@ -4785,7 +4786,7 @@ LP_GEN_19861:
 
           ; UNIT BOUNDARY?
 
-request_some_files_8c013ae8:
+_requestSomeFiles_8c013ae8:
           MOV.L       R14,@-R15
           MOV         #H'0,R7
           MOV.L       R13,@-R15
@@ -5087,7 +5088,7 @@ LAB_8c013d1c:
           MOV.L       @R15+,R14
 _FUN_8c013d42:
           STS.L       PR,@-R15
-          BSR         H'8c014330
+          BSR         _setUknPvmBool_8c014330
           NOP
           MOV.L       LP_GEN_93614+38,R1
           JMP         @R1
@@ -5117,10 +5118,10 @@ _FUN_8c013d78:
           MOV.L       LP_GEN_38230+10,R2
           JSR         @R2
           NOP
-          BSR         H'8c014322
+          BSR         _resetUknPvmBool_8c014322
           NOP
           MOV.L       LP_GEN_38230+14,R2
-          BSR         H'8c013c34
+          BSR         _FUN_8c013c34
           MOV.L       @R2,R4
           MOV.L       LP_GEN_38230+18,R1
           MOV         #H'0,R7
@@ -5433,7 +5434,7 @@ LAB_8c013fee:
           BT          LAB_8c014010
           MOV.L       @(H'10,R14),R3
           MOV.L       R3,@R4
-          BSR         H'8c013c34
+          BSR         _FUN_8c013c34
           MOV.L       @(H'10,R14),R4
           BRA         LAB_8c014010
           NOP
@@ -5445,13 +5446,13 @@ LAB_8c014000:
           MOV.L       R3,@R4
 LAB_8c01400a:
           MOV.L       LP_GEN_25668+48,R4
-          BSR         H'8c013c34
+          BSR         _FUN_8c013c34
           NOP
 LAB_8c014010:
           MOV.L       @(H'18,R14),R3
           TST         R3,R3
           BT          LAB_8c01401a
-          BSR         H'8c013df6
+          BSR         _FUN_8c013df6
           MOV.L       @(H'18,R14),R4
 LAB_8c01401a:
           MOV.L       LP_GEN_25668+52,R2
@@ -5513,7 +5514,7 @@ LAB_8c014076:
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-load_route_models_8c014088:
+_loadRouteModels_8c014088:
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           MOV.L       R12,@-R15
@@ -5813,7 +5814,7 @@ LAB_8c0141e4:
           ADD         #H'4c,R6
           JSR         @R11
           MOV         R13,R4
-          BSR         H'8c013ae8
+          BSR         _requestSomeFiles_8c013ae8
           NOP
           MOV.L       LP_GEN_90737+38,R2
           MOV         #H'10,R6
@@ -5873,9 +5874,9 @@ LAB_8c01435e:
           MOV.L       LP_GEN_90737+62,R3
           JSR         @R3
           MOV.L       @R13,R4
-          BSR         H'8c014088
+          BSR         _loadRouteModels_8c014088
           NOP
-          BSR         H'8c014322
+          BSR         _resetUknPvmBool_8c014322
           NOP
           MOV.L       LP_GEN_90737+66,R2
           MOV         #H'0,R7
@@ -5888,7 +5889,7 @@ LAB_8c01435e:
           BRA         LAB_8c0143ee
           ADD         #H'4,R15
 LAB_8c01438c:
-          BSR         H'8c01432a
+          BSR         _getUknPvmBool_8c01432a
           NOP
           TST         R0,R0
           BF          LAB_8c014398
@@ -5917,9 +5918,9 @@ LAB_8c014398:
           MOV.L       LP_GEN_90737+54,R3
           JSR         @R3
           NOP
-          BSR         H'8c013f78
+          BSR         _FUN_8c013f78
           NOP
-          BSR         H'8c014322
+          BSR         _resetUknPvmBool_8c014322
           NOP
           MOV.L       LP_GEN_90737+66,R2
           MOV.L       LP_GEN_90737+70,R4
@@ -5935,7 +5936,7 @@ LAB_8c014398:
           BRA         LAB_8c0144b4
           MOV.L       R2,@(H'8,R14)
 LAB_8c0143e6:
-          BSR         H'8c01432a
+          BSR         _getUknPvmBool_8c01432a
           NOP
           TST         R0,R0
           BT          LAB_8c0144b4
@@ -6114,9 +6115,9 @@ LAB_8c01456e:
           MOV.L       LP_GEN_28406+66,R2
           JSR         @R2
           NOP
-          BSR         H'8c013f78
+          BSR         _FUN_8c013f78
           NOP
-          BSR         H'8c014322
+          BSR         _resetUknPvmBool_8c014322
           NOP
           MOV.L       LP_GEN_28406+70,R3
           MOV.L       LP_GEN_28406+82,R4
@@ -6132,7 +6133,7 @@ LAB_8c01456e:
           BRA         LAB_8c01464a
           MOV.L       R3,@(H'8,R14)
 LAB_8c01459c:
-          BSR         H'8c01432a
+          BSR         _getUknPvmBool_8c01432a
           NOP
           TST         R0,R0
           BT          LAB_8c01464a
@@ -6282,7 +6283,7 @@ LAB_8c0146ba:
           MOV.L       R4,@(H'8,R2)
           MOV.L       @(H'4,R15),R3
           MOV.L       R4,@(H'c,R3)
-          BSR         H'8c013f22
+          BSR         _FUN_8c013f22
           NOP
           MOV.L       LP_GEN_17698+88,R2
           MOV.L       LP_GEN_17698+84,R4
@@ -6373,9 +6374,9 @@ LAB_8c0147aa:
           MOV.L       LP_GEN_48435+14,R3
           JSR         @R3
           MOV.L       @R13,R4
-          BSR         H'8c014088
+          BSR         _loadRouteModels_8c014088
           NOP
-          BSR         H'8c014322
+          BSR         _resetUknPvmBool_8c014322
           NOP
           MOV.L       LP_GEN_48435+18,R2
           MOV         #H'0,R7
@@ -6388,7 +6389,7 @@ LAB_8c0147aa:
           BRA         LAB_8c014824
           NOP
 LAB_8c0147d8:
-          BSR         H'8c01432a
+          BSR         _getUknPvmBool_8c01432a
           NOP
           TST         R0,R0
           BT          LAB_8c014882
@@ -6414,9 +6415,9 @@ LAB_8c0147d8:
           MOV.L       LP_GEN_48435+6,R2
           JSR         @R2
           NOP
-          BSR         H'8c013f78
+          BSR         _FUN_8c013f78
           NOP
-          BSR         H'8c014322
+          BSR         _resetUknPvmBool_8c014322
           NOP
           MOV.L       LP_GEN_48435+18,R3
           MOV         #H'0,R7
@@ -6433,7 +6434,7 @@ LAB_8c014824:
           BRA         LAB_8c014882
           MOV.L       R3,@(H'8,R14)
 LAB_8c01482e:
-          BSR         H'8c01432a
+          BSR         _getUknPvmBool_8c01432a
           NOP
           TST         R0,R0
           BT          LAB_8c014882
