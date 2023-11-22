@@ -2351,9 +2351,7 @@ _init_8c044c08:        ; from defines
           .DATA.L      _init_8c044bc0
           .DATA.L      _init_8c044bd0
           .DATA.L      _init_8c044be0
-          .DATA.B      H'F8, H'4B, H'04
-_init_8c044d0f:        ; from ghidra
-          .DATA.B      H'8C
+          .DATA.B      _init_8c044bf8
 _init_8c044d10:        ; from defines
           .DATA.B      H'00, H'00, H'01, H'02, H'02, H'00, H'00, H'01, H'01, H'00, H'02, H'02, H'00, H'01, H'02, H'01
           .DATA.B      H'00, H'02, H'02, H'00, H'01, H'01, H'02, H'00, H'02, H'02, H'00, H'01, H'01, H'00

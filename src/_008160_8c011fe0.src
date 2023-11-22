@@ -1410,7 +1410,6 @@
           .EXPORT     _const_8c035db8
           .EXPORT     _const_8c035dc8
           .SECTION    P, CODE, ALIGN=4
-
 _FUN_8c011fe0:
           STS.L       PR,@-R15
           ADD         #-H'18,R15
@@ -6595,7 +6594,8 @@ _init_8c03bf38:        ; from ghidra
 _init_8c03bf40:        ; from defines
           .DATA.L      _const_8c033358 ; ukn
 _init_8c03bf44:        ; from defines
-          .DATA.B      H'F8, H'AC, H'18, H'8C, H'01, H'00, H'00, H'00
+          .DATA.L      _var_8c18acf8 ; ukn
+          .DATA.B      H'01, H'00, H'00, H'00
 _init_8c03bf4c:        ; from defines
           .DATA.B      H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'D4, H'9B, H'5E, H'3F, H'00, H'00, H'00, H'7F
           .DATA.B      H'00, H'00, H'00, H'00, H'00, H'00, H'F0, H'43, H'D4, H'9B, H'5E, H'3F, H'00, H'00, H'00, H'7F
@@ -6603,9 +6603,10 @@ _init_8c03bf4c:        ; from defines
           .DATA.B      H'00, H'00, H'20, H'44, H'00, H'00, H'F0, H'43, H'D4, H'9B, H'5E, H'3F, H'00, H'00, H'00, H'7F
 _init_8c03bf8c:        ; from ghidra
           .DATA.B      H'00, H'00, H'00, H'00
-          .DATA.L      s_DUMMY_8c03346c ; ukn
-          .DATA.B      H'01, H'00, H'00, H'00, H'8C, H'BF, H'03, H'8C
-          .DATA.L      DAT_8c033474 ; ukn
+          .DATA.L      _const_8c03346c ; ukn
+          .DATA.B      H'01, H'00, H'00, H'00
+          .DATA.L      _init_8c03bf8c
+          .DATA.L      _const_8c033474 ; ukn
           .DATA.B      H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00
 _init_8c03bfa8:        ; from defines
           .DATA.B      H'00, H'00, H'00, H'00
@@ -6819,34 +6820,34 @@ _init_8c03c4b4:        ; from ghidra
           .DATA.B      H'05, H'00, H'00, H'00, H'01, H'00, H'00, H'00
 _init_8c03c4d4:        ; from ghidra
           .DATA.B      H'05, H'00, H'00, H'00
-          .DATA.L      _init_8c03c460
+          .DATA.L      _init_ptr_8c03c460
           .DATA.B      H'04, H'00, H'00, H'00
-          .DATA.L      _init_8c03c474
+          .DATA.L      _init_ptr_8c03c474
           .DATA.B      H'04, H'00, H'00, H'00
-          .DATA.L      _init_8c03c484
+          .DATA.L      _init_ptr_8c03c484
           .DATA.B      H'FF, H'FF, H'FF, H'FF, H'00, H'00, H'00, H'00
 _init_8c03c4f4:        ; from ghidra
           .DATA.B      H'05, H'00, H'00, H'00
-          .DATA.L      _init_8c03c460
+          .DATA.L      _init_ptr_8c03c460
           .DATA.B      H'FF, H'FF, H'FF, H'FF, H'00, H'00, H'00, H'00
 _init_8c03c504:        ; aggressive search
           .DATA.B      H'03, H'00, H'00, H'00
-          .DATA.L      _init_8c03c44c
+          .DATA.L      _init_ptr_8c03c44c
           .DATA.B      H'04, H'00, H'00, H'00
-          .DATA.L      _init_8c03c4a4
+          .DATA.L      _init_ptr_8c03c4a4
           .DATA.B      H'FF, H'FF, H'FF, H'FF, H'00, H'00, H'00, H'00, H'06, H'00, H'00, H'00, H'00, H'00, H'00, H'00
           .DATA.B      H'FF, H'FF, H'FF, H'FF, H'00, H'00, H'00, H'00
 _init_8c03c52c:        ; aggressive search
           .DATA.B      H'04, H'00, H'00, H'00
-          .DATA.L      _init_8c03c494
+          .DATA.L      _init_ptr_8c03c494
           .DATA.B      H'FF, H'FF, H'FF, H'FF, H'00, H'00, H'00, H'00
 _init_8c03c53c:        ; aggressive search
           .DATA.B      H'04, H'00, H'00, H'00
-          .DATA.L      _init_8c03c4a4
+          .DATA.L      _init_ptr_8c03c4a4
           .DATA.B      H'FF, H'FF, H'FF, H'FF, H'00, H'00, H'00, H'00
 _init_8c03c54c:        ; from ghidra
           .DATA.B      H'04, H'00, H'00, H'00
-          .DATA.L      _init_8c03c4b4
+          .DATA.L      _init_ptr_8c03c4b4
           .DATA.B      H'FF, H'FF, H'FF, H'FF, H'00, H'00, H'00, H'00
 _init_8c03c55c:        ; from ghidra
           .DATA.L      _const_8c033854 ; ukn
@@ -6871,9 +6872,9 @@ _init_8c03c58c:        ; from ghidra
           .DATA.B      H'00, H'00, H'00, H'00
           .DATA.L      _init_8c03c0c0
           .DATA.L      _init_8c03c4d4
-          .DATA.L      _init_8c03c1f8
+          .DATA.L      _init_ptr_8c03c1f8
           .DATA.L      _init_8c03c278
-          .DATA.L      _init_8c03c55c
+          .DATA.L      _init_ptr_8c03c55c
           .DATA.B      H'03, H'00, H'C5, H'00, H'00, H'00, H'5D, H'00
           .DATA.L      _init_8c03c118
           .DATA.B      H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00
@@ -6910,7 +6911,7 @@ _init_8c03c58c:        ; from ghidra
           .DATA.B      H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00
           .DATA.L      _init_8c03c218
           .DATA.B      H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'03, H'00, H'CC, H'00, H'00, H'00, H'64, H'00
-          .DATA.L      _init_8c03c140
+          .DATA.L      _init_ptr_8c03c140
           .DATA.B      H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00
           .DATA.B      H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00
           .DATA.B      H'03, H'00, H'CD, H'00, H'00, H'00, H'65, H'00
@@ -6991,7 +6992,7 @@ _init_8c03c9ac:        ; from ghidra
           .DATA.B      H'00, H'00, H'00, H'00
           .DATA.L      _init_8c03c0c0
           .DATA.L      _init_8c03c4d4
-          .DATA.L      _init_8c03c1f8
+          .DATA.L      _init_ptr_8c03c1f8
           .DATA.L      _init_8c03c28c
           .DATA.L      _init_8c03c56c
           .DATA.B      H'03, H'00, H'C5, H'00, H'00, H'00, H'5D, H'00
@@ -7030,7 +7031,7 @@ _init_8c03c9ac:        ; from ghidra
           .DATA.B      H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00
           .DATA.L      _init_8c03c218
           .DATA.B      H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'03, H'00, H'CC, H'00, H'00, H'00, H'64, H'00
-          .DATA.L      _init_8c03c140
+          .DATA.L      _init_ptr_8c03c140
           .DATA.B      H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00
           .DATA.B      H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00
           .DATA.B      H'03, H'00, H'CD, H'00, H'00, H'00, H'65, H'00
@@ -7111,7 +7112,7 @@ _init_8c03cdcc:        ; from ghidra
           .DATA.B      H'00, H'00, H'00, H'00
           .DATA.L      _init_8c03c0c0
           .DATA.L      _init_8c03c4d4
-          .DATA.L      _init_8c03c1f8
+          .DATA.L      _init_ptr_8c03c1f8
           .DATA.L      _init_8c03c2a0
           .DATA.L      _init_8c03c57c
           .DATA.B      H'03, H'00, H'C5, H'00, H'00, H'00, H'5D, H'00
@@ -7150,7 +7151,7 @@ _init_8c03cdcc:        ; from ghidra
           .DATA.B      H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00
           .DATA.L      _init_8c03c218
           .DATA.B      H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'03, H'00, H'CC, H'00, H'00, H'00, H'64, H'00
-          .DATA.L      _init_8c03c140
+          .DATA.L      _init_ptr_8c03c140
           .DATA.B      H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00
           .DATA.B      H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00
           .DATA.B      H'03, H'00, H'CD, H'00, H'00, H'00, H'65, H'00
@@ -7225,7 +7226,8 @@ _init_8c03d0c4:        ; from ghidra
           .DATA.B      H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00
           .DATA.B      H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00
 _init_8c03d1ec:        ; from ghidra
-          .DATA.B      H'02, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'8C, H'C5, H'03, H'8C
+          .DATA.B      H'02, H'00, H'00, H'00, H'00, H'00, H'00, H'00
+          .DATA.L      _init_8c03c58c
           .DATA.L      _init_8c03bfac
           .DATA.L      _init_8c03c2b4
           .DATA.B      H'0A, H'00, H'00, H'00, H'0A, H'00, H'00, H'00
@@ -7249,7 +7251,8 @@ _init_8c03d1ec:        ; from ghidra
           .DATA.L      _const_8c0339ac ; ukn
           .DATA.L      _const_8c0339bc ; ukn
 _init_8c03d254:        ; from ghidra
-          .DATA.B      H'02, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'8C, H'C5, H'03, H'8C
+          .DATA.B      H'02, H'00, H'00, H'00, H'00, H'00, H'00, H'00
+          .DATA.L      _init_8c03c58c
           .DATA.L      _init_8c03bfac
           .DATA.L      _init_8c03c2b4
           .DATA.B      H'0A, H'00, H'00, H'00, H'0A, H'00, H'00, H'00
@@ -7273,7 +7276,8 @@ _init_8c03d254:        ; from ghidra
           .DATA.L      _const_8c0339ac ; ukn
           .DATA.L      _const_8c0339bc ; ukn
 _init_8c03d2bc:        ; from ghidra
-          .DATA.B      H'02, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'8C, H'C5, H'03, H'8C
+          .DATA.B      H'02, H'00, H'00, H'00, H'00, H'00, H'00, H'00
+          .DATA.L      _init_8c03c58c
           .DATA.L      _init_8c03bfac
           .DATA.L      _init_8c03c2b4
           .DATA.B      H'0A, H'00, H'00, H'00, H'0A, H'00, H'00, H'00
@@ -7864,285 +7868,291 @@ _init_8c03dd18:        ; from ghidra
           .DATA.B      H'05, H'00, H'00, H'00, H'00, H'00, H'06, H'44, H'00, H'80, H'94, H'43
 _init_8c03dd2c:        ; from ghidra
           .DATA.B      H'05, H'00, H'00, H'00
-          .DATA.L      _init_8c03dcf0
+          .DATA.L      _init_ptr_8c03dcf0
           .DATA.B      H'FF, H'FF, H'FF, H'FF, H'00, H'00, H'00, H'00
 _init_8c03dd3c:        ; from ghidra
           .DATA.B      H'05, H'00, H'00, H'00
-          .DATA.L      _init_8c03dd04
+          .DATA.L      _init_ptr_8c03dd04
           .DATA.B      H'FF, H'FF, H'FF, H'FF, H'00, H'00, H'00, H'00
 _init_8c03dd4c:        ; from ghidra
           .DATA.B      H'00, H'00, H'00, H'00
-          .DATA.L      _init_8c03da4c
+          .DATA.L      _init_ptr_8c03da4c
           .DATA.B      H'00, H'00, H'00, H'00
-          .DATA.L      _init_8c03da5c
+          .DATA.L      _init_ptr_8c03da5c
           .DATA.B      H'00, H'00, H'00, H'00
-          .DATA.L      _init_8c03da6c
+          .DATA.L      _init_ptr_8c03da6c
           .DATA.B      H'00, H'00, H'00, H'00
-          .DATA.L      _init_8c03da7c
-          .DATA.B      H'00, H'00, H'00, H'00, H'8C, H'DA, H'03, H'8C, H'00, H'00, H'00, H'00
-          .DATA.L      _init_8c03da9c
+          .DATA.L      _init_ptr_8c03da7c
           .DATA.B      H'00, H'00, H'00, H'00
-          .DATA.L      _init_8c03daec
+          .DATA.L      _init_ptr_8c03da8c
           .DATA.B      H'00, H'00, H'00, H'00
-          .DATA.L      _init_8c03dafc
+          .DATA.L      _init_ptr_8c03da9c
+          .DATA.B      H'00, H'00, H'00, H'00
+          .DATA.L      _init_ptr_8c03daec
+          .DATA.B      H'00, H'00, H'00, H'00
+          .DATA.L      _init_ptr_8c03dafc
           .DATA.B      H'FF, H'FF, H'FF, H'FF, H'00, H'00, H'00, H'00
 _init_8c03dd94:        ; from ghidra
           .DATA.B      H'00, H'00, H'00, H'00
-          .DATA.L      _init_8c03daec
+          .DATA.L      _init_ptr_8c03daec
           .DATA.B      H'00, H'00, H'00, H'00
-          .DATA.L      _init_8c03dafc
+          .DATA.L      _init_ptr_8c03dafc
           .DATA.B      H'00, H'00, H'00, H'00
-          .DATA.L      _init_8c03daac
+          .DATA.L      _init_ptr_8c03daac
           .DATA.B      H'00, H'00, H'00, H'00
-          .DATA.L      _init_8c03dabc
+          .DATA.L      _init_ptr_8c03dabc
           .DATA.B      H'00, H'00, H'00, H'00
-          .DATA.L      _init_8c03dacc
+          .DATA.L      _init_ptr_8c03dacc
           .DATA.B      H'00, H'00, H'00, H'00
-          .DATA.L      _init_8c03dadc
+          .DATA.L      _init_ptr_8c03dadc
           .DATA.B      H'01, H'00, H'00, H'00
-          .DATA.L      _init_8c03dc3c
+          .DATA.L      _init_ptr_8c03dc3c
           .DATA.B      H'01, H'00, H'00, H'00
-          .DATA.L      _init_8c03dc5c
+          .DATA.L      _init_ptr_8c03dc5c
           .DATA.B      H'01, H'00, H'00, H'00
-          .DATA.L      _init_8c03dc7c
-          .DATA.B      H'01, H'00, H'00, H'00, H'8C, H'DC, H'03, H'8C, H'FF, H'FF, H'FF, H'FF, H'00, H'00, H'00, H'00
+          .DATA.L      _init_ptr_8c03dc7c
+          .DATA.B      H'01, H'00, H'00, H'00
+          .DATA.L      _init_ptr_8c03dc8c
+          .DATA.B      H'FF, H'FF, H'FF, H'FF, H'00, H'00, H'00, H'00
 _init_8c03ddec:        ; aggressive search
           .DATA.B      H'03, H'00, H'00, H'00
-          .DATA.L      _init_8c03db0c
+          .DATA.L      _init_ptr_8c03db0c
           .DATA.B      H'03, H'00, H'00, H'00
-          .DATA.L      _init_8c03db34
+          .DATA.L      _init_ptr_8c03db34
           .DATA.B      H'01, H'00, H'00, H'00
-          .DATA.L      _init_8c03dbac
+          .DATA.L      _init_ptr_8c03dbac
           .DATA.B      H'01, H'00, H'00, H'00
-          .DATA.L      _init_8c03dbbc
+          .DATA.L      _init_ptr_8c03dbbc
           .DATA.B      H'01, H'00, H'00, H'00
-          .DATA.L      _init_8c03dbcc
+          .DATA.L      _init_ptr_8c03dbcc
           .DATA.B      H'05, H'00, H'00, H'00
-          .DATA.L      _init_8c03dd18
+          .DATA.L      _init_ptr_8c03dd18
           .DATA.B      H'FF, H'FF, H'FF, H'FF, H'00, H'00, H'00, H'00
 _init_8c03de24:        ; aggressive search
           .DATA.B      H'03, H'00, H'00, H'00
-          .DATA.L      _init_8c03db20
+          .DATA.L      _init_ptr_8c03db20
           .DATA.B      H'03, H'00, H'00, H'00
-          .DATA.L      _init_8c03db48
+          .DATA.L      _init_ptr_8c03db48
           .DATA.B      H'01, H'00, H'00, H'00
-          .DATA.L      _init_8c03dbac
+          .DATA.L      _init_ptr_8c03dbac
           .DATA.B      H'01, H'00, H'00, H'00
-          .DATA.L      _init_8c03dbbc
+          .DATA.L      _init_ptr_8c03dbbc
           .DATA.B      H'01, H'00, H'00, H'00
-          .DATA.L      _init_8c03dbcc
+          .DATA.L      _init_ptr_8c03dbcc
           .DATA.B      H'05, H'00, H'00, H'00
-          .DATA.L      _init_8c03dd18
+          .DATA.L      _init_ptr_8c03dd18
           .DATA.B      H'FF, H'FF, H'FF, H'FF, H'00, H'00, H'00, H'00
 _init_8c03de5c:        ; aggressive search
           .DATA.B      H'03, H'00, H'00, H'00
-          .DATA.L      _init_8c03db0c
+          .DATA.L      _init_ptr_8c03db0c
           .DATA.B      H'03, H'00, H'00, H'00
-          .DATA.L      _init_8c03db48
+          .DATA.L      _init_ptr_8c03db48
           .DATA.B      H'01, H'00, H'00, H'00
-          .DATA.L      _init_8c03dbac
+          .DATA.L      _init_ptr_8c03dbac
           .DATA.B      H'01, H'00, H'00, H'00
-          .DATA.L      _init_8c03dbbc
+          .DATA.L      _init_ptr_8c03dbbc
           .DATA.B      H'01, H'00, H'00, H'00
-          .DATA.L      _init_8c03dbcc
+          .DATA.L      _init_ptr_8c03dbcc
           .DATA.B      H'05, H'00, H'00, H'00
-          .DATA.L      _init_8c03dd18
+          .DATA.L      _init_ptr_8c03dd18
           .DATA.B      H'FF, H'FF, H'FF, H'FF, H'00, H'00, H'00, H'00
 _init_8c03de94:        ; aggressive search
           .DATA.B      H'01, H'00, H'00, H'00
-          .DATA.L      _init_8c03dcbc
+          .DATA.L      _init_ptr_8c03dcbc
           .DATA.B      H'05, H'00, H'00, H'00
-          .DATA.L      _init_8c03dcdc
+          .DATA.L      _init_ptr_8c03dcdc
           .DATA.B      H'FF, H'FF, H'FF, H'FF, H'00, H'00, H'00, H'00
 _init_8c03deac:        ; from ghidra
           .DATA.B      H'01, H'00, H'00, H'00
-          .DATA.L      _init_8c03dcbc
+          .DATA.L      _init_ptr_8c03dcbc
           .DATA.B      H'FF, H'FF, H'FF, H'FF, H'00, H'00, H'00, H'00
 _init_8c03debc:        ; aggressive search
           .DATA.B      H'01, H'00, H'00, H'00
-          .DATA.L      _init_8c03dc1c
+          .DATA.L      _init_ptr_8c03dc1c
           .DATA.B      H'01, H'00, H'00, H'00
-          .DATA.L      _init_8c03dc2c
+          .DATA.L      _init_ptr_8c03dc2c
           .DATA.B      H'01, H'00, H'00, H'00
-          .DATA.L      _init_8c03dbfc
+          .DATA.L      _init_ptr_8c03dbfc
           .DATA.B      H'01, H'00, H'00, H'00
-          .DATA.L      _init_8c03dcbc
+          .DATA.L      _init_ptr_8c03dcbc
           .DATA.B      H'FF, H'FF, H'FF, H'FF, H'00, H'00, H'00, H'00
 _init_8c03dee4:        ; from ghidra
           .DATA.B      H'01, H'00, H'00, H'00
-          .DATA.L      _init_8c03dbac
+          .DATA.L      _init_ptr_8c03dbac
           .DATA.B      H'01, H'00, H'00, H'00
-          .DATA.L      _init_8c03dbbc
+          .DATA.L      _init_ptr_8c03dbbc
           .DATA.B      H'01, H'00, H'00, H'00
-          .DATA.L      _init_8c03dbcc
+          .DATA.L      _init_ptr_8c03dbcc
           .DATA.B      H'01, H'00, H'00, H'00
-          .DATA.L      _init_8c03dbec
+          .DATA.L      _init_ptr_8c03dbec
           .DATA.B      H'01, H'00, H'00, H'00
-          .DATA.L      _init_8c03dbfc
+          .DATA.L      _init_ptr_8c03dbfc
           .DATA.B      H'01, H'00, H'00, H'00
-          .DATA.L      _init_8c03dc0c
+          .DATA.L      _init_ptr_8c03dc0c
           .DATA.B      H'01, H'00, H'00, H'00
-          .DATA.L      _init_8c03dc1c
+          .DATA.L      _init_ptr_8c03dc1c
           .DATA.B      H'01, H'00, H'00, H'00
-          .DATA.L      _init_8c03dc2c
+          .DATA.L      _init_ptr_8c03dc2c
           .DATA.B      H'FF, H'FF, H'FF, H'FF, H'00, H'00, H'00, H'00
 _init_8c03df2c:        ; aggressive search
           .DATA.B      H'03, H'00, H'00, H'00
-          .DATA.L      _init_8c03db70
+          .DATA.L      _init_ptr_8c03db70
           .DATA.B      H'03, H'00, H'00, H'00
-          .DATA.L      _init_8c03db84
+          .DATA.L      _init_ptr_8c03db84
           .DATA.B      H'03, H'00, H'00, H'00
-          .DATA.L      _init_8c03db98
+          .DATA.L      _init_ptr_8c03db98
           .DATA.B      H'01, H'00, H'00, H'00
-          .DATA.L      _init_8c03dbac
+          .DATA.L      _init_ptr_8c03dbac
           .DATA.B      H'01, H'00, H'00, H'00
-          .DATA.L      _init_8c03dbbc
+          .DATA.L      _init_ptr_8c03dbbc
           .DATA.B      H'01, H'00, H'00, H'00
-          .DATA.L      _init_8c03dbcc
+          .DATA.L      _init_ptr_8c03dbcc
           .DATA.B      H'05, H'00, H'00, H'00
-          .DATA.L      _init_8c03dd18
+          .DATA.L      _init_ptr_8c03dd18
           .DATA.B      H'FF, H'FF, H'FF, H'FF, H'00, H'00, H'00, H'00
 _init_8c03df6c:        ; aggressive search
           .DATA.B      H'03, H'00, H'00, H'00
-          .DATA.L      _init_8c03db84
+          .DATA.L      _init_ptr_8c03db84
           .DATA.B      H'03, H'00, H'00, H'00
-          .DATA.L      _init_8c03db98
+          .DATA.L      _init_ptr_8c03db98
           .DATA.B      H'01, H'00, H'00, H'00
-          .DATA.L      _init_8c03dbac
+          .DATA.L      _init_ptr_8c03dbac
           .DATA.B      H'01, H'00, H'00, H'00
-          .DATA.L      _init_8c03dbbc
+          .DATA.L      _init_ptr_8c03dbbc
           .DATA.B      H'01, H'00, H'00, H'00
-          .DATA.L      _init_8c03dbcc
+          .DATA.L      _init_ptr_8c03dbcc
           .DATA.B      H'05, H'00, H'00, H'00
-          .DATA.L      _init_8c03dd18
+          .DATA.L      _init_ptr_8c03dd18
           .DATA.B      H'FF, H'FF, H'FF, H'FF, H'00, H'00, H'00, H'00
 _init_8c03dfa4:        ; from ghidra
           .DATA.B      H'00, H'00, H'00, H'00
-          .DATA.L      _init_8c03da4c
+          .DATA.L      _init_ptr_8c03da4c
           .DATA.B      H'00, H'00, H'00, H'00
-          .DATA.L      _init_8c03da5c
+          .DATA.L      _init_ptr_8c03da5c
           .DATA.B      H'00, H'00, H'00, H'00
-          .DATA.L      _init_8c03da6c
+          .DATA.L      _init_ptr_8c03da6c
           .DATA.B      H'00, H'00, H'00, H'00
-          .DATA.L      _init_8c03da7c
-          .DATA.B      H'00, H'00, H'00, H'00, H'8C, H'DA, H'03, H'8C, H'00, H'00, H'00, H'00
-          .DATA.L      _init_8c03da9c
+          .DATA.L      _init_ptr_8c03da7c
           .DATA.B      H'00, H'00, H'00, H'00
-          .DATA.L      _init_8c03daec
+          .DATA.L      _init_ptr_8c03da8c
           .DATA.B      H'00, H'00, H'00, H'00
-          .DATA.L      _init_8c03dafc
+          .DATA.L      _init_ptr_8c03da9c
+          .DATA.B      H'00, H'00, H'00, H'00
+          .DATA.L      _init_ptr_8c03daec
+          .DATA.B      H'00, H'00, H'00, H'00
+          .DATA.L      _init_ptr_8c03dafc
           .DATA.B      H'01, H'00, H'00, H'00
-          .DATA.L      _init_8c03dcac
+          .DATA.L      _init_ptr_8c03dcac
           .DATA.B      H'FF, H'FF, H'FF, H'FF, H'00, H'00, H'00, H'00
 _init_8c03dff4:        ; from ghidra
           .DATA.B      H'00, H'00, H'00, H'00
-          .DATA.L      _init_8c03daec
+          .DATA.L      _init_ptr_8c03daec
           .DATA.B      H'00, H'00, H'00, H'00
-          .DATA.L      _init_8c03dafc
+          .DATA.L      _init_ptr_8c03dafc
           .DATA.B      H'00, H'00, H'00, H'00
-          .DATA.L      _init_8c03daac
+          .DATA.L      _init_ptr_8c03daac
           .DATA.B      H'00, H'00, H'00, H'00
-          .DATA.L      _init_8c03dabc
+          .DATA.L      _init_ptr_8c03dabc
           .DATA.B      H'00, H'00, H'00, H'00
-          .DATA.L      _init_8c03dacc
+          .DATA.L      _init_ptr_8c03dacc
           .DATA.B      H'00, H'00, H'00, H'00
-          .DATA.L      _init_8c03dadc
+          .DATA.L      _init_ptr_8c03dadc
           .DATA.B      H'01, H'00, H'00, H'00
-          .DATA.L      _init_8c03dcac
+          .DATA.L      _init_ptr_8c03dcac
           .DATA.B      H'01, H'00, H'00, H'00
-          .DATA.L      _init_8c03dc4c
+          .DATA.L      _init_ptr_8c03dc4c
           .DATA.B      H'01, H'00, H'00, H'00
-          .DATA.L      _init_8c03dc6c
+          .DATA.L      _init_ptr_8c03dc6c
           .DATA.B      H'01, H'00, H'00, H'00
-          .DATA.L      _init_8c03dc7c
+          .DATA.L      _init_ptr_8c03dc7c
           .DATA.B      H'01, H'00, H'00, H'00
-          .DATA.L      _init_8c03dc9c
+          .DATA.L      _init_ptr_8c03dc9c
           .DATA.B      H'FF, H'FF, H'FF, H'FF, H'00, H'00, H'00, H'00
 _init_8c03e054:        ; aggressive search
           .DATA.B      H'01, H'00, H'00, H'00
-          .DATA.L      _init_8c03dccc
+          .DATA.L      _init_ptr_8c03dccc
           .DATA.B      H'05, H'00, H'00, H'00
-          .DATA.L      _init_8c03dcdc
+          .DATA.L      _init_ptr_8c03dcdc
           .DATA.B      H'FF, H'FF, H'FF, H'FF, H'00, H'00, H'00, H'00
 _init_8c03e06c:        ; aggressive search
           .DATA.B      H'01, H'00, H'00, H'00
-          .DATA.L      _init_8c03dccc
+          .DATA.L      _init_ptr_8c03dccc
           .DATA.B      H'FF, H'FF, H'FF, H'FF, H'00, H'00, H'00, H'00
 _init_8c03e07c:        ; aggressive search
           .DATA.B      H'01, H'00, H'00, H'00
-          .DATA.L      _init_8c03dc1c
+          .DATA.L      _init_ptr_8c03dc1c
           .DATA.B      H'01, H'00, H'00, H'00
-          .DATA.L      _init_8c03dc2c
+          .DATA.L      _init_ptr_8c03dc2c
           .DATA.B      H'01, H'00, H'00, H'00
-          .DATA.L      _init_8c03dbfc
+          .DATA.L      _init_ptr_8c03dbfc
           .DATA.B      H'01, H'00, H'00, H'00
-          .DATA.L      _init_8c03dbdc
+          .DATA.L      _init_ptr_8c03dbdc
           .DATA.B      H'01, H'00, H'00, H'00
-          .DATA.L      _init_8c03dccc
+          .DATA.L      _init_ptr_8c03dccc
           .DATA.B      H'FF, H'FF, H'FF, H'FF, H'00, H'00, H'00, H'00
 _init_8c03e0ac:        ; aggressive search
           .DATA.B      H'01, H'00, H'00, H'00
-          .DATA.L      _init_8c03dbac
+          .DATA.L      _init_ptr_8c03dbac
           .DATA.B      H'01, H'00, H'00, H'00
-          .DATA.L      _init_8c03dbbc
+          .DATA.L      _init_ptr_8c03dbbc
           .DATA.B      H'01, H'00, H'00, H'00
-          .DATA.L      _init_8c03dbcc
+          .DATA.L      _init_ptr_8c03dbcc
           .DATA.B      H'01, H'00, H'00, H'00
-          .DATA.L      _init_8c03dbec
+          .DATA.L      _init_ptr_8c03dbec
           .DATA.B      H'01, H'00, H'00, H'00
-          .DATA.L      _init_8c03dbfc
+          .DATA.L      _init_ptr_8c03dbfc
           .DATA.B      H'01, H'00, H'00, H'00
-          .DATA.L      _init_8c03dbdc
+          .DATA.L      _init_ptr_8c03dbdc
           .DATA.B      H'01, H'00, H'00, H'00
-          .DATA.L      _init_8c03dc0c
+          .DATA.L      _init_ptr_8c03dc0c
           .DATA.B      H'01, H'00, H'00, H'00
-          .DATA.L      _init_8c03dc1c
+          .DATA.L      _init_ptr_8c03dc1c
           .DATA.B      H'01, H'00, H'00, H'00
-          .DATA.L      _init_8c03dc2c
+          .DATA.L      _init_ptr_8c03dc2c
           .DATA.B      H'FF, H'FF, H'FF, H'FF, H'00, H'00, H'00, H'00
 _init_8c03e0fc:        ; aggressive search
           .DATA.B      H'03, H'00, H'00, H'00
-          .DATA.L      _init_8c03db5c
+          .DATA.L      _init_ptr_8c03db5c
           .DATA.B      H'03, H'00, H'00, H'00
-          .DATA.L      _init_8c03db84
+          .DATA.L      _init_ptr_8c03db84
           .DATA.B      H'03, H'00, H'00, H'00
-          .DATA.L      _init_8c03db98
+          .DATA.L      _init_ptr_8c03db98
           .DATA.B      H'01, H'00, H'00, H'00
-          .DATA.L      _init_8c03dbac
+          .DATA.L      _init_ptr_8c03dbac
           .DATA.B      H'01, H'00, H'00, H'00
-          .DATA.L      _init_8c03dbbc
+          .DATA.L      _init_ptr_8c03dbbc
           .DATA.B      H'01, H'00, H'00, H'00
-          .DATA.L      _init_8c03dbcc
+          .DATA.L      _init_ptr_8c03dbcc
           .DATA.B      H'05, H'00, H'00, H'00
-          .DATA.L      _init_8c03dd18
+          .DATA.L      _init_ptr_8c03dd18
           .DATA.B      H'FF, H'FF, H'FF, H'FF, H'00, H'00, H'00, H'00
 _init_8c03e13c:        ; aggressive search
           .DATA.B      H'03, H'00, H'00, H'00
-          .DATA.L      _init_8c03db5c
+          .DATA.L      _init_ptr_8c03db5c
           .DATA.B      H'01, H'00, H'00, H'00
-          .DATA.L      _init_8c03dbac
+          .DATA.L      _init_ptr_8c03dbac
           .DATA.B      H'01, H'00, H'00, H'00
-          .DATA.L      _init_8c03dbbc
+          .DATA.L      _init_ptr_8c03dbbc
           .DATA.B      H'01, H'00, H'00, H'00
-          .DATA.L      _init_8c03dbcc
+          .DATA.L      _init_ptr_8c03dbcc
           .DATA.B      H'05, H'00, H'00, H'00
-          .DATA.L      _init_8c03dd18
+          .DATA.L      _init_ptr_8c03dd18
           .DATA.B      H'FF, H'FF, H'FF, H'FF, H'00, H'00, H'00, H'00
 _init_8c03e16c:        ; aggressive search
           .DATA.B      H'03, H'00, H'00, H'00
-          .DATA.L      _init_8c03db5c
+          .DATA.L      _init_ptr_8c03db5c
           .DATA.B      H'03, H'00, H'00, H'00
-          .DATA.L      _init_8c03db70
+          .DATA.L      _init_ptr_8c03db70
           .DATA.B      H'03, H'00, H'00, H'00
-          .DATA.L      _init_8c03db84
+          .DATA.L      _init_ptr_8c03db84
           .DATA.B      H'01, H'00, H'00, H'00
-          .DATA.L      _init_8c03dbac
+          .DATA.L      _init_ptr_8c03dbac
           .DATA.B      H'01, H'00, H'00, H'00
-          .DATA.L      _init_8c03dbbc
+          .DATA.L      _init_ptr_8c03dbbc
           .DATA.B      H'01, H'00, H'00, H'00
-          .DATA.L      _init_8c03dbcc
+          .DATA.L      _init_ptr_8c03dbcc
           .DATA.B      H'05, H'00, H'00, H'00
-          .DATA.L      _init_8c03dd18
+          .DATA.L      _init_ptr_8c03dd18
           .DATA.B      H'FF, H'FF, H'FF, H'FF, H'00, H'00, H'00, H'00
 _init_8c03e1ac:        ; aggressive search
           .DATA.B      H'02, H'00, H'F9, H'00, H'00, H'00, H'93, H'00
@@ -8152,9 +8162,9 @@ _init_8c03e1ac:        ; aggressive search
           .DATA.L      _init_8c03d794
           .DATA.L      _init_8c03d6a8
           .DATA.L      _init_8c03dd4c
-          .DATA.L      _init_8c03d7c8
+          .DATA.L      _init_ptr_8c03d7c8
           .DATA.L      _init_8c03d9e0
-          .DATA.L      _init_8c03da1c
+          .DATA.L      _init_ptr_8c03da1c
           .DATA.B      H'03, H'00, H'FA, H'00, H'00, H'00, H'94, H'00
           .DATA.L      _init_8c03d6c0
           .DATA.B      H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00
@@ -8176,7 +8186,7 @@ _init_8c03e1ac:        ; aggressive search
           .DATA.L      _init_8c03d79c
           .DATA.B      H'00, H'00, H'00, H'00
           .DATA.L      _init_8c03dd94
-          .DATA.L      _init_8c03d7d8
+          .DATA.L      _init_ptr_8c03d7d8
           .DATA.B      H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'01, H'00, H'FD, H'00, H'00, H'00, H'97, H'00
           .DATA.L      _init_8c03d6de
           .DATA.B      H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00
@@ -8313,9 +8323,9 @@ _init_8c03e5cc:        ; from ghidra
           .DATA.L      _init_8c03d794
           .DATA.L      _init_8c03d6a8
           .DATA.L      _init_8c03dd4c
-          .DATA.L      _init_8c03d7c8
+          .DATA.L      _init_ptr_8c03d7c8
           .DATA.L      _init_8c03d9e0
-          .DATA.L      _init_8c03da1c
+          .DATA.L      _init_ptr_8c03da1c
           .DATA.B      H'03, H'00, H'FA, H'00, H'00, H'00, H'94, H'00
           .DATA.L      _init_8c03d6c0
           .DATA.B      H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00
@@ -8337,7 +8347,7 @@ _init_8c03e5cc:        ; from ghidra
           .DATA.L      _init_8c03d79c
           .DATA.B      H'00, H'00, H'00, H'00
           .DATA.L      _init_8c03dd94
-          .DATA.L      _init_8c03d7d8
+          .DATA.L      _init_ptr_8c03d7d8
           .DATA.B      H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'01, H'00, H'FD, H'00, H'00, H'00, H'97, H'00
           .DATA.L      _init_8c03d6de
           .DATA.B      H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00
@@ -8474,9 +8484,9 @@ _init_8c03e9ec:        ; from ghidra
           .DATA.L      _init_8c03d794
           .DATA.L      _init_8c03d6a8
           .DATA.L      _init_8c03dd4c
-          .DATA.L      _init_8c03d7c8
+          .DATA.L      _init_ptr_8c03d7c8
           .DATA.L      _init_8c03d9e0
-          .DATA.L      _init_8c03da1c
+          .DATA.L      _init_ptr_8c03da1c
           .DATA.B      H'03, H'00, H'FA, H'00, H'00, H'00, H'94, H'00
           .DATA.L      _init_8c03d6c0
           .DATA.B      H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00
@@ -8498,7 +8508,7 @@ _init_8c03e9ec:        ; from ghidra
           .DATA.L      _init_8c03d79c
           .DATA.B      H'00, H'00, H'00, H'00
           .DATA.L      _init_8c03dd94
-          .DATA.L      _init_8c03d7d8
+          .DATA.L      _init_ptr_8c03d7d8
           .DATA.B      H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'01, H'00, H'FD, H'00, H'00, H'00, H'97, H'00
           .DATA.L      _init_8c03d6de
           .DATA.B      H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00
@@ -8635,7 +8645,7 @@ _init_8c03ee0c:        ; from ghidra
           .DATA.L      _init_8c03d794
           .DATA.L      _init_8c03d6a8
           .DATA.L      _init_8c03dfa4
-          .DATA.L      _init_8c03d7c8
+          .DATA.L      _init_ptr_8c03d7c8
           .DATA.L      _init_8c03d9f4
           .DATA.L      _init_8c03da2c
           .DATA.B      H'03, H'00, H'FA, H'00, H'00, H'00, H'94, H'00
@@ -8659,7 +8669,7 @@ _init_8c03ee0c:        ; from ghidra
           .DATA.L      _init_8c03d79c
           .DATA.B      H'00, H'00, H'00, H'00
           .DATA.L      _init_8c03dff4
-          .DATA.L      _init_8c03d7d8
+          .DATA.L      _init_ptr_8c03d7d8
           .DATA.B      H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'01, H'00, H'FD, H'00, H'00, H'00, H'97, H'00
           .DATA.L      _init_8c03d6de
           .DATA.B      H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00
@@ -8796,7 +8806,7 @@ _init_8c03f22c:        ; from ghidra
           .DATA.L      _init_8c03d794
           .DATA.L      _init_8c03d6a8
           .DATA.L      _init_8c03dfa4
-          .DATA.L      _init_8c03d7c8
+          .DATA.L      _init_ptr_8c03d7c8
           .DATA.L      _init_8c03d9f4
           .DATA.L      _init_8c03da2c
           .DATA.B      H'03, H'00, H'FA, H'00, H'00, H'00, H'94, H'00
@@ -8820,7 +8830,7 @@ _init_8c03f22c:        ; from ghidra
           .DATA.L      _init_8c03d79c
           .DATA.B      H'00, H'00, H'00, H'00
           .DATA.L      _init_8c03dff4
-          .DATA.L      _init_8c03d7d8
+          .DATA.L      _init_ptr_8c03d7d8
           .DATA.B      H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'01, H'00, H'FD, H'00, H'00, H'00, H'97, H'00
           .DATA.L      _init_8c03d6de
           .DATA.B      H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00
@@ -8957,7 +8967,7 @@ _init_8c03f64c:        ; from ghidra
           .DATA.L      _init_8c03d794
           .DATA.L      _init_8c03d6a8
           .DATA.L      _init_8c03dfa4
-          .DATA.L      _init_8c03d7c8
+          .DATA.L      _init_ptr_8c03d7c8
           .DATA.L      _init_8c03d9f4
           .DATA.L      _init_8c03da2c
           .DATA.B      H'03, H'00, H'FA, H'00, H'00, H'00, H'94, H'00
@@ -8981,7 +8991,7 @@ _init_8c03f64c:        ; from ghidra
           .DATA.L      _init_8c03d79c
           .DATA.B      H'00, H'00, H'00, H'00
           .DATA.L      _init_8c03dff4
-          .DATA.L      _init_8c03d7d8
+          .DATA.L      _init_ptr_8c03d7d8
           .DATA.B      H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'01, H'00, H'FD, H'00, H'00, H'00, H'97, H'00
           .DATA.L      _init_8c03d6de
           .DATA.B      H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00
@@ -9118,9 +9128,9 @@ _init_8c03fa6c:        ; from ghidra
           .DATA.L      _init_8c03d794
           .DATA.L      _init_8c03d6a8
           .DATA.L      _init_8c03dfa4
-          .DATA.L      _init_8c03d7c8
+          .DATA.L      _init_ptr_8c03d7c8
           .DATA.L      _init_8c03da08
-          .DATA.L      _init_8c03da3c
+          .DATA.L      _init_ptr_8c03da3c
           .DATA.B      H'03, H'00, H'FA, H'00, H'00, H'00, H'94, H'00
           .DATA.L      _init_8c03d6c0
           .DATA.B      H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00
@@ -9142,7 +9152,7 @@ _init_8c03fa6c:        ; from ghidra
           .DATA.L      _init_8c03d79c
           .DATA.B      H'00, H'00, H'00, H'00
           .DATA.L      _init_8c03dff4
-          .DATA.L      _init_8c03d7d8
+          .DATA.L      _init_ptr_8c03d7d8
           .DATA.B      H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'01, H'00, H'FD, H'00, H'00, H'00, H'97, H'00
           .DATA.L      _init_8c03d6de
           .DATA.B      H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00
@@ -9279,9 +9289,9 @@ _init_8c03fe8c:        ; from ghidra
           .DATA.L      _init_8c03d794
           .DATA.L      _init_8c03d6a8
           .DATA.L      _init_8c03dfa4
-          .DATA.L      _init_8c03d7c8
+          .DATA.L      _init_ptr_8c03d7c8
           .DATA.L      _init_8c03da08
-          .DATA.L      _init_8c03da3c
+          .DATA.L      _init_ptr_8c03da3c
           .DATA.B      H'03, H'00, H'FA, H'00, H'00, H'00, H'94, H'00
           .DATA.L      _init_8c03d6c0
           .DATA.B      H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00
@@ -9303,7 +9313,7 @@ _init_8c03fe8c:        ; from ghidra
           .DATA.L      _init_8c03d79c
           .DATA.B      H'00, H'00, H'00, H'00
           .DATA.L      _init_8c03dff4
-          .DATA.L      _init_8c03d7d8
+          .DATA.L      _init_ptr_8c03d7d8
           .DATA.B      H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'01, H'00, H'FD, H'00, H'00, H'00, H'97, H'00
           .DATA.L      _init_8c03d6de
           .DATA.B      H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00
@@ -9440,9 +9450,9 @@ _init_8c0402ac:        ; from ghidra
           .DATA.L      _init_8c03d794
           .DATA.L      _init_8c03d6a8
           .DATA.L      _init_8c03dfa4
-          .DATA.L      _init_8c03d7c8
+          .DATA.L      _init_ptr_8c03d7c8
           .DATA.L      _init_8c03da08
-          .DATA.L      _init_8c03da3c
+          .DATA.L      _init_ptr_8c03da3c
           .DATA.B      H'03, H'00, H'FA, H'00, H'00, H'00, H'94, H'00
           .DATA.L      _init_8c03d6c0
           .DATA.B      H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00
@@ -9464,7 +9474,7 @@ _init_8c0402ac:        ; from ghidra
           .DATA.L      _init_8c03d79c
           .DATA.B      H'00, H'00, H'00, H'00
           .DATA.L      _init_8c03dff4
-          .DATA.L      _init_8c03d7d8
+          .DATA.L      _init_ptr_8c03d7d8
           .DATA.B      H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'01, H'00, H'FD, H'00, H'00, H'00, H'97, H'00
           .DATA.L      _init_8c03d6de
           .DATA.B      H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00
@@ -9771,7 +9781,8 @@ _init_8c04093c:        ; from ghidra
           .DATA.L      _const_8c034350 ; ukn
           .DATA.L      _const_8c034350 ; ukn
 _init_8c0409a4:        ; from ghidra
-          .DATA.B      H'00, H'00, H'00, H'00, H'02, H'00, H'00, H'00, H'8C, H'FE, H'03, H'8C
+          .DATA.B      H'00, H'00, H'00, H'00, H'02, H'00, H'00, H'00
+          .DATA.L      _init_8c03fe8c
           .DATA.L      _init_8c03d64c
           .DATA.L      _init_8c03d958
           .DATA.B      H'09, H'00, H'00, H'00, H'09, H'00, H'00, H'00
@@ -9831,8 +9842,10 @@ _init_8c040ab4:        ; from ghidra
 _init_8c040af4:        ; from ghidra
           .DATA.B      H'A0, H'F2, H'21, H'00, H'EE, H'FE, H'21, H'00, H'CA, H'04, H'22, H'00, H'7A, H'09, H'22, H'00
           .DATA.B      H'5E, H'16, H'22, H'00, H'D8, H'23, H'22, H'00, H'CC, H'3E, H'22, H'00, H'C2, H'48, H'22, H'00
-          .DATA.B      H'08, H'4E, H'22, H'00, H'A6, H'55, H'22, H'00, H'AE, H'5C, H'22, H'00, H'24, H'8C, H'22, H'00
-          .DATA.B      H'B8, H'9D, H'22, H'00, H'C8, H'AB, H'22, H'00, H'EA, H'B6, H'22, H'00, H'30, H'BC, H'22, H'00
+          .DATA.B      H'08, H'4E, H'22, H'00, H'A6, H'55, H'22, H'00, H'AE, H'5C
+          .DATA.L      _var_8c240022 ; ukn
+          .DATA.B      H'22, H'00, H'B8, H'9D, H'22, H'00, H'C8, H'AB, H'22, H'00, H'EA, H'B6, H'22, H'00, H'30, H'BC
+          .DATA.B      H'22, H'00
 _init_8c040b34:        ; from ghidra
           .DATA.B      H'00, H'01, H'02, H'03, H'04, H'05, H'06, H'07, H'08, H'0E, H'13, H'14, H'15, H'33, H'34, H'FF
 _init_8c040b44:        ; from ghidra
@@ -10167,149 +10180,149 @@ _init_8c041128:        ; from ghidra
           .DATA.B      H'07, H'01, H'00, H'00
 _init_8c04113c:        ; from ghidra
           .DATA.B      H'04, H'00, H'00, H'00
-          .DATA.L      _init_8c040e98
+          .DATA.L      _init_ptr_8c040e98
           .DATA.B      H'04, H'00, H'00, H'00
-          .DATA.L      _init_8c040ea8
+          .DATA.L      _init_ptr_8c040ea8
           .DATA.B      H'04, H'00, H'00, H'00
-          .DATA.L      _init_8c040eb8
+          .DATA.L      _init_ptr_8c040eb8
           .DATA.B      H'04, H'00, H'00, H'00
-          .DATA.L      _init_8c040ed8
+          .DATA.L      _init_ptr_8c040ed8
           .DATA.B      H'04, H'00, H'00, H'00
-          .DATA.L      _init_8c040ee8
+          .DATA.L      _init_ptr_8c040ee8
           .DATA.B      H'03, H'00, H'00, H'00
-          .DATA.L      _init_8c04109c
+          .DATA.L      _init_ptr_8c04109c
           .DATA.B      H'03, H'00, H'00, H'00
-          .DATA.L      _init_8c041128
+          .DATA.L      _init_ptr_8c041128
           .DATA.B      H'00, H'00, H'00, H'00
-          .DATA.L      _init_8c040f58
+          .DATA.L      _init_ptr_8c040f58
           .DATA.B      H'00, H'00, H'00, H'00
-          .DATA.L      _init_8c040f68
+          .DATA.L      _init_ptr_8c040f68
           .DATA.B      H'00, H'00, H'00, H'00
-          .DATA.L      _init_8c040f78
+          .DATA.L      _init_ptr_8c040f78
           .DATA.B      H'00, H'00, H'00, H'00
-          .DATA.L      _init_8c040f88
+          .DATA.L      _init_ptr_8c040f88
           .DATA.B      H'00, H'00, H'00, H'00
-          .DATA.L      _init_8c040f98
+          .DATA.L      _init_ptr_8c040f98
           .DATA.B      H'00, H'00, H'00, H'00
-          .DATA.L      _init_8c040fa8
+          .DATA.L      _init_ptr_8c040fa8
           .DATA.B      H'FF, H'FF, H'FF, H'FF, H'00, H'00, H'00, H'00
 _init_8c0411ac:        ; aggressive search
           .DATA.B      H'04, H'00, H'00, H'00
-          .DATA.L      _init_8c040ec8
+          .DATA.L      _init_ptr_8c040ec8
           .DATA.B      H'04, H'00, H'00, H'00
-          .DATA.L      _init_8c040ee8
+          .DATA.L      _init_ptr_8c040ee8
           .DATA.B      H'03, H'00, H'00, H'00
-          .DATA.L      _init_8c041060
+          .DATA.L      _init_ptr_8c041060
           .DATA.B      H'03, H'00, H'00, H'00
-          .DATA.L      _init_8c041074
+          .DATA.L      _init_ptr_8c041074
           .DATA.B      H'00, H'00, H'00, H'00
-          .DATA.L      _init_8c040fb8
+          .DATA.L      _init_ptr_8c040fb8
           .DATA.B      H'00, H'00, H'00, H'00
-          .DATA.L      _init_8c040fc8
+          .DATA.L      _init_ptr_8c040fc8
           .DATA.B      H'00, H'00, H'00, H'00
-          .DATA.L      _init_8c040fd8
+          .DATA.L      _init_ptr_8c040fd8
           .DATA.B      H'FF, H'FF, H'FF, H'FF, H'00, H'00, H'00, H'00
 _init_8c0411ec:        ; aggressive search
           .DATA.B      H'04, H'00, H'00, H'00
-          .DATA.L      _init_8c040ee8
+          .DATA.L      _init_ptr_8c040ee8
           .DATA.B      H'03, H'00, H'00, H'00
-          .DATA.L      _init_8c041088
+          .DATA.L      _init_ptr_8c041088
           .DATA.B      H'00, H'00, H'00, H'00
-          .DATA.L      _init_8c040fe8
+          .DATA.L      _init_ptr_8c040fe8
           .DATA.B      H'00, H'00, H'00, H'00
-          .DATA.L      _init_8c040ff8
+          .DATA.L      _init_ptr_8c040ff8
           .DATA.B      H'00, H'00, H'00, H'00
-          .DATA.L      _init_8c041008
+          .DATA.L      _init_ptr_8c041008
           .DATA.B      H'00, H'00, H'00, H'00
-          .DATA.L      _init_8c041018
+          .DATA.L      _init_ptr_8c041018
           .DATA.B      H'00, H'00, H'00, H'00
-          .DATA.L      _init_8c041028
+          .DATA.L      _init_ptr_8c041028
           .DATA.B      H'FF, H'FF, H'FF, H'FF, H'00, H'00, H'00, H'00
 _init_8c04122c:        ; from ghidra
           .DATA.B      H'03, H'00, H'00, H'00
-          .DATA.L      _init_8c04109c
+          .DATA.L      _init_ptr_8c04109c
           .DATA.B      H'03, H'00, H'00, H'00
-          .DATA.L      _init_8c041038
+          .DATA.L      _init_ptr_8c041038
           .DATA.B      H'03, H'00, H'00, H'00
-          .DATA.L      _init_8c04104c
+          .DATA.L      _init_ptr_8c04104c
           .DATA.B      H'04, H'00, H'00, H'00
-          .DATA.L      _init_8c040ee8
+          .DATA.L      _init_ptr_8c040ee8
           .DATA.B      H'02, H'00, H'00, H'00
-          .DATA.L      _init_8c040eb8
+          .DATA.L      _init_ptr_8c040eb8
           .DATA.B      H'04, H'00, H'00, H'00
-          .DATA.L      _init_8c040ea8
+          .DATA.L      _init_ptr_8c040ea8
           .DATA.B      H'FF, H'FF, H'FF, H'FF, H'00, H'00, H'00, H'00
 _init_8c041264:        ; aggressive search
           .DATA.B      H'04, H'00, H'00, H'00
-          .DATA.L      _init_8c040ef8
+          .DATA.L      _init_ptr_8c040ef8
           .DATA.B      H'04, H'00, H'00, H'00
-          .DATA.L      _init_8c040f08
+          .DATA.L      _init_ptr_8c040f08
           .DATA.B      H'04, H'00, H'00, H'00
-          .DATA.L      _init_8c040f18
+          .DATA.L      _init_ptr_8c040f18
           .DATA.B      H'04, H'00, H'00, H'00
-          .DATA.L      _init_8c040f38
+          .DATA.L      _init_ptr_8c040f38
           .DATA.B      H'04, H'00, H'00, H'00
-          .DATA.L      _init_8c040f48
+          .DATA.L      _init_ptr_8c040f48
           .DATA.B      H'03, H'00, H'00, H'00
-          .DATA.L      _init_8c041114
+          .DATA.L      _init_ptr_8c041114
           .DATA.B      H'00, H'00, H'00, H'00
-          .DATA.L      _init_8c040f58
+          .DATA.L      _init_ptr_8c040f58
           .DATA.B      H'00, H'00, H'00, H'00
-          .DATA.L      _init_8c040f68
+          .DATA.L      _init_ptr_8c040f68
           .DATA.B      H'00, H'00, H'00, H'00
-          .DATA.L      _init_8c040f78
+          .DATA.L      _init_ptr_8c040f78
           .DATA.B      H'00, H'00, H'00, H'00
-          .DATA.L      _init_8c040f88
+          .DATA.L      _init_ptr_8c040f88
           .DATA.B      H'00, H'00, H'00, H'00
-          .DATA.L      _init_8c040f98
+          .DATA.L      _init_ptr_8c040f98
           .DATA.B      H'00, H'00, H'00, H'00
-          .DATA.L      _init_8c040fa8
+          .DATA.L      _init_ptr_8c040fa8
           .DATA.B      H'FF, H'FF, H'FF, H'FF, H'00, H'00, H'00, H'00
 _init_8c0412cc:        ; aggressive search
           .DATA.B      H'04, H'00, H'00, H'00
-          .DATA.L      _init_8c040f28
+          .DATA.L      _init_ptr_8c040f28
           .DATA.B      H'04, H'00, H'00, H'00
-          .DATA.L      _init_8c040f48
+          .DATA.L      _init_ptr_8c040f48
           .DATA.B      H'03, H'00, H'00, H'00
           .DATA.L      _init_8c0410d8
           .DATA.B      H'03, H'00, H'00, H'00
           .DATA.L      _init_8c0410ec
           .DATA.B      H'00, H'00, H'00, H'00
-          .DATA.L      _init_8c040fb8
+          .DATA.L      _init_ptr_8c040fb8
           .DATA.B      H'00, H'00, H'00, H'00
-          .DATA.L      _init_8c040fc8
+          .DATA.L      _init_ptr_8c040fc8
           .DATA.B      H'00, H'00, H'00, H'00
-          .DATA.L      _init_8c040fd8
+          .DATA.L      _init_ptr_8c040fd8
           .DATA.B      H'FF, H'FF, H'FF, H'FF, H'00, H'00, H'00, H'00
 _init_8c04130c:        ; aggressive search
           .DATA.B      H'04, H'00, H'00, H'00
-          .DATA.L      _init_8c040f48
+          .DATA.L      _init_ptr_8c040f48
           .DATA.B      H'03, H'00, H'00, H'00
           .DATA.L      _init_8c041100
           .DATA.B      H'00, H'00, H'00, H'00
-          .DATA.L      _init_8c040fe8
+          .DATA.L      _init_ptr_8c040fe8
           .DATA.B      H'00, H'00, H'00, H'00
-          .DATA.L      _init_8c040ff8
+          .DATA.L      _init_ptr_8c040ff8
           .DATA.B      H'00, H'00, H'00, H'00
-          .DATA.L      _init_8c041008
+          .DATA.L      _init_ptr_8c041008
           .DATA.B      H'00, H'00, H'00, H'00
-          .DATA.L      _init_8c041018
+          .DATA.L      _init_ptr_8c041018
           .DATA.B      H'00, H'00, H'00, H'00
-          .DATA.L      _init_8c041028
+          .DATA.L      _init_ptr_8c041028
           .DATA.B      H'FF, H'FF, H'FF, H'FF, H'00, H'00, H'00, H'00
 _init_8c04134c:        ; aggressive search
           .DATA.B      H'03, H'00, H'00, H'00
-          .DATA.L      _init_8c041114
+          .DATA.L      _init_ptr_8c041114
           .DATA.B      H'03, H'00, H'00, H'00
           .DATA.L      _init_8c0410b0
           .DATA.B      H'03, H'00, H'00, H'00
           .DATA.L      _init_8c0410c4
           .DATA.B      H'04, H'00, H'00, H'00
-          .DATA.L      _init_8c040f48
+          .DATA.L      _init_ptr_8c040f48
           .DATA.B      H'02, H'00, H'00, H'00
-          .DATA.L      _init_8c040f18
+          .DATA.L      _init_ptr_8c040f18
           .DATA.B      H'04, H'00, H'00, H'00
-          .DATA.L      _init_8c040f08
+          .DATA.L      _init_ptr_8c040f08
           .DATA.B      H'FF, H'FF, H'FF, H'FF, H'00, H'00, H'00, H'00
 _init_8c041384:        ; from ghidra
           .DATA.B      H'02, H'00, H'00, H'00, H'00, H'00, H'00, H'00
@@ -10319,9 +10332,9 @@ _init_8c041384:        ; from ghidra
           .DATA.B      H'00, H'00, H'00, H'00
           .DATA.L      _init_8c040b34
           .DATA.L      _init_8c04122c
-          .DATA.L      _init_8c040c24
+          .DATA.L      _init_ptr_8c040c24
           .DATA.L      _init_8c040c64
-          .DATA.L      _init_8c040e38
+          .DATA.L      _init_ptr_8c040e38
           .DATA.B      H'01, H'00, H'01, H'00, H'00, H'00, H'01, H'00
           .DATA.L      _init_8c040b50
           .DATA.B      H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00
@@ -10364,8 +10377,9 @@ _init_8c041384:        ; from ghidra
           .DATA.B      H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00
           .DATA.L      _init_8c04113c
           .DATA.B      H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'01, H'00, H'08, H'00
-          .DATA.B      H'00, H'00, H'08, H'00, H'8C, H'0B, H'04, H'8C, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00
-          .DATA.B      H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00
+          .DATA.B      H'00, H'00, H'08, H'00
+          .DATA.L      _init_8c040b8c ; ukn
+          .DATA.B      H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00
           .DATA.L      _init_8c04113c
           .DATA.B      H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'02, H'00, H'09, H'00
           .DATA.B      H'00, H'00, H'09, H'00
@@ -10411,7 +10425,7 @@ _init_8c041670:        ; from ghidra
           .DATA.B      H'00, H'00, H'00, H'00
           .DATA.L      _init_8c040b34
           .DATA.L      _init_8c04122c
-          .DATA.L      _init_8c040c24
+          .DATA.L      _init_ptr_8c040c24
           .DATA.L      _init_8c040c78
           .DATA.L      _init_8c040e58
           .DATA.B      H'01, H'00, H'01, H'00, H'00, H'00, H'01, H'00
@@ -10456,8 +10470,9 @@ _init_8c041670:        ; from ghidra
           .DATA.B      H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00
           .DATA.L      _init_8c04113c
           .DATA.B      H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'01, H'00, H'08, H'00
-          .DATA.B      H'00, H'00, H'08, H'00, H'8C, H'0B, H'04, H'8C, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00
-          .DATA.B      H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00
+          .DATA.B      H'00, H'00, H'08, H'00
+          .DATA.L      _init_8c040b8c ; ukn
+          .DATA.B      H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00
           .DATA.L      _init_8c04113c
           .DATA.B      H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'02, H'00, H'09, H'00
           .DATA.B      H'00, H'00, H'09, H'00
@@ -10503,7 +10518,7 @@ _init_8c04195c:        ; from ghidra
           .DATA.B      H'00, H'00, H'00, H'00
           .DATA.L      _init_8c040b34
           .DATA.L      _init_8c04134c
-          .DATA.L      _init_8c040c24
+          .DATA.L      _init_ptr_8c040c24
           .DATA.L      _init_8c040c8c
           .DATA.L      _init_8c040e78
           .DATA.B      H'01, H'00, H'01, H'00, H'00, H'00, H'01, H'00
@@ -10548,8 +10563,9 @@ _init_8c04195c:        ; from ghidra
           .DATA.B      H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00
           .DATA.L      _init_8c041264
           .DATA.B      H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'01, H'00, H'08, H'00
-          .DATA.B      H'00, H'00, H'08, H'00, H'8C, H'0B, H'04, H'8C, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00
-          .DATA.B      H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00
+          .DATA.B      H'00, H'00, H'08, H'00
+          .DATA.L      _init_8c040b8c ; ukn
+          .DATA.B      H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00
           .DATA.L      _init_8c041264
           .DATA.B      H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'02, H'00, H'09, H'00
           .DATA.B      H'00, H'00, H'09, H'00
@@ -10590,7 +10606,7 @@ _init_8c04195c:        ; from ghidra
 _init_8c041c48:        ; from ghidra
           .DATA.B      H'01, H'00, H'00, H'00, H'00, H'00, H'00, H'00
           .DATA.L      _init_8c041384
-          .DATA.B      H'74, H'0A, H'04, H'8C
+          .DATA.L      _init_8c040a74 ; ukn
           .DATA.L      _init_8c040ca0
           .DATA.B      H'05, H'00, H'00, H'00, H'05, H'00, H'00, H'00
           .DATA.L      _const_8c0349b0 ; ukn
@@ -10615,7 +10631,7 @@ _init_8c041c48:        ; from ghidra
 _init_8c041cb0:        ; from ghidra
           .DATA.B      H'01, H'00, H'00, H'00, H'00, H'00, H'00, H'00
           .DATA.L      _init_8c041384
-          .DATA.B      H'74, H'0A, H'04, H'8C
+          .DATA.L      _init_8c040a74 ; ukn
           .DATA.L      _init_8c040ca0
           .DATA.B      H'05, H'00, H'00, H'00, H'05, H'00, H'00, H'00
           .DATA.L      _const_8c0349b0 ; ukn
@@ -10640,7 +10656,7 @@ _init_8c041cb0:        ; from ghidra
 _init_8c041d18:        ; from ghidra
           .DATA.B      H'01, H'00, H'00, H'00, H'00, H'00, H'00, H'00
           .DATA.L      _init_8c041384
-          .DATA.B      H'74, H'0A, H'04, H'8C
+          .DATA.L      _init_8c040a74 ; ukn
           .DATA.L      _init_8c040ca0
           .DATA.B      H'05, H'00, H'00, H'00, H'05, H'00, H'00, H'00
           .DATA.L      _const_8c0349b0 ; ukn
@@ -10665,7 +10681,7 @@ _init_8c041d18:        ; from ghidra
 _init_8c041d80:        ; from ghidra
           .DATA.B      H'01, H'00, H'00, H'00, H'01, H'00, H'00, H'00
           .DATA.L      _init_8c041670
-          .DATA.B      H'B4, H'0A, H'04, H'8C
+          .DATA.L      _init_8c040ab4
           .DATA.L      _init_8c040d28
           .DATA.B      H'05, H'00, H'00, H'00, H'05, H'00, H'00, H'00
           .DATA.L      _const_8c0349b0 ; ukn
@@ -10690,7 +10706,7 @@ _init_8c041d80:        ; from ghidra
 _init_8c041de8:        ; from ghidra
           .DATA.B      H'01, H'00, H'00, H'00, H'01, H'00, H'00, H'00
           .DATA.L      _init_8c041670
-          .DATA.B      H'B4, H'0A, H'04, H'8C
+          .DATA.L      _init_8c040ab4
           .DATA.L      _init_8c040d28
           .DATA.B      H'05, H'00, H'00, H'00, H'05, H'00, H'00, H'00
           .DATA.L      _const_8c0349b0 ; ukn
@@ -10715,7 +10731,7 @@ _init_8c041de8:        ; from ghidra
 _init_8c041e50:        ; from ghidra
           .DATA.B      H'01, H'00, H'00, H'00, H'01, H'00, H'00, H'00
           .DATA.L      _init_8c041670
-          .DATA.B      H'B4, H'0A, H'04, H'8C
+          .DATA.L      _init_8c040ab4
           .DATA.L      _init_8c040d28
           .DATA.B      H'05, H'00, H'00, H'00, H'05, H'00, H'00, H'00
           .DATA.L      _const_8c0349b0 ; ukn
@@ -10740,7 +10756,7 @@ _init_8c041e50:        ; from ghidra
 _init_8c041eb8:        ; from ghidra
           .DATA.B      H'01, H'00, H'00, H'00, H'02, H'00, H'00, H'00
           .DATA.L      _init_8c04195c
-          .DATA.B      H'F4, H'0A, H'04, H'8C
+          .DATA.L      _init_8c040af4
           .DATA.L      _init_8c040db0
           .DATA.B      H'05, H'00, H'00, H'00, H'05, H'00, H'00, H'00
           .DATA.L      _const_8c0349b0 ; ukn
@@ -10765,7 +10781,7 @@ _init_8c041eb8:        ; from ghidra
 _init_8c041f20:        ; from ghidra
           .DATA.B      H'01, H'00, H'00, H'00, H'02, H'00, H'00, H'00
           .DATA.L      _init_8c04195c
-          .DATA.B      H'F4, H'0A, H'04, H'8C
+          .DATA.L      _init_8c040af4
           .DATA.L      _init_8c040db0
           .DATA.B      H'05, H'00, H'00, H'00, H'05, H'00, H'00, H'00
           .DATA.L      _const_8c0349b0 ; ukn
@@ -10790,7 +10806,7 @@ _init_8c041f20:        ; from ghidra
 _init_8c041f88:        ; from ghidra
           .DATA.B      H'01, H'00, H'00, H'00, H'02, H'00, H'00, H'00
           .DATA.L      _init_8c04195c
-          .DATA.B      H'F4, H'0A, H'04, H'8C
+          .DATA.L      _init_8c040af4
           .DATA.L      _init_8c040db0
           .DATA.B      H'05, H'00, H'00, H'00, H'05, H'00, H'00, H'00
           .DATA.L      _const_8c0349b0 ; ukn
@@ -10829,11 +10845,11 @@ _init_8c042010:        ; from ghidra
           .DATA.B      H'00, H'00, H'00, H'00
           .DATA.L      _init_8c03c0c0
           .DATA.B      H'00, H'00, H'00, H'00
-          .DATA.L      _init_8c041ff0
+          .DATA.L      _init_ptr_8c041ff0
           .DATA.L      _init_8c03c278
-          .DATA.L      _init_8c03c55c
+          .DATA.L      _init_ptr_8c03c55c
           .DATA.B      H'02, H'00, H'45, H'00, H'00, H'00, H'64, H'00
-          .DATA.L      _init_8c03c140
+          .DATA.L      _init_ptr_8c03c140
           .DATA.B      H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00
           .DATA.B      H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00
           .DATA.B      H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00
@@ -10881,9 +10897,9 @@ _init_8c04211c:        ; from ghidra
           .DATA.B      H'00, H'00, H'00, H'00
           .DATA.L      _init_8c03c0c0
           .DATA.L      _init_8c03c54c
-          .DATA.L      _init_8c0420fc
+          .DATA.L      _init_ptr_8c0420fc
           .DATA.L      _init_8c03c278
-          .DATA.L      _init_8c03c55c
+          .DATA.L      _init_ptr_8c03c55c
           .DATA.B      H'02, H'00, H'D7, H'00, H'00, H'00, H'6F, H'00
           .DATA.L      _init_8c03c170
           .DATA.B      H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00
@@ -10934,9 +10950,9 @@ _init_8c042228:        ; from ghidra
           .DATA.B      H'00, H'00, H'00, H'00
           .DATA.L      _init_8c03c0c0
           .DATA.L      _init_8c03c4f4
-          .DATA.L      _init_8c042208
+          .DATA.L      _init_ptr_8c042208
           .DATA.L      _init_8c03c278
-          .DATA.L      _init_8c03c55c
+          .DATA.L      _init_ptr_8c03c55c
           .DATA.B      H'02, H'00, H'CA, H'00, H'00, H'00, H'62, H'00
           .DATA.L      _init_8c03c136
           .DATA.B      H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00
@@ -10986,9 +11002,9 @@ _init_8c042334:        ; from ghidra
           .DATA.B      H'00, H'00, H'00, H'00
           .DATA.L      _init_8c03d6a8
           .DATA.L      _init_8c03deac
-          .DATA.L      _init_8c042314
+          .DATA.L      _init_ptr_8c042314
           .DATA.L      _init_8c03d9e0
-          .DATA.L      _init_8c03da1c
+          .DATA.L      _init_ptr_8c03da1c
           .DATA.B      H'02, H'00, H'0D, H'01, H'00, H'00, H'A7, H'00
           .DATA.L      _init_8c03d742
           .DATA.B      H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00
@@ -11039,9 +11055,9 @@ _init_8c042440:        ; from ghidra
           .DATA.B      H'00, H'00, H'00, H'00
           .DATA.L      _init_8c03d6a8
           .DATA.L      _init_8c03dd4c
-          .DATA.L      _init_8c042420
+          .DATA.L      _init_ptr_8c042420
           .DATA.L      _init_8c03d9e0
-          .DATA.L      _init_8c03da1c
+          .DATA.L      _init_ptr_8c03da1c
           .DATA.B      H'02, H'00, H'FC, H'00, H'00, H'00, H'96, H'00
           .DATA.L      _init_8c03d6cc
           .DATA.B      H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00
@@ -11092,9 +11108,9 @@ _init_8c04254c:        ; from ghidra
           .DATA.B      H'00, H'00, H'00, H'00
           .DATA.L      _init_8c040b34
           .DATA.L      _init_8c04122c
-          .DATA.L      _init_8c04252c
+          .DATA.L      _init_ptr_8c04252c
           .DATA.L      _init_8c040c64
-          .DATA.L      _init_8c040e38
+          .DATA.L      _init_ptr_8c040e38
           .DATA.B      H'02, H'00, H'01, H'00, H'00, H'00, H'01, H'00
           .DATA.L      _init_8c040b50
           .DATA.B      H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00
@@ -11145,9 +11161,9 @@ _init_8c042658:        ; from ghidra
           .DATA.B      H'00, H'00, H'00, H'00
           .DATA.L      _init_8c03d6a8
           .DATA.L      _init_8c03dd4c
-          .DATA.L      _init_8c042638
+          .DATA.L      _init_ptr_8c042638
           .DATA.L      _init_8c03d9e0
-          .DATA.L      _init_8c03da1c
+          .DATA.L      _init_ptr_8c03da1c
           .DATA.B      H'02, H'00, H'FA, H'00, H'00, H'00, H'94, H'00
           .DATA.L      _init_8c03d6c0
           .DATA.B      H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00
@@ -11198,9 +11214,9 @@ _init_8c042768:        ; from ghidra
           .DATA.B      H'00, H'00, H'00, H'00
           .DATA.L      _init_8c040b34
           .DATA.L      _init_8c04122c
-          .DATA.L      _init_8c042744
+          .DATA.L      _init_ptr_8c042744
           .DATA.L      _init_8c040c64
-          .DATA.L      _init_8c040e38
+          .DATA.L      _init_ptr_8c040e38
           .DATA.B      H'01, H'00, H'02, H'00, H'00, H'00, H'02, H'00
           .DATA.L      _init_8c040b50
           .DATA.B      H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00
@@ -11260,9 +11276,9 @@ _init_8c0428b0:        ; from ghidra
           .DATA.B      H'00, H'00, H'00, H'00
           .DATA.L      _init_8c040b34
           .DATA.L      _init_8c04113c
-          .DATA.L      _init_8c042890
+          .DATA.L      _init_ptr_8c042890
           .DATA.L      _init_8c040c64
-          .DATA.L      _init_8c040e38
+          .DATA.L      _init_ptr_8c040e38
           .DATA.B      H'02, H'00, H'06, H'00, H'00, H'00, H'06, H'00
           .DATA.L      _init_8c04288a
           .DATA.B      H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00
@@ -11323,9 +11339,9 @@ _init_8c0429e4:        ; from ghidra
           .DATA.B      H'00, H'00, H'00, H'00
           .DATA.L      _init_8c03d6a8
           .DATA.L      _init_8c03dd2c
-          .DATA.L      _init_8c0429b4
+          .DATA.L      _init_ptr_8c0429b4
           .DATA.L      _init_8c03d9e0
-          .DATA.L      _init_8c03da1c
+          .DATA.L      _init_ptr_8c03da1c
           .DATA.B      H'02, H'00, H'04, H'01, H'00, H'00, H'9E, H'00
           .DATA.L      _init_8c0429a4
           .DATA.B      H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00
@@ -11407,9 +11423,9 @@ _init_8c042bb8:        ; from ghidra
           .DATA.B      H'00, H'00, H'00, H'00
           .DATA.L      _init_8c03d6a8
           .DATA.L      _init_8c03dfa4
-          .DATA.L      _init_8c042b70
+          .DATA.L      _init_ptr_8c042b70
           .DATA.L      _init_8c03da08
-          .DATA.L      _init_8c03da3c
+          .DATA.L      _init_ptr_8c03da3c
           .DATA.B      H'01, H'00, H'FA, H'00, H'00, H'00, H'94, H'00
           .DATA.L      _init_8c042b5a
           .DATA.B      H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00
@@ -11426,9 +11442,9 @@ _init_8c042bb8:        ; from ghidra
           .DATA.L      _init_8c03c0d0
           .DATA.B      H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00
           .DATA.L      _init_8c03dff4
-          .DATA.L      _init_8c042b80
+          .DATA.L      _init_ptr_8c042b80
           .DATA.L      _init_8c03da08
-          .DATA.L      _init_8c03da3c
+          .DATA.L      _init_ptr_8c03da3c
           .DATA.B      H'02, H'00, H'FD, H'00, H'00, H'00, H'97, H'00
           .DATA.L      _init_8c042b6a
           .DATA.B      H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00
@@ -11490,9 +11506,9 @@ _init_8c042d70:        ; from ghidra
           .DATA.B      H'00, H'00, H'00, H'00
           .DATA.L      _init_8c03d6a8
           .DATA.L      _init_8c03dff4
-          .DATA.L      _init_8c042d28
+          .DATA.L      _init_ptr_8c042d28
           .DATA.L      _init_8c03da08
-          .DATA.L      _init_8c03da3c
+          .DATA.L      _init_ptr_8c03da3c
           .DATA.B      H'01, H'00, H'FD, H'00, H'00, H'00, H'00, H'00
           .DATA.L      _init_8c03d6de
           .DATA.B      H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00
@@ -11535,9 +11551,9 @@ _init_8c042efc:        ; from ghidra
           .DATA.B      H'00, H'00, H'00, H'00
           .DATA.L      _init_8c03d6a8
           .DATA.L      _init_8c03dd3c
-          .DATA.L      _init_8c042d38
+          .DATA.L      _init_ptr_8c042d38
           .DATA.L      _init_8c03d9e0
-          .DATA.L      _init_8c03da1c
+          .DATA.L      _init_ptr_8c03da1c
           .DATA.B      H'01, H'00, H'00, H'01, H'00, H'00, H'00, H'00
           .DATA.L      _init_8c03d6fa
           .DATA.B      H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00
@@ -11591,7 +11607,7 @@ _init_8c0430e0:        ; from ghidra
           .DATA.L      _init_8c03e0ac
           .DATA.L      _init_8c042d48
           .DATA.L      _init_8c03da08
-          .DATA.L      _init_8c03da3c
+          .DATA.L      _init_ptr_8c03da3c
           .DATA.B      H'01, H'00, H'0E, H'01, H'00, H'00, H'00, H'00
           .DATA.L      _init_8c03d748
           .DATA.B      H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00
@@ -11724,7 +11740,7 @@ _init_8c043340:        ; from ghidra
           .DATA.L      _init_8c04122c
           .DATA.L      _init_8c0432c8
           .DATA.L      _init_8c040c64
-          .DATA.L      _init_8c040e38
+          .DATA.L      _init_ptr_8c040e38
           .DATA.B      H'01, H'00, H'01, H'00, H'00, H'00, H'00, H'00
           .DATA.L      _init_8c040b50
           .DATA.B      H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00
@@ -11792,10 +11808,11 @@ _init_8c043524:        ; from ghidra
           .DATA.L      _init_8c040b86
           .DATA.B      H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00
           .DATA.B      H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00
-          .DATA.B      H'01, H'00, H'08, H'00, H'00, H'00, H'00, H'00, H'8C, H'0B, H'04, H'8C, H'00, H'00, H'00, H'00
+          .DATA.B      H'01, H'00, H'08, H'00, H'00, H'00, H'00, H'00
+          .DATA.L      _init_8c040b8c ; ukn
           .DATA.B      H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00
-          .DATA.B      H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'02, H'00, H'09, H'00
-          .DATA.B      H'00, H'00, H'00, H'00
+          .DATA.B      H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00
+          .DATA.B      H'02, H'00, H'09, H'00, H'00, H'00, H'00, H'00
           .DATA.L      _init_8c040b9c
           .DATA.B      H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00
           .DATA.L      _init_8c0412cc
@@ -11852,7 +11869,7 @@ _init_8c0436b0:        ; from ghidra
 _init_8c043760:        ; from ghidra
           .DATA.B      H'01, H'00, H'00, H'00, H'00, H'00, H'00, H'00
           .DATA.L      _init_8c043340
-          .DATA.B      H'74, H'0A, H'04, H'8C
+          .DATA.L      _init_8c040a74 ; ukn
           .DATA.L      _init_8c040ca0
           .DATA.B      H'02, H'00, H'00, H'00, H'02, H'00, H'00, H'00
           .DATA.L      _const_8c0349b0 ; ukn
@@ -11877,7 +11894,7 @@ _init_8c043760:        ; from ghidra
 _init_8c0437c8:        ; from ghidra
           .DATA.B      H'01, H'00, H'00, H'00, H'01, H'00, H'00, H'00
           .DATA.L      _init_8c043474
-          .DATA.B      H'B4, H'0A, H'04, H'8C
+          .DATA.L      _init_8c040ab4
           .DATA.L      _init_8c040d28
           .DATA.B      H'02, H'00, H'00, H'00, H'02, H'00, H'00, H'00
           .DATA.L      _const_8c0349b0 ; ukn
@@ -11902,7 +11919,7 @@ _init_8c0437c8:        ; from ghidra
 _init_8c043830:        ; from ghidra
           .DATA.B      H'01, H'00, H'00, H'00, H'02, H'00, H'00, H'00
           .DATA.L      _init_8c043524
-          .DATA.B      H'F4, H'0A, H'04, H'8C
+          .DATA.L      _init_8c040af4
           .DATA.L      _init_8c040db0
           .DATA.B      H'02, H'00, H'00, H'00, H'02, H'00, H'00, H'00
           .DATA.L      _const_8c0349b0 ; ukn
@@ -11927,7 +11944,7 @@ _init_8c043830:        ; from ghidra
 _init_8c043898:        ; from ghidra
           .DATA.B      H'01, H'00, H'00, H'00, H'01, H'00, H'00, H'00
           .DATA.L      _init_8c043600
-          .DATA.B      H'B4, H'0A, H'04, H'8C
+          .DATA.L      _init_8c040ab4
           .DATA.L      _init_8c040d28
           .DATA.B      H'02, H'00, H'00, H'00, H'02, H'00, H'00, H'00
           .DATA.L      _const_8c0349b0 ; ukn
@@ -11952,7 +11969,7 @@ _init_8c043898:        ; from ghidra
 _init_8c043900:        ; from ghidra
           .DATA.B      H'01, H'00, H'00, H'00, H'02, H'00, H'00, H'00
           .DATA.L      _init_8c0436b0
-          .DATA.B      H'F4, H'0A, H'04, H'8C
+          .DATA.L      _init_8c040af4
           .DATA.L      _init_8c040db0
           .DATA.B      H'02, H'00, H'00, H'00, H'02, H'00, H'00, H'00
           .DATA.L      _const_8c0349b0 ; ukn
@@ -11996,9 +12013,9 @@ _init_8c043998:        ; from ghidra
           .DATA.B      H'00, H'00, H'00, H'00
           .DATA.L      _init_8c03c0c0
           .DATA.L      _init_8c03c4d4
-          .DATA.L      _init_8c043968
+          .DATA.L      _init_ptr_8c043968
           .DATA.L      _init_8c03c278
-          .DATA.L      _init_8c03c55c
+          .DATA.L      _init_ptr_8c03c55c
           .DATA.B      H'01, H'00, H'C5, H'00, H'00, H'00, H'00, H'00
           .DATA.L      _init_8c03c118
           .DATA.B      H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00
@@ -12127,7 +12144,7 @@ _init_8c043ca4:        ; from defines
           .DATA.L      _init_8c0408d4
           .DATA.L      _init_8c04093c
           .DATA.L      _init_8c0409a4
-          .DATA.B      H'0C, H'0A, H'04, H'8C
+          .DATA.L      _init_8c040a0c
           .DATA.L      _init_8c03d1ec
           .DATA.L      _init_8c03d254
           .DATA.L      _init_8c03d2bc
