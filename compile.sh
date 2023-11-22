@@ -17,6 +17,7 @@ wine $SHC_BIN/asmsh.exe src\\_020308_8c014f54.src -object=build\\_020308_8c014f5
 wine $SHC_BIN/shc.exe src\\non_matching\\_023224_8c015ab8_title.c -object=build\\_023224_8c015ab8_title.obj -sub=shc.sub
 wine $SHC_BIN/shc.exe src\\_024840_8c016108.c -object=build\\_024840_8c016108.obj -sub=shc.sub
 wine $SHC_BIN/asmsh.exe src\\_024908_8c01614c.src -object=build\\_024908_8c01614c.obj $ASMSH_FLAGS
+wine $SHC_BIN/asmsh.exe src\\_128156_8c02f49c.src -object=build\\_128156_8c02f49c.obj $ASMSH_FLAGS
 wine $SHC_BIN/asmsh.exe src\\_144036_8c0332a4_sectionC.src -object=build\\_144036_8c0332a4_sectionC.obj $ASMSH_FLAGS
 wine $SHC_BIN/asmsh.exe src\\_179584_8c03bd80_sectionD.src -object=build\\_179584_8c03bd80_sectionD.obj $ASMSH_FLAGS
 wine $SHC_BIN/asmsh.exe src\\_970016_8c0fcd20_sectionB.src -object=build\\_970016_8c0fcd20_sectionB.obj $ASMSH_FLAGS

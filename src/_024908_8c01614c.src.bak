@@ -1007,8 +1007,6 @@
           .EXPORT     _FUN_8c02f28a
           .EXPORT     _FUN_8c02f3a0
           .EXPORT     _FUN_8c02f3e0
-          .EXPORT     _FUN_8c021810
-          .EXPORT     _FUN_8c02190a
           .SECTION    P, CODE, ALIGN=4
 _FUN_8c01614c:
           MOV.L       R14,@-R15

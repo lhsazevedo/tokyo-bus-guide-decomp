@@ -1,42 +1,42 @@
           .IMPORT     _var_8c235c80
           .IMPORT     _var_8c235c84
-          .IMPORT     const_8c03b974
-          .IMPORT     const_8c03b978
-          .IMPORT     const_8c03b97c
-          .IMPORT     const_8c03b980
-          .IMPORT     const_8c03b984
-          .IMPORT     const_8c03b988
-          .IMPORT     const_8c03b98c
-          .IMPORT     const_8c03b990
-          .IMPORT     const_8c03b994
-          .IMPORT     const_8c03b998
-          .IMPORT     const_8c03b99c
-          .IMPORT     const_8c03b9ac
-          .IMPORT     const_8c03b9b4
-          .IMPORT     const_8c03b9b8
-          .IMPORT     const_8c03b9bc
-          .IMPORT     const_8c03b9c0
-          .IMPORT     const_8c03b9c4
-          .IMPORT     const_8c03b9c8
-          .IMPORT     const_8c03b9cc
-          .IMPORT     const_8c03b9d0
-          .IMPORT     const_8c03b9dc
-          .IMPORT     const_8c03b9e8
-          .IMPORT     const_8c03b9f0
-          .IMPORT     const_8c03ba08
-          .IMPORT     const_8c03bb08
-          .IMPORT     const_8c03bb90
-          .IMPORT     const_8c03bc70
-          .IMPORT     const_8c03bc8c
-          .IMPORT     const_8c03bca8
-          .IMPORT     const_8c03bcac
-          .IMPORT     const_8c03bcec
-          .IMPORT     const_8c03bd2c
-          .IMPORT     const_8c03bd3c
-          .IMPORT     const_8c03bd4c
-          .IMPORT     const_8c03bd50
-          .IMPORT     const_8c03bd54
-          .IMPORT     init_8c04f6a8
+          .IMPORT     _const_8c03b974
+          .IMPORT     _const_8c03b978
+          .IMPORT     _const_8c03b97c
+          .IMPORT     _const_8c03b980
+          .IMPORT     _const_8c03b984
+          .IMPORT     _const_8c03b988
+          .IMPORT     _const_8c03b98c
+          .IMPORT     _const_8c03b990
+          .IMPORT     _const_8c03b994
+          .IMPORT     _const_8c03b998
+          .IMPORT     _const_8c03b99c
+          .IMPORT     _const_8c03b9ac
+          .IMPORT     _const_8c03b9b4
+          .IMPORT     _const_8c03b9b8
+          .IMPORT     _const_8c03b9bc
+          .IMPORT     _const_8c03b9c0
+          .IMPORT     _const_8c03b9c4
+          .IMPORT     _const_8c03b9c8
+          .IMPORT     _const_8c03b9cc
+          .IMPORT     _const_8c03b9d0
+          .IMPORT     _const_8c03b9dc
+          .IMPORT     _const_8c03b9e8
+          .IMPORT     _const_8c03b9f0
+          .IMPORT     _const_8c03ba08
+          .IMPORT     _const_8c03bb08
+          .IMPORT     _const_8c03bb90
+          .IMPORT     _const_8c03bc70
+          .IMPORT     _const_8c03bc8c
+          .IMPORT     _const_8c03bca8
+          .IMPORT     _const_8c03bcac
+          .IMPORT     _const_8c03bcec
+          .IMPORT     _const_8c03bd2c
+          .IMPORT     _const_8c03bd3c
+          .IMPORT     _const_8c03bd4c
+          .IMPORT     _const_8c03bd50
+          .IMPORT     _const_8c03bd54
+          .IMPORT     _init_8c04f6a8
           .EXPORT     __divls
           .EXPORT     __divlu
           .EXPORT     __modls
@@ -868,7 +868,7 @@ LP_GEN_98053:
           .DATA.W H'3039 ; H'8C0300EE
           .DATA.W H'7FFF ; H'8C0300F0
           .RES.W 1 ; H'8C0300F2
-          .DATA.L init_8c04f6a8 ; H'8C0300F4
+          .DATA.L _init_8c04f6a8 ; H'8C0300F4
           .DATA.L H'41C64E6D ; H'8C0300F8
 _srand:
           MOV.L       LP_GEN_47458+2,R3
@@ -876,7 +876,7 @@ _srand:
           MOV.L       R4,@R3
 LP_GEN_47458:
           .RES.W 1 ; H'8C030102
-          .DATA.L init_8c04f6a8 ; H'8C030104
+          .DATA.L _init_8c04f6a8 ; H'8C030104
 _strcmp:
           STS.L       PR,@-R15
           MOV.L       LP_GEN_33816+2,R3
@@ -1254,7 +1254,7 @@ __in_acoss:
           FSUB        FR3,FR0
 LP_GEN_79261:
           .DATA.L __in_asins ; H'8C0303B4
-          .DATA.L const_8c03b9b4 ; H'8C0303B8
+          .DATA.L _const_8c03b9b4 ; H'8C0303B8
 __in_asins:
           FMOV.S      FR15,@-R15
           STS.L       PR,@-R15
@@ -1375,11 +1375,11 @@ LAB_8c030482:
 LP_GEN_30497:
           .DATA.L H'7FFFFFFF ; H'8C03048C
           .DATA.L H'7F800000 ; H'8C030490
-          .DATA.L const_8c03b98c ; H'8C030494
+          .DATA.L _const_8c03b98c ; H'8C030494
           .DATA.L H'80000000 ; H'8C030498
-          .DATA.L const_8c03b998 ; H'8C03049C
-          .DATA.L const_8c03b9b4 ; H'8C0304A0
-          .DATA.L const_8c03b99c ; H'8C0304A4
+          .DATA.L _const_8c03b998 ; H'8C03049C
+          .DATA.L _const_8c03b9b4 ; H'8C0304A0
+          .DATA.L _const_8c03b99c ; H'8C0304A4
           .DATA.L __in_atans ; H'8C0304A8
           .DATA.L __in_ldexps ; H'8C0304AC
 __in_atan2s:
@@ -1425,8 +1425,8 @@ LP_GEN_68082:
           .RES.W 1 ; H'8C0304F6
           .DATA.L __in_atans ; H'8C0304F8
           .DATA.L H'80000000 ; H'8C0304FC
-          .DATA.L const_8c03b9dc ; H'8C030500
-          .DATA.L const_8c03b9ac ; H'8C030504
+          .DATA.L _const_8c03b9dc ; H'8C030500
+          .DATA.L _const_8c03b9ac ; H'8C030504
 _frexp:
           ADD         #-H'4,R15
           FLDI0       FR3
@@ -1910,7 +1910,7 @@ LP_GEN_93809:
           .DATA.W H'0200 ; H'8C030868
           .RES.W 1 ; H'8C03086A
           .DATA.L _var_8c235c80 ; H'8C03086C
-          .DATA.L const_8c03ba08 ; H'8C030870
+          .DATA.L _const_8c03ba08 ; H'8C030870
           .DATA.L __divls ; H'8C030874
 LAB_8c030878:
           MOV.B       @R14,R0
@@ -2014,7 +2014,7 @@ LP_GEN_77141:
           .DATA.W H'00F0 ; H'8C030928
           .DATA.W H'0200 ; H'8C03092A
           .DATA.L _var_8c235c80 ; H'8C03092C
-          .DATA.L const_8c03ba08 ; H'8C030930
+          .DATA.L _const_8c03ba08 ; H'8C030930
           .DATA.L __divls ; H'8C030934
 LAB_8c030938:
           MOV.B       @R14,R0
@@ -2142,7 +2142,7 @@ LAB_8c030a06:
 LP_GEN_28666:
           .DATA.W H'00F0 ; H'8C030A0A
           .DATA.L _var_8c235c80 ; H'8C030A0C
-          .DATA.L const_8c03ba08 ; H'8C030A10
+          .DATA.L _const_8c03ba08 ; H'8C030A10
 LAB_8c030a14:
           CMP/EQ      #H'68,R0
           BF          LAB_8c030a8a
@@ -3287,23 +3287,23 @@ LP_GEN_23996:
           .DATA.L H'7FFFFFFF ; H'8C0311F8
           .DATA.L H'7F800000 ; H'8C0311FC
           .DATA.L H'80000000 ; H'8C031200
-          .DATA.L const_8c03b98c ; H'8C031204
-          .DATA.L const_8c03b9b4 ; H'8C031208
-          .DATA.L const_8c03b998 ; H'8C03120C
-          .DATA.L const_8c03b9b8 ; H'8C031210
-          .DATA.L const_8c03b990 ; H'8C031214
-          .DATA.L const_8c03b9c8 ; H'8C031218
-          .DATA.L const_8c03b988 ; H'8C03121C
+          .DATA.L _const_8c03b98c ; H'8C031204
+          .DATA.L _const_8c03b9b4 ; H'8C031208
+          .DATA.L _const_8c03b998 ; H'8C03120C
+          .DATA.L _const_8c03b9b8 ; H'8C031210
+          .DATA.L _const_8c03b990 ; H'8C031214
+          .DATA.L _const_8c03b9c8 ; H'8C031218
+          .DATA.L _const_8c03b988 ; H'8C03121C
           .DATA.L __in_fmods ; H'8C031220
           .DATA.L __app_atans ; H'8C031224
-          .DATA.L const_8c03b974 ; H'8C031228
-          .DATA.L const_8c03b9d0 ; H'8C03122C
+          .DATA.L _const_8c03b974 ; H'8C031228
+          .DATA.L _const_8c03b9d0 ; H'8C03122C
           .DATA.L __in_ldexps ; H'8C031230
-          .DATA.L const_8c03b978 ; H'8C031234
-          .DATA.L const_8c03b9cc ; H'8C031238
-          .DATA.L const_8c03b97c ; H'8C03123C
-          .DATA.L const_8c03b984 ; H'8C031240
-          .DATA.L const_8c03b980 ; H'8C031244
+          .DATA.L _const_8c03b978 ; H'8C031234
+          .DATA.L _const_8c03b9cc ; H'8C031238
+          .DATA.L _const_8c03b97c ; H'8C03123C
+          .DATA.L _const_8c03b984 ; H'8C031240
+          .DATA.L _const_8c03b980 ; H'8C031244
 __in_ldexps:
           MOV.L       R14,@-R15
           ADD         #-H'4,R15
@@ -3398,12 +3398,12 @@ LP_GEN_67856:
           .DATA.W H'00FF ; H'8C0312E6
           .DATA.L H'7F800000 ; H'8C0312E8
           .DATA.L H'80000000 ; H'8C0312EC
-          .DATA.L const_8c03b994 ; H'8C0312F0
-          .DATA.L const_8c03b9c4 ; H'8C0312F4
+          .DATA.L _const_8c03b994 ; H'8C0312F0
+          .DATA.L _const_8c03b9c4 ; H'8C0312F4
           .DATA.L H'007FFFFF ; H'8C0312F8
-          .DATA.L const_8c03b98c ; H'8C0312FC
-          .DATA.L const_8c03b990 ; H'8C031300
-          .DATA.L const_8c03b9c0 ; H'8C031304
+          .DATA.L _const_8c03b98c ; H'8C0312FC
+          .DATA.L _const_8c03b990 ; H'8C031300
+          .DATA.L _const_8c03b9c0 ; H'8C031304
 _strncpy:
           MOV         #H'0,R1
           MOV         R5,R0
@@ -3450,7 +3450,7 @@ LAB_8c03134a:
           RTS
           NOP
 LP_GEN_68510:
-          .DATA.L const_8c03ba08 ; H'8C031350
+          .DATA.L _const_8c03ba08 ; H'8C031350
 __app_atans:
           FMOV        FR4,FR6
           FMUL        FR4,FR6
@@ -3470,7 +3470,7 @@ LAB_8c03135e:
           RTS
           FMUL        FR6,FR0
 LP_GEN_28544:
-          .DATA.L const_8c03b9f0 ; H'8C031374
+          .DATA.L _const_8c03b9f0 ; H'8C031374
 __in_fmods:
           MOV.L       R14,@-R15
           ADD         #-H'1c,R15
@@ -3598,7 +3598,7 @@ LAB_8c031454:
 LP_GEN_23547:
           .DATA.L H'7F800000 ; H'8C03145C
           .DATA.L H'007FFFFF ; H'8C031460
-          .DATA.L const_8c03b98c ; H'8C031464
+          .DATA.L _const_8c03b98c ; H'8C031464
           .DATA.L H'80000000 ; H'8C031468
           .DATA.L H'7FFFFFFF ; H'8C03146C
           .DATA.L H'4F800000 ; H'8C031470
@@ -4819,7 +4819,7 @@ LAB_8c031ce6:
 LP_GEN_94637:
           .RES.W 1 ; H'8C031CFA
           .DATA.L _memcpy ; H'8C031CFC
-          .DATA.L const_8c03bb08 ; H'8C031D00
+          .DATA.L _const_8c03bb08 ; H'8C031D00
           .DATA.L __divls ; H'8C031D04
           .DATA.L __umemcmp ; H'8C031D08
           .DATA.L __sub ; H'8C031D0C
@@ -5659,10 +5659,10 @@ LAB_8c03233a:
 LP_GEN_52860:
           .DATA.L H'7FFFFFFF ; H'8C032344
           .DATA.L H'7F800000 ; H'8C032348
-          .DATA.L const_8c03b98c ; H'8C03234C
-          .DATA.L const_8c03b9b8 ; H'8C032350
+          .DATA.L _const_8c03b98c ; H'8C03234C
+          .DATA.L _const_8c03b9b8 ; H'8C032350
           .DATA.L __in_fmods ; H'8C032354
-          .DATA.L const_8c03b9e8 ; H'8C032358
+          .DATA.L _const_8c03b9e8 ; H'8C032358
           .DATA.L __app_coss ; H'8C03235C
           .DATA.L __app_sins ; H'8C032360
 __log10:
@@ -6106,7 +6106,7 @@ __pow5:
           ADD         #H'8,R15
 LP_GEN_92822:
           .RES.W 1 ; H'8C0326B2
-          .DATA.L const_8c03bb90 ; H'8C0326B4
+          .DATA.L _const_8c03bb90 ; H'8C0326B4
           .DATA.L _memcpy ; H'8C0326B8
 __rsfts:
           MOV         #H'8,R7
@@ -6492,7 +6492,7 @@ LAB_8c032972:
           RTS
           FMOV        FR4,FR0
 LP_GEN_95714:
-          .DATA.L const_8c03bc70 ; H'8C032984
+          .DATA.L _const_8c03bc70 ; H'8C032984
 __app_sins:
           FMOV        FR4,FR6
           FMUL        FR4,FR6
@@ -6512,7 +6512,7 @@ LAB_8c032992:
           RTS
           FMUL        FR6,FR0
 LP_GEN_53686:
-          .DATA.L const_8c03bc8c ; H'8C0329A8
+          .DATA.L _const_8c03bc8c ; H'8C0329A8
 __div64:
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
@@ -6774,7 +6774,7 @@ __in_log10s:
           FMUL        FR3,FR0
 LP_GEN_52057:
           .DATA.L __in_logs ; H'8C032B98
-          .DATA.L const_8c03bca8 ; H'8C032B9C
+          .DATA.L _const_8c03bca8 ; H'8C032B9C
 __lsft:
           MOV         R5,R6
           ADD         #-H'1,R6
@@ -7049,12 +7049,12 @@ LP_GEN_14463:
           .RES.W 1 ; H'8C032D9A
           .DATA.L __divls ; H'8C032D9C
           .DATA.L __modls ; H'8C032DA0
-          .DATA.L const_8c03bd3c ; H'8C032DA4
-          .DATA.L const_8c03bcec ; H'8C032DA8
+          .DATA.L _const_8c03bd3c ; H'8C032DA4
+          .DATA.L _const_8c03bcec ; H'8C032DA8
           .DATA.L _memcpy ; H'8C032DAC
           .DATA.L _memset ; H'8C032DB0
-          .DATA.L const_8c03bd2c ; H'8C032DB4
-          .DATA.L const_8c03bcac ; H'8C032DB8
+          .DATA.L _const_8c03bd2c ; H'8C032DB4
+          .DATA.L _const_8c03bcac ; H'8C032DB8
           .DATA.L __mult64 ; H'8C032DBC
           .DATA.L __rnd ; H'8C032DC0
           .DATA.L __pow10 ; H'8C032DC4
@@ -7441,18 +7441,18 @@ LP_GEN_12463:
           .RES.W 1 ; H'8C033072
           .DATA.L H'7F800000 ; H'8C033074
           .DATA.L H'7FFFFFFF ; H'8C033078
-          .DATA.L const_8c03b98c ; H'8C03307C
-          .DATA.L const_8c03b9c4 ; H'8C033080
-          .DATA.L const_8c03b994 ; H'8C033084
-          .DATA.L const_8c03b998 ; H'8C033088
-          .DATA.L const_8c03b990 ; H'8C03308C
+          .DATA.L _const_8c03b98c ; H'8C03307C
+          .DATA.L _const_8c03b9c4 ; H'8C033080
+          .DATA.L _const_8c03b994 ; H'8C033084
+          .DATA.L _const_8c03b998 ; H'8C033088
+          .DATA.L _const_8c03b990 ; H'8C03308C
           .DATA.L H'807FFFFF ; H'8C033090
           .DATA.L H'3F800000 ; H'8C033094
-          .DATA.L const_8c03b99c ; H'8C033098
-          .DATA.L const_8c03b9bc ; H'8C03309C
-          .DATA.L const_8c03bd50 ; H'8C0330A0
-          .DATA.L const_8c03bd4c ; H'8C0330A4
-          .DATA.L const_8c03bd54 ; H'8C0330A8
+          .DATA.L _const_8c03b99c ; H'8C033098
+          .DATA.L _const_8c03b9bc ; H'8C03309C
+          .DATA.L _const_8c03bd50 ; H'8C0330A0
+          .DATA.L _const_8c03bd4c ; H'8C0330A4
+          .DATA.L _const_8c03bd54 ; H'8C0330A8
 __mult:
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15

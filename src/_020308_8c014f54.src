@@ -1,4 +1,4 @@
-          .IMPORT     const_8c035f24
+          .IMPORT     _const_8c035f24
           .IMPORT     __slow_mvn
           .IMPORT     __divls
           .IMPORT     _njTwiddledTexture
@@ -8,8 +8,8 @@
           .IMPORT     _var_8c1bc78c
           .IMPORT     _var_8c1bc790
           .IMPORT     _var_8c1bc794
-          .IMPORT     init_8c044128
-          .IMPORT     init_8c04413c
+          .IMPORT     _init_8c044128
+          .IMPORT     _init_8c04413c
           .IMPORT     _njReleaseTexture
           .IMPORT     _syFree
           .IMPORT     _strlen
@@ -34,8 +34,8 @@
           .IMPORT     _var_8c1bb8d8
           .IMPORT     _FUN_8c011f36
           .IMPORT     _FUN_8c011f6c
-          .IMPORT     init_8c044154
-          .IMPORT     const_8c035f74
+          .IMPORT     _init_8c044154
+          .IMPORT     _const_8c035f74
           .IMPORT     _request_dat_8c011182
           .IMPORT     _var_8c227e14
           .IMPORT     _var_8c22822c
@@ -50,7 +50,7 @@
           .EXPORT     _FUN_8c0152fc
           .EXPORT     _FUN_8c015410
           .EXPORT     _FUN_8c01543a
-          .EXPORT     menuTextboxTextSub_8c0155e0
+          .EXPORT     _menuTextboxTextSub_8c0155e0
           .EXPORT     _FUN_8c0159ac
           .SECTION    P,CODE,ALIGN=4
 _drawSprite_8c014f54:
@@ -292,7 +292,7 @@ LP_GEN_55759:
           .DATA.W H'00C0 ; LP_GEN_55759+0
           .DATA.W H'00BD
           .DATA.W H'00DF
-          .DATA.L const_8c035f24
+          .DATA.L _const_8c035f24
           .DATA.L __slow_mvn
           .DATA.L H'000081A6
 
@@ -649,8 +649,8 @@ LP_GEN_39385:
           .DATA.L _var_8c1bc78c
           .DATA.L _var_8c1bc790
           .DATA.L _var_8c1bc794
-          .DATA.L init_8c044128
-          .DATA.L init_8c04413c
+          .DATA.L _init_8c044128
+          .DATA.L _init_8c04413c
           .DATA.L _njReleaseTexture
           .DATA.L H'0000FFED
           .DATA.L _syFree
@@ -946,7 +946,7 @@ LAB_8c0155cc:
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-menuTextboxTextSub_8c0155e0:
+_menuTextboxTextSub_8c0155e0:
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           MOV.L       R12,@-R15
@@ -1542,8 +1542,8 @@ LP_GEN_51554:
           .DATA.L _var_8c1bb8d8
           .DATA.L _FUN_8c011f36
           .DATA.L _FUN_8c011f6c
-          .DATA.L init_8c044154
-          .DATA.L const_8c035f74
+          .DATA.L _init_8c044154
+          .DATA.L _const_8c035f74
           .DATA.L _request_dat_8c011182
           .DATA.L _var_8c227e14
           .DATA.L _var_8c22822c
