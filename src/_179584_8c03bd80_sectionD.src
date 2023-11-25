@@ -895,7 +895,6 @@
           .EXPORT     _init_8c044be0
           .EXPORT     _init_8c044bf8
           .EXPORT     _init_8c044c08
-          .EXPORT     _init_8c044d0f
           .EXPORT     _init_8c044d10
           .EXPORT     _init_8c044d2e
           .EXPORT     _init_8c044d2f
@@ -2351,7 +2350,7 @@ _init_8c044c08:        ; from defines
           .DATA.L      _init_8c044bc0
           .DATA.L      _init_8c044bd0
           .DATA.L      _init_8c044be0
-          .DATA.B      _init_8c044bf8
+          .DATA.L      _init_8c044bf8
 _init_8c044d10:        ; from defines
           .DATA.B      H'00, H'00, H'01, H'02, H'02, H'00, H'00, H'01, H'01, H'00, H'02, H'02, H'00, H'01, H'02, H'01
           .DATA.B      H'00, H'02, H'02, H'00, H'01, H'01, H'02, H'00, H'02, H'02, H'00, H'01, H'01, H'00

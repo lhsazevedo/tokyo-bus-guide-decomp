@@ -6,12 +6,12 @@
 
 int main(void)
 {
-    njUserInit();
+    njUserInit_8c0134ec();
 
     while (1) {
-        if (njUserMain() < NJD_USER_CONTINUE) break;
+        if (njUserMain_8c01392e() < NJD_USER_CONTINUE) break;
         njWaitVSync();
     }
 
-    njUserExit();
+    njUserExit_8c0139d4();
 }

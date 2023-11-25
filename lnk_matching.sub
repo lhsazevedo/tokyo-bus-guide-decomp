@@ -1,6 +1,6 @@
 align_section 
 udfcheck 
-debug 
+; debug 
 elf 
 output build\tbg.elf
 
