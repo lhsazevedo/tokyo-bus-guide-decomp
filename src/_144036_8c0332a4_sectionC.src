@@ -887,7 +887,7 @@
           .EXPORT     _const_8c03b980
           .EXPORT     _const_8c03b984
           .EXPORT     _const_8c03b988
-          .EXPORT     __IFNANS
+          .EXPORT     _const_8c03b98c
           .EXPORT     _const_8c03b990
           .EXPORT     _const_8c03b994
           .EXPORT     _const_8c03b998
@@ -6053,7 +6053,7 @@ _const_8c03b984:        ; from defines
           .DATA.B      H'00, H'00, H'40, H'BF
 _const_8c03b988:        ; from defines
           .DATA.B      H'00, H'00, H'00, H'3E
-__IFNANS:        ; from defines
+_const_8c03b98c:        ; from defines
           .DATA.B      H'01, H'00, H'80, H'7F
 _const_8c03b990:        ; from defines
           .DATA.B      H'00, H'00, H'00, H'00

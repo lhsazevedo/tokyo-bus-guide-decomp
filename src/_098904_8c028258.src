@@ -104,7 +104,7 @@
           .IMPORT     _const_8c03a16c
           .IMPORT     _freeTexlist_8c011e3c
           .IMPORT     _njSetTexture
-          .IMPORT     _njCnkSimpleDrawMotionOld
+          .IMPORT     _njCnkSimpleDrawMotion
           .IMPORT     _FUN_8c012178
           .IMPORT     _var_8c1bb448
           .IMPORT     _var_8c1bbddc
@@ -4107,7 +4107,7 @@ LP_GEN_15421:
           .DATA.L _var_8c22842c ; H'8C02A010
           .DATA.L _var_8c228408 ; H'8C02A014
           .DATA.L _njSetTexture ; H'8C02A018
-          .DATA.L _njCnkSimpleDrawMotionOld ; H'8C02A01C
+          .DATA.L _njCnkSimpleDrawMotion ; H'8C02A01C
           .DATA.L LAB_8c029e46 ; H'8C02A020
           .DATA.L _FUN_8c0223ea ; H'8C02A024
           .DATA.L _freeTask_8c014b66 ; H'8C02A028
@@ -4259,7 +4259,7 @@ LP_GEN_26634:
           .DATA.L _var_8c1bbd8c ; H'8C02A150
           .DATA.L LAB_8c02a048 ; H'8C02A154
           .DATA.L _FUN_8c0223ea ; H'8C02A158
-          .DATA.L _njCnkSimpleDrawMotionOld ; H'8C02A15C
+          .DATA.L _njCnkSimpleDrawMotion ; H'8C02A15C
 LAB_8c02a160:
           MOV.L       LP_GEN_26723+10,R1
           MOV.L       LP_GEN_26723+6,R3
@@ -4903,7 +4903,7 @@ LP_GEN_23851:
           .RES.W 1 ; H'8C02A63A
           .DATA.L _njSetTexture ; H'8C02A63C
           .DATA.L _var_8c228410 ; H'8C02A640
-          .DATA.L _njCnkSimpleDrawMotionOld ; H'8C02A644
+          .DATA.L _njCnkSimpleDrawMotion ; H'8C02A644
           .DATA.L _var_8c22840c ; H'8C02A648
           .DATA.L _var_8c228414 ; H'8C02A64C
           .DATA.L _var_8c228418 ; H'8C02A650

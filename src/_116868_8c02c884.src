@@ -49,7 +49,7 @@
           .IMPORT     _var_8c1bc44c
           .IMPORT     _var_8c1bc448
           .IMPORT     _var_8c1bc444
-          .IMPORT     _njCnkSimpleDrawMotionOld
+          .IMPORT     _njCnkSimpleDrawMotion
           .IMPORT     _var_8c22643c
           .IMPORT     _var_8c1bb9d0
           .IMPORT     _var_8c2264c4
@@ -788,7 +788,7 @@ LP_GEN_16762:
           .DATA.L _var_8c1bc44c ; H'8C02CE38
           .DATA.L _var_8c1bc448 ; H'8C02CE3C
           .DATA.L _var_8c1bc444 ; H'8C02CE40
-          .DATA.L _njCnkSimpleDrawMotionOld ; H'8C02CE44
+          .DATA.L _njCnkSimpleDrawMotion ; H'8C02CE44
 _FUN_8c02ce48:
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15

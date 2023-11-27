@@ -6,7 +6,7 @@
           .IMPORT     _const_8c03b980
           .IMPORT     _const_8c03b984
           .IMPORT     _const_8c03b988
-          .IMPORT     __IFNANS
+          .IMPORT     _const_8c03b98c
           .IMPORT     _const_8c03b990
           .IMPORT     _const_8c03b994
           .IMPORT     _const_8c03b998
@@ -1375,7 +1375,7 @@ LAB_8c030482:
 LP_GEN_30497:
           .DATA.L H'7FFFFFFF ; H'8C03048C
           .DATA.L H'7F800000 ; H'8C030490
-          .DATA.L __IFNANS ; H'8C030494
+          .DATA.L _const_8c03b98c ; H'8C030494
           .DATA.L H'80000000 ; H'8C030498
           .DATA.L _const_8c03b998 ; H'8C03049C
           .DATA.L _const_8c03b9b4 ; H'8C0304A0
@@ -3287,7 +3287,7 @@ LP_GEN_23996:
           .DATA.L H'7FFFFFFF ; H'8C0311F8
           .DATA.L H'7F800000 ; H'8C0311FC
           .DATA.L H'80000000 ; H'8C031200
-          .DATA.L __IFNANS ; H'8C031204
+          .DATA.L _const_8c03b98c ; H'8C031204
           .DATA.L _const_8c03b9b4 ; H'8C031208
           .DATA.L _const_8c03b998 ; H'8C03120C
           .DATA.L _const_8c03b9b8 ; H'8C031210
@@ -3401,7 +3401,7 @@ LP_GEN_67856:
           .DATA.L _const_8c03b994 ; H'8C0312F0
           .DATA.L _const_8c03b9c4 ; H'8C0312F4
           .DATA.L H'007FFFFF ; H'8C0312F8
-          .DATA.L __IFNANS ; H'8C0312FC
+          .DATA.L _const_8c03b98c ; H'8C0312FC
           .DATA.L _const_8c03b990 ; H'8C031300
           .DATA.L _const_8c03b9c0 ; H'8C031304
 _strncpy:
@@ -3598,7 +3598,7 @@ LAB_8c031454:
 LP_GEN_23547:
           .DATA.L H'7F800000 ; H'8C03145C
           .DATA.L H'007FFFFF ; H'8C031460
-          .DATA.L __IFNANS ; H'8C031464
+          .DATA.L _const_8c03b98c ; H'8C031464
           .DATA.L H'80000000 ; H'8C031468
           .DATA.L H'7FFFFFFF ; H'8C03146C
           .DATA.L H'4F800000 ; H'8C031470
@@ -5659,7 +5659,7 @@ LAB_8c03233a:
 LP_GEN_52860:
           .DATA.L H'7FFFFFFF ; H'8C032344
           .DATA.L H'7F800000 ; H'8C032348
-          .DATA.L __IFNANS ; H'8C03234C
+          .DATA.L _const_8c03b98c ; H'8C03234C
           .DATA.L _const_8c03b9b8 ; H'8C032350
           .DATA.L __in_fmods ; H'8C032354
           .DATA.L _const_8c03b9e8 ; H'8C032358
@@ -7441,7 +7441,7 @@ LP_GEN_12463:
           .RES.W 1 ; H'8C033072
           .DATA.L H'7F800000 ; H'8C033074
           .DATA.L H'7FFFFFFF ; H'8C033078
-          .DATA.L __IFNANS ; H'8C03307C
+          .DATA.L _const_8c03b98c ; H'8C03307C
           .DATA.L _const_8c03b9c4 ; H'8C033080
           .DATA.L _const_8c03b994 ; H'8C033084
           .DATA.L _const_8c03b998 ; H'8C033088

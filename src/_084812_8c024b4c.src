@@ -23,7 +23,7 @@
           .IMPORT     _njSetTexture
           .IMPORT     _var_8c1bc414
           .IMPORT     _var_8c1bc410
-          .IMPORT     _njCnkSimpleDrawShapeMotionOld
+          .IMPORT     _njCnkSimpleDrawShapeMotion
           .IMPORT     _var_8c227db0
           .IMPORT     _njControl3D
           .IMPORT     _njCnkModDrawObject
@@ -218,7 +218,7 @@ LP_GEN_17430:
           .DATA.L _njSetTexture ; H'8C024C94
           .DATA.L _var_8c1bc414 ; H'8C024C98
           .DATA.L _var_8c1bc410 ; H'8C024C9C
-          .DATA.L _njCnkSimpleDrawShapeMotionOld ; H'8C024CA0
+          .DATA.L _njCnkSimpleDrawShapeMotion ; H'8C024CA0
 LAB_8c024ca4:
           MOV.L       LP_GEN_54676+16,R2
           MOV.L       LP_GEN_54676+12,R3
@@ -296,7 +296,7 @@ LP_GEN_54676:
           .DATA.W H'0084 ; H'8C024D30
           .RES.W 1 ; H'8C024D32
           .DATA.L _var_8c227db0 ; H'8C024D34
-          .DATA.L _njCnkSimpleDrawShapeMotionOld ; H'8C024D38
+          .DATA.L _njCnkSimpleDrawShapeMotion ; H'8C024D38
           .DATA.L _njControl3D ; H'8C024D3C
           .DATA.L _njCnkModDrawObject ; H'8C024D40
           .DATA.L _var_8c227db8 ; H'8C024D44
