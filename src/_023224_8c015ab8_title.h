@@ -33,17 +33,17 @@ struct ResourceGroup {
     NJS_TEXLIST *tlist_0x00;
     NJS_TEXANIM *tanim_0x04;
     void *contents_0x08;
-    int field_0x0c;
+    // int field_0x0c;
 }
 typedef ResourceGroup;
 
 struct MenuState {
-    ResourceGroup *field_0x00;
-    void *field_0x04;
-    void *field_0x08;
-    ResourceGroup *drawDatStruct1_0x0c;
-    void *field_0x10;
-    void *field_0x14;
+    ResourceGroup resourceGroupA_0x00;
+    // void *field_0x04;
+    // void *field_0x08;
+    ResourceGroup resourceGroupB_0x0c;
+    // void *field_0x10;
+    // void *field_0x14;
     TITLE_STATE state_0x18;
     int field_0x1c;
     float busX_0x20;

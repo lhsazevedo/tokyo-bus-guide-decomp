@@ -110,7 +110,7 @@ void task_title_8c015ab8(Task* task, void *state) {
             }
 
             /* 0x8c015c1a (shared) */
-            drawSprite_8c014f54(&menuState_8c1bc7a8.drawDatStruct1_0x0c, 0, 0.0, 0.0, -5.0);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.resourceGroupB_0x0c, 0, 0.0, 0.0, -5.0);
 
             break;
         }
@@ -124,7 +124,7 @@ void task_title_8c015ab8(Task* task, void *state) {
             }
 
             /* 0x8c015c1a (shared) */
-            drawSprite_8c014f54(&menuState_8c1bc7a8.drawDatStruct1_0x0c, 0, 0.0, 0.0, -5.0);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.resourceGroupB_0x0c, 0, 0.0, 0.0, -5.0);
 
             break;
         }
@@ -136,9 +136,9 @@ void task_title_8c015ab8(Task* task, void *state) {
                 push_fadein_8c022a9c(20);
                 return;
             }
-            
+
             /* 0x8c015c1a (shared) */
-            drawSprite_8c014f54(&menuState_8c1bc7a8.drawDatStruct1_0x0c, 0, 0.0, 0.0, -5.0);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.resourceGroupB_0x0c, 0, 0.0, 0.0, -5.0);
 
             break;
         }
@@ -151,7 +151,7 @@ void task_title_8c015ab8(Task* task, void *state) {
             }
 
             /* 8c015c68 (shared) */
-            drawSprite_8c014f54(&menuState_8c1bc7a8.drawDatStruct1_0x0c, 3, 0.0, 0.0, -5.0);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.resourceGroupB_0x0c, 3, 0.0, 0.0, -5.0);
 
             break;
         }
@@ -165,7 +165,7 @@ void task_title_8c015ab8(Task* task, void *state) {
             }
 
             /* 8c015c68 (shared) */
-            drawSprite_8c014f54(&menuState_8c1bc7a8.drawDatStruct1_0x0c, 3, 0.0, 0.0, -5.0);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.resourceGroupB_0x0c, 3, 0.0, 0.0, -5.0);
 
             break;
         }
@@ -190,7 +190,7 @@ void task_title_8c015ab8(Task* task, void *state) {
             } 
 
             /* 8c015c68 (shared) */
-            drawSprite_8c014f54(&menuState_8c1bc7a8.drawDatStruct1_0x0c, 3, 0.0, 0.0, -5.0);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.resourceGroupB_0x0c, 3, 0.0, 0.0, -5.0);
 
             break;
         }
@@ -202,7 +202,7 @@ void task_title_8c015ab8(Task* task, void *state) {
             }
 
             /* 8c015c78 */
-            drawSprite_8c014f54(&menuState_8c1bc7a8.drawDatStruct1_0x0c, 17, 0.0, 0.0, -5.0);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.resourceGroupB_0x0c, 17, 0.0, 0.0, -5.0);
 
             /* 8c015c84 (shared) */
             njSetBackColor(0xffffffff, 0xffffffff, 0xffffffff);
@@ -221,7 +221,7 @@ void task_title_8c015ab8(Task* task, void *state) {
             }
 
             /* 8c015ce8 (shared) */
-            drawSprite_8c014f54(&menuState_8c1bc7a8.drawDatStruct1_0x0c, 17, 0.0, 0.0, -5.0);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.resourceGroupB_0x0c, 17, 0.0, 0.0, -5.0);
 
             break;
         }
@@ -235,7 +235,7 @@ void task_title_8c015ab8(Task* task, void *state) {
             }
 
             /* 8c015ce8 (shared) */
-            drawSprite_8c014f54(&menuState_8c1bc7a8.drawDatStruct1_0x0c, 17, 0.0, 0.0, -5.0);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.resourceGroupB_0x0c, 17, 0.0, 0.0, -5.0);
             break;
         }
 
@@ -251,8 +251,8 @@ void task_title_8c015ab8(Task* task, void *state) {
             }
 
             /* 8c015d7c (shared) - Draw title */
-            drawSprite_8c014f54(&menuState_8c1bc7a8.drawDatStruct1_0x0c, 2, 0.0, 0.0, -5.0);
-            drawSprite_8c014f54(&menuState_8c1bc7a8.field_0x00, 46, 0.0, 0.0, -7.0);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.resourceGroupB_0x0c, 2, 0.0, 0.0, -5.0);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.resourceGroupA_0x00, 46, 0.0, 0.0, -7.0);
 
             break;
         }
@@ -270,11 +270,11 @@ void task_title_8c015ab8(Task* task, void *state) {
             }
 
             /* 8c015d38 - Draw bus */
-            drawSprite_8c014f54(&menuState_8c1bc7a8.drawDatStruct1_0x0c, 1, menuState_8c1bc7a8.busX_0x20, 0.0, -4.0);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.resourceGroupB_0x0c, 1, menuState_8c1bc7a8.busX_0x20, 0.0, -4.0);
 
             /* 8c015d7c (shared) - Draw title */
-            drawSprite_8c014f54(&menuState_8c1bc7a8.drawDatStruct1_0x0c, 2, 0.0, 0.0, -5.0);
-            drawSprite_8c014f54(&menuState_8c1bc7a8.field_0x00, 46, 0.0, 0.0, -7.0);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.resourceGroupB_0x0c, 2, 0.0, 0.0, -5.0);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.resourceGroupA_0x00, 46, 0.0, 0.0, -7.0);
 
             break;
         }
@@ -289,14 +289,14 @@ void task_title_8c015ab8(Task* task, void *state) {
             }
 
             /* 8c015d6a - Draw flag */
-            drawSprite_8c014f54(&menuState_8c1bc7a8.drawDatStruct1_0x0c, 4, 302, menuState_8c1bc7a8.flagY_0x24, -4.5);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.resourceGroupB_0x0c, 4, 302, menuState_8c1bc7a8.flagY_0x24, -4.5);
 
             /* 8c015da4 - Draw bus */
-            drawSprite_8c014f54(&menuState_8c1bc7a8.drawDatStruct1_0x0c, 1, 180, 0.0, -4.0);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.resourceGroupB_0x0c, 1, 180, 0.0, -4.0);
 
             /* 8c015db4 - Draw title */
-            drawSprite_8c014f54(&menuState_8c1bc7a8.drawDatStruct1_0x0c, 2, 0.0, 0.0, -5.0);
-            drawSprite_8c014f54(&menuState_8c1bc7a8.field_0x00, 46, 0.0, 0.0, -7.0);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.resourceGroupB_0x0c, 2, 0.0, 0.0, -5.0);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.resourceGroupA_0x00, 46, 0.0, 0.0, -7.0);
 
             break;
         }
@@ -308,12 +308,12 @@ void task_title_8c015ab8(Task* task, void *state) {
             }
 
             /* 8c015f60 (shared) */
-            drawSprite_8c014f54(&menuState_8c1bc7a8.drawDatStruct1_0x0c, 5, 0, 0, -4.5);
-            drawSprite_8c014f54(&menuState_8c1bc7a8.drawDatStruct1_0x0c, 6, 0, 0, -4.5);
-            drawSprite_8c014f54(&menuState_8c1bc7a8.drawDatStruct1_0x0c, 4, 302, 97, -4.5);
-            drawSprite_8c014f54(&menuState_8c1bc7a8.drawDatStruct1_0x0c, 1, 180, 0, -4.0);
-            drawSprite_8c014f54(&menuState_8c1bc7a8.drawDatStruct1_0x0c, 2, 0, 0, -5.0);
-            drawSprite_8c014f54(&menuState_8c1bc7a8.field_0x00, 46, 0, 0, -7.0);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.resourceGroupB_0x0c, 5, 0, 0, -4.5);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.resourceGroupB_0x0c, 6, 0, 0, -4.5);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.resourceGroupB_0x0c, 4, 302, 97, -4.5);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.resourceGroupB_0x0c, 1, 180, 0, -4.0);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.resourceGroupB_0x0c, 2, 0, 0, -5.0);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.resourceGroupA_0x00, 46, 0, 0, -7.0);
 
             break;
         }
@@ -342,12 +342,12 @@ void task_title_8c015ab8(Task* task, void *state) {
             }
 
             /* 8c015f60 (shared) */
-            drawSprite_8c014f54(&menuState_8c1bc7a8.drawDatStruct1_0x0c, 5, 0, 0, -4.5);
-            drawSprite_8c014f54(&menuState_8c1bc7a8.drawDatStruct1_0x0c, 6, 0, 0, -4.5);
-            drawSprite_8c014f54(&menuState_8c1bc7a8.drawDatStruct1_0x0c, 4, 302, 97, -4.5);
-            drawSprite_8c014f54(&menuState_8c1bc7a8.drawDatStruct1_0x0c, 1, 180, 0, -4.0);
-            drawSprite_8c014f54(&menuState_8c1bc7a8.drawDatStruct1_0x0c, 2, 0, 0, -5.0);
-            drawSprite_8c014f54(&menuState_8c1bc7a8.field_0x00, 46, 0, 0, -7.0);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.resourceGroupB_0x0c, 5, 0, 0, -4.5);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.resourceGroupB_0x0c, 6, 0, 0, -4.5);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.resourceGroupB_0x0c, 4, 302, 97, -4.5);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.resourceGroupB_0x0c, 1, 180, 0, -4.0);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.resourceGroupB_0x0c, 2, 0, 0, -5.0);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.resourceGroupA_0x00, 46, 0, 0, -7.0);
 
             break;
         }
@@ -360,15 +360,15 @@ void task_title_8c015ab8(Task* task, void *state) {
             }
 
             /* 8c015e7e */
-            drawSprite_8c014f54(&menuState_8c1bc7a8.drawDatStruct1_0x0c, 5, 0, 0, -4.5);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.resourceGroupB_0x0c, 5, 0, 0, -4.5);
             if ((menuState_8c1bc7a8.logo_timer_0x68 & 1) != 0) {
-                drawSprite_8c014f54(&menuState_8c1bc7a8.drawDatStruct1_0x0c, 6, 0, 0, -4.5);
+                drawSprite_8c014f54(&menuState_8c1bc7a8.resourceGroupB_0x0c, 6, 0, 0, -4.5);
             }
             /* 8c015f7c */
-            drawSprite_8c014f54(&menuState_8c1bc7a8.drawDatStruct1_0x0c, 4, 302, 97, -4.5);
-            drawSprite_8c014f54(&menuState_8c1bc7a8.drawDatStruct1_0x0c, 1, 180, 0, -4.0);
-            drawSprite_8c014f54(&menuState_8c1bc7a8.drawDatStruct1_0x0c, 2, 0, 0, -5.0);
-            drawSprite_8c014f54(&menuState_8c1bc7a8.field_0x00, 46, 0, 0, -7.0);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.resourceGroupB_0x0c, 4, 302, 97, -4.5);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.resourceGroupB_0x0c, 1, 180, 0, -4.0);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.resourceGroupB_0x0c, 2, 0, 0, -5.0);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.resourceGroupA_0x00, 46, 0, 0, -7.0);
             break;
         }
 
@@ -389,16 +389,16 @@ void task_title_8c015ab8(Task* task, void *state) {
             }
             
             /* 8c015ed6 */
-            drawSprite_8c014f54(&menuState_8c1bc7a8.drawDatStruct1_0x0c, 5, 0, 0, -4.5);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.resourceGroupB_0x0c, 5, 0, 0, -4.5);
 
             if ((++menuState_8c1bc7a8.logo_timer_0x68 & 1) != 0) {
-                drawSprite_8c014f54(&menuState_8c1bc7a8.drawDatStruct1_0x0c, 6, 0, 0, -4.5);
+                drawSprite_8c014f54(&menuState_8c1bc7a8.resourceGroupB_0x0c, 6, 0, 0, -4.5);
             }
             /* 8c015f7c */
-            drawSprite_8c014f54(&menuState_8c1bc7a8.drawDatStruct1_0x0c, 4, 302, 97, -4.5);
-            drawSprite_8c014f54(&menuState_8c1bc7a8.drawDatStruct1_0x0c, 1, 180, 0, -4.0);
-            drawSprite_8c014f54(&menuState_8c1bc7a8.drawDatStruct1_0x0c, 2, 0, 0, -5.0);
-            drawSprite_8c014f54(&menuState_8c1bc7a8.field_0x00, 46, 0, 0, -7.0);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.resourceGroupB_0x0c, 4, 302, 97, -4.5);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.resourceGroupB_0x0c, 1, 180, 0, -4.0);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.resourceGroupB_0x0c, 2, 0, 0, -5.0);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.resourceGroupA_0x00, 46, 0, 0, -7.0);
 
             break;
         }
@@ -415,12 +415,12 @@ void task_title_8c015ab8(Task* task, void *state) {
             }
 
             /* 8c015f60 (shared) */
-            drawSprite_8c014f54(&menuState_8c1bc7a8.drawDatStruct1_0x0c, 5, 0, 0, -4.5);
-            drawSprite_8c014f54(&menuState_8c1bc7a8.drawDatStruct1_0x0c, 6, 0, 0, -4.5);
-            drawSprite_8c014f54(&menuState_8c1bc7a8.drawDatStruct1_0x0c, 4, 302, 97, -4.5);
-            drawSprite_8c014f54(&menuState_8c1bc7a8.drawDatStruct1_0x0c, 1, 180, 0, -4.0);
-            drawSprite_8c014f54(&menuState_8c1bc7a8.drawDatStruct1_0x0c, 2, 0, 0, -5.0);
-            drawSprite_8c014f54(&menuState_8c1bc7a8.field_0x00, 46, 0, 0, -7.0);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.resourceGroupB_0x0c, 5, 0, 0, -4.5);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.resourceGroupB_0x0c, 6, 0, 0, -4.5);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.resourceGroupB_0x0c, 4, 302, 97, -4.5);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.resourceGroupB_0x0c, 1, 180, 0, -4.0);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.resourceGroupB_0x0c, 2, 0, 0, -5.0);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.resourceGroupA_0x00, 46, 0, 0, -7.0);
             break;
         }
 
@@ -453,7 +453,7 @@ void FUN_8c015fd6 (Bool direct) {
     pushTask_8c014ae8(tasks_8c1ba3c8, &task_title_8c015ab8, &created_task, &created_state, 0);
 
     /* 8c01601e */
-    menuState_8c1bc7a8.state_0x18 = 0;
+    menuState_8c1bc7a8.state_0x18 = TITLE_STATE_0X00_INIT;
 
     /* 8c016020 */
     /* direct_local = FALSE; */
@@ -486,7 +486,7 @@ void FUN_8c015fd6 (Bool direct) {
     var_8c225fb0 = (void *) -1;
 
     /* 8c016070 */
-    requestSysResgrp_8c018568(&menuState_8c1bc7a8.drawDatStruct1_0x0c, &titleResourceGroup_8c044254);
+    requestSysResgrp_8c018568(&menuState_8c1bc7a8.resourceGroupB_0x0c, &titleResourceGroup_8c044254);
 
     /* 8c016076 */
     requestCommonResources_8c01852c();
