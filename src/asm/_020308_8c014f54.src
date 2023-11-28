@@ -50,7 +50,11 @@
           .EXPORT     _FUN_8c0152fc
           .EXPORT     _FUN_8c015410
           .EXPORT     _FUN_8c01543a
+          .AIFDEF MATCHING
           .EXPORT     _menuTextboxTextSub_8c0155e0
+          .AELSE
+          .EXPORT     _menuTextboxTextSub_8c0155e0_matching
+          .AENDI
           .EXPORT     _FUN_8c0159ac
           .SECTION    P,CODE,ALIGN=4
 _drawSprite_8c014f54:
@@ -946,7 +950,11 @@ LAB_8c0155cc:
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
+          .AIFDEF MATCHING
 _menuTextboxTextSub_8c0155e0:
+          .AELSE
+_menuTextboxTextSub_8c0155e0_matching:
+          .AENDI
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           MOV.L       R12,@-R15
