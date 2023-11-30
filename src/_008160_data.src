@@ -3,27 +3,9 @@
           .IMPORT     _init_8c04e988
           .IMPORT     _var_8c18acf8
           .EXPORT     _init_8c03be80
-          .EXPORT     _init_8c03be84
-          .EXPORT     _init_8c03be88
-          .EXPORT     _init_8c03be98
           .EXPORT     _init_8c03beb8
-          .EXPORT     _init_8c03bebc
-          .EXPORT     _init_8c03bec0
-          .EXPORT     _init_8c03bed0
-          .EXPORT     _init_8c03bed8
-          .EXPORT     _init_8c03bee0
           .EXPORT     _init_8c03bef0
-          .EXPORT     _init_8c03bef4
-          .EXPORT     _init_8c03bef8
-          .EXPORT     _init_8c03bf00
-          .EXPORT     _init_8c03bf08
-          .EXPORT     _init_8c03bf10
           .EXPORT     _init_8c03bf18
-          .EXPORT     _init_8c03bf1c
-          .EXPORT     _init_8c03bf20
-          .EXPORT     _init_8c03bf28
-          .EXPORT     _init_8c03bf30
-          .EXPORT     _init_8c03bf38
           .EXPORT     _init_8c03bf40
           .EXPORT     _init_8c03bf44
           .EXPORT     _init_8c03bf4c
@@ -1158,48 +1140,30 @@
           .SECTION    D,DATA,ALIGN=4
 _init_8c03be80:        ; from defines
           .DATA.B      H'00, H'00, H'00, H'00
-_init_8c03be84:        ; from ghidra
           .DATA.B      H'00, H'04, H'00, H'00
-_init_8c03be88:        ; from ghidra
           .DATA.B      H'00, H'00, H'00, H'00, H'02, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'02, H'00, H'00
-_init_8c03be98:        ; from ghidra
           .DATA.B      H'00, H'00, H'00, H'00, H'04, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'10, H'00, H'00, H'00
           .DATA.B      H'00, H'00, H'00, H'00, H'20, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'08, H'00, H'00, H'00
 _init_8c03beb8:        ; from defines
           .DATA.B      H'00, H'00, H'00, H'00
-_init_8c03bebc:        ; from ghidra
           .DATA.B      H'00, H'04, H'00, H'00
-_init_8c03bec0:        ; from ghidra
           .DATA.B      H'00, H'00, H'00, H'00, H'02, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'02, H'00, H'00
-_init_8c03bed0:        ; from ghidra
           .DATA.B      H'00, H'00, H'00, H'00, H'04, H'00, H'00, H'00
-_init_8c03bed8:        ; from ghidra
           .DATA.B      H'00, H'00, H'00, H'00, H'00, H'04, H'00, H'00
-_init_8c03bee0:        ; from ghidra
           .DATA.B      H'00, H'00, H'00, H'00, H'02, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'08, H'00, H'00, H'00
 _init_8c03bef0:        ; from defines
           .DATA.B      H'00, H'00, H'00, H'00
-_init_8c03bef4:        ; from ghidra
           .DATA.B      H'00, H'04, H'00, H'00
-_init_8c03bef8:        ; from ghidra
           .DATA.B      H'00, H'00, H'00, H'00, H'02, H'00, H'00, H'00
-_init_8c03bf00:        ; from ghidra
           .DATA.B      H'00, H'00, H'00, H'00, H'00, H'02, H'00, H'00
-_init_8c03bf08:        ; from ghidra
           .DATA.B      H'00, H'00, H'00, H'00, H'04, H'00, H'00, H'00
-_init_8c03bf10:        ; from ghidra
           .DATA.B      H'00, H'00, H'00, H'00, H'08, H'00, H'00, H'00
 _init_8c03bf18:        ; from defines
           .DATA.B      H'00, H'00, H'00, H'00
-_init_8c03bf1c:        ; from ghidra
           .DATA.B      H'00, H'04, H'00, H'00
-_init_8c03bf20:        ; from ghidra
           .DATA.B      H'00, H'00, H'00, H'00, H'02, H'00, H'00, H'00
-_init_8c03bf28:        ; from ghidra
           .DATA.B      H'00, H'00, H'00, H'00, H'00, H'02, H'00, H'00
-_init_8c03bf30:        ; from ghidra
           .DATA.B      H'00, H'00, H'00, H'00, H'04, H'00, H'00, H'00
-_init_8c03bf38:        ; from ghidra
           .DATA.B      H'00, H'00, H'00, H'00, H'08, H'00, H'00, H'00
 _init_8c03bf40:        ; from defines
           .DATA.L      _const_8c033358 ; ukn
