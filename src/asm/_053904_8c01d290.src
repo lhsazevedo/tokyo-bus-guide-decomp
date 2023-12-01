@@ -18,7 +18,7 @@
           .IMPORT     _FUN_8c017ef2
           .IMPORT     _setTaskAction_8c014b3e
           .IMPORT     _freeResourceGroup_8c0185c4
-          .IMPORT     _var_8c157af8
+          .IMPORT     _var_tex_8c157af8
           .IMPORT     _njGarbageTexture
           .IMPORT     _FUN_8c011f36
           .IMPORT     _FUN_8c011f6c
@@ -733,7 +733,7 @@ LAB_8c01d780:
 LP_GEN_20271:
           .DATA.W H'0C00 ; H'8C01D7CE
           .DATA.L _freeResourceGroup_8c0185c4 ; H'8C01D7D0
-          .DATA.L _var_8c157af8 ; H'8C01D7D4
+          .DATA.L _var_tex_8c157af8 ; H'8C01D7D4
           .DATA.L _njGarbageTexture ; H'8C01D7D8
           .DATA.L _FUN_8c011f36 ; H'8C01D7DC
           .DATA.L _FUN_8c011f6c ; H'8C01D7E0

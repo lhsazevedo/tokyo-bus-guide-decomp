@@ -63,13 +63,13 @@
           .IMPORT     _FUN_8c0173e6
           .IMPORT     _var_8c1bb8d0
           .IMPORT     _init_8c044c08
-          .IMPORT     _var_8c157af8
+          .IMPORT     _var_tex_8c157af8
           .IMPORT     _njGarbageTexture
           .IMPORT     _var_8c1ba264
           .IMPORT     _var_8c2285d0
           .IMPORT     _FUN_8c0128cc
           .IMPORT     _task_8c012f44
-          .IMPORT     _tasks_8c1ba3c8
+          .IMPORT     _var_tasks_8c1ba3c8
           .IMPORT     _pushTask_8c014ae8
           .IMPORT     _FUN_8c02ae3e
           .IMPORT     _var_8c225fb0
@@ -2039,7 +2039,7 @@ LP_GEN_22524:
           .DATA.L _var_8c226414 ; H'8C01F1E0
           .DATA.L _init_8c044c08 ; H'8C01F1E4
           .DATA.L _njSetBackColor ; H'8C01F1E8
-          .DATA.L _var_8c157af8 ; H'8C01F1EC
+          .DATA.L _var_tex_8c157af8 ; H'8C01F1EC
           .DATA.L _njGarbageTexture ; H'8C01F1F0
           .DATA.L _FUN_8c011f36 ; H'8C01F1F4
           .DATA.L _FUN_8c011f6c ; H'8C01F1F8
@@ -2215,11 +2215,11 @@ LP_GEN_37649:
           .DATA.L _var_8c1bb8d0 ; H'8C01F364
           .DATA.L _FUN_8c0128cc ; H'8C01F368
           .DATA.L _task_8c012f44 ; H'8C01F36C
-          .DATA.L _tasks_8c1ba3c8 ; H'8C01F370
+          .DATA.L _var_tasks_8c1ba3c8 ; H'8C01F370
           .DATA.L _pushTask_8c014ae8 ; H'8C01F374
           .DATA.L LAB_8c01ebf2 ; H'8C01F378
           .DATA.L _init_8c044c08 ; H'8C01F37C
-          .DATA.L _var_8c157af8 ; H'8C01F380
+          .DATA.L _var_tex_8c157af8 ; H'8C01F380
           .DATA.L _njGarbageTexture ; H'8C01F384
           .DATA.L H'C0000000 ; H'8C01F388
           .DATA.L _FUN_8c02ae3e ; H'8C01F38C

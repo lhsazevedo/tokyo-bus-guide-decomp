@@ -20,9 +20,9 @@ extern Bool _8c03bd80;
 extern Bool var_8c1bb8c4;
 extern ResourceGroupInfo titleResourceGroup_8c044254;
 extern PDS_PERIPHERAL peripheral_8c1ba35c[2];
-extern Task tasks_8c1ba3c8[16];
+extern Task var_tasks_8c1ba3c8[16];
 extern void task_8c012f44(Task* task, void* state);
-extern NJS_TEXMEMLIST var_8c157af8;
+extern NJS_TEXMEMLIST var_tex_8c157af8;
 extern FUN_8c02ae3e(int p1, int p2, float fp1, int p3, int p4, int p5, int p6, int p7);
 extern FUN_8c011f36(int p1, int p2, int p3, int p4);
 extern void nop_8c011120();
@@ -425,13 +425,13 @@ void FUN_8c015fd6 (Bool direct) {
     FUN_8c0128cc(0);
 
     /* 8c015ff4 */
-    pushTask_8c014ae8(tasks_8c1ba3c8, &task_8c012f44, &created_task, &created_state, 0);
+    pushTask_8c014ae8(var_tasks_8c1ba3c8, &task_8c012f44, &created_task, &created_state, 0);
 
     /* 8c015ffe */
     njSetBackColor(0,0,0);
 
     /* 8c016012 */
-    pushTask_8c014ae8(tasks_8c1ba3c8, &task_title_8c015ab8, &created_task, &created_state, 0);
+    pushTask_8c014ae8(var_tasks_8c1ba3c8, &task_title_8c015ab8, &created_task, &created_state, 0);
 
     /* 8c01601e */
     menuState_8c1bc7a8.state_0x18 = TITLE_STATE_0X00_INIT;
@@ -452,7 +452,7 @@ void FUN_8c015fd6 (Bool direct) {
     var_8c1bb8c4 = 1;
 
     /* 8c016034 */
-    njGarbageTexture(&var_8c157af8, 3072);
+    njGarbageTexture(&var_tex_8c157af8, 3072);
 
     /* 8c01604e */
     FUN_8c02ae3e(0x20, 0x178, -2.0, 0x240, 0x40, 0, 0, -1);

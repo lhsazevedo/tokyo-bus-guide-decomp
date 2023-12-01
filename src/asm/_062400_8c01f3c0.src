@@ -35,9 +35,9 @@
           .IMPORT     _init_8c044c08
           .IMPORT     _FUN_8c0128cc
           .IMPORT     _task_8c012f44
-          .IMPORT     _tasks_8c1ba3c8
+          .IMPORT     _var_tasks_8c1ba3c8
           .IMPORT     _pushTask_8c014ae8
-          .IMPORT     _var_8c157af8
+          .IMPORT     _var_tex_8c157af8
           .IMPORT     _njGarbageTexture
           .IMPORT     _FUN_8c02ae3e
           .IMPORT     _const_8c039f48
@@ -873,10 +873,10 @@ LP_GEN_38893:
           .DATA.L _init_8c044c08 ; H'8C01FA20
           .DATA.L _FUN_8c0128cc ; H'8C01FA24
           .DATA.L _task_8c012f44 ; H'8C01FA28
-          .DATA.L _tasks_8c1ba3c8 ; H'8C01FA2C
+          .DATA.L _var_tasks_8c1ba3c8 ; H'8C01FA2C
           .DATA.L _pushTask_8c014ae8 ; H'8C01FA30
           .DATA.L LAB_8c01f658 ; H'8C01FA34
-          .DATA.L _var_8c157af8 ; H'8C01FA38
+          .DATA.L _var_tex_8c157af8 ; H'8C01FA38
           .DATA.L _njGarbageTexture ; H'8C01FA3C
           .DATA.L H'C0000000 ; H'8C01FA40
           .DATA.L _FUN_8c02ae3e ; H'8C01FA44

@@ -27,7 +27,7 @@
           .IMPORT     _FUN_8c02fa14
           .IMPORT     _freeTask_8c014b66
           .IMPORT     _FUN_8c01328c
-          .IMPORT     _tasks_8c1ba3c8
+          .IMPORT     _var_tasks_8c1ba3c8
           .IMPORT     _pushTask_8c014ae8
           .IMPORT     _var_8c1bb8d0
           .IMPORT     _var_8c1bb8d4
@@ -1543,7 +1543,7 @@ LP_GEN_51554:
           .DATA.L _freeTask_8c014b66
           .DATA.L _FUN_8c01328c
           .DATA.L _FUN_8c01594c
-          .DATA.L _tasks_8c1ba3c8
+          .DATA.L _var_tasks_8c1ba3c8
           .DATA.L _pushTask_8c014ae8
           .DATA.L _var_8c1bb8d0
           .DATA.L _var_8c1bb8d4

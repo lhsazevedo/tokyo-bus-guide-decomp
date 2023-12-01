@@ -32,9 +32,9 @@
           .EXPORT     _var_8c157ae4
           .EXPORT     _var_8c157ae8
           .EXPORT     _var_8c157aec
-          .EXPORT     _var_8c157af8
+          .EXPORT     _var_tex_8c157af8
           .EXPORT     _var_8c18aaf8
-          .EXPORT     _var_8c18acf8
+          .EXPORT     _var_texname_8c18acf8
           .EXPORT     _var_8c18ad04
           .EXPORT     _var_8c18ad08
           .EXPORT     _var_8c18ad0c
@@ -86,11 +86,11 @@
           .EXPORT     _var_8c1ba374
           .EXPORT     _var_8c1ba376
           .EXPORT     _var_8c1ba3c4
-          .EXPORT     _tasks_8c1ba3c8
-          .EXPORT     _var_8c1ba5e8
-          .EXPORT     _var_8c1ba808
-          .EXPORT     _var_8c1bac28
-          .EXPORT     _var_8c1bb448
+          .EXPORT     _var_tasks_8c1ba3c8
+          .EXPORT     _var_tasks_8c1ba5e8
+          .EXPORT     _var_tasks_8c1ba808
+          .EXPORT     _var_tasks_8c1bac28
+          .EXPORT     _var_tasks_8c1bb448
           .EXPORT     _var_8c1bb868
           .EXPORT     _var_8c1bb86c
           .EXPORT     _var_8c1bb870
@@ -171,11 +171,11 @@
           .EXPORT     _var_8c1bc410
           .EXPORT     _var_8c1bc414
           .EXPORT     _var_8c1bc418
-          .EXPORT     _var_8c1bc41c
-          .EXPORT     _var_8c1bc420
+          .EXPORT     _var_mark_parts_dat_8c1bc41c
+          .EXPORT     _var_mark_dat_8c1bc420
           .EXPORT     _var_8c1bc424
-          .EXPORT     _var_8c1bc428
-          .EXPORT     _var_8c1bc42c
+          .EXPORT     _var_busstop_parts_dat_8c1bc428
+          .EXPORT     _var_busstop_dat_8c1bc42c
           .EXPORT     _var_8c1bc430
           .EXPORT     _var_8c1bc434
           .EXPORT     _var_8c1bc438
@@ -442,11 +442,11 @@
           .EXPORT     _var_8c235c7e
           .EXPORT     _var_8c235c80
           .EXPORT     _var_8c235c84
-          .EXPORT     _var_8c235ca0
-          .EXPORT     _var_8c255ca0
-          .EXPORT     _var_8c277ca0
-          .EXPORT     _var_8c2f84a0
-          .EXPORT     _var_8c2f8ca0
+          .EXPORT     _var_cachebuf_8c235ca0
+          .EXPORT     _var_vbuf_8c255ca0
+          .EXPORT     _var_texbuf_8c277ca0
+          .EXPORT     _var_shapebuf_8c2f84a0
+          .EXPORT     _var_matrix_8c2f8ca0
           .SECTION    B,DATA,ALIGN=4
 _var_8c157a5c:
           .RES.B      4
@@ -516,11 +516,11 @@ _var_8c157ae8:
           .RES.B      4
 _var_8c157aec:
           .RES.B      12
-_var_8c157af8:
+_var_tex_8c157af8:
           .RES.B      208896
 _var_8c18aaf8:
           .RES.B      512
-_var_8c18acf8:
+_var_texname_8c18acf8:
           .RES.B      12
 _var_8c18ad04:
           .RES.B      4
@@ -624,15 +624,15 @@ _var_8c1ba376:
           .RES.B      78
 _var_8c1ba3c4:
           .RES.B      4
-_tasks_8c1ba3c8:
+_var_tasks_8c1ba3c8:
           .RES.B      544
-_var_8c1ba5e8:
+_var_tasks_8c1ba5e8:
           .RES.B      544
-_var_8c1ba808:
+_var_tasks_8c1ba808:
           .RES.B      1056
-_var_8c1bac28:
+_var_tasks_8c1bac28:
           .RES.B      2080
-_var_8c1bb448:
+_var_tasks_8c1bb448:
           .RES.B      1056
 _var_8c1bb868:
           .RES.B      4
@@ -794,15 +794,15 @@ _var_8c1bc414:
           .RES.B      4
 _var_8c1bc418:
           .RES.B      4
-_var_8c1bc41c:
+_var_mark_parts_dat_8c1bc41c:
           .RES.B      4
-_var_8c1bc420:
+_var_mark_dat_8c1bc420:
           .RES.B      4
 _var_8c1bc424:
           .RES.B      4
-_var_8c1bc428:
+_var_busstop_parts_dat_8c1bc428:
           .RES.B      4
-_var_8c1bc42c:
+_var_busstop_dat_8c1bc42c:
           .RES.B      4
 _var_8c1bc430:
           .RES.B      4
@@ -1336,14 +1336,14 @@ _var_8c235c80:
           .RES.B      4
 _var_8c235c84:
           .RES.B      28
-_var_8c235ca0:
+_var_cachebuf_8c235ca0:
           .RES.B      131072
-_var_8c255ca0:
+_var_vbuf_8c255ca0:
           .RES.B      139264
-_var_8c277ca0:
+_var_texbuf_8c277ca0:
           .RES.B      526336
-_var_8c2f84a0:
+_var_shapebuf_8c2f84a0:
           .RES.B      2048
-_var_8c2f8ca0:
+_var_matrix_8c2f8ca0:
           .RES.B      1024
           .END

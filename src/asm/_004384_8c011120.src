@@ -16,7 +16,7 @@
           .IMPORT     __8c157a90_current
           .IMPORT     __8c157a94_end
           .IMPORT     _var_8c157a98
-          .IMPORT     _tasks_8c1ba3c8
+          .IMPORT     _var_tasks_8c1ba3c8
           .IMPORT     _strcmp
           .IMPORT     __quick_evn_mvn
           .IMPORT     _queuedNjFiles_8c157a9c
@@ -24,7 +24,7 @@
           .IMPORT     _queuedNjFilesCursor_8c157aa0
           .IMPORT     _ptr_str_DATA_EMPTY_8c03be7c
           .IMPORT     _var_8c157aa8
-          .IMPORT     _var_8c277ca0
+          .IMPORT     _var_texbuf_8c277ca0
           .IMPORT     _var_8c157a84
           .IMPORT     _njReadBinary
           .IMPORT     __quick_odd_mvn
@@ -431,7 +431,7 @@ L23:
           JSR         @R3
           MOV         R11,R4
           MOV         #0,R2
-          MOV.L       L28+48,R4; _tasks_8c1ba3c8
+          MOV.L       L28+48,R4; _var_tasks_8c1ba3c8
           MOV.L       R2,@-R15
           MOV.L       L28+44,R5; _task_8c0111b4
           MOV         R15,R7
@@ -502,7 +502,7 @@ L28:
           .DATA.L     _strcmp
           .DATA.L     __quick_evn_mvn
           .DATA.L     _task_8c0111b4
-          .DATA.L     _tasks_8c1ba3c8
+          .DATA.L     _var_tasks_8c1ba3c8
           .DATA.L     _pushTask_8c014ae8
           .DATA.L     _var_8c157a88
           .DATA.L     _init_8c03be7c
@@ -644,7 +644,7 @@ L36:
           .DATA.L     __8c157a80_basedir
           .DATA.L     _var_8c157aa8
           .DATA.L     _syFree
-          .DATA.L     _var_8c277ca0 ; L36+34
+          .DATA.L     _var_texbuf_8c277ca0 ; L36+34
           .DATA.L     _var_8c157a84 
 
 L37:
@@ -1216,7 +1216,7 @@ L84:
           .DATA.L     __quick_odd_mvn
           .DATA.L     _syFree
           .DATA.L     _task_8c0114cc
-          .DATA.L     _tasks_8c1ba3c8 ; L84+16
+          .DATA.L     _var_tasks_8c1ba3c8 ; L84+16
           .DATA.L     _pushTask_8c014ae8
           .DATA.L     _var_8c157a88
           .DATA.L     _init_8c03be7c
@@ -1474,7 +1474,7 @@ L101:
           .DATA.L     _freeTask_8c014b66 ; L101+12
           .DATA.L     _var_8c157aac
           .DATA.L     task_8c01183e
-          .DATA.L     _tasks_8c1ba3c8
+          .DATA.L     _var_tasks_8c1ba3c8
           .DATA.L     _pushTask_8c014ae8 ; L101+28
           .DATA.L     _syFree
           .DATA.L     _var_8c157abc
@@ -1484,7 +1484,7 @@ L101:
           .DATA.L     _init_8c03be7c
           .DATA.L     __8c157a80_basedir
           .DATA.L     _var_8c157ac8 ; L101+60
-          .DATA.L     _var_8c277ca0
+          .DATA.L     _var_texbuf_8c277ca0
           .DATA.L     _var_8c157a84
 
 L102:
@@ -2042,7 +2042,7 @@ L139:
           .DATA.L     __quick_evn_mvn
           .DATA.L     _syFree
           .DATA.L     task_8c011b00
-          .DATA.L     _tasks_8c1ba3c8 ; L139+16
+          .DATA.L     _var_tasks_8c1ba3c8 ; L139+16
           .DATA.L     _pushTask_8c014ae8
           .DATA.L     _var_8c157a88
           .DATA.L     _init_8c03be7c
@@ -2356,7 +2356,7 @@ _FUN_8c0121e8:
 LP_GEN_90004:
           .RES.W      1 ; H'8c012206
           .DATA.L     _task_8c011e80
-          .DATA.L     _tasks_8c1ba3c8
+          .DATA.L     _var_tasks_8c1ba3c8
           .DATA.L     _pushTask_8c014ae8
           .DATA.L     _syMalloc
           .DATA.L     _syFree

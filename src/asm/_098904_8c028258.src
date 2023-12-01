@@ -25,7 +25,7 @@
           .IMPORT     _njUnitMatrix
           .IMPORT     _njTranslate
           .IMPORT     _njRotateY
-          .IMPORT     _var_8c1ba5e8
+          .IMPORT     _var_tasks_8c1ba5e8
           .IMPORT     _syFree
           .IMPORT     _freeTasks_8c014ab4
           .IMPORT     _var_8c227e2c
@@ -54,7 +54,7 @@
           .IMPORT     _var_8c22822c
           .IMPORT     _var_8c22823c
           .IMPORT     _var_8c228240
-          .IMPORT     _var_8c1ba808
+          .IMPORT     _var_tasks_8c1ba808
           .IMPORT     _FUN_8c02e486
           .IMPORT     _init_8c04650c
           .IMPORT     _var_8c1bba54
@@ -106,7 +106,7 @@
           .IMPORT     _njSetTexture
           .IMPORT     _njCnkSimpleDrawMotion
           .IMPORT     _FUN_8c012178
-          .IMPORT     _var_8c1bb448
+          .IMPORT     _var_tasks_8c1bb448
           .IMPORT     _var_8c1bbddc
           .IMPORT     _njControl3D
           .IMPORT     _njFogDisable
@@ -147,7 +147,7 @@
           .IMPORT     _init_8c04ab3c
           .IMPORT     _njDrawScroll
           .IMPORT     _FUN_8c0106ac
-          .IMPORT     _tasks_8c1ba3c8
+          .IMPORT     _var_tasks_8c1ba3c8
           .IMPORT     _var_8c1bb8e8
           .IMPORT     _var_8c1bc404
           .IMPORT     _FUN_8c01524c
@@ -1108,7 +1108,7 @@ LP_GEN_38963:
           .DATA.W H'00C4 ; H'8C028930
           .DATA.W H'0200 ; H'8C028932
           .DATA.L LAB_8c0283e8 ; H'8C028934
-          .DATA.L _var_8c1ba5e8 ; H'8C028938
+          .DATA.L _var_tasks_8c1ba5e8 ; H'8C028938
           .DATA.L _pushTask_8c014ae8 ; H'8C02893C
           .DATA.L _var_8c227e28 ; H'8C028940
           .DATA.L _syFree ; H'8C028944
@@ -2817,7 +2817,7 @@ LP_GEN_46486:
           .DATA.L _syMalloc ; H'8C0295EC
           .DATA.L _clearTasks_8c014a9c ; H'8C0295F0
           .DATA.L _task_pedgroup_8c029078 ; H'8C0295F4
-          .DATA.L _var_8c1ba808 ; H'8C0295F8
+          .DATA.L _var_tasks_8c1ba808 ; H'8C0295F8
           .DATA.L _pushTask_8c014ae8 ; H'8C0295FC
           .DATA.L _syFree ; H'8C029600
           .DATA.L _FUN_8c02e486 ; H'8C029604
@@ -2954,7 +2954,7 @@ LP_GEN_59898:
           .DATA.L _var_8c228268 ; H'8C029710
           .DATA.L _FUN_8c0206f0 ; H'8C029714
           .DATA.L _var_8c228234 ; H'8C029718
-          .DATA.L _var_8c1ba808 ; H'8C02971C
+          .DATA.L _var_tasks_8c1ba808 ; H'8C02971C
           .DATA.L _execTasks_8c014b42 ; H'8C029720
           .DATA.L _FUN_8c0223ea ; H'8C029724
           .DATA.L _var_8c1bb8d0 ; H'8C029728
@@ -3108,7 +3108,7 @@ LP_GEN_63109:
           .DATA.L _var_8c228230 ; H'8C029848
           .DATA.L _syMalloc ; H'8C02984C
           .DATA.L _task_pedestrians_8c0293f6 ; H'8C029850
-          .DATA.L _var_8c1ba5e8 ; H'8C029854
+          .DATA.L _var_tasks_8c1ba5e8 ; H'8C029854
           .DATA.L _pushTask_8c014ae8 ; H'8C029858
           .DATA.L _var_8c228234 ; H'8C02985C
           .DATA.L _freeTasks_8c014ab4 ; H'8C029860
@@ -3402,7 +3402,7 @@ LP_GEN_39842:
           .DATA.L _init_8c046524 ; H'8C029A8C
           .DATA.L _init_8c0466a4 ; H'8C029A90
           .DATA.L LAB_8c029904 ; H'8C029A94
-          .DATA.L _var_8c1ba5e8 ; H'8C029A98
+          .DATA.L _var_tasks_8c1ba5e8 ; H'8C029A98
           .DATA.L _pushTask_8c014ae8 ; H'8C029A9C
           .DATA.L _FUN_8c020f7e ; H'8C029AA0
           .DATA.L _njRotateY ; H'8C029AA4
@@ -4113,7 +4113,7 @@ LP_GEN_15421:
           .DATA.L _freeTask_8c014b66 ; H'8C02A028
           .DATA.L _FUN_8c012178 ; H'8C02A02C
           .DATA.L LAB_8c029e68 ; H'8C02A030
-          .DATA.L _var_8c1bb448 ; H'8C02A034
+          .DATA.L _var_tasks_8c1bb448 ; H'8C02A034
           .DATA.L _pushTask_8c014ae8 ; H'8C02A038
           .DATA.L _var_8c1bbddc ; H'8C02A03C
           .DATA.L _njCnkSimpleDrawObject ; H'8C02A040
@@ -4927,7 +4927,7 @@ LP_GEN_23851:
           .DATA.L _njCnkSetSimpleLightColor ; H'8C02A698
           .DATA.L _var_8c2285c4 ; H'8C02A69C
           .DATA.L LAB_8c02a5d0 ; H'8C02A6A0
-          .DATA.L _var_8c1bb448 ; H'8C02A6A4
+          .DATA.L _var_tasks_8c1bb448 ; H'8C02A6A4
           .DATA.L _execTasks_8c014b42 ; H'8C02A6A8
 _FUN_8c02a6ac:
           MOV.L       R14,@-R15
@@ -5273,7 +5273,7 @@ LP_GEN_67201:
           .DATA.L _var_8c228408 ; H'8C02A934
           .DATA.L _var_8c228288 ; H'8C02A938
           .DATA.L _pushTask_8c014ae8 ; H'8C02A93C
-          .DATA.L _var_8c1bb448 ; H'8C02A940
+          .DATA.L _var_tasks_8c1bb448 ; H'8C02A940
           .DATA.L LAB_8c029e94 ; H'8C02A944
           .DATA.L H'4F800000 ; H'8C02A948
           .DATA.L LAB_8c029fcc ; H'8C02A94C
@@ -5355,7 +5355,7 @@ LP_GEN_79722:
           .DATA.L _var_8c22841c ; H'8C02A9EC
           .DATA.L _var_8c228434 ; H'8C02A9F0
           .DATA.L LAB_8c02a60e ; H'8C02A9F4
-          .DATA.L _var_8c1ba5e8 ; H'8C02A9F8
+          .DATA.L _var_tasks_8c1ba5e8 ; H'8C02A9F8
 _FUN_8c02a9fc:
           MOV         R4,R6
           BRA         LAB_8c02aa1e
@@ -5975,7 +5975,7 @@ LP_GEN_16602:
           .DATA.W H'0180 ; H'8C02AEB2
           .DATA.L _var_8c228518 ; H'8C02AEB4
           .DATA.L LAB_8c02ab7a ; H'8C02AEB8
-          .DATA.L _tasks_8c1ba3c8 ; H'8C02AEBC
+          .DATA.L _var_tasks_8c1ba3c8 ; H'8C02AEBC
           .DATA.L _pushTask_8c014ae8 ; H'8C02AEC0
           .DATA.L _var_8c228478 ; H'8C02AEC4
           .DATA.L _var_8c228480 ; H'8C02AEC8

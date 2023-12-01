@@ -2,7 +2,7 @@
           .IMPORT     _freeTask_8c014b66
           .IMPORT     _var_8c22606c
           .IMPORT     _BupMount_8c014c00
-          .IMPORT     _tasks_8c1ba3c8
+          .IMPORT     _var_tasks_8c1ba3c8
           .IMPORT     _pushTask_8c014ae8
           .IMPORT     _BupUnmount_8c014c46
           .IMPORT     _buStat
@@ -314,7 +314,7 @@ LP_GEN_33095:
           .DATA.L _var_8c22606c ; H'8C0195A4
           .DATA.L _BupMount_8c014c00 ; H'8C0195A8
           .DATA.L _FUN_8c0193c8 ; H'8C0195AC
-          .DATA.L _tasks_8c1ba3c8 ; H'8C0195B0
+          .DATA.L _var_tasks_8c1ba3c8 ; H'8C0195B0
           .DATA.L _pushTask_8c014ae8 ; H'8C0195B4
           .DATA.L _BupUnmount_8c014c46 ; H'8C0195B8
           .DATA.L _buStat ; H'8C0195BC

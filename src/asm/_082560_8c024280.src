@@ -1,5 +1,5 @@
           .IMPORT     _var_8c1bb9d0
-          .IMPORT     _var_8c1bac28
+          .IMPORT     _var_tasks_8c1bac28
           .IMPORT     _var_8c1bb8c8
           .IMPORT     _var_8c1ba36c
           .IMPORT     _var_8c1ba374
@@ -111,7 +111,7 @@ LP_GEN_37903:
           .RES.W 1 ; H'8C02430A
           .DATA.L _var_8c1bb9d0 ; H'8C02430C
           .DATA.L H'BE3DA12F ; H'8C024310
-          .DATA.L _var_8c1bac28 ; H'8C024314
+          .DATA.L _var_tasks_8c1bac28 ; H'8C024314
           .DATA.L _var_8c1bb8c8 ; H'8C024318
           .DATA.L _var_8c1ba36c ; H'8C02431C
 _FUN_8c024320:

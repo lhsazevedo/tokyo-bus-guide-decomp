@@ -3,7 +3,7 @@
           .IMPORT     _init_8c04c820
           .IMPORT     _var_8c1bba54
           .IMPORT     _var_8c228974
-          .IMPORT     _var_8c1bac28
+          .IMPORT     _var_tasks_8c1bac28
           .IMPORT     _FUN_8c020842
           .IMPORT     _init_8c04c940
           .IMPORT     _var_8c2289d8
@@ -152,7 +152,7 @@ LP_GEN_24334:
           .DATA.L _init_8c04c820 ; H'8C02E3E0
           .DATA.L _var_8c1bba54 ; H'8C02E3E4
           .DATA.L _var_8c228974 ; H'8C02E3E8
-          .DATA.L _var_8c1bac28 ; H'8C02E3EC
+          .DATA.L _var_tasks_8c1bac28 ; H'8C02E3EC
           .DATA.L _FUN_8c020842 ; H'8C02E3F0
           .DATA.L _init_8c04c940 ; H'8C02E3F4
           .DATA.L H'41400000 ; H'8C02E3F8

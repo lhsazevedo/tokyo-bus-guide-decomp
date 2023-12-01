@@ -53,7 +53,7 @@
           .IMPORT     _const_8c03859c
           .IMPORT     _var_8c2260b8
           .IMPORT     _const_8c0385bc
-          .IMPORT     _var_8c277ca0
+          .IMPORT     _var_texbuf_8c277ca0
           .IMPORT     _const_8c0385d8
           .IMPORT     _var_8c1ba1cc
           .IMPORT     _const_8c038618
@@ -1579,7 +1579,7 @@ LP_GEN_18425:
           .DATA.L _const_8c03867c ; H'8C01C62C
           .DATA.L _var_8c2260b8 ; H'8C01C630
           .DATA.L _const_8c0385bc ; H'8C01C634
-          .DATA.L _var_8c277ca0 ; H'8C01C638
+          .DATA.L _var_texbuf_8c277ca0 ; H'8C01C638
           .DATA.L _FUN_8c016caa ; H'8C01C63C
           .DATA.L _const_8c0385d8 ; H'8C01C640
           .DATA.L H'43640000 ; H'8C01C644

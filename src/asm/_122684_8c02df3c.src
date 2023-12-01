@@ -4,7 +4,7 @@
           .IMPORT     _var_8c1bbb44
           .IMPORT     _var_8c1bbacc
           .IMPORT     _var_8c1bbad8
-          .IMPORT     _var_8c1bac28
+          .IMPORT     _var_tasks_8c1bac28
           .IMPORT     _var_8c228974
           .IMPORT     _var_8c1bb9d0
           .IMPORT     _var_8c1bbd9c
@@ -325,7 +325,7 @@ LP_GEN_80684:
           .DATA.L _var_8c1bbb44 ; H'8C02E184
           .DATA.L _var_8c1bbacc ; H'8C02E188
           .DATA.L _var_8c1bbad8 ; H'8C02E18C
-          .DATA.L _var_8c1bac28 ; H'8C02E190
+          .DATA.L _var_tasks_8c1bac28 ; H'8C02E190
           .DATA.L _var_8c228974 ; H'8C02E194
 LAB_8c02e198:
           MOV.L       @R5,R0

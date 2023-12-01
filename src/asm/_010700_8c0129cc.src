@@ -35,7 +35,7 @@
           .IMPORT     _var_8c157a60
           .IMPORT     _FUN_8c015fd6
           .IMPORT     _FUN_8c02239c
-          .IMPORT     _var_8c1ba5e8
+          .IMPORT     _var_tasks_8c1ba5e8
           .IMPORT     _execTasks_8c014b42
           .IMPORT     _FUN_8c022910
           .IMPORT     __8c03bd80
@@ -620,7 +620,7 @@ LP_GEN_43727:
           .DATA.L _var_8c157a60
           .DATA.L _FUN_8c015fd6
           .DATA.L _FUN_8c02239c
-          .DATA.L _var_8c1ba5e8
+          .DATA.L _var_tasks_8c1ba5e8
           .DATA.L _execTasks_8c014b42
           .DATA.L _FUN_8c022560
           .DATA.L _var_8c1bb8cc
@@ -744,7 +744,7 @@ LP_GEN_94405:
           .DATA.L _push_fadeout_8c022b60
           .DATA.L _FUN_8c015fd6
           .DATA.L _FUN_8c02239c
-          .DATA.L _var_8c1ba5e8
+          .DATA.L _var_tasks_8c1ba5e8
           .DATA.L _execTasks_8c014b42
           .DATA.L _FUN_8c022910
           .DATA.L H'BF8CCCCD
