@@ -1,5 +1,5 @@
           .IMPORT     _pdGetPeripheral
-          .IMPORT     _var_8c1ba354
+          .IMPORT     _var_vibport_8c1ba354
           .IMPORT     _var_8c157a78
           .IMPORT     _var_8c1ba358
           .IMPORT     _var_8c157a70
@@ -160,7 +160,7 @@ LAB_8c0125de:
 LP_GEN_80518:
           .DATA.W H'0606 ; LP_GEN_80518+0
           .DATA.L _pdGetPeripheral
-          .DATA.L _var_8c1ba354
+          .DATA.L _var_vibport_8c1ba354
           .DATA.L _var_8c157a78
           .DATA.L _var_8c1ba358
           .DATA.L H'000F06FE
@@ -443,7 +443,7 @@ LP_GEN_64371:
           .DATA.W H'0606 ; LP_GEN_64371+0
           .RES.W  1
           .DATA.L _pdGetPeripheral
-          .DATA.L _var_8c1ba354
+          .DATA.L _var_vibport_8c1ba354
           .DATA.L _var_8c157a78
           .DATA.L _var_8c1ba358
           .DATA.L H'000F06FE

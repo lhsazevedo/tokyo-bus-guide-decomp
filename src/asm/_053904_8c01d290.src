@@ -13,7 +13,7 @@
           .IMPORT     _push_fadeout_8c022b60
           .IMPORT     _init_8c045170
           .IMPORT     _FUN_8c016d2c
-          .IMPORT     __8c03bd80
+          .IMPORT     _init_8c03bd80
           .IMPORT     _FUN_8c016182
           .IMPORT     _FUN_8c017ef2
           .IMPORT     _setTaskAction_8c014b3e
@@ -679,7 +679,7 @@ LP_GEN_43132:
           .DATA.L H'C0000000 ; H'8C01D750
           .DATA.L H'C0400000 ; H'8C01D754
           .DATA.L _drawSprite_8c014f54 ; H'8C01D758
-          .DATA.L __8c03bd80 ; H'8C01D75C
+          .DATA.L _init_8c03bd80 ; H'8C01D75C
           .DATA.L _FUN_8c016182 ; H'8C01D760
           .DATA.L _FUN_8c017ef2 ; H'8C01D764
           .DATA.L _FUN_8c01d300 ; H'8C01D768

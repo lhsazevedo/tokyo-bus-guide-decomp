@@ -1,5 +1,5 @@
           .IMPORT     _var_8c227e24
-          .IMPORT     _var_8c1bb9d0
+          .IMPORT     _var_busState_8c1bb9d0
           .IMPORT     _njSqrt
           .IMPORT     _FUN_8c022420
           .IMPORT     _var_8c227db8
@@ -352,7 +352,7 @@ LP_GEN_42300:
           .DATA.W H'00D0 ; H'8C02836C
           .RES.W 1 ; H'8C02836E
           .DATA.L _var_8c227e24 ; H'8C028370
-          .DATA.L _var_8c1bb9d0 ; H'8C028374
+          .DATA.L _var_busState_8c1bb9d0 ; H'8C028374
           .DATA.L _njSqrt ; H'8C028378
           .DATA.L H'43480000 ; H'8C02837C
           .DATA.L _FUN_8c0281ac ; H'8C028380
@@ -4575,7 +4575,7 @@ LP_GEN_33964:
           .DATA.W H'00FC ; H'8C02A3C8
           .DATA.W H'0304 ; H'8C02A3CA
           .DATA.L _var_8c227d9c ; H'8C02A3CC
-          .DATA.L _var_8c1bb9d0 ; H'8C02A3D0
+          .DATA.L _var_busState_8c1bb9d0 ; H'8C02A3D0
           .DATA.L _njSqrt ; H'8C02A3D4
           .DATA.L H'41A00000 ; H'8C02A3D8
           .DATA.L H'41200000 ; H'8C02A3DC

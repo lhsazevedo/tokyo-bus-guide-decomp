@@ -1,7 +1,7 @@
           .IMPORT     _menuTextboxText_8c02af1c
           .IMPORT     _drawSprite_8c014f54
           .IMPORT     _menuState_8c1bc7a8
-          .IMPORT     __8c03bd80
+          .IMPORT     _init_8c03bd80
           .IMPORT     _var_8c22640c
           .IMPORT     _isFading_8c226568
           .IMPORT     _getUknPvmBool_8c01432a
@@ -226,7 +226,7 @@ LP_GEN_72974:
           .DATA.L H'43600000 ; H'8C01E37C
           .DATA.L _drawSprite_8c014f54 ; H'8C01E380
           .DATA.L _menuState_8c1bc7a8 ; H'8C01E384
-          .DATA.L __8c03bd80 ; H'8C01E388
+          .DATA.L _init_8c03bd80 ; H'8C01E388
           .DATA.L H'C0900000 ; H'8C01E38C
           .DATA.L _var_8c22640c ; H'8C01E390
           .DATA.L _isFading_8c226568 ; H'8C01E394
@@ -757,7 +757,7 @@ LP_GEN_92116:
           .DATA.L _FUN_8c010bae ; H'8C01E7BC
           .DATA.L _init_8c0451ec ; H'8C01E7C0
           .DATA.L _push_fadeout_8c022b60 ; H'8C01E7C4
-          .DATA.L __8c03bd80 ; H'8C01E7C8
+          .DATA.L _init_8c03bd80 ; H'8C01E7C8
 LAB_8c01e7cc:
           MOV.L       LP_GEN_46961+2,R3
           MOV.L       @R3,R2
@@ -1713,7 +1713,7 @@ LP_GEN_95699:
           .DATA.L _const_8c038984 ; H'8C01EF38
           .DATA.L _var_8c225fb8 ; H'8C01EF3C
           .DATA.L _var_8c22640c ; H'8C01EF40
-          .DATA.L __8c03bd80 ; H'8C01EF44
+          .DATA.L _init_8c03bd80 ; H'8C01EF44
           .DATA.L _var_8c1bb8fc ; H'8C01EF48
           .DATA.L _var_8c1bb8b8 ; H'8C01EF4C
           .DATA.L _var_8c22642c ; H'8C01EF50

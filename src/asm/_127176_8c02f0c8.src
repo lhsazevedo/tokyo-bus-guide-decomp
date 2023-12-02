@@ -1,6 +1,6 @@
           .IMPORT     _var_8c228b48
           .IMPORT     _var_8c228ba0
-          .IMPORT     _var_8c1bb9d0
+          .IMPORT     _var_busState_8c1bb9d0
           .IMPORT     _var_8c228b9c
           .IMPORT     _var_8c1bbacc
           .IMPORT     _var_8c1bbad8
@@ -142,7 +142,7 @@ LP_GEN_99248:
           .DATA.L _var_8c228b48 ; H'8C02F1AC
           .DATA.L H'40A00000 ; H'8C02F1B0
           .DATA.L _var_8c228ba0 ; H'8C02F1B4
-          .DATA.L _var_8c1bb9d0 ; H'8C02F1B8
+          .DATA.L _var_busState_8c1bb9d0 ; H'8C02F1B8
           .DATA.L _var_8c228b9c ; H'8C02F1BC
           .DATA.L H'40200000 ; H'8C02F1C0
           .DATA.L _var_8c1bbacc ; H'8C02F1C4

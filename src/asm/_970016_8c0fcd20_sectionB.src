@@ -33,7 +33,7 @@
           .EXPORT     _var_8c157ae8
           .EXPORT     _var_8c157aec
           .EXPORT     _var_tex_8c157af8
-          .EXPORT     _var_8c18aaf8
+          .EXPORT     _var_fogTable_8c18aaf8
           .EXPORT     _var_texname_8c18acf8
           .EXPORT     _var_8c18ad04
           .EXPORT     _var_8c18ad08
@@ -79,7 +79,7 @@
           .EXPORT     _var_8c1ba348
           .EXPORT     _var_8c1ba34c
           .EXPORT     _var_8c1ba350
-          .EXPORT     _var_8c1ba354
+          .EXPORT     _var_vibport_8c1ba354
           .EXPORT     _var_8c1ba358
           .EXPORT     _peripheral_8c1ba35c
           .EXPORT     _var_8c1ba36c
@@ -123,7 +123,7 @@
           .EXPORT     _var_8c1bb904
           .EXPORT     _var_8c1bb944
           .EXPORT     _var_8c1bb984
-          .EXPORT     _var_8c1bb9d0
+          .EXPORT     _var_busState_8c1bb9d0
           .EXPORT     _var_8c1bba54
           .EXPORT     _var_8c1bbac4
           .EXPORT     _var_8c1bbac8
@@ -182,7 +182,7 @@
           .EXPORT     _var_8c1bc43c
           .EXPORT     _var_8c1bc440
           .EXPORT     _var_8c1bc444
-          .EXPORT     _var_8c1bc448
+          .EXPORT     _var_loadedFooNjm_8c1bc448
           .EXPORT     _var_8c1bc44c
           .EXPORT     _var_8c1bc450
           .EXPORT     _var_8c1bc454
@@ -518,7 +518,7 @@ _var_8c157aec:
           .RES.B      12
 _var_tex_8c157af8:
           .RES.B      208896
-_var_8c18aaf8:
+_var_fogTable_8c18aaf8:
           .RES.B      512
 _var_texname_8c18acf8:
           .RES.B      12
@@ -610,7 +610,7 @@ _var_8c1ba34c:
           .RES.B      4
 _var_8c1ba350:
           .RES.B      4
-_var_8c1ba354:
+_var_vibport_8c1ba354:
           .RES.B      4
 _var_8c1ba358:
           .RES.B      4
@@ -698,7 +698,7 @@ _var_8c1bb944:
           .RES.B      64
 _var_8c1bb984:
           .RES.B      76
-_var_8c1bb9d0:
+_var_busState_8c1bb9d0:
           .RES.B      132
 _var_8c1bba54:
           .RES.B      112
@@ -816,7 +816,7 @@ _var_8c1bc440:
           .RES.B      4
 _var_8c1bc444:
           .RES.B      4
-_var_8c1bc448:
+_var_loadedFooNjm_8c1bc448:
           .RES.B      4
 _var_8c1bc44c:
           .RES.B      4

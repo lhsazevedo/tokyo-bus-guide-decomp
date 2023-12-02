@@ -11,7 +11,7 @@
           .IMPORT     _drawSprite_8c014f54
           .IMPORT     _push_fadeout_8c022b60
           .IMPORT     _saveNames_8c044d50
-          .IMPORT     __8c03bd80
+          .IMPORT     _init_8c03bd80
           .IMPORT     _var_8c1bb8c4
           .IMPORT     _titleResourceGroup_8c044254
           .IMPORT     _menuState_8c1bc7a8
@@ -645,7 +645,7 @@ L48:
           .DATA.L     _sdMidiPlay ; H'8c015f40
           .DATA.L     _saveNames_8c044d50
           .DATA.L     _FUN_8c019550
-          .DATA.L     __8c03bd80
+          .DATA.L     _init_8c03bd80
           .DATA.L     _var_8c1bb8c4 ; H'8c015f50
           .DATA.L     _FUN_8c019e44
           .DATA.L     _FUN_8c016182

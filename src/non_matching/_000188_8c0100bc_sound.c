@@ -29,11 +29,11 @@ struct AdxfPartitionInfo {
 }
 typedef AdxfPartitionInfo;
 
-struct s_8c03bd88 {
+struct sinit_8c03bd88 {
     int field_0x00;
     int field_0x04;
 }
-typedef s_8c03bd88;
+typedef sinit_8c03bd88;
 
 struct s_8c157a34 {
     int flags_0x00;
@@ -64,13 +64,13 @@ char adxf_work_8c156efc[ADXF_CALC_PTINFO_SIZE(MAX_NFILES)];
 s_8c157a34 _8c157a34;
 
 /* === Initialized vars === */
-int _8c03bd80 = 0;
-int _8c03bd84 = 1;
-s_8c03bd88 _8c03bd88 = {
+int init_8c03bd80 = 0;
+int init_8c03bd84 = 1;
+sinit_8c03bd88 init_8c03bd88 = {
     990,
     990
 };
-int _8c03bd90 = 127;
+int init_8c03bd90 = 127;
 AdxfPartitionInfo adxfPartitionInfo_8c03bd94[] = {
     { "bgm.afs", 0x50 },
     { "voice.afs", 0x52e },
@@ -85,12 +85,12 @@ int snd_8c010cd6(int p1, int p2);
 
 
 void FUN_sound_8c0100bc() {
-    _8c0fcd50.field_0x18 = (float) _8c03bd90 / 2600;
+    _8c0fcd50.field_0x18 = (float) init_8c03bd90 / 2600;
     _8c0fcd50.field_0x1c = _8c0fcd50.field_0x18 * 2600 / 3000;
-    _8c0fcd50.field_0x14 = _8c03bd90 * 30 / 100;
-    _8c0fcd50.field_0x08 = _8c03bd90 * 40 / 100;
+    _8c0fcd50.field_0x14 = init_8c03bd90 * 30 / 100;
+    _8c0fcd50.field_0x08 = init_8c03bd90 * 40 / 100;
     _8c0fcd50.field_0x0c = _8c0fcd50.field_0x18 * 3000;
-    _8c0fcd50.field_0x20 = (float) _8c03bd90 / 3900;
+    _8c0fcd50.field_0x20 = (float) init_8c03bd90 / 3900;
 }
 
 void midiSetVol_8c010128() {
@@ -282,8 +282,8 @@ void usr_adx_err_func_8c010532(void *obj, char *msg)
         FUN_8c010ca6(0);
         FUN_8c010ca6(1);
 
-        _8c03bd80 = 0;
-        _8c03bd84 = 0;
+        init_8c03bd80 = 0;
+        init_8c03bd84 = 0;
     }
 }
 
@@ -344,7 +344,7 @@ void FUN_8c0106ac()
 {
     int s = ADXT_GetStat(adxtHandles_8c0fcd20[1]);
     if (s == ADXT_STAT_STOP || s == ADXT_STAT_PLAYEND) {
-        _8c03bd80 &= 0xffffffef;
+        init_8c03bd80 &= 0xffffffef;
     }
 }
 
@@ -406,8 +406,8 @@ void controlAdxtWithOutVol_8c0107d2(Bool play)
         for (i = 0; i < 8; i++)
             sdMidiPause(midiHandles_8c0fcd28[i]);
     } else if (play == FALSE) {
-        ADXT_SetOutVol(adxtHandles_8c0fcd20[0], -990 + _8c03bd88.field_0x00);
-        ADXT_SetOutVol(adxtHandles_8c0fcd20[1], -990 + _8c03bd88.field_0x04);
+        ADXT_SetOutVol(adxtHandles_8c0fcd20[0], -990 + init_8c03bd88.field_0x00);
+        ADXT_SetOutVol(adxtHandles_8c0fcd20[1], -990 + init_8c03bd88.field_0x04);
 
         for (i = 0; i < 8; i++)
             sdMidiContinue(midiHandles_8c0fcd28[i]);
@@ -502,14 +502,14 @@ FUN_8c010972(int param1, int param2) {
     {
         case 0: {
             // int vol = vols_8c0332b0[param1];
-            _8c03bd88.field_0x00 = vols_8c0332b0[param1];
-            ADXT_SetOutVol(adxtHandles_8c0fcd20[param2], _8c03bd88.field_0x00 - 990);
+            init_8c03bd88.field_0x00 = vols_8c0332b0[param1];
+            ADXT_SetOutVol(adxtHandles_8c0fcd20[param2], init_8c03bd88.field_0x00 - 990);
             break;
         }
         case 1: {
             // int vol = vols_8c0332b0[param1];
-            _8c03bd88.field_0x04 = vols_8c0332b0[param1];
-            ADXT_SetOutVol(adxtHandles_8c0fcd20[param2], _8c03bd88.field_0x04 - 990);
+            init_8c03bd88.field_0x04 = vols_8c0332b0[param1];
+            ADXT_SetOutVol(adxtHandles_8c0fcd20[param2], init_8c03bd88.field_0x04 - 990);
             break;
         }
     }
@@ -532,10 +532,10 @@ void FUN_8c0109f4(int param1) {
         229
     };
 
-    _8c03bd90 = vols_8c0332d8[param1];
+    init_8c03bd90 = vols_8c0332d8[param1];
 
     for (i = 0; i < 8; i++)
-        sdMidiSetVol(midiHandles_8c0fcd28[i], _8c03bd90 - 127, 0);
+        sdMidiSetVol(midiHandles_8c0fcd28[i], init_8c03bd90 - 127, 0);
     
     FUN_sound_8c0100bc();
 }
@@ -565,10 +565,10 @@ void FUN_adxVol_8c010a40() {
         ) 
         {
             ADXT_Stop(adxtHandles_8c0fcd20[0]);
-            ADXT_SetOutVol(adxtHandles_8c0fcd20[0], _8c03bd88.field_0x00 - 990);
+            ADXT_SetOutVol(adxtHandles_8c0fcd20[0], init_8c03bd88.field_0x00 - 990);
 
             _8c157a34.flags_0x00 &= 0xfffffffe;
-            _8c03bd80 &= 0xfffffffe;
+            init_8c03bd80 &= 0xfffffffe;
         }
 
         /* 8c010abe */
@@ -578,9 +578,9 @@ void FUN_adxVol_8c010a40() {
         )
         {
             ADXT_Stop(adxtHandles_8c0fcd20[1]);
-            ADXT_SetOutVol(adxtHandles_8c0fcd20[1], _8c03bd88.field_0x04 - 990);
+            ADXT_SetOutVol(adxtHandles_8c0fcd20[1], init_8c03bd88.field_0x04 - 990);
             _8c157a34.flags_0x00 &= 0xfffffffd;
-            _8c03bd80 &= 0xffffffef;
+            init_8c03bd80 &= 0xffffffef;
         }
     }
     else 
@@ -600,19 +600,19 @@ void FUN_adxVol_8c010a40() {
 
             /* 8c010b64 */
             if (
-                (_8c157a34.field_0x0c >= _8c03bd88.field_0x00)
+                (_8c157a34.field_0x0c >= init_8c03bd88.field_0x00)
                 && ((_8c157a34.flags_0x00 & 0x10) == 0x10)
             ) {
-                ADXT_SetOutVol(adxtHandles_8c0fcd20[0], _8c03bd88.field_0x00);
+                ADXT_SetOutVol(adxtHandles_8c0fcd20[0], init_8c03bd88.field_0x00);
                 _8c157a34.flags_0x00 &= 0xffffffef;
             }
 
             /* 8c010b82 */
             if (
-                (_8c157a34.field_0x10 > _8c03bd88.field_0x04)
+                (_8c157a34.field_0x10 > init_8c03bd88.field_0x04)
                 && ((_8c157a34.flags_0x00 & 0x20) == 0x20)
             ) {
-                ADXT_SetOutVol(adxtHandles_8c0fcd20[1], _8c03bd88.field_0x04);
+                ADXT_SetOutVol(adxtHandles_8c0fcd20[1], init_8c03bd88.field_0x04);
                 _8c157a34.flags_0x00 &= 0xffffffdf;
             }
         }
@@ -624,13 +624,13 @@ void FUN_8c010bae(int param1) {
         /* 8c010bba */
         if (param1 == 0 && (_8c157a34.flags_0x00 & 0xf) != 1) {
             _8c157a34.flags_0x00 |= 1;
-            _8c157a34.field_0x04 = (_8c03bd88.field_0x00 - 300) / 90;
-            _8c157a34.field_0x0c = _8c03bd88.field_0x00 - 990;
+            _8c157a34.field_0x04 = (init_8c03bd88.field_0x00 - 300) / 90;
+            _8c157a34.field_0x0c = init_8c03bd88.field_0x00 - 990;
         }
         if (param1 == 1 && (_8c157a34.flags_0x00 & 0xf) != 2) {
             _8c157a34.flags_0x00 |= 2;
-            _8c157a34.field_0x08 = (_8c03bd88.field_0x04 - 300) / 90;
-            _8c157a34.field_0x10 = _8c03bd88.field_0x04 - 990;
+            _8c157a34.field_0x08 = (init_8c03bd88.field_0x04 - 300) / 90;
+            _8c157a34.field_0x10 = init_8c03bd88.field_0x04 - 990;
         }
     }
 }
@@ -640,9 +640,9 @@ void FUN_8c010c2c(Bool param1) {
         if (param1 == 1) {
             if ((_8c157a34.flags_0x00 & 0xf0) != 0x20) {
                 _8c157a34.flags_0x00 |= 0x20; 
-                _8c157a34.field_0x08 = 90 / _8c03bd88.field_0x04;
+                _8c157a34.field_0x08 = 90 / init_8c03bd88.field_0x04;
                 _8c157a34.field_0x10 = -990;
-                _8c03bd80 &= 0xffffffef;
+                init_8c03bd80 &= 0xffffffef;
             }
         }
     }
@@ -662,16 +662,16 @@ void FUN_8c010c7c() {
         ADXT_Stop(adxtHandles_8c0fcd20[i]);
     }
 
-    _8c03bd80 = 0;
+    init_8c03bd80 = 0;
     return;
 }
 
 /* Matched */
 void FUN_8c010ca6(Bool p1) {
     if (p1 == 0) {
-        _8c03bd80 &= 0xfffffffe;
+        init_8c03bd80 &= 0xfffffffe;
     } else if (p1 == 1) {
-        _8c03bd80 &= 0xffffffef;
+        init_8c03bd80 &= 0xffffffef;
     }
 
     ADXT_Stop(adxtHandles_8c0fcd20[p1]);
@@ -684,7 +684,7 @@ int snd_8c010cd6(int p1, int p2) {
         case 0: {
             ADXT_Stop(adxtHandles_8c0fcd20[p1]);
             ADXT_StartAfs(adxtHandles_8c0fcd20[p1], 0, p2);
-            _8c03bd80 |= 1;
+            init_8c03bd80 |= 1;
             return 1;
         }
 
@@ -692,14 +692,14 @@ int snd_8c010cd6(int p1, int p2) {
             ADXT_Stop(adxtHandles_8c0fcd20[p1]);
             p2 == 0x7FFFFFFF;
             ADXT_StartAfs(adxtHandles_8c0fcd20[p1], 0, p2);
-            _8c03bd80 |= 0x10;
+            init_8c03bd80 |= 0x10;
             return 1;
         }
 
         case 2: {
             ADXT_Stop(adxtHandles_8c0fcd20[p1]);
             ADXT_StartAfs(adxtHandles_8c0fcd20[p1], 1, p2);
-            _8c03bd80 |= 0x10;
+            init_8c03bd80 |= 0x10;
             return 1;
         }
     }
@@ -710,14 +710,14 @@ int snd_8c010cd6(int p1, int p2) {
 /* Matched */
 void FUN_8c010d8a() {
     ADXT_Stop(adxtHandles_8c0fcd20[0]);
-    ADXT_SetOutVol(adxtHandles_8c0fcd20[0], _8c03bd88.field_0x00 - 990);
+    ADXT_SetOutVol(adxtHandles_8c0fcd20[0], init_8c03bd88.field_0x00 - 990);
     _8c157a34.flags_0x00 &= 0xfffffffe;
-    _8c03bd80 &= 0xfffffffe;
+    init_8c03bd80 &= 0xfffffffe;
 
     ADXT_Stop(adxtHandles_8c0fcd20[0]);
-    ADXT_SetOutVol(adxtHandles_8c0fcd20[0], _8c03bd88.field_0x00 - 990);
+    ADXT_SetOutVol(adxtHandles_8c0fcd20[0], init_8c03bd88.field_0x00 - 990);
     _8c157a34.flags_0x00 &= 0xfffffffe;
-    _8c03bd80 &= 0xfffffffe;
+    init_8c03bd80 &= 0xfffffffe;
 }
 
 /* Matched */
@@ -725,25 +725,25 @@ void FUN_8c010de6() {
     sdMidiStopAll();
     ADXT_Stop(adxtHandles_8c0fcd20[0]);
     ADXT_Stop(adxtHandles_8c0fcd20[1]);
-    _8c03bd80 = 0;
-    _8c03bd84 = 1;
+    init_8c03bd80 = 0;
+    init_8c03bd84 = 1;
     memset(&_8c157a34, 0, sizeof(s_8c157a34));
     FUN_sound_8c0100bc();
 }
 
 /* Matched */
 void FUN_8c010e18(char *dirname) {
-    _8c03bd80 = 0;
-    _8c03bd84 = 1;
+    init_8c03bd80 = 0;
+    init_8c03bd84 = 1;
     gdFsChangeDir(dirname);
     memset(&_8c157a34, 0, sizeof(s_8c157a34));
     FUN_sound_8c0100bc();
-    _8c03bd80 |= 0x11;
+    init_8c03bd80 |= 0x11;
     soundInit_8c01065e();
     adxInit_8c01064c();
     createAdxAndMidiHandles_8c01048e();
     adxLoad_8c01057a();
     finishSoundInit_8c010614();
-    _8c03bd80 = 0;
+    init_8c03bd80 = 0;
 }
 

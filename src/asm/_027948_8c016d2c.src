@@ -34,7 +34,7 @@
           .IMPORT     _FUN_8c0121be
           .IMPORT     _var_8c225fbc
           .IMPORT     _var_8c1bb8fc
-          .IMPORT     __8c03bd80
+          .IMPORT     _init_8c03bd80
           .IMPORT     _isFading_8c226568
           .IMPORT     _getUknPvmBool_8c01432a
           .IMPORT     _FUN_8c011f7e
@@ -1517,7 +1517,7 @@ LAB_8c0177c4:
 LP_GEN_90654:
           .DATA.W H'008C ; H'8C0177D2
           .DATA.L _menuState_8c1bc7a8 ; H'8C0177D4
-          .DATA.L __8c03bd80 ; H'8C0177D8
+          .DATA.L _init_8c03bd80 ; H'8C0177D8
           .DATA.L _isFading_8c226568 ; H'8C0177DC
           .DATA.L _var_8c225fbc ; H'8C0177E0
           .DATA.L _getUknPvmBool_8c01432a ; H'8C0177E4
@@ -2041,7 +2041,7 @@ LAB_8c017bbc:
           NOP
 LP_GEN_86246:
           .DATA.L _menuState_8c1bc7a8 ; H'8C017BD8
-          .DATA.L __8c03bd80 ; H'8C017BDC
+          .DATA.L _init_8c03bd80 ; H'8C017BDC
           .DATA.L _var_8c225fbc ; H'8C017BE0
           .DATA.L _isFading_8c226568 ; H'8C017BE4
           .DATA.L _getUknPvmBool_8c01432a ; H'8C017BE8
@@ -2979,7 +2979,7 @@ LP_GEN_82242:
           .DATA.L _init_8c044d2f ; H'8C018370
           .DATA.L H'43EB8000 ; H'8C018374
           .DATA.L H'C0E00000 ; H'8C018378
-          .DATA.L __8c03bd80 ; H'8C01837C
+          .DATA.L _init_8c03bd80 ; H'8C01837C
           .DATA.L _FUN_8c010bae ; H'8C018380
           .DATA.L _isFading_8c226568 ; H'8C018384
           .DATA.L _getUknPvmBool_8c01432a ; H'8C018388

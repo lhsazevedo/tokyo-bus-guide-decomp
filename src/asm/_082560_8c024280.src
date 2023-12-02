@@ -1,4 +1,4 @@
-          .IMPORT     _var_8c1bb9d0
+          .IMPORT     _var_busState_8c1bb9d0
           .IMPORT     _var_tasks_8c1bac28
           .IMPORT     _var_8c1bb8c8
           .IMPORT     _var_8c1ba36c
@@ -20,7 +20,7 @@
           .IMPORT     _peripheral_8c1ba35c
           .IMPORT     _var_8c1ba1cc
           .IMPORT     _FUN_8c010f7a
-          .IMPORT     _var_8c1ba354
+          .IMPORT     _var_vibport_8c1ba354
           .IMPORT     _pdVibMxStop
           .EXPORT     _FUN_8c024280
           .EXPORT     _FUN_8c0242ce
@@ -109,7 +109,7 @@ LP_GEN_37903:
           .DATA.W H'0418 ; H'8C024306
           .DATA.W H'02F4 ; H'8C024308
           .RES.W 1 ; H'8C02430A
-          .DATA.L _var_8c1bb9d0 ; H'8C02430C
+          .DATA.L _var_busState_8c1bb9d0 ; H'8C02430C
           .DATA.L H'BE3DA12F ; H'8C024310
           .DATA.L _var_tasks_8c1bac28 ; H'8C024314
           .DATA.L _var_8c1bb8c8 ; H'8C024318
@@ -272,7 +272,7 @@ LP_GEN_79582:
           .DATA.L _midiHandles_8c0fcd28 ; H'8C02444C
           .DATA.L _sdMidiPlay ; H'8C024450
           .DATA.L _init_8c045638 ; H'8C024454
-          .DATA.L _var_8c1bb9d0 ; H'8C024458
+          .DATA.L _var_busState_8c1bb9d0 ; H'8C024458
           .DATA.L _var_8c1bbcb4 ; H'8C02445C
           .DATA.L _njSin ; H'8C024460
           .DATA.L _var_8c227d9c ; H'8C024464
@@ -530,7 +530,7 @@ LP_GEN_12192:
           .DATA.L _var_8c1ba376 ; H'8C024650
           .DATA.L _var_8c1ba29d ; H'8C024654
           .DATA.L H'437F0000 ; H'8C024658
-          .DATA.L _var_8c1bb9d0 ; H'8C02465C
+          .DATA.L _var_busState_8c1bb9d0 ; H'8C02465C
           .DATA.L H'42400000 ; H'8C024660
           .DATA.L H'3B03126F ; H'8C024664
           .DATA.L _init_8c045638 ; H'8C024668
@@ -673,7 +673,7 @@ LP_GEN_30719:
           .DATA.L __divls ; H'8C02477C
           .DATA.L _var_8c2285c4 ; H'8C024780
           .DATA.L _peripheral_8c1ba35c ; H'8C024784
-          .DATA.L _var_8c1bb9d0 ; H'8C024788
+          .DATA.L _var_busState_8c1bb9d0 ; H'8C024788
           .DATA.L _var_8c1ba1cc ; H'8C02478C
           .DATA.L _FUN_8c010f7a ; H'8C024790
 LAB_8c024794:
@@ -805,7 +805,7 @@ LP_GEN_66287:
           .DATA.W H'0090 ; H'8C02487A
           .DATA.W H'00D0 ; H'8C02487C
           .RES.W 1 ; H'8C02487E
-          .DATA.L _var_8c1ba354 ; H'8C024880
+          .DATA.L _var_vibport_8c1ba354 ; H'8C024880
           .DATA.L _pdVibMxStop ; H'8C024884
           .DATA.L H'437F0000 ; H'8C024888
           .DATA.L H'3E3DA12F ; H'8C02488C

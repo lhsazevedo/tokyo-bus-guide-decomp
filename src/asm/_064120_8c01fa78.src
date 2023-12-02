@@ -5,7 +5,7 @@
           .IMPORT     _var_8c1bc424
           .IMPORT     _var_8c2285c4
           .IMPORT     _njDrawPolygon
-          .IMPORT     _var_8c1bb9d0
+          .IMPORT     _var_busState_8c1bb9d0
           .IMPORT     _var_8c22643c
           .IMPORT     _var_8c1bb8d0
           .IMPORT     _var_8c1bc418
@@ -293,7 +293,7 @@ LP_GEN_37481:
           .DATA.L _var_8c2285c4 ; H'8C01FC7C
           .DATA.L _njDrawPolygon ; H'8C01FC80
           .DATA.L H'BF9AE148 ; H'8C01FC84
-          .DATA.L _var_8c1bb9d0 ; H'8C01FC88
+          .DATA.L _var_busState_8c1bb9d0 ; H'8C01FC88
           .DATA.L _drawSprite_8c014f54 ; H'8C01FC8C
           .DATA.L _var_8c22643c ; H'8C01FC90
           .DATA.L _var_8c1bb8d0 ; H'8C01FC94
@@ -734,7 +734,7 @@ LP_GEN_64387:
           .DATA.W H'03B0 ; H'8C01FFFA
           .DATA.W H'012C ; H'8C01FFFC
           .DATA.W H'00B4 ; H'8C01FFFE
-          .DATA.L _var_8c1bb9d0 ; H'8C020000
+          .DATA.L _var_busState_8c1bb9d0 ; H'8C020000
           .DATA.L _var_8c2264a8 ; H'8C020004
           .DATA.L _var_8c22643c ; H'8C020008
           .DATA.L H'00030000 ; H'8C02000C

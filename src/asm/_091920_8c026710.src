@@ -21,7 +21,7 @@
           .IMPORT     _var_8c1bb868
           .IMPORT     _var_8c1bbd9c
           .IMPORT     _FUN_8c02f212
-          .IMPORT     _var_8c1bb9d0
+          .IMPORT     _var_busState_8c1bb9d0
           .IMPORT     _var_8c1ba1cc
           .IMPORT     _var_8c18ad1c
           .IMPORT     _init_8c046208
@@ -1153,7 +1153,7 @@ LP_GEN_83164:
           .DATA.L H'461C3C00 ; H'8C026F4C
           .DATA.L _var_8c1bbd9c ; H'8C026F50
           .DATA.L _FUN_8c02f212 ; H'8C026F54
-          .DATA.L _var_8c1bb9d0 ; H'8C026F58
+          .DATA.L _var_busState_8c1bb9d0 ; H'8C026F58
           .DATA.L H'BE3DA12F ; H'8C026F5C
 LAB_8c026f60:
           JSR         @R12

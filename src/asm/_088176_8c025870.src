@@ -4,7 +4,7 @@
           .IMPORT     _njSetCameraDepth
           .IMPORT     _njTranslateCameraPosition
           .IMPORT     _njPointCameraInterest
-          .IMPORT     _var_8c1bb9d0
+          .IMPORT     _var_busState_8c1bb9d0
           .IMPORT     _var_8c227d9c
           .IMPORT     _var_8c227e00
           .IMPORT     _njCalcPoint
@@ -160,7 +160,7 @@ LP_GEN_52398:
           .DATA.L _njTranslateCameraPosition ; H'8C025970
           .DATA.L H'40400000 ; H'8C025974
           .DATA.L _njPointCameraInterest ; H'8C025978
-          .DATA.L _var_8c1bb9d0 ; H'8C02597C
+          .DATA.L _var_busState_8c1bb9d0 ; H'8C02597C
           .DATA.L _var_8c227d9c ; H'8C025980
           .DATA.L _var_8c227e00 ; H'8C025984
           .DATA.L _njCalcPoint ; H'8C025988

@@ -1,6 +1,6 @@
           .IMPORT     _sdMidiSetVol
           .IMPORT     __8c0fcd50
-          .IMPORT     _const127_8c03bd90
+          .IMPORT     _const127init_8c03bd90
           .IMPORT     __8c226468
           .IMPORT     _midiHandles_8c0fcd28
           .IMPORT     __divls
@@ -11,7 +11,7 @@ _FUN_sound_8c0100bc:             ; function: FUN_sound_8c0100bc
                                  ; frame size=4
                                  ; used runtime library name:
                                  ; __divls
-          MOV.L       L3+8,R5 ; _const127_8c03bd90
+          MOV.L       L3+8,R5 ; _const127init_8c03bd90
           MOVA        L3+4,R0
           MOV.L       L3+12,R4; __8c0fcd50
           MOV         #100,R6
@@ -184,7 +184,7 @@ L3:
           .DATA.W     H'F448
           .DATA.W     H'0834
           .DATA.L     H'45228000
-          .DATA.L     _const127_8c03bd90
+          .DATA.L     _const127init_8c03bd90
           .DATA.L     __8c0fcd50
           .DATA.L     H'453B8000
           .DATA.L     __divls

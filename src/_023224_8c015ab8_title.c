@@ -16,7 +16,7 @@ extern Bool isFading_8c226568;
 extern void drawSprite_8c014f54(ResourceGroup *r4, int r5, float fr4, float fr5, float fr6);
 extern void push_fadeout_8c022b60();
 extern char* saveNames_8c044d50[11];
-extern Bool _8c03bd80;
+extern Bool init_8c03bd80;
 extern Bool var_8c1bb8c4;
 extern ResourceGroupInfo titleResourceGroup_8c044254;
 extern PDS_PERIPHERAL peripheral_8c1ba35c[2];
@@ -358,7 +358,7 @@ void task_title_8c015ab8(Task* task, void *state) {
             FUN_8c019550(saveNames_8c044d50, 3);
 
             if (isFading_8c226568 == FALSE) {
-                if (!_8c03bd80) {
+                if (!init_8c03bd80) {
                     /* 8c015eb2 */
                     var_8c1bb8c4 = FALSE;
 
@@ -387,7 +387,7 @@ void task_title_8c015ab8(Task* task, void *state) {
         /* 0x8c015f04 (0x8c015b32 + 4 + 0x3CE) */
         case TITLE_STATE_0X11_TIME_OUT: {
             if (isFading_8c226568 == FALSE) {
-                if (_8c03bd80 == FALSE) {
+                if (init_8c03bd80 == FALSE) {
                     FUN_8c016182();
                     FUN_8c0159ac();
                 }

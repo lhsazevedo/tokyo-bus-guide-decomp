@@ -1,4 +1,4 @@
-          .IMPORT     _var_8c1bb9d0
+          .IMPORT     _var_busState_8c1bb9d0
           .IMPORT     _var_8c227d84
           .IMPORT     _var_8c227d88
           .IMPORT     _var_8c1bbc2c
@@ -167,7 +167,7 @@ LP_GEN_41995:
           .DATA.W H'00FC ; H'8C024256
           .DATA.W H'0254 ; H'8C024258
           .RES.W 1 ; H'8C02425A
-          .DATA.L _var_8c1bb9d0 ; H'8C02425C
+          .DATA.L _var_busState_8c1bb9d0 ; H'8C02425C
           .DATA.L _var_8c227d84 ; H'8C024260
           .DATA.L _var_8c227d88 ; H'8C024264
           .DATA.L H'0000FFFF ; H'8C024268
