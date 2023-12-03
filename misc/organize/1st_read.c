@@ -20,11 +20,11 @@ void queued_thing_at_8c157ac0
 void allocated_8c157abc;
 char *DATA_EMPTY_at_8c03334c = "DATA EMPTY.";
 int _8c157ac8;
-int _8c03bd80;
+int init_8c03bd80;
 int _8c157a60;
 int _8c1ba354;
 int _8c03bfa8;
-int _8c03bd84;
+int init_8c03bd84;
 void *_8c0139f4;
 char _8c013650;
 struct _8c315be8 {};
@@ -405,7 +405,7 @@ void njUserInit_8c0134ec() {
 }
 
 int njUserMain_8c01392e() {
-    if (_8c03bd80 == 0) {
+    if (init_8c03bd80 == 0) {
         // 0x8c013956
         if (!_8c157a60 == 0) {
             // 0x8c01395e
@@ -458,7 +458,7 @@ int njUserMain_8c01392e() {
         }
     } else {
         // 0x8c01393e
-        if (_8c03bd84 == 0) {
+        if (init_8c03bd84 == 0) {
             if (_8c1ba354 != -1) {
                 _8c056450(_8c1ba354);
             }

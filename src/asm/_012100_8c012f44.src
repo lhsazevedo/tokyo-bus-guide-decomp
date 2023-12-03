@@ -452,7 +452,7 @@ _FUN_8c01306e:                   ; function: FUN_8c01306e
           BT/S        L14
           MOV         #0,R13
           MOV         #0,R1
-          MOV.L       L15+108,R5
+          MOV.L       L15+108,R5; _task_8c012cbc
           MOV.L       R1,@-R15
           MOV         R15,R7
           MOV         R15,R6
@@ -460,7 +460,7 @@ _FUN_8c01306e:                   ; function: FUN_8c01306e
           JSR         @R14
           ADD         #4,R6
           MOV         #0,R3
-          MOV.L       L15+112,R5
+          MOV.L       L15+112,R5; _task_8c01677e
           MOV.L       R3,@-R15
           MOV         R15,R6
           MOV         R15,R7
@@ -471,12 +471,12 @@ _FUN_8c01306e:                   ; function: FUN_8c01306e
           BRA         L18
           ADD         #8,R15
 L14:                              
-          MOV.L       L15+116,R2
+          MOV.L       L15+116,R2; _var_8c1bb8d4
           MOV.L       @R2,R1
           TST         R1,R1
           BF          L16
           MOV         #0,R1
-          MOV.L       L15+120,R5
+          MOV.L       L15+120,R5; _task_8c012d06
           MOV.L       R1,@-R15
           MOV         R15,R7
           MOV         R15,R6
@@ -485,9 +485,8 @@ L14:
           ADD         #4,R6
           BRA         L17
           ADD         #4,R15
-
 L15:                              
-          .DATA.W     H'025C ; L15
+          .DATA.W     H'025C
           .DATA.W     H'0268
           .DATA.W     H'0080
           .RES.W      1
@@ -520,10 +519,9 @@ L15:
           .DATA.L     _task_8c01677e
           .DATA.L     _var_8c1bb8d4
           .DATA.L     _task_8c012d06
-
-L16:
+L16:                              
           MOV         #0,R1
-          MOV.L       L27,R5
+          MOV.L       L27,R5   ; _task_8c012d5a
           MOV.L       R1,@-R15
           MOV         R15,R7
           MOV         R15,R6
@@ -534,10 +532,10 @@ L16:
           MOV.L       @R15,R3
           MOV.L       R13,@(8,R3)
           MOV.L       @R15,R3
-          MOV.L       R13,@(H'c,R3)
-L17:
+          MOV.L       R13,@(12,R3)
+L17:                              
           MOV         #0,R3
-          MOV.L       L27+4,R5
+          MOV.L       L27+4,R5 ; _task_8c016bf4
           MOV.L       R3,@-R15
           MOV         R15,R6
           MOV         R15,R7
@@ -545,53 +543,53 @@ L17:
           ADD         #8,R7
           JSR         @R14
           MOV         R12,R4
-          MOV.L       L27+8,R2
+          MOV.L       L27+8,R22 ; _FUN_8c025af4
           JSR         @R2
           ADD         #4,R15
-L18:
-          MOV.L       L27+12,R3
-          MOV.L       L27+16,R2
-          MOV.L       L27+20,R1
+L18:                              
+          MOV.L       L27+12,R3; _var_8c1bb8cc
+          MOV.L       L27+16,R2; _var_8c22847c
+          MOV.L       L27+20,R1; _FUN_8c023610
           MOV.L       R13,@R3
           JSR         @R1
           MOV.L       R13,@R2
-          MOV.L       L27+24,R3
+          MOV.L       L27+24,R3; _FUN_8c02845a
           JSR         @R3
           NOP
-          MOV.L       L27+28,R1
+          MOV.L       L27+28,R1; _FUN_8c02845a
           MOV.L       @R1,R0
           CMP/EQ      #2,R0
           BT          L19
-          MOV.L       L27+32,R2
+          MOV.L       L27+32,R2; _FUN_8c029920
           JSR         @R2
           NOP
-L19:
-          MOV.L       L27+36,R3
+L19:                              
+          MOV.L       L27+36,R3; _FUN_8c0296d6
           JSR         @R3
           NOP
-          MOV.L       L27+40,R2
+          MOV.L       L27+40,R2; _FUN_8c02769e
           JSR         @R2
           NOP
-          MOV.L       L27+44,R3
+          MOV.L       L27+44,R3; _FUN_8c0222dc
           JSR         @R3
           NOP
-          MOV.L       L27+48,R2
+          MOV.L       L27+48,R2; _FUN_8c02a6ac
           JSR         @R2
           NOP
-          MOV.L       L27+52,R3
+          MOV.L       L27+52,R3; _FUN_8c02c46a
           JSR         @R3
           NOP
-          MOV.L       L27+56,R2
+          MOV.L       L27+56,R2; _FUN_8c02018c
           JSR         @R2
           NOP
-          MOV.L       L27+60,R3
+          MOV.L       L27+60,R3; _FUN_8c02d968
           JSR         @R3
           NOP
-          MOV.L       L27+64,R2
+          MOV.L       L27+64,R2; _FUN_8c020528
           JSR         @R2
           NOP
           MOV         #0,R3
-          MOV.L       L27+68,R5
+          MOV.L       L27+68,R5; _task_8c012f9c
           MOV.L       R3,@-R15
           MOV         R15,R6
           MOV         R15,R7
@@ -599,7 +597,7 @@ L19:
           ADD         #8,R7
           JSR         @R14
           MOV         R12,R4
-          MOV.L       L27+72,R3
+          MOV.L       L27+72,R3; _FUN_8c0228a2
           MOV.L       @(4,R15),R2
           JSR         @R3
           MOV.L       R13,@(8,R2)
@@ -609,7 +607,8 @@ L19:
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-_FUN_8c01328c:
+_FUN_8c01328c:                   ; function: FUN_8c01328c
+                                 ; frame size=8
           MOV.L       L27+28,R3
           MOV.L       R14,@-R15
           STS.L       PR,@-R15
@@ -645,7 +644,7 @@ L20:
           BT          L21
           MOV.L       @R5,R3
           MOV.L       L27+108,R0
-          ADD         #-H'26,R3
+          ADD         #-38,R3
           MOV.B       @(R0,R3),R2
           MOV.L       L27+112,R3
           JSR         @R3

@@ -222,6 +222,7 @@ void FUN_8c01306e(void)
 {
     Task *created_task;
     void* created_state;
+    Task *tasks;
 
     njInitMatrix(var_matrix_8c2f8ca0, 16, 0);
     njSetBackColor(0,0,0);
