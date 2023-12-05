@@ -91,7 +91,7 @@
           .IMPORT     _var_8c18ad14
           .IMPORT     _njSetTextureMemorySize
           .IMPORT     _syCblCheckCable
-          .IMPORT     _sbInitSystem_8c0149b0
+          .IMPORT     _sbInitSystem
           .IMPORT     _njSetAspect
           .IMPORT     _var_vbuf_8c255ca0
           .IMPORT     _njInit3D
@@ -358,7 +358,7 @@ L13:
           JMP         @R2
           MOV.L       @R15+,R14
 _FUN_8c01306e:                   ; function: FUN_8c01306e
-                                 ; frame size=24
+                                 ; frame size=32
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           MOV.L       R12,@-R15
@@ -609,18 +609,18 @@ L19:
           MOV.L       @R15+,R14
 _FUN_8c01328c:                   ; function: FUN_8c01328c
                                  ; frame size=8
-          MOV.L       L27+28,R3
+          MOV.L       L27+28,R3; _var_8c1bb8d0
           MOV.L       R14,@-R15
           STS.L       PR,@-R15
           MOV.L       @R3,R4
-          MOV.L       L27+76,R5
-          MOV.L       L27+80,R14
+          MOV.L       L27+76,R5; _var_8c1bb868
+          MOV.L       L27+80,R14; _var_8c157a64
           TST         R4,R4
           BF          L20
-          MOV.L       L27+84,R4
-          MOV.L       L27+88,R0
+          MOV.L       L27+84,R4; _var_8c1bc824
+          MOV.L       L27+88,R0; _var_8c228704
           MOV.L       @R4,R1
-          MOV.L       L27+96,R3
+          MOV.L       L27+96,R3; _FUN_8c012166
           MOV.L       @R1,R2
           MOV.L       R2,@R5
           MOV.L       @R4,R1
@@ -628,71 +628,72 @@ _FUN_8c01328c:                   ; function: FUN_8c01328c
           MOV.L       R2,@R0
           MOV.L       @R4,R1
           MOV.L       @(8,R1),R2
-          MOV.L       L27+92,R1
+          MOV.L       L27+92,R1; _var_8c1bb8c8
           JSR         @R3
           MOV.L       R2,@R1
           BRA         L22
           MOV.L       R0,@R14
-L20:
+L20:                              
           MOV         R4,R0
-          MOV.L       L27+100,R6
+          MOV.L       L27+100,R6; _var_8c227dd4
           CMP/EQ      #2,R0
           BF          L21
-          MOV.L       L27+104,R1
+          MOV.L       L27+104,R1; _var_8c1bb8d4
           MOV.L       @R1,R2
           TST         R2,R2
           BT          L21
           MOV.L       @R5,R3
-          MOV.L       L27+108,R0
+          MOV.L       L27+108,R0; _init_8c0460b0
           ADD         #-38,R3
           MOV.B       @(R0,R3),R2
-          MOV.L       L27+112,R3
+          MOV.L       L27+112,R3; _FUN_8c01895e
           JSR         @R3
           MOV.L       R2,@R6
           BRA         L22
           NOP
-L21:
+L21:                              
           MOV         #0,R3
           MOV.L       R3,@R6
-L22:
-          MOV.L       L27+116,R2
+L22:                              
+          MOV.L       L27+116,R2; _srand
           JSR         @R2
           MOV.L       @R14,R4
-          MOV.L       L27+120,R3
+          MOV.L       L27+120,R3; _FUN_8c012160
           JSR         @R3
           MOV.L       @R14,R4
-          MOV.L       L27+124,R2
+          MOV.L       L27+124,R2; _FUN_8c0121a2
           JSR         @R2
           MOV.L       @R14,R4
-          MOV.L       L27+128,R3
+          MOV.L       L27+128,R3; _FUN_8c0121e8
           JSR         @R3
           NOP
-          MOV.L       L27+132,R3
-          MOV.L       L27+136,R1
+          MOV.L       L27+132,R3; _var_8c1ba292
+          MOV.L       L27+136,R1; _var_8c227da0
           MOV.B       @R3,R2
           MOV         #0,R3
-          MOV.L       L27+140,R0
+          MOV.L       L27+140,R0; _var_8c227da8
           MOV.L       R2,@R1
-          MOV.L       L27+144,R2
+          MOV.L       L27+144,R2; _FUN_8c0144fc
           MOV.L       R3,@R0
           LDS.L       @R15+,PR
           JMP         @R2
           MOV.L       @R15+,R14
-_FUN_8c013310:
-          MOV.L       L27+28,R3
+_FUN_8c013310:                   ; function: FUN_8c013310
+                                 ; frame size=12
+          MOV.L       L27+28,R3; _var_8c1bb8d0
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           MOV         #0,R13
           STS.L       PR,@-R15
           MOV.L       @R3,R0
-          MOV.L       L27+80,R14
-          MOV.L       L27+76,R6
+          MOV.L       L27+80,R14; _var_8c157a64
+          MOV.L       L27+76,R6; _var_8c1bb868
           CMP/EQ      #2,R0
           BT/S        L23
           MOV         R0,R5
-          MOV.L       L27+88,R1
-          MOV.L       L27+148,R0
-          MOV.L       L27+92,R3
+          MOV.L       L27+88,R1; _var_8c228704
+          MOV.L       L27+148,R0; _var_8c1ba291
+          MOV.L       L27+92,R3; _var_8c1bb8c8
           MOV.L       R4,@R6
           MOV.L       R13,@R1
           MOV.L       L27+96,R1
@@ -701,48 +702,49 @@ _FUN_8c013310:
           MOV.L       R2,@R3
           BRA         L25
           MOV.L       R0,@R14
-L23:
+L23:                              
           MOV         R5,R0
-          MOV.L       L27+100,R4
+          MOV.L       L27+100,R4; _var_8c227dd4
           CMP/EQ      #2,R0
           BF          L24
-          MOV.L       L27+104,R2
+          MOV.L       L27+104,R2; _var_8c1bb8d4
           MOV.L       @R2,R1
           TST         R1,R1
           BT          L24
           MOV.L       @R6,R3
-          MOV.L       L27+108,R0
-          ADD         #-H'26,R3
+          MOV.L       L27+108,R0; _init_8c0460b0
+          ADD         #-38,R3
           MOV.B       @(R0,R3),R2
           BRA         L25
           MOV.L       R2,@R4
-L24:
+L24:                              
           MOV.L       R13,@R4
-L25:
-          MOV.L       L27+116,R2
+L25:                              
+          MOV.L       L27+116,R2; _srand
           JSR         @R2
           MOV.L       @R14,R4
-          MOV.L       L27+120,R3
+          MOV.L       L27+120,R3; _FUN_8c012160
           JSR         @R3
           MOV.L       @R14,R4
-          MOV.L       L27+124,R2
+          MOV.L       L27+124,R2; _FUN_8c0121a2
           JSR         @R2
           MOV.L       @R14,R4
-          MOV.L       L27+128,R3
+          MOV.L       L27+128,R3; _FUN_8c0121e8
           JSR         @R3
           NOP
-          MOV.L       L27+132,R3
-          MOV.L       L27+136,R1
+          MOV.L       L27+132,R3; _var_8c1ba292
+          MOV.L       L27+136,R1; _var_8c227da0
           MOV.B       @R3,R2
-          MOV.L       L27+140,R3
+          MOV.L       L27+140,R3; _var_8c227da8
           MOV.L       R2,@R1
           MOV.L       R13,@R3
           LDS.L       @R15+,PR
-          MOV.L       L27+144,R2
+          MOV.L       L27+144,R2; _FUN_8c0144fc
           MOV.L       @R15+,R13
           JMP         @R2
           MOV.L       @R15+,R14
-_task_8c013388:
+_task_8c013388:                  ; function: task_8c013388
+                                 ; frame size=12
           MOV.L       R14,@-R15
           MOV         R4,R14
           MOV.L       R13,@-R15
@@ -755,59 +757,56 @@ _task_8c013388:
           BF          L26
           BRA         L30
           NOP
-
-L26:
+L26:                              
           BRA         L31
           NOP
-
-L27:
-          .DATA.L _task_8c012d5a ; L27
-          .DATA.L _task_8c016bf4
-          .DATA.L _FUN_8c025af4
-          .DATA.L _var_8c1bb8cc
-          .DATA.L _var_8c22847c
-          .DATA.L _FUN_8c023610
-          .DATA.L _FUN_8c02845a
-          .DATA.L _var_8c1bb8d0
-          .DATA.L _FUN_8c029920
-          .DATA.L _FUN_8c0296d6
-          .DATA.L _FUN_8c02769e
-          .DATA.L _FUN_8c0222dc
-          .DATA.L _FUN_8c02a6ac
-          .DATA.L _FUN_8c02c46a
-          .DATA.L _FUN_8c02018c
-          .DATA.L _FUN_8c02d968
-          .DATA.L _FUN_8c020528
-          .DATA.L _task_8c012f9c
-          .DATA.L _FUN_8c0228a2
-          .DATA.L _var_8c1bb868
-          .DATA.L _var_8c157a64
-          .DATA.L _var_8c1bc824
-          .DATA.L _var_8c228704
-          .DATA.L _var_8c1bb8c8
-          .DATA.L _FUN_8c012166
-          .DATA.L _var_8c227dd4
-          .DATA.L _var_8c1bb8d4
-          .DATA.L _init_8c0460b0
-          .DATA.L _FUN_8c01895e
-          .DATA.L _srand
-          .DATA.L _FUN_8c012160
-          .DATA.L _FUN_8c0121a2
-          .DATA.L _FUN_8c0121e8
-          .DATA.L _var_8c1ba292
-          .DATA.L _var_8c227da0
-          .DATA.L _var_8c227da8
-          .DATA.L _FUN_8c0144fc
-          .DATA.L _var_8c1ba291
-          .DATA.L _const_8c033364
-
-L28:
-          MOV.L       L34+0,R3
+L27:                              
+          .DATA.L     _task_8c012d5a
+          .DATA.L     _task_8c016bf4
+          .DATA.L     _FUN_8c025af4
+          .DATA.L     _var_8c1bb8cc
+          .DATA.L     _var_8c22847c
+          .DATA.L     _FUN_8c023610
+          .DATA.L     _FUN_8c02845a
+          .DATA.L     _var_8c1bb8d0
+          .DATA.L     _FUN_8c029920
+          .DATA.L     _FUN_8c0296d6
+          .DATA.L     _FUN_8c02769e
+          .DATA.L     _FUN_8c0222dc
+          .DATA.L     _FUN_8c02a6ac
+          .DATA.L     _FUN_8c02c46a
+          .DATA.L     _FUN_8c02018c
+          .DATA.L     _FUN_8c02d968
+          .DATA.L     _FUN_8c020528
+          .DATA.L     _task_8c012f9c
+          .DATA.L     _FUN_8c0228a2
+          .DATA.L     _var_8c1bb868
+          .DATA.L     _var_8c157a64
+          .DATA.L     _var_8c1bc824
+          .DATA.L     _var_8c228704
+          .DATA.L     _var_8c1bb8c8
+          .DATA.L     _FUN_8c012166
+          .DATA.L     _var_8c227dd4
+          .DATA.L     _var_8c1bb8d4
+          .DATA.L     _init_8c0460b0
+          .DATA.L     _FUN_8c01895e
+          .DATA.L     _srand
+          .DATA.L     _FUN_8c012160
+          .DATA.L     _FUN_8c0121a2
+          .DATA.L     _FUN_8c0121e8
+          .DATA.L     _var_8c1ba292
+          .DATA.L     _var_8c227da0
+          .DATA.L     _var_8c227da8
+          .DATA.L     _FUN_8c0144fc
+          .DATA.L     _var_8c1ba291
+          .DATA.L     _const_8c033364
+L28:                              ; case label 
+          MOV.L       L34,R3   ; _getUknPvmBool_8c01432a
           JSR         @R3
           NOP
           TST         R0,R0
           BT          L31
-          MOV.L       L34+4,R1
+          MOV.L       L34+4,R1 ; _var_loadedFooNjm_8c1bc448
           MOV.L       @(8,R14),R3
           ADD         #1,R3
           MOV.L       R3,@(8,R14)
@@ -820,199 +819,198 @@ L28:
           MOVA        L34+8,R0
           FMOV.S      @R0,FR2
           FADD        FR2,FR3
-L29:
+L29:                              
           FLDI1       FR2
           FNEG        FR2
           FADD        FR2,FR3
-          MOV.L       L34+16,R2
-          MOV.L       L34+12,R3
+          MOV.L       L34+16,R2; _FUN_8c011f6c
+          MOV.L       L34+12,R3; __var_8c1bc450
           JSR         @R2
           FMOV.S      FR3,@R3
-          MOV.L       L34+28,R3
-          MOV.L       L34+24,R5
+          MOV.L       L34+28,R3; _request_dat_8c011182
+          MOV.L       L34+24,R5; L57
           MOV.L       L34+20,R6
           JSR         @R3
           MOV         R13,R4
-          MOV.L       L34+28,R2
-          MOV.L       L34+36,R5
+          MOV.L       L34+28,R2; _request_dat_8c011182
+          MOV.L       L34+36,R5; L58
           MOV.L       L34+32,R6
           JSR         @R2
           MOV         R13,R4
-          MOV.L       L34+40,R3
+          MOV.L       L34+40,R3; _resetUknPvmBool_8c014322
           JSR         @R3
           NOP
-          MOV.L       L34+44,R2
+          MOV.L       L34+44,R2; _setUknPvmBool_8c014330
           MOV         #0,R7
-          MOV.L       L34+48,R4
+          MOV.L       L34+48,R4; _nop_8c011120
           MOV         R7,R6
-          MOV.L       L34+52,R3
+          MOV.L       L34+52,R3; _FUN_8c011fe0
           MOV.L       R2,@-R15
           JSR         @R3
           MOV         R7,R5
           BRA         L31
           ADD         #4,R15
-L30:
-          MOV.L       L34+0,R3
+L30:                              ; case label 
+          MOV.L       L34,R3   ; _getUknPvmBool_8c01432a
           JSR         @R3
           NOP
           TST         R0,R0
           BT          L31
-          MOV.L       L34+56,R3
+          MOV.L       L34+56,R3; _FUN_8c011f7e
           JSR         @R3
           NOP
-          MOV.L       L34+60,R2
+          MOV.L       L34+60,R2; _freeTask_8c014b66
           JSR         @R2
           MOV         R14,R4
-          MOV.L       L34+64,R3
+          MOV.L       L34+64,R3; _FUN_8c010e18
           JSR         @R3
           MOV         R13,R4
-          MOV.L       L34+68,R3
+          MOV.L       L34+68,R3; _var_8c2260a8
           MOV         #1,R2
           MOV         #0,R4
           MOV.L       R2,@R3
           LDS.L       @R15+,PR
-          MOV.L       L34+72,R2
+          MOV.L       L34+72,R2; _FUN_8c015fd6
           MOV.L       @R15+,R13
           JMP         @R2
           MOV.L       @R15+,R14
-L31:
+L31:                              
           LDS.L       @R15+,PR
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-_usrGdErrFunc_8c0134d6:
+_usrGdErrFunc_8c0134d6:          ; function: usrGdErrFunc_8c0134d6
+                                 ; frame size=0
           MOV         R5,R0
-          CMP/EQ      #-H'17,R0
+          CMP/EQ      #-23,R0
           BT          L32
           MOV         R5,R0
-          CMP/EQ      #-H'21,R0
+          CMP/EQ      #-33,R0
           BF          L33
-L32:
-          MOV.L       L34+76,R2
+L32:                              
+          MOV.L       L34+76,R2; _var_8c18ad14
           MOV         #1,R3
           MOV.L       R3,@R2
-L33:
+L33:                              
           RTS
           NOP
-_njUserInit_8c0134ec:
+_njUserInit_8c0134ec:            ; function: njUserInit_8c0134ec
+                                 ; frame size=
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           MOV.L       R12,@-R15
           MOV.L       R11,@-R15
           STS.L       PR,@-R15
-          ADD         #-H'34,R15
-          MOV.L       L34+84,R3
-          MOV.L       L34+80,R4
+          ADD         #-52,R15
+          MOV.L       L34+84,R3; _njSetTextureMemorySize
+          MOV.L       L34+80,R4; H'00100000
           JSR         @R3
           NOP
-          MOV.L       L34+88,R2
+          MOV.L       L34+88,R2; _syCblCheckCable
           JSR         @R2
           NOP
           TST         R0,R0
           BF          L35
-          MOV.L       L34+92,R2
+          MOV.L       L34+92,R2; _sbInitSystem
           MOV         #0,R5
           MOV         #2,R6
           JSR         @R2
-          MOV         #H'31,R4
+          MOV         #49,R4
           BRA         L36
           NOP
-
-L34:
-          .DATA.L _getUknPvmBool_8c01432a ; L34+0
-          .DATA.L _var_loadedFooNjm_8c1bc448
-          .DATA.L H'4F800000
-          .DATA.L _var_8c1bc450
-          .DATA.L _FUN_8c011f6c
-          .DATA.L _memblkSource_8c0fcd48
-          .DATA.L _const_8c03336c
-          .DATA.L _request_dat_8c011182
-          .DATA.L _memblkSource_8c0fcd4c
-          .DATA.L _const_8c033378
-          .DATA.L _resetUknPvmBool_8c014322
-          .DATA.L _setUknPvmBool_8c014330
-          .DATA.L _nop_8c011120
-          .DATA.L _FUN_8c011fe0
-          .DATA.L _FUN_8c011f7e
-          .DATA.L _freeTask_8c014b66
-          .DATA.L _FUN_8c010e18
-          .DATA.L _var_8c2260a8
-          .DATA.L _FUN_8c015fd6
-          .DATA.L _var_8c18ad14
-          .DATA.L H'00100000
-          .DATA.L _njSetTextureMemorySize
-          .DATA.L _syCblCheckCable
-          .DATA.L _sbInitSystem_8c0149b0
-
-L35:
-          MOV.L       L37+6,R2
+L34:                              
+          .DATA.L     _getUknPvmBool_8c01432a
+          .DATA.L     _var_loadedFooNjm_8c1bc448
+          .DATA.L     H'4F800000
+          .DATA.L     _var_8c1bc450
+          .DATA.L     _FUN_8c011f6c
+          .DATA.L     _memblkSource_8c0fcd48
+          .DATA.L     _const_8c03336c
+          .DATA.L     _request_dat_8c011182
+          .DATA.L     _memblkSource_8c0fcd4c
+          .DATA.L     _const_8c033378
+          .DATA.L     _resetUknPvmBool_8c014322
+          .DATA.L     _setUknPvmBool_8c014330
+          .DATA.L     _nop_8c011120
+          .DATA.L     _FUN_8c011fe0
+          .DATA.L     _FUN_8c011f7e
+          .DATA.L     _freeTask_8c014b66
+          .DATA.L     _FUN_8c010e18
+          .DATA.L     _var_8c2260a8
+          .DATA.L     _FUN_8c015fd6
+          .DATA.L     _var_8c18ad14
+          .DATA.L     H'00100000
+          .DATA.L     _njSetTextureMemorySize
+          .DATA.L     _syCblCheckCable
+          .DATA.L     _sbInitSystem
+L35:                              
+          MOV.L       L37+6,R2; _sbInitSystem
           MOV         #0,R5
           MOV         #2,R6
           JSR         @R2
-          MOV         #H'38,R4
+          MOV         #56,R4
           MOVA        L37+10,R0
-          MOV.L       L37+14,R3
+          MOV.L       L37+14,R3; _njSetAspect
           FMOV.S      @R0,FR5
           JSR         @R3
           FLDI1       FR4
-L36:
-          MOV.L       L37+22,R2
+L36:                              
+          MOV.L       L37+22,R2; _njInitMatrix
           MOV         #0,R6
-          MOV.L       L37+18,R4
+          MOV.L       L37+18,R4; _var_matrix_8c2f8ca0
           JSR         @R2
           MOV         #16,R5
-          MOV.L       L37+30,R3
-          MOV.L       L37+26,R4
-          MOV.W       L37+0,R5
+          MOV.L       L37+30,R3; _njInit3D
+          MOV.L       L37+26,R4; _var_vbuf_8c255ca0
+          MOV.W       L37,R5   ; H'1000
           JSR         @R3
           NOP
-          MOV.W       L37+2,R2
-          MOV.L       L37+34,R14
-          MOV.L       L37+38,R4
-          MOV.L       L37+42,R3
+          MOV.W       L37+2,R2 ; H'4E20
+          MOV.L       L37+34,R14; H'0004E200
+          MOV.L       L37+38,R4; H'000C3500
+          MOV.L       L37+42,R3; _njInitVertexBuffer
           MOV         R14,R6
           MOV.L       R2,@-R15
           MOV         R14,R7
           JSR         @R3
           MOV         R14,R5
-          MOV.L       L37+54,R2
-          MOV.L       L37+50,R4
-          MOV.L       L37+46,R5
+          MOV.L       L37+54,R2; _njInitTextureBuffer
+          MOV.L       L37+50,R4; _var_texbuf_8c277ca0
+          MOV.L       L37+46,R5; H'00020800
           JSR         @R2
           ADD         #4,R15
-          MOV.L       L37+62,R3
-          MOV.L       L37+58,R4
-          MOV.W       L37+4,R5
+          MOV.L       L37+62,R3; _njInitTexture
+          MOV.L       L37+58,R4; _var_tex_8c157af8
+          MOV.W       L37+4,R5 ; H'0C00
           JSR         @R3
           NOP
-          MOV.L       L37+74,R2
-          MOV.L       L37+70,R4
-          MOV.L       L37+66,R5
+          MOV.L       L37+74,R2; _njInitCacheTextureBuffer
+          MOV.L       L37+70,R4; _var_cachebuf_8c235ca0
+          MOV.L       L37+66,R5; H'00020000
           JSR         @R2
           NOP
-          MOV.L       L37+82,R3
-          MOV.L       L37+78,R4
+          MOV.L       L37+82,R3; _njInitShape
+          MOV.L       L37+78,R4; _var_shapebuf_8c2f84a0
           JSR         @R3
           NOP
-          MOV.L       L37+86,R2
+          MOV.L       L37+86,R2; _syRtcInit
           JSR         @R2
           NOP
-          MOV.L       L37+90,R3
+          MOV.L       L37+90,R3; _FUN_8c010924
           JSR         @R3
           NOP
-          MOV.L       L37+94,R2
+          MOV.L       L37+94,R2; _var_8c226070
           MOV.B       R0,@R2
           EXTS.B      R0,R0
           CMP/PZ      R0
           BF          L38
           BRA         L39
           MOV.B       @R2,R4
-
 L37:
-          .DATA.W H'0800 ; L37+0
+          .DATA.W H'0800
           .DATA.W H'4E20
           .DATA.W H'0C00
-          .DATA.L _sbInitSystem_8c0149b0
+          .DATA.L _sbInitSystem
           .DATA.L H'3F68F5C3
           .DATA.L _njSetAspect
           .DATA.L _var_matrix_8c2f8ca0
@@ -1039,66 +1037,66 @@ L37:
 L38:
           MOV         #0,R4
 L39:
-          MOV.L       L40+8,R1
+          MOV.L       L40+8,R1; _setSoundMode_8c0108c0
           JSR         @R1
           NOP
-          MOV.L       L40+12,R3
+          MOV.L       L40+12,R3; _FUN_8c010fbe
           JSR         @R3
           NOP
-          MOV.L       L40+16,R2
+          MOV.L       L40+16,R2; _BupInit_8c014b8c
           JSR         @R2
           NOP
-          MOV.W       L40+0,R3
-          MOV.L       L40+20,R5
-          MOV.L       L40+24,R2
-          MOV.W       L40+4,R6
+          MOV.W       L40,R3 ; H'0200
+          MOV.L       L40+20,R5; _var_vbuf_8c255ca0
+          MOV.L       L40+24,R2; _njSetTextureInfo
+          MOV.W       L40+4,R6; H'0B01
           MOV.L       R3,@-R15
-          MOV.W       L40+2,R7
+          MOV.W       L40+2,R7 ; H'0100
           MOV         R15,R4
           JSR         @R2
           ADD         #12,R4
-          MOV.L       L40+36,R3
+          MOV.L       L40+36,R3; _njSetTextureName
           MOV         R15,R5
-          MOV.L       L40+32,R4
-          MOV.L       L40+28,R7
-          MOV.W       L40+6,R6
+          MOV.L       L40+32,R4; _var_texname_8c18acf8
+          MOV.L       L40+28,R7; H'40800000
+          MOV.W       L40+6,R6; H'03E7
           JSR         @R3
           ADD         #12,R5
-          MOV.L       L40+40,R2
-          MOV.W       L40+2,R4
+          MOV.L       L40+40,R2; _njSetRenderWidth
+          MOV.W       L40+2,R4 ; H'0100
           JSR         @R2
           NOP
-          MOV.L       L40+48,R3
-          MOV.L       L40+44,R4
+          MOV.L       L40+48,R3; _njLoadTexture
+          MOV.L       L40+44,R4; _init_texlist_8c03bf44
           JSR         @R3
           NOP
-          MOV.L       L40+56,R4
-          MOV.L       L40+52,R14
+          MOV.L       L40+56,R4; _var_tasks_8c1ba3c8
+          MOV.L       L40+52,R14; _clearTasks_8c014a9c
           JSR         @R14
           MOV         #16,R5
-          MOV.L       L40+60,R4
+          MOV.L       L40+60,R4; _var_tasks_8c1ba5e8
           JSR         @R14
           MOV         #16,R5
-          MOV.L       L40+64,R4
+          MOV.L       L40+64,R4; _var_tasks_8c1ba808
           JSR         @R14
           MOV         #32,R5
-          MOV.L       L40+68,R4
+          MOV.L       L40+68,R4; _var_tasks_8c1bac28
           JSR         @R14
           MOV         #64,R5
-          MOV.L       L40+72,R4
+          MOV.L       L40+72,R4; _var_tasks_8c1bb448
           JSR         @R14
           MOV         #32,R5
-          MOV.L       L40+76,R2
+          MOV.L       L40+76,R2; _var_8c1bb86c
           MOV         #-1,R14
-          MOV.L       L40+80,R4
-          MOV.L       L40+84,R3
+          MOV.L       L40+80,R4; _var_8c1bbddc
+          MOV.L       L40+84,R3; _FUN_8c013bbc
           MOV.L       R14,@R2
           JSR         @R3
           MOV         #32,R5
-          MOV.L       L40+84,R2
-          MOV.L       L40+88,R4
+          MOV.L       L40+84,R2; _FUN_8c013bbc
+          MOV.L       L40+88,R4; _var_8c1bbfdc
           JSR         @R2
-          MOV         #H'41,R5
+          MOV         #65,R5
           MOV.L       L40+92,R3
           MOV.L       L40+96,R2
           MOV.L       R14,@R3
@@ -1134,7 +1132,7 @@ L39:
           MOV.L       L40+156,R2
           MOV.L       L40+148,R4
           MOV.L       R14,@R4
-          MOV.L       R14,@(H'c,R4)
+          MOV.L       R14,@(12,R4)
           MOV.L       R14,@R1
           MOV.L       L40+164,R1
           MOV.L       R14,@R2
@@ -1150,7 +1148,7 @@ L39:
           MOV.L       L40+184,R3
           MOV.L       L40+188,R0
           MOV.L       R14,@R1
-          MOV         #H'64,R1
+          MOV         #100,R1
           MOV.L       R14,@R2
           MOV.L       R12,@R3
           MOV.L       L40+192,R2

@@ -18,6 +18,33 @@ struct loadedNj {
 }
 typedef loadedNj;
 
+struct uknStruct {
+    int field_0x00;
+    int field_0x04;
+    int field_0x08;
+}
+typedef uknStruct;
+
+struct uknStruct2 {
+    int field_0x00;
+    int field_0x04;
+    int field_0x08;
+}
+typedef uknStruct2;
+
+struct s_8c18ad28 {
+    int field_0x00;
+    int field_0x04;
+    Uint8 field_0x08;
+    Uint8 field_0x09;
+    Uint8 field_0x0a;
+    Uint8 field_0x0b;
+    float fogN_0x0c;
+    float fogF_0x10;
+}
+typedef s_8c18ad28;
+extern s_8c18ad28 *var_8c18ad28;
+
 extern NJS_MATRIX     var_matrix_8c2f8ca0[16];
 extern NJS_VERTEX_BUF var_vbuf_8c255ca0[4096];
 extern Sint8          var_texbuf_8c277ca0[TEX_BUFSIZE];
@@ -94,13 +121,13 @@ extern int var_8c18ad14;
 
 extern NJS_FOG_TABLE var_fogTable_8c18aaf8;
 
-extern int var_8c1bc824[3];
+extern uknStruct2 *var_8c1bc824;
 extern char init_8c0460b0[];
 
-extern float _var_8c1bc450;
+extern float var_8c1bc450;
 extern int var_8c2260a8;
 extern var_8c1ba3c8;
-extern var_8c1bb8d0;
+extern int var_8c1bb8d0;
 extern task_8c012cbc;
 extern task_8c01677e;
 extern var_8c1bb8d4;
@@ -109,14 +136,15 @@ extern task_8c012d5a;
 extern task_8c016bf4;
 extern var_8c1bb8cc;
 extern var_8c22847c;
-extern var_8c1bb868;
-extern var_8c228704;
-extern var_8c1bb8c8;
+extern int var_8c1bb868;
+extern int var_8c228704;
+extern int var_8c1bb8c8;
 extern var_8c157a64;
 extern var_8c227dd4;
-extern var_8c227da0;
-extern var_8c1ba292;
-extern var_8c227da8;
+extern Uint32 var_8c227da0;
+extern Uint32 var_8c1ba292;
+extern Uint32 var_8c1ba291;
+extern int var_8c227da8;
 extern task_load_8c014338;
 extern memblkSource_8c0fcd48;
 extern memblkSource_8c0fcd4c;
@@ -127,26 +155,9 @@ extern var_8c18ad1c;
 extern var_8c228708;
 extern Bool var_8c22655c;
 
-
-struct uknStruct {
-    int field_0x00;
-    int field_0x04;
-    int field_0x08;
-}
-typedef uknStruct;
-
-struct s_8c18ad28 {
-    int field_0x00;
-    int field_0x04;
-    Uint8 field_0x08;
-    Uint8 field_0x09;
-    Uint8 field_0x0a;
-    Uint8 field_0x0b;
-    float fogN_0x0c;
-    float fogF_0x10;
-}
-typedef s_8c18ad28;
-extern s_8c18ad28 *var_8c18ad28;
+extern FUN_8c0144fc();
+extern Sint8 FUN_8c010924();
+extern setSoundMode_8c0108c0(Bool);
 
 /* Matched :) */
 void task_8c012f44()
@@ -287,14 +298,15 @@ void FUN_8c01306e(void)
     FUN_8c0228a2();
 }
 
+/* Matched :) */
 void FUN_8c01328c() {
     Task *created_task;
     void* created_state;
   
     if (var_8c1bb8d0 == 0) {
-        var_8c1bb868 = var_8c1bc824[0];
-        var_8c228704 = var_8c1bc824[1];
-        var_8c1bb8c8 = var_8c1bc824[2];
+        var_8c1bb868 = var_8c1bc824->field_0x00;
+        var_8c228704 = var_8c1bc824->field_0x04;
+        var_8c1bb8c8 = var_8c1bc824->field_0x08;
         var_8c157a64 = FUN_8c012166();
     } else if ((var_8c1bb8d0 == 2) && (var_8c1bb8d4 != 0)) {
         var_8c227dd4 = init_8c0460b0[var_8c1bb868 - 0x26];
@@ -307,47 +319,69 @@ void FUN_8c01328c() {
     FUN_8c012160(var_8c157a64);
     FUN_8c0121a2(var_8c157a64);
     FUN_8c0121e8();
-    var_8c227da0 = var_8c1ba292;
+    var_8c227da0 = (char) var_8c1ba292;
     var_8c227da8 = 0;
-    njSetBackColor(ARGB(255, 65, 141, 255), ARGB(255, 65, 141, 255), ARGB(255, 65, 141, 255));
-    var_8c157a6c = 1;
 
-    pushTask_8c014ae8(var_tasks_8c1ba3c8, &task_load_8c014338, &created_task, created_state, 0);
-    created_task->field_0x08 = 0;
-    created_task->field_0x0c = (void*) 0;
+    FUN_8c0144fc();
+}
 
-    njGarbageTexture(var_tex_8c157af8, TEX_NUM);
-    FUN_8c011f36(0x20,0x800,0x800,0x40);
-    return;
+/* Matched :) */
+void FUN_8c013310(int p1) {
+    Task *created_task;
+    void* created_state;
+  
+    if (var_8c1bb8d0 != 2) {
+        var_8c1bb868 = p1;
+        var_8c228704 = 0;
+        var_8c1bb8c8 = (char) var_8c1ba291;
+        var_8c157a64 = FUN_8c012166();
+    } else if (var_8c1bb8d0 == 2 && var_8c1bb8d4 != 0) {
+        var_8c227dd4 = init_8c0460b0[var_8c1bb868 - 0x26];
+    } else {
+        var_8c227dd4 = 0;
+    }
+
+    njRandomSeed(var_8c157a64);
+    FUN_8c012160(var_8c157a64);
+    FUN_8c0121a2(var_8c157a64);
+    FUN_8c0121e8();
+    var_8c227da0 = (char) var_8c1ba292;
+    var_8c227da8 = 0;
+
+    FUN_8c0144fc();
 }
 
 void task_8c013388(Task *task, void *state) {
-    if (task->field_0x08 == 0) {
-        Bool b = getUknPvmBool_8c01432a();
-        if (b) {
-            float fr3;
-            task->field_0x08++;
-            fr3 = var_loadedFooNjm_8c1bc448->nbFrame;
+    switch (task->field_0x08) {
+        case 0: {
+            /* 8c013440 */
+            Bool b = getUknPvmBool_8c01432a();
+            if (b) {
+                task->field_0x08++;
+                var_8c1bc450 = (Float) var_loadedFooNjm_8c1bc448->nbFrame - 1;
 
-            if (var_loadedFooNjm_8c1bc448->nbFrame < 0) {
-                fr3 += 4294967296.f;
+                FUN_8c011f6c();
+                request_dat_8c011182("\\SOUND", "manatee.drv", &memblkSource_8c0fcd48);
+                request_dat_8c011182("\\SOUND", "bus.mlt", &memblkSource_8c0fcd4c);
+                resetUknPvmBool_8c014322();
+                FUN_8c011fe0(&nop_8c011120, 0, 0, 0, &setUknPvmBool_8c014330);
             }
-
-            fr3 -= -1;
-            _var_8c1bc450 = fr3;
-
-            FUN_8c011f6c();
-            request_dat_8c011182("\\SOUND","manatee.drv", &memblkSource_8c0fcd48);
-            request_dat_8c011182("\\SOUND","bus.mlt", &memblkSource_8c0fcd4c);
-            resetUknPvmBool_8c014322();
-            FUN_8c011fe0(&nop_8c011120, 0, 0, 0, &setUknPvmBool_8c014330);
+            break;
         }
-    } else if ((task->field_0x08 == 1) && (getUknPvmBool_8c01432a() != 0)) {
-        FUN_8c011f7e();
-        freeTask_8c014b66(task);
-        FUN_8c010e18();
-        var_8c2260a8 = 1;
-        FUN_8c015fd6(0);
+        case 1: {
+            /* 8c0133a0, 8c0134ce */
+            if (getUknPvmBool_8c01432a() != 0) {
+                FUN_8c011f7e();
+                freeTask_8c014b66(task);
+                FUN_8c010e18();
+                var_8c2260a8 = 1;
+                FUN_8c015fd6(0);
+            }
+            break;
+        }
+        default:
+            /* 8c0134a0 */
+            break;
     }
 }
 
@@ -384,9 +418,9 @@ void njUserInit_8c0134ec() {
 
     var_8c226070 = FUN_8c010924();
     if (var_8c226070 >= 0) {
-        _setSoundMode_8c0108c0(var_8c226070);
+        setSoundMode_8c0108c0(var_8c226070);
     } else {
-        _setSoundMode_8c0108c0(0);
+        setSoundMode_8c0108c0(0);
     }
 
     FUN_8c010fbe();
