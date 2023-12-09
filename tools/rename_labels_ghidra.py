@@ -15,7 +15,7 @@ out = ""
 
 with fileinput.input(openhook=fileinput.hook_encoded("shift_jis")) as f:
     for line in f:
-        m = re.search(r'^(LAB_[a-f0-9]+):', line)
+        m = re.search(r'^((?:LAB_|LP_GEN_)[a-f0-9]+):', line)
         if m:
             labels.append(m.group(1))
 
