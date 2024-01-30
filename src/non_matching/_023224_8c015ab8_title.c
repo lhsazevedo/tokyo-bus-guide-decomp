@@ -42,18 +42,6 @@ extern Bool FUN_8c012984(void);
 extern void* var_8c225fb0;
 
 void task_title_8c015ab8(Task* task, void *state) {
-    /*
-     * r14 = menuState_8c1bc7a8
-     * fr12 = -4.5
-     * fr13 = -4.0
-     * fr14 = -5
-     * fr15 = 0.0
-     * r12 = is_fading_8c015b50
-     * r9 = PDS_PERIPHERAL* peripheral_8c1ba35c
-     * r10 = 0
-     */
-    // PDS_PERIPHERAL* per = &peripheral_8c1ba35c[0];
-
     if (menuState_8c1bc7a8.state_0x18 >= TITLE_STATE_0X0B_BUS_SLIDE /* 8c015aec */
         && menuState_8c1bc7a8.state_0x18 <= TITLE_STATE_0X0C_FLAG_REVEAL) { /* 8c015af6 */
             if (peripheral_8c1ba35c[0].press & PDD_DGT_ST) { /* 8c015afa */
@@ -66,15 +54,8 @@ void task_title_8c015ab8(Task* task, void *state) {
             }
     }
 
-    /* 8c015b18
-     * r11 = push_fadeout_8c022b60
-     * r4 = 30 0x1e
-     * r0 = menuState_8c1bc7a8.state_0x18
-     * 
-     */
-
     switch (menuState_8c1bc7a8.state_0x18) {
-                /* 0x8c015b88 (0x8c015b32 + 4 + 0x052) */
+        /* 0x8c015b88 (0x8c015b32 + 4 + 0x052) */
         case TITLE_STATE_0X00_INIT: {
             if (getUknPvmBool_8c01432a() == FALSE) {
                 /* 8c015b96 */
@@ -174,7 +155,7 @@ void task_title_8c015ab8(Task* task, void *state) {
         case TITLE_STATE_0X06_ADX_FADE_OUT: {
             if (isFading_8c226568 == FALSE) {
                 // VMU Check?
-                if (FUN_8c012984() == FALSE || FUN_8c019550(saveNames_8c044d50, 3) == FALSE) {
+                if (FUN_8c012984() != FALSE && FUN_8c019550(saveNames_8c044d50, 3) == FALSE) {
                     /* 8c015c62 */
                     menuState_8c1bc7a8.state_0x18 = TITLE_STATE_0X07_VMU_WARNING_FADE_IN;
                     push_fadein_8c022a9c(10);
@@ -308,7 +289,7 @@ void task_title_8c015ab8(Task* task, void *state) {
             }
 
             /* 8c015f60 (shared) */
-            drawSprite_8c014f54(&menuState_8c1bc7a8.resourceGroupB_0x0c, 5, 0, 0, -4.5);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.resourceGroupB_0x0c, 5, 0, 0, -4.0);
             drawSprite_8c014f54(&menuState_8c1bc7a8.resourceGroupB_0x0c, 6, 0, 0, -4.5);
             drawSprite_8c014f54(&menuState_8c1bc7a8.resourceGroupB_0x0c, 4, 302, 97, -4.5);
             drawSprite_8c014f54(&menuState_8c1bc7a8.resourceGroupB_0x0c, 1, 180, 0, -4.0);
@@ -342,7 +323,7 @@ void task_title_8c015ab8(Task* task, void *state) {
             }
 
             /* 8c015f60 (shared) */
-            drawSprite_8c014f54(&menuState_8c1bc7a8.resourceGroupB_0x0c, 5, 0, 0, -4.5);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.resourceGroupB_0x0c, 5, 0, 0, -4.0);
             drawSprite_8c014f54(&menuState_8c1bc7a8.resourceGroupB_0x0c, 6, 0, 0, -4.5);
             drawSprite_8c014f54(&menuState_8c1bc7a8.resourceGroupB_0x0c, 4, 302, 97, -4.5);
             drawSprite_8c014f54(&menuState_8c1bc7a8.resourceGroupB_0x0c, 1, 180, 0, -4.0);
@@ -360,7 +341,7 @@ void task_title_8c015ab8(Task* task, void *state) {
             }
 
             /* 8c015e7e */
-            drawSprite_8c014f54(&menuState_8c1bc7a8.resourceGroupB_0x0c, 5, 0, 0, -4.5);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.resourceGroupB_0x0c, 5, 0, 0, -4.0);
             if ((menuState_8c1bc7a8.logo_timer_0x68 & 1) != 0) {
                 drawSprite_8c014f54(&menuState_8c1bc7a8.resourceGroupB_0x0c, 6, 0, 0, -4.5);
             }
@@ -389,7 +370,7 @@ void task_title_8c015ab8(Task* task, void *state) {
             }
             
             /* 8c015ed6 */
-            drawSprite_8c014f54(&menuState_8c1bc7a8.resourceGroupB_0x0c, 5, 0, 0, -4.5);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.resourceGroupB_0x0c, 5, 0, 0, -4.0);
 
             if ((++menuState_8c1bc7a8.logo_timer_0x68 & 1) != 0) {
                 drawSprite_8c014f54(&menuState_8c1bc7a8.resourceGroupB_0x0c, 6, 0, 0, -4.5);
@@ -415,7 +396,7 @@ void task_title_8c015ab8(Task* task, void *state) {
             }
 
             /* 8c015f60 (shared) */
-            drawSprite_8c014f54(&menuState_8c1bc7a8.resourceGroupB_0x0c, 5, 0, 0, -4.5);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.resourceGroupB_0x0c, 5, 0, 0, -4.0);
             drawSprite_8c014f54(&menuState_8c1bc7a8.resourceGroupB_0x0c, 6, 0, 0, -4.5);
             drawSprite_8c014f54(&menuState_8c1bc7a8.resourceGroupB_0x0c, 4, 302, 97, -4.5);
             drawSprite_8c014f54(&menuState_8c1bc7a8.resourceGroupB_0x0c, 1, 180, 0, -4.0);

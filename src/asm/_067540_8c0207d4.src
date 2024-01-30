@@ -1,0 +1,43 @@
+          .EXPORT     _FUN_8c0207d4
+          .EXPORT     _FUN_8c0207fa
+          .SECTION    P,CODE,ALIGN=4
+_FUN_8c0207d4:                   ; function: FUN_8c0207d4
+                                 ; frame size=0
+          FMOV.S      @R5,FR6
+          MOV         #H'8,R0
+          FMOV.S      @R4,FR4
+          FMOV.S      @(R0,R4),FR5
+          FMOV        FR4,FR3
+          FSUB        FR4,FR6
+          FMOV.S      @R6,FR4
+          FMOV.S      @(R0,R5),FR7
+          MOV         #H'4,R0
+          FSUB        FR3,FR4
+          FMOV        FR5,FR3
+          FSUB        FR5,FR7
+          FMOV.S      @(R0,R6),FR5
+          FSUB        FR3,FR5
+          FMOV        FR4,FR0
+          FMUL        FR5,FR7
+          FMAC        FR0,FR6,FR7
+          RTS
+          FMOV        FR7,FR0
+_FUN_8c0207fa:
+          FMOV.S      @R6,FR8
+          MOV         #H'8,R0
+          FMOV.S      @R4,FR4
+          FMOV.S      @R5,FR6
+          FMOV.S      @(R0,R4),FR5
+          FSUB        FR4,FR8
+          MOV         #H'4,R0
+          FSUB        FR4,FR6
+          FMOV.S      @(R0,R6),FR4
+          FMOV.S      @(R0,R5),FR7
+          FSUB        FR5,FR4
+          FSUB        FR5,FR7
+          FMUL        FR4,FR6
+          FMUL        FR8,FR7
+          FMOV        FR6,FR0
+          RTS
+          FSUB        FR7,FR0
+          .END
