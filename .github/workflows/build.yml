@@ -1,0 +1,50 @@
+name: Build
+
+on: ['push', 'pull_request']
+
+defaults:
+  run:
+    working-directory: /home/runner/work/tbg
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Checkout SDK
+        uses: actions/checkout@v4
+        with:
+          ssh-key: ${{ secrets.SDK_REPO_KEY }}
+          repository: lhsazevedo/dc-sdk-155j
+          path: sdk
+
+      # SDK doesn't like paths with slashes
+      - name: Move files outside workspace
+        working-directory: /home/runner/work
+        run: cp -R $GITHUB_WORKSPACE tbg
+
+      - name: Install Wine
+        run: |
+          sudo dpkg --add-architecture i386
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends wine wine32:i386
+
+      - name: Configure environment
+        run: |
+          DC_SDK=$PWD/sdk
+          echo "SHINOBI_DIR=$(winepath -w $DC_SDK/shinobi)" >> "$GITHUB_ENV"
+          echo "KATANA_SDK_DIR=$(winepath -w $DC_SDK)" >> "$GITHUB_ENV"
+          echo "SHC_BIN=$(winepath -w $DC_SDK/shc/bin)" >> "$GITHUB_ENV"
+          echo "SHC_TMP=$(winepath -w /tmp)" >> "$GITHUB_ENV"
+          echo "SHC_LIB=$(winepath -w $DC_SDK/shc/bin)" >> "$GITHUB_ENV"
+          echo "SHC_INC=$(winepath -w $DC_SDK/shc/include),$(winepath -w $DC_SDK/shinobi/include)" >> "$GITHUB_ENV"
+          echo "HLNK_LIBRARY1=$(winepath -w $DC_SDK/shinobi/lib/shinobi.lib)" >> "$GITHUB_ENV"
+          echo "HLNK_LIBRARY2=$(winepath -w $DC_SDK/shinobi/lib/ninja.lib)" >> "$GITHUB_ENV"
+          echo "HLNK_LIBRARY3=$(winepath -w $DC_SDK/shc/lib/sh4nlfzn.lib)" >> "$GITHUB_ENV"
+
+      - name: Build
+        run: bash build.sh
