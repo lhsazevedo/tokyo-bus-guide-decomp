@@ -1,5 +1,10 @@
 # Tokyo Bus Guide Decompilation
 
+[![Test](https://github.com/lhsazevedo/tokyo-bus-guide-decomp/actions/workflows/test.yml/badge.svg)](https://github.com/lhsazevedo/tokyo-bus-guide-decomp/actions/workflows/test.yml)
+[![Build](https://github.com/lhsazevedo/tokyo-bus-guide-decomp/actions/workflows/build.yml/badge.svg)](https://github.com/lhsazevedo/tokyo-bus-guide-decomp/actions/workflows/build.yml)
+[![Build Matching](https://github.com/lhsazevedo/tokyo-bus-guide-decomp/actions/workflows/build_matching.yml/badge.svg)](https://github.com/lhsazevedo/tokyo-bus-guide-decomp/actions/workflows/build_matching.yml)
+
+
 An attempt to decompile the Sega Dreamcast game called "Tokyo Bus Guide".
 
 ![Main function hero](./tbg.png)
@@ -16,12 +21,12 @@ See [this thread](https://twitter.com/lhs_azevedo/status/1508270685784793089).
 1. Make sure your SDK is organized as bellow.
    ```
    ├── bin (From disc Vol.1 dc_sdk/bin)
-   │   ├── binadj.exe
-   │   └── ...
+   �?   ├── binadj.exe
+   �?   └── ...
    ├── shc (From disc Vol.2)
-   │   ├── bin
-   │   ├── include
-   │   └── lib
+   �?   ├── bin
+   �?   ├── include
+   �?   └── lib
    └── shinobi (From disc Vol.2)
       ├── driver
       ├── include
