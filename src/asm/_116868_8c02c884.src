@@ -47,11 +47,11 @@
           .IMPORT     _var_8c1bc440
           .IMPORT     _njSetTexture
           .IMPORT     _var_8c1bc44c
-          .IMPORT     _var_8c1bc448
+          .IMPORT     _var_loadedFooNjm_8c1bc448
           .IMPORT     _var_8c1bc444
           .IMPORT     _njCnkSimpleDrawMotion
           .IMPORT     _var_8c22643c
-          .IMPORT     _var_8c1bb9d0
+          .IMPORT     _var_busState_8c1bb9d0
           .IMPORT     _var_8c2264c4
           .IMPORT     _var_8c228908
           .IMPORT     _njSqrt
@@ -786,7 +786,7 @@ LP_GEN_16762:
           .DATA.L _var_8c1bc440 ; H'8C02CE30
           .DATA.L _njSetTexture ; H'8C02CE34
           .DATA.L _var_8c1bc44c ; H'8C02CE38
-          .DATA.L _var_8c1bc448 ; H'8C02CE3C
+          .DATA.L _var_loadedFooNjm_8c1bc448 ; H'8C02CE3C
           .DATA.L _var_8c1bc444 ; H'8C02CE40
           .DATA.L _njCnkSimpleDrawMotion ; H'8C02CE44
 _FUN_8c02ce48:
@@ -898,7 +898,7 @@ LP_GEN_52477:
           .DATA.W H'03B4 ; H'8C02CF06
           .DATA.L _var_8c22643c ; H'8C02CF08
           .DATA.L _var_8c1bc44c ; H'8C02CF0C
-          .DATA.L _var_8c1bb9d0 ; H'8C02CF10
+          .DATA.L _var_busState_8c1bb9d0 ; H'8C02CF10
           .DATA.L _var_8c2285c4 ; H'8C02CF14
           .DATA.L H'0000FF00 ; H'8C02CF18
           .DATA.L _var_8c228710 ; H'8C02CF1C

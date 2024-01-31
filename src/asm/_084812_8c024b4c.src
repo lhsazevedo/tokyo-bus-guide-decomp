@@ -15,7 +15,7 @@
           .IMPORT     _var_8c227db8
           .IMPORT     _var_8c227dc4
           .IMPORT     _njCnkSetSimpleLight
-          .IMPORT     _var_8c1bb9d0
+          .IMPORT     _var_busState_8c1bb9d0
           .IMPORT     _njCnkSetSimpleLightIntensity
           .IMPORT     _njCnkSetSimpleLightColor
           .IMPORT     _FUN_8c027958
@@ -210,7 +210,7 @@ LP_GEN_17430:
           .DATA.L _var_8c227db8 ; H'8C024C74
           .DATA.L _var_8c227dc4 ; H'8C024C78
           .DATA.L _njCnkSetSimpleLight ; H'8C024C7C
-          .DATA.L _var_8c1bb9d0 ; H'8C024C80
+          .DATA.L _var_busState_8c1bb9d0 ; H'8C024C80
           .DATA.L _njCnkSetSimpleLightIntensity ; H'8C024C84
           .DATA.L _njCnkSetSimpleLightColor ; H'8C024C88
           .DATA.L _FUN_8c027958 ; H'8C024C8C
@@ -301,7 +301,7 @@ LP_GEN_54676:
           .DATA.L _njCnkModDrawObject ; H'8C024D40
           .DATA.L _var_8c227db8 ; H'8C024D44
           .DATA.L _njCnkSetSimpleLight ; H'8C024D48
-          .DATA.L _var_8c1bb9d0 ; H'8C024D4C
+          .DATA.L _var_busState_8c1bb9d0 ; H'8C024D4C
           .DATA.L _njCnkSetSimpleLightIntensity ; H'8C024D50
           .DATA.L _njCnkSetSimpleLightColor ; H'8C024D54
           .DATA.L _njMultiMatrix ; H'8C024D58
@@ -429,7 +429,7 @@ LP_GEN_94794:
           .DATA.W H'0238 ; H'8C024E52
           .DATA.W H'038E ; H'8C024E54
           .DATA.W H'1555 ; H'8C024E56
-          .DATA.L _var_8c1bb9d0 ; H'8C024E58
+          .DATA.L _var_busState_8c1bb9d0 ; H'8C024E58
           .DATA.L _njSqrt ; H'8C024E5C
           .DATA.L H'409CCCCD ; H'8C024E60
           .DATA.L _acosf ; H'8C024E64
@@ -594,7 +594,7 @@ LP_GEN_17475:
           .DATA.L H'41F00000 ; H'8C024FA8
           .DATA.L H'41900000 ; H'8C024FAC
           .DATA.L _var_8c227df0 ; H'8C024FB0
-          .DATA.L _var_8c1bb9d0 ; H'8C024FB4
+          .DATA.L _var_busState_8c1bb9d0 ; H'8C024FB4
           .DATA.L _var_8c227d9c ; H'8C024FB8
 LAB_8c024fbc:
           MOV.W       LP_GEN_98635,R0
@@ -836,7 +836,7 @@ LP_GEN_61715:
           .DATA.L _var_8c227dac ; H'8C02516C
           .DATA.L _var_8c227d9c ; H'8C025170
           .DATA.L _var_8c227df0 ; H'8C025174
-          .DATA.L _var_8c1bb9d0 ; H'8C025178
+          .DATA.L _var_busState_8c1bb9d0 ; H'8C025178
           .DATA.L H'40A00000 ; H'8C02517C
           .DATA.L _var_8c227dd8 ; H'8C025180
           .DATA.L _var_8c227da4 ; H'8C025184
@@ -1468,7 +1468,7 @@ LP_GEN_36343:
           .DATA.L LAB_8c024cc8 ; H'8C025674
           .DATA.L _FUN_8c024bb8 ; H'8C025678
           .DATA.L _FUN_8c0223ea ; H'8C02567C
-          .DATA.L _var_8c1bb9d0 ; H'8C025680
+          .DATA.L _var_busState_8c1bb9d0 ; H'8C025680
           .DATA.L _var_8c1bb944 ; H'8C025684
           .DATA.L _njInitCamera ; H'8C025688
           .DATA.L _njSetCameraAngle ; H'8C02568C

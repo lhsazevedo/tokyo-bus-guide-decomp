@@ -1,4 +1,4 @@
-          .IMPORT     _var_8c1bb9d0
+          .IMPORT     _var_busState_8c1bb9d0
           .IMPORT     _njSqrt
           .IMPORT     _sdMidiPlay
           .IMPORT     _var_8c228660
@@ -248,7 +248,7 @@ LP_GEN_39332:
           .DATA.W H'0210 ; H'8C023AF2
           .DATA.W H'018C ; H'8C023AF4
           .RES.W 1 ; H'8C023AF6
-          .DATA.L _var_8c1bb9d0 ; H'8C023AF8
+          .DATA.L _var_busState_8c1bb9d0 ; H'8C023AF8
           .DATA.L _njSqrt ; H'8C023AFC
           .DATA.L H'409CCCCD ; H'8C023B00
           .DATA.L H'41000000 ; H'8C023B04
@@ -438,7 +438,7 @@ LP_GEN_66497:
           .DATA.W H'02B4 ; H'8C023C6C
           .DATA.W H'027C ; H'8C023C6E
           .DATA.L H'40266666 ; H'8C023C70
-          .DATA.L _var_8c1bb9d0 ; H'8C023C74
+          .DATA.L _var_busState_8c1bb9d0 ; H'8C023C74
           .DATA.L H'3E99999A ; H'8C023C78
           .DATA.L _sdMidiPlay ; H'8C023C7C
           .DATA.L _var_8c228660 ; H'8C023C80
@@ -584,7 +584,7 @@ LP_GEN_13112:
           .DATA.W H'0250 ; H'8C023D8E
           .DATA.W H'029C ; H'8C023D90
           .DATA.W H'02A0 ; H'8C023D92
-          .DATA.L _var_8c1bb9d0 ; H'8C023D94
+          .DATA.L _var_busState_8c1bb9d0 ; H'8C023D94
           .DATA.L _var_8c1bc460 ; H'8C023D98
           .DATA.L _var_8c1bc46c ; H'8C023D9C
           .DATA.L _njUnitMatrix ; H'8C023DA0
@@ -770,7 +770,7 @@ LP_GEN_21361:
           .DATA.L _var_8c1bc460 ; H'8C023F04
           .DATA.L _njCalcPoint ; H'8C023F08
           .DATA.L _FUN_8c020f7e ; H'8C023F0C
-          .DATA.L _var_8c1bb9d0 ; H'8C023F10
+          .DATA.L _var_busState_8c1bb9d0 ; H'8C023F10
           .DATA.L _var_8c227d88 ; H'8C023F14
 LAB_8c023f18:
           MOV.W       LP_GEN_56705,R0

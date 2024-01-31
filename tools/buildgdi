@@ -1,0 +1,2 @@
+./buildgdi -data ~/code/tweaking/tokyo-bus-guide/diskroot -ip "/media/lhsazevedo/SAMSUNG/Jogos/ROMS/DC/Tokyo Bus Guide/ex/data/ip.bin" -output /media/lhsazevedo/hdstorage/code/tweaking/tbgiso2 -gdi "/media/lhsazevedo/hdstorage/code/tweaking/tbgiso2/tbg.gdi" -raw
+Writing......... Done!

@@ -11,14 +11,14 @@
           .IMPORT     _drawSprite_8c014f54
           .IMPORT     _push_fadeout_8c022b60
           .IMPORT     _saveNames_8c044d50
-          .IMPORT     __8c03bd80
+          .IMPORT     _init_8c03bd80
           .IMPORT     _var_8c1bb8c4
           .IMPORT     _titleResourceGroup_8c044254
           .IMPORT     _menuState_8c1bc7a8
           .IMPORT     _peripheral_8c1ba35c
-          .IMPORT     _tasks_8c1ba3c8
+          .IMPORT     _var_tasks_8c1ba3c8
           .IMPORT     _task_8c012f44
-          .IMPORT     _var_8c157af8
+          .IMPORT     _var_tex_8c157af8
           .IMPORT     _FUN_8c02ae3e
           .IMPORT     _FUN_8c011f36
           .IMPORT     _nop_8c011120
@@ -645,7 +645,7 @@ L48:
           .DATA.L     _sdMidiPlay ; H'8c015f40
           .DATA.L     _saveNames_8c044d50
           .DATA.L     _FUN_8c019550
-          .DATA.L     __8c03bd80
+          .DATA.L     _init_8c03bd80
           .DATA.L     _var_8c1bb8c4 ; H'8c015f50
           .DATA.L     _FUN_8c019e44
           .DATA.L     _FUN_8c016182
@@ -725,7 +725,7 @@ _FUN_8c015fd6:                   ; function: FUN_8c015fd6
           JSR         @R3
           MOV         #0,R4
           MOV         #0,R2
-          MOV.L       L53+32,R4; _tasks_8c1ba3c8
+          MOV.L       L53+32,R4; _var_tasks_8c1ba3c8
           MOV.L       R2,@-R15
           MOV.L       L53+28,R5; _task_8c012f44
           MOV         R15,R7
@@ -740,7 +740,7 @@ _FUN_8c015fd6:                   ; function: FUN_8c015fd6
           JSR         @R2
           MOV         R6,R4
           MOV         #0,R3
-          MOV.L       L53+32,R4; _tasks_8c1ba3c8
+          MOV.L       L53+32,R4; _var_tasks_8c1ba3c8
           MOV.L       R3,@-R15
           MOV.L       L53+44,R5; _task_title_8c015ab8
           MOV         R15,R7
@@ -758,7 +758,7 @@ _FUN_8c015fd6:                   ; function: FUN_8c015fd6
           MOV.L       R3,@(R0,R14)
           MOV.L       @(16,R15),R2
           MOV.L       @(8,R15),R3
-          MOV.L       L53+56,R4; _var_8c157af8
+          MOV.L       L53+56,R4; _var_tex_8c157af8
           MOV.L       R2,@(8,R3)
           MOV         #1,R3
           MOV.L       R3,@R1
@@ -826,13 +826,13 @@ L53:
           .DATA.L     H'C0E00000 ; -7.0
           .DATA.L     _FUN_8c0128cc ; H'8c0160b0
           .DATA.L     _task_8c012f44
-          .DATA.L     _tasks_8c1ba3c8
+          .DATA.L     _var_tasks_8c1ba3c8
           .DATA.L     _pushTask_8c014ae8
           .DATA.L     _njSetBackColor ; H'8c0160c0
           .DATA.L     _task_title_8c015ab8
           .DATA.L     _menuState_8c1bc7a8
           .DATA.L     _var_8c1bb8c4
-          .DATA.L     _var_8c157af8 ; H'8c0160d0
+          .DATA.L     _var_tex_8c157af8 ; H'8c0160d0
           .DATA.L     _njGarbageTexture
           .DATA.L     H'C0000000 ; -2.0
           .DATA.L     _FUN_8c02ae3e

@@ -10,7 +10,7 @@
           .IMPORT     _init_8c045148
           .IMPORT     _var_8c225fb0
           .IMPORT     _freeResourceGroup_8c0185c4
-          .IMPORT     _var_8c157af8
+          .IMPORT     _var_tex_8c157af8
           .IMPORT     _njGarbageTexture
           .IMPORT     _FUN_8c011f36
           .IMPORT     _FUN_8c011f6c
@@ -452,7 +452,7 @@ LP_GEN_72378:
           .DATA.L _var_8c225fb0 ; H'8C01CCB0
           .DATA.L _var_8c2263a8 ; H'8C01CCB4
           .DATA.L _freeResourceGroup_8c0185c4 ; H'8C01CCB8
-          .DATA.L _var_8c157af8 ; H'8C01CCBC
+          .DATA.L _var_tex_8c157af8 ; H'8C01CCBC
           .DATA.L _njGarbageTexture ; H'8C01CCC0
           .DATA.L _FUN_8c011f36 ; H'8C01CCC4
           .DATA.L _FUN_8c011f6c ; H'8C01CCC8
@@ -1199,7 +1199,7 @@ LP_GEN_13275:
           .DATA.L _setTaskAction_8c014b3e ; H'8C01D25C
           .DATA.L _menuState_8c1bc7a8 ; H'8C01D260
           .DATA.L _freeResourceGroup_8c0185c4 ; H'8C01D264
-          .DATA.L _var_8c157af8 ; H'8C01D268
+          .DATA.L _var_tex_8c157af8 ; H'8C01D268
           .DATA.L _njGarbageTexture ; H'8C01D26C
           .DATA.L _FUN_8c011f36 ; H'8C01D270
           .DATA.L _FUN_8c011f6c ; H'8C01D274

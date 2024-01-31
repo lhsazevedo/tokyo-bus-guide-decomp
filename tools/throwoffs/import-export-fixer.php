@@ -67,7 +67,7 @@ foreach ($lines as $lineIdx => $line) {
         continue;
     }
 
-    if (preg_match('/\b(_[a-zA-Z0-9_]+)\b/', $line, $matches)) {
+    if (preg_match('/\b(s?_[a-zA-Z0-9_]+)\b/', $line, $matches)) {
         // if (
         //     str_starts_with($matches[1], 'LAB_') ||
         //     str_starts_with($matches[1], 'LP_GEN_') ||

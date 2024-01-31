@@ -2,7 +2,7 @@
           .IMPORT     _njCalcPoints
           .IMPORT     _var_8c228978
           .IMPORT     _var_8c228974
-          .IMPORT     _var_8c1bac28
+          .IMPORT     _var_tasks_8c1bac28
           .IMPORT     _njCollisionCheckBB
           .IMPORT     _var_8c2289d8
           .IMPORT     _var_8c228b38
@@ -153,7 +153,7 @@ LP_GEN_17818:
           .DATA.L _njCalcPoints ; H'8C02E4F8
           .DATA.L _var_8c228978 ; H'8C02E4FC
           .DATA.L _var_8c228974 ; H'8C02E500
-          .DATA.L _var_8c1bac28 ; H'8C02E504
+          .DATA.L _var_tasks_8c1bac28 ; H'8C02E504
           .DATA.L _njCollisionCheckBB ; H'8C02E508
           .DATA.L _var_8c2289d8 ; H'8C02E50C
           .DATA.L _var_8c228b38 ; H'8C02E510

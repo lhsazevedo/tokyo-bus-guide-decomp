@@ -13,7 +13,7 @@
           .IMPORT     _njReleaseTexture
           .IMPORT     _njControl3D
           .IMPORT     _njFogDisable
-          .IMPORT     _var_8c1bb9d0
+          .IMPORT     _var_busState_8c1bb9d0
           .IMPORT     _njTranslate
           .IMPORT     _njSetTexture
           .IMPORT     _njCnkSimpleDrawObject
@@ -623,7 +623,7 @@ LP_GEN_51118:
           .DATA.W H'0100 ; H'8C021B7E
           .DATA.L _njControl3D ; H'8C021B80
           .DATA.L _njFogDisable ; H'8C021B84
-          .DATA.L _var_8c1bb9d0 ; H'8C021B88
+          .DATA.L _var_busState_8c1bb9d0 ; H'8C021B88
           .DATA.L _njTranslate ; H'8C021B8C
           .DATA.L _njSetTexture ; H'8C021B90
           .DATA.L _njCnkSimpleDrawObject ; H'8C021B94

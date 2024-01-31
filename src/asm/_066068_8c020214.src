@@ -17,7 +17,7 @@
           .IMPORT     _var_8c228710
           .IMPORT     _var_8c2285e4
           .IMPORT     _var_8c227d9c
-          .IMPORT     _var_8c1ba354
+          .IMPORT     _var_vibport_8c1ba354
           .IMPORT     _var_8c1ba293
           .IMPORT     _FUN_8c010fae
           .EXPORT     _FUN_8c020214
@@ -435,7 +435,7 @@ LP_GEN_85437:
           .DATA.L _var_8c2285e4 ; H'8C020510
           .DATA.L _var_8c227d9c ; H'8C020514
           .DATA.L _FUN_8c0121a8 ; H'8C020518
-          .DATA.L _var_8c1ba354 ; H'8C02051C
+          .DATA.L _var_vibport_8c1ba354 ; H'8C02051C
           .DATA.L _var_8c1ba293 ; H'8C020520
           .DATA.L _FUN_8c010fae ; H'8C020524
           .END
