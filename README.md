@@ -21,12 +21,12 @@ See [this thread](https://twitter.com/lhs_azevedo/status/1508270685784793089).
 1. Make sure your SDK is organized as bellow.
    ```
    ├── bin (From disc Vol.1 dc_sdk/bin)
-   �?   ├── binadj.exe
-   �?   └── ...
+   │   ├── binadj.exe
+   │   └── ...
    ├── shc (From disc Vol.2)
-   �?   ├── bin
-   �?   ├── include
-   �?   └── lib
+   │   ├── bin
+   │   ├── include
+   │   └── lib
    └── shinobi (From disc Vol.2)
       ├── driver
       ├── include
