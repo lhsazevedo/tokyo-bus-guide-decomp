@@ -18,7 +18,8 @@ compile() {
   wine "$SHC_BIN/shc.exe" $(echo "$src_file" | tr / '\\') -object="$obj_file" -sub=shc.sub
 }
 
-rm -r build/*
+rm -rf build
+mkdir build
 
 compile  src/_000128_8c010080_main.c
 assemble src/asm/_000188_8c0100bc_sound.src

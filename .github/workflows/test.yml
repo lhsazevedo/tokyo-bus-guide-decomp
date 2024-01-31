@@ -1,0 +1,49 @@
+name: Test
+
+on: ['push', 'pull_request']
+
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install Wine
+        run: |
+          sudo dpkg --add-architecture i386
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends wine wine32:i386
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.x
+          tools: composer:v2
+
+      - name: Install sh4objtest
+        run: |
+          composer global require --no-ansi --no-interaction --no-progress lhsazevedo/sh4objtest:dev-main
+          echo "$HOME/.config/composer/vendor/bin" >> $GITHUB_PATH
+
+      - name: Checkout SDK
+        uses: actions/checkout@v4
+        with:
+          ssh-key: ${{ secrets.SDK_REPO_KEY }}
+          repository: lhsazevedo/dc-sdk-155j
+          path: sdk
+
+      - name: Configure environment
+        run: |
+          DC_SDK=$PWD/sdk
+          echo "SHINOBI_DIR=$(winepath -w $DC_SDK/shinobi)" >> "$GITHUB_ENV"
+          echo "KATANA_SDK_DIR=$(winepath -w $DC_SDK)" >> "$GITHUB_ENV"
+          echo "SHC_BIN=$(winepath -w $DC_SDK/shc/bin)" >> "$GITHUB_ENV"
+          echo "SHC_TMP=$(winepath -w /tmp)" >> "$GITHUB_ENV"
+          echo "SHC_LIB=$(winepath -w $DC_SDK/shc/bin)" >> "$GITHUB_ENV"
+          echo "SHC_INC=$(winepath -w $DC_SDK/shc/include),$(winepath -w $DC_SDK/shinobi/include)" >> "$GITHUB_ENV"
+
+      - name: Test
+        run: bash run_tests.sh
