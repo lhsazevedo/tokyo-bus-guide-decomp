@@ -247,7 +247,7 @@ void task_title_8c015ab8(Task* task, void *state) {
                 menuState_8c1bc7a8.flagY_0x24 = 167.0;
 
                 /* Missing break! */
-                // goto gambi;
+                goto gambi;
             }
 
             /* 8c015d38 - Draw bus */
