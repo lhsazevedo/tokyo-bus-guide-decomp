@@ -36,7 +36,7 @@ See [this thread](https://twitter.com/lhs_azevedo/status/1508270685784793089).
    $ source set_kt.sh
    ```
 
-4. You should now be able to build the binary using the `compile.sh` script (yes, no fancy makefile for now).
+4. You should now be able to build the binary using the `build.sh` script (yes, no fancy makefile for now).
    ```
    ./compile.sh
    SH SERIES ASSEMBLER Ver. 4.0('98.07.06)

@@ -5,24 +5,24 @@ elf
 output build\tbg.elf
 
 ; STARTUPS
-input Z:\sdk\shinobi\lib\strt1.obj
-input Z:\sdk\shinobi\lib\strt2.obj
+input @DC_SDK@\shinobi\lib\strt1.obj
+input @DC_SDK@\shinobi\lib\strt2.obj
 
 ; IP OBJS
-input Z:\sdk\shinobi\lib\systemid.obj
-input Z:\sdk\shinobi\lib\toc.obj
-input Z:\sdk\shinobi\lib\sg_sec.obj
-input Z:\sdk\shinobi\lib\sg_arejp.obj
-input Z:\sdk\shinobi\lib\sg_areus.obj
-input Z:\sdk\shinobi\lib\sg_areec.obj
-input Z:\sdk\shinobi\lib\sg_are00.obj
-input Z:\sdk\shinobi\lib\sg_are01.obj
-input Z:\sdk\shinobi\lib\sg_are02.obj
-input Z:\sdk\shinobi\lib\sg_are03.obj
-input Z:\sdk\shinobi\lib\sg_are04.obj
-input Z:\sdk\shinobi\lib\sg_ini.obj
-input Z:\sdk\shinobi\lib\aip.obj
-input Z:\sdk\shinobi\lib\zero.obj
+input @DC_SDK@\shinobi\lib\systemid.obj
+input @DC_SDK@\shinobi\lib\toc.obj
+input @DC_SDK@\shinobi\lib\sg_sec.obj
+input @DC_SDK@\shinobi\lib\sg_arejp.obj
+input @DC_SDK@\shinobi\lib\sg_areus.obj
+input @DC_SDK@\shinobi\lib\sg_areec.obj
+input @DC_SDK@\shinobi\lib\sg_are00.obj
+input @DC_SDK@\shinobi\lib\sg_are01.obj
+input @DC_SDK@\shinobi\lib\sg_are02.obj
+input @DC_SDK@\shinobi\lib\sg_are03.obj
+input @DC_SDK@\shinobi\lib\sg_are04.obj
+input @DC_SDK@\shinobi\lib\sg_ini.obj
+input @DC_SDK@\shinobi\lib\aip.obj
+input @DC_SDK@\shinobi\lib\zero.obj
 
 ; USER OBJS
 input build\_000128_8c010080_main.obj
@@ -102,14 +102,14 @@ input build\_179584_8c03bd80_sectionD.obj
 input build\_970016_8c0fcd20_sectionB.obj
 
 ; USER LIBS
-library Z:\sdk\shinobi\lib\cri_adxs.lib
-library Z:\sdk\shinobi\lib\sg_mw.lib
-library Z:\sdk\shinobi\lib\sg_sd.lib
+library @DC_SDK@\shinobi\lib\cri_adxs.lib
+library @DC_SDK@\shinobi\lib\sg_mw.lib
+library @DC_SDK@\shinobi\lib\sg_sd.lib
 
 ; HLNK LIBS
-library Z:\sdk\shinobi\lib\shinobi.lib
-library Z:\sdk\shinobi\lib\ninja.lib
-library Z:\sdk\shc\lib\sh4nlfzn.lib
+library @DC_SDK@\shinobi\lib\shinobi.lib
+library @DC_SDK@\shinobi\lib\ninja.lib
+library @DC_SDK@\shc\lib\sh4nlfzn.lib
 
 print build\tbg.map
 form a
