@@ -18,6 +18,8 @@ compile() {
   wine "$SHC_BIN/shc.exe" $(echo "$src_file" | tr / '\\') -object="$obj_file" -sub=shc.sub
 }
 
+sed -i "s|@DC_SDK@|$KATANA_SDK_DIR|g" lnk.sub
+
 rm -rf build
 mkdir build
 

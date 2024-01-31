@@ -5,24 +5,24 @@ elf
 output build\tbg.elf
 
 ; STARTUPS
-input E:\dc_sdk\155j\shinobi\lib\strt1.obj
-input E:\dc_sdk\155j\shinobi\lib\strt2.obj
+input @DC_SDK@\shinobi\lib\strt1.obj
+input @DC_SDK@\shinobi\lib\strt2.obj
 
 ; IP OBJS
-input E:\dc_sdk\155j\shinobi\lib\systemid.obj
-input E:\dc_sdk\155j\shinobi\lib\toc.obj
-input E:\dc_sdk\155j\shinobi\lib\sg_sec.obj
-input E:\dc_sdk\155j\shinobi\lib\sg_arejp.obj
-input E:\dc_sdk\155j\shinobi\lib\sg_areus.obj
-input E:\dc_sdk\155j\shinobi\lib\sg_areec.obj
-input E:\dc_sdk\155j\shinobi\lib\sg_are00.obj
-input E:\dc_sdk\155j\shinobi\lib\sg_are01.obj
-input E:\dc_sdk\155j\shinobi\lib\sg_are02.obj
-input E:\dc_sdk\155j\shinobi\lib\sg_are03.obj
-input E:\dc_sdk\155j\shinobi\lib\sg_are04.obj
-input E:\dc_sdk\155j\shinobi\lib\sg_ini.obj
-input E:\dc_sdk\155j\shinobi\lib\aip.obj
-input E:\dc_sdk\155j\shinobi\lib\zero.obj
+input @DC_SDK@\shinobi\lib\systemid.obj
+input @DC_SDK@\shinobi\lib\toc.obj
+input @DC_SDK@\shinobi\lib\sg_sec.obj
+input @DC_SDK@\shinobi\lib\sg_arejp.obj
+input @DC_SDK@\shinobi\lib\sg_areus.obj
+input @DC_SDK@\shinobi\lib\sg_areec.obj
+input @DC_SDK@\shinobi\lib\sg_are00.obj
+input @DC_SDK@\shinobi\lib\sg_are01.obj
+input @DC_SDK@\shinobi\lib\sg_are02.obj
+input @DC_SDK@\shinobi\lib\sg_are03.obj
+input @DC_SDK@\shinobi\lib\sg_are04.obj
+input @DC_SDK@\shinobi\lib\sg_ini.obj
+input @DC_SDK@\shinobi\lib\aip.obj
+input @DC_SDK@\shinobi\lib\zero.obj
 
 ; USER OBJS
 input build\_000128_8c010080_main.obj
@@ -102,14 +102,14 @@ input build\_179584_8c03bd80_sectionD.obj
 input build\_970016_8c0fcd20_sectionB.obj
 
 ; USER LIBS
-library E:\dc_sdk\155j\shinobi\lib\cri_adxs.lib
-library E:\dc_sdk\155j\shinobi\lib\sg_mw.lib
-library E:\dc_sdk\155j\shinobi\lib\sg_sd.lib
+library @DC_SDK@\155j\shinobi\lib\cri_adxs.lib
+library @DC_SDK@\155j\shinobi\lib\sg_mw.lib
+library @DC_SDK@\155j\shinobi\lib\sg_sd.lib
 
 ; HLNK LIBS
-library E:\dc_sdk\155j\shinobi\lib\shinobi.lib
-library E:\dc_sdk\155j\shinobi\lib\ninja.lib
-library E:\dc_sdk\155j\shc\lib\sh4nlfzn.lib
+library @DC_SDK@\155j\shinobi\lib\shinobi.lib
+library @DC_SDK@\155j\shinobi\lib\ninja.lib
+library @DC_SDK@\155j\shc\lib\sh4nlfzn.lib
 
 print build\tbg.map
 form a
