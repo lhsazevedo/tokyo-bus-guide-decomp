@@ -24,6 +24,6 @@ mkdir build
 assemble  src/asm/_023224_8c015ab8_title.src
 sh4objtest "tests/_023224_8c015ab8_title.php" "build/_023224_8c015ab8_title_src.obj"
 
-compile  src/non_matching/_023224_8c015ab8_title.c
+compile  src/_023224_8c015ab8_title.c
 sh4objtest "tests/_023224_8c015ab8_title.php" "build/_023224_8c015ab8_title_c.obj"
 

@@ -39,7 +39,7 @@ compile  src/_018864_8c0149b0_sbinit.c
 compile  src/_019100_8c014a9c_tasks.c
 compile  src/_019340_8c014b8c_backup.c
 assemble src/asm/_020308_8c014f54.src
-compile  src/non_matching/_023224_8c015ab8_title.c
+compile  src/_023224_8c015ab8_title.c
 compile  src/_024840_8c016108.c
 assemble src/asm/_024908_8c01614c.src
 assemble src/asm/_027636_8c016bf4.src
