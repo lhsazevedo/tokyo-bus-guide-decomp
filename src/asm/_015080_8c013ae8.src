@@ -36,7 +36,7 @@
           .IMPORT     _var_8c226508
           .IMPORT     _var_8c227dd0
           .IMPORT     _var_8c1bb900
-          .IMPORT     _var_8c1bb8d0
+          .IMPORT     _var_demoOrGameplayState_8c1bb8d0
           .IMPORT     _init_8c043fd4
           .IMPORT     _FUN_8c029ad4
           .IMPORT     _var_8c226534
@@ -960,7 +960,7 @@ LP_GEN_25668:
           .DATA.L _var_8c1bc3f0
           .DATA.L _var_8c18adb0
           .DATA.L _var_8c1bb900
-          .DATA.L _var_8c1bb8d0
+          .DATA.L _var_demoOrGameplayState_8c1bb8d0
           .DATA.L _init_8c043fd4
           .DATA.L _FUN_8c029ad4
           .DATA.L _var_8c226534
@@ -1662,7 +1662,7 @@ LP_GEN_17698:
           .DATA.L __modls
           .DATA.L H'C0800000
           .DATA.L _var_8c1ba290
-          .DATA.L _var_8c1bb8d0
+          .DATA.L _var_demoOrGameplayState_8c1bb8d0
           .DATA.L _var_8c2285c4
           .DATA.L LAB_8c014550
           .DATA.L _tasks_8c1ba3c8

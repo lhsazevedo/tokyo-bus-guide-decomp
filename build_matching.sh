@@ -58,7 +58,7 @@ assemble src/asm/_057980_8c01e27c.src
 assemble src/asm/_062400_8c01f3c0.src
 assemble src/asm/_064120_8c01fa78.src
 assemble src/asm/_066068_8c020214.src
-assemble src/asm/_066856_8c020528.src
+compile  src/_066856_8c020528.c
 assemble src/asm/_066964_8c020594.src
 assemble src/asm/_067312_8c0206f0.src
 assemble src/asm/decompiled/_067540_8c0207d4.src

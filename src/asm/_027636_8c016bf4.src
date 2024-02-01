@@ -27,7 +27,7 @@ _FUN_8c016bf4:                   ; function: FUN_8c016bf4
           MOV         R1,R3
           AND         R3,R7
           MOV.L       R1,@R15
-          MOV.L       R7,@(10,R4)
+          MOV.L       R7,@(16,R4)
           MOV.L       @(8,R4),R3
           MOV.L       R3,@R6
           MOV.L       @R5,R0

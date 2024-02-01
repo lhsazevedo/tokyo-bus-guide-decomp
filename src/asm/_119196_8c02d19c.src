@@ -28,7 +28,7 @@
           .IMPORT     _freeTask_8c014b66
           .IMPORT     _var_8c2285c4
           .IMPORT     __divls
-          .IMPORT     _var_8c1bb8d0
+          .IMPORT     _var_demoOrGameplayState_8c1bb8d0
           .IMPORT     _FUN_8c02d0fc
           .IMPORT     _isFading_8c226568
           .IMPORT     _var_8c2288f8
@@ -898,7 +898,7 @@ LAB_8c02d7c0:
           NOP
 LP_GEN_70221:
           .DATA.L _FUN_8c0223ea ; H'8C02D7E4
-          .DATA.L _var_8c1bb8d0 ; H'8C02D7E8
+          .DATA.L _var_demoOrGameplayState_8c1bb8d0 ; H'8C02D7E8
           .DATA.L _var_8c2285c4 ; H'8C02D7EC
           .DATA.L _FUN_8c02d1f4 ; H'8C02D7F0
           .DATA.L _FUN_8c02d0fc ; H'8C02D7F4

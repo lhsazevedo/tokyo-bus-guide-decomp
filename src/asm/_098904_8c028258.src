@@ -25,7 +25,7 @@
           .IMPORT     _njUnitMatrix
           .IMPORT     _njTranslate
           .IMPORT     _njRotateY
-          .IMPORT     _var_8c1ba5e8
+          .IMPORT     _tasks_8c1ba5e8
           .IMPORT     _syFree
           .IMPORT     _freeTasks_8c014ab4
           .IMPORT     _var_8c227e2c
@@ -60,7 +60,7 @@
           .IMPORT     _var_8c1bba54
           .IMPORT     _njCalcPoint
           .IMPORT     _init_8c046518
-          .IMPORT     _var_8c1bb8d0
+          .IMPORT     _var_demoOrGameplayState_8c1bb8d0
           .IMPORT     _var_8c2285e4
           .IMPORT     _FUN_8c02d06c
           .IMPORT     _var_8c1bb868
@@ -1108,7 +1108,7 @@ LP_GEN_38963:
           .DATA.W H'00C4 ; H'8C028930
           .DATA.W H'0200 ; H'8C028932
           .DATA.L LAB_8c0283e8 ; H'8C028934
-          .DATA.L _var_8c1ba5e8 ; H'8C028938
+          .DATA.L _tasks_8c1ba5e8 ; H'8C028938
           .DATA.L _pushTask_8c014ae8 ; H'8C02893C
           .DATA.L _var_8c227e28 ; H'8C028940
           .DATA.L _syFree ; H'8C028944
@@ -2957,7 +2957,7 @@ LP_GEN_59898:
           .DATA.L _var_8c1ba808 ; H'8C02971C
           .DATA.L _execTasks_8c014b42 ; H'8C029720
           .DATA.L _FUN_8c0223ea ; H'8C029724
-          .DATA.L _var_8c1bb8d0 ; H'8C029728
+          .DATA.L _var_demoOrGameplayState_8c1bb8d0 ; H'8C029728
           .DATA.L _FUN_8c028b74 ; H'8C02972C
           .DATA.L LAB_8c028a38 ; H'8C029730
           .DATA.L _var_8c2285e4 ; H'8C029734
@@ -3108,7 +3108,7 @@ LP_GEN_63109:
           .DATA.L _var_8c228230 ; H'8C029848
           .DATA.L _syMalloc ; H'8C02984C
           .DATA.L _task_pedestrians_8c0293f6 ; H'8C029850
-          .DATA.L _var_8c1ba5e8 ; H'8C029854
+          .DATA.L _tasks_8c1ba5e8 ; H'8C029854
           .DATA.L _pushTask_8c014ae8 ; H'8C029858
           .DATA.L _var_8c228234 ; H'8C02985C
           .DATA.L _freeTasks_8c014ab4 ; H'8C029860
@@ -3402,7 +3402,7 @@ LP_GEN_39842:
           .DATA.L _init_8c046524 ; H'8C029A8C
           .DATA.L _init_8c0466a4 ; H'8C029A90
           .DATA.L LAB_8c029904 ; H'8C029A94
-          .DATA.L _var_8c1ba5e8 ; H'8C029A98
+          .DATA.L _tasks_8c1ba5e8 ; H'8C029A98
           .DATA.L _pushTask_8c014ae8 ; H'8C029A9C
           .DATA.L _FUN_8c020f7e ; H'8C029AA0
           .DATA.L _njRotateY ; H'8C029AA4
@@ -5355,7 +5355,7 @@ LP_GEN_79722:
           .DATA.L _var_8c22841c ; H'8C02A9EC
           .DATA.L _var_8c228434 ; H'8C02A9F0
           .DATA.L LAB_8c02a60e ; H'8C02A9F4
-          .DATA.L _var_8c1ba5e8 ; H'8C02A9F8
+          .DATA.L _tasks_8c1ba5e8 ; H'8C02A9F8
 _FUN_8c02a9fc:
           MOV         R4,R6
           BRA         LAB_8c02aa1e

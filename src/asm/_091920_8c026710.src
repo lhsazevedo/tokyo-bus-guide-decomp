@@ -58,7 +58,7 @@
           .IMPORT     _var_8c1bbdc4
           .IMPORT     _var_8c1bbda0
           .IMPORT     _var_8c1bbdb8
-          .IMPORT     _var_8c1ba5e8
+          .IMPORT     _tasks_8c1ba5e8
           .IMPORT     _FUN_8c02656a
           .IMPORT     _FUN_8c021290
           .EXPORT     _FUN_8c026710
@@ -2327,6 +2327,6 @@ LP_GEN_74201:
           .DATA.L H'41A00000 ; H'8C027858
           .DATA.L _var_8c1bbdb8 ; H'8C02785C
           .DATA.L LAB_8c0275d4 ; H'8C027860
-          .DATA.L _var_8c1ba5e8 ; H'8C027864
+          .DATA.L _tasks_8c1ba5e8 ; H'8C027864
           .DATA.L _pushTask_8c014ae8 ; H'8C027868
           .END

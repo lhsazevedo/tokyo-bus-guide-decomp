@@ -9,7 +9,7 @@
           .IMPORT     __8c03bd80
           .IMPORT     __8c03bd84
           .IMPORT     _FUN_8c015fd6
-          .IMPORT     _var_8c1bb8d0
+          .IMPORT     _var_demoOrGameplayState_8c1bb8d0
           .IMPORT     _var_8c18ad1c
           .IMPORT     _var_8c228708
           .IMPORT     _var_8c22655c
@@ -26,7 +26,7 @@
           .IMPORT     _njFogEnable
           .IMPORT     _kmSetCheapShadowMode
           .IMPORT     _kmSetFogTable
-          .IMPORT     _var_8c1ba5e8
+          .IMPORT     _tasks_8c1ba5e8
           .IMPORT     _clearTasks_8c014a9c
           .IMPORT     _var_8c1ba808
           .IMPORT     _var_8c1bac28
@@ -332,7 +332,7 @@ LP_GEN_99840:
           .DATA.L __8c03bd80
           .DATA.L __8c03bd84
           .DATA.L _FUN_8c015fd6
-          .DATA.L _var_8c1bb8d0
+          .DATA.L _var_demoOrGameplayState_8c1bb8d0
           .DATA.L _var_8c18ad1c
           .DATA.L _var_8c228708
           .DATA.L _var_8c22655c
@@ -502,7 +502,7 @@ LP_GEN_31464:
           .DATA.L _njFogEnable
           .DATA.L _kmSetCheapShadowMode
           .DATA.L _kmSetFogTable
-          .DATA.L _var_8c1ba5e8
+          .DATA.L _tasks_8c1ba5e8
           .DATA.L _clearTasks_8c014a9c
           .DATA.L _var_8c1ba808
           .DATA.L _var_8c1bac28
@@ -514,7 +514,7 @@ LP_GEN_31464:
           .DATA.L _FUN_8c0128cc
           .DATA.L _pushTask_8c014ae8
           .DATA.L _tasks_8c1ba3c8
-          .DATA.L _var_8c1bb8d0
+          .DATA.L _var_demoOrGameplayState_8c1bb8d0
           .DATA.L _FUN_8c012cbc
           .DATA.L _FUN_8c01677e
           .DATA.L _var_8c1bb8d4
@@ -768,7 +768,7 @@ LP_GEN_38000:
           .DATA.L _var_8c22847c
           .DATA.L _FUN_8c023610
           .DATA.L _FUN_8c02845a
-          .DATA.L _var_8c1bb8d0
+          .DATA.L _var_demoOrGameplayState_8c1bb8d0
           .DATA.L _FUN_8c029920
           .DATA.L _FUN_8c0296d6
           .DATA.L _FUN_8c02769e
@@ -1185,7 +1185,7 @@ LP_GEN_90231:
           .DATA.L _njLoadTexture
           .DATA.L _clearTasks_8c014a9c
           .DATA.L _tasks_8c1ba3c8
-          .DATA.L _var_8c1ba5e8
+          .DATA.L _tasks_8c1ba5e8
           .DATA.L _var_8c1ba808
           .DATA.L _var_8c1bac28
           .DATA.L _var_8c1bb448

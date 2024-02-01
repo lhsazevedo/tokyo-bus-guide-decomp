@@ -29,7 +29,7 @@
           .IMPORT     _FUN_8c01328c
           .IMPORT     _tasks_8c1ba3c8
           .IMPORT     _pushTask_8c014ae8
-          .IMPORT     _var_8c1bb8d0
+          .IMPORT     _var_demoOrGameplayState_8c1bb8d0
           .IMPORT     _var_8c1bb8d4
           .IMPORT     _var_8c1bb8d8
           .IMPORT     _FUN_8c011f36
@@ -1537,7 +1537,7 @@ LP_GEN_51554:
           .DATA.L _FUN_8c01594c
           .DATA.L _tasks_8c1ba3c8
           .DATA.L _pushTask_8c014ae8
-          .DATA.L _var_8c1bb8d0
+          .DATA.L _var_demoOrGameplayState_8c1bb8d0
           .DATA.L _var_8c1bb8d4
           .DATA.L _var_8c1bb8d8
           .DATA.L _FUN_8c011f36

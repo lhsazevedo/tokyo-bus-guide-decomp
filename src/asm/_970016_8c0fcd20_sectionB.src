@@ -87,7 +87,7 @@
           .EXPORT     _var_8c1ba376
           .EXPORT     _var_8c1ba3c4
           .EXPORT     _tasks_8c1ba3c8
-          .EXPORT     _var_8c1ba5e8
+          .EXPORT     _tasks_8c1ba5e8
           .EXPORT     _var_8c1ba808
           .EXPORT     _var_8c1bac28
           .EXPORT     _var_8c1bb448
@@ -107,7 +107,7 @@
           .EXPORT     _var_8c1bb8c4
           .EXPORT     _var_8c1bb8c8
           .EXPORT     _var_8c1bb8cc
-          .EXPORT     _var_8c1bb8d0
+          .EXPORT     _var_demoOrGameplayState_8c1bb8d0
           .EXPORT     _var_8c1bb8d4
           .EXPORT     _var_8c1bb8d8
           .EXPORT     _var_8c1bb8dc
@@ -626,7 +626,7 @@ _var_8c1ba3c4:
           .RES.B      4
 _tasks_8c1ba3c8:
           .RES.B      544
-_var_8c1ba5e8:
+_tasks_8c1ba5e8:
           .RES.B      544
 _var_8c1ba808:
           .RES.B      1056
@@ -666,7 +666,7 @@ _var_8c1bb8c8:
           .RES.B      4
 _var_8c1bb8cc:
           .RES.B      4
-_var_8c1bb8d0:
+_var_demoOrGameplayState_8c1bb8d0:
           .RES.B      4
 _var_8c1bb8d4:
           .RES.B      4

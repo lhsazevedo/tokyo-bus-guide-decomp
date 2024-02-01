@@ -3,7 +3,7 @@
           .IMPORT     _var_8c1ba1e4
           .IMPORT     _var_8c1ba2b4
           .IMPORT     _var_8c228560
-          .IMPORT     _var_8c1bb8d0
+          .IMPORT     _var_demoOrGameplayState_8c1bb8d0
           .IMPORT     _var_8c22851c
           .IMPORT     _var_8c18ad1c
           .IMPORT     _init_8c04b1f0
@@ -184,7 +184,7 @@ LP_GEN_66558:
           .DATA.L _var_8c1ba1e4 ; H'8C02B08C
           .DATA.L _var_8c1ba2b4 ; H'8C02B090
           .DATA.L _var_8c228560 ; H'8C02B094
-          .DATA.L _var_8c1bb8d0 ; H'8C02B098
+          .DATA.L _var_demoOrGameplayState_8c1bb8d0 ; H'8C02B098
           .DATA.L _var_8c22851c ; H'8C02B09C
           .DATA.L _var_8c18ad1c ; H'8C02B0A0
           .DATA.L _init_8c04b1f0 ; H'8C02B0A4
@@ -417,7 +417,7 @@ LP_GEN_88891:
           .DATA.W H'0200 ; H'8C02B246
           .DATA.W H'0300 ; H'8C02B248
           .DATA.W H'03FF ; H'8C02B24A
-          .DATA.L _var_8c1bb8d0 ; H'8C02B24C
+          .DATA.L _var_demoOrGameplayState_8c1bb8d0 ; H'8C02B24C
           .DATA.L _var_8c1bb8fc ; H'8C02B250
           .DATA.L _var_8c2285dc ; H'8C02B254
           .DATA.L _var_8c2285d8 ; H'8C02B258

@@ -1,0 +1,61 @@
+          .IMPORT     _pushTask_8c014ae8
+          .IMPORT     _tasks_8c1ba5e8
+          .IMPORT     _FUN_8c020214
+          .IMPORT     _var_demoOrGameplayState_8c1bb8d0
+          .IMPORT     _var_8c2264b8
+          .IMPORT     _FUN_8c0121be
+          .EXPORT     _FUN_8c020528
+          .SECTION    P,CODE,ALIGN=4
+_FUN_8c020528:                   ; function: FUN_8c020528
+                                 ; frame size=24
+          MOV.L       R14,@-R15
+          MOV.L       R13,@-R15
+          STS.L       PR,@-R15
+          ADD         #-8,R15
+          MOV.L       L1+6,R3 ; _var_demoOrGameplayState_8c1bb8d0
+          MOV.L       @R3,R0
+          CMP/EQ      #2,R0
+          BT          L0
+          MOV         #0,R1
+          MOV.L       L1+14,R4; _tasks_8c1ba5e8
+          MOV.L       R1,@-R15
+          MOV.L       L1+10,R5; _FUN_8c020214
+          MOV         R15,R7
+          MOV.L       L1+18,R2; _pushTask_8c014ae8
+          ADD         #8,R7
+          MOV         R15,R6
+          JSR         @R2
+          ADD         #4,R6
+          ADD         #4,R15
+          MOV.W       L1,R4   ; H'012C
+          MOV         #0,R13
+          MOV.L       L1+26,R3; _FUN_8c0121be
+          MOV.L       L1+22,R14; _var_8c2264b8
+          JSR         @R3
+          MOV.L       R13,@R14
+          MOV.W       L1+2,R2 ; H'0096
+          MOV         #3,R3
+          MOV         #1,R1
+          ADD         R2,R0
+          MOV.L       R0,@(4,R14)
+          MOV.L       R3,@(8,R14)
+          MOV.L       R1,@(12,R14)
+          MOV.L       R13,@(20,R14)
+          MOV.L       R13,@(24,R14)
+L0:                               
+          ADD         #8,R15
+          LDS.L       @R15+,PR
+          MOV.L       @R15+,R13
+          RTS
+          MOV.L       @R15+,R14
+L1:                               
+          .DATA.W     H'012C ; H'8C020576
+          .DATA.W     H'0096 ; H'8C020578
+          .RES.W      1 ; H'8C02057A
+          .DATA.L     _var_demoOrGameplayState_8c1bb8d0 ; H'8C02057C
+          .DATA.L     _FUN_8c020214 ; H'8C020580
+          .DATA.L     _tasks_8c1ba5e8 ; H'8C020584
+          .DATA.L     _pushTask_8c014ae8 ; H'8C020588
+          .DATA.L     _var_8c2264b8 ; H'8C02058C
+          .DATA.L     _FUN_8c0121be ; H'8C020590
+          .END
