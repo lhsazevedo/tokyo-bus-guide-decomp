@@ -62,7 +62,7 @@ assemble src/asm/_066068_8c020214.src
 assemble src/asm/_066856_8c020528.src
 assemble src/asm/_066964_8c020594.src
 assemble src/asm/_067312_8c0206f0.src
-assemble src/asm/_067540_8c0207d4.src
+compile  src/_067540_8c0207d4.c
 assemble src/asm/_067612_8c02081c.src
 assemble src/asm/_067860_8c020914.src
 assemble src/asm/_068460_8c020b6c.src
