@@ -38,7 +38,7 @@ compile  src/_018864_8c0149b0_sbinit.c
 compile  src/_019100_8c014a9c_tasks.c
 compile  src/_019340_8c014b8c_backup.c
 assemble src/asm/_020308_8c014f54.src
-assemble src/asm/_023224_8c015ab8_title.src
+assemble src/asm/decompiled/_023224_8c015ab8_title.src
 compile  src/_024840_8c016108.c
 assemble src/asm/_024908_8c01614c.src
 assemble src/asm/_027636_8c016bf4.src
@@ -61,7 +61,7 @@ assemble src/asm/_066068_8c020214.src
 assemble src/asm/_066856_8c020528.src
 assemble src/asm/_066964_8c020594.src
 assemble src/asm/_067312_8c0206f0.src
-assemble src/asm/_067540_8c0207d4.src
+assemble src/asm/decompiled/_067540_8c0207d4.src
 assemble src/asm/_067612_8c02081c.src
 assemble src/asm/_067860_8c020914.src
 assemble src/asm/_068460_8c020b6c.src
