@@ -443,7 +443,7 @@ return new class extends TestCase {
         $midiHandlesPtr = $this->alloc(4);
         $this->rellocate('_midiHandles_8c0fcd28', $midiHandlesPtr);
         $this->shouldRead($midiHandlesPtr, 0xbebacafe);
-        $this->shouldCall('_sdMidiPlay')->with(0xbebacafe, 1, 0, 0, 0);
+        $this->shouldCall('_sdMidiPlay')->with(0xbebacafe, 1, 0, 0);
 
         // Advance title state
         $this->shouldWrite($menuStatePtr + 0x18, 9);
@@ -472,7 +472,7 @@ return new class extends TestCase {
         $midiHandlesPtr = $this->alloc(4);
         $this->rellocate('_midiHandles_8c0fcd28', $midiHandlesPtr);
         $this->shouldRead($midiHandlesPtr, 0xbebacafe);
-        $this->shouldCall('_sdMidiPlay')->with(0xbebacafe, 1, 0, 0, 0);
+        $this->shouldCall('_sdMidiPlay')->with(0xbebacafe, 1, 0, 0);
 
         // Advance title state
         $this->shouldWrite($menuStatePtr + 0x18, 9);
@@ -528,7 +528,7 @@ return new class extends TestCase {
         $midiHandlesPtr = $this->alloc(4);
         $this->rellocate('_midiHandles_8c0fcd28', $midiHandlesPtr);
         $this->shouldRead($midiHandlesPtr, 0xbebacafe);
-        $this->shouldCall('_sdMidiPlay')->with(0xbebacafe, 1, 0, 0, 0);
+        $this->shouldCall('_sdMidiPlay')->with(0xbebacafe, 1, 0, 0);
 
         // Advance title state
         $this->shouldWrite($menuStatePtr + 0x18, 9);

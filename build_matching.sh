@@ -42,7 +42,7 @@ assemble src/asm/decompiled/_023224_8c015ab8_title.src
 compile  src/_024840_8c016108.c
 assemble src/asm/_024908_8c01614c.src
 assemble src/asm/_027636_8c016bf4.src
-assemble src/asm/_027736_8c016c58.src
+assemble src/asm/decompiled/_027736_8c016c58.src
 assemble src/asm/_027948_8c016d2c.src
 assemble src/asm/_034372_8c018644.src
 assemble src/asm/_034692_8c018784.src

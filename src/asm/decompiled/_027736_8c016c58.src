@@ -1,0 +1,123 @@
+          .IMPORT     _sdMidiPlay
+          .IMPORT     _midiHandles_8c0fcd28
+          .IMPORT     _peripheral_8c1ba35c
+          .EXPORT     _cycleOptionAndPlaySound_8c016c58
+          .EXPORT     _FUN_8c016caa
+          .SECTION    P,CODE,ALIGN=4
+_cycleOptionAndPlaySound_8c016c58:                   ; function: cycleOptionAndPlaySound_8c016c58
+                                 ; frame size=12
+          MOV.L       R14,@-R15
+          STS.L       PR,@-R15
+          ADD         #-4,R15
+          MOV.L       L10+2,R3
+          MOV         R4,R14
+          MOV         #64,R2
+          MOV.L       R4,@R15
+          MOV.L       @R3,R6
+          MOV         #0,R7
+          MOV.L       @R14,R14
+          TST         R6,R2
+          BT/S        L0
+          MOV         R7,R4
+          ADD         #-1,R14
+          CMP/PZ      R14
+          BT          L1
+          MOV         R5,R14
+          BRA         L1
+          ADD         #-1,R14
+L0:                               
+          MOV.W       L10,R1
+          TST         R1,R6
+          BT          L2
+          ADD         #1,R14
+          CMP/GE      R5,R14
+          BF          L1
+          MOV         R7,R14
+L1:                               
+          MOV.L       L10+6,R4
+          MOV         #1,R5
+          MOV.L       L10+10,R3
+          MOV         #0,R7
+          MOV         #3,R6
+          JSR         @R3
+          MOV.L       @R4,R4
+          MOV         #1,R4
+L2:                               
+          MOV.L       @R15,R2
+          MOV         R4,R0
+          MOV.L       R14,@R2
+          ADD         #4,R15
+          LDS.L       @R15+,PR
+          RTS
+          MOV.L       @R15+,R14
+_FUN_8c016caa:
+          MOV.L       R14,@-R15
+          MOV         R4,R14
+          MOV.L       R13,@-R15
+          MOV.L       R12,@-R15
+          MOV.L       R11,@-R15
+          STS.L       PR,@-R15
+          MOV.L       @R14,R3
+          MOV.L       L10+14,R13
+          MOV.L       L10+6,R11
+          TST         R3,R3
+          MOV.L       L10+10,R12
+          BF          L3
+          MOV.L       @(16,R13),R0
+          TST         #H'80,R0
+          BT          L5
+          BRA         L4
+          MOV         #1,R2
+L3:                               
+          MOV.L       @(16,R13),R0
+          TST         #H'40,R0
+          BT          L5
+          MOV         #0,R2
+L4:                               
+          MOV         #3,R6
+          MOV.L       R2,@R14
+          MOV         #1,R5
+          MOV         #0,R7
+          JSR         @R12
+          MOV.L       @R11,R4
+L5:                               
+          MOV.L       @(16,R13),R0
+          TST         #4,R0
+          BT          L6
+          MOV.L       @R14,R2
+          TST         R2,R2
+          BF          L7
+          MOV         #0,R7
+          MOV         #1,R5
+          MOV         R7,R6
+          JSR         @R12
+          MOV.L       @R11,R4
+          BRA         L9
+          MOV         #1,R0
+L6:                               
+          TST         #H'2,R0
+          BT          L8
+L7:                               
+          MOV         #1,R6
+          MOV         R6,R5
+          MOV         #0,R7
+          JSR         @R12
+          MOV.L       @R11,R4
+          BRA         L9
+          MOV         #H'2,R0
+L8:                               
+          MOV         #0,R0
+L9:                               
+          LDS.L       @R15+,PR
+          MOV.L       @R15+,R11
+          MOV.L       @R15+,R12
+          MOV.L       @R15+,R13
+          RTS
+          MOV.L       @R15+,R14
+L10:                               
+          .DATA.W     H'0080 ; H'8C016D1A
+          .DATA.L     H'00000010+_peripheral_8c1ba35c ; H'8C016D1C
+          .DATA.L     _midiHandles_8c0fcd28 ; H'8C016D20
+          .DATA.L     _sdMidiPlay ; H'8C016D24
+          .DATA.L     _peripheral_8c1ba35c ; H'8C016D28
+          .END

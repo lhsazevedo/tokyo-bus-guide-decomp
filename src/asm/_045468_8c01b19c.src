@@ -34,7 +34,7 @@
           .IMPORT     _FUN_8c02aefc
           .IMPORT     _getUknPvmBool_8c01432a
           .IMPORT     _FUN_8c011f7e
-          .IMPORT     _FUN_8c016c58
+          .IMPORT     _cycleOptionAndPlaySound_8c016c58
           .IMPORT     _var_8c1ba36c
           .IMPORT     _const_8c0380c8
           .IMPORT     _const_8c0380cc
@@ -601,7 +601,7 @@ LP_GEN_91278:
           .DATA.L _FUN_8c02aefc ; H'8C01B588
           .DATA.L _getUknPvmBool_8c01432a ; H'8C01B58C
           .DATA.L _FUN_8c011f7e ; H'8C01B590
-          .DATA.L _FUN_8c016c58 ; H'8C01B594
+          .DATA.L _cycleOptionAndPlaySound_8c016c58 ; H'8C01B594
           .DATA.L _var_8c1ba36c ; H'8C01B598
           .DATA.L _const_8c0380c8 ; H'8C01B59C
           .DATA.L _const_8c0380cc ; H'8C01B5A0

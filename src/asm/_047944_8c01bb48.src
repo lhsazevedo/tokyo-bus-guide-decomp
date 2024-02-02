@@ -32,7 +32,7 @@
           .IMPORT     _isFading_8c226568
           .IMPORT     _getUknPvmBool_8c01432a
           .IMPORT     _FUN_8c011f7e
-          .IMPORT     _FUN_8c016c58
+          .IMPORT     _cycleOptionAndPlaySound_8c016c58
           .IMPORT     _var_8c1ba36c
           .IMPORT     _FUN_8c0194de
           .IMPORT     _push_fadeout_8c022b60
@@ -1080,7 +1080,7 @@ LP_GEN_76857:
           .DATA.L _getUknPvmBool_8c01432a ; H'8C01C284
           .DATA.L _FUN_8c011f7e ; H'8C01C288
           .DATA.L _drawSprite_8c014f54 ; H'8C01C28C
-          .DATA.L _FUN_8c016c58 ; H'8C01C290
+          .DATA.L _cycleOptionAndPlaySound_8c016c58 ; H'8C01C290
           .DATA.L _var_8c1ba36c ; H'8C01C294
           .DATA.L _FUN_8c0194de ; H'8C01C298
           .DATA.L _push_fadeout_8c022b60 ; H'8C01C29C
