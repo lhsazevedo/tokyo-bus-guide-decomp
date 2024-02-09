@@ -30,7 +30,7 @@ assemble src/asm/_004384_8c011120.src
 assemble src/asm/_008996_8c012324.src
 assemble src/asm/_009476_8c012504.src
 assemble src/asm/_010700_8c0129cc.src
-assemble src/asm/_012100_8c012f44.src
+assemble src/asm/decompiled/_012100_8c012f44.src
 assemble src/asm/_012101_data.src
 assemble src/asm/_015080_8c013ae8.src
 compile  src/_018740_8c014934.c
