@@ -1,3 +1,5 @@
+#ifndef _TITLE_H_
+#define _TITLE_H_
 
 enum TITLE_STATE {
     TITLE_STATE_0X00_INIT,
@@ -33,7 +35,6 @@ struct ResourceGroup {
     NJS_TEXLIST *tlist_0x00;
     NJS_TEXANIM *tanim_0x04;
     void *contents_0x08;
-    // int field_0x0c;
 }
 typedef ResourceGroup;
 
@@ -70,3 +71,5 @@ typedef MenuState;
 
 extern MenuState menuState_8c1bc7a8;
 extern void* _8c225fb0;
+
+#endif /* _TITLE_H_ */

@@ -20,7 +20,7 @@ extern int var_8c1bbc84;
 extern int var_8c225fac;
 extern PDS_PERIPHERAL peripheral_8c1ba35c[2];
 
-void FUN_8c016bf4()
+void task_8c016bf4()
 {
     Struct8c225fa8* temp;
 

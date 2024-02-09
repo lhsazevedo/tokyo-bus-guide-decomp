@@ -6,7 +6,7 @@ $symbols = [
     ['_var_8c0fcd3c', 0x8C0FCD3C],
     ['_var_8c157a5c', 0x8C157A5C],
     ['_var_8c157a60', 0x8C157A60],
-    ['_var_8c157a64', 0x8C157A64],
+    ['_var_seed_8c157a64', 0x8C157A64],
     ['_var_8c157a68', 0x8C157A68],
     ['_var_8c157a6c', 0x8C157A6C],
     ['_var_8c157a70', 0x8C157A70],

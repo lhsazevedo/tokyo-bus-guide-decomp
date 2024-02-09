@@ -13,12 +13,12 @@
           .IMPORT     _push_fadeout_8c022b60
           .IMPORT     _init_8c045170
           .IMPORT     _FUN_8c016d2c
-          .IMPORT     __8c03bd80
+          .IMPORT     _init_8c03bd80
           .IMPORT     _FUN_8c016182
           .IMPORT     _FUN_8c017ef2
           .IMPORT     _setTaskAction_8c014b3e
           .IMPORT     _freeResourceGroup_8c0185c4
-          .IMPORT     _var_8c157af8
+          .IMPORT     _var_tex_8c157af8
           .IMPORT     _njGarbageTexture
           .IMPORT     _FUN_8c011f36
           .IMPORT     _FUN_8c011f6c
@@ -679,7 +679,7 @@ LP_GEN_43132:
           .DATA.L H'C0000000 ; H'8C01D750
           .DATA.L H'C0400000 ; H'8C01D754
           .DATA.L _drawSprite_8c014f54 ; H'8C01D758
-          .DATA.L __8c03bd80 ; H'8C01D75C
+          .DATA.L _init_8c03bd80 ; H'8C01D75C
           .DATA.L _FUN_8c016182 ; H'8C01D760
           .DATA.L _FUN_8c017ef2 ; H'8C01D764
           .DATA.L _FUN_8c01d300 ; H'8C01D768
@@ -733,7 +733,7 @@ LAB_8c01d780:
 LP_GEN_20271:
           .DATA.W H'0C00 ; H'8C01D7CE
           .DATA.L _freeResourceGroup_8c0185c4 ; H'8C01D7D0
-          .DATA.L _var_8c157af8 ; H'8C01D7D4
+          .DATA.L _var_tex_8c157af8 ; H'8C01D7D4
           .DATA.L _njGarbageTexture ; H'8C01D7D8
           .DATA.L _FUN_8c011f36 ; H'8C01D7DC
           .DATA.L _FUN_8c011f6c ; H'8C01D7E0

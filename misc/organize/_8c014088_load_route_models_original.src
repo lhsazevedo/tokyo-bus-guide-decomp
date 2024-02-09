@@ -136,7 +136,7 @@ MASKED:
 MASKED:
           route_common_dir_copy_8c18ad2c
 MASKED:
-          request_dat_8c011182
+          requestDat_8c011182
 MASKED:
           LAB_8c02aa36
 MASKED:
@@ -246,7 +246,7 @@ MASKED:
           _MOV      R13,R4
           MOV.L     @R14,R5
           MOV       R12,R6
-          MOV.L     ->request_dat_8c011182,R10
+          MOV.L     ->requestDat_8c011182,R10
           ADD       #0x24,R6
           MOV.L     @(0x3c,R5),R5
           JSR       @R10

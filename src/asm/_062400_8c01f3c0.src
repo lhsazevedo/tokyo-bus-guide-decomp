@@ -14,7 +14,7 @@
           .IMPORT     _init_8c04528c
           .IMPORT     _FUN_8c01543a
           .IMPORT     _menuTextboxTextSub_8c0155e0
-          .IMPORT     __8c03bd80
+          .IMPORT     _init_8c03bd80
           .IMPORT     _FUN_8c010bae
           .IMPORT     _isFading_8c226568
           .IMPORT     _snd_8c010cd6
@@ -35,9 +35,9 @@
           .IMPORT     _init_8c044c08
           .IMPORT     _FUN_8c0128cc
           .IMPORT     _task_8c012f44
-          .IMPORT     _tasks_8c1ba3c8
+          .IMPORT     _var_tasks_8c1ba3c8
           .IMPORT     _pushTask_8c014ae8
-          .IMPORT     _var_8c157af8
+          .IMPORT     _var_tex_8c157af8
           .IMPORT     _njGarbageTexture
           .IMPORT     _FUN_8c02ae3e
           .IMPORT     _const_8c039f48
@@ -501,7 +501,7 @@ LP_GEN_79838:
           .DATA.W H'00FF ; H'8C01F718
           .RES.W 1 ; H'8C01F71A
           .DATA.L _menuTextboxTextSub_8c0155e0 ; H'8C01F71C
-          .DATA.L __8c03bd80 ; H'8C01F720
+          .DATA.L _init_8c03bd80 ; H'8C01F720
           .DATA.L _FUN_8c010bae ; H'8C01F724
           .DATA.L _isFading_8c226568 ; H'8C01F728
           .DATA.L _snd_8c010cd6 ; H'8C01F72C
@@ -873,10 +873,10 @@ LP_GEN_38893:
           .DATA.L _init_8c044c08 ; H'8C01FA20
           .DATA.L _FUN_8c0128cc ; H'8C01FA24
           .DATA.L _task_8c012f44 ; H'8C01FA28
-          .DATA.L _tasks_8c1ba3c8 ; H'8C01FA2C
+          .DATA.L _var_tasks_8c1ba3c8 ; H'8C01FA2C
           .DATA.L _pushTask_8c014ae8 ; H'8C01FA30
           .DATA.L LAB_8c01f658 ; H'8C01FA34
-          .DATA.L _var_8c157af8 ; H'8C01FA38
+          .DATA.L _var_tex_8c157af8 ; H'8C01FA38
           .DATA.L _njGarbageTexture ; H'8C01FA3C
           .DATA.L H'C0000000 ; H'8C01FA40
           .DATA.L _FUN_8c02ae3e ; H'8C01FA44

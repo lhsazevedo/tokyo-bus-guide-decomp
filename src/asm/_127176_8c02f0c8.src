@@ -1,11 +1,11 @@
           .IMPORT     _var_8c228b48
           .IMPORT     _var_8c228ba0
-          .IMPORT     _var_8c1bb9d0
+          .IMPORT     _var_busState_8c1bb9d0
           .IMPORT     _var_8c228b9c
           .IMPORT     _var_8c1bbacc
           .IMPORT     _var_8c1bbad8
           .IMPORT     _var_8c1bbd9c
-          .IMPORT     _var_8c1bac28
+          .IMPORT     _var_tasks_8c1bac28
           .IMPORT     _var_8c228b98
           .IMPORT     _var_8c228b44
           .IMPORT     _var_8c228b40
@@ -142,13 +142,13 @@ LP_GEN_99248:
           .DATA.L _var_8c228b48 ; H'8C02F1AC
           .DATA.L H'40A00000 ; H'8C02F1B0
           .DATA.L _var_8c228ba0 ; H'8C02F1B4
-          .DATA.L _var_8c1bb9d0 ; H'8C02F1B8
+          .DATA.L _var_busState_8c1bb9d0 ; H'8C02F1B8
           .DATA.L _var_8c228b9c ; H'8C02F1BC
           .DATA.L H'40200000 ; H'8C02F1C0
           .DATA.L _var_8c1bbacc ; H'8C02F1C4
           .DATA.L _var_8c1bbad8 ; H'8C02F1C8
           .DATA.L _var_8c1bbd9c ; H'8C02F1CC
-          .DATA.L _var_8c1bac28 ; H'8C02F1D0
+          .DATA.L _var_tasks_8c1bac28 ; H'8C02F1D0
 LAB_8c02f1d4:
           MOV.L       @R5,R0
           CMP/EQ      #-H'1,R0
@@ -281,7 +281,7 @@ LP_GEN_98541:
           .DATA.W H'00FC ; H'8C02F2BA
           .DATA.W H'050C ; H'8C02F2BC
           .DATA.W H'0450 ; H'8C02F2BE
-          .DATA.L _var_8c1bac28 ; H'8C02F2C0
+          .DATA.L _var_tasks_8c1bac28 ; H'8C02F2C0
           .DATA.L _var_8c228b9c ; H'8C02F2C4
           .DATA.L H'40200000 ; H'8C02F2C8
           .DATA.L _var_8c228ba0 ; H'8C02F2CC

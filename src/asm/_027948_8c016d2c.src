@@ -20,7 +20,7 @@
           .IMPORT     _FUN_8c010ca6
           .IMPORT     _njCos
           .IMPORT     _var_8c225fb8
-          .IMPORT     _tasks_8c1ba3c8
+          .IMPORT     _var_tasks_8c1ba3c8
           .IMPORT     _pushTask_8c014ae8
           .IMPORT     _init_8c044c08
           .IMPORT     _var_8c1ba36c
@@ -34,7 +34,7 @@
           .IMPORT     _FUN_8c0121be
           .IMPORT     _var_8c225fbc
           .IMPORT     _var_8c1bb8fc
-          .IMPORT     __8c03bd80
+          .IMPORT     _init_8c03bd80
           .IMPORT     _isFading_8c226568
           .IMPORT     _getUknPvmBool_8c01432a
           .IMPORT     _FUN_8c011f7e
@@ -49,8 +49,8 @@
           .IMPORT     _FUN_8c012166
           .IMPORT     _var_8c1bb8c0
           .IMPORT     _setTaskAction_8c014b3e
-          .IMPORT     _var_demoOrGameplayState_8c1bb8d0
-          .IMPORT     _var_8c157af8
+          .IMPORT     _var_demo_8c1bb8d0
+          .IMPORT     _var_tex_8c157af8
           .IMPORT     _njGarbageTexture
           .IMPORT     _FUN_8c011f36
           .IMPORT     _FUN_8c011f6c
@@ -79,7 +79,7 @@
           .IMPORT     _init_8c044d40
           .IMPORT     _const_8c036290
           .IMPORT     _const_8c036298
-          .IMPORT     _request_dat_8c011182
+          .IMPORT     _requestDat_8c011182
           .IMPORT     _const_8c0362ac
           .IMPORT     _const_8c0362b8
           .IMPORT     _requestPvm_8c011ac0
@@ -687,7 +687,7 @@ LP_GEN_21301:
           .DATA.L _drawSprite_8c014f54 ; H'8C0171A0
           .DATA.L _var_8c225fb8 ; H'8C0171A4
           .DATA.L _FUN_8c016f98 ; H'8C0171A8
-          .DATA.L _tasks_8c1ba3c8 ; H'8C0171AC
+          .DATA.L _var_tasks_8c1ba3c8 ; H'8C0171AC
           .DATA.L _pushTask_8c014ae8 ; H'8C0171B0
           .DATA.L _init_8c044c08 ; H'8C0171B4
           .DATA.L _var_8c225fb4 ; H'8C0171B8
@@ -1517,7 +1517,7 @@ LAB_8c0177c4:
 LP_GEN_90654:
           .DATA.W H'008C ; H'8C0177D2
           .DATA.L _menuState_8c1bc7a8 ; H'8C0177D4
-          .DATA.L __8c03bd80 ; H'8C0177D8
+          .DATA.L _init_8c03bd80 ; H'8C0177D8
           .DATA.L _isFading_8c226568 ; H'8C0177DC
           .DATA.L _var_8c225fbc ; H'8C0177E0
           .DATA.L _getUknPvmBool_8c01432a ; H'8C0177E4
@@ -2041,7 +2041,7 @@ LAB_8c017bbc:
           NOP
 LP_GEN_86246:
           .DATA.L _menuState_8c1bc7a8 ; H'8C017BD8
-          .DATA.L __8c03bd80 ; H'8C017BDC
+          .DATA.L _init_8c03bd80 ; H'8C017BDC
           .DATA.L _var_8c225fbc ; H'8C017BE0
           .DATA.L _isFading_8c226568 ; H'8C017BE4
           .DATA.L _getUknPvmBool_8c01432a ; H'8C017BE8
@@ -2476,8 +2476,8 @@ LP_GEN_67544:
           .DATA.L _var_8c225fbc ; H'8C017F48
           .DATA.L _init_8c044c08 ; H'8C017F4C
           .DATA.L _var_8c225fb8 ; H'8C017F50
-          .DATA.L _var_demoOrGameplayState_8c1bb8d0 ; H'8C017F54
-          .DATA.L _var_8c157af8 ; H'8C017F58
+          .DATA.L _var_demo_8c1bb8d0 ; H'8C017F54
+          .DATA.L _var_tex_8c157af8 ; H'8C017F58
           .DATA.L _njGarbageTexture ; H'8C017F5C
           .DATA.L _FUN_8c011f36 ; H'8C017F60
           .DATA.L _FUN_8c011f6c ; H'8C017F64
@@ -2492,7 +2492,7 @@ LP_GEN_67544:
           .DATA.L _FUN_8c0128cc ; H'8C017F88
           .DATA.L _pushTask_8c014ae8 ; H'8C017F8C
           .DATA.L _task_8c012f44 ; H'8C017F90
-          .DATA.L _tasks_8c1ba3c8 ; H'8C017F94
+          .DATA.L _var_tasks_8c1ba3c8 ; H'8C017F94
           .DATA.L _var_8c1bb8fc ; H'8C017F98
           .DATA.L _FUN_8c017718 ; H'8C017F9C
 LAB_8c017fa0:
@@ -2645,13 +2645,13 @@ LP_GEN_56170:
           .DATA.L _var_8c225fbc ; H'8C0180C0
           .DATA.L _init_8c044c08 ; H'8C0180C4
           .DATA.L _var_8c225fb8 ; H'8C0180C8
-          .DATA.L _var_8c157af8 ; H'8C0180CC
+          .DATA.L _var_tex_8c157af8 ; H'8C0180CC
           .DATA.L _njGarbageTexture ; H'8C0180D0
           .DATA.L H'C0000000 ; H'8C0180D4
           .DATA.L _FUN_8c02ae3e ; H'8C0180D8
           .DATA.L _const_8c03628c ; H'8C0180DC
           .DATA.L _FUN_8c02aefc ; H'8C0180E0
-          .DATA.L _var_demoOrGameplayState_8c1bb8d0 ; H'8C0180E4
+          .DATA.L _var_demo_8c1bb8d0 ; H'8C0180E4
           .DATA.L _FUN_8c011f36 ; H'8C0180E8
           .DATA.L _FUN_8c011f6c ; H'8C0180EC
           .DATA.L _init_8c044264 ; H'8C0180F0
@@ -2979,7 +2979,7 @@ LP_GEN_82242:
           .DATA.L _init_8c044d2f ; H'8C018370
           .DATA.L H'43EB8000 ; H'8C018374
           .DATA.L H'C0E00000 ; H'8C018378
-          .DATA.L __8c03bd80 ; H'8C01837C
+          .DATA.L _init_8c03bd80 ; H'8C01837C
           .DATA.L _FUN_8c010bae ; H'8C018380
           .DATA.L _isFading_8c226568 ; H'8C018384
           .DATA.L _getUknPvmBool_8c01432a ; H'8C018388
@@ -3281,7 +3281,7 @@ LAB_8c0185e6:
 LP_GEN_93008:
           .DATA.W H'0C00 ; H'8C0185EC
           .RES.W 1 ; H'8C0185EE
-          .DATA.L _var_8c157af8 ; H'8C0185F0
+          .DATA.L _var_tex_8c157af8 ; H'8C0185F0
           .DATA.L _njGarbageTexture ; H'8C0185F4
           .DATA.L _FUN_8c0181b6 ; H'8C0185F8
           .DATA.L _setTaskAction_8c014b3e ; H'8C0185FC
@@ -3295,7 +3295,7 @@ LP_GEN_93008:
           .DATA.L _FUN_8c011fe0 ; H'8C01861C
           .DATA.L _const_8c036290 ; H'8C018620
           .DATA.L _const_8c036298 ; H'8C018624
-          .DATA.L _request_dat_8c011182 ; H'8C018628
+          .DATA.L _requestDat_8c011182 ; H'8C018628
           .DATA.L _const_8c0362ac ; H'8C01862C
           .DATA.L _const_8c0362b8 ; H'8C018630
           .DATA.L _requestPvm_8c011ac0 ; H'8C018634

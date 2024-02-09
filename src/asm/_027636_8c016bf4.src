@@ -2,9 +2,9 @@
           .IMPORT     _var_8c1bbc84
           .IMPORT     _var_8c225fac
           .IMPORT     _peripheral_8c1ba35c
-          .EXPORT     _FUN_8c016bf4
+          .EXPORT     _task_8c016bf4
           .SECTION    P,CODE,ALIGN=4
-_FUN_8c016bf4:                   ; function: FUN_8c016bf4
+_task_8c016bf4:                   ; function: task_8c016bf4
                                  ; frame size=4
           ADD         #-H'4,R15
           MOV.L       L1,R1   ; _var_8c1bbc84

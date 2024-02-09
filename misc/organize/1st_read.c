@@ -8,8 +8,8 @@
 #include "1st_read.h";
 
 boolean ukn_pvm_bool_at_8c18adac;
-Task tasks_8c1ba3c8[16 + 1];
-Task tasks_8c1ba5e8[16 + 1];
+Task var_tasks_8c1ba3c8[16 + 1];
+Task var_tasks_8c1ba5e8[16 + 1];
 // TODO: ?
 QueuedDat queued_dats[10];
 QueuedDat *ukn_dat_end_8c157a90;
@@ -20,11 +20,11 @@ void queued_thing_at_8c157ac0
 void allocated_8c157abc;
 char *DATA_EMPTY_at_8c03334c = "DATA EMPTY.";
 int _8c157ac8;
-int _8c03bd80;
+int init_8c03bd80;
 int _8c157a60;
 int _8c1ba354;
 int _8c03bfa8;
-int _8c03bd84;
+int init_8c03bd80;
 void *_8c0139f4;
 char _8c013650;
 struct _8c315be8 {};
@@ -391,7 +391,7 @@ void njUserInit_8c0134ec() {
     // ...
 
     // 0x8c013834
-    pushTask_8c014ae8(tasks_8c1ba3c8, task_8c013388, local_sega, local_val0x78, 0);
+    pushTask_8c014ae8(var_tasks_8c1ba3c8, task_8c013388, local_sega, local_val0x78, 0);
 
     // 0x8c013850
     // Allocations and preps?
@@ -405,7 +405,7 @@ void njUserInit_8c0134ec() {
 }
 
 int njUserMain_8c01392e() {
-    if (_8c03bd80 == 0) {
+    if (init_8c03bd80 == 0) {
         // 0x8c013956
         if (!_8c157a60 == 0) {
             // 0x8c01395e
@@ -458,7 +458,7 @@ int njUserMain_8c01392e() {
         }
     } else {
         // 0x8c01393e
-        if (_8c03bd84 == 0) {
+        if (init_8c03bd80 == 0) {
             if (_8c1ba354 != -1) {
                 _8c056450(_8c1ba354);
             }
@@ -594,9 +594,9 @@ undefined task_8c015ab8() {
 void _8c015fd6(int param_r4) {
     _8c0128cc(0);
 
-    pushTask_8c014ae8(tasks_8c1ba3c8, task_8c012f44, st_plus_4, st_plus_8, 0);
+    pushTask_8c014ae8(var_tasks_8c1ba3c8, task_8c012f44, st_plus_4, st_plus_8, 0);
 
-    pushTask_8c014ae8(tasks_8c1ba3c8, task_8c015ab8, st_plus_8, st_plus_c, 0);
+    pushTask_8c014ae8(var_tasks_8c1ba3c8, task_8c015ab8, st_plus_8, st_plus_c, 0);
 
     _8c1bc7a8->field_0x18 = 0;
     _8c1bc7a8->field_0x64 = 0;

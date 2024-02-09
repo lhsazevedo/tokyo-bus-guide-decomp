@@ -2,7 +2,7 @@
 
 extern void *_8c012030();
 extern void request_nj_8c011492();
-extern void request_dat_8c011182();
+extern void requestDat_8c011182();
 extern void request_some_files_8c013ae8();
 extern char *strcpy_8c03011c();
 
@@ -136,14 +136,14 @@ void load_route_models_8c014088() {
     request_nj_8c011492(route_common_dir_8c18ad6c, route->nj_0x34, &_8c1bb884, 0);
     request_nj_8c011492(route_common_dir_8c18ad6c, route->nj_0x38, &_8c1bb888, 0);
 
-    request_dat_8c011182(route_common_dir_8c18ad6c, route->dat_0x3c, 0x8c, 0);
+    requestDat_8c011182(route_common_dir_8c18ad6c, route->dat_0x3c, 0x8c, 0);
 
     request_nj_8c011492(route_common_dir_8c18ad6c, route->nj_0x40, &_8c1bb890, 0);
     request_nj_8c011492(route_common_dir_8c18ad6c, route->nj_0x44, 0,&_8c1bb894);
 
-    request_dat_8c011182(route_common_dir_8c18ad6c, route->dat_0x48, 0x98, 0x94);
-    request_dat_8c011182(route_common_dir_8c18ad6c, route->dat_0x4c, 0x9c, 0x94);
-    request_dat_8c011182(route_common_dir_8c18ad6c, route->dat_0x50, 0xa0, 0x94);
+    requestDat_8c011182(route_common_dir_8c18ad6c, route->dat_0x48, 0x98, 0x94);
+    requestDat_8c011182(route_common_dir_8c18ad6c, route->dat_0x4c, 0x9c, 0x94);
+    requestDat_8c011182(route_common_dir_8c18ad6c, route->dat_0x50, 0xa0, 0x94);
     request_nj_8c011492(route_common_dir_8c18ad6c, route->nj_0x54, &_8c1bb8a4, 0);
     request_nj_8c011492(route_common_dir_8c18ad6c, route->nj_0x58, &_8c1bb8a8, 0);
     request_nj_8c011492(route_common_dir_8c18ad6c, route->nj_0x5c, &_8c1bb8ac, 0);

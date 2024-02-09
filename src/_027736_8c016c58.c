@@ -18,6 +18,7 @@ int cycleOptionAndPlaySound_8c016c58(int *currentOption, int optionCount)
             newOption = 0;
         }
     } else {
+        *currentOption = newOption;
         return 0;
     }
 

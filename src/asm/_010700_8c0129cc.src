@@ -7,7 +7,7 @@
           .IMPORT     _var_8c22847c
           .IMPORT     _var_8c18ad10
           .IMPORT     _controlAdxtWithOutVol_8c0107d2
-          .IMPORT     _var_8c1ba354
+          .IMPORT     _var_vibport_8c1ba354
           .IMPORT     _pdVibMxStop
           .IMPORT     _FUN_8c022560
           .IMPORT     _drawSprite_8c014f54
@@ -20,7 +20,7 @@
           .IMPORT     _var_8c1bb8b8
           .IMPORT     _var_8c1bb8bc
           .IMPORT     _FUN_8c016182
-          .IMPORT     _var_demoOrGameplayState_8c1bb8d0
+          .IMPORT     _var_demo_8c1bb8d0
           .IMPORT     _var_8c1ba2cc
           .IMPORT     _var_8c1ba2b8
           .IMPORT     _var_8c1ba1cc
@@ -35,18 +35,18 @@
           .IMPORT     _var_8c157a60
           .IMPORT     _FUN_8c015fd6
           .IMPORT     _FUN_8c02239c
-          .IMPORT     _tasks_8c1ba5e8
+          .IMPORT     _var_tasks_8c1ba5e8
           .IMPORT     _execTasks_8c014b42
           .IMPORT     _FUN_8c022910
-          .IMPORT     __8c03bd80
-          .IMPORT     __8c03bd84
+          .IMPORT     _init_8c03bd80
+          .IMPORT     _init_8c03bd84
           .IMPORT     _FUN_adxVol_8c010a40
           .IMPORT     _FUN_8c010bae
           .IMPORT     _var_8c1ba36c
           .EXPORT     _FUN_8c0129cc
-          .EXPORT     _FUN_8c012cbc
-          .EXPORT     _FUN_8c012d06
-          .EXPORT     _FUN_8c012d5a
+          .EXPORT     _task_8c012cbc
+          .EXPORT     _task_8c012d06
+          .EXPORT     _task_8c012d5a
           .SECTION     P, CODE, ALIGN=4
 _FUN_8c0129cc:
           MOV.L       R14,@-R15
@@ -331,7 +331,7 @@ LP_GEN_41107:
           .DATA.L _var_8c22847c
           .DATA.L _var_8c18ad10
           .DATA.L _controlAdxtWithOutVol_8c0107d2
-          .DATA.L _var_8c1ba354
+          .DATA.L _var_vibport_8c1ba354
           .DATA.L _pdVibMxStop
           .DATA.L _FUN_8c022560
           .DATA.L _drawSprite_8c014f54
@@ -448,7 +448,7 @@ LAB_8c012ca6:
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-_FUN_8c012cbc:
+_task_8c012cbc:
           MOV.L       LP_GEN_43727+70,R2
           STS.L       PR,@-R15
           MOV.L       @R2,R3
@@ -488,7 +488,7 @@ LAB_8c012d00:
           LDS.L       @R15+,PR
           RTS
           NOP
-_FUN_8c012d06:
+_task_8c012d06:
           MOV.L       LP_GEN_43727+70,R2
           STS.L       PR,@-R15
           MOV.L       @R2,R3
@@ -534,7 +534,7 @@ LAB_8c012d54:
           MOV.L       LP_GEN_43727+110,R3
           JMP         @R3
           LDS.L       @R15+,PR
-_FUN_8c012d5a:
+_task_8c012d5a:
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           MOV.L       R12,@-R15
@@ -603,7 +603,7 @@ LP_GEN_43727:
           .DATA.L _var_8c1bb8b8
           .DATA.L _var_8c1bb8bc
           .DATA.L _FUN_8c016182
-          .DATA.L _var_demoOrGameplayState_8c1bb8d0
+          .DATA.L _var_demo_8c1bb8d0
           .DATA.L _var_8c1ba2cc
           .DATA.L _var_8c1ba2b8
           .DATA.L _var_8c1ba1cc
@@ -620,14 +620,14 @@ LP_GEN_43727:
           .DATA.L _var_8c157a60
           .DATA.L _FUN_8c015fd6
           .DATA.L _FUN_8c02239c
-          .DATA.L _tasks_8c1ba5e8
+          .DATA.L _var_tasks_8c1ba5e8
           .DATA.L _execTasks_8c014b42
           .DATA.L _FUN_8c022560
           .DATA.L _var_8c1bb8cc
           .DATA.L _var_8c1ba358
           .DATA.L _FUN_8c022910
-          .DATA.L __8c03bd80
-          .DATA.L __8c03bd84
+          .DATA.L _init_8c03bd80
+          .DATA.L _init_8c03bd84
           .DATA.L _FUN_adxVol_8c010a40
           .DATA.L _FUN_8c010bae
           .DATA.L _var_8c1ba36c
@@ -744,7 +744,7 @@ LP_GEN_94405:
           .DATA.L _push_fadeout_8c022b60
           .DATA.L _FUN_8c015fd6
           .DATA.L _FUN_8c02239c
-          .DATA.L _tasks_8c1ba5e8
+          .DATA.L _var_tasks_8c1ba5e8
           .DATA.L _execTasks_8c014b42
           .DATA.L _FUN_8c022910
           .DATA.L H'BF8CCCCD

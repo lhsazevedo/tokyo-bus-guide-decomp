@@ -1,6 +1,6 @@
           .IMPORT     _var_8c228934
-          .IMPORT     _tasks_8c1ba5e8
-          .IMPORT     _var_demoOrGameplayState_8c1bb8d0
+          .IMPORT     _var_tasks_8c1ba5e8
+          .IMPORT     _var_demo_8c1bb8d0
           .IMPORT     _var_8c226410
           .IMPORT     _FUN_8c02d644
           .IMPORT     _pushTask_8c014ae8
@@ -300,8 +300,8 @@ LAB_8c02db20:
           FMOV.S      @R0,FR15
 LP_GEN_52173:
           .DATA.L _var_8c228934 ; H'8C02DB58
-          .DATA.L _tasks_8c1ba5e8 ; H'8C02DB5C
-          .DATA.L _var_demoOrGameplayState_8c1bb8d0 ; H'8C02DB60
+          .DATA.L _var_tasks_8c1ba5e8 ; H'8C02DB5C
+          .DATA.L _var_demo_8c1bb8d0 ; H'8C02DB60
           .DATA.L _var_8c226410 ; H'8C02DB64
           .DATA.L _FUN_8c02d644 ; H'8C02DB68
           .DATA.L _pushTask_8c014ae8 ; H'8C02DB6C

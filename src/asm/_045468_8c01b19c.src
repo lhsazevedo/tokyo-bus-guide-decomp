@@ -88,7 +88,7 @@
           .IMPORT     _FUN_8c011f6c
           .IMPORT     _const_8c038454
           .IMPORT     _const_8c03844c
-          .IMPORT     _request_dat_8c011182
+          .IMPORT     _requestDat_8c011182
           .IMPORT     _setUknPvmBool_8c014330
           .IMPORT     _resetUknPvmBool_8c014322
           .IMPORT     _nop_8c011120
@@ -1277,7 +1277,7 @@ LP_GEN_62205:
           .DATA.L _var_8c1ba344 ; H'8C01BB28
           .DATA.L _const_8c038454 ; H'8C01BB2C
           .DATA.L _const_8c03844c ; H'8C01BB30
-          .DATA.L _request_dat_8c011182 ; H'8C01BB34
+          .DATA.L _requestDat_8c011182 ; H'8C01BB34
           .DATA.L _setUknPvmBool_8c014330 ; H'8C01BB38
           .DATA.L _resetUknPvmBool_8c014322 ; H'8C01BB3C
           .DATA.L _nop_8c011120 ; H'8C01BB40
