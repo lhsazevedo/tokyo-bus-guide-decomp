@@ -5,6 +5,8 @@ declare(strict_types=1);
 use Lhsazevedo\Sh4ObjTest\TestCase;
 
 return new class extends TestCase {
+    protected ?string $objectFile = __DIR__ . '/main.obj';
+
     public function testState0x00_Init_SkipTitleAnimationWhenStartIsPressed() {
         $this->shouldReadSymbolOffset('_menuState_8c1bc7a8', 0x18, 0x0b);
         // peripherals[0].press (sizeof PERIPHERAL = 52)
@@ -140,6 +142,7 @@ return new class extends TestCase {
 
         // Check timer
         $this->shouldRead($menuStatePtr + 0x68, 29);
+        $this->shouldWrite($menuStatePtr + 0x68, 30);
 
         $this->shouldCall('_drawSprite_8c014f54')->with($menuStatePtr + 0x0c, 0, 0.0, 0.0, -5.0);
 
@@ -157,6 +160,7 @@ return new class extends TestCase {
 
         // Check timer
         $this->shouldRead($menuStatePtr + 0x68, 30);
+        $this->shouldWrite($menuStatePtr + 0x68, 31);
 
         // Advance title state
         $this->shouldWrite($menuStatePtr + 0x18, 3);
@@ -250,6 +254,7 @@ return new class extends TestCase {
 
         // Check timer
         $this->shouldRead($menuStatePtr + 0x68, 29);
+        $this->shouldWrite($menuStatePtr + 0x68, 30);
 
         $this->shouldCall('_drawSprite_8c014f54')->with($menuStatePtr + 0x0c, 3, 0.0, 0.0, -5.0);
 
@@ -267,6 +272,7 @@ return new class extends TestCase {
 
         // Check timer
         $this->shouldRead($menuStatePtr + 0x68, 30);
+        $this->shouldWrite($menuStatePtr + 0x68, 31);
 
         // Advance title state
         $this->shouldWrite($menuStatePtr + 0x18, 6);
@@ -443,7 +449,7 @@ return new class extends TestCase {
         $midiHandlesPtr = $this->alloc(4);
         $this->rellocate('_midiHandles_8c0fcd28', $midiHandlesPtr);
         $this->shouldRead($midiHandlesPtr, 0xbebacafe);
-        $this->shouldCall('_sdMidiPlay')->with(0xbebacafe, 1, 0, 0);
+        $this->shouldCall('_sdMidiPlay')->with(0xbebacafe, 1, 0, 0, 0);
 
         // Advance title state
         $this->shouldWrite($menuStatePtr + 0x18, 9);
@@ -472,7 +478,7 @@ return new class extends TestCase {
         $midiHandlesPtr = $this->alloc(4);
         $this->rellocate('_midiHandles_8c0fcd28', $midiHandlesPtr);
         $this->shouldRead($midiHandlesPtr, 0xbebacafe);
-        $this->shouldCall('_sdMidiPlay')->with(0xbebacafe, 1, 0, 0);
+        $this->shouldCall('_sdMidiPlay')->with(0xbebacafe, 1, 0, 0, 0);
 
         // Advance title state
         $this->shouldWrite($menuStatePtr + 0x18, 9);
@@ -528,7 +534,7 @@ return new class extends TestCase {
         $midiHandlesPtr = $this->alloc(4);
         $this->rellocate('_midiHandles_8c0fcd28', $midiHandlesPtr);
         $this->shouldRead($midiHandlesPtr, 0xbebacafe);
-        $this->shouldCall('_sdMidiPlay')->with(0xbebacafe, 1, 0, 0);
+        $this->shouldCall('_sdMidiPlay')->with(0xbebacafe, 1, 0, 0, 0);
 
         // Advance title state
         $this->shouldWrite($menuStatePtr + 0x18, 9);
@@ -669,7 +675,7 @@ return new class extends TestCase {
         // 185.0 is stored as 0x43390000
         $this->shouldRead($menuStatePtr + 0x20, 0x43390000);
         // 185.0 - 5.111111 is stored as 0x4333e38e
-        // $this->shouldWrite($menuStatePtr + 0x20, 0x4333e38e);
+        $this->shouldWrite($menuStatePtr + 0x20, 0x4333e38e);
 
         // Advance title state
         $this->shouldWrite($menuStatePtr + 0x18, 0x0c);
@@ -835,6 +841,7 @@ return new class extends TestCase {
         $this->shouldRead($peripheralPtr + 16, 0);
 
         $this->shouldRead($menuStatePtr + 0x64, 1049);
+        $this->shouldWrite($menuStatePtr + 0x64, 1050);
 
         $this->shouldCall('_drawSprite_8c014f54')->with($menuStatePtr + 0x0c, 5, 0.0, 0.0, -4.0);
         $this->shouldCall('_drawSprite_8c014f54')->with($menuStatePtr + 0x0c, 6, 0.0, 0.0, -4.5);
@@ -906,6 +913,7 @@ return new class extends TestCase {
         $this->shouldRead($peripheralPtr + 16, 0xFFFFFFF3);
 
         $this->shouldRead($menuStatePtr + 0x64, 1051);
+        $this->shouldWrite($menuStatePtr + 0x64, 1052);
 
         // Advance title state
         $this->shouldWrite($menuStatePtr + 0x18, 0x11);
@@ -938,6 +946,7 @@ return new class extends TestCase {
         $this->shouldRead($menuStatePtr + 0x18, 0x0f);
 
         $this->shouldRead($menuStatePtr + 0x68, 1);
+        $this->shouldWrite($menuStatePtr + 0x68, 2);
 
         $this->shouldCall('_drawSprite_8c014f54')->with($menuStatePtr + 0x0c, 5, 0.0, 0.0, -4.0);
 
@@ -966,6 +975,7 @@ return new class extends TestCase {
         $this->shouldRead($menuStatePtr + 0x18, 0x0f);
 
         $this->shouldRead($menuStatePtr + 0x68, 0);
+        $this->shouldWrite($menuStatePtr + 0x68, 1);
 
         $this->shouldCall('_drawSprite_8c014f54')->with($menuStatePtr + 0x0c, 5, 0.0, 0.0, -4.0);
 
@@ -994,6 +1004,7 @@ return new class extends TestCase {
         $this->shouldRead($menuStatePtr + 0x18, 0x0f);
 
         $this->shouldRead($menuStatePtr + 0x68, 10);
+        $this->shouldWrite($menuStatePtr + 0x68, 11);
 
         // Advance title state
         $this->shouldWrite($menuStatePtr + 0x18, 0x10);
@@ -1035,6 +1046,7 @@ return new class extends TestCase {
 
         // Blink check
         $this->shouldRead($menuStatePtr + 0x68, 0);
+        $this->shouldWrite($menuStatePtr + 0x68, 1);
         $this->shouldCall('_drawSprite_8c014f54')->with($menuStatePtr + 0x0c, 6, 0.0, 0.0, -4.5);
 
         // Draw flag
@@ -1068,6 +1080,7 @@ return new class extends TestCase {
 
         // Blink check
         $this->shouldRead($menuStatePtr + 0x68, 1);
+        $this->shouldWrite($menuStatePtr + 0x68, 2);
 
         // Draw flag
         $this->shouldCall('_drawSprite_8c014f54')->with($menuStatePtr + 0x0c, 4, 302.0, 97.0, -4.5);
@@ -1096,7 +1109,7 @@ return new class extends TestCase {
 
         $this->shouldReadSymbolOffset('_isFading_8c226568', 0, 0);
 
-        $this->shouldReadSymbolOffset('__8c03bd80', 0, 1);
+        $this->shouldReadSymbolOffset('_init_8c03bd80', 0, 1);
 
         $this->call('_task_title_8c015ab8')
             ->with(0, 0)
@@ -1116,7 +1129,7 @@ return new class extends TestCase {
         $this->shouldCall('_FUN_8c019550')->with($saveNamesPtr, 3);
 
         $this->shouldReadSymbolOffset('_isFading_8c226568', 0, 0);
-        $this->shouldReadSymbolOffset('__8c03bd80', 0, 0);
+        $this->shouldReadSymbolOffset('_init_8c03bd80', 0, 0);
         $this->shouldWriteSymbolOffset('_var_8c1bb8c4', 0, 0);
         $this->shouldCall('_FUN_8c019e44')->with(0xbebacafe);
 
@@ -1160,7 +1173,7 @@ return new class extends TestCase {
 
         $this->shouldReadSymbolOffset('_isFading_8c226568', 0, 0);
 
-        $this->shouldReadSymbolOffset('__8c03bd80', 0, 1);
+        $this->shouldReadSymbolOffset('_init_8c03bd80', 0, 1);
 
         $this->call('_task_title_8c015ab8')
             ->with(0, 0)
@@ -1176,7 +1189,7 @@ return new class extends TestCase {
         $this->shouldRead($menuStatePtr + 0x18, 0x11);
 
         $this->shouldReadSymbolOffset('_isFading_8c226568', 0, 0);
-        $this->shouldReadSymbolOffset('__8c03bd80', 0, 0);
+        $this->shouldReadSymbolOffset('_init_8c03bd80', 0, 0);
         $this->shouldCall('_FUN_8c016182');
         $this->shouldCall('_FUN_8c0159ac');
 

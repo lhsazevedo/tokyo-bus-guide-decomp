@@ -9,7 +9,7 @@ extern QueuedDat* _8c157a90_current;
 extern QueuedDat* _8c157a94_end;
 extern int _8c157a98;
 
-extern Task* tasks_8c1ba3c8;
+extern Task* var_tasks_8c1ba3c8;
 
 typedef struct {
     TaskAction action;
@@ -53,7 +53,7 @@ FUN_8c01116a() {
 }
 
 /* Matched */
-int request_dat_8c011182(char* basedir, char* filename, void* dest) {
+int requestDat_8c011182(char* basedir, char* filename, void* dest) {
     if (*filename == 0) {
         return 0;
     }
@@ -239,7 +239,7 @@ FUN_8c011310() {
 
     syFree(temp_r11);
 
-    if (!pushTask_8c014ae8(&tasks_8c1ba3c8, &task_8c0111b4, &created_task, &created_state, 0)) {
+    if (!pushTask_8c014ae8(&var_tasks_8c1ba3c8, &task_8c0111b4, &created_task, &created_state, 0)) {
         return 0;
     }
 

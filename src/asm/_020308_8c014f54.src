@@ -21,22 +21,22 @@
           .IMPORT     _var_8c1ba3c4
           .IMPORT     _var_8c1bb868
           .IMPORT     _var_8c1bb8c8
-          .IMPORT     _var_8c157a64
+          .IMPORT     _var_seed_8c157a64
           .IMPORT     _var_8c1bc828
           .IMPORT     _FUN_8c02f320
           .IMPORT     _FUN_8c02fa14
           .IMPORT     _freeTask_8c014b66
           .IMPORT     _FUN_8c01328c
-          .IMPORT     _tasks_8c1ba3c8
+          .IMPORT     _var_tasks_8c1ba3c8
           .IMPORT     _pushTask_8c014ae8
-          .IMPORT     _var_demoOrGameplayState_8c1bb8d0
+          .IMPORT     _var_demo_8c1bb8d0
           .IMPORT     _var_8c1bb8d4
           .IMPORT     _var_8c1bb8d8
           .IMPORT     _FUN_8c011f36
           .IMPORT     _FUN_8c011f6c
           .IMPORT     _init_8c044154
           .IMPORT     _const_8c035f74
-          .IMPORT     _request_dat_8c011182
+          .IMPORT     _requestDat_8c011182
           .IMPORT     _var_8c227e14
           .IMPORT     _var_8c22822c
           .IMPORT     _resetUknPvmBool_8c014322
@@ -1527,7 +1527,7 @@ LP_GEN_51554:
           .DATA.L _var_8c1ba3c4
           .DATA.L _var_8c1bb868
           .DATA.L _var_8c1bb8c8
-          .DATA.L _var_8c157a64
+          .DATA.L _var_seed_8c157a64
           .DATA.L _var_8c1bc828
           .DATA.L _FUN_8c02f320
           .DATA.L _FUN_8c02fa14
@@ -1535,16 +1535,16 @@ LP_GEN_51554:
           .DATA.L _freeTask_8c014b66
           .DATA.L _FUN_8c01328c
           .DATA.L _FUN_8c01594c
-          .DATA.L _tasks_8c1ba3c8
+          .DATA.L _var_tasks_8c1ba3c8
           .DATA.L _pushTask_8c014ae8
-          .DATA.L _var_demoOrGameplayState_8c1bb8d0
+          .DATA.L _var_demo_8c1bb8d0
           .DATA.L _var_8c1bb8d4
           .DATA.L _var_8c1bb8d8
           .DATA.L _FUN_8c011f36
           .DATA.L _FUN_8c011f6c
           .DATA.L _init_8c044154
           .DATA.L _const_8c035f74
-          .DATA.L _request_dat_8c011182
+          .DATA.L _requestDat_8c011182
           .DATA.L _var_8c227e14
           .DATA.L _var_8c22822c
           .DATA.L _resetUknPvmBool_8c014322

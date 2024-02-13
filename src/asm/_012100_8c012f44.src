@@ -2,47 +2,47 @@
           .IMPORT     _var_8c157a7c
           .IMPORT     _FUN_8c010ca6
           .IMPORT     _sdMidiStopAll
-          .IMPORT     _var_8c1ba354
+          .IMPORT     _var_vibport_8c1ba354
           .IMPORT     _pdVibMxStop
           .IMPORT     _FUN_8c016182
           .IMPORT     _var_8c1bb8c4
-          .IMPORT     __8c03bd80
-          .IMPORT     __8c03bd84
+          .IMPORT     _init_8c03bd80
+          .IMPORT     _init_8c03bd84
           .IMPORT     _FUN_8c015fd6
-          .IMPORT     _var_demoOrGameplayState_8c1bb8d0
+          .IMPORT     _var_demo_8c1bb8d0
           .IMPORT     _var_8c18ad1c
           .IMPORT     _var_8c228708
           .IMPORT     _var_8c22655c
-          .IMPORT     _var_8c1bb9d0
+          .IMPORT     _var_busState_8c1bb9d0
           .IMPORT     _freeTask_8c014b66
           .IMPORT     _njControl3D
-          .IMPORT     _var_8c2f8ca0
+          .IMPORT     _var_matrix_8c2f8ca0
           .IMPORT     _njInitMatrix
           .IMPORT     _njSetBackColor
           .IMPORT     _var_8c18ad28
           .IMPORT     _njSetFogColor
-          .IMPORT     _var_8c18aaf8
+          .IMPORT     _var_fogTable_8c18aaf8
           .IMPORT     _njGenerateFogTable3
           .IMPORT     _njFogEnable
           .IMPORT     _kmSetCheapShadowMode
           .IMPORT     _kmSetFogTable
-          .IMPORT     _tasks_8c1ba5e8
+          .IMPORT     _var_tasks_8c1ba5e8
           .IMPORT     _clearTasks_8c014a9c
-          .IMPORT     _var_8c1ba808
-          .IMPORT     _var_8c1bac28
-          .IMPORT     _var_8c1bb448
-          .IMPORT     _var_8c157a64
+          .IMPORT     _var_tasks_8c1ba808
+          .IMPORT     _var_tasks_8c1bac28
+          .IMPORT     _var_tasks_8c1bb448
+          .IMPORT     _var_seed_8c157a64
           .IMPORT     _srand
           .IMPORT     _FUN_8c012160
           .IMPORT     _FUN_8c0121a2
           .IMPORT     _FUN_8c0128cc
           .IMPORT     _pushTask_8c014ae8
-          .IMPORT     _tasks_8c1ba3c8
-          .IMPORT     _FUN_8c012cbc
-          .IMPORT     _FUN_8c01677e
+          .IMPORT     _var_tasks_8c1ba3c8
+          .IMPORT     _task_8c012cbc
+          .IMPORT     _task_8c01677e
           .IMPORT     _var_8c1bb8d4
-          .IMPORT     _FUN_8c012d06
-          .IMPORT     _FUN_8c016bf4
+          .IMPORT     _task_8c012d06
+          .IMPORT     _task_8c016bf4
           .IMPORT     _FUN_8c025af4
           .IMPORT     _var_8c1bb8cc
           .IMPORT     _var_8c22847c
@@ -71,16 +71,13 @@
           .IMPORT     _var_8c227da0
           .IMPORT     _var_8c227da8
           .IMPORT     _var_8c1ba291
-          .IMPORT     _const_8c033364
           .IMPORT     _getUknPvmBool_8c01432a
-          .IMPORT     _var_8c1bc448
+          .IMPORT     _var_loadedFooNjm_8c1bc448
           .IMPORT     _var_8c1bc450
           .IMPORT     _FUN_8c011f6c
           .IMPORT     _memblkSource_8c0fcd48
-          .IMPORT     _const_8c03336c
-          .IMPORT     _request_dat_8c011182
+          .IMPORT     _requestDat_8c011182
           .IMPORT     _memblkSource_8c0fcd4c
-          .IMPORT     _const_8c033378
           .IMPORT     _resetUknPvmBool_8c014322
           .IMPORT     _setUknPvmBool_8c014330
           .IMPORT     _nop_8c011120
@@ -93,16 +90,16 @@
           .IMPORT     _syCblCheckCable
           .IMPORT     _sbInitSystem_8c0149b0
           .IMPORT     _njSetAspect
-          .IMPORT     _var_8c255ca0
+          .IMPORT     _var_vbuf_8c255ca0
           .IMPORT     _njInit3D
           .IMPORT     _njInitVertexBuffer
-          .IMPORT     _var_8c277ca0
+          .IMPORT     _var_texbuf_8c277ca0
           .IMPORT     _njInitTextureBuffer
-          .IMPORT     _var_8c157af8
+          .IMPORT     _var_tex_8c157af8
           .IMPORT     _njInitTexture
-          .IMPORT     _var_8c235ca0
+          .IMPORT     _var_cachebuf_8c235ca0
           .IMPORT     _njInitCacheTextureBuffer
-          .IMPORT     _var_8c2f84a0
+          .IMPORT     _var_shapebuf_8c2f84a0
           .IMPORT     _njInitShape
           .IMPORT     _syRtcInit
           .IMPORT     _FUN_8c010924
@@ -111,10 +108,10 @@
           .IMPORT     _FUN_8c010fbe
           .IMPORT     _BupInit_8c014b8c
           .IMPORT     _njSetTextureInfo
-          .IMPORT     _var_8c18acf8
+          .IMPORT     _var_texname_8c18acf8
           .IMPORT     _njSetTextureName
           .IMPORT     _njSetRenderWidth
-          .IMPORT     _init_8c03bf44
+          .IMPORT     _init_texlist_8c03bf44
           .IMPORT     _njLoadTexture
           .IMPORT     _var_8c1bb86c
           .IMPORT     _var_8c1bbddc
@@ -151,15 +148,10 @@
           .IMPORT     _FUN_8c01c8fc
           .IMPORT     _FUN_8c01c910
           .IMPORT     _FUN_8c011f36
-          .IMPORT     _const_8c033380
-          .IMPORT     _var_8c1bc41c
-          .IMPORT     _const_8c033388
-          .IMPORT     _var_8c1bc420
-          .IMPORT     _const_8c033398
-          .IMPORT     _var_8c1bc428
-          .IMPORT     _const_8c0333a4
-          .IMPORT     _var_8c1bc42c
-          .IMPORT     _const_8c0333b8
+          .IMPORT     _var_mark_parts_dat_8c1bc41c
+          .IMPORT     _var_mark_dat_8c1bc420
+          .IMPORT     _var_busstop_parts_dat_8c1bc428
+          .IMPORT     _var_busstop_dat_8c1bc42c
           .IMPORT     _var_8c1bc3f8
           .IMPORT     _requestPvm_8c011ac0
           .IMPORT     _var_8c1ba1c8
@@ -182,25 +174,13 @@
           .IMPORT     _njExitTexture
           .IMPORT     _sbExitSystem_8c014a24
           .IMPORT     _syBtExit
-          .IMPORT     _FUN_8c012d5a
+          .IMPORT     _task_8c012d5a
           .IMPORT     _FUN_8c0144fc
-          .IMPORT     s_loading_pvm_8c0333c4
-          .IMPORT     s_load_parts_dat_8c0333d0
-          .IMPORT     s_loading_dat_8c0333e0
-          .IMPORT     s_bus_font_fff_8c0333ec
-          .IMPORT     s_vm_bus_lcd_8c0333fc
-          .IMPORT     s_vm_danger_lcd_8c033408
-          .IMPORT     s_now_loading_lcd_8c033418
-          .IMPORT     s_fuu_pvm_8c033428
-          .IMPORT     s_fuu_njd_8c033430
-          .IMPORT     s_fuu_njm_8c033438
-          .IMPORT     s_3s_bus_m2_njm_8c03344c
-          .IMPORT     s_SD_COMMON_8c033440
-          .IMPORT     s_3s_bus_m2_njs_8c03345c
           .EXPORT     _task_8c012f44
           .EXPORT     _FUN_8c01306e
           .EXPORT     _FUN_8c01328c
           .EXPORT     _FUN_8c013310
+          .EXPORT     _task_8c013388 ; Exported for testing
           .EXPORT     _FUN_8c0134d6
           .EXPORT     _njUserInit_8c0134ec
           .EXPORT     _njUserMain_8c01392e
@@ -254,7 +234,7 @@ LAB_8c012f96:
           LDS.L       @R15+,PR
           RTS
           NOP
-LAB_8c012f9c:
+_FUN_8c012f9c:
           MOV.L       LP_GEN_99840+52,R3
           MOV.L       R14,@-R15
           STS.L       PR,@-R15
@@ -325,18 +305,18 @@ LP_GEN_99840:
           .DATA.L _var_8c157a7c
           .DATA.L _FUN_8c010ca6
           .DATA.L _sdMidiStopAll
-          .DATA.L _var_8c1ba354
+          .DATA.L _var_vibport_8c1ba354
           .DATA.L _pdVibMxStop
           .DATA.L _FUN_8c016182
           .DATA.L _var_8c1bb8c4
-          .DATA.L __8c03bd80
-          .DATA.L __8c03bd84
+          .DATA.L _init_8c03bd80
+          .DATA.L _init_8c03bd84
           .DATA.L _FUN_8c015fd6
-          .DATA.L _var_demoOrGameplayState_8c1bb8d0
+          .DATA.L _var_demo_8c1bb8d0
           .DATA.L _var_8c18ad1c
           .DATA.L _var_8c228708
           .DATA.L _var_8c22655c
-          .DATA.L _var_8c1bb9d0
+          .DATA.L _var_busState_8c1bb9d0
 
 LAB_8c013050:
           TST         R7,R7
@@ -492,33 +472,33 @@ LP_GEN_31464:
           .RES.W 1
           .DATA.L _freeTask_8c014b66
           .DATA.L _njControl3D
-          .DATA.L _var_8c2f8ca0
+          .DATA.L _var_matrix_8c2f8ca0
           .DATA.L _njInitMatrix
           .DATA.L _njSetBackColor
           .DATA.L _var_8c18ad28
           .DATA.L _njSetFogColor
-          .DATA.L _var_8c18aaf8
+          .DATA.L _var_fogTable_8c18aaf8
           .DATA.L _njGenerateFogTable3
           .DATA.L _njFogEnable
           .DATA.L _kmSetCheapShadowMode
           .DATA.L _kmSetFogTable
-          .DATA.L _tasks_8c1ba5e8
+          .DATA.L _var_tasks_8c1ba5e8
           .DATA.L _clearTasks_8c014a9c
-          .DATA.L _var_8c1ba808
-          .DATA.L _var_8c1bac28
-          .DATA.L _var_8c1bb448
-          .DATA.L _var_8c157a64
+          .DATA.L _var_tasks_8c1ba808
+          .DATA.L _var_tasks_8c1bac28
+          .DATA.L _var_tasks_8c1bb448
+          .DATA.L _var_seed_8c157a64
           .DATA.L _srand
           .DATA.L _FUN_8c012160
           .DATA.L _FUN_8c0121a2
           .DATA.L _FUN_8c0128cc
           .DATA.L _pushTask_8c014ae8
-          .DATA.L _tasks_8c1ba3c8
-          .DATA.L _var_demoOrGameplayState_8c1bb8d0
-          .DATA.L _FUN_8c012cbc
-          .DATA.L _FUN_8c01677e
+          .DATA.L _var_tasks_8c1ba3c8
+          .DATA.L _var_demo_8c1bb8d0
+          .DATA.L _task_8c012cbc
+          .DATA.L _task_8c01677e
           .DATA.L _var_8c1bb8d4
-          .DATA.L _FUN_8c012d06
+          .DATA.L _task_8c012d06
 
 LAB_8c0131e4:
           MOV         #H'0,R1
@@ -742,7 +722,7 @@ LAB_8c01335a:
           MOV.L       @R15+,R13
           JMP         @R2
           MOV.L       @R15+,R14
-task_8c013388:
+_task_8c013388:
           MOV.L       R14,@-R15
           MOV         R4,R14
           MOV.L       R13,@-R15
@@ -761,14 +741,14 @@ LAB_8c0133a0:
           NOP
 
 LP_GEN_38000:
-          .DATA.L _FUN_8c012d5a ; LP_GEN_38000+0
-          .DATA.L _FUN_8c016bf4
+          .DATA.L _task_8c012d5a ; LP_GEN_38000+0
+          .DATA.L _task_8c016bf4
           .DATA.L _FUN_8c025af4
           .DATA.L _var_8c1bb8cc
           .DATA.L _var_8c22847c
           .DATA.L _FUN_8c023610
           .DATA.L _FUN_8c02845a
-          .DATA.L _var_demoOrGameplayState_8c1bb8d0
+          .DATA.L _var_demo_8c1bb8d0
           .DATA.L _FUN_8c029920
           .DATA.L _FUN_8c0296d6
           .DATA.L _FUN_8c02769e
@@ -778,10 +758,10 @@ LP_GEN_38000:
           .DATA.L _FUN_8c02018c
           .DATA.L _FUN_8c02d968
           .DATA.L _FUN_8c020528
-          .DATA.L LAB_8c012f9c
+          .DATA.L _FUN_8c012f9c
           .DATA.L _FUN_8c0228a2
           .DATA.L _var_8c1bb868
-          .DATA.L _var_8c157a64
+          .DATA.L _var_seed_8c157a64
           .DATA.L _var_8c1bc824
           .DATA.L _var_8c228704
           .DATA.L _var_8c1bb8c8
@@ -920,13 +900,13 @@ _njUserInit_8c0134ec:
 
 LP_GEN_65923:
           .DATA.L _getUknPvmBool_8c01432a ; LP_GEN_65923+0
-          .DATA.L _var_8c1bc448
+          .DATA.L _var_loadedFooNjm_8c1bc448
           .DATA.L H'4F800000
           .DATA.L _var_8c1bc450
           .DATA.L _FUN_8c011f6c
           .DATA.L _memblkSource_8c0fcd48
           .DATA.L _const_8c03336c
-          .DATA.L _request_dat_8c011182
+          .DATA.L _requestDat_8c011182
           .DATA.L _memblkSource_8c0fcd4c
           .DATA.L _const_8c033378
           .DATA.L _resetUknPvmBool_8c014322
@@ -1015,22 +995,22 @@ LP_GEN_62735:
           .DATA.L _sbInitSystem_8c0149b0
           .DATA.L H'3F68F5C3
           .DATA.L _njSetAspect
-          .DATA.L _var_8c2f8ca0
+          .DATA.L _var_matrix_8c2f8ca0
           .DATA.L _njInitMatrix
-          .DATA.L _var_8c255ca0
+          .DATA.L _var_vbuf_8c255ca0
           .DATA.L _njInit3D
           .DATA.L H'0004E200
           .DATA.L H'000C3500
           .DATA.L _njInitVertexBuffer
           .DATA.L H'00080800
-          .DATA.L _var_8c277ca0
+          .DATA.L _var_texbuf_8c277ca0
           .DATA.L _njInitTextureBuffer
-          .DATA.L _var_8c157af8
+          .DATA.L _var_tex_8c157af8
           .DATA.L _njInitTexture
           .DATA.L H'00020000
-          .DATA.L _var_8c235ca0
+          .DATA.L _var_cachebuf_8c235ca0
           .DATA.L _njInitCacheTextureBuffer
-          .DATA.L _var_8c2f84a0
+          .DATA.L _var_shapebuf_8c2f84a0
           .DATA.L _njInitShape
           .DATA.L _syRtcInit
           .DATA.L _FUN_8c010924
@@ -1175,20 +1155,20 @@ LP_GEN_90231:
           .DATA.L _setSoundMode_8c0108c0
           .DATA.L _FUN_8c010fbe
           .DATA.L _BupInit_8c014b8c
-          .DATA.L _var_8c277ca0
+          .DATA.L _var_texbuf_8c277ca0
           .DATA.L _njSetTextureInfo
           .DATA.L H'40800000
-          .DATA.L _var_8c18acf8
+          .DATA.L _var_texname_8c18acf8
           .DATA.L _njSetTextureName
           .DATA.L _njSetRenderWidth
-          .DATA.L _init_8c03bf44
+          .DATA.L _init_texlist_8c03bf44
           .DATA.L _njLoadTexture
           .DATA.L _clearTasks_8c014a9c
-          .DATA.L _tasks_8c1ba3c8
-          .DATA.L _tasks_8c1ba5e8
-          .DATA.L _var_8c1ba808
-          .DATA.L _var_8c1bac28
-          .DATA.L _var_8c1bb448
+          .DATA.L _var_tasks_8c1ba3c8
+          .DATA.L _var_tasks_8c1ba5e8
+          .DATA.L _var_tasks_8c1ba808
+          .DATA.L _var_tasks_8c1bac28
+          .DATA.L _var_tasks_8c1bb448
           .DATA.L _var_8c1bb86c
           .DATA.L _var_8c1bbddc
           .DATA.L _FUN_8c013bbc
@@ -1463,68 +1443,143 @@ _njUserExit_8c0139d4:
           LDS.L       @R15+,PR
 
 LP_GEN_19861:
-          .DATA.L _FUN_8c01c8fc ; LP_GEN_19861+0
-          .DATA.L _FUN_8c01c910
-          .DATA.L task_8c013388
-          .DATA.L _tasks_8c1ba3c8
-          .DATA.L _pushTask_8c014ae8
-          .DATA.L _FUN_8c011f36
-          .DATA.L _FUN_8c011f6c
-          .DATA.L _request_dat_8c011182
-          .DATA.L _const_8c033380
-          .DATA.L _var_8c1bc41c
-          .DATA.L _const_8c033388
-          .DATA.L _var_8c1bc420
-          .DATA.L _const_8c033398
-          .DATA.L _var_8c1bc428
-          .DATA.L _const_8c0333a4
-          .DATA.L _var_8c1bc42c
-          .DATA.L _const_8c0333b8
-          .DATA.L _var_8c1bc3f8
-          .DATA.L H'80000000
-          .DATA.L s_loading_pvm_8c0333c4
-          .DATA.L _requestPvm_8c011ac0
-          .DATA.L s_load_parts_dat_8c0333d0
-          .DATA.L s_loading_dat_8c0333e0
-          .DATA.L _var_8c1ba1c8
-          .DATA.L s_bus_font_fff_8c0333ec
-          .DATA.L _var_8c2260ac
-          .DATA.L s_vm_bus_lcd_8c0333fc
-          .DATA.L _var_8c2260b8
-          .DATA.L s_vm_danger_lcd_8c033408
-          .DATA.L _var_8c2260c4
-          .DATA.L s_now_loading_lcd_8c033418
-          .DATA.L _var_8c1bc440
-          .DATA.L s_fuu_pvm_8c033428
-          .DATA.L _requestNj_8c011492
-          .DATA.L _var_8c1bc444
-          .DATA.L s_fuu_njd_8c033430
-          .DATA.L _var_8c1bc448
-          .DATA.L s_fuu_njm_8c033438
-          .DATA.L _var_8c1bc410
-          .DATA.L s_3s_bus_m2_njm_8c03344c
-          .DATA.L s_SD_COMMON_8c033440
-          .DATA.L _var_8c1bc414
-          .DATA.L s_3s_bus_m2_njs_8c03345c
-          .DATA.L _resetUknPvmBool_8c014322
-          .DATA.L _setUknPvmBool_8c014330
-          .DATA.L _nop_8c011120
-          .DATA.L _FUN_8c011fe0
-          .DATA.L _var_8c18ad14
-          .DATA.L _FUN_8c0134d6
-          .DATA.L _gdFsEntryErrFuncAll
-          .DATA.L _var_8c1ba354
-          .DATA.L __8c03bd80
-          .DATA.L __8c03bd84
-          .DATA.L _pdVibMxStop
-          .DATA.L _var_8c157a60
-          .DATA.L _init_8c03bfa8
-          .DATA.L _gdFsReqDrvStat
-          .DATA.L _gdFsGetSysHn
-          .DATA.L _gdFsGetStat
-          .DATA.L _gdFsGetDrvStat
-          .DATA.L _execTasks_8c014b42
-          .DATA.L _njExitTexture
-          .DATA.L _sbExitSystem_8c014a24
-          .DATA.L _syBtExit
+          .DATA.L     _FUN_8c01c8fc ; LP_GEN_19861+0
+          .DATA.L     _FUN_8c01c910
+          .DATA.L     _task_8c013388
+          .DATA.L     _var_tasks_8c1ba3c8
+          .DATA.L     _pushTask_8c014ae8
+          .DATA.L     _FUN_8c011f36
+          .DATA.L     _FUN_8c011f6c
+          .DATA.L     _requestDat_8c011182
+          .DATA.L     _const_8c033380
+          .DATA.L     _var_mark_parts_dat_8c1bc41c
+          .DATA.L     _const_8c033388
+          .DATA.L     _var_mark_dat_8c1bc420
+          .DATA.L     _const_8c033398
+          .DATA.L     _var_busstop_parts_dat_8c1bc428
+          .DATA.L     _const_8c0333a4
+          .DATA.L     _var_busstop_dat_8c1bc42c
+          .DATA.L     _const_8c0333b8
+          .DATA.L     _var_8c1bc3f8
+          .DATA.L     H'80000000
+          .DATA.L     s_loading_pvm_8c0333c4
+          .DATA.L     _requestPvm_8c011ac0
+          .DATA.L     s_load_parts_dat_8c0333d0
+          .DATA.L     s_loading_dat_8c0333e0
+          .DATA.L     _var_8c1ba1c8
+          .DATA.L     s_bus_font_fff_8c0333ec
+          .DATA.L     _var_8c2260ac
+          .DATA.L     s_vm_bus_lcd_8c0333fc
+          .DATA.L     _var_8c2260b8
+          .DATA.L     s_vm_danger_lcd_8c033408
+          .DATA.L     _var_8c2260c4
+          .DATA.L     s_now_loading_lcd_8c033418
+          .DATA.L     _var_8c1bc440
+          .DATA.L     s_fuu_pvm_8c033428
+          .DATA.L     _requestNj_8c011492
+          .DATA.L     _var_8c1bc444
+          .DATA.L     s_fuu_njd_8c033430
+          .DATA.L     _var_loadedFooNjm_8c1bc448
+          .DATA.L     s_fuu_njm_8c033438
+          .DATA.L     _var_8c1bc410
+          .DATA.L     s_3s_bus_m2_njm_8c03344c
+          .DATA.L     s_SD_COMMON_8c033440
+          .DATA.L     _var_8c1bc414
+          .DATA.L     s_3s_bus_m2_njs_8c03345c
+          .DATA.L     _resetUknPvmBool_8c014322
+          .DATA.L     _setUknPvmBool_8c014330
+          .DATA.L     _nop_8c011120
+          .DATA.L     _FUN_8c011fe0
+          .DATA.L     _var_8c18ad14
+          .DATA.L     _FUN_8c0134d6
+          .DATA.L     _gdFsEntryErrFuncAll
+          .DATA.L     _var_vibport_8c1ba354
+          .DATA.L     _init_8c03bd80
+          .DATA.L     _init_8c03bd84
+          .DATA.L     _pdVibMxStop
+          .DATA.L     _var_8c157a60
+          .DATA.L     _init_8c03bfa8
+          .DATA.L     _gdFsReqDrvStat
+          .DATA.L     _gdFsGetSysHn
+          .DATA.L     _gdFsGetStat
+          .DATA.L     _gdFsGetDrvStat
+          .DATA.L     _execTasks_8c014b42
+          .DATA.L     _njExitTexture
+          .DATA.L     _sbExitSystem_8c014a24
+          .DATA.L     _syBtExit
+          .SECTION    C,DATA,ALIGN=4
+_const_8c033364:
+          .SDATA      "\SOUND" ; H'8c033364
+          .DATA.B     H'00
+          .RES.B      1
+_const_8c03336c:
+          .SDATA      "manatee.drv" ; H'8c03336c
+          .DATA.B     H'00
+_const_8c033378:
+          .SDATA      "bus.mlt" ; H'8c033378
+          .DATA.B     H'00
+_const_8c033380:
+          .SDATA      "\SYSTEM" ; H'8c033380
+          .DATA.B     H'00
+_const_8c033388:
+          .SDATA      "mark_parts.dat" ; H'8c033388
+          .DATA.B     H'00
+          .RES.B 1
+_const_8c033398:
+          .SDATA      "mark.dat" ; H'8c033398
+          .DATA.B     H'00
+          .RES.B 3
+_const_8c0333a4:
+          .SDATA      "busstop_parts.dat" ; H'8c0333a4
+          .DATA.B     H'00
+          .RES.B 2
+_const_8c0333b8:
+          .SDATA      "busstop.dat" ; H'8c0333b8
+          .DATA.B     H'00
+s_loading_pvm_8c0333c4:
+          .SDATA      "loading.pvm" ; H'8c0333c4
+          .DATA.B     H'00
+s_load_parts_dat_8c0333d0:
+          .SDATA      "load_parts.dat" ; H'8c0333d0
+          .DATA.B     H'00
+          .RES.B 1
+s_loading_dat_8c0333e0:
+          .SDATA      "loading.dat" ; H'8c0333e0
+          .DATA.B     H'00
+s_bus_font_fff_8c0333ec:
+          .SDATA      "bus_font.fff" ; H'8c0333ec
+          .DATA.B     H'00
+          .RES.B 3
+s_vm_bus_lcd_8c0333fc:
+          .SDATA      "vm_bus.lcd" ; H'8c0333fc
+          .DATA.B     H'00
+          .RES.B 1
+s_vm_danger_lcd_8c033408:
+          .SDATA      "vm_danger.lcd" ; H'8c033408
+          .DATA.B     H'00
+          .RES.B 2
+s_now_loading_lcd_8c033418:
+          .SDATA      "now_loading.lcd" ; H'8c033418
+          .DATA.B     H'00
+s_fuu_pvm_8c033428:
+          .SDATA      "fuu.pvm" ; H'8c033428
+          .DATA.B     H'00
+s_fuu_njd_8c033430:
+          .SDATA      "fuu.njd" ; H'8c033430
+          .DATA.B     H'00
+s_fuu_njm_8c033438:
+          .SDATA      "fuu.njm" ; H'8c033438
+          .DATA.B     H'00
+s_SD_COMMON_8c033440:
+          .SDATA  "\SD_COMMON" ; H'8c033440
+          .DATA.B     H'00
+          .RES.B 1
+s_3s_bus_m2_njm_8c03344c:
+          .SDATA      "3s_bus_m2.njm" ; H'8c03344c
+          .DATA.B     H'00
+          .RES.B 2
+s_3s_bus_m2_njs_8c03345c:
+          .SDATA      "3s_bus_m2.njs" ; H'8c03345c
+          .DATA.B     H'00
+          .RES.B 2
           .END

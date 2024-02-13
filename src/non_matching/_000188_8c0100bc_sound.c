@@ -64,8 +64,8 @@ char adxf_work_8c156efc[ADXF_CALC_PTINFO_SIZE(MAX_NFILES)];
 s_8c157a34 _8c157a34;
 
 /* === Initialized vars === */
-int _8c03bd80 = 0;
-int _8c03bd84 = 1;
+int init_8c03bd80 = 0;
+int init_8c03bd80 = 1;
 s_8c03bd88 _8c03bd88 = {
     990,
     990
@@ -282,8 +282,8 @@ void usr_adx_err_func_8c010532(void *obj, char *msg)
         FUN_8c010ca6(0);
         FUN_8c010ca6(1);
 
-        _8c03bd80 = 0;
-        _8c03bd84 = 0;
+        init_8c03bd80 = 0;
+        init_8c03bd80 = 0;
     }
 }
 
@@ -344,7 +344,7 @@ void FUN_8c0106ac()
 {
     int s = ADXT_GetStat(adxtHandles_8c0fcd20[1]);
     if (s == ADXT_STAT_STOP || s == ADXT_STAT_PLAYEND) {
-        _8c03bd80 &= 0xffffffef;
+        init_8c03bd80 &= 0xffffffef;
     }
 }
 
@@ -568,7 +568,7 @@ void FUN_adxVol_8c010a40() {
             ADXT_SetOutVol(adxtHandles_8c0fcd20[0], _8c03bd88.field_0x00 - 990);
 
             _8c157a34.flags_0x00 &= 0xfffffffe;
-            _8c03bd80 &= 0xfffffffe;
+            init_8c03bd80 &= 0xfffffffe;
         }
 
         /* 8c010abe */
@@ -580,7 +580,7 @@ void FUN_adxVol_8c010a40() {
             ADXT_Stop(adxtHandles_8c0fcd20[1]);
             ADXT_SetOutVol(adxtHandles_8c0fcd20[1], _8c03bd88.field_0x04 - 990);
             _8c157a34.flags_0x00 &= 0xfffffffd;
-            _8c03bd80 &= 0xffffffef;
+            init_8c03bd80 &= 0xffffffef;
         }
     }
     else 
@@ -642,7 +642,7 @@ void FUN_8c010c2c(Bool param1) {
                 _8c157a34.flags_0x00 |= 0x20; 
                 _8c157a34.field_0x08 = 90 / _8c03bd88.field_0x04;
                 _8c157a34.field_0x10 = -990;
-                _8c03bd80 &= 0xffffffef;
+                init_8c03bd80 &= 0xffffffef;
             }
         }
     }
@@ -662,16 +662,16 @@ void FUN_8c010c7c() {
         ADXT_Stop(adxtHandles_8c0fcd20[i]);
     }
 
-    _8c03bd80 = 0;
+    init_8c03bd80 = 0;
     return;
 }
 
 /* Matched */
 void FUN_8c010ca6(Bool p1) {
     if (p1 == 0) {
-        _8c03bd80 &= 0xfffffffe;
+        init_8c03bd80 &= 0xfffffffe;
     } else if (p1 == 1) {
-        _8c03bd80 &= 0xffffffef;
+        init_8c03bd80 &= 0xffffffef;
     }
 
     ADXT_Stop(adxtHandles_8c0fcd20[p1]);
@@ -684,7 +684,7 @@ int snd_8c010cd6(int p1, int p2) {
         case 0: {
             ADXT_Stop(adxtHandles_8c0fcd20[p1]);
             ADXT_StartAfs(adxtHandles_8c0fcd20[p1], 0, p2);
-            _8c03bd80 |= 1;
+            init_8c03bd80 |= 1;
             return 1;
         }
 
@@ -692,14 +692,14 @@ int snd_8c010cd6(int p1, int p2) {
             ADXT_Stop(adxtHandles_8c0fcd20[p1]);
             p2 == 0x7FFFFFFF;
             ADXT_StartAfs(adxtHandles_8c0fcd20[p1], 0, p2);
-            _8c03bd80 |= 0x10;
+            init_8c03bd80 |= 0x10;
             return 1;
         }
 
         case 2: {
             ADXT_Stop(adxtHandles_8c0fcd20[p1]);
             ADXT_StartAfs(adxtHandles_8c0fcd20[p1], 1, p2);
-            _8c03bd80 |= 0x10;
+            init_8c03bd80 |= 0x10;
             return 1;
         }
     }
@@ -712,12 +712,12 @@ void FUN_8c010d8a() {
     ADXT_Stop(adxtHandles_8c0fcd20[0]);
     ADXT_SetOutVol(adxtHandles_8c0fcd20[0], _8c03bd88.field_0x00 - 990);
     _8c157a34.flags_0x00 &= 0xfffffffe;
-    _8c03bd80 &= 0xfffffffe;
+    init_8c03bd80 &= 0xfffffffe;
 
     ADXT_Stop(adxtHandles_8c0fcd20[0]);
     ADXT_SetOutVol(adxtHandles_8c0fcd20[0], _8c03bd88.field_0x00 - 990);
     _8c157a34.flags_0x00 &= 0xfffffffe;
-    _8c03bd80 &= 0xfffffffe;
+    init_8c03bd80 &= 0xfffffffe;
 }
 
 /* Matched */
@@ -725,25 +725,25 @@ void FUN_8c010de6() {
     sdMidiStopAll();
     ADXT_Stop(adxtHandles_8c0fcd20[0]);
     ADXT_Stop(adxtHandles_8c0fcd20[1]);
-    _8c03bd80 = 0;
-    _8c03bd84 = 1;
+    init_8c03bd80 = 0;
+    init_8c03bd80 = 1;
     memset(&_8c157a34, 0, sizeof(s_8c157a34));
     FUN_sound_8c0100bc();
 }
 
 /* Matched */
 void FUN_8c010e18(char *dirname) {
-    _8c03bd80 = 0;
-    _8c03bd84 = 1;
+    init_8c03bd80 = 0;
+    init_8c03bd80 = 1;
     gdFsChangeDir(dirname);
     memset(&_8c157a34, 0, sizeof(s_8c157a34));
     FUN_sound_8c0100bc();
-    _8c03bd80 |= 0x11;
+    init_8c03bd80 |= 0x11;
     soundInit_8c01065e();
     adxInit_8c01064c();
     createAdxAndMidiHandles_8c01048e();
     adxLoad_8c01057a();
     finishSoundInit_8c010614();
-    _8c03bd80 = 0;
+    init_8c03bd80 = 0;
 }
 

@@ -1,7 +1,7 @@
           .IMPORT     _menuTextboxText_8c02af1c
           .IMPORT     _drawSprite_8c014f54
           .IMPORT     _menuState_8c1bc7a8
-          .IMPORT     __8c03bd80
+          .IMPORT     _init_8c03bd80
           .IMPORT     _var_8c22640c
           .IMPORT     _isFading_8c226568
           .IMPORT     _getUknPvmBool_8c01432a
@@ -61,15 +61,15 @@
           .IMPORT     _FUN_8c017ef2
           .IMPORT     _FUN_8c0172dc
           .IMPORT     _FUN_8c0173e6
-          .IMPORT     _var_demoOrGameplayState_8c1bb8d0
+          .IMPORT     _var_demo_8c1bb8d0
           .IMPORT     _init_8c044c08
-          .IMPORT     _var_8c157af8
+          .IMPORT     _var_tex_8c157af8
           .IMPORT     _njGarbageTexture
           .IMPORT     _var_8c1ba264
           .IMPORT     _var_8c2285d0
           .IMPORT     _FUN_8c0128cc
           .IMPORT     _task_8c012f44
-          .IMPORT     _tasks_8c1ba3c8
+          .IMPORT     _var_tasks_8c1ba3c8
           .IMPORT     _pushTask_8c014ae8
           .IMPORT     _FUN_8c02ae3e
           .IMPORT     _var_8c225fb0
@@ -226,7 +226,7 @@ LP_GEN_72974:
           .DATA.L H'43600000 ; H'8C01E37C
           .DATA.L _drawSprite_8c014f54 ; H'8C01E380
           .DATA.L _menuState_8c1bc7a8 ; H'8C01E384
-          .DATA.L __8c03bd80 ; H'8C01E388
+          .DATA.L _init_8c03bd80 ; H'8C01E388
           .DATA.L H'C0900000 ; H'8C01E38C
           .DATA.L _var_8c22640c ; H'8C01E390
           .DATA.L _isFading_8c226568 ; H'8C01E394
@@ -757,7 +757,7 @@ LP_GEN_92116:
           .DATA.L _FUN_8c010bae ; H'8C01E7BC
           .DATA.L _init_8c0451ec ; H'8C01E7C0
           .DATA.L _push_fadeout_8c022b60 ; H'8C01E7C4
-          .DATA.L __8c03bd80 ; H'8C01E7C8
+          .DATA.L _init_8c03bd80 ; H'8C01E7C8
 LAB_8c01e7cc:
           MOV.L       LP_GEN_46961+2,R3
           MOV.L       @R3,R2
@@ -1713,7 +1713,7 @@ LP_GEN_95699:
           .DATA.L _const_8c038984 ; H'8C01EF38
           .DATA.L _var_8c225fb8 ; H'8C01EF3C
           .DATA.L _var_8c22640c ; H'8C01EF40
-          .DATA.L __8c03bd80 ; H'8C01EF44
+          .DATA.L _init_8c03bd80 ; H'8C01EF44
           .DATA.L _var_8c1bb8fc ; H'8C01EF48
           .DATA.L _var_8c1bb8b8 ; H'8C01EF4C
           .DATA.L _var_8c22642c ; H'8C01EF50
@@ -2030,7 +2030,7 @@ LAB_8c01f1bc:
           MOV.L       @R15+,R14
 LP_GEN_22524:
           .DATA.W H'0C00 ; H'8C01F1C6
-          .DATA.L _var_demoOrGameplayState_8c1bb8d0 ; H'8C01F1C8
+          .DATA.L _var_demo_8c1bb8d0 ; H'8C01F1C8
           .DATA.L LAB_8c01ebf2 ; H'8C01F1CC
           .DATA.L _setTaskAction_8c014b3e ; H'8C01F1D0
           .DATA.L _menuState_8c1bc7a8 ; H'8C01F1D4
@@ -2039,7 +2039,7 @@ LP_GEN_22524:
           .DATA.L _var_8c226414 ; H'8C01F1E0
           .DATA.L _init_8c044c08 ; H'8C01F1E4
           .DATA.L _njSetBackColor ; H'8C01F1E8
-          .DATA.L _var_8c157af8 ; H'8C01F1EC
+          .DATA.L _var_tex_8c157af8 ; H'8C01F1EC
           .DATA.L _njGarbageTexture ; H'8C01F1F0
           .DATA.L _FUN_8c011f36 ; H'8C01F1F4
           .DATA.L _FUN_8c011f6c ; H'8C01F1F8
@@ -2212,14 +2212,14 @@ LP_GEN_37649:
           .DATA.W H'0240 ; H'8C01F35E
           .DATA.W H'0180 ; H'8C01F360
           .RES.W 1 ; H'8C01F362
-          .DATA.L _var_demoOrGameplayState_8c1bb8d0 ; H'8C01F364
+          .DATA.L _var_demo_8c1bb8d0 ; H'8C01F364
           .DATA.L _FUN_8c0128cc ; H'8C01F368
           .DATA.L _task_8c012f44 ; H'8C01F36C
-          .DATA.L _tasks_8c1ba3c8 ; H'8C01F370
+          .DATA.L _var_tasks_8c1ba3c8 ; H'8C01F370
           .DATA.L _pushTask_8c014ae8 ; H'8C01F374
           .DATA.L LAB_8c01ebf2 ; H'8C01F378
           .DATA.L _init_8c044c08 ; H'8C01F37C
-          .DATA.L _var_8c157af8 ; H'8C01F380
+          .DATA.L _var_tex_8c157af8 ; H'8C01F380
           .DATA.L _njGarbageTexture ; H'8C01F384
           .DATA.L H'C0000000 ; H'8C01F388
           .DATA.L _FUN_8c02ae3e ; H'8C01F38C

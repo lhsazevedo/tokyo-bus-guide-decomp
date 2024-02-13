@@ -1,4 +1,4 @@
-          .IMPORT     _var_demoOrGameplayState_8c1bb8d0
+          .IMPORT     _var_demo_8c1bb8d0
           .IMPORT     _var_8c228564
           .IMPORT     _var_8c1bb8f4
           .IMPORT     _var_8c1ba290
@@ -29,7 +29,7 @@
           .IMPORT     _var_8c228680
           .IMPORT     _var_8c22868c
           .IMPORT     _var_8c1bb8c8
-          .IMPORT     _var_8c1bb9d0
+          .IMPORT     _var_busState_8c1bb9d0
           .IMPORT     _FUN_8c028900
           .IMPORT     _var_8c228684
           .IMPORT     _var_8c1bbd1c
@@ -54,16 +54,16 @@
           .IMPORT     _var_8c228714
           .IMPORT     _var_8c22861c
           .IMPORT     _FUN_8c010bae
-          .IMPORT     __8c03bd80
+          .IMPORT     _init_8c03bd80
           .IMPORT     _sdMidiStopAll
-          .IMPORT     _var_8c1ba354
+          .IMPORT     _var_vibport_8c1ba354
           .IMPORT     _pdVibMxStop
           .IMPORT     _var_8c226564
           .IMPORT     _FUN_8c024b4c
           .IMPORT     _FUN_adxVol_8c010a40
           .IMPORT     _FUN_8c02b388
           .IMPORT     _FUN_8c0223ea
-          .IMPORT     _tasks_8c1ba5e8
+          .IMPORT     _var_tasks_8c1ba5e8
           .IMPORT     _pushTask_8c014ae8
           .IMPORT     _var_8c18ad1c
           .IMPORT     _var_8c22640c
@@ -71,9 +71,9 @@
           .IMPORT     _FUN_8c0297da
           .IMPORT     _FUN_8c0288be
           .IMPORT     _freeTasks_8c014ab4
-          .IMPORT     _var_8c1bb448
-          .IMPORT     _var_8c1bac28
-          .IMPORT     _tasks_8c1ba3c8
+          .IMPORT     _var_tasks_8c1bb448
+          .IMPORT     _var_tasks_8c1bac28
+          .IMPORT     _var_tasks_8c1ba3c8
           .IMPORT     _FUN_8c02ccc6
           .IMPORT     _FUN_8c01468e
           .IMPORT     _var_8c1bb8b8
@@ -235,7 +235,7 @@ LAB_8c02b53c:
 LP_GEN_45010:
           .DATA.W H'0280 ; H'8C02B548
           .RES.W 1 ; H'8C02B54A
-          .DATA.L _var_demoOrGameplayState_8c1bb8d0 ; H'8C02B54C
+          .DATA.L _var_demo_8c1bb8d0 ; H'8C02B54C
           .DATA.L _var_8c228564 ; H'8C02B550
           .DATA.L _var_8c1bb8f4 ; H'8C02B554
           .DATA.L _var_8c1ba290 ; H'8C02B558
@@ -737,7 +737,7 @@ LP_GEN_71333:
           .DATA.L _var_8c22868c ; H'8C02B934
           .DATA.L H'00020000 ; H'8C02B938
           .DATA.L _var_8c1bb8c8 ; H'8C02B93C
-          .DATA.L _var_8c1bb9d0 ; H'8C02B940
+          .DATA.L _var_busState_8c1bb9d0 ; H'8C02B940
           .DATA.L _var_8c2285c4 ; H'8C02B944
           .DATA.L _var_8c22866c ; H'8C02B948
           .DATA.L _var_8c2285fc ; H'8C02B94C
@@ -1103,7 +1103,7 @@ LP_GEN_46467:
           .DATA.W H'034C ; H'8C02BC08
           .DATA.W H'025C ; H'8C02BC0A
           .DATA.L H'0F000000 ; H'8C02BC0C
-          .DATA.L _var_8c1bb9d0 ; H'8C02BC10
+          .DATA.L _var_busState_8c1bb9d0 ; H'8C02BC10
           .DATA.L _var_8c2285c4 ; H'8C02BC14
           .DATA.L _var_8c22866c ; H'8C02BC18
           .DATA.L H'FF000000 ; H'8C02BC1C
@@ -1238,7 +1238,7 @@ LP_GEN_44318:
           .DATA.L H'40000000 ; H'8C02BD24
           .DATA.L H'80000000 ; H'8C02BD28
           .DATA.L _var_8c22866c ; H'8C02BD2C
-          .DATA.L _var_8c1bb9d0 ; H'8C02BD30
+          .DATA.L _var_busState_8c1bb9d0 ; H'8C02BD30
           .DATA.L _var_8c2285c4 ; H'8C02BD34
           .DATA.L _var_8c228684 ; H'8C02BD38
           .DATA.L _var_8c1bbd9c ; H'8C02BD3C
@@ -1579,7 +1579,7 @@ LP_GEN_59291:
           .DATA.W H'0708 ; H'8C02BFB4
           .RES.W 1 ; H'8C02BFB6
           .DATA.L _FUN_8c02ce48 ; H'8C02BFB8
-          .DATA.L _var_demoOrGameplayState_8c1bb8d0 ; H'8C02BFBC
+          .DATA.L _var_demo_8c1bb8d0 ; H'8C02BFBC
           .DATA.L _var_8c226410 ; H'8C02BFC0
           .DATA.L _var_8c2285e4 ; H'8C02BFC4
           .DATA.L _var_8c2264c4 ; H'8C02BFC8
@@ -1715,14 +1715,14 @@ LP_GEN_85160:
           .DATA.W H'027C ; H'8C02C0B6
           .DATA.W H'03C4 ; H'8C02C0B8
           .DATA.W H'FF38 ; H'8C02C0BA
-          .DATA.L _var_demoOrGameplayState_8c1bb8d0 ; H'8C02C0BC
+          .DATA.L _var_demo_8c1bb8d0 ; H'8C02C0BC
           .DATA.L _var_8c226410 ; H'8C02C0C0
           .DATA.L _var_8c226450 ; H'8C02C0C4
           .DATA.L _var_8c2285d8 ; H'8C02C0C8
           .DATA.L _var_8c2285dc ; H'8C02C0CC
           .DATA.L __modls ; H'8C02C0D0
           .DATA.L _var_8c22656c ; H'8C02C0D4
-          .DATA.L _var_8c1bb9d0 ; H'8C02C0D8
+          .DATA.L _var_busState_8c1bb9d0 ; H'8C02C0D8
           .DATA.L _var_8c2285c4 ; H'8C02C0DC
 LAB_8c02c0e0:
           MOV.W       LP_GEN_77677,R0
@@ -1982,7 +1982,7 @@ LP_GEN_39176:
           .DATA.L _var_8c22869c ; H'8C02C2D8
           .DATA.L _var_8c2286a0 ; H'8C02C2DC
           .DATA.L _var_8c22847c ; H'8C02C2E0
-          .DATA.L _var_demoOrGameplayState_8c1bb8d0 ; H'8C02C2E4
+          .DATA.L _var_demo_8c1bb8d0 ; H'8C02C2E4
           .DATA.L LAB_8c02c76a ; H'8C02C2E8
           .DATA.L _FUN_8c02c784 ; H'8C02C2EC
 LAB_8c02c2f0:
@@ -2092,7 +2092,7 @@ LP_GEN_30870:
           .DATA.L H'0000F8E3 ; H'8C02C3A8
           .DATA.L _var_8c22861c ; H'8C02C3AC
           .DATA.L _var_8c22847c ; H'8C02C3B0
-          .DATA.L _var_demoOrGameplayState_8c1bb8d0 ; H'8C02C3B4
+          .DATA.L _var_demo_8c1bb8d0 ; H'8C02C3B4
           .DATA.L LAB_8c02c76a ; H'8C02C3B8
           .DATA.L LAB_8c02c624 ; H'8C02C3BC
           .DATA.L _FUN_8c02c784 ; H'8C02C3C0
@@ -2218,9 +2218,9 @@ LAB_8c02c4a0:
           BRA         LAB_8c02c4e8
           MOV.L       R6,@(H'20,R5)
 LP_GEN_93947:
-          .DATA.L __8c03bd80 ; H'8C02C4A4
+          .DATA.L _init_8c03bd80 ; H'8C02C4A4
           .DATA.L _sdMidiStopAll ; H'8C02C4A8
-          .DATA.L _var_8c1ba354 ; H'8C02C4AC
+          .DATA.L _var_vibport_8c1ba354 ; H'8C02C4AC
           .DATA.L _pdVibMxStop ; H'8C02C4B0
           .DATA.L _var_8c226564 ; H'8C02C4B4
           .DATA.L _FUN_8c024b4c ; H'8C02C4B8
@@ -2229,10 +2229,10 @@ LP_GEN_93947:
           .DATA.L _FUN_8c02b388 ; H'8C02C4C4
           .DATA.L _FUN_8c0223ea ; H'8C02C4C8
           .DATA.L LAB_8c02c072 ; H'8C02C4CC
-          .DATA.L _tasks_8c1ba5e8 ; H'8C02C4D0
+          .DATA.L _var_tasks_8c1ba5e8 ; H'8C02C4D0
           .DATA.L _pushTask_8c014ae8 ; H'8C02C4D4
           .DATA.L _var_8c2285c4 ; H'8C02C4D8
-          .DATA.L _var_demoOrGameplayState_8c1bb8d0 ; H'8C02C4DC
+          .DATA.L _var_demo_8c1bb8d0 ; H'8C02C4DC
           .DATA.L _var_8c226410 ; H'8C02C4E0
 LAB_8c02c4e4:
           MOV         #H'4,R2
@@ -2368,7 +2368,7 @@ LP_GEN_23130:
           .DATA.W H'0358 ; H'8C02C5D6
           .DATA.W H'034C ; H'8C02C5D8
           .DATA.W H'0368 ; H'8C02C5DA
-          .DATA.L _var_8c1bb9d0 ; H'8C02C5DC
+          .DATA.L _var_busState_8c1bb9d0 ; H'8C02C5DC
           .DATA.L H'F0000000 ; H'8C02C5E0
           .DATA.L H'0F000000 ; H'8C02C5E4
           .DATA.L _var_8c228690 ; H'8C02C5E8
@@ -2377,7 +2377,7 @@ LP_GEN_23130:
           .DATA.L _var_8c22869c ; H'8C02C5F4
           .DATA.L _var_8c2286a0 ; H'8C02C5F8
           .DATA.L _var_8c228564 ; H'8C02C5FC
-          .DATA.L _var_demoOrGameplayState_8c1bb8d0 ; H'8C02C600
+          .DATA.L _var_demo_8c1bb8d0 ; H'8C02C600
           .DATA.L _var_8c18ad1c ; H'8C02C604
           .DATA.L _var_8c226410 ; H'8C02C608
           .DATA.L _var_8c22640c ; H'8C02C60C
@@ -2652,10 +2652,10 @@ LP_GEN_25024:
           .DATA.L _FUN_8c0297da ; H'8C02C804
           .DATA.L _FUN_8c0288be ; H'8C02C808
           .DATA.L _freeTasks_8c014ab4 ; H'8C02C80C
-          .DATA.L _var_8c1bb448 ; H'8C02C810
-          .DATA.L _var_8c1bac28 ; H'8C02C814
-          .DATA.L _tasks_8c1ba5e8 ; H'8C02C818
-          .DATA.L _tasks_8c1ba3c8 ; H'8C02C81C
+          .DATA.L _var_tasks_8c1bb448 ; H'8C02C810
+          .DATA.L _var_tasks_8c1bac28 ; H'8C02C814
+          .DATA.L _var_tasks_8c1ba5e8 ; H'8C02C818
+          .DATA.L _var_tasks_8c1ba3c8 ; H'8C02C81C
           .DATA.L _FUN_8c02ccc6 ; H'8C02C820
           .DATA.L _FUN_8c01468e ; H'8C02C824
           .DATA.L _var_8c1bb8b8 ; H'8C02C828
@@ -2668,7 +2668,7 @@ LP_GEN_25024:
           .DATA.L _FUN_8c017ef2 ; H'8C02C844
           .DATA.L _isFading_8c226568 ; H'8C02C848
           .DATA.L _push_fadeout_8c022b60 ; H'8C02C84C
-          .DATA.L _var_demoOrGameplayState_8c1bb8d0 ; H'8C02C850
+          .DATA.L _var_demo_8c1bb8d0 ; H'8C02C850
           .DATA.L _var_8c1bb8c0 ; H'8C02C854
           .DATA.L _FUN_8c01f21c ; H'8C02C858
           .DATA.L _var_8c1bc418 ; H'8C02C85C

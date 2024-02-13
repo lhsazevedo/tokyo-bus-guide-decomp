@@ -1,5 +1,5 @@
           .IMPORT     _pdGetPeripheral
-          .IMPORT     _var_8c1ba354
+          .IMPORT     _var_vibport_8c1ba354
           .IMPORT     _var_8c157a78
           .IMPORT     _var_8c1ba358
           .IMPORT     _var_8c157a70
@@ -14,7 +14,7 @@
           .IMPORT     _init_8c03beb8
           .IMPORT     _init_8c03bf18
           .IMPORT     _pushTask_8c014ae8
-          .IMPORT     _tasks_8c1ba3c8
+          .IMPORT     _var_tasks_8c1ba3c8
           .IMPORT     _var_8c157a74
           .IMPORT     _task_8c012324
           .IMPORT     _var_8c157ae4
@@ -29,6 +29,7 @@
           .EXPORT     _FUN_8c0128cc
           .EXPORT     _FUN_8c012984
           .EXPORT     _FUN_8c012970
+          .EXPORT     _const_8c033358
           .SECTION     P, CODE, ALIGN=4
 task_8c012504:
           MOV.L       R14,@-R15
@@ -160,7 +161,7 @@ LAB_8c0125de:
 LP_GEN_80518:
           .DATA.W H'0606 ; LP_GEN_80518+0
           .DATA.L _pdGetPeripheral
-          .DATA.L _var_8c1ba354
+          .DATA.L _var_vibport_8c1ba354
           .DATA.L _var_8c157a78
           .DATA.L _var_8c1ba358
           .DATA.L H'000F06FE
@@ -443,7 +444,7 @@ LP_GEN_64371:
           .DATA.W H'0606 ; LP_GEN_64371+0
           .RES.W  1
           .DATA.L _pdGetPeripheral
-          .DATA.L _var_8c1ba354
+          .DATA.L _var_vibport_8c1ba354
           .DATA.L _var_8c157a78
           .DATA.L _var_8c1ba358
           .DATA.L H'000F06FE
@@ -589,7 +590,7 @@ LP_GEN_17272:
           .DATA.L _var_8c157a70
           .DATA.L _FUN_8c01c910
           .DATA.L _pushTask_8c014ae8
-          .DATA.L _tasks_8c1ba3c8
+          .DATA.L _var_tasks_8c1ba3c8
           .DATA.L _var_8c157a74
           .DATA.L _task_8c012324
           .DATA.L _var_8c157ae4
@@ -660,14 +661,18 @@ LAB_8c0129a4:
           LDS.L       @R15+,PR
           RTS
           NOP
-
 LP_GEN_44279:
-          .DATA.L _var_8c1bb8c8
-          .DATA.L _var_8c157a74
-          .DATA.L task_8c012504
-          .DATA.L _FUN_8c012718
-          .DATA.L _init_8c03bf40
-          .DATA.L _var_8c157aec
-          .DATA.L _strcmp
-          .DATA.L _strcpy
+          .DATA.L     _var_8c1bb8c8
+          .DATA.L     _var_8c157a74
+          .DATA.L     task_8c012504
+          .DATA.L     _FUN_8c012718
+          .DATA.L     _init_8c03bf40
+          .DATA.L     _var_8c157aec
+          .DATA.L     _strcmp
+          .DATA.L     _strcpy
+          .SECTION    C,DATA,ALIGN=4
+_const_8c033358:
+          .SDATA      "FortyFive"
+          .DATA.B     H'00
+          .RES.W      1
           .END

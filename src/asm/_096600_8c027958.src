@@ -9,7 +9,7 @@
           .IMPORT     _njCnkSetEasyLightIntensity
           .IMPORT     _njCnkSetEasyLightColor
           .IMPORT     _njCnkEasyDrawObject
-          .IMPORT     _var_8c1bb9d0
+          .IMPORT     _var_busState_8c1bb9d0
           .IMPORT     _njSqrt
           .IMPORT     _FUN_8c022420
           .IMPORT     _FUN_8c020f7e
@@ -504,7 +504,7 @@ LP_GEN_94732:
           .DATA.L _njCnkSetEasyLightIntensity ; H'8C027CE8
           .DATA.L _njCnkSetEasyLightColor ; H'8C027CEC
           .DATA.L _njCnkEasyDrawObject ; H'8C027CF0
-          .DATA.L _var_8c1bb9d0 ; H'8C027CF4
+          .DATA.L _var_busState_8c1bb9d0 ; H'8C027CF4
           .DATA.L _njSqrt ; H'8C027CF8
           .DATA.L _FUN_8c022420 ; H'8C027CFC
           .DATA.L H'43480000 ; H'8C027D00

@@ -43,8 +43,8 @@
           .IMPORT     __divls
           .IMPORT     __slow_mvn
           .IMPORT     __quick_evn_mvn
-          .EXPORT     __8c03bd80
-          .EXPORT     __8c03bd84
+          .EXPORT     _init_8c03bd80
+          .EXPORT     _init_8c03bd84
           .EXPORT     __8c03bd88
           .EXPORT     __8c03bd90
           .EXPORT     _adxfPartitionInfo_8c03bd94
@@ -698,9 +698,9 @@ _usr_adx_err_func_8c010532:      ; function: usr_adx_err_func_8c010532
           MOV         #0,R4
           BSR         _FUN_8c010ca6
           MOV         #1,R4
-          MOV.L       L21+42,R0; __8c03bd84
+          MOV.L       L21+42,R0; _init_8c03bd84
           MOV         #0,R3
-          MOV.L       L21+38,R2; __8c03bd80
+          MOV.L       L21+38,R2; _init_8c03bd80
           MOV         R3,R1
           MOV.L       R3,@R2
           MOV.L       R3,@R0
@@ -770,8 +770,8 @@ L21:
           .DATA.L     __slow_mvn
           .DATA.L     _strlen
           .DATA.L     _strncmp
-          .DATA.L     __8c03bd80
-          .DATA.L     __8c03bd84
+          .DATA.L     _init_8c03bd80
+          .DATA.L     _init_8c03bd84
           .DATA.L     _ADXF_LoadPartition
           .DATA.L     _ADXF_GetPtinfoSize
           .DATA.L     _adxfPartitionInfo_8c03bd94
@@ -872,7 +872,7 @@ _FUN_8c0106ac:                   ; function: FUN_8c0106ac
           CMP/EQ      #5,R0
           BF          L23
 L22:                              
-          MOV.L       L29+64,R4; __8c03bd80
+          MOV.L       L29+64,R4; _init_8c03bd80
           MOV         #-17,R3
           MOV.L       @R4,R2
           AND         R3,R2
@@ -960,7 +960,7 @@ L29:
           .DATA.L     _sdMemBlkSetTransferMode
           .DATA.L     H'00000004+_adxtHandles_8c0fcd20
           .DATA.L     _ADXT_GetStat
-          .DATA.L     __8c03bd80
+          .DATA.L     _init_8c03bd80
           .DATA.L     _midiHandles_8c0fcd28
           .DATA.L     _sdMidiPlay
 L30:                              
@@ -1447,7 +1447,7 @@ L59:
           .DATA.L     _sdMidiSetVol
           .DATA.L     _adxtHandles_8c0fcd20 ; L59+38
           .DATA.L     __8c157a34
-          .DATA.L     __8c03bd80
+          .DATA.L     _init_8c03bd80
           .DATA.L     _ADXT_Stop
           .DATA.L     __8c03bd88 ; L59+54
 L60:                              
@@ -1646,7 +1646,7 @@ L69:
           MOV.L       @R14+,R4
           CMP/HS      R12,R14
           BF          L69
-          MOV.L       L74+8,R3; __8c03bd80
+          MOV.L       L74+8,R3; _init_8c03bd80
           MOV         #0,R2
           MOV.L       R2,@R3
           LDS.L       @R15+,PR
@@ -1658,7 +1658,7 @@ _FUN_8c010ca6:                   ; function: FUN_8c010ca6
                                  ; frame size=4
           MOV.L       R14,@-R15
           MOV         R4,R14
-          MOV.L       L74+8,R4 ; __8c03bd80
+          MOV.L       L74+8,R4 ; _init_8c03bd80
           TST         R14,R14
           BF          L70
           MOV.L       @R4,R2
@@ -1737,7 +1737,7 @@ L74:
           .DATA.W     H'FC22
           .DATA.W     H'0000
           .DATA.L     __8c157a34
-          .DATA.L     __8c03bd80
+          .DATA.L     _init_8c03bd80
           .DATA.L     H'00000004+__8c03bd88
           .DATA.L     __divls
           .DATA.L     _adxtHandles_8c0fcd20
@@ -1794,7 +1794,7 @@ _FUN_8c010d8a:                   ; function: FUN_8c010d8a
           MOV.L       @R14,R4
           MOV.L       L80+24,R3; __8c157a34
           MOV         #-2,R12
-          MOV.L       L80+28,R13; __8c03bd80
+          MOV.L       L80+28,R13; _init_8c03bd80
           MOV.L       @R3,R2
           AND         R12,R2
           MOV.L       R2,@R3
@@ -1837,9 +1837,9 @@ _FUN_8c010de6:                   ; function: FUN_8c010de6
           MOV.L       L80+36,R4; H'00000004+_adxtHandles_8c0fcd20
           JSR         @R2
           MOV.L       @R4,R4
-          MOV.L       L80+28,R2; __8c03bd80
+          MOV.L       L80+28,R2; _init_8c03bd80
           MOV         #0,R3
-          MOV.L       L80+40,R0; __8c03bd84
+          MOV.L       L80+40,R0; _init_8c03bd84
           MOV         R3,R5
           MOV.L       R3,@R2
           MOV         #1,R1
@@ -1854,11 +1854,11 @@ _FUN_8c010e18:                   ; function: FUN_8c010e18
                                  ; frame size=8
           MOV.L       R14,@-R15
           MOV         #0,R3
-          MOV.L       L80+28,R14; __8c03bd80
+          MOV.L       L80+28,R14; _init_8c03bd80
           MOV         #1,R2
           STS.L       PR,@-R15
           MOV.L       R3,@R14
-          MOV.L       L80+40,R1; __8c03bd84
+          MOV.L       L80+40,R1; _init_8c03bd84
           MOV.L       L80+48,R3; _gdFsChangeDir
           JSR         @R3
           MOV.L       R2,@R1
@@ -1895,16 +1895,16 @@ L80:
           .DATA.L     __8c03bd88
           .DATA.L     _ADXT_SetOutVol
           .DATA.L     __8c157a34
-          .DATA.L     __8c03bd80
+          .DATA.L     _init_8c03bd80
           .DATA.L     _sdMidiStopAll
           .DATA.L     H'00000004+_adxtHandles_8c0fcd20
-          .DATA.L     __8c03bd84
+          .DATA.L     _init_8c03bd84
           .DATA.L     _memset
           .DATA.L     _gdFsChangeDir
           .SECTION    D,DATA,ALIGN=4
-__8c03bd80:                      ; static: _8c03bd80
+_init_8c03bd80:                      ; static: init_8c03bd80
           .DATA.L     H'00000000
-__8c03bd84:                      ; static: _8c03bd84
+_init_8c03bd84:                      ; static: _init_8c03bd84
           .DATA.L     H'00000001
 __8c03bd88:                      ; static: _8c03bd88
           .DATA.L     H'000003DE,H'000003DE

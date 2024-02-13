@@ -1,7 +1,7 @@
           .IMPORT     _var_8c228b3c
           .IMPORT     _njSqrt
           .IMPORT     _acosf
-          .IMPORT     _var_8c1bac28
+          .IMPORT     _var_tasks_8c1bac28
           .IMPORT     _var_8c1bbd70
           .EXPORT     _FUN_8c02e51c
           .EXPORT     _FUN_8c02e69c
@@ -1586,6 +1586,6 @@ LAB_8c02f0b8:
           NOP
 LP_GEN_88808:
           .DATA.W H'0410 ; H'8C02F0BE
-          .DATA.L _var_8c1bac28 ; H'8C02F0C0
+          .DATA.L _var_tasks_8c1bac28 ; H'8C02F0C0
           .DATA.L _var_8c1bbd70 ; H'8C02F0C4
           .END

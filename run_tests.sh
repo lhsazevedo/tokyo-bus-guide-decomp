@@ -14,8 +14,10 @@ compile() {
   local src_file="$1"
   local base_name=$(basename "$src_file" .c)
   local obj_file="build\\${base_name}_c.obj"
+  local asm_file="build\\${base_name}_c.src"
 
   wine "$SHC_BIN/shc.exe" $(echo "$src_file" | tr / '\\') -object="$obj_file" -sub=shc.sub 
+  wine "$SHC_BIN/shc.exe" $(echo "$src_file" | tr / '\\') -code=asm -object="$asm_file" -sub=shc.sub 
 }
 
 rm -rf build
@@ -38,3 +40,9 @@ assemble  src/asm/decompiled/_027736_8c016c58.src
 sh4objtest "tests/_027736_8c016c58.php" "build/_027736_8c016c58_src.obj"
 compile  src/_027736_8c016c58.c
 sh4objtest "tests/_027736_8c016c58.php" "build/_027736_8c016c58_c.obj"
+
+# _012100_8c012f44
+assemble  src/asm/_012100_8c012f44.src
+sh4objtest "tests/_012100_8c012f44.php" "build/_012100_8c012f44_src.obj"
+compile  src/_012100_8c012f44.c
+sh4objtest "tests/_012100_8c012f44.php" "build/_012100_8c012f44_c.obj"

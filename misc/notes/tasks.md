@@ -1,8 +1,8 @@
 ## Tasks
 
 There are (at least) four task arrays:
-- `tasks_8c1ba3c8`: Seems to be used during menus.
-- `tasks_8c1ba5e8`: Seems to be used in-game only.
+- `var_tasks_8c1ba3c8`: Seems to be used during menus.
+- `var_tasks_8c1ba5e8`: Seems to be used in-game only.
 - `tasks_8c1ba808`: Pedestrian groups
 - `tasks_8c514300`: A pedestrian group
 

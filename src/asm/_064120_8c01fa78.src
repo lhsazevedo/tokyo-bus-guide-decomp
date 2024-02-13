@@ -5,9 +5,9 @@
           .IMPORT     _var_8c1bc424
           .IMPORT     _var_8c2285c4
           .IMPORT     _njDrawPolygon
-          .IMPORT     _var_8c1bb9d0
+          .IMPORT     _var_busState_8c1bb9d0
           .IMPORT     _var_8c22643c
-          .IMPORT     _var_demoOrGameplayState_8c1bb8d0
+          .IMPORT     _var_demo_8c1bb8d0
           .IMPORT     _var_8c1bc418
           .IMPORT     _init_8c045334
           .IMPORT     _init_8c045374
@@ -23,7 +23,7 @@
           .IMPORT     _FUN_8c028900
           .IMPORT     _var_8c2285d0
           .IMPORT     _FUN_8c0223ea
-          .IMPORT     _tasks_8c1ba5e8
+          .IMPORT     _var_tasks_8c1ba5e8
           .IMPORT     _pushTask_8c014ae8
           .EXPORT     _FUN_8c01fa78
           .EXPORT     _FUN_8c01fa80
@@ -293,10 +293,10 @@ LP_GEN_37481:
           .DATA.L _var_8c2285c4 ; H'8C01FC7C
           .DATA.L _njDrawPolygon ; H'8C01FC80
           .DATA.L H'BF9AE148 ; H'8C01FC84
-          .DATA.L _var_8c1bb9d0 ; H'8C01FC88
+          .DATA.L _var_busState_8c1bb9d0 ; H'8C01FC88
           .DATA.L _drawSprite_8c014f54 ; H'8C01FC8C
           .DATA.L _var_8c22643c ; H'8C01FC90
-          .DATA.L _var_demoOrGameplayState_8c1bb8d0 ; H'8C01FC94
+          .DATA.L _var_demo_8c1bb8d0 ; H'8C01FC94
           .DATA.L _var_8c2264a8 ; H'8C01FC98
           .DATA.L _var_8c1bc418 ; H'8C01FC9C
           .DATA.L H'BF99999A ; H'8C01FCA0
@@ -734,7 +734,7 @@ LP_GEN_64387:
           .DATA.W H'03B0 ; H'8C01FFFA
           .DATA.W H'012C ; H'8C01FFFC
           .DATA.W H'00B4 ; H'8C01FFFE
-          .DATA.L _var_8c1bb9d0 ; H'8C020000
+          .DATA.L _var_busState_8c1bb9d0 ; H'8C020000
           .DATA.L _var_8c2264a8 ; H'8C020004
           .DATA.L _var_8c22643c ; H'8C020008
           .DATA.L H'00030000 ; H'8C02000C
@@ -990,7 +990,7 @@ LP_GEN_28448:
           .DATA.L _FUN_8c01fbac ; H'8C0201F4
           .DATA.L _FUN_8c0223ea ; H'8C0201F8
           .DATA.L _FUN_8c01ff48 ; H'8C0201FC
-          .DATA.L _tasks_8c1ba5e8 ; H'8C020200
+          .DATA.L _var_tasks_8c1ba5e8 ; H'8C020200
           .DATA.L _pushTask_8c014ae8 ; H'8C020204
           .DATA.L _var_8c22643c ; H'8C020208
           .DATA.L _var_8c226478 ; H'8C02020C

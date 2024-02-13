@@ -35,7 +35,7 @@ extern void *_8c227ca0;
 extern const char* ptr_str_DATA_EMPTY_8c03be7c;
 
 /* Matched */
-int initNjQueue(int param) {
+int initNjQueue_8c011430(int param) {
     if (param != 0) {
         if ((queuedNjFiles_8c157a9c = syMalloc(param * sizeof(QueuedNj))) == NULL) {
             return 0;

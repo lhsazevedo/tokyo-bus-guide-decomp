@@ -4,9 +4,9 @@
           .IMPORT     _var_8c1bbb44
           .IMPORT     _var_8c1bbacc
           .IMPORT     _var_8c1bbad8
-          .IMPORT     _var_8c1bac28
+          .IMPORT     _var_tasks_8c1bac28
           .IMPORT     _var_8c228974
-          .IMPORT     _var_8c1bb9d0
+          .IMPORT     _var_busState_8c1bb9d0
           .IMPORT     _var_8c1bbd9c
           .EXPORT     _FUN_8c02df3c
           .EXPORT     _FUN_8c02dfca
@@ -325,7 +325,7 @@ LP_GEN_80684:
           .DATA.L _var_8c1bbb44 ; H'8C02E184
           .DATA.L _var_8c1bbacc ; H'8C02E188
           .DATA.L _var_8c1bbad8 ; H'8C02E18C
-          .DATA.L _var_8c1bac28 ; H'8C02E190
+          .DATA.L _var_tasks_8c1bac28 ; H'8C02E190
           .DATA.L _var_8c228974 ; H'8C02E194
 LAB_8c02e198:
           MOV.L       @R5,R0
@@ -487,7 +487,7 @@ LP_GEN_42627:
           .DATA.W H'016C ; H'8C02E2B2
           .DATA.W H'00F4 ; H'8C02E2B4
           .DATA.W H'0100 ; H'8C02E2B6
-          .DATA.L _var_8c1bb9d0 ; H'8C02E2B8
+          .DATA.L _var_busState_8c1bb9d0 ; H'8C02E2B8
           .DATA.L H'40200000 ; H'8C02E2BC
           .DATA.L _var_8c1bbb50 ; H'8C02E2C0
           .DATA.L _var_8c1bbb5c ; H'8C02E2C4

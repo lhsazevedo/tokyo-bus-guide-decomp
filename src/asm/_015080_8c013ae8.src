@@ -36,13 +36,13 @@
           .IMPORT     _var_8c226508
           .IMPORT     _var_8c227dd0
           .IMPORT     _var_8c1bb900
-          .IMPORT     _var_demoOrGameplayState_8c1bb8d0
+          .IMPORT     _var_demo_8c1bb8d0
           .IMPORT     _init_8c043fd4
           .IMPORT     _FUN_8c029ad4
           .IMPORT     _var_8c226534
           .IMPORT     _var_8c18adb4
           .IMPORT     _var_8c18ad2c
-          .IMPORT     _request_dat_8c011182
+          .IMPORT     _requestDat_8c011182
           .IMPORT     _FUN_8c02aa36
           .IMPORT     _var_8c1bb868
           .IMPORT     _init_8c043ca4
@@ -71,9 +71,9 @@
           .IMPORT     _drawSprite_8c014f54
           .IMPORT     __modls
           .IMPORT     _njSetBackColor
-          .IMPORT     _tasks_8c1ba3c8
+          .IMPORT     _var_tasks_8c1ba3c8
           .IMPORT     _pushTask_8c014ae8
-          .IMPORT     _var_8c157af8
+          .IMPORT     _var_tex_8c157af8
           .IMPORT     _njGarbageTexture
           .IMPORT     _var_8c1ba290
           .IMPORT     _var_8c2285c4
@@ -960,13 +960,13 @@ LP_GEN_25668:
           .DATA.L _var_8c1bc3f0
           .DATA.L _var_8c18adb0
           .DATA.L _var_8c1bb900
-          .DATA.L _var_demoOrGameplayState_8c1bb8d0
+          .DATA.L _var_demo_8c1bb8d0
           .DATA.L _init_8c043fd4
           .DATA.L _FUN_8c029ad4
           .DATA.L _var_8c226534
           .DATA.L _var_8c18adb4
           .DATA.L _var_8c18ad2c
-          .DATA.L _request_dat_8c011182
+          .DATA.L _requestDat_8c011182
           .DATA.L _FUN_8c02aa36
           .DATA.L _var_8c1bb868
           .DATA.L _init_8c043ca4
@@ -1312,7 +1312,7 @@ LP_GEN_90737:
           .DATA.L _var_8c18ad8c
           .DATA.L _var_8c18ad2c
           .DATA.L _requestNj_8c011492
-          .DATA.L _request_dat_8c011182
+          .DATA.L _requestDat_8c011182
           .DATA.L _init_8c0440dc
           .DATA.L _FUN_8c012030
           .DATA.L _var_8c1bc3ec
@@ -1490,9 +1490,9 @@ LP_GEN_28406:
           .DATA.L _njSetBackColor
           .DATA.L _var_8c157a6c
           .DATA.L task_load_8c014338
-          .DATA.L _tasks_8c1ba3c8
+          .DATA.L _var_tasks_8c1ba3c8
           .DATA.L _pushTask_8c014ae8
-          .DATA.L _var_8c157af8
+          .DATA.L _var_tex_8c157af8
           .DATA.L _njGarbageTexture
           .DATA.L _FUN_8c011f36
           .DATA.L _FUN_8c02b170
@@ -1662,12 +1662,12 @@ LP_GEN_17698:
           .DATA.L __modls
           .DATA.L H'C0800000
           .DATA.L _var_8c1ba290
-          .DATA.L _var_demoOrGameplayState_8c1bb8d0
+          .DATA.L _var_demo_8c1bb8d0
           .DATA.L _var_8c2285c4
           .DATA.L LAB_8c014550
-          .DATA.L _tasks_8c1ba3c8
+          .DATA.L _var_tasks_8c1ba3c8
           .DATA.L _pushTask_8c014ae8
-          .DATA.L _var_8c157af8
+          .DATA.L _var_tex_8c157af8
           .DATA.L _njGarbageTexture
           .DATA.L _FUN_8c011f36
           .DATA.L H'FF418DFF
