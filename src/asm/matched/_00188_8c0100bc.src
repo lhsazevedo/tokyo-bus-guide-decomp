@@ -1,19 +1,19 @@
           .IMPORT     _sdMidiSetVol
-          .IMPORT     __8c0fcd50
-          .IMPORT     _const127_8c03bd90
-          .IMPORT     __8c226468
+          .IMPORT     _var_uknVol_8c0fcd50
+          .IMPORT     _const127init_vol_8c03bd90
+          .IMPORT     _var_uknVol_8c226468
           .IMPORT     _midiHandles_8c0fcd28
           .IMPORT     __divls
-          .EXPORT     _FUN_sound_8c0100bc
+          .EXPORT     _initUknVol_8c0100bc
           .EXPORT     _midiSetVol_8c010128
           .SECTION    P,CODE,ALIGN=4
-_FUN_sound_8c0100bc:             ; function: FUN_sound_8c0100bc
+_initUknVol_8c0100bc:             ; function: initUknVol_8c0100bc
                                  ; frame size=4
                                  ; used runtime library name:
                                  ; __divls
-          MOV.L       L3+8,R5 ; _const127_8c03bd90
+          MOV.L       L3+8,R5 ; _const127init_vol_8c03bd90
           MOVA        L3+4,R0
-          MOV.L       L3+12,R4; __8c0fcd50
+          MOV.L       L3+12,R4; _var_uknVol_8c0fcd50
           MOV         #100,R6
           STS.L       PR,@-R15
           MOV.L       @R5,R3
@@ -67,7 +67,7 @@ _FUN_sound_8c0100bc:             ; function: FUN_sound_8c0100bc
           FMOV.S      FR3,@(R0,R4)
 _midiSetVol_8c010128:            ; function: midiSetVol_8c010128
                                  ; frame size=32
-          MOV.L       L3+28,R3; __8c226468
+          MOV.L       L3+28,R3; _var_uknVol_8c226468
           MOVA        L3+36,R0
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
@@ -75,7 +75,7 @@ _midiSetVol_8c010128:            ; function: midiSetVol_8c010128
           MOV.L       R11,@-R15
           MOV.L       R10,@-R15
           FMOV.S      FR15,@-R15
-          MOV.L       L3+12,R14; __8c0fcd50
+          MOV.L       L3+12,R14; _var_uknVol_8c0fcd50
           FMOV.S      FR14,@-R15
           STS.L       PR,@-R15
           FMOV.S      @R3,FR3
@@ -184,12 +184,12 @@ L3:
           .DATA.W     H'F448
           .DATA.W     H'0834
           .DATA.L     H'45228000
-          .DATA.L     _const127_8c03bd90
-          .DATA.L     __8c0fcd50
+          .DATA.L     _const127init_vol_8c03bd90
+          .DATA.L     _var_uknVol_8c0fcd50
           .DATA.L     H'453B8000
           .DATA.L     __divls
           .DATA.L     H'4573C000
-          .DATA.L     __8c226468
+          .DATA.L     _var_uknVol_8c226468
           .DATA.L     _midiHandles_8c0fcd28
           .DATA.L     H'C2FE0000
           .DATA.L     _sdMidiSetVol

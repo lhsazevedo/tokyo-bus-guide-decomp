@@ -627,7 +627,7 @@ void task_8c013388(Task *task, void *state) {
             if (getUknPvmBool_8c01432a() != 0) {
                 FUN_8c011f7e();
                 freeTask_8c014b66(task);
-                FUN_8c010e18();
+                initSoundMidiAdx_8c010e18();
                 var_8c2260a8 = 1;
                 FUN_8c015fd6(0);
             }

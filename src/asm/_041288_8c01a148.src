@@ -24,8 +24,8 @@
           .IMPORT     _FUN_8c0188dc
           .IMPORT     _var_soundMode_8c226070
           .IMPORT     _setSoundMode_8c0108c0
-          .IMPORT     _FUN_8c010972
-          .IMPORT     _FUN_8c0109f4
+          .IMPORT     _setAdxVol_8c010972
+          .IMPORT     _setMidiVolAndInitStruct_8c0109f4
           .IMPORT     _FUN_8c0107ac
           .IMPORT     _var_8c226080
           .IMPORT     _FUN_8c0106d2
@@ -1689,8 +1689,8 @@ LP_GEN_27951:
           .DATA.W H'00D6 ; H'8C01AD74
           .RES.W 1 ; H'8C01AD76
           .DATA.L _var_8c1ba36c ; H'8C01AD78
-          .DATA.L _FUN_8c010972 ; H'8C01AD7C
-          .DATA.L _FUN_8c0109f4 ; H'8C01AD80
+          .DATA.L _setAdxVol_8c010972 ; H'8C01AD7C
+          .DATA.L _setMidiVolAndInitStruct_8c0109f4 ; H'8C01AD80
           .DATA.L _FUN_8c0107ac ; H'8C01AD84
           .DATA.L H'435C0000 ; H'8C01AD88
           .DATA.L _var_8c226080 ; H'8C01AD8C

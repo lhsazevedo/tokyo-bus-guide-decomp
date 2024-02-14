@@ -83,7 +83,7 @@
           .IMPORT     _nop_8c011120
           .IMPORT     _FUN_8c011fe0
           .IMPORT     _FUN_8c011f7e
-          .IMPORT     _FUN_8c010e18
+          .IMPORT     _initSoundMidiAdx_8c010e18
           .IMPORT     _var_8c2260a8
           .IMPORT     _var_gdErr_8c18ad14
           .IMPORT     _njSetTextureMemorySize
@@ -915,7 +915,7 @@ LP_GEN_65923:
           .DATA.L _FUN_8c011fe0
           .DATA.L _FUN_8c011f7e
           .DATA.L _freeTask_8c014b66
-          .DATA.L _FUN_8c010e18
+          .DATA.L _initSoundMidiAdx_8c010e18
           .DATA.L _var_8c2260a8
           .DATA.L _FUN_8c015fd6
           .DATA.L _var_gdErr_8c18ad14

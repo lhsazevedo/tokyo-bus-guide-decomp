@@ -307,7 +307,7 @@ return new class extends TestCase {
 
         $this->shouldCall('_FUN_8c011f7e');
         $this->shouldCall('_freeTask_8c014b66')->with($taskPtr);
-        $this->shouldCall('_FUN_8c010e18');
+        $this->shouldCall('_initSoundMidiAdx_8c010e18');
         $this->shouldWriteTo('_var_8c2260a8', 1);
         $this->shouldCall('_FUN_8c015fd6');
 
