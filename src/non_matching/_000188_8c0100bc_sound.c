@@ -65,7 +65,7 @@ s_8c157a34 _8c157a34;
 
 /* === Initialized vars === */
 int init_8c03bd80 = 0;
-int init_8c03bd80 = 1;
+int _init_8c03bd84 = 1;
 s_8c03bd88 _8c03bd88 = {
     990,
     990
@@ -283,7 +283,7 @@ void usr_adx_err_func_8c010532(void *obj, char *msg)
         FUN_8c010ca6(1);
 
         init_8c03bd80 = 0;
-        init_8c03bd80 = 0;
+        _init_8c03bd84 = 0;
     }
 }
 
@@ -726,7 +726,7 @@ void FUN_8c010de6() {
     ADXT_Stop(adxtHandles_8c0fcd20[0]);
     ADXT_Stop(adxtHandles_8c0fcd20[1]);
     init_8c03bd80 = 0;
-    init_8c03bd80 = 1;
+    _init_8c03bd84 = 1;
     memset(&_8c157a34, 0, sizeof(s_8c157a34));
     FUN_sound_8c0100bc();
 }
@@ -734,7 +734,7 @@ void FUN_8c010de6() {
 /* Matched */
 void FUN_8c010e18(char *dirname) {
     init_8c03bd80 = 0;
-    init_8c03bd80 = 1;
+    _init_8c03bd84 = 1;
     gdFsChangeDir(dirname);
     memset(&_8c157a34, 0, sizeof(s_8c157a34));
     FUN_sound_8c0100bc();
