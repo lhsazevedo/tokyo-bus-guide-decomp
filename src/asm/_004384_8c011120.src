@@ -2511,30 +2511,55 @@ _init_8c03be7c:                      ; static: _8c03334c
 _init_8c03be80:        ; from defines
           .DATA.B      H'00, H'00, H'00, H'00
           .DATA.B      H'00, H'04, H'00, H'00
-          .DATA.B      H'00, H'00, H'00, H'00, H'02, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'02, H'00, H'00
-          .DATA.B      H'00, H'00, H'00, H'00, H'04, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'10, H'00, H'00, H'00
-          .DATA.B      H'00, H'00, H'00, H'00, H'20, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'08, H'00, H'00, H'00
+          .DATA.B      H'00, H'00, H'00, H'00
+          .DATA.B      H'02, H'00, H'00, H'00
+          .DATA.B      H'00, H'00, H'00, H'00
+          .DATA.B      H'00, H'02, H'00, H'00
+          .DATA.B      H'00, H'00, H'00, H'00
+          .DATA.B      H'04, H'00, H'00, H'00
+          .DATA.B      H'00, H'00, H'00, H'00
+          .DATA.B      H'10, H'00, H'00, H'00
+          .DATA.B      H'00, H'00, H'00, H'00
+          .DATA.B      H'20, H'00, H'00, H'00
+          .DATA.B      H'00, H'00, H'00, H'00
+          .DATA.B      H'08, H'00, H'00, H'00
 _init_8c03beb8:        ; from defines
           .DATA.B      H'00, H'00, H'00, H'00
           .DATA.B      H'00, H'04, H'00, H'00
-          .DATA.B      H'00, H'00, H'00, H'00, H'02, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'02, H'00, H'00
-          .DATA.B      H'00, H'00, H'00, H'00, H'04, H'00, H'00, H'00
-          .DATA.B      H'00, H'00, H'00, H'00, H'00, H'04, H'00, H'00
-          .DATA.B      H'00, H'00, H'00, H'00, H'02, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'08, H'00, H'00, H'00
+          .DATA.B      H'00, H'00, H'00, H'00
+          .DATA.B      H'02, H'00, H'00, H'00
+          .DATA.B      H'00, H'00, H'00, H'00
+          .DATA.B      H'00, H'02, H'00, H'00
+          .DATA.B      H'00, H'00, H'00, H'00
+          .DATA.B      H'04, H'00, H'00, H'00
+          .DATA.B      H'00, H'00, H'00, H'00
+          .DATA.B      H'00, H'04, H'00, H'00
+          .DATA.B      H'00, H'00, H'00, H'00
+          .DATA.B      H'02, H'00, H'00, H'00
+          .DATA.B      H'00, H'00, H'00, H'00
+          .DATA.B      H'08, H'00, H'00, H'00
 _init_8c03bef0:        ; from defines
           .DATA.B      H'00, H'00, H'00, H'00
           .DATA.B      H'00, H'04, H'00, H'00
-          .DATA.B      H'00, H'00, H'00, H'00, H'02, H'00, H'00, H'00
-          .DATA.B      H'00, H'00, H'00, H'00, H'00, H'02, H'00, H'00
-          .DATA.B      H'00, H'00, H'00, H'00, H'04, H'00, H'00, H'00
-          .DATA.B      H'00, H'00, H'00, H'00, H'08, H'00, H'00, H'00
+          .DATA.B      H'00, H'00, H'00, H'00
+          .DATa.B      H'02, H'00, H'00, H'00
+          .DATA.B      H'00, H'00, H'00, H'00
+          .DATa.B      H'00, H'02, H'00, H'00
+          .DATA.B      H'00, H'00, H'00, H'00
+          .DATa.B      H'04, H'00, H'00, H'00
+          .DATA.B      H'00, H'00, H'00, H'00
+          .DATa.B      H'08, H'00, H'00, H'00
 _init_8c03bf18:        ; from defines
           .DATA.B      H'00, H'00, H'00, H'00
           .DATA.B      H'00, H'04, H'00, H'00
-          .DATA.B      H'00, H'00, H'00, H'00, H'02, H'00, H'00, H'00
-          .DATA.B      H'00, H'00, H'00, H'00, H'00, H'02, H'00, H'00
-          .DATA.B      H'00, H'00, H'00, H'00, H'04, H'00, H'00, H'00
-          .DATA.B      H'00, H'00, H'00, H'00, H'08, H'00, H'00, H'00
+          .DATA.B      H'00, H'00, H'00, H'00
+          .DATA.B      H'02, H'00, H'00, H'00
+          .DATA.B      H'00, H'00, H'00, H'00
+          .DATA.B      H'00, H'02, H'00, H'00
+          .DATA.B      H'00, H'00, H'00, H'00
+          .DATA.B      H'04, H'00, H'00, H'00
+          .DATA.B      H'00, H'00, H'00, H'00
+          .DATA.B      H'08, H'00, H'00, H'00
           .SECTION    C,DATA,ALIGN=4
 L372031:
           .SDATA      "DATA EMPTY"
