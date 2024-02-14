@@ -102,8 +102,8 @@
           .IMPORT     _var_shapebuf_8c2f84a0
           .IMPORT     _njInitShape
           .IMPORT     _syRtcInit
-          .IMPORT     _FUN_8c010924
-          .IMPORT     _var_8c226070
+          .IMPORT     _getSoundMode_8c010924
+          .IMPORT     _var_soundMode_8c226070
           .IMPORT     _setSoundMode_8c0108c0
           .IMPORT     _FUN_8c010fbe
           .IMPORT     _BupInit_8c014b8c
@@ -1013,8 +1013,8 @@ LP_GEN_62735:
           .DATA.L _var_shapebuf_8c2f84a0
           .DATA.L _njInitShape
           .DATA.L _syRtcInit
-          .DATA.L _FUN_8c010924
-          .DATA.L _var_8c226070
+          .DATA.L _getSoundMode_8c010924
+          .DATA.L _var_soundMode_8c226070
 
 LAB_8c013654:
           MOV         #0,R4

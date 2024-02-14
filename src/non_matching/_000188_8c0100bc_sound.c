@@ -428,14 +428,14 @@ void midiResetFxAndPlay_8c010846(int hld_idx, int data_num)
 }
 
 /* Matched */
-Bool setSoundMode_8c0108c0(Bool no_pan)
+Bool setSoundMode_8c0108c0(SInt32 mode)
 {
     void *dat;
     int r;
 
-    if (no_pan == FALSE) {
+    if (mode == SYD_CFG_STEREO) {
         sdSndSetPanMode(SDE_PAN_MODE_ENABLE);
-    } else if (no_pan == TRUE) {
+    } else if (mode == SYD_CFG_MONO) {
         sdSndSetPanMode(SDE_PAN_MODE_DISABLE);
     }
 
@@ -446,7 +446,7 @@ Bool setSoundMode_8c0108c0(Bool no_pan)
         return FALSE;
     }
 
-    r = syCfgSetSoundMode(no_pan);
+    r = syCfgSetSoundMode(mode);
     if (r != SYD_CFG_OK) {
         syFree(dat);
         return FALSE;
@@ -459,7 +459,7 @@ Bool setSoundMode_8c0108c0(Bool no_pan)
 }
 
 /* Matched */
-FUN_8c010924() {
+getSoundMode_8c010924() {
     void* dat;
     int r;
     Sint32 mode;

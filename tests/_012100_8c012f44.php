@@ -318,7 +318,7 @@ return new class extends TestCase {
 
     ////// njUserInit_8c0134ec //////
 
-    public function test_njUserInit_8c0134ec_Vga_FUN_8c010924Returns1()
+    public function test_njUserInit_8c0134ec_Vga_getSoundMode_8c010924Returns1()
     {
         // Resolutions/Bindings
         $this->setSize('_menuState_8c1bc7a8', 0x6c);
@@ -350,8 +350,8 @@ return new class extends TestCase {
         $this->shouldCall('_njInitShape')->with($this->addressOf('_var_shapebuf_8c2f84a0'));
         $this->shouldCall('_syRtcInit');
 
-        $this->shouldCall('_FUN_8c010924')->andReturn(1);
-        $this->shouldWriteTo('_var_8c226070', 1);
+        $this->shouldCall('_getSoundMode_8c010924')->andReturn(1);
+        $this->shouldWriteTo('_var_soundMode_8c226070', 1);
         $this->shouldCall('_setSoundMode_8c0108c0')->with(1);
 
         $this->shouldCall('_FUN_8c010fbe');
@@ -471,7 +471,7 @@ return new class extends TestCase {
         $this->call('_njUserInit_8c0134ec')->run();
     }
 
-    public function test_njUserInit_8c0134ec_Vga_FUN_8c010924ReturnsNegative()
+    public function test_njUserInit_8c0134ec_Vga_getSoundMode_8c010924ReturnsNegative()
     {
         // Resolutions/Bindings
         $this->setSize('_menuState_8c1bc7a8', 0x6c);
@@ -504,8 +504,8 @@ return new class extends TestCase {
         $this->shouldCall('_syRtcInit');
 
         // FIXME: Handle SInt8 -1, using & 0xff for now... 
-        $this->shouldCall('_FUN_8c010924')->andReturn(-1 & 0xff);
-        $this->shouldWriteTo('_var_8c226070', -1 & 0xff);
+        $this->shouldCall('_getSoundMode_8c010924')->andReturn(-1 & 0xff);
+        $this->shouldWriteTo('_var_soundMode_8c226070', -1 & 0xff);
         $this->shouldCall('_setSoundMode_8c0108c0')->with(0);
 
         $this->shouldCall('_FUN_8c010fbe');
@@ -625,7 +625,7 @@ return new class extends TestCase {
         $this->call('_njUserInit_8c0134ec')->run();
     }
 
-    public function test_njUserInit_8c0134ec_Ntsci_FUN_8c010924Returns1()
+    public function test_njUserInit_8c0134ec_Ntsci_getSoundMode_8c010924Returns1()
     {
         // Resolutions/Bindings
         $this->setSize('_menuState_8c1bc7a8', 0x6c);
@@ -658,8 +658,8 @@ return new class extends TestCase {
         $this->shouldCall('_njInitShape')->with($this->addressOf('_var_shapebuf_8c2f84a0'));
         $this->shouldCall('_syRtcInit');
 
-        $this->shouldCall('_FUN_8c010924')->andReturn(1);
-        $this->shouldWriteTo('_var_8c226070', 1);
+        $this->shouldCall('_getSoundMode_8c010924')->andReturn(1);
+        $this->shouldWriteTo('_var_soundMode_8c226070', 1);
         $this->shouldCall('_setSoundMode_8c0108c0')->with(1);
 
         $this->shouldCall('_FUN_8c010fbe');
@@ -779,7 +779,7 @@ return new class extends TestCase {
         $this->call('_njUserInit_8c0134ec')->run();
     }
 
-    public function test_njUserInit_8c0134ec_Ntsci_FUN_8c010924ReturnsNegative()
+    public function test_njUserInit_8c0134ec_Ntsci_getSoundMode_8c010924ReturnsNegative()
     {
         // Resolutions/Bindings
         $this->setSize('_menuState_8c1bc7a8', 0x6c);
@@ -813,8 +813,8 @@ return new class extends TestCase {
         $this->shouldCall('_syRtcInit');
 
         // FIXME andReturn(-1) or andReturn(new SInt8(-1))?
-        $this->shouldCall('_FUN_8c010924')->andReturn(-1 & 0xff);
-        $this->shouldWriteTo('_var_8c226070', -1 & 0xff);
+        $this->shouldCall('_getSoundMode_8c010924')->andReturn(-1 & 0xff);
+        $this->shouldWriteTo('_var_soundMode_8c226070', -1 & 0xff);
         $this->shouldCall('_setSoundMode_8c0108c0')->with(0);
 
         $this->shouldCall('_FUN_8c010fbe');

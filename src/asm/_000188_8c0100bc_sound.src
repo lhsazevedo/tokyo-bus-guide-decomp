@@ -79,7 +79,7 @@
           .EXPORT     _FUN_8c0107ac
           .EXPORT     _controlAdxtWithOutVol_8c0107d2
           .EXPORT     _setSoundMode_8c0108c0
-          .EXPORT     _FUN_8c010924
+          .EXPORT     _getSoundMode_8c010924
           .EXPORT     _FUN_8c010972
           .EXPORT     _FUN_8c0109f4
           .EXPORT     _FUN_adxVol_8c010a40
@@ -1184,7 +1184,7 @@ L46:
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-_FUN_8c010924:                   ; function: FUN_8c010924
+_getSoundMode_8c010924:                   ; function: getSoundMode_8c010924
                                  ; frame size=12
           MOV.L       R14,@-R15
           STS.L       PR,@-R15

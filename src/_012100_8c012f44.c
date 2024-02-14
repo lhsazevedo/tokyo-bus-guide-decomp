@@ -307,7 +307,7 @@ extern Sint8          var_texbuf_8c277ca0[TEX_BUFSIZE];
 extern NJS_TEXMEMLIST var_tex_8c157af8[TEX_NUM];
 extern Sint8          var_cachebuf_8c235ca0[CACHE_BUFSIZE];
 extern Float          var_shapebuf_8c2f84a0[SHAPE_BUFSIZE];
-extern Sint8          var_8c226070;
+extern Sint8          var_soundMode_8c226070;
 extern NJS_TEXNAME    var_texname_8c18acf8[1];
 extern NJS_TEXLIST    init_texlist_8c03bf44;
 
@@ -408,7 +408,7 @@ extern var_8c228708;
 extern Bool var_8c22655c;
 
 extern FUN_8c0144fc();
-extern Sint8 FUN_8c010924();
+extern Sint8 getSoundMode_8c010924();
 extern setSoundMode_8c0108c0(Bool);
 
 /* Matched :) */
@@ -671,11 +671,11 @@ void njUserInit_8c0134ec() {
     njInitShape(var_shapebuf_8c2f84a0);
     syRtcInit();
 
-    var_8c226070 = FUN_8c010924();
-    if (var_8c226070 >= 0) {
-        setSoundMode_8c0108c0(var_8c226070);
+    var_soundMode_8c226070 = getSoundMode_8c010924();
+    if (var_soundMode_8c226070 >= 0) {
+        setSoundMode_8c0108c0(var_soundMode_8c226070);
     } else {
-        setSoundMode_8c0108c0(0);
+        setSoundMode_8c0108c0(SYD_CFG_STEREO);
     }
 
     FUN_8c010fbe();

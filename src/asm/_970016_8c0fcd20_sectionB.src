@@ -220,7 +220,7 @@
           .EXPORT     _var_8c226018
           .EXPORT     _var_8c226048
           .EXPORT     _var_8c22606c
-          .EXPORT     _var_8c226070
+          .EXPORT     _var_soundMode_8c226070
           .EXPORT     _var_8c226074
           .EXPORT     _var_8c226078
           .EXPORT     _var_8c226080
@@ -892,7 +892,7 @@ _var_8c226048:
           .RES.B      36
 _var_8c22606c:
           .RES.B      4
-_var_8c226070:
+_var_soundMode_8c226070:
           .RES.B      4
 _var_8c226074:
           .RES.B      4

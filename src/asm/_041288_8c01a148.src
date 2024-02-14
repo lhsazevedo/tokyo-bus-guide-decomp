@@ -22,7 +22,7 @@
           .IMPORT     _FUN_8c010ca6
           .IMPORT     _var_8c226078
           .IMPORT     _FUN_8c0188dc
-          .IMPORT     _var_8c226070
+          .IMPORT     _var_soundMode_8c226070
           .IMPORT     _setSoundMode_8c0108c0
           .IMPORT     _FUN_8c010972
           .IMPORT     _FUN_8c0109f4
@@ -1556,7 +1556,7 @@ LP_GEN_82753:
           .DATA.L H'C0400000 ; H'8C01AC78
           .DATA.L _var_8c1ba36c ; H'8C01AC7C
           .DATA.L _FUN_8c0188dc ; H'8C01AC80
-          .DATA.L _var_8c226070 ; H'8C01AC84
+          .DATA.L _var_soundMode_8c226070 ; H'8C01AC84
           .DATA.L _setSoundMode_8c0108c0 ; H'8C01AC88
           .DATA.L _push_fadeout_8c022b60 ; H'8C01AC8C
           .DATA.L _midiHandles_8c0fcd28 ; H'8C01AC90
@@ -1919,7 +1919,7 @@ LP_GEN_67516:
           .RES.W 1 ; H'8C01AF32
           .DATA.L H'C0800000 ; H'8C01AF34
           .DATA.L H'428A0000 ; H'8C01AF38
-          .DATA.L _var_8c226070 ; H'8C01AF3C
+          .DATA.L _var_soundMode_8c226070 ; H'8C01AF3C
           .DATA.L H'43C88000 ; H'8C01AF40
           .DATA.L H'42800000 ; H'8C01AF44
           .DATA.L H'43C80000 ; H'8C01AF48

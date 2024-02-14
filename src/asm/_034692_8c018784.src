@@ -10,8 +10,8 @@
           .IMPORT     _syFree
           .IMPORT     _var_8c1ba344
           .IMPORT     _var_8c1ba1cc
-          .IMPORT     _FUN_8c010924
-          .IMPORT     _var_8c226070
+          .IMPORT     _getSoundMode_8c010924
+          .IMPORT     _var_soundMode_8c226070
           .IMPORT     _var_8c1bb8b8
           .IMPORT     _var_8c1bb8bc
           .IMPORT     _FUN_8c010972
@@ -386,8 +386,8 @@ LP_GEN_30274:
           .DATA.W H'0098 ; H'8C0189E4
           .RES.W 1 ; H'8C0189E6
           .DATA.L _var_8c1ba1cc ; H'8C0189E8
-          .DATA.L _FUN_8c010924 ; H'8C0189EC
-          .DATA.L _var_8c226070 ; H'8C0189F0
+          .DATA.L _getSoundMode_8c010924 ; H'8C0189EC
+          .DATA.L _var_soundMode_8c226070 ; H'8C0189F0
           .DATA.L _var_8c1bb8b8 ; H'8C0189F4
           .DATA.L _var_8c1bb8bc ; H'8C0189F8
 _FUN_8c0189fc:
