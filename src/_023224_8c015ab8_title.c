@@ -28,7 +28,7 @@ extern initQueues_8c011f36(int p1, int p2, int p3, int p4);
 extern void nop_8c011120();
 extern void resetUknPvmBool_8c014322();
 extern FUN_8c019550(char** p1, int p2);
-extern void FUN_8c019e44(Task* task);
+extern void setVmSelectTaskAction_8c019e44(Task* task);
 extern FUN_8c016182();
 extern FUN_8c0159ac();
 extern void FUN_8c011f6c();
@@ -363,7 +363,7 @@ void task_title_8c015ab8(Task* task, void *state) {
                     var_8c1bb8c4 = FALSE;
 
                     /* Push menu task */
-                    FUN_8c019e44(task);
+                    setVmSelectTaskAction_8c019e44(task);
                 }
 
                 return;
