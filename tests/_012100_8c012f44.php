@@ -354,8 +354,8 @@ return new class extends TestCase {
         $this->shouldWriteTo('_var_soundMode_8c226070', 1);
         $this->shouldCall('_setSoundMode_8c0108c0')->with(1);
 
-        $this->shouldCall('_FUN_8c010fbe');
-        $this->shouldCall('_BupInit_8c014b8c');
+        $this->shouldCall('_vibClear_8c010fbe');
+        $this->shouldCall('_bupInit_8c014b8c');
 
         $this->shouldCall('_njSetTextureInfo')
             ->with(
@@ -384,16 +384,16 @@ return new class extends TestCase {
 
         $this->shouldWriteTo('_var_8c1bb86c', -1);
 
-        $this->shouldCall('_FUN_8c013bbc')->with($this->addressOf('_var_8c1bbddc'), 0x20);
-        $this->shouldCall('_FUN_8c013bbc')->with($this->addressOf('_var_8c1bbfdc'), 0x41);
+        $this->shouldCall('_clearUnknowArray_8c013bbc')->with($this->addressOf('_var_8c1bbddc'), 0x20);
+        $this->shouldCall('_clearUnknowArray_8c013bbc')->with($this->addressOf('_var_8c1bbfdc'), 0x41);
 
         $this->shouldWriteTo('_var_8c1bc3ec', -1);
         $this->shouldWriteTo('_var_8c1bc3f0', -1);
         $this->shouldWriteTo('_var_8c1bc3f4', -1);
 
-        $this->shouldCall('_FUN_8c02171c');
-        $this->shouldCall('_FUN_8c029acc');
-        $this->shouldCall('_FUN_8c02aa28');
+        $this->shouldCall('_clearUnknownVar_8c02171c');
+        $this->shouldCall('_clearUnknownVar_8c029acc');
+        $this->shouldCall('_clearUnknownVars_8c02aa28');
 
         $this->shouldWriteTo('_var_8c1bc404', -1);
         $this->shouldWriteTo('_var_8c226434', -1);
@@ -405,7 +405,7 @@ return new class extends TestCase {
         $this->shouldWriteTo('_var_8c1bc438', -1);
         $this->shouldWrite($this->addressOf('_menuState_8c1bc7a8') + 0x0 + 0, -1);
         $this->shouldWrite($this->addressOf('_menuState_8c1bc7a8') + 0xc + 0, -1);
-        $this->shouldWriteTo('_var_8c2263a8', -1);
+        $this->shouldWriteTo('_var_resourceGroup_8c2263a8', -1);
         $this->shouldWriteTo('_var_8c1ba2e0', -1);
         $this->shouldWriteTo('_var_8c1ba348', -1);
         $this->shouldWriteTo('_var_8c1ba344', -1);
@@ -422,8 +422,8 @@ return new class extends TestCase {
         $this->shouldCall('_FUN_8c01c8dc');
         $this->shouldCall('_FUN_8c0189d2');
         $this->shouldCall('_njSetBorderColor')->with(0);
-        $this->shouldCall('_FUN_8c01c8fc')->with(3);
-        $this->shouldCall('_FUN_8c01c910');
+        $this->shouldCall('_vmsLcd_8c01c8fc')->with(3);
+        $this->shouldCall('_vmsLcd_8c01c910');
 
         // FIXME: Confusing var names
         $createdTaskPtr = $this->alloc(0x0c);
@@ -438,7 +438,7 @@ return new class extends TestCase {
         );
         $this->shouldWrite($createdTaskPtr + 0x08, 0);
 
-        $this->shouldCall('_FUN_8c011f36')->with(0x10, 8, 0, 8);
+        $this->shouldCall('_initQueues_8c011f36')->with(0x10, 8, 0, 8);
         $this->shouldCall('_FUN_8c011f6c');
 
         $this->shouldCall('_requestDat_8c011182')->with("\\SYSTEM", "mark_parts.dat", $this->addressOf('_var_mark_parts_dat_8c1bc41c'));
@@ -464,7 +464,7 @@ return new class extends TestCase {
         $this->shouldCall('_resetUknPvmBool_8c014322');
         $this->shouldCall('_FUN_8c011fe0')->with($this->addressOf('_nop_8c011120'), 0, 0, 0, $this->addressOf('_setUknPvmBool_8c014330'));;
 
-        $this->shouldWriteTo('_var_8c18ad14', 0);
+        $this->shouldWriteTo('_var_gdErr_8c18ad14', 0);
 
         $this->shouldCall('_gdFsEntryErrFuncAll')->with(new WildcardArgument, 0);
 
@@ -508,8 +508,8 @@ return new class extends TestCase {
         $this->shouldWriteTo('_var_soundMode_8c226070', -1 & 0xff);
         $this->shouldCall('_setSoundMode_8c0108c0')->with(0);
 
-        $this->shouldCall('_FUN_8c010fbe');
-        $this->shouldCall('_BupInit_8c014b8c');
+        $this->shouldCall('_vibClear_8c010fbe');
+        $this->shouldCall('_bupInit_8c014b8c');
 
         $this->shouldCall('_njSetTextureInfo')
             ->with(
@@ -538,16 +538,16 @@ return new class extends TestCase {
 
         $this->shouldWriteTo('_var_8c1bb86c', -1);
 
-        $this->shouldCall('_FUN_8c013bbc')->with($this->addressOf('_var_8c1bbddc'), 0x20);
-        $this->shouldCall('_FUN_8c013bbc')->with($this->addressOf('_var_8c1bbfdc'), 0x41);
+        $this->shouldCall('_clearUnknowArray_8c013bbc')->with($this->addressOf('_var_8c1bbddc'), 0x20);
+        $this->shouldCall('_clearUnknowArray_8c013bbc')->with($this->addressOf('_var_8c1bbfdc'), 0x41);
 
         $this->shouldWriteTo('_var_8c1bc3ec', -1);
         $this->shouldWriteTo('_var_8c1bc3f0', -1);
         $this->shouldWriteTo('_var_8c1bc3f4', -1);
 
-        $this->shouldCall('_FUN_8c02171c');
-        $this->shouldCall('_FUN_8c029acc');
-        $this->shouldCall('_FUN_8c02aa28');
+        $this->shouldCall('_clearUnknownVar_8c02171c');
+        $this->shouldCall('_clearUnknownVar_8c029acc');
+        $this->shouldCall('_clearUnknownVars_8c02aa28');
 
         $this->shouldWriteTo('_var_8c1bc404', -1);
         $this->shouldWriteTo('_var_8c226434', -1);
@@ -559,7 +559,7 @@ return new class extends TestCase {
         $this->shouldWriteTo('_var_8c1bc438', -1);
         $this->shouldWrite($this->addressOf('_menuState_8c1bc7a8') + 0x0 + 0, -1);
         $this->shouldWrite($this->addressOf('_menuState_8c1bc7a8') + 0xc + 0, -1);
-        $this->shouldWriteTo('_var_8c2263a8', -1);
+        $this->shouldWriteTo('_var_resourceGroup_8c2263a8', -1);
         $this->shouldWriteTo('_var_8c1ba2e0', -1);
         $this->shouldWriteTo('_var_8c1ba348', -1);
         $this->shouldWriteTo('_var_8c1ba344', -1);
@@ -576,8 +576,8 @@ return new class extends TestCase {
         $this->shouldCall('_FUN_8c01c8dc');
         $this->shouldCall('_FUN_8c0189d2');
         $this->shouldCall('_njSetBorderColor')->with(0);
-        $this->shouldCall('_FUN_8c01c8fc')->with(3);
-        $this->shouldCall('_FUN_8c01c910');
+        $this->shouldCall('_vmsLcd_8c01c8fc')->with(3);
+        $this->shouldCall('_vmsLcd_8c01c910');
 
         // FIXME: Confusing var names
         $createdTaskPtr = $this->alloc(0x0c);
@@ -592,7 +592,7 @@ return new class extends TestCase {
         );
         $this->shouldWrite($createdTaskPtr + 0x08, 0);
 
-        $this->shouldCall('_FUN_8c011f36')->with(0x10, 8, 0, 8);
+        $this->shouldCall('_initQueues_8c011f36')->with(0x10, 8, 0, 8);
         $this->shouldCall('_FUN_8c011f6c');
 
         $this->shouldCall('_requestDat_8c011182')->with("\\SYSTEM", "mark_parts.dat", $this->addressOf('_var_mark_parts_dat_8c1bc41c'));
@@ -618,7 +618,7 @@ return new class extends TestCase {
         $this->shouldCall('_resetUknPvmBool_8c014322');
         $this->shouldCall('_FUN_8c011fe0')->with($this->addressOf('_nop_8c011120'), 0, 0, 0, $this->addressOf('_setUknPvmBool_8c014330'));;
 
-        $this->shouldWriteTo('_var_8c18ad14', 0);
+        $this->shouldWriteTo('_var_gdErr_8c18ad14', 0);
 
         $this->shouldCall('_gdFsEntryErrFuncAll')->with(new WildcardArgument, 0);
 
@@ -662,8 +662,8 @@ return new class extends TestCase {
         $this->shouldWriteTo('_var_soundMode_8c226070', 1);
         $this->shouldCall('_setSoundMode_8c0108c0')->with(1);
 
-        $this->shouldCall('_FUN_8c010fbe');
-        $this->shouldCall('_BupInit_8c014b8c');
+        $this->shouldCall('_vibClear_8c010fbe');
+        $this->shouldCall('_bupInit_8c014b8c');
 
         $this->shouldCall('_njSetTextureInfo')
             ->with(
@@ -692,16 +692,16 @@ return new class extends TestCase {
 
         $this->shouldWriteTo('_var_8c1bb86c', -1);
 
-        $this->shouldCall('_FUN_8c013bbc')->with($this->addressOf('_var_8c1bbddc'), 0x20);
-        $this->shouldCall('_FUN_8c013bbc')->with($this->addressOf('_var_8c1bbfdc'), 0x41);
+        $this->shouldCall('_clearUnknowArray_8c013bbc')->with($this->addressOf('_var_8c1bbddc'), 0x20);
+        $this->shouldCall('_clearUnknowArray_8c013bbc')->with($this->addressOf('_var_8c1bbfdc'), 0x41);
 
         $this->shouldWriteTo('_var_8c1bc3ec', -1);
         $this->shouldWriteTo('_var_8c1bc3f0', -1);
         $this->shouldWriteTo('_var_8c1bc3f4', -1);
 
-        $this->shouldCall('_FUN_8c02171c');
-        $this->shouldCall('_FUN_8c029acc');
-        $this->shouldCall('_FUN_8c02aa28');
+        $this->shouldCall('_clearUnknownVar_8c02171c');
+        $this->shouldCall('_clearUnknownVar_8c029acc');
+        $this->shouldCall('_clearUnknownVars_8c02aa28');
 
         $this->shouldWriteTo('_var_8c1bc404', -1);
         $this->shouldWriteTo('_var_8c226434', -1);
@@ -713,7 +713,7 @@ return new class extends TestCase {
         $this->shouldWriteTo('_var_8c1bc438', -1);
         $this->shouldWrite($this->addressOf('_menuState_8c1bc7a8') + 0x0 + 0, -1);
         $this->shouldWrite($this->addressOf('_menuState_8c1bc7a8') + 0xc + 0, -1);
-        $this->shouldWriteTo('_var_8c2263a8', -1);
+        $this->shouldWriteTo('_var_resourceGroup_8c2263a8', -1);
         $this->shouldWriteTo('_var_8c1ba2e0', -1);
         $this->shouldWriteTo('_var_8c1ba348', -1);
         $this->shouldWriteTo('_var_8c1ba344', -1);
@@ -730,8 +730,8 @@ return new class extends TestCase {
         $this->shouldCall('_FUN_8c01c8dc');
         $this->shouldCall('_FUN_8c0189d2');
         $this->shouldCall('_njSetBorderColor')->with(0);
-        $this->shouldCall('_FUN_8c01c8fc')->with(3);
-        $this->shouldCall('_FUN_8c01c910');
+        $this->shouldCall('_vmsLcd_8c01c8fc')->with(3);
+        $this->shouldCall('_vmsLcd_8c01c910');
 
         // FIXME: Confusing var names
         $createdTaskPtr = $this->alloc(0x0c);
@@ -746,7 +746,7 @@ return new class extends TestCase {
         );
         $this->shouldWrite($createdTaskPtr + 0x08, 0);
 
-        $this->shouldCall('_FUN_8c011f36')->with(0x10, 8, 0, 8);
+        $this->shouldCall('_initQueues_8c011f36')->with(0x10, 8, 0, 8);
         $this->shouldCall('_FUN_8c011f6c');
 
         $this->shouldCall('_requestDat_8c011182')->with("\\SYSTEM", "mark_parts.dat", $this->addressOf('_var_mark_parts_dat_8c1bc41c'));
@@ -772,7 +772,7 @@ return new class extends TestCase {
         $this->shouldCall('_resetUknPvmBool_8c014322');
         $this->shouldCall('_FUN_8c011fe0')->with($this->addressOf('_nop_8c011120'), 0, 0, 0, $this->addressOf('_setUknPvmBool_8c014330'));;
 
-        $this->shouldWriteTo('_var_8c18ad14', 0);
+        $this->shouldWriteTo('_var_gdErr_8c18ad14', 0);
 
         $this->shouldCall('_gdFsEntryErrFuncAll')->with(new WildcardArgument, 0);
 
@@ -817,8 +817,8 @@ return new class extends TestCase {
         $this->shouldWriteTo('_var_soundMode_8c226070', -1 & 0xff);
         $this->shouldCall('_setSoundMode_8c0108c0')->with(0);
 
-        $this->shouldCall('_FUN_8c010fbe');
-        $this->shouldCall('_BupInit_8c014b8c');
+        $this->shouldCall('_vibClear_8c010fbe');
+        $this->shouldCall('_bupInit_8c014b8c');
 
         $this->shouldCall('_njSetTextureInfo')
             ->with(
@@ -847,16 +847,16 @@ return new class extends TestCase {
 
         $this->shouldWriteTo('_var_8c1bb86c', -1);
 
-        $this->shouldCall('_FUN_8c013bbc')->with($this->addressOf('_var_8c1bbddc'), 0x20);
-        $this->shouldCall('_FUN_8c013bbc')->with($this->addressOf('_var_8c1bbfdc'), 0x41);
+        $this->shouldCall('_clearUnknowArray_8c013bbc')->with($this->addressOf('_var_8c1bbddc'), 0x20);
+        $this->shouldCall('_clearUnknowArray_8c013bbc')->with($this->addressOf('_var_8c1bbfdc'), 0x41);
 
         $this->shouldWriteTo('_var_8c1bc3ec', -1);
         $this->shouldWriteTo('_var_8c1bc3f0', -1);
         $this->shouldWriteTo('_var_8c1bc3f4', -1);
 
-        $this->shouldCall('_FUN_8c02171c');
-        $this->shouldCall('_FUN_8c029acc');
-        $this->shouldCall('_FUN_8c02aa28');
+        $this->shouldCall('_clearUnknownVar_8c02171c');
+        $this->shouldCall('_clearUnknownVar_8c029acc');
+        $this->shouldCall('_clearUnknownVars_8c02aa28');
 
         $this->shouldWriteTo('_var_8c1bc404', -1);
         $this->shouldWriteTo('_var_8c226434', -1);
@@ -868,7 +868,7 @@ return new class extends TestCase {
         $this->shouldWriteTo('_var_8c1bc438', -1);
         $this->shouldWrite($this->addressOf('_menuState_8c1bc7a8') + 0x0 + 0, -1);
         $this->shouldWrite($this->addressOf('_menuState_8c1bc7a8') + 0xc + 0, -1);
-        $this->shouldWriteTo('_var_8c2263a8', -1);
+        $this->shouldWriteTo('_var_resourceGroup_8c2263a8', -1);
         $this->shouldWriteTo('_var_8c1ba2e0', -1);
         $this->shouldWriteTo('_var_8c1ba348', -1);
         $this->shouldWriteTo('_var_8c1ba344', -1);
@@ -884,8 +884,8 @@ return new class extends TestCase {
         $this->shouldCall('_FUN_8c01c8dc');
         $this->shouldCall('_FUN_8c0189d2');
         $this->shouldCall('_njSetBorderColor')->with(0);
-        $this->shouldCall('_FUN_8c01c8fc')->with(3);
-        $this->shouldCall('_FUN_8c01c910');
+        $this->shouldCall('_vmsLcd_8c01c8fc')->with(3);
+        $this->shouldCall('_vmsLcd_8c01c910');
 
         // FIXME: Confusing var names
         $createdTaskPtr = $this->alloc(0x0c);
@@ -900,7 +900,7 @@ return new class extends TestCase {
         );
         $this->shouldWrite($createdTaskPtr + 0x08, 0);
 
-        $this->shouldCall('_FUN_8c011f36')->with(0x10, 8, 0, 8);
+        $this->shouldCall('_initQueues_8c011f36')->with(0x10, 8, 0, 8);
         $this->shouldCall('_FUN_8c011f6c');
 
         $this->shouldCall('_requestDat_8c011182')->with("\\SYSTEM", "mark_parts.dat", $this->addressOf('_var_mark_parts_dat_8c1bc41c'));
@@ -926,7 +926,7 @@ return new class extends TestCase {
         $this->shouldCall('_resetUknPvmBool_8c014322');
         $this->shouldCall('_FUN_8c011fe0')->with($this->addressOf('_nop_8c011120'), 0, 0, 0, $this->addressOf('_setUknPvmBool_8c014330'));;
 
-        $this->shouldWriteTo('_var_8c18ad14', 0);
+        $this->shouldWriteTo('_var_gdErr_8c18ad14', 0);
 
         $this->shouldCall('_gdFsEntryErrFuncAll')->with(new WildcardArgument, 0);
 
@@ -956,7 +956,7 @@ return new class extends TestCase {
 
         $this->shouldCall('_gdFsReqDrvStat');
         
-        $this->shouldReadFrom('_var_8c18ad14', 0);
+        $this->shouldReadFrom('_var_gdErr_8c18ad14', 0);
         
         $this->shouldCall('_execTasks_8c014b42')->with($this->addressOf('_var_tasks_8c1ba3c8'));
 

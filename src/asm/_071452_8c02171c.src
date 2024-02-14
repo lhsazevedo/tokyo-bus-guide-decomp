@@ -18,7 +18,7 @@
           .IMPORT     _njSetTexture
           .IMPORT     _njCnkSimpleDrawObject
           .IMPORT     _njFogEnable
-          .EXPORT     _FUN_8c02171c
+          .EXPORT     _clearUnknownVar_8c02171c
           .EXPORT     _FUN_8c021724
           .EXPORT     _FUN_8c02175a
           .EXPORT     _FUN_8c0217de
@@ -27,7 +27,7 @@
           .EXPORT     _FUN_8c021a24
           .EXPORT     _FUN_8c021b34
           .SECTION     P, CODE, ALIGN=4
-_FUN_8c02171c:
+_clearUnknownVar_8c02171c:
           MOV.L       LP_GEN_62938+2,R3
           MOV         #-H'1,R2
           RTS

@@ -330,7 +330,7 @@ extern void* var_8c227e24;
 extern void* var_8c2288f8;
 extern void* var_8c1bc438;
 extern void* var_8c1bc7b4;
-extern void* var_8c2263a8;
+extern void* var_resourceGroup_8c2263a8;
 extern void* var_8c1ba2e0;
 extern void* var_8c1ba348;
 extern void* var_8c1ba344;
@@ -370,7 +370,7 @@ extern int init_8c03bd84;
 
 extern nop_8c011120;
 extern setUknPvmBool_8c014330;
-extern int var_8c18ad14;
+extern int var_gdErr_8c18ad14;
 
 extern NJS_FOG_TABLE var_fogTable_8c18aaf8;
 
@@ -641,7 +641,7 @@ void task_8c013388(Task *task, void *state) {
 
 void usrGdErrFunc_8c0134d6(void *obj, Sint32 errcode) {
   if (errcode == GDD_ERR_TRAYOPEND || errcode == GDD_ERR_UNITATTENT) {
-    var_8c18ad14 = 1;
+    var_gdErr_8c18ad14 = 1;
   }
 }
 
@@ -678,8 +678,8 @@ void njUserInit_8c0134ec() {
         setSoundMode_8c0108c0(SYD_CFG_STEREO);
     }
 
-    FUN_8c010fbe();
-    BupInit_8c014b8c();
+    vibClear_8c010fbe();
+    bupInit_8c014b8c();
 
     njSetTextureInfo(&info, (Uint16 *) var_texbuf_8c277ca0, NJD_TEXFMT_STRIDE | NJD_TEXFMT_RGB_565, RENDER_X, RENDER_Y);
 
@@ -695,16 +695,16 @@ void njUserInit_8c0134ec() {
 
     var_8c1bb86c = (void *) -1;
 
-    FUN_8c013bbc(&var_8c1bbddc, 0x20);
-    FUN_8c013bbc(&var_8c1bbfdc, 0x41);
+    clearUnknowArray_8c013bbc(&var_8c1bbddc, 0x20);
+    clearUnknowArray_8c013bbc(&var_8c1bbfdc, 0x41);
 
     var_8c1bc3ec = (void *) -1;
     var_8c1bc3f0 = (void *) -1;
     var_8c1bc3f4 = (void *) -1;
 
-    FUN_8c02171c();
-    FUN_8c029acc();
-    FUN_8c02aa28();
+    clearUnknownVar_8c02171c();
+    clearUnknownVar_8c029acc();
+    clearUnknownVars_8c02aa28();
 
     var_8c1bc404 = (void *) -1;
     var_8c226434 = (void *) -1;
@@ -716,7 +716,7 @@ void njUserInit_8c0134ec() {
     var_8c1bc438 = (void *) -1;
     menuState_8c1bc7a8.resourceGroupA_0x00.tlist_0x00 = (void*) -1;
     menuState_8c1bc7a8.resourceGroupB_0x0c.tlist_0x00 = (void*) -1;
-    var_8c2263a8 = (void *) -1;
+    var_resourceGroup_8c2263a8 = (void *) -1;
     var_8c1ba2e0 = (void *) -1;
     var_8c1ba348 = (void *) -1;
     var_8c1ba344 = (void *) -1;
@@ -732,13 +732,13 @@ void njUserInit_8c0134ec() {
     FUN_8c01c8dc();
     FUN_8c0189d2();
     njSetBorderColor(0);
-    FUN_8c01c8fc(3);
-    FUN_8c01c910();
+    vmsLcd_8c01c8fc(3);
+    vmsLcd_8c01c910();
 
     pushTask_8c014ae8(var_tasks_8c1ba3c8, &task_8c013388, &created_task, &created_state, 0);
     created_task->field_0x08 = 0;
 
-    FUN_8c011f36(0x10, 8, 0, 8);
+    initQueues_8c011f36(16, 8, 0, 8);
     FUN_8c011f6c();
 
     requestDat_8c011182("\\SYSTEM", "mark_parts.dat", &var_mark_parts_dat_8c1bc41c);
@@ -765,7 +765,7 @@ void njUserInit_8c0134ec() {
 
     resetUknPvmBool_8c014322();
     FUN_8c011fe0(&nop_8c011120, 0, 0, 0, &setUknPvmBool_8c014330);
-    var_8c18ad14 = 0;
+    var_gdErr_8c18ad14 = 0;
     gdFsEntryErrFuncAll(&usrGdErrFunc_8c0134d6, (void *) 0);
 }
 
@@ -827,7 +827,7 @@ int njUserMain_8c01392e(void) {
     }
 
     /* 8c0139aa */
-    if (var_8c18ad14 != 0) {
+    if (var_gdErr_8c18ad14 != 0) {
         /* 8c0139b2 */
         if (var_vibport_8c1ba354 != -1) {
             pdVibMxStop(var_vibport_8c1ba354);

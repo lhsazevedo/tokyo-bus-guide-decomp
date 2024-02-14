@@ -34,7 +34,7 @@ void ClearInfo_8c014c8a(Sint32 drive);
 
 
 
-void BupInit_8c014b8c(void)
+void bupInit_8c014b8c(void)
 {
     memset(gBupInfo_8c1bc4ac, 0, sizeof(gBupInfo_8c1bc4ac));
     buInit(MAX_CAPS, USE_DRIVES, NULL, BupInitCallback_8c014e5e);

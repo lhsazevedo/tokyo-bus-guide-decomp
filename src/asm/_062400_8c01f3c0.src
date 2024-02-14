@@ -24,7 +24,7 @@
           .IMPORT     _FUN_8c0170c6
           .IMPORT     _var_8c225fb4
           .IMPORT     _push_fadeout_8c022b60
-          .IMPORT     _FUN_8c02af32
+          .IMPORT     _free_8c1bc404_8c02af32
           .IMPORT     _FUN_8c01524c
           .IMPORT     _FUN_8c0152fc
           .IMPORT     _var_8c1bc408
@@ -42,7 +42,7 @@
           .IMPORT     _FUN_8c02ae3e
           .IMPORT     _const_8c039f48
           .IMPORT     _FUN_8c02aefc
-          .IMPORT     _FUN_8c011f36
+          .IMPORT     _initQueues_8c011f36
           .IMPORT     _FUN_8c011f6c
           .IMPORT     _init_8c045324
           .IMPORT     _requestSysResgrp_8c018568
@@ -675,7 +675,7 @@ LP_GEN_41910:
           .DATA.W H'0A8C ; H'8C01F87E
           .DATA.L _var_8c225fb4 ; H'8C01F880
           .DATA.L _push_fadeout_8c022b60 ; H'8C01F884
-          .DATA.L _FUN_8c02af32 ; H'8C01F888
+          .DATA.L _free_8c1bc404_8c02af32 ; H'8C01F888
           .DATA.L _FUN_8c01524c ; H'8C01F88C
           .DATA.L H'C0A00000 ; H'8C01F890
           .DATA.L _var_8c1bc404 ; H'8C01F894
@@ -883,7 +883,7 @@ LP_GEN_38893:
           .DATA.L _const_8c039f48 ; H'8C01FA48
           .DATA.L _FUN_8c02aefc ; H'8C01FA4C
           .DATA.L _var_8c225fb8 ; H'8C01FA50
-          .DATA.L _FUN_8c011f36 ; H'8C01FA54
+          .DATA.L _initQueues_8c011f36 ; H'8C01FA54
           .DATA.L _FUN_8c011f6c ; H'8C01FA58
           .DATA.L _init_8c045324 ; H'8C01FA5C
           .DATA.L _requestSysResgrp_8c018568 ; H'8C01FA60

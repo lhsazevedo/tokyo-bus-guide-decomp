@@ -6,13 +6,13 @@
           .IMPORT     _menuState_8c1bc7a8
           .IMPORT     __divls
           .IMPORT     __modls
-          .IMPORT     _var_8c2263a8
+          .IMPORT     _var_resourceGroup_8c2263a8
           .IMPORT     _init_8c045148
           .IMPORT     _var_8c225fb0
           .IMPORT     _freeResourceGroup_8c0185c4
           .IMPORT     _var_tex_8c157af8
           .IMPORT     _njGarbageTexture
-          .IMPORT     _FUN_8c011f36
+          .IMPORT     _initQueues_8c011f36
           .IMPORT     _FUN_8c011f6c
           .IMPORT     _requestSysResgrp_8c018568
           .IMPORT     _setUknPvmBool_8c014330
@@ -344,7 +344,7 @@ LP_GEN_23877:
           .DATA.L H'42180000 ; H'8C01CBD8
           .DATA.L H'42080000 ; H'8C01CBDC
           .DATA.L H'C0400000 ; H'8C01CBE0
-          .DATA.L _var_8c2263a8 ; H'8C01CBE4
+          .DATA.L _var_resourceGroup_8c2263a8 ; H'8C01CBE4
           .DATA.L H'C0800000 ; H'8C01CBE8
 _FUN_8c01cbec:
           MOV.L       R14,@-R15
@@ -450,11 +450,11 @@ LP_GEN_72378:
           .DATA.L _menuState_8c1bc7a8 ; H'8C01CCA8
           .DATA.L _init_8c045148 ; H'8C01CCAC
           .DATA.L _var_8c225fb0 ; H'8C01CCB0
-          .DATA.L _var_8c2263a8 ; H'8C01CCB4
+          .DATA.L _var_resourceGroup_8c2263a8 ; H'8C01CCB4
           .DATA.L _freeResourceGroup_8c0185c4 ; H'8C01CCB8
           .DATA.L _var_tex_8c157af8 ; H'8C01CCBC
           .DATA.L _njGarbageTexture ; H'8C01CCC0
-          .DATA.L _FUN_8c011f36 ; H'8C01CCC4
+          .DATA.L _initQueues_8c011f36 ; H'8C01CCC4
           .DATA.L _FUN_8c011f6c ; H'8C01CCC8
           .DATA.L _requestSysResgrp_8c018568 ; H'8C01CCCC
           .DATA.L _setUknPvmBool_8c014330 ; H'8C01CCD0
@@ -1201,7 +1201,7 @@ LP_GEN_13275:
           .DATA.L _freeResourceGroup_8c0185c4 ; H'8C01D264
           .DATA.L _var_tex_8c157af8 ; H'8C01D268
           .DATA.L _njGarbageTexture ; H'8C01D26C
-          .DATA.L _FUN_8c011f36 ; H'8C01D270
+          .DATA.L _initQueues_8c011f36 ; H'8C01D270
           .DATA.L _FUN_8c011f6c ; H'8C01D274
           .DATA.L _init_8c0450d8 ; H'8C01D278
           .DATA.L _requestSysResgrp_8c018568 ; H'8C01D27C

@@ -14,7 +14,7 @@
           .IMPORT     _FUN_8c01c880
           .IMPORT     _drawSprite_8c014f54
           .IMPORT     _setTaskAction_8c014b3e
-          .IMPORT     _FUN_8c011f36
+          .IMPORT     _initQueues_8c011f36
           .IMPORT     _FUN_8c011f6c
           .IMPORT     _init_8c044264
           .IMPORT     _requestSysResgrp_8c018568
@@ -357,7 +357,7 @@ LP_GEN_13822:
           .DATA.L _task_mainmenu_8c019e98 ; H'8C01A11C
           .DATA.L _setTaskAction_8c014b3e ; H'8C01A120
           .DATA.L _menuState_8c1bc7a8 ; H'8C01A124
-          .DATA.L _FUN_8c011f36 ; H'8C01A128
+          .DATA.L _initQueues_8c011f36 ; H'8C01A128
           .DATA.L _FUN_8c011f6c ; H'8C01A12C
           .DATA.L _init_8c044264 ; H'8C01A130
           .DATA.L _requestSysResgrp_8c018568 ; H'8C01A134

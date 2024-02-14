@@ -20,7 +20,7 @@
           .IMPORT     _buRewriteExecFile
           .IMPORT     _menuState_8c1bc7a8
           .IMPORT     _drawSprite_8c014f54
-          .IMPORT     _var_8c2263a8
+          .IMPORT     _var_resourceGroup_8c2263a8
           .IMPORT     _var_8c226048
           .IMPORT     _init_8c044e50
           .IMPORT     _FUN_8c02aefc
@@ -43,7 +43,7 @@
           .IMPORT     _const_8c0384b0
           .IMPORT     _const_8c0384e8
           .IMPORT     _FUN_8c016d2c
-          .IMPORT     _FUN_8c016caa
+          .IMPORT     _processNavInputAndPlaySound_8c016caa
           .IMPORT     _const_8c03866c
           .IMPORT     _var_8c1bc454
           .IMPORT     _const_8c038510
@@ -66,7 +66,7 @@
           .IMPORT     _FUN_8c01a09a
           .IMPORT     _menuTextboxText_8c02af1c
           .IMPORT     _setTaskAction_8c014b3e
-          .IMPORT     _FUN_8c011f36
+          .IMPORT     _initQueues_8c011f36
           .IMPORT     _FUN_8c011f6c
           .IMPORT     _init_8c044e90
           .IMPORT     _requestSysResgrp_8c018568
@@ -92,8 +92,8 @@
           .EXPORT     _FUN_8c01bfec
           .EXPORT     _FUN_8c01c880
           .EXPORT     _FUN_8c01c8dc
-          .EXPORT     _FUN_8c01c8fc
-          .EXPORT     _FUN_8c01c910
+          .EXPORT     _vmsLcd_8c01c8fc
+          .EXPORT     _vmsLcd_8c01c910
           .SECTION     P, CODE, ALIGN=4
 _FUN_8c01bb48:
           MOV.L       R14,@-R15
@@ -703,7 +703,7 @@ LP_GEN_34738:
           .DATA.L _buRewriteExecFile ; H'8C01BFAC
           .DATA.L _menuState_8c1bc7a8 ; H'8C01BFB0
           .DATA.L _drawSprite_8c014f54 ; H'8C01BFB4
-          .DATA.L _var_8c2263a8 ; H'8C01BFB8
+          .DATA.L _var_resourceGroup_8c2263a8 ; H'8C01BFB8
           .DATA.L H'C0800000 ; H'8C01BFBC
           .DATA.L _var_8c226048 ; H'8C01BFC0
           .DATA.L H'C0A00000 ; H'8C01BFC4
@@ -967,7 +967,7 @@ LAB_8c01c1ba:
           BRA         LAB_8c01c7b6
           NOP
 caseD_5:
-          BSR         _FUN_8c01c8fc
+          BSR         _vmsLcd_8c01c8fc
           MOV         #H'0,R4
           BRA         LAB_8c01c1d0
           MOV         #H'0,R4
@@ -1341,7 +1341,7 @@ LP_GEN_25641:
           .DATA.L _push_fadeout_8c022b60 ; H'8C01C468
           .DATA.L _const_8c038498 ; H'8C01C46C
           .DATA.L _FUN_8c016d2c ; H'8C01C470
-          .DATA.L _FUN_8c016caa ; H'8C01C474
+          .DATA.L _processNavInputAndPlaySound_8c016caa ; H'8C01C474
 LAB_8c01c478:
           MOV         #H'6c,R0
           MOV.L       LP_GEN_18425,R5
@@ -1373,7 +1373,7 @@ LAB_8c01c478:
           BRA         LAB_8c01c5dc
           NOP
 LAB_8c01c4b2:
-          BSR         _FUN_8c01c8fc
+          BSR         _vmsLcd_8c01c8fc
           MOV         #H'1,R4
           MOV.L       @(H'4,R15),R2
           MOV         #H'1,R3
@@ -1525,7 +1525,7 @@ LAB_8c01c5b4:
           MOV.L       @(H'4,R15),R2
           JSR         @R12
           MOV.L       R3,@(H'8,R2)
-          BSR         _FUN_8c01c8fc
+          BSR         _vmsLcd_8c01c8fc
           MOV         #H'1,R4
           MOV.L       LP_GEN_18425+12,R2
           MOV         #H'1,R3
@@ -1580,7 +1580,7 @@ LP_GEN_18425:
           .DATA.L _var_8c2260b8 ; H'8C01C630
           .DATA.L _const_8c0385bc ; H'8C01C634
           .DATA.L _var_texbuf_8c277ca0 ; H'8C01C638
-          .DATA.L _FUN_8c016caa ; H'8C01C63C
+          .DATA.L _processNavInputAndPlaySound_8c016caa ; H'8C01C63C
           .DATA.L _const_8c0385d8 ; H'8C01C640
           .DATA.L H'43640000 ; H'8C01C644
           .DATA.L _drawSprite_8c014f54 ; H'8C01C648
@@ -1768,7 +1768,7 @@ caseD_b:
           JSR         @R3
           MOV         #H'a,R4
 LAB_8c01c7b2:
-          BSR         _FUN_8c01c8fc
+          BSR         _vmsLcd_8c01c8fc
           MOV         #H'0,R4
 LAB_8c01c7b6:
           BSR         _FUN_8c01be90
@@ -1855,7 +1855,7 @@ LP_GEN_33412:
           .DATA.L _sdMidiPlay ; H'8C01C854
           .DATA.L _push_fadein_8c022a9c ; H'8C01C858
           .DATA.L _var_8c22606c ; H'8C01C85C
-          .DATA.L _var_8c2263a8 ; H'8C01C860
+          .DATA.L _var_resourceGroup_8c2263a8 ; H'8C01C860
           .DATA.L _freeResourceGroup_8c0185c4 ; H'8C01C864
           .DATA.L _var_8c1bc454 ; H'8C01C868
           .DATA.L _syFree ; H'8C01C86C
@@ -1927,7 +1927,7 @@ _FUN_8c01c8dc:
           MOV.L       R4,@R3
           RTS
           MOV.L       R4,@R2
-_FUN_8c01c8fc:
+_vmsLcd_8c01c8fc:
           MOV         R4,R0
           MOV.L       LP_GEN_73212+86,R3
           CMP/EQ      #-H'1,R0
@@ -1939,7 +1939,7 @@ _FUN_8c01c8fc:
 LAB_8c01c90c:
           RTS
           NOP
-_FUN_8c01c910:
+_vmsLcd_8c01c910:
           MOV.L       LP_GEN_73212+86,R3
           MOV         #H'0,R5
           MOV.L       LP_GEN_73212+94,R0
@@ -1952,10 +1952,10 @@ LP_GEN_73212:
           .DATA.L _FUN_8c01bfec ; H'8C01C920
           .DATA.L _setTaskAction_8c014b3e ; H'8C01C924
           .DATA.L _menuState_8c1bc7a8 ; H'8C01C928
-          .DATA.L _FUN_8c011f36 ; H'8C01C92C
+          .DATA.L _initQueues_8c011f36 ; H'8C01C92C
           .DATA.L _FUN_8c011f6c ; H'8C01C930
           .DATA.L _init_8c044e90 ; H'8C01C934
-          .DATA.L _var_8c2263a8 ; H'8C01C938
+          .DATA.L _var_resourceGroup_8c2263a8 ; H'8C01C938
           .DATA.L _requestSysResgrp_8c018568 ; H'8C01C93C
           .DATA.L _var_8c1bc454 ; H'8C01C940
           .DATA.L _const_8c038660 ; H'8C01C944

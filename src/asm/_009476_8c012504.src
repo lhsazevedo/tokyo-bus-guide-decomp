@@ -10,7 +10,7 @@
           .IMPORT     _var_8c1bbcc4
           .IMPORT     __8c033318
           .IMPORT     __quick_odd_mvn
-          .IMPORT     _FUN_8c01c910
+          .IMPORT     _vmsLcd_8c01c910
           .IMPORT     _init_8c03beb8
           .IMPORT     _init_8c03bf18
           .IMPORT     _pushTask_8c014ae8
@@ -310,7 +310,7 @@ LP_GEN_43503:
           .DATA.L _var_8c157a78
           .DATA.L __8c033318
           .DATA.L __quick_odd_mvn
-          .DATA.L _FUN_8c01c910
+          .DATA.L _vmsLcd_8c01c910
 
           ; UNIT BOUNDARY?
 
@@ -588,7 +588,7 @@ LP_GEN_17272:
           .DATA.L __8c033318
           .DATA.L __quick_odd_mvn
           .DATA.L _var_8c157a70
-          .DATA.L _FUN_8c01c910
+          .DATA.L _vmsLcd_8c01c910
           .DATA.L _pushTask_8c014ae8
           .DATA.L _var_tasks_8c1ba3c8
           .DATA.L _var_8c157a74

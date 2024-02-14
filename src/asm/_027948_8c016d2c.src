@@ -52,7 +52,7 @@
           .IMPORT     _var_demo_8c1bb8d0
           .IMPORT     _var_tex_8c157af8
           .IMPORT     _njGarbageTexture
-          .IMPORT     _FUN_8c011f36
+          .IMPORT     _initQueues_8c011f36
           .IMPORT     _FUN_8c011f6c
           .IMPORT     _init_8c044264
           .IMPORT     _setUknPvmBool_8c014330
@@ -64,7 +64,7 @@
           .IMPORT     _FUN_8c02ae3e
           .IMPORT     _init_8c044d2e
           .IMPORT     _init_8c044d2f
-          .IMPORT     _FUN_8c016caa
+          .IMPORT     _processNavInputAndPlaySound_8c016caa
           .IMPORT     _FUN_8c016182
           .IMPORT     _var_8c1bb8e0
           .IMPORT     _var_8c1bb8e8
@@ -2479,7 +2479,7 @@ LP_GEN_67544:
           .DATA.L _var_demo_8c1bb8d0 ; H'8C017F54
           .DATA.L _var_tex_8c157af8 ; H'8C017F58
           .DATA.L _njGarbageTexture ; H'8C017F5C
-          .DATA.L _FUN_8c011f36 ; H'8C017F60
+          .DATA.L _initQueues_8c011f36 ; H'8C017F60
           .DATA.L _FUN_8c011f6c ; H'8C017F64
           .DATA.L _init_8c044264 ; H'8C017F68
           .DATA.L _setUknPvmBool_8c014330 ; H'8C017F6C
@@ -2652,7 +2652,7 @@ LP_GEN_56170:
           .DATA.L _const_8c03628c ; H'8C0180DC
           .DATA.L _FUN_8c02aefc ; H'8C0180E0
           .DATA.L _var_demo_8c1bb8d0 ; H'8C0180E4
-          .DATA.L _FUN_8c011f36 ; H'8C0180E8
+          .DATA.L _initQueues_8c011f36 ; H'8C0180E8
           .DATA.L _FUN_8c011f6c ; H'8C0180EC
           .DATA.L _init_8c044264 ; H'8C0180F0
           .DATA.L _setUknPvmBool_8c014330 ; H'8C0180F4
@@ -2986,7 +2986,7 @@ LP_GEN_82242:
           .DATA.L _FUN_8c011f7e ; H'8C01838C
           .DATA.L _push_fadein_8c022a9c ; H'8C018390
           .DATA.L _snd_8c010cd6 ; H'8C018394
-          .DATA.L _FUN_8c016caa ; H'8C018398
+          .DATA.L _processNavInputAndPlaySound_8c016caa ; H'8C018398
           .DATA.L _push_fadeout_8c022b60 ; H'8C01839C
           .DATA.L _FUN_8c016182 ; H'8C0183A0
           .DATA.L _var_8c1bb8e0 ; H'8C0183A4
@@ -3286,7 +3286,7 @@ LP_GEN_93008:
           .DATA.L _FUN_8c0181b6 ; H'8C0185F8
           .DATA.L _setTaskAction_8c014b3e ; H'8C0185FC
           .DATA.L _menuState_8c1bc7a8 ; H'8C018600
-          .DATA.L _FUN_8c011f36 ; H'8C018604
+          .DATA.L _initQueues_8c011f36 ; H'8C018604
           .DATA.L _FUN_8c011f6c ; H'8C018608
           .DATA.L _init_8c044d40 ; H'8C01860C
           .DATA.L _setUknPvmBool_8c014330 ; H'8C018610

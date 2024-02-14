@@ -15,7 +15,7 @@
           .IMPORT     _midiHandles_8c0fcd28
           .IMPORT     _sdMidiPlay
           .IMPORT     _FUN_8c010bae
-          .IMPORT     _FUN_8c016caa
+          .IMPORT     _processNavInputAndPlaySound_8c016caa
           .IMPORT     _push_fadeout_8c022b60
           .IMPORT     _njSetBackColor
           .IMPORT     _FUN_8c016182
@@ -27,7 +27,7 @@
           .IMPORT     _FUN_8c013310
           .IMPORT     _setTaskAction_8c014b3e
           .IMPORT     _var_8c1bc7c0
-          .IMPORT     _FUN_8c011f36
+          .IMPORT     _initQueues_8c011f36
           .IMPORT     _FUN_8c011f6c
           .IMPORT     _init_8c044284
           .IMPORT     _var_8c1bc7b4
@@ -526,7 +526,7 @@ LP_GEN_38636:
           .DATA.L _midiHandles_8c0fcd28 ; H'8C01E5C8
           .DATA.L _sdMidiPlay ; H'8C01E5CC
           .DATA.L _FUN_8c010bae ; H'8C01E5D0
-          .DATA.L _FUN_8c016caa ; H'8C01E5D4
+          .DATA.L _processNavInputAndPlaySound_8c016caa ; H'8C01E5D4
           .DATA.L _push_fadeout_8c022b60 ; H'8C01E5D8
           .DATA.L H'43960000 ; H'8C01E5DC
           .DATA.L H'C0A00000 ; H'8C01E5E0
@@ -543,7 +543,7 @@ LP_GEN_38636:
           .DATA.L _FUN_8c01e27c ; H'8C01E60C
           .DATA.L _setTaskAction_8c014b3e ; H'8C01E610
           .DATA.L _var_8c1bc7c0 ; H'8C01E614
-          .DATA.L _FUN_8c011f36 ; H'8C01E618
+          .DATA.L _initQueues_8c011f36 ; H'8C01E618
           .DATA.L _FUN_8c011f6c ; H'8C01E61C
           .DATA.L _init_8c044284 ; H'8C01E620
           .DATA.L _var_8c1bc7b4 ; H'8C01E624
@@ -1229,7 +1229,7 @@ LP_GEN_88702:
           .DATA.L _menuState_8c1bc7a8 ; H'8C01EB50
           .DATA.L _const_8c038984 ; H'8C01EB54
           .DATA.L _FUN_8c02aefc ; H'8C01EB58
-          .DATA.L _FUN_8c011f36 ; H'8C01EB5C
+          .DATA.L _initQueues_8c011f36 ; H'8C01EB5C
           .DATA.L _FUN_8c011f6c ; H'8C01EB60
           .DATA.L _init_8c044274 ; H'8C01EB64
           .DATA.L _requestSysResgrp_8c018568 ; H'8C01EB68
@@ -1707,7 +1707,7 @@ LAB_8c01ef0c:
           MOV.L       @R15+,R14
 LP_GEN_95699:
           .DATA.W H'0090 ; H'8C01EF2A
-          .DATA.L _FUN_8c016caa ; H'8C01EF2C
+          .DATA.L _processNavInputAndPlaySound_8c016caa ; H'8C01EF2C
           .DATA.L _FUN_8c010bae ; H'8C01EF30
           .DATA.L _push_fadeout_8c022b60 ; H'8C01EF34
           .DATA.L _const_8c038984 ; H'8C01EF38
@@ -2041,7 +2041,7 @@ LP_GEN_22524:
           .DATA.L _njSetBackColor ; H'8C01F1E8
           .DATA.L _var_tex_8c157af8 ; H'8C01F1EC
           .DATA.L _njGarbageTexture ; H'8C01F1F0
-          .DATA.L _FUN_8c011f36 ; H'8C01F1F4
+          .DATA.L _initQueues_8c011f36 ; H'8C01F1F4
           .DATA.L _FUN_8c011f6c ; H'8C01F1F8
           .DATA.L _init_8c044274 ; H'8C01F1FC
           .DATA.L _requestSysResgrp_8c018568 ; H'8C01F200
@@ -2225,7 +2225,7 @@ LP_GEN_37649:
           .DATA.L _FUN_8c02ae3e ; H'8C01F38C
           .DATA.L _const_8c038984 ; H'8C01F390
           .DATA.L _FUN_8c02aefc ; H'8C01F394
-          .DATA.L _FUN_8c011f36 ; H'8C01F398
+          .DATA.L _initQueues_8c011f36 ; H'8C01F398
           .DATA.L _FUN_8c011f6c ; H'8C01F39C
           .DATA.L _var_8c225fb0 ; H'8C01F3A0
           .DATA.L _init_8c044274 ; H'8C01F3A4

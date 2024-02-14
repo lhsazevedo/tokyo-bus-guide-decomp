@@ -24,7 +24,7 @@ extern Task var_tasks_8c1ba3c8[16];
 extern void task_8c012f44(Task* task, void* state);
 extern NJS_TEXMEMLIST var_tex_8c157af8;
 extern FUN_8c02ae3e(int p1, int p2, float fp1, int p3, int p4, int p5, int p6, int p7);
-extern FUN_8c011f36(int p1, int p2, int p3, int p4);
+extern initQueues_8c011f36(int p1, int p2, int p3, int p4);
 extern void nop_8c011120();
 extern void resetUknPvmBool_8c014322();
 extern FUN_8c019550(char** p1, int p2);
@@ -410,71 +410,25 @@ void task_title_8c015ab8(Task* task, void *state) {
 
 /* Matched */
 void FUN_8c015fd6 (Bool direct) {
-    /* Frame:
-     * -0x04 R14 backup
-     * -0x08 PR backup
-     * -0x0c r4 
-     * -0x10 created_state
-     * -0x14 created_task
-     * -0x18 (5th param to pushTask)
-     * -0x1c (5th param to pushTask)
-     */
     Task* created_task;
     void* created_state;
-    /* Bool direct_local; */
     FUN_8c0128cc(0);
-
-    /* 8c015ff4 */
     pushTask_8c014ae8(var_tasks_8c1ba3c8, &task_8c012f44, &created_task, &created_state, 0);
 
-    /* 8c015ffe */
     njSetBackColor(0,0,0);
-
-    /* 8c016012 */
     pushTask_8c014ae8(var_tasks_8c1ba3c8, &task_title_8c015ab8, &created_task, &created_state, 0);
-
-    /* 8c01601e */
     menuState_8c1bc7a8.state_0x18 = TITLE_STATE_0X00_INIT;
-
-    /* 8c016020 */
-    /* direct_local = FALSE; */
-
-    /* 8c016022 */
     menuState_8c1bc7a8.startTimer_0x64 = 0;
-
-    /* 8c016024 */
-    /* direct_local = direct; */
-
-    /* 8c01602a */
     created_task->field_0x08 = direct;
-
-    /* 8c01602e */
     var_8c1bb8c4 = 1;
 
-    /* 8c016034 */
     njGarbageTexture(&var_tex_8c157af8, 3072);
-
-    /* 8c01604e */
     FUN_8c02ae3e(0x20, 0x178, -2.0, 0x240, 0x40, 0, 0, -1);
-
-    /* 8c01605a */
-    FUN_8c011f36(8, 0, 0, 8);
-
-    /* 8c016060 */
+    initQueues_8c011f36(8, 0, 0, 8);
     FUN_8c011f6c();
-
-    /* 8c01606c */
     var_8c225fb0 = (void *) -1;
-
-    /* 8c016070 */
     requestSysResgrp_8c018568(&menuState_8c1bc7a8.resourceGroupB_0x0c, &titleResourceGroup_8c044254);
-
-    /* 8c016076 */
     requestCommonResources_8c01852c();
-
-    /* 8c01607c */
     setUknPvmBool_8c014330();
-
-    /* 8c01608c */
     FUN_8c011fe0(&nop_8c011120, 0, 0, 0, &resetUknPvmBool_8c014322);
 }

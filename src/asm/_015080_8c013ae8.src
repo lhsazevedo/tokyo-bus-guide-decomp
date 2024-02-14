@@ -19,7 +19,7 @@
           .IMPORT     _init_8c043dc4
           .IMPORT     _init_8c043ecc
           .IMPORT     _FUN_8c011f7e
-          .IMPORT     _FUN_8c011f36
+          .IMPORT     _initQueues_8c011f36
           .IMPORT     _FUN_8c011f6c
           .IMPORT     _var_8c18adb0
           .IMPORT     _nop_8c011120
@@ -98,7 +98,7 @@
           .IMPORT     _FUN_8c012970
           .EXPORT     _requestSomeFiles_8c013ae8
           .EXPORT     _FUN_8c013b5a
-          .EXPORT     _FUN_8c013bbc
+          .EXPORT     _clearUnknowArray_8c013bbc
           .EXPORT     _FUN_8c013c34
           .EXPORT     _FUN_8c013d42
           .EXPORT     _FUN_8c013d78
@@ -226,7 +226,7 @@ LAB_8c013bb2:
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-_FUN_8c013bbc:
+_clearUnknowArray_8c013bbc:
           ADD         #-H'1,R5
           SHLL2       R5
           SHLL2       R5
@@ -577,7 +577,7 @@ LP_GEN_38230:
           .DATA.W H'0200 ; LP_GEN_38230+0
           .DATA.W H'0410
           .RES.W 1
-          .DATA.L _FUN_8c011f36
+          .DATA.L _initQueues_8c011f36
           .DATA.L _FUN_8c011f6c
           .DATA.L _var_8c18adb0
           .DATA.L _FUN_8c013d42
@@ -1494,7 +1494,7 @@ LP_GEN_28406:
           .DATA.L _pushTask_8c014ae8
           .DATA.L _var_tex_8c157af8
           .DATA.L _njGarbageTexture
-          .DATA.L _FUN_8c011f36
+          .DATA.L _initQueues_8c011f36
           .DATA.L _FUN_8c02b170
           .DATA.L _FUN_8c011f6c
           .DATA.L _setUknPvmBool_8c014330
@@ -1669,7 +1669,7 @@ LP_GEN_17698:
           .DATA.L _pushTask_8c014ae8
           .DATA.L _var_tex_8c157af8
           .DATA.L _njGarbageTexture
-          .DATA.L _FUN_8c011f36
+          .DATA.L _initQueues_8c011f36
           .DATA.L H'FF418DFF
           .DATA.L _njSetBackColor
 

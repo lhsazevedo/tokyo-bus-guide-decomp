@@ -29,7 +29,7 @@ extern int _8c157a88;
 extern QueuedNj* queuedNjFiles_8c157a9c;
 extern QueuedNj* queuedNjFilesCursor_8c157aa0;
 extern QueuedNj* queuedNjFilesEnd_8c157aa4;
-extern int _8c157aa8;
+extern int var_8c157aa8;
 extern void *_8c227ca0;
 
 extern const char* ptr_str_DATA_EMPTY_8c03be7c;
@@ -53,7 +53,7 @@ int initNjQueue_8c011430(int param) {
 FUN_8c01147a() {
     queuedNjFilesCursor_8c157aa0 = queuedNjFiles_8c157a9c;
     _8c157a80_basedir = ptr_str_DATA_EMPTY_8c03be7c;
-    _8c157aa8 = 1;
+    var_8c157aa8 = 1;
 }
 
 /* Matched */
@@ -168,12 +168,12 @@ void task_8c0114cc(_8c0114cc_Task* task, void* state) {
 }
 
 /* Matched */
-int FUN_8c01179e() {
-    return _8c157aa8;
+int get8c157aa8_8c01179e() {
+    return var_8c157aa8;
 }
 
 /* Matched? */
-FUN_8c0117a4() {
+freeNjQueue_8c0117a4() {
     if (queuedNjFiles_8c157a9c != (QueuedNj*) -1) {
         syFree(queuedNjFiles_8c157a9c);
     }

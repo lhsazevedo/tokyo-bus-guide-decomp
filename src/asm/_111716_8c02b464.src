@@ -19,7 +19,7 @@
           .IMPORT     _var_8c1bbd9c
           .IMPORT     _var_8c228670
           .IMPORT     _var_8c228668
-          .IMPORT     _FUN_8c010f7a
+          .IMPORT     _vib_8c010f7a
           .IMPORT     _var_8c22866c
           .IMPORT     _FUN_8c02e4ac
           .IMPORT     _var_8c228664
@@ -378,7 +378,7 @@ LP_GEN_34364:
           .DATA.L _var_8c228668 ; H'8C02B678
           .DATA.L H'3E0E38E4 ; H'8C02B67C
           .DATA.L H'3E8E38E4 ; H'8C02B680
-          .DATA.L _FUN_8c010f7a ; H'8C02B684
+          .DATA.L _vib_8c010f7a ; H'8C02B684
           .DATA.L _var_8c22866c ; H'8C02B688
 LAB_8c02b68c:
           MOV         #H'6,R4
@@ -1498,7 +1498,7 @@ LP_GEN_20612:
           .RES.W 1 ; H'8C02BF16
           .DATA.L _var_8c1ba374 ; H'8C02BF18
           .DATA.L H'3C23D70A ; H'8C02BF1C
-          .DATA.L _FUN_8c010f7a ; H'8C02BF20
+          .DATA.L _vib_8c010f7a ; H'8C02BF20
           .DATA.L _var_8c1bb8c8 ; H'8C02BF24
           .DATA.L H'C4FA0000 ; H'8C02BF28
           .DATA.L H'44FA0000 ; H'8C02BF2C
@@ -1877,7 +1877,7 @@ LP_GEN_52528:
           .DATA.L _var_8c22867c ; H'8C02C208
           .DATA.L H'0F000000 ; H'8C02C20C
           .DATA.L _var_8c228660 ; H'8C02C210
-          .DATA.L _FUN_8c010f7a ; H'8C02C214
+          .DATA.L _vib_8c010f7a ; H'8C02C214
 LAB_8c02c218:
           MOV         #H'6,R4
 LAB_8c02c21a:

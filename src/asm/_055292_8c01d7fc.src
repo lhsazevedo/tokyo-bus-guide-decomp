@@ -35,12 +35,12 @@
           .IMPORT     _const_8c038894
           .IMPORT     _const_8c0388b8
           .IMPORT     _const_8c0388f0
-          .IMPORT     _FUN_8c016caa
+          .IMPORT     _processNavInputAndPlaySound_8c016caa
           .IMPORT     _push_fadein_8c022a9c
           .IMPORT     _FUN_8c01890a
           .IMPORT     _FUN_8c01b26c
           .IMPORT     _const_8c038908
-          .IMPORT     _FUN_8c01c8fc
+          .IMPORT     _vmsLcd_8c01c8fc
           .IMPORT     _BupGetInfo_8c014bba
           .IMPORT     _buStat
           .IMPORT     _buGetLastError
@@ -63,7 +63,7 @@
           .IMPORT     _var_tex_8c157af8
           .IMPORT     _njGarbageTexture
           .IMPORT     _FUN_8c02ae3e
-          .IMPORT     _FUN_8c011f36
+          .IMPORT     _initQueues_8c011f36
           .IMPORT     _FUN_8c011f6c
           .IMPORT     _titleResourceGroup_8c044254
           .IMPORT     _var_8c1bc7b4
@@ -979,7 +979,7 @@ LAB_8c01dea6:
           MOV.L       @R15+,R14
 LP_GEN_50614:
           .DATA.L _FUN_8c01967c ; H'8C01DEC4
-          .DATA.L _FUN_8c016caa ; H'8C01DEC8
+          .DATA.L _processNavInputAndPlaySound_8c016caa ; H'8C01DEC8
           .DATA.L _push_fadeout_8c022b60 ; H'8C01DECC
           .DATA.L _push_fadein_8c022a9c ; H'8C01DED0
           .DATA.L _var_8c226048 ; H'8C01DED4
@@ -987,7 +987,7 @@ LP_GEN_50614:
           .DATA.L _FUN_8c01890a ; H'8C01DEDC
           .DATA.L _FUN_8c01b26c ; H'8C01DEE0
           .DATA.L _const_8c038908 ; H'8C01DEE4
-          .DATA.L _FUN_8c01c8fc ; H'8C01DEE8
+          .DATA.L _vmsLcd_8c01c8fc ; H'8C01DEE8
           .DATA.L _midiHandles_8c0fcd28 ; H'8C01DEEC
           .DATA.L _sdMidiPlay ; H'8C01DEF0
           .DATA.L _BupGetInfo_8c014bba ; H'8C01DEF4
@@ -1161,7 +1161,7 @@ LP_GEN_43538:
           .DATA.L _njGarbageTexture ; H'8C01E070
           .DATA.L H'C0000000 ; H'8C01E074
           .DATA.L _FUN_8c02ae3e ; H'8C01E078
-          .DATA.L _FUN_8c011f36 ; H'8C01E07C
+          .DATA.L _initQueues_8c011f36 ; H'8C01E07C
           .DATA.L _FUN_8c011f6c ; H'8C01E080
           .DATA.L _titleResourceGroup_8c044254 ; H'8C01E084
           .DATA.L _var_8c1bc7b4 ; H'8C01E088

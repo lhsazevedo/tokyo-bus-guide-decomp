@@ -43,8 +43,8 @@
           .IMPORT     _njLoadTexturePvmMemory
           .IMPORT     _var_8c157a6c
           .IMPORT     _njReleaseTexture
-          .IMPORT     _FUN_8c01c8fc
-          .IMPORT     _FUN_8c01c910
+          .IMPORT     _vmsLcd_8c01c8fc
+          .IMPORT     _vmsLcd_8c01c910
           .IMPORT     _var_8c157a60
           .IMPORT     _var_8c157acc
           .IMPORT     __modlu
@@ -67,8 +67,8 @@
           .EXPORT     _requestNj_8c011492
           .EXPORT     _task_8c0114cc
           .EXPORT     _FUN_8c0116b6
-          .EXPORT     _FUN_8c01179e
-          .EXPORT     _FUN_8c0117a4
+          .EXPORT     _get8c157aa8_8c01179e
+          .EXPORT     _freeNjQueue_8c0117a4
           .EXPORT     _FUN_8c0117b8
           .EXPORT     _FUN_8c0117fe
           .EXPORT     _FUN_8c01181c
@@ -83,7 +83,7 @@
           .EXPORT     _freeTexlist_8c011e3c
           .EXPORT     _FUN_8c011e60
           .EXPORT     _task_8c011e80
-          .EXPORT     _FUN_8c011f36
+          .EXPORT     _initQueues_8c011f36
           .EXPORT     _FUN_8c011f6c
           .EXPORT     _FUN_8c011f7e
           .EXPORT     _FUN_8c011fe0
@@ -965,12 +965,12 @@ L63:
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-_FUN_8c01179e:                   ; function: _FUN_8c01179e
+_get8c157aa8_8c01179e:                   ; function: _get8c157aa8_8c01179e
                                  ; frame size=0
           MOV.L       L84+36,R3
           RTS
           MOV.L       @R3,R0
-_FUN_8c0117a4:                   ; function: _FUN_8c0117a4
+_freeNjQueue_8c0117a4:                   ; function: _freeNjQueue_8c0117a4
                                  ; frame size=0
           MOV.L       L84+40,R2
           MOV.L       @R2,R0
@@ -1915,7 +1915,7 @@ L131:
           BRA         L137
           NOP
 L132:
-          BSR         _FUN_8c01179e
+          BSR         _get8c157aa8_8c01179e
           NOP
           TST         R0,R0
           BT          L137
@@ -1980,7 +1980,7 @@ L138:
           LDS.L       @R15+,PR
           RTS
           MOV.L       @R15+,R14
-_FUN_8c011f36:
+_initQueues_8c011f36:
           STS.L       PR,@-R15
           ADD         #-H'10,R15
           MOV.L       R4,@(H'c,R15)
@@ -2022,7 +2022,7 @@ _FUN_8c011f7e:
           STS.L       PR,@-R15
           BSR         _freeDatQueue_8c0113d8
           NOP
-          BSR         _FUN_8c0117a4
+          BSR         _freeNjQueue_8c0117a4
           NOP
           BSR         _FUN_8c011a48
           NOP
@@ -2051,8 +2051,8 @@ L139:
           .DATA.L     _var_8c157abc
           .DATA.L     _njReleaseTexture
           .DATA.L     _freeTask_8c014b66 ; L139+48
-          .DATA.L     _FUN_8c01c8fc
-          .DATA.L     _FUN_8c01c910
+          .DATA.L     _vmsLcd_8c01c8fc
+          .DATA.L     _vmsLcd_8c01c910
           .DATA.L     _var_8c157a60
 _FUN_8c011fe0:
           STS.L       PR,@-R15

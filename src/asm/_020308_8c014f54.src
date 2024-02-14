@@ -32,7 +32,7 @@
           .IMPORT     _var_demo_8c1bb8d0
           .IMPORT     _var_8c1bb8d4
           .IMPORT     _var_8c1bb8d8
-          .IMPORT     _FUN_8c011f36
+          .IMPORT     _initQueues_8c011f36
           .IMPORT     _FUN_8c011f6c
           .IMPORT     _init_8c044154
           .IMPORT     _const_8c035f74
@@ -1540,7 +1540,7 @@ LP_GEN_51554:
           .DATA.L _var_demo_8c1bb8d0
           .DATA.L _var_8c1bb8d4
           .DATA.L _var_8c1bb8d8
-          .DATA.L _FUN_8c011f36
+          .DATA.L _initQueues_8c011f36
           .DATA.L _FUN_8c011f6c
           .DATA.L _init_8c044154
           .DATA.L _const_8c035f74

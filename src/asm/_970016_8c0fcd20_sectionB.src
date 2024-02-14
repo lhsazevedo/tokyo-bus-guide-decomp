@@ -39,7 +39,7 @@
           .EXPORT     _var_8c18ad08
           .EXPORT     _var_8c18ad0c
           .EXPORT     _var_8c18ad10
-          .EXPORT     _var_8c18ad14
+          .EXPORT     _var_gdErr_8c18ad14
           .EXPORT     _var_8c18ad18
           .EXPORT     _var_8c18ad1c
           .EXPORT     _var_8c18ad20
@@ -237,7 +237,7 @@
           .EXPORT     _var_8c2261a0
           .EXPORT     _var_8c2263a0
           .EXPORT     _var_8c2263a4
-          .EXPORT     _var_8c2263a8
+          .EXPORT     _var_resourceGroup_8c2263a8
           .EXPORT     _var_8c2263b4
           .EXPORT     _var_8c2263ec
           .EXPORT     _var_8c2263f0
@@ -530,7 +530,7 @@ _var_8c18ad0c:
           .RES.B      4
 _var_8c18ad10:
           .RES.B      4
-_var_8c18ad14:
+_var_gdErr_8c18ad14:
           .RES.B      4
 _var_8c18ad18:
           .RES.B      4
@@ -926,7 +926,7 @@ _var_8c2263a0:
           .RES.B      4
 _var_8c2263a4:
           .RES.B      4
-_var_8c2263a8:
+_var_resourceGroup_8c2263a8:
           .RES.B      12
 _var_8c2263b4:
           .RES.B      56

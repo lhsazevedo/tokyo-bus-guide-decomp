@@ -85,7 +85,7 @@
           .IMPORT     _FUN_8c011f7e
           .IMPORT     _FUN_8c010e18
           .IMPORT     _var_8c2260a8
-          .IMPORT     _var_8c18ad14
+          .IMPORT     _var_gdErr_8c18ad14
           .IMPORT     _njSetTextureMemorySize
           .IMPORT     _syCblCheckCable
           .IMPORT     _sbInitSystem_8c0149b0
@@ -105,8 +105,8 @@
           .IMPORT     _getSoundMode_8c010924
           .IMPORT     _var_soundMode_8c226070
           .IMPORT     _setSoundMode_8c0108c0
-          .IMPORT     _FUN_8c010fbe
-          .IMPORT     _BupInit_8c014b8c
+          .IMPORT     _vibClear_8c010fbe
+          .IMPORT     _bupInit_8c014b8c
           .IMPORT     _njSetTextureInfo
           .IMPORT     _var_texname_8c18acf8
           .IMPORT     _njSetTextureName
@@ -115,14 +115,14 @@
           .IMPORT     _njLoadTexture
           .IMPORT     _var_8c1bb86c
           .IMPORT     _var_8c1bbddc
-          .IMPORT     _FUN_8c013bbc
+          .IMPORT     _clearUnknowArray_8c013bbc
           .IMPORT     _var_8c1bbfdc
           .IMPORT     _var_8c1bc3ec
           .IMPORT     _var_8c1bc3f0
           .IMPORT     _var_8c1bc3f4
-          .IMPORT     _FUN_8c02171c
-          .IMPORT     _FUN_8c029acc
-          .IMPORT     _FUN_8c02aa28
+          .IMPORT     _clearUnknownVar_8c02171c
+          .IMPORT     _clearUnknownVar_8c029acc
+          .IMPORT     _clearUnknownVars_8c02aa28
           .IMPORT     _var_8c1bc404
           .IMPORT     _var_8c226434
           .IMPORT     _var_8c226438
@@ -132,7 +132,7 @@
           .IMPORT     _var_8c2288f8
           .IMPORT     _var_8c1bc438
           .IMPORT     _menuState_8c1bc7a8
-          .IMPORT     _var_8c2263a8
+          .IMPORT     _var_resourceGroup_8c2263a8
           .IMPORT     _var_8c1ba2e0
           .IMPORT     _var_8c1ba348
           .IMPORT     _var_8c1ba344
@@ -145,9 +145,9 @@
           .IMPORT     _FUN_8c01c8dc
           .IMPORT     _FUN_8c0189d2
           .IMPORT     _njSetBorderColor
-          .IMPORT     _FUN_8c01c8fc
-          .IMPORT     _FUN_8c01c910
-          .IMPORT     _FUN_8c011f36
+          .IMPORT     _vmsLcd_8c01c8fc
+          .IMPORT     _vmsLcd_8c01c910
+          .IMPORT     _initQueues_8c011f36
           .IMPORT     _var_mark_parts_dat_8c1bc41c
           .IMPORT     _var_mark_dat_8c1bc420
           .IMPORT     _var_busstop_parts_dat_8c1bc428
@@ -918,7 +918,7 @@ LP_GEN_65923:
           .DATA.L _FUN_8c010e18
           .DATA.L _var_8c2260a8
           .DATA.L _FUN_8c015fd6
-          .DATA.L _var_8c18ad14
+          .DATA.L _var_gdErr_8c18ad14
           .DATA.L H'00100000
           .DATA.L _njSetTextureMemorySize
           .DATA.L _syCblCheckCable
@@ -1153,8 +1153,8 @@ LP_GEN_90231:
           .DATA.W H'0B01
           .DATA.W H'03E7
           .DATA.L _setSoundMode_8c0108c0
-          .DATA.L _FUN_8c010fbe
-          .DATA.L _BupInit_8c014b8c
+          .DATA.L _vibClear_8c010fbe
+          .DATA.L _bupInit_8c014b8c
           .DATA.L _var_texbuf_8c277ca0
           .DATA.L _njSetTextureInfo
           .DATA.L H'40800000
@@ -1171,14 +1171,14 @@ LP_GEN_90231:
           .DATA.L _var_tasks_8c1bb448
           .DATA.L _var_8c1bb86c
           .DATA.L _var_8c1bbddc
-          .DATA.L _FUN_8c013bbc
+          .DATA.L _clearUnknowArray_8c013bbc
           .DATA.L _var_8c1bbfdc
           .DATA.L _var_8c1bc3ec
           .DATA.L _var_8c1bc3f0
           .DATA.L _var_8c1bc3f4
-          .DATA.L _FUN_8c02171c
-          .DATA.L _FUN_8c029acc
-          .DATA.L _FUN_8c02aa28
+          .DATA.L _clearUnknownVar_8c02171c
+          .DATA.L _clearUnknownVar_8c029acc
+          .DATA.L _clearUnknownVars_8c02aa28
           .DATA.L _var_8c1bc404
           .DATA.L _var_8c226434
           .DATA.L _var_8c226438
@@ -1188,7 +1188,7 @@ LP_GEN_90231:
           .DATA.L _var_8c2288f8
           .DATA.L _var_8c1bc438
           .DATA.L _menuState_8c1bc7a8
-          .DATA.L _var_8c2263a8
+          .DATA.L _var_resourceGroup_8c2263a8
           .DATA.L _var_8c1ba2e0
           .DATA.L _var_8c1ba348
           .DATA.L _var_8c1ba344
@@ -1443,12 +1443,12 @@ _njUserExit_8c0139d4:
           LDS.L       @R15+,PR
 
 LP_GEN_19861:
-          .DATA.L     _FUN_8c01c8fc ; LP_GEN_19861+0
-          .DATA.L     _FUN_8c01c910
+          .DATA.L     _vmsLcd_8c01c8fc ; LP_GEN_19861+0
+          .DATA.L     _vmsLcd_8c01c910
           .DATA.L     _task_8c013388
           .DATA.L     _var_tasks_8c1ba3c8
           .DATA.L     _pushTask_8c014ae8
-          .DATA.L     _FUN_8c011f36
+          .DATA.L     _initQueues_8c011f36
           .DATA.L     _FUN_8c011f6c
           .DATA.L     _requestDat_8c011182
           .DATA.L     _const_8c033380
@@ -1490,7 +1490,7 @@ LP_GEN_19861:
           .DATA.L     _setUknPvmBool_8c014330
           .DATA.L     _nop_8c011120
           .DATA.L     _FUN_8c011fe0
-          .DATA.L     _var_8c18ad14
+          .DATA.L     _var_gdErr_8c18ad14
           .DATA.L     _FUN_8c0134d6
           .DATA.L     _gdFsEntryErrFuncAll
           .DATA.L     _var_vibport_8c1ba354

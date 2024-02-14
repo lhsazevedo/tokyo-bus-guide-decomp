@@ -184,7 +184,7 @@
           .EXPORT     _FUN_8c0297da
           .EXPORT     _FUN_8c029868
           .EXPORT     _FUN_8c029920
-          .EXPORT     _FUN_8c029acc
+          .EXPORT     _clearUnknownVar_8c029acc
           .EXPORT     _FUN_8c029ad4
           .EXPORT     _FUN_8c029cfe
           .EXPORT     _FUN_8c029f42
@@ -194,14 +194,14 @@
           .EXPORT     _FUN_8c02a370
           .EXPORT     _FUN_8c02a6ac
           .EXPORT     _FUN_8c02a9fc
-          .EXPORT     _FUN_8c02aa28
+          .EXPORT     _clearUnknownVars_8c02aa28
           .EXPORT     _FUN_8c02aa36
           .EXPORT     _FUN_8c02ad8c
           .EXPORT     _FUN_8c02adee
           .EXPORT     _FUN_8c02ae3e
           .EXPORT     _FUN_8c02aefc
           .EXPORT     _menuTextboxText_8c02af1c
-          .EXPORT     _FUN_8c02af32
+          .EXPORT     _free_8c1bc404_8c02af32
           .SECTION     P, CODE, ALIGN=4
 _FUN_8c028258:
           MOV.L       R14,@-R15
@@ -3415,7 +3415,7 @@ LP_GEN_39842:
           .DATA.L _var_8c1bbac8 ; H'8C029AC0
           .DATA.L _njUnitMatrix ; H'8C029AC4
           .DATA.L _njTranslate ; H'8C029AC8
-_FUN_8c029acc:
+_clearUnknownVar_8c029acc:
           MOV.L       LP_GEN_99465+2,R2
           MOV         #-H'1,R3
           RTS
@@ -5383,7 +5383,7 @@ LAB_8c02aa1e:
           BF          LAB_8c02aa02
           RTS
           NOP
-_FUN_8c02aa28:
+_clearUnknownVars_8c02aa28:
           MOV.L       LP_GEN_90475+2,R2
           MOV         #H'0,R3
           MOV.L       LP_GEN_90475+6,R0
@@ -5909,7 +5909,7 @@ LAB_8c02ae30:
           MOV.L       @R15+,R11
           MOV.L       @R15+,R12
           MOV.L       @R15+,R13
-          BRA         _FUN_8c02af32
+          BRA         _free_8c1bc404_8c02af32
           MOV.L       @R15+,R14
 _FUN_8c02ae3e:
           MOV.L       R14,@-R15
@@ -5925,7 +5925,7 @@ _FUN_8c02ae3e:
           CMP/EQ      #-H'1,R0
           BT/S        LAB_8c02ae5c
           FMOV        FR4,FR15
-          BSR         _FUN_8c02af32
+          BSR         _free_8c1bc404_8c02af32
           NOP
 LAB_8c02ae5c:
           MOV.L       LP_GEN_16602+60,R3
@@ -6020,7 +6020,7 @@ _menuTextboxText_8c02af1c:
           MOV.L       @(R0,R4),R4
           JMP         @R2
           ADD         #H'4,R15
-_FUN_8c02af32:
+_free_8c1bc404_8c02af32:
           MOV.L       R14,@-R15
           MOV.L       LP_GEN_47883+4,R14
           STS.L       PR,@-R15

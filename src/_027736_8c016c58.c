@@ -27,7 +27,7 @@ int cycleOptionAndPlaySound_8c016c58(int *currentOption, int optionCount)
     return 1;
 }
 
-int FUN_8c016caa(int* param_1) {
+int processNavInputAndPlaySound_8c016caa(int* param_1) {
     if (*param_1 == 0) {
         if (peripheral_8c1ba35c[0].press & PDD_DGT_KR) {
             *param_1 = 1;

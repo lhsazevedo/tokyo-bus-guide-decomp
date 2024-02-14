@@ -4,115 +4,115 @@
 const char _8c033318[52] = {0};
 
 /* === Structs === */
-struct s_8c157a48 {
-    int field_0x00;
+struct UnknownVibStructA {
+    int index_0x00;
     int field_0x04;
-    int field_0x08;
+    int index_0x08;
     int field_0x0c;
 }
-typedef s_8c157a48;
+typedef UnknownVibStructA;
 
-struct ukn_01 {
+struct UnknownVibStructB {
     int field_0x00;
     Uint8 flag;
     Uint8 power;
     Uint8 freq;
 }
-typedef s_ukn_01;
+typedef UnknownVibStructB;
 
-s_ukn_01 _8c03bdac[] = {
+UnknownVibStructB init_vib_8c03bdac[] = {
     {0x14, 0x01, 0xFF, 0x0F},
     {0x64, 0x01, 0xFE, 0x1E},
     {0x00, 0x00, 0x00, 0x00}
 };
 
-s_ukn_01 _8c03bdc4[] = {
+UnknownVibStructB init_vib_8c03bdc4[] = {
     {0x1E, 0x01, 0x03, 0x1E},
     {0x14, 0x01, 0x00, 0x00},
     {0x1E, 0x01, 0x03, 0x1E},
     {0x00, 0x00, 0x00, 0x00}
 };
 
-s_ukn_01 _8c03bde4[] = {
+UnknownVibStructB init_vib_8c03bde4[] = {
     {0x14, 0x01, 0x03, 0x1E},
     {0x00, 0x00, 0x00, 0x00}
 };
 
-s_ukn_01 _8c03bdf4[] = {
+UnknownVibStructB init_vib_8c03bdf4[] = {
     {0x0C, 0x01, 0xF9, 0x0F},
     {0x00, 0x00, 0x00, 0x00}
 };
 
-s_ukn_01 _8c03be04[] = {
+UnknownVibStructB init_vib_8c03be04[] = {
     {0x0A, 0x01, 0x03, 0x0F},
     {0x0A, 0x01, 0x02, 0x14},
     {0x00, 0x00, 0x00, 0x00}
 };
 
-s_ukn_01 _8c03be1c[] = {
+UnknownVibStructB init_vib_8c03be1c[] = {
     {0x0F, 0x01, 0x04, 0x1E},
     {0x0F, 0x01, 0x03, 0x14},
     {0x00, 0x00, 0x00, 0x00}
 };
 
-s_ukn_01 _8c03be34[] = {
+UnknownVibStructB init_vib_8c03be34[] = {
     {0x19, 0x01, 0x07, 0x28},
     {0x0A, 0x01, 0x05, 0x1E},
     {0x00, 0x00, 0x00, 0x00}
 };
 
-s_ukn_01 _8c03be4c[] = {
+UnknownVibStructB init_vib_8c03be4c[] = {
     {0x00, 0x00, 0x00, 0x00},
     {0x00, 0x00, 0x00, 0x00}
 };
 
 /* === External vars === */
-s_ukn_01* _8c03be5c[] = {
-    _8c03bdac,
-    _8c03bdc4,
-    _8c03bde4,
-    _8c03bdf4,
-    _8c03be04,
-    _8c03be1c,
-    _8c03be34,
-    _8c03be4c
+UnknownVibStructB* init_unknownVibStructBArray_8c03be5c[] = {
+    init_vib_8c03bdac,
+    init_vib_8c03bdc4,
+    init_vib_8c03bde4,
+    init_vib_8c03bdf4,
+    init_vib_8c03be04,
+    init_vib_8c03be1c,
+    init_vib_8c03be34,
+    init_vib_8c03be4c
 };
 
 /* === Uninitialized vars === */
-s_8c157a48 _8c157a48;
+UnknownVibStructA var_unknownVibStructA_8c157a48;
 
-void FUN_8c010e90(int port) {
+void vib_8c010e90(int port) {
     PDS_VIBPARAM param;
-    s_ukn_01* r13_02;
+    UnknownVibStructB* unknownVibStructB;
 
-    r13_02 = _8c03be5c[_8c157a48.field_0x00];
+    unknownVibStructB = init_unknownVibStructBArray_8c03be5c[var_unknownVibStructA_8c157a48.index_0x00];
 
-    if (!_8c157a48.field_0x08) {
+    if (!var_unknownVibStructA_8c157a48.index_0x08) {
         param.unit = 1;
 
-        param.flag = r13_02[_8c157a48.field_0x08].flag;
-        param.power = r13_02[_8c157a48.field_0x08].power;
-        param.freq = r13_02[_8c157a48.field_0x08].freq;
+        param.flag = unknownVibStructB[var_unknownVibStructA_8c157a48.index_0x08].flag;
+        param.power = unknownVibStructB[var_unknownVibStructA_8c157a48.index_0x08].power;
+        param.freq = unknownVibStructB[var_unknownVibStructA_8c157a48.index_0x08].freq;
 
         param.inc = 0;
 
         pdVibMxStart(port, &param);
 
-        _8c157a48.field_0x08++;
-        _8c157a48.field_0x0c = 1;
-    } else if (r13_02[_8c157a48.field_0x08 - 1].field_0x00 < _8c157a48.field_0x04) {
+        var_unknownVibStructA_8c157a48.index_0x08++;
+        var_unknownVibStructA_8c157a48.field_0x0c = 1;
+    } else if (unknownVibStructB[var_unknownVibStructA_8c157a48.index_0x08 - 1].field_0x00 < var_unknownVibStructA_8c157a48.field_0x04) {
         pdVibMxStop(port);
 
-        _8c157a48.field_0x04 = 0;
+        var_unknownVibStructA_8c157a48.field_0x04 = 0;
 
-        if (r13_02[_8c157a48.field_0x08].field_0x00 == 0) {
-            FUN_8c010fbe();
+        if (unknownVibStructB[var_unknownVibStructA_8c157a48.index_0x08].field_0x00 == 0) {
+            vibClear_8c010fbe();
         } else {
             param.unit = 1;
 
-            param.flag = r13_02[_8c157a48.field_0x08].flag;
-            param.power = r13_02[_8c157a48.field_0x08].power;
-            param.freq = r13_02[_8c157a48.field_0x08].freq;
+            param.flag = unknownVibStructB[var_unknownVibStructA_8c157a48.index_0x08].flag;
+            param.power = unknownVibStructB[var_unknownVibStructA_8c157a48.index_0x08].power;
+            param.freq = unknownVibStructB[var_unknownVibStructA_8c157a48.index_0x08].freq;
 
             param.inc = 0;
 
@@ -122,35 +122,35 @@ void FUN_8c010e90(int port) {
                     break;
             }
 
-            _8c157a48.field_0x08++;
+            var_unknownVibStructA_8c157a48.index_0x08++;
         }
     }
 
-    if (_8c157a48.field_0x0c == 1) {
-        _8c157a48.field_0x04++; 
+    if (var_unknownVibStructA_8c157a48.field_0x0c == 1) {
+        var_unknownVibStructA_8c157a48.field_0x04++; 
     }
 }
 
-FUN_8c010f7a(int param) {
+vib_8c010f7a(int param) {
     if (param < 8) {
-        if (_8c157a48.field_0x0c == 1) {
-            if (param > _8c157a48.field_0x00) {
-                _8c157a48.field_0x00 = param;
+        if (var_unknownVibStructA_8c157a48.field_0x0c == 1) {
+            if (param > var_unknownVibStructA_8c157a48.index_0x00) {
+                var_unknownVibStructA_8c157a48.index_0x00 = param;
             }
-        } else if (_8c157a48.field_0x0c == 0) {
-            FUN_8c010fbe();
-            _8c157a48.field_0x00 = param;
+        } else if (var_unknownVibStructA_8c157a48.field_0x0c == 0) {
+            vibClear_8c010fbe();
+            var_unknownVibStructA_8c157a48.index_0x00 = param;
         }
     }
 }
 
-FUN_8c010fae(int port) {
-    if (_8c157a48.field_0x00 != 7) {
-        FUN_8c010e90(port);
+vib_8c010fae(int port) {
+    if (var_unknownVibStructA_8c157a48.index_0x00 != 7) {
+        vib_8c010e90(port);
     }
 }
 
-FUN_8c010fbe() {
-    memset(&_8c157a48, 0, sizeof(s_8c157a48));
-    _8c157a48.field_0x00 = 7;
+vibClear_8c010fbe() {
+    memset(&var_unknownVibStructA_8c157a48, 0, sizeof(UnknownVibStructA));
+    var_unknownVibStructA_8c157a48.index_0x00 = 7;
 }
