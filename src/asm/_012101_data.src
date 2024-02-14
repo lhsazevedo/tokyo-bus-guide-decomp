@@ -3,10 +3,6 @@
           .IMPORT     _init_8c04e988
           .IMPORT     _var_texname_8c18acf8
           .IMPORT     _const_8c033358
-          .EXPORT     _init_8c03be80
-          .EXPORT     _init_8c03beb8
-          .EXPORT     _init_8c03bef0
-          .EXPORT     _init_8c03bf18
           .EXPORT     _init_8c03bf40
           .EXPORT     _init_texlist_8c03bf44
           .EXPORT     _init_8c03bf4c
@@ -1117,33 +1113,6 @@
           .EXPORT     _const_8c035db8
           .EXPORT     _const_8c035dc8
           .SECTION    D,DATA,ALIGN=4
-_init_8c03be80:        ; from defines
-          .DATA.B      H'00, H'00, H'00, H'00
-          .DATA.B      H'00, H'04, H'00, H'00
-          .DATA.B      H'00, H'00, H'00, H'00, H'02, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'02, H'00, H'00
-          .DATA.B      H'00, H'00, H'00, H'00, H'04, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'10, H'00, H'00, H'00
-          .DATA.B      H'00, H'00, H'00, H'00, H'20, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'08, H'00, H'00, H'00
-_init_8c03beb8:        ; from defines
-          .DATA.B      H'00, H'00, H'00, H'00
-          .DATA.B      H'00, H'04, H'00, H'00
-          .DATA.B      H'00, H'00, H'00, H'00, H'02, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'02, H'00, H'00
-          .DATA.B      H'00, H'00, H'00, H'00, H'04, H'00, H'00, H'00
-          .DATA.B      H'00, H'00, H'00, H'00, H'00, H'04, H'00, H'00
-          .DATA.B      H'00, H'00, H'00, H'00, H'02, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'08, H'00, H'00, H'00
-_init_8c03bef0:        ; from defines
-          .DATA.B      H'00, H'00, H'00, H'00
-          .DATA.B      H'00, H'04, H'00, H'00
-          .DATA.B      H'00, H'00, H'00, H'00, H'02, H'00, H'00, H'00
-          .DATA.B      H'00, H'00, H'00, H'00, H'00, H'02, H'00, H'00
-          .DATA.B      H'00, H'00, H'00, H'00, H'04, H'00, H'00, H'00
-          .DATA.B      H'00, H'00, H'00, H'00, H'08, H'00, H'00, H'00
-_init_8c03bf18:        ; from defines
-          .DATA.B      H'00, H'00, H'00, H'00
-          .DATA.B      H'00, H'04, H'00, H'00
-          .DATA.B      H'00, H'00, H'00, H'00, H'02, H'00, H'00, H'00
-          .DATA.B      H'00, H'00, H'00, H'00, H'00, H'02, H'00, H'00
-          .DATA.B      H'00, H'00, H'00, H'00, H'04, H'00, H'00, H'00
-          .DATA.B      H'00, H'00, H'00, H'00, H'08, H'00, H'00, H'00
 _init_8c03bf40:        ; from defines
           .DATA.L      _const_8c033358 ; ukn
 _init_texlist_8c03bf44:        ; from defines

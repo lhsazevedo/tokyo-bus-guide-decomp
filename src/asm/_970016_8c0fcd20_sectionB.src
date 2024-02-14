@@ -1,6 +1,3 @@
-          .EXPORT     _var_8c157a60
-          .EXPORT     _var_seed_8c157a64
-          .EXPORT     _var_8c157a68
           .EXPORT     _var_8c157a6c
           .EXPORT     _var_8c157a70
           .EXPORT     _var_8c157a74
@@ -447,12 +444,6 @@
           .EXPORT     _var_shapebuf_8c2f84a0
           .EXPORT     _var_matrix_8c2f8ca0
           .SECTION    B,DATA,ALIGN=4
-_var_8c157a60:
-          .RES.B      4
-_var_seed_8c157a64:
-          .RES.B      4
-_var_8c157a68:
-          .RES.B      4
 _var_8c157a6c:
           .RES.B      4
 _var_8c157a70:

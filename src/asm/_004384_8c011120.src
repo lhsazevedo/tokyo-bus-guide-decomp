@@ -31,7 +31,6 @@
           .IMPORT     _var_8c157aac
           .IMPORT     _var_8c157ab4
           .IMPORT     _var_8c157ab0
-          .IMPORT     _var_8c157a68
           .IMPORT     _var_8c157ab8
           .IMPORT     _njSetTexture
           .IMPORT     _njLoadTextureNum
@@ -45,15 +44,10 @@
           .IMPORT     _njReleaseTexture
           .IMPORT     _vmsLcd_8c01c8fc
           .IMPORT     _vmsLcd_8c01c910
-          .IMPORT     _var_8c157a60
           .IMPORT     _var_8c157acc
           .IMPORT     __modlu
           .IMPORT     _var_8c157ad0
           .IMPORT     _var_8c1ba1cc
-          .IMPORT     _init_8c03bf18
-          .IMPORT     _init_8c03be80
-          .IMPORT     _init_8c03beb8
-          .IMPORT     _init_8c03bef0
           .EXPORT     _nop_8c011120
           .EXPORT     _initDatQueue_8c011124
           .EXPORT     _FUN_8c01116a
@@ -96,6 +90,12 @@
           .EXPORT     _FUN_8c0121a8
           .EXPORT     _FUN_8c0121be
           .EXPORT     _FUN_8c0121e8
+          .EXPORT     _init_8c03be80
+          .EXPORT     _init_8c03beb8
+          .EXPORT     _init_8c03bef0
+          .EXPORT     _init_8c03bf18
+          .EXPORT     _var_8c157a60
+          .EXPORT     _var_seed_8c157a64
           .SECTION    P,CODE,ALIGN=4
 _nop_8c011120:                   ; function: nop_8c011120
                                  ; frame size=0
@@ -2508,8 +2508,42 @@ LP_GEN_88006:
           .SECTION    D,DATA,ALIGN=4
 _init_8c03be7c:                      ; static: _8c03334c
           .DATA.L     L372031
+_init_8c03be80:        ; from defines
+          .DATA.B      H'00, H'00, H'00, H'00
+          .DATA.B      H'00, H'04, H'00, H'00
+          .DATA.B      H'00, H'00, H'00, H'00, H'02, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'02, H'00, H'00
+          .DATA.B      H'00, H'00, H'00, H'00, H'04, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'10, H'00, H'00, H'00
+          .DATA.B      H'00, H'00, H'00, H'00, H'20, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'08, H'00, H'00, H'00
+_init_8c03beb8:        ; from defines
+          .DATA.B      H'00, H'00, H'00, H'00
+          .DATA.B      H'00, H'04, H'00, H'00
+          .DATA.B      H'00, H'00, H'00, H'00, H'02, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'02, H'00, H'00
+          .DATA.B      H'00, H'00, H'00, H'00, H'04, H'00, H'00, H'00
+          .DATA.B      H'00, H'00, H'00, H'00, H'00, H'04, H'00, H'00
+          .DATA.B      H'00, H'00, H'00, H'00, H'02, H'00, H'00, H'00, H'00, H'00, H'00, H'00, H'08, H'00, H'00, H'00
+_init_8c03bef0:        ; from defines
+          .DATA.B      H'00, H'00, H'00, H'00
+          .DATA.B      H'00, H'04, H'00, H'00
+          .DATA.B      H'00, H'00, H'00, H'00, H'02, H'00, H'00, H'00
+          .DATA.B      H'00, H'00, H'00, H'00, H'00, H'02, H'00, H'00
+          .DATA.B      H'00, H'00, H'00, H'00, H'04, H'00, H'00, H'00
+          .DATA.B      H'00, H'00, H'00, H'00, H'08, H'00, H'00, H'00
+_init_8c03bf18:        ; from defines
+          .DATA.B      H'00, H'00, H'00, H'00
+          .DATA.B      H'00, H'04, H'00, H'00
+          .DATA.B      H'00, H'00, H'00, H'00, H'02, H'00, H'00, H'00
+          .DATA.B      H'00, H'00, H'00, H'00, H'00, H'02, H'00, H'00
+          .DATA.B      H'00, H'00, H'00, H'00, H'04, H'00, H'00, H'00
+          .DATA.B      H'00, H'00, H'00, H'00, H'08, H'00, H'00, H'00
           .SECTION    C,DATA,ALIGN=4
 L372031:
           .SDATA      "DATA EMPTY"
           .DATA.B     H'00
+          .SECTION    B,DATA,ALIGN=4
+_var_8c157a60:
+          .RES.B      4
+_var_seed_8c157a64:
+          .RES.B      4
+_var_8c157a68:
+          .RES.B      4
           .END
