@@ -42,7 +42,7 @@ compile  src/_027736_8c016c58.c
 sh4objtest "tests/_027736_8c016c58.php" "build/_027736_8c016c58_c.obj"
 
 # _012100_8c012f44
-assemble  src/asm/_012100_8c012f44.src
+assemble  src/asm/decompiled/_012100_8c012f44.src
 sh4objtest "tests/_012100_8c012f44.php" "build/_012100_8c012f44_src.obj"
 compile  src/_012100_8c012f44.c
 sh4objtest "tests/_012100_8c012f44.php" "build/_012100_8c012f44_c.obj"
