@@ -1564,7 +1564,7 @@ $symbolReplacements = [
 $assemblyFiles = [
     'src/_000000_8c010000.src',
     'src/_000188_8c0100bc_sound.src',
-    'src/_004072_8c010fe8.src',
+    'src/_004072_8c010fe8_unused.src',
     'src/_004384_8c011120.src',
     'src/_005168_8c011430.src',
     'src/_008160_8c011fe0.src',

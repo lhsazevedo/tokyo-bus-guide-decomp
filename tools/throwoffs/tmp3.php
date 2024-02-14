@@ -151,7 +151,7 @@ $srcFiles = [
     'src/_000188_8c0100bc_sound.src',
     'src/_020308_8c014f54.src',
     'src/_179584_8c03bd80_sectionD.src',
-    'src/_004072_8c010fe8.src',
+    'src/_004072_8c010fe8_unused.src',
     'src/_023224_8c015ab8_title.src',
     'src/_259776_8c04f6c0_SDK.src',
     'src/_004384_8c011120.src',

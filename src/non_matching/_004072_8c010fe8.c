@@ -30,7 +30,7 @@ extern int ab;
 /* === Uninitialized vars === */
 extern Test var_8c157a58;
 
-FUN_8c010fe8(Test2* p1, Test3* p2) {
+unused_8c010fe8(Test2* p1, Test3* p2) {
     var_8c157a58.field_0x00 = p1;
 
     /* 8c010ff4 */

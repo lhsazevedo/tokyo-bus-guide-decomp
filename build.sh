@@ -26,7 +26,7 @@ mkdir build
 compile  src/_000128_8c010080_main.c
 assemble src/asm/_000188_8c0100bc_sound.src
 compile  src/_003728_8c010e90.c
-assemble src/asm/_004072_8c010fe8.src
+assemble src/asm/_004072_8c010fe8_unused.src
 assemble src/asm/_004384_8c011120.src
 assemble src/asm/_008996_8c012324.src
 assemble src/asm/_009476_8c012504.src

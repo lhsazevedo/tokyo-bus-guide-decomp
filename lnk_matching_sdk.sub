@@ -206,7 +206,7 @@ input build\_000000_8c010000.obj
 input build\_000128_8c010080_main.obj
 input build\_000188_8c0100bc_sound.obj
 input build\_003728_8c010e90.obj
-input build\_004072_8c010fe8.obj
+input build\_004072_8c010fe8_unused.obj
 input build\_004384_8c011120.obj
 input build\_005168_8c011430.obj
 input build\_008160_8c011fe0.obj
