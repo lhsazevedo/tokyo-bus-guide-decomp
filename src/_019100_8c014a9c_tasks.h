@@ -5,9 +5,9 @@
 
 // Probably should be moved to another header...
 struct QueuedDat {
-    char* basedir;
-    char* filename;
-    void* dest;
+    char *basedir;
+    char *filename;
+    void **dest;
     int field_0x0c;
 }
 typedef QueuedDat;

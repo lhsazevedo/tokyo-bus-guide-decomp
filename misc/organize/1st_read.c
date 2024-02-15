@@ -122,7 +122,7 @@ _dat_8c0111b4(UknDatStruct *ukn_dat_struct) {
             }
         }
 
-        if (_8c157a88 == 0) {
+        if (var_8c157a88 == 0) {
             *ff_ptr_8c157a98 = 1;
 
             _8c014b66(ukn_dat_struct);
@@ -130,7 +130,7 @@ _dat_8c0111b4(UknDatStruct *ukn_dat_struct) {
             // 0x8c011250
             ukn_dat_struct->queued_dat = _8c157a8c;
 
-            _8c157a88 = 0;
+            var_8c157a88 = 0;
 
             // 0x8c011260
             // TODO

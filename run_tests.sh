@@ -46,3 +46,10 @@ assemble  src/asm/decompiled/_012100_8c012f44.src
 sh4objtest "tests/_012100_8c012f44.php" "build/_012100_8c012f44_src.obj"
 compile  src/_012100_8c012f44.c
 sh4objtest "tests/_012100_8c012f44.php" "build/_012100_8c012f44_c.obj"
+
+# _004384_8c011120
+# TODO: Integrate
+assemble  src/asm/_004384_8c011120.src
+sh4objtest "tests/_004384_8c011120.php" "build/_004384_8c011120_src.obj"
+compile  src/non_matching/_004384_8c011120.c
+sh4objtest "tests/_004384_8c011120.php" "build/_004384_8c011120_c.obj"

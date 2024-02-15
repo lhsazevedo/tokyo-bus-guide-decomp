@@ -10,11 +10,11 @@
           .IMPORT     _syFree
           .IMPORT     _pushTask_8c014ae8
           .IMPORT     _freeTask_8c014b66
-          .IMPORT     __8c157a80_basedir
+          .IMPORT     _var_datQueueBaseDir_8c157a80
           .IMPORT     _var_8c157a88
-          .IMPORT     __8c157a8c_start
-          .IMPORT     __8c157a90_current
-          .IMPORT     __8c157a94_end
+          .IMPORT     _var_datQueue_8c157a8c
+          .IMPORT     _var_datQueueCurrent_8c157a90
+          .IMPORT     _var_datQueueEnd_8c157a94
           .IMPORT     _var_8c157a98
           .IMPORT     _var_tasks_8c1ba3c8
           .IMPORT     _strcmp
@@ -108,7 +108,7 @@ _initDatQueue_8c011124:          ; function: initDatQueue_8c011124
           STS.L       PR,@-R15
           ADD         #-4,R15
           MOV         R4,R3
-          MOV.L       L14,R14  ; __8c157a8c_start
+          MOV.L       L14,R14  ; _var_datQueue_8c157a8c
           TST         R3,R3
           BT/S        L1
           MOV.L       R4,@R15
@@ -125,12 +125,12 @@ _initDatQueue_8c011124:          ; function: initDatQueue_8c011124
           MOV         #0,R0
 L0:                               
           MOV.L       @R14,R3
-          MOV.L       L14+8,R2 ; __8c157a94_end
+          MOV.L       L14+8,R2 ; _var_datQueueEnd_8c157a94
           ADD         R3,R13
           BRA         L2
           MOV.L       R13,@R2
 L1:                               
-          MOV.L       L14+8,R3 ; __8c157a94_end
+          MOV.L       L14+8,R3 ; _var_datQueueEnd_8c157a94
           MOV         #-1,R1
           MOV.L       R1,@R3
           MOV.L       R1,@R14
@@ -144,10 +144,10 @@ L3:
           MOV.L       @R15+,R14
 _FUN_8c01116a:                   ; function: _FUN_8c01116a
                                  ; frame size=0
-          MOV.L       L14,R2   ; __8c157a8c_start
-          MOV.L       L14+12,R1; __8c157a90_current
+          MOV.L       L14,R2   ; _var_datQueue_8c157a8c
+          MOV.L       L14+12,R1; _var_datQueueCurrent_8c157a90
           MOV.L       @R2,R3
-          MOV.L       L14+20,R2; __8c157a80_basedir
+          MOV.L       L14+20,R2; _var_datQueueBaseDir_8c157a80
           MOV.L       R3,@R1
           MOV         #1,R1
           MOV.L       L14+16,R3; _init_8c03be7c
@@ -161,8 +161,8 @@ _requestDat_8c011182:           ; function: requestDat_8c011182
           MOV.B       @R5,R3
           TST         R3,R3
           BT          L4
-          MOV.L       L14+8,R2 ; __8c157a94_end
-          MOV.L       L14+12,R7; __8c157a90_current
+          MOV.L       L14+8,R2 ; _var_datQueueEnd_8c157a94
+          MOV.L       L14+12,R7; _var_datQueueCurrent_8c157a90
           MOV.L       @R2,R3
           MOV.L       @R7,R0
           CMP/HS      R3,R0
@@ -210,8 +210,8 @@ _task_8c0111b4:                  ; function: task_8c0111b4
           BRA         L19
           NOP
 L7:                               
-          MOV.L       L14+12,R2; __8c157a90_current
-          MOV.L       L14+20,R12 ; __8c157a80_basedir
+          MOV.L       L14+12,R2; _var_datQueueCurrent_8c157a90
+          MOV.L       L14+20,R12 ; _var_datQueueBaseDir_8c157a80
           MOV.L       @R2,R3
           CMP/HS      R3,R14
           BT          L10
@@ -307,12 +307,12 @@ L13:
           MOV.L       R10,@(12,R14)
 
 L14:
-          .DATA.L     __8c157a8c_start ; H'8c01128c
+          .DATA.L     _var_datQueue_8c157a8c ; H'8c01128c
           .DATA.L     _syMalloc ; H'8c011290
-          .DATA.L     __8c157a94_end
-          .DATA.L     __8c157a90_current
+          .DATA.L     _var_datQueueEnd_8c157a94
+          .DATA.L     _var_datQueueCurrent_8c157a90
           .DATA.L     _init_8c03be7c
-          .DATA.L     __8c157a80_basedir ; H'8c0112a0
+          .DATA.L     _var_datQueueBaseDir_8c157a80 ; H'8c0112a0
           .DATA.L     _var_8c157a98
           .DATA.L     _var_8c157a88
           .DATA.L     _strcmp
@@ -375,8 +375,8 @@ _FUN_8c011310:                   ; function: FUN_8c011310
           MOV.L       R8,@-R15
           STS.L       PR,@-R15
           ADD         #-8,R15
-          MOV.L       L28+24,R12; __8c157a8c_start
-          MOV.L       L28+20,R8; __8c157a90_current
+          MOV.L       L28+24,R12; _var_datQueue_8c157a8c
+          MOV.L       L28+20,R8; _var_datQueueCurrent_8c157a90
           MOV.L       @R12,R2
           MOV.L       @R8,R3
           CMP/EQ      R3,R2
@@ -477,7 +477,7 @@ _get_8c157a98_8c0113d2:          ; function: get_8c157a98_8c0113d2
           MOV.L       @R3,R0
 _freeDatQueue_8c0113d8:          ; function: freeDatQueue_8c0113d8
                                  ; frame size=0
-          MOV.L       L28+24,R2; __8c157a8c_start
+          MOV.L       L28+24,R2; _var_datQueue_8c157a8c
           MOV.L       @R2,R0
           CMP/EQ      #-1,R0
           BT/S        L27
@@ -495,8 +495,8 @@ L28:
           .DATA.L     _gdFsTrans32
           .DATA.L     _gdFsClose
           .DATA.L     _syFree
-          .DATA.L     __8c157a90_current
-          .DATA.L     __8c157a8c_start
+          .DATA.L     _var_datQueueCurrent_8c157a90
+          .DATA.L     _var_datQueue_8c157a8c
           .DATA.L     _var_8c157a98
         .DATA.L     _syMalloc
           .DATA.L     _strcmp
@@ -506,7 +506,7 @@ L28:
           .DATA.L     _pushTask_8c014ae8
           .DATA.L     _var_8c157a88
           .DATA.L     _init_8c03be7c
-          .DATA.L     __8c157a80_basedir
+          .DATA.L     _var_datQueueBaseDir_8c157a80
 _initNjQueue_8c011430:           ; function: initNjQueue_8c011430
                                  ; frame size=16
           MOV.L       R14,@-R15
@@ -556,7 +556,7 @@ _FUN_8c01147a:                   ; function: _FUN_8c01147a
           MOV.L       L36+14,R1; _queuedNjFilesCursor_8c157aa0
 
           MOV.L       @R2,R3
-          MOV.L       L36+22,R2; __8c157a80_basedir
+          MOV.L       L36+22,R2; _var_datQueueBaseDir_8c157a80
           MOV.L       R3,@R1
           MOV         #1,R1
           MOV.L       L36+18,R3; _ptr_str_DATA_EMPTY_8c03be7c
@@ -641,7 +641,7 @@ L36:
           .DATA.L     _queuedNjFilesEnd_8c157aa4
           .DATA.L     _queuedNjFilesCursor_8c157aa0
           .DATA.L     _init_8c03be7c ; L36+18
-          .DATA.L     __8c157a80_basedir
+          .DATA.L     _var_datQueueBaseDir_8c157a80
           .DATA.L     _var_8c157aa8
           .DATA.L     _syFree
           .DATA.L     _var_texbuf_8c277ca0 ; L36+34
@@ -1220,7 +1220,7 @@ L84:
           .DATA.L     _pushTask_8c014ae8
           .DATA.L     _var_8c157a88
           .DATA.L     _init_8c03be7c
-          .DATA.L     __8c157a80_basedir ; L84+32
+          .DATA.L     _var_datQueueBaseDir_8c157a80 ; L84+32
           .DATA.L     _var_8c157aa8
           .DATA.L     _queuedNjFiles_8c157a9c
           .DATA.L     _var_8c157aac
@@ -1482,7 +1482,7 @@ L101:
           .DATA.L     _var_8c157ac4 ; L101+44
           .DATA.L     _var_8c157ac0
           .DATA.L     _init_8c03be7c
-          .DATA.L     __8c157a80_basedir
+          .DATA.L     _var_datQueueBaseDir_8c157a80
           .DATA.L     _var_8c157ac8 ; L101+60
           .DATA.L     _var_texbuf_8c277ca0
           .DATA.L     _var_8c157a84
@@ -2046,7 +2046,7 @@ L139:
           .DATA.L     _pushTask_8c014ae8
           .DATA.L     _var_8c157a88
           .DATA.L     _init_8c03be7c
-          .DATA.L     __8c157a80_basedir ; L139+32
+          .DATA.L     _var_datQueueBaseDir_8c157a80 ; L139+32
           .DATA.L     _var_8c157ac8
           .DATA.L     _var_8c157abc
           .DATA.L     _njReleaseTexture

@@ -22,9 +22,9 @@ typedef struct {
     int field_0x1c;
 } _8c0114cc_Task;
 
-extern char *_8c157a80_basedir;
+extern char *var_datQueueBaseDir_8c157a80;
 extern void *_8c157a84;
-extern int _8c157a88;
+extern int var_8c157a88;
 
 extern QueuedNj* queuedNjFiles_8c157a9c;
 extern QueuedNj* queuedNjFilesCursor_8c157aa0;
@@ -52,7 +52,7 @@ int initNjQueue_8c011430(int param) {
 /* Matched */
 FUN_8c01147a() {
     queuedNjFilesCursor_8c157aa0 = queuedNjFiles_8c157a9c;
-    _8c157a80_basedir = ptr_str_DATA_EMPTY_8c03be7c;
+    var_datQueueBaseDir_8c157a80 = ptr_str_DATA_EMPTY_8c03be7c;
     var_8c157aa8 = 1;
 }
 
@@ -90,9 +90,9 @@ void task_8c0114cc(_8c0114cc_Task* task, void* state) {
             if (qnj < queuedNjFilesCursor_8c157aa0) {
                 if (qnj->field_0x10 == 0) {
                     if (*qnj->basedir != 0 &&
-                    strcmp(_8c157a80_basedir, qnj->basedir) != 0
+                    strcmp(var_datQueueBaseDir_8c157a80, qnj->basedir) != 0
                     ) {
-                        _8c157a80_basedir = qnj->basedir;
+                        var_datQueueBaseDir_8c157a80 = qnj->basedir;
                         gdFsChangeDir(qnj->basedir);
                     }
 
@@ -102,7 +102,7 @@ void task_8c0114cc(_8c0114cc_Task* task, void* state) {
                         if (_8c157a84 != _8c227ca0) {
                             syFree(_8c157a84);
                         }
-                        _8c157a88 = 1;
+                        var_8c157a88 = 1;
                         task->queuedNj_0x18++;
                         task->field_0x08 = 0;
                         return;
@@ -113,7 +113,7 @@ void task_8c0114cc(_8c0114cc_Task* task, void* state) {
                         if (_8c157a84 != _8c227ca0) {
                             syFree(_8c157a84);
                         }
-                        _8c157a88 = 1;
+                        var_8c157a88 = 1;
                         task->queuedNj_0x18++;
                         task->field_0x08 = 0;
                         return;
@@ -130,7 +130,7 @@ void task_8c0114cc(_8c0114cc_Task* task, void* state) {
                         if (_8c157a84 != _8c227ca0) {
                             syFree(_8c157a84);
                         }
-                        _8c157a88 = 1;
+                        var_8c157a88 = 1;
                         task->queuedNj_0x18++;
                         task->field_0x08 = 0;
                         return; 

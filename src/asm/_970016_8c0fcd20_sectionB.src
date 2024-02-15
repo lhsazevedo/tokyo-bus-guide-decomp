@@ -3,12 +3,12 @@
           .EXPORT     _var_8c157a74
           .EXPORT     _var_8c157a78
           .EXPORT     _var_8c157a7c
-          .EXPORT     __8c157a80_basedir
+          .EXPORT     _var_datQueueBaseDir_8c157a80
           .EXPORT     _var_8c157a84
           .EXPORT     _var_8c157a88
-          .EXPORT     __8c157a8c_start
-          .EXPORT     __8c157a90_current
-          .EXPORT     __8c157a94_end
+          .EXPORT     _var_datQueue_8c157a8c
+          .EXPORT     _var_datQueueCurrent_8c157a90
+          .EXPORT     _var_datQueueEnd_8c157a94
           .EXPORT     _var_8c157a98
           .EXPORT     _queuedNjFiles_8c157a9c
           .EXPORT     _queuedNjFilesCursor_8c157aa0
@@ -454,17 +454,17 @@ _var_8c157a78:
           .RES.B      4
 _var_8c157a7c:
           .RES.B      4
-__8c157a80_basedir:
+_var_datQueueBaseDir_8c157a80:
           .RES.B      4
 _var_8c157a84:
           .RES.B      4
 _var_8c157a88:
           .RES.B      4
-__8c157a8c_start:
+_var_datQueue_8c157a8c:
           .RES.B      4
-__8c157a90_current:
+_var_datQueueCurrent_8c157a90:
           .RES.B      4
-__8c157a94_end:
+_var_datQueueEnd_8c157a94:
           .RES.B      4
 _var_8c157a98:
           .RES.B      4
