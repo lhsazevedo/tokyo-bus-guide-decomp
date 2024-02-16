@@ -2,12 +2,49 @@
 #include <string.h>
 #include "_019100_8c014a9c_tasks.h"
 
+/* struct QueuedDat {
+    char *basedir;
+    char *filename;
+    void **dest;
+    int field_0x0c;
+}
+typedef QueuedDat; */
+
+struct QueuedNj {
+    char* basedir;
+    char* filename;
+    void** dest_0x08;
+    void** dest_0x0c;
+    int field_0x10;
+}
+typedef QueuedNj;
+
+/* TODO: Same struct as Task, but with QueuedNj.
+Perhaps we should use a union or a void* to handle both cases? */
+typedef struct {
+    TaskAction action;
+    void *state;
+    int field_0x08;
+    GDFS gdfs_0x0c;
+    int field_0x10;
+    int field_0x14;
+    QueuedNj* queuedNj_0x18;
+    int field_0x1c;
+} _8c0114cc_Task;
+
 extern char* var_datQueueBaseDir_8c157a80;
 extern int var_8c157a88;
 extern QueuedDat* var_datQueue_8c157a8c;
-extern QueuedDat* var_datQueueCurrent_8c157a90;
-extern QueuedDat* var_datQueueEnd_8c157a94;
+extern QueuedDat* var_datQueueRear_8c157a90;
+extern QueuedDat* var_datQueueTail_8c157a94;
 extern int var_8c157a98;
+
+extern QueuedNj* var_njQueue_8c157a9c;
+extern QueuedNj* var_njQueueRear_8c157aa0;
+extern QueuedNj* var_njQueueTail_8c157aa4;
+extern int var_8c157aa8;
+extern void *_8c227ca0;
+extern void *_8c157a84;
 
 extern Task* var_tasks_8c1ba3c8;
 
@@ -34,19 +71,19 @@ int initDatQueue_8c011124(int n) {
             return 0;
         }
 
-        var_datQueueEnd_8c157a94 = var_datQueue_8c157a8c + n;
+        var_datQueueTail_8c157a94 = var_datQueue_8c157a8c + n;
     } else {
-        var_datQueue_8c157a8c = var_datQueueEnd_8c157a94 = ((void *) -1);
+        var_datQueue_8c157a8c = var_datQueueTail_8c157a94 = ((void *) -1);
     }
 
     return 1;
 }
 
 /* Matched */
-FUN_8c01116a() {
-      var_datQueueCurrent_8c157a90 = var_datQueue_8c157a8c;
-      var_datQueueBaseDir_8c157a80 = "DATA EMPTY";
-      var_8c157a98 = 1;
+void FUN_8c01116a() {
+    var_datQueueRear_8c157a90 = var_datQueue_8c157a8c;
+    var_datQueueBaseDir_8c157a80 = "DATA EMPTY";
+    var_8c157a98 = 1;
 }
 
 /* Matched */
@@ -55,16 +92,16 @@ int requestDat_8c011182(char* basedir, char* filename, void* dest) {
         return 0;
     }
 
-    if (var_datQueueCurrent_8c157a90 >= var_datQueueEnd_8c157a94) {
+    if (var_datQueueRear_8c157a90 >= var_datQueueTail_8c157a94) {
         return 0;
     }
 
-    var_datQueueCurrent_8c157a90->basedir = basedir;
-    var_datQueueCurrent_8c157a90->filename = filename;
-    var_datQueueCurrent_8c157a90->dest = dest;
-    var_datQueueCurrent_8c157a90->field_0x0c = 0;
+    var_datQueueRear_8c157a90->basedir = basedir;
+    var_datQueueRear_8c157a90->filename = filename;
+    var_datQueueRear_8c157a90->dest = dest;
+    var_datQueueRear_8c157a90->field_0x0c = 0;
 
-    var_datQueueCurrent_8c157a90++;
+    var_datQueueRear_8c157a90++;
     return 1;
 }
 
@@ -89,7 +126,7 @@ void task_8c0111b4(_8c0111b4_Task* task, void* state) {
             /* 8c0111da */
             while (1) {
                 // TODO: Test this condition
-                if (qd_r14 >= var_datQueueCurrent_8c157a90) {
+                if (qd_r14 >= var_datQueueRear_8c157a90) {
                     break;
                 }
 
@@ -197,20 +234,20 @@ void task_8c0111b4(_8c0111b4_Task* task, void* state) {
 }
 
 /* Almost matching */
-FUN_8c011310() {
+int sortDatQueueAndPushUnknownTask_8c011310() {
     int r9;
     Task *created_task;
     void* created_state;
     QueuedDat *temp_r11;
 
-    if ((int) var_datQueue_8c157a8c == (int) var_datQueueCurrent_8c157a90) {
+    if ((int) var_datQueue_8c157a8c == (int) var_datQueueRear_8c157a90) {
         return 0;
     }
 
     /* 8c01132e */
     var_8c157a98 = 0;
 
-    temp_r11 = syMalloc((int) var_datQueueCurrent_8c157a90 - (int) var_datQueue_8c157a8c);
+    temp_r11 = syMalloc((int) var_datQueueRear_8c157a90 - (int) var_datQueue_8c157a8c);
 
     /* 8c011340 */
     while (1) {
@@ -219,7 +256,7 @@ FUN_8c011310() {
         QueuedDat *b_r14 = var_datQueue_8c157a8c;
 
         /* 8c011376 */
-        while (++b_r14 < var_datQueueCurrent_8c157a90) {
+        while (++b_r14 < var_datQueueRear_8c157a90) {
             /* 8c011348 */
             if (strcmp(a_r13->filename, b_r14->filename) > 0) {
                 /* 8c011354 */
@@ -258,8 +295,154 @@ int get_8c157a98_8c0113d2() {
 }
 
 /* Matched */
-freeDatQueue_8c0113d8() {
+void freeDatQueue_8c0113d8() {
     if (var_datQueue_8c157a8c != (QueuedDat*) -1) {
         syFree((void*) var_datQueue_8c157a8c);
+    }
+}
+
+/* Matched */
+int initNjQueue_8c011430(int param) {
+    if (param != 0) {
+        if ((var_njQueue_8c157a9c = syMalloc(param * sizeof(QueuedNj))) == NULL) {
+            return 0;
+        }
+
+        var_njQueueTail_8c157aa4 = var_njQueue_8c157a9c + param;
+    } else {
+        var_njQueue_8c157a9c = var_njQueueTail_8c157aa4 = ((void *) -1);
+    }
+
+    return 1;
+}
+
+/* Matched */
+void FUN_8c01147a() {
+    var_njQueueRear_8c157aa0 = var_njQueue_8c157a9c;
+    var_datQueueBaseDir_8c157a80 = "DATA EMPTY";
+    var_8c157aa8 = 1;
+}
+
+/* Matched */
+int requestNj_8c011492(char* basedir, char* filename, void* dest, void* dest2) {
+    if (*filename == 0) {
+        return 0;
+    }
+
+    if (var_njQueueRear_8c157aa0 >= var_njQueueTail_8c157aa4) {
+        return 0;
+    }
+
+    var_njQueueRear_8c157aa0->basedir = basedir;
+    var_njQueueRear_8c157aa0->filename = filename;
+    var_njQueueRear_8c157aa0->dest_0x08 = dest;
+    var_njQueueRear_8c157aa0->dest_0x0c = dest2;
+    var_njQueueRear_8c157aa0->field_0x10 = 0;
+
+    var_njQueueRear_8c157aa0++;
+    return 1;
+}
+
+/* wip */
+void task_8c0114cc(_8c0114cc_Task* task, void* state) {
+    QueuedNj* qnj = task->queuedNj_0x18;
+    Sint32 size;
+    Uint32 fpos, rtype;
+
+    switch (task->field_0x08)
+    {
+        case 0:
+            while (1)
+            {
+                if (qnj < var_njQueueRear_8c157aa0) {
+                    if (qnj->field_0x10 == 0) {
+                        if (
+                            *qnj->basedir != 0 &&
+                            strcmp(var_datQueueBaseDir_8c157a80, qnj->basedir) != 0
+                        ) {
+                            var_datQueueBaseDir_8c157a80 = qnj->basedir;
+                            gdFsChangeDir(qnj->basedir);
+                        }
+
+                        task->gdfs_0x0c = gdFsOpen(qnj->filename, 0);
+                        if (task->gdfs_0x0c == NULL) {
+                            /* 8c01168c (shared) */
+                            if (_8c157a84 != _8c227ca0) {
+                                syFree(_8c157a84);
+                            }
+                            var_8c157a88 = 1;
+                            task->queuedNj_0x18++;
+                            task->field_0x08 = 0;
+                            return;
+                        }
+
+                        if (!gdFsGetFileSctSize(task->gdfs_0x0c, &size)) {
+                            /* 8c01168c (shared) */
+                            if (_8c157a84 != _8c227ca0) {
+                                syFree(_8c157a84);
+                            }
+                            var_8c157a88 = 1;
+                            task->queuedNj_0x18++;
+                            task->field_0x08 = 0;
+                            return;
+                        }
+
+                        if (size > 0x100) {
+                            _8c157a84 = syMalloc(size * 2048);
+                        } else {
+                            _8c157a84 = _8c227ca0;
+                        }
+
+                        if (!gdFsRead(task->gdfs_0x0c, size, _8c157a84)) {
+                            /* 8c01168c (shared) */
+                            if (_8c157a84 != _8c227ca0) {
+                                syFree(_8c157a84);
+                            }
+                            var_8c157a88 = 1;
+                            task->queuedNj_0x18++;
+                            task->field_0x08 = 0;
+                            return; 
+                        }
+
+                        gdFsClose(task->gdfs_0x0c);
+                        qnj->field_0x10 = 1;
+                        task->queuedNj_0x18++;
+
+                        if (qnj->dest_0x08 != 0) {
+                            *qnj->dest_0x08 = njReadBinary(_8c157a84, &fpos, &rtype);
+                        }
+
+                        if (qnj->dest_0x0c != 0) {
+                            *qnj->dest_0x0c = njReadBinary(_8c157a84, &fpos, &rtype);
+                        }
+
+                        if (_8c157a84 != _8c227ca0) {
+                            syFree(_8c157a84);
+                        }
+                        task->queuedNj_0x18++;
+                        task->field_0x08 = 0;
+                        return;
+                    }
+                }
+
+                qnj++;
+            }
+            
+            break;
+        
+        default:
+            break;
+        }
+}
+
+/* Matched */
+int get8c157aa8_8c01179e() {
+    return var_8c157aa8;
+}
+
+/* Matched? */
+freeNjQueue_8c0117a4() {
+    if (var_njQueue_8c157a9c != (QueuedNj*) -1) {
+        syFree(var_njQueue_8c157a9c);
     }
 }

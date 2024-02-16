@@ -17,12 +17,12 @@ $symbols = [
     ['_var_8c157a84', 0x8C157A84],
     ['_var_8c157a88', 0x8C157A88],
     ['_var_datQueue_8c157a8c', 0x8C157A8C],
-    ['_var_datQueueCurrent_8c157a90', 0x8C157A90],
-    ['_var_datQueueEnd_8c157a94', 0x8C157A94],
+    ['_var_datQueueRear_8c157a90', 0x8C157A90],
+    ['_var_datQueueTail_8c157a94', 0x8C157A94],
     ['_var_8c157a98', 0x8C157A98],
-    ['_queuedNjFiles_8c157a9c', 0x8C157A9C],
-    ['_queuedNjFilesCursor_8c157aa0', 0x8C157AA0],
-    ['_queuedNjFilesEnd_8c157aa4', 0x8C157AA4],
+    ['_var_njQueue_8c157a9c', 0x8C157A9C],
+    ['_var_njQueueRear_8c157aa0', 0x8C157AA0],
+    ['_var_njQueueTail_8c157aa4', 0x8C157AA4],
 ];
 
 for ($i=0; $i < count($symbols); $i++) { 

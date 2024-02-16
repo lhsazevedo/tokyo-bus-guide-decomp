@@ -13,15 +13,15 @@
           .IMPORT     _var_datQueueBaseDir_8c157a80
           .IMPORT     _var_8c157a88
           .IMPORT     _var_datQueue_8c157a8c
-          .IMPORT     _var_datQueueCurrent_8c157a90
-          .IMPORT     _var_datQueueEnd_8c157a94
+          .IMPORT     _var_datQueueRear_8c157a90
+          .IMPORT     _var_datQueueTail_8c157a94
           .IMPORT     _var_8c157a98
           .IMPORT     _var_tasks_8c1ba3c8
           .IMPORT     _strcmp
           .IMPORT     __quick_evn_mvn
-          .IMPORT     _queuedNjFiles_8c157a9c
-          .IMPORT     _queuedNjFilesEnd_8c157aa4
-          .IMPORT     _queuedNjFilesCursor_8c157aa0
+          .IMPORT     _var_njQueue_8c157a9c
+          .IMPORT     _var_njQueueTail_8c157aa4
+          .IMPORT     _var_njQueueRear_8c157aa0
           .IMPORT     _ptr_str_DATA_EMPTY_8c03be7c
           .IMPORT     _var_8c157aa8
           .IMPORT     _var_texbuf_8c277ca0
@@ -53,7 +53,7 @@
           .EXPORT     _FUN_8c01116a
           .EXPORT     _requestDat_8c011182
           .EXPORT     _task_8c0111b4
-          .EXPORT     _FUN_8c011310
+          .EXPORT     _sortDatQueueAndPushUnknownTask_8c011310
           .EXPORT     _get_8c157a98_8c0113d2
           .EXPORT     _freeDatQueue_8c0113d8
           .EXPORT     _initNjQueue_8c011430
@@ -125,12 +125,12 @@ _initDatQueue_8c011124:          ; function: initDatQueue_8c011124
           MOV         #0,R0
 L0:                               
           MOV.L       @R14,R3
-          MOV.L       L14+8,R2 ; _var_datQueueEnd_8c157a94
+          MOV.L       L14+8,R2 ; _var_datQueueTail_8c157a94
           ADD         R3,R13
           BRA         L2
           MOV.L       R13,@R2
 L1:                               
-          MOV.L       L14+8,R3 ; _var_datQueueEnd_8c157a94
+          MOV.L       L14+8,R3 ; _var_datQueueTail_8c157a94
           MOV         #-1,R1
           MOV.L       R1,@R3
           MOV.L       R1,@R14
@@ -145,7 +145,7 @@ L3:
 _FUN_8c01116a:                   ; function: _FUN_8c01116a
                                  ; frame size=0
           MOV.L       L14,R2   ; _var_datQueue_8c157a8c
-          MOV.L       L14+12,R1; _var_datQueueCurrent_8c157a90
+          MOV.L       L14+12,R1; _var_datQueueRear_8c157a90
           MOV.L       @R2,R3
           MOV.L       L14+20,R2; _var_datQueueBaseDir_8c157a80
           MOV.L       R3,@R1
@@ -161,8 +161,8 @@ _requestDat_8c011182:           ; function: requestDat_8c011182
           MOV.B       @R5,R3
           TST         R3,R3
           BT          L4
-          MOV.L       L14+8,R2 ; _var_datQueueEnd_8c157a94
-          MOV.L       L14+12,R7; _var_datQueueCurrent_8c157a90
+          MOV.L       L14+8,R2 ; _var_datQueueTail_8c157a94
+          MOV.L       L14+12,R7; _var_datQueueRear_8c157a90
           MOV.L       @R2,R3
           MOV.L       @R7,R0
           CMP/HS      R3,R0
@@ -210,7 +210,7 @@ _task_8c0111b4:                  ; function: task_8c0111b4
           BRA         L19
           NOP
 L7:                               
-          MOV.L       L14+12,R2; _var_datQueueCurrent_8c157a90
+          MOV.L       L14+12,R2; _var_datQueueRear_8c157a90
           MOV.L       L14+20,R12 ; _var_datQueueBaseDir_8c157a80
           MOV.L       @R2,R3
           CMP/HS      R3,R14
@@ -309,8 +309,8 @@ L13:
 L14:
           .DATA.L     _var_datQueue_8c157a8c ; H'8c01128c
           .DATA.L     _syMalloc ; H'8c011290
-          .DATA.L     _var_datQueueEnd_8c157a94
-          .DATA.L     _var_datQueueCurrent_8c157a90
+          .DATA.L     _var_datQueueTail_8c157a94
+          .DATA.L     _var_datQueueRear_8c157a90
           .DATA.L     _init_8c03be7c
           .DATA.L     _var_datQueueBaseDir_8c157a80 ; H'8c0112a0
           .DATA.L     _var_8c157a98
@@ -364,7 +364,7 @@ L19:
           RTS
           MOV.L       @R15+,R14
 
-_FUN_8c011310:                   ; function: FUN_8c011310
+_sortDatQueueAndPushUnknownTask_8c011310:                   ; function: sortDatQueueAndPushUnknownTask_8c011310
                                  ; frame size=44
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
@@ -376,7 +376,7 @@ _FUN_8c011310:                   ; function: FUN_8c011310
           STS.L       PR,@-R15
           ADD         #-8,R15
           MOV.L       L28+24,R12; _var_datQueue_8c157a8c
-          MOV.L       L28+20,R8; _var_datQueueCurrent_8c157a90
+          MOV.L       L28+20,R8; _var_datQueueRear_8c157a90
           MOV.L       @R12,R2
           MOV.L       @R8,R3
           CMP/EQ      R3,R2
@@ -495,7 +495,7 @@ L28:
           .DATA.L     _gdFsTrans32
           .DATA.L     _gdFsClose
           .DATA.L     _syFree
-          .DATA.L     _var_datQueueCurrent_8c157a90
+          .DATA.L     _var_datQueueRear_8c157a90
           .DATA.L     _var_datQueue_8c157a8c
           .DATA.L     _var_8c157a98
         .DATA.L     _syMalloc
@@ -514,7 +514,7 @@ _initNjQueue_8c011430:           ; function: initNjQueue_8c011430
           STS.L       PR,@-R15
           ADD         #-4,R15
           MOV         R4,R3
-          MOV.L       L36+2,R14; _queuedNjFiles_8c157a9c
+          MOV.L       L36+2,R14; _var_njQueue_8c157a9c
           TST         R3,R3
           BT/S        L30
           MOV.L       R4,@R15
@@ -533,12 +533,12 @@ _initNjQueue_8c011430:           ; function: initNjQueue_8c011430
           MOV         #0,R0
 L29:                               
           MOV.L       @R14,R3
-          MOV.L       L36+10,R2; _queuedNjFilesEnd_8c157aa4
+          MOV.L       L36+10,R2; _var_njQueueTail_8c157aa4
           ADD         R3,R13
           BRA         L31
           MOV.L       R13,@R2
 L30:                               
-          MOV.L       L36+10,R3; _queuedNjFilesEnd_8c157aa4
+          MOV.L       L36+10,R3; _var_njQueueTail_8c157aa4
           MOV         #-1,R1
           MOV.L       R1,@R3
           MOV.L       R1,@R14
@@ -552,8 +552,8 @@ L32:
           MOV.L       @R15+,R14
 _FUN_8c01147a:                   ; function: _FUN_8c01147a
                                  ; frame size=0
-          MOV.L       L36+2,R2 ; _queuedNjFiles_8c157a9c
-          MOV.L       L36+14,R1; _queuedNjFilesCursor_8c157aa0
+          MOV.L       L36+2,R2 ; _var_njQueue_8c157a9c
+          MOV.L       L36+14,R1; _var_njQueueRear_8c157aa0
 
           MOV.L       @R2,R3
           MOV.L       L36+22,R2; _var_datQueueBaseDir_8c157a80
@@ -571,8 +571,8 @@ _requestNj_8c011492:             ; function: requestNj_8c011492
           MOV.B       @R5,R3
           TST         R3,R3
           BT          L33
-          MOV.L       L36+10,R2; _queuedNjFilesEnd_8c157aa4
-          MOV.L       L36+14,R14; _queuedNjFilesCursor_8c157aa0
+          MOV.L       L36+10,R2; _var_njQueueTail_8c157aa4
+          MOV.L       L36+14,R14; _var_njQueueRear_8c157aa0
           MOV.L       @R2,R3
           MOV.L       @R14,R0
           CMP/HS      R3,R0
@@ -636,10 +636,10 @@ L35:
 
 L36:
           .RES.W      1 ; H'8c01150e
-          .DATA.L     _queuedNjFiles_8c157a9c ; L36+2
+          .DATA.L     _var_njQueue_8c157a9c ; L36+2
           .DATA.L     _syMalloc
-          .DATA.L     _queuedNjFilesEnd_8c157aa4
-          .DATA.L     _queuedNjFilesCursor_8c157aa0
+          .DATA.L     _var_njQueueTail_8c157aa4
+          .DATA.L     _var_njQueueRear_8c157aa0
           .DATA.L     _init_8c03be7c ; L36+18
           .DATA.L     _var_datQueueBaseDir_8c157a80
           .DATA.L     _var_8c157aa8
@@ -751,7 +751,7 @@ L46:
           .DATA.L     _syMalloc
           .DATA.L     _gdFsRead
           .DATA.L     _var_8c157a88
-          .DATA.L     _queuedNjFiles_8c157a9c ; L46+32
+          .DATA.L     _var_njQueue_8c157a9c ; L46+32
           .DATA.L     _init_8c03be7c
           .DATA.L     _var_8c157aa8
           .DATA.L     _freeTask_8c014b66
@@ -885,8 +885,8 @@ L57:
           .DATA.L     _gdFsGetTransStat
           .DATA.L     _gdFsTrans32
           .DATA.L     _var_8c157a88 ; L57+18
-          .DATA.L     _queuedNjFilesCursor_8c157aa0
-          .DATA.L     _queuedNjFiles_8c157a9c
+          .DATA.L     _var_njQueueRear_8c157aa0
+          .DATA.L     _var_njQueue_8c157a9c
           .DATA.L     _var_8c157aa8
           .DATA.L     _syMalloc ; L57+34
 
@@ -1222,7 +1222,7 @@ L84:
           .DATA.L     _init_8c03be7c
           .DATA.L     _var_datQueueBaseDir_8c157a80 ; L84+32
           .DATA.L     _var_8c157aa8
-          .DATA.L     _queuedNjFiles_8c157a9c
+          .DATA.L     _var_njQueue_8c157a9c
           .DATA.L     _var_8c157aac
           .DATA.L     _syMalloc ; L84+48
           .DATA.L     _var_8c157ab4
@@ -2089,7 +2089,7 @@ _FUN_8c011fe0:
           MOV.L       @(H'c,R15),R2
           MOV.L       @(H'4,R15),R3
           MOV.L       R2,@(H'4,R3)
-          BSR         _FUN_8c011310
+          BSR         _sortDatQueueAndPushUnknownTask_8c011310
           NOP
           ADD         #H'1c,R15
           LDS.L       @R15+,PR
