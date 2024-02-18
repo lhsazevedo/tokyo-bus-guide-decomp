@@ -43,10 +43,14 @@ extern QueuedNj* var_njQueue_8c157a9c;
 extern QueuedNj* var_njQueueRear_8c157aa0;
 extern QueuedNj* var_njQueueTail_8c157aa4;
 extern int var_8c157aa8;
-extern void *_8c227ca0;
 extern void *_8c157a84;
 
 extern Task* var_tasks_8c1ba3c8;
+
+extern Sint8 *var_8c157a84;
+/* TODO: DRY */
+#define TEX_BUFSIZE     0x80800
+extern Sint8 var_texbuf_8c277ca0[TEX_BUFSIZE];
 
 typedef struct {
     TaskAction action;
@@ -125,13 +129,13 @@ void task_8c0111b4(_8c0111b4_Task* task, void* state) {
         case 0:
             /* 8c0111da */
             while (1) {
-                // TODO: Test this condition
+                /* TODO: Test this condition */
                 if (qd_r14 >= var_datQueueRear_8c157a90) {
                     break;
                 }
 
                 if (qd_r14->field_0x0c == 0) {
-                    // TODO: Test this update
+                    /* TODO: Test this update */
                     if (*qd_r14->basedir != 0 && /* 8c0111ee */
                         strcmp(var_datQueueBaseDir_8c157a80, qd_r14->basedir) != 0 /* 8c0111f6 */
                     ) {
@@ -144,7 +148,7 @@ void task_8c0111b4(_8c0111b4_Task* task, void* state) {
                     task->gdfs_0x0c = gdFsOpen(qd_r14->filename, 0);
                     if (task->gdfs_0x0c == NULL) {
                         /* 8c0112f4 (shared) */
-                        // TODO: Write test for this
+                        /* TODO: Write test for this */
                         var_8c157a88 = 1;
                         task->queuedDat_0x18++;
                         task->field_0x08 = 0;
@@ -154,7 +158,7 @@ void task_8c0111b4(_8c0111b4_Task* task, void* state) {
                     /* 8c01121a */
                     if (!gdFsGetFileSctSize(task->gdfs_0x0c, &size)) {
                         /* 8c0112f4 (shared) */
-                        // TODO: Write test for this
+                        /* TODO: Write test for this */
                         var_8c157a88 = 1;
                         task->queuedDat_0x18++;
                         task->field_0x08 = 0;
@@ -167,7 +171,7 @@ void task_8c0111b4(_8c0111b4_Task* task, void* state) {
                     /* 8c011234 */
                     if (gdFsRead(task->gdfs_0x0c, size, *qd_r14->dest) != GDD_ERR_OK) {
                         /* 8c0112f4 (shared) */
-                        // TODO: Write test for this
+                        /* TODO: Write test for this */
                         var_8c157a88 = 1;
                         task->queuedDat_0x18++;
                         task->field_0x08 = 0;
@@ -351,10 +355,13 @@ void task_8c0114cc(_8c0114cc_Task* task, void* state) {
 
     switch (task->field_0x08)
     {
+        /* TODO: Test case 1 */
         case 0:
             while (1)
             {
+                /* TODO: Test this condition */
                 if (qnj < var_njQueueRear_8c157aa0) {
+                    /* TODO: Test this skip */
                     if (qnj->field_0x10 == 0) {
                         if (
                             *qnj->basedir != 0 &&
@@ -365,9 +372,11 @@ void task_8c0114cc(_8c0114cc_Task* task, void* state) {
                         }
 
                         task->gdfs_0x0c = gdFsOpen(qnj->filename, 0);
+
+                        /* TODO: Test this error */
                         if (task->gdfs_0x0c == NULL) {
                             /* 8c01168c (shared) */
-                            if (_8c157a84 != _8c227ca0) {
+                            if (_8c157a84 != var_texbuf_8c277ca0) {
                                 syFree(_8c157a84);
                             }
                             var_8c157a88 = 1;
@@ -376,9 +385,10 @@ void task_8c0114cc(_8c0114cc_Task* task, void* state) {
                             return;
                         }
 
+                        /* TODO: Test this error */
                         if (!gdFsGetFileSctSize(task->gdfs_0x0c, &size)) {
                             /* 8c01168c (shared) */
-                            if (_8c157a84 != _8c227ca0) {
+                            if (_8c157a84 != var_texbuf_8c277ca0) {
                                 syFree(_8c157a84);
                             }
                             var_8c157a88 = 1;
@@ -388,15 +398,16 @@ void task_8c0114cc(_8c0114cc_Task* task, void* state) {
                         }
 
                         if (size > 0x100) {
-                            _8c157a84 = syMalloc(size * 2048);
+                            // TOOD: Test this path
+                            var_8c157a84 = syMalloc(size * 2048);
                         } else {
-                            _8c157a84 = _8c227ca0;
+                            var_8c157a84 = var_texbuf_8c277ca0;
                         }
 
-                        if (!gdFsRead(task->gdfs_0x0c, size, _8c157a84)) {
+                        if (gdFsRead(task->gdfs_0x0c, size, var_8c157a84)) {
                             /* 8c01168c (shared) */
-                            if (_8c157a84 != _8c227ca0) {
-                                syFree(_8c157a84);
+                            if (var_8c157a84 != var_texbuf_8c277ca0) {
+                                syFree(var_8c157a84);
                             }
                             var_8c157a88 = 1;
                             task->queuedNj_0x18++;
@@ -406,20 +417,21 @@ void task_8c0114cc(_8c0114cc_Task* task, void* state) {
 
                         gdFsClose(task->gdfs_0x0c);
                         qnj->field_0x10 = 1;
-                        task->queuedNj_0x18++;
 
                         if (qnj->dest_0x08 != 0) {
-                            *qnj->dest_0x08 = njReadBinary(_8c157a84, &fpos, &rtype);
+                            /* TODO: Test this Path */
+                            *qnj->dest_0x08 = njReadBinary(var_8c157a84, &fpos, &rtype);
                         }
 
                         if (qnj->dest_0x0c != 0) {
-                            *qnj->dest_0x0c = njReadBinary(_8c157a84, &fpos, &rtype);
+                            /* TODO: Test this Path */
+                            *qnj->dest_0x0c = njReadBinary(var_8c157a84, &fpos, &rtype);
                         }
 
-                        if (_8c157a84 != _8c227ca0) {
-                            syFree(_8c157a84);
+                        if (var_8c157a84 != var_texbuf_8c277ca0) {
+                            syFree(var_8c157a84);
                         }
-                        task->queuedNj_0x18++;
+                        task->queuedNj_0x18 = qnj + 1;
                         task->field_0x08 = 0;
                         return;
                     }

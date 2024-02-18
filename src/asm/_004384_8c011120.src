@@ -645,7 +645,7 @@ L36:
           .DATA.L     _var_8c157aa8
           .DATA.L     _syFree
           .DATA.L     _var_texbuf_8c277ca0 ; L36+34
-          .DATA.L     _var_8c157a84 
+          .DATA.L     _var_8c157a84
 
 L37:
           MOV.L       @R14,R2
