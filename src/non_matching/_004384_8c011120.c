@@ -43,7 +43,6 @@ extern QueuedNj* var_njQueue_8c157a9c;
 extern QueuedNj* var_njQueueRear_8c157aa0;
 extern QueuedNj* var_njQueueTail_8c157aa4;
 extern int var_8c157aa8;
-extern void *_8c157a84;
 
 extern Task* var_tasks_8c1ba3c8;
 
@@ -361,7 +360,6 @@ void task_8c0114cc(_8c0114cc_Task* task, void* state) {
             {
                 /* TODO: Test this condition */
                 if (qnj < var_njQueueRear_8c157aa0) {
-                    /* TODO: Test this skip */
                     if (qnj->field_0x10 == 0) {
                         if (
                             *qnj->basedir != 0 &&
@@ -373,11 +371,11 @@ void task_8c0114cc(_8c0114cc_Task* task, void* state) {
 
                         task->gdfs_0x0c = gdFsOpen(qnj->filename, 0);
 
-                        /* TODO: Test this error */
                         if (task->gdfs_0x0c == NULL) {
                             /* 8c01168c (shared) */
-                            if (_8c157a84 != var_texbuf_8c277ca0) {
-                                syFree(_8c157a84);
+                            if (var_8c157a84 != &var_texbuf_8c277ca0) {
+                                /* TODO: Test this free */
+                                syFree(var_8c157a84);
                             }
                             var_8c157a88 = 1;
                             task->queuedNj_0x18++;
@@ -388,8 +386,8 @@ void task_8c0114cc(_8c0114cc_Task* task, void* state) {
                         /* TODO: Test this error */
                         if (!gdFsGetFileSctSize(task->gdfs_0x0c, &size)) {
                             /* 8c01168c (shared) */
-                            if (_8c157a84 != var_texbuf_8c277ca0) {
-                                syFree(_8c157a84);
+                            if (var_8c157a84 != var_texbuf_8c277ca0) {
+                                syFree(var_8c157a84);
                             }
                             var_8c157a88 = 1;
                             task->queuedNj_0x18++;
@@ -431,7 +429,7 @@ void task_8c0114cc(_8c0114cc_Task* task, void* state) {
                         if (var_8c157a84 != var_texbuf_8c277ca0) {
                             syFree(var_8c157a84);
                         }
-                        task->queuedNj_0x18 = qnj + 1;
+                        task->queuedNj_0x18 = ++qnj;
                         task->field_0x08 = 0;
                         return;
                     }

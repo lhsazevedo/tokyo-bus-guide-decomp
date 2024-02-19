@@ -1,5 +1,7 @@
 set -e
 
+sh4objtest=~/.config/composer/vendor/bin/sh4objtest
+
 ASMSH_FLAGS="-debug=d -cpu=sh4 -endian=little -sjis"
 
 assemble() {
@@ -23,33 +25,58 @@ compile() {
 rm -rf build
 mkdir build
 
-# _023224_8c015ab8_title
-assemble  src/asm/decompiled/_023224_8c015ab8_title.src
-sh4objtest "tests/_023224_8c015ab8_title.php" "build/_023224_8c015ab8_title_src.obj"
-compile  src/_023224_8c015ab8_title.c
-sh4objtest "tests/_023224_8c015ab8_title.php" "build/_023224_8c015ab8_title_c.obj"
+# # _023224_8c015ab8_title
+# assemble  src/asm/decompiled/_023224_8c015ab8_title.src
+# $sh4objtest "tests/_023224_8c015ab8_title.php" "build/_023224_8c015ab8_title_src.obj"
+# compile  src/_023224_8c015ab8_title.c
+# $sh4objtest "tests/_023224_8c015ab8_title.php" "build/_023224_8c015ab8_title_c.obj"
 
-# _067540_8c0207d4
-assemble  src/asm/decompiled/_067540_8c0207d4.src
-sh4objtest "tests/_067540_8c0207d4.php" "build/_067540_8c0207d4_src.obj"
-compile  src/_067540_8c0207d4.c
-sh4objtest "tests/_067540_8c0207d4.php" "build/_067540_8c0207d4_c.obj"
+# # _067540_8c0207d4
+# assemble  src/asm/decompiled/_067540_8c0207d4.src
+# $sh4objtest "tests/_067540_8c0207d4.php" "build/_067540_8c0207d4_src.obj"
+# compile  src/_067540_8c0207d4.c
+# $sh4objtest "tests/_067540_8c0207d4.php" "build/_067540_8c0207d4_c.obj"
 
-# _027736_8c016c58
-assemble  src/asm/decompiled/_027736_8c016c58.src
-sh4objtest "tests/_027736_8c016c58.php" "build/_027736_8c016c58_src.obj"
-compile  src/_027736_8c016c58.c
-sh4objtest "tests/_027736_8c016c58.php" "build/_027736_8c016c58_c.obj"
+# # _027736_8c016c58
+# assemble  src/asm/decompiled/_027736_8c016c58.src
+# $sh4objtest "tests/_027736_8c016c58.php" "build/_027736_8c016c58_src.obj"
+# compile  src/_027736_8c016c58.c
+# $sh4objtest "tests/_027736_8c016c58.php" "build/_027736_8c016c58_c.obj"
 
-# _012100_8c012f44
-assemble  src/asm/decompiled/_012100_8c012f44.src
-sh4objtest "tests/_012100_8c012f44.php" "build/_012100_8c012f44_src.obj"
-compile  src/_012100_8c012f44.c
-sh4objtest "tests/_012100_8c012f44.php" "build/_012100_8c012f44_c.obj"
+# # _012100_8c012f44
+# assemble  src/asm/decompiled/_012100_8c012f44.src
+# $sh4objtest "tests/_012100_8c012f44.php" "build/_012100_8c012f44_src.obj"
+# compile  src/_012100_8c012f44.c
+# $sh4objtest "tests/_012100_8c012f44.php" "build/_012100_8c012f44_c.obj"
 
-# _004384_8c011120
-# TODO: Integrate
+# # _004384_8c011120
+# # TODO: Integrate
+# assemble  src/asm/_004384_8c011120.src
+# $sh4objtest "tests/004384_8c011120/4338_initDatQueue_8c011124.php" "build/_004384_8c011120_src.obj"
+# compile  src/non_matching/_004384_8c011120.c
+# $sh4objtest "tests/004384_8c011120/4338_initDatQueue_8c011124.php" "build/_004384_8c011120_c.obj"
+
+# assemble  src/asm/_004384_8c011120.src
+# $sh4objtest "tests/004384_8c011120/4384_nop_8c011120.php" "build/_004384_8c011120_src.obj"
+# compile  src/non_matching/_004384_8c011120.c
+# $sh4objtest "tests/004384_8c011120/4384_nop_8c011120.php" "build/_004384_8c011120_c.obj"
+
+# assemble  src/asm/_004384_8c011120.src
+# $sh4objtest "tests/004384_8c011120/4458_FUN_8c01116a.php" "build/_004384_8c011120_src.obj"
+# compile  src/non_matching/_004384_8c011120.c
+# $sh4objtest "tests/004384_8c011120/4458_FUN_8c01116a.php" "build/_004384_8c011120_c.obj"
+
+# assemble  src/asm/_004384_8c011120.src
+# $sh4objtest "tests/004384_8c011120/4532_task_8c0111b4.php" "build/_004384_8c011120_src.obj"
+# compile  src/non_matching/_004384_8c011120.c
+# $sh4objtest "tests/004384_8c011120/4532_task_8c0111b4.php" "build/_004384_8c011120_c.obj"
+
+# assemble  src/asm/_004384_8c011120.src
+# $sh4objtest "tests/004384_8c011120/4880_sortDatQueueAndPushUnknownTask_8c011310.php" "build/_004384_8c011120_src.obj"
+# compile  src/non_matching/_004384_8c011120.c
+# $sh4objtest "tests/004384_8c011120/4880_sortDatQueueAndPushUnknownTask_8c011310.php" "build/_004384_8c011120_c.obj"
+
 assemble  src/asm/_004384_8c011120.src
-sh4objtest "tests/_004384_8c011120.php" "build/_004384_8c011120_src.obj"
+$sh4objtest "tests/004384_8c011120/5324_task_8c0114cc.php" "build/_004384_8c011120_src.obj"
 compile  src/non_matching/_004384_8c011120.c
-sh4objtest "tests/_004384_8c011120.php" "build/_004384_8c011120_c.obj"
+$sh4objtest "tests/004384_8c011120/5324_task_8c0114cc.php" "build/_004384_8c011120_c.obj"
