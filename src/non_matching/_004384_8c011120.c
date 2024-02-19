@@ -374,7 +374,6 @@ void task_8c0114cc(_8c0114cc_Task* task, void* state) {
                         if (task->gdfs_0x0c == NULL) {
                             /* 8c01168c (shared) */
                             if (var_8c157a84 != &var_texbuf_8c277ca0) {
-                                /* TODO: Test this free */
                                 syFree(var_8c157a84);
                             }
                             var_8c157a88 = 1;
@@ -383,7 +382,6 @@ void task_8c0114cc(_8c0114cc_Task* task, void* state) {
                             return;
                         }
 
-                        /* TODO: Test this error */
                         if (!gdFsGetFileSctSize(task->gdfs_0x0c, &size)) {
                             /* 8c01168c (shared) */
                             if (var_8c157a84 != var_texbuf_8c277ca0) {
@@ -396,13 +394,12 @@ void task_8c0114cc(_8c0114cc_Task* task, void* state) {
                         }
 
                         if (size > 0x100) {
-                            // TOOD: Test this path
                             var_8c157a84 = syMalloc(size * 2048);
                         } else {
                             var_8c157a84 = var_texbuf_8c277ca0;
                         }
 
-                        if (gdFsRead(task->gdfs_0x0c, size, var_8c157a84)) {
+                        if (gdFsRead(task->gdfs_0x0c, size, var_8c157a84) != GDD_ERR_OK) {
                             /* 8c01168c (shared) */
                             if (var_8c157a84 != var_texbuf_8c277ca0) {
                                 syFree(var_8c157a84);
@@ -416,13 +413,13 @@ void task_8c0114cc(_8c0114cc_Task* task, void* state) {
                         gdFsClose(task->gdfs_0x0c);
                         qnj->field_0x10 = 1;
 
+                        /* TODO: Test this skip */
                         if (qnj->dest_0x08 != 0) {
-                            /* TODO: Test this Path */
                             *qnj->dest_0x08 = njReadBinary(var_8c157a84, &fpos, &rtype);
                         }
 
+                        /* TODO: Test this skip */
                         if (qnj->dest_0x0c != 0) {
-                            /* TODO: Test this Path */
                             *qnj->dest_0x0c = njReadBinary(var_8c157a84, &fpos, &rtype);
                         }
 

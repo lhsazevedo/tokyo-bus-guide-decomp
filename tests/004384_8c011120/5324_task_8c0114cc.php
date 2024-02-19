@@ -75,7 +75,7 @@ return new class extends TestCase {
         $strCmp = $this->isAsmObject() ? '_strcmp' : '__slow_strcmp1';
         $this->shouldCall($strCmp)
             ->with($dataEmptyStrAddress, $dirAStrAddress)
-            ->andReturn(1);
+            ->andReturn(strcmp('\\DIR_A', 'DATA EMPTY'));
 
         $this->shouldWriteTo('_var_datQueueBaseDir_8c157a80', $dirAStrAddress);
         $this->shouldCall('_gdFsChangeDir', $dirAStrAddress);
@@ -501,6 +501,156 @@ return new class extends TestCase {
             ->andReturn(0);
 
         $this->shouldCall('_syFree')->with($readTarget);
+
+        $this->shouldWriteTo('_var_8c157a88', 1);
+        $this->shouldWrite($taskPtr + 0x18, $njQueue + 1 * $sizeOfQueuedNj);
+        $this->shouldWrite($taskPtr + 0x08, 0);
+
+        $this->call('_task_8c0114cc')
+            ->with($taskPtr, 0)
+            ->run();
+    }
+
+    public function test_gdFsReadFailure()
+    {
+        $sizeOfQueuedNj = 0x14;
+        $queueSize = 16;
+        $njQueue = $this->alloc($queueSize * $sizeOfQueuedNj);
+
+        $dataEmptyStrAddress = $this->allocString('DATA EMPTY');
+        $dirAStrAddress = $this->allocString('\\DIR_A');
+
+        $this->initUint32($this->addressOf('_var_datQueueBaseDir_8c157a80'), $dataEmptyStrAddress);
+
+        $this->initQueuedNj(
+            address:  $njQueue,
+            basedir:  $dirAStrAddress,
+            filename: 0xcafe1002,
+            dest:     0xcafe1003,
+            dest2:    0xcafe1004,
+            flag:     0,
+        );
+
+        $this->initUint32(
+            $this->addressOf('_var_njQueueRear_8c157aa0'),
+            $njQueue + 1 * $sizeOfQueuedNj
+        );
+        
+        $taskPtr = $this->alloc(0x20);
+        // task->field_0x08
+        $this->initUint32($taskPtr + 0x08, 0);
+        // task->queuedDat_0x18 points to the first item in the queue
+        $this->initUint32($taskPtr + 0x18, $njQueue);
+        
+        $this->initUint32($this->addressOf('_var_8c157a84'), $this->addressOf('_var_texbuf_8c277ca0'));
+
+        $sizeLocal = $this->isAsmObject() ? 0xffffd0 : 0xffffd0;
+
+        // TODO: Implement blind shouldRead
+
+        $strCmp = $this->isAsmObject() ? '_strcmp' : '__slow_strcmp1';
+        $this->shouldCall($strCmp)
+            ->with($dataEmptyStrAddress, $dirAStrAddress)
+            ->andReturn(1);
+
+        $this->shouldWriteTo('_var_datQueueBaseDir_8c157a80', $dirAStrAddress);
+        $this->shouldCall('_gdFsChangeDir', $dirAStrAddress);
+
+        // task->gdfs_0x0c = gdFsOpen(...)
+        $this->shouldCall('_gdFsOpen')
+            ->with(0xcafe1002, 0)
+            ->andReturn(0xf5f50000);
+        $this->shouldWrite($taskPtr + 0x0c, 0xf5f50000);
+
+        $this->shouldCall('_gdFsGetFileSctSize')
+            ->with(0xf5f50000, $sizeLocal)
+            ->do(function ($params) {
+                $this->memory->writeUInt32($params[1], 0x100);
+            })
+            ->andReturn(1);
+
+        $this->shouldWriteTo('_var_8c157a84', $this->addressOf('_var_texbuf_8c277ca0'));
+
+        $this->shouldCall('_gdFsRead')
+            ->with(0xf5f50000, 0x100, $this->addressOf('_var_texbuf_8c277ca0'))
+            ->andReturn(-13); // GDD_ERR_BUSY
+
+        $this->shouldWriteTo('_var_8c157a88', 1);
+        $this->shouldWrite($taskPtr + 0x18, $njQueue + 1 * $sizeOfQueuedNj);
+        $this->shouldWrite($taskPtr + 0x08, 0);
+
+        $this->call('_task_8c0114cc')
+            ->with($taskPtr, 0)
+            ->run();
+    }
+
+    public function test_gdFsReadFailureWithFree()
+    {
+        $sizeOfQueuedNj = 0x14;
+        $queueSize = 16;
+        $njQueue = $this->alloc($queueSize * $sizeOfQueuedNj);
+
+        $dataEmptyStrAddress = $this->allocString('DATA EMPTY');
+        $dirAStrAddress = $this->allocString('\\DIR_A');
+
+        $this->initUint32($this->addressOf('_var_datQueueBaseDir_8c157a80'), $dataEmptyStrAddress);
+
+        $this->initQueuedNj(
+            address:  $njQueue,
+            basedir:  $dirAStrAddress,
+            filename: 0xcafe1002,
+            dest:     0xcafe1003,
+            dest2:    0xcafe1004,
+            flag:     0,
+        );
+
+        $this->initUint32(
+            $this->addressOf('_var_njQueueRear_8c157aa0'),
+            $njQueue + 1 * $sizeOfQueuedNj
+        );
+        
+        $taskPtr = $this->alloc(0x20);
+        // task->field_0x08
+        $this->initUint32($taskPtr + 0x08, 0);
+        // task->queuedDat_0x18 points to the first item in the queue
+        $this->initUint32($taskPtr + 0x18, $njQueue);
+
+        $sizeLocal = $this->isAsmObject() ? 0xffffd0 : 0xffffd0;
+
+        // TODO: Implement blind shouldRead
+
+        $strCmp = $this->isAsmObject() ? '_strcmp' : '__slow_strcmp1';
+        $this->shouldCall($strCmp)
+            ->with($dataEmptyStrAddress, $dirAStrAddress)
+            ->andReturn(1);
+
+        $this->shouldWriteTo('_var_datQueueBaseDir_8c157a80', $dirAStrAddress);
+        $this->shouldCall('_gdFsChangeDir', $dirAStrAddress);
+
+        // task->gdfs_0x0c = gdFsOpen(...)
+        $this->shouldCall('_gdFsOpen')
+            ->with(0xcafe1002, 0)
+            ->andReturn(0xf5f50000);
+        $this->shouldWrite($taskPtr + 0x0c, 0xf5f50000);
+
+        $this->shouldCall('_gdFsGetFileSctSize')
+            ->with(0xf5f50000, $sizeLocal)
+            ->do(function ($params) {
+                $this->memory->writeUInt32($params[1], 0x101);
+            })
+            ->andReturn(1);
+
+        $texBuf = $this->alloc(0x4);
+        $this->shouldCall('_syMalloc')
+            ->with(0x101 * 2048)
+            ->andReturn($texBuf);
+        $this->shouldWriteTo('_var_8c157a84', $texBuf);
+
+        $this->shouldCall('_gdFsRead')
+            ->with(0xf5f50000, 0x101, $texBuf)
+            ->andReturn(-13); // GDD_ERR_BUSY
+
+        $this->shouldCall('_syFree')->with($texBuf);
 
         $this->shouldWriteTo('_var_8c157a88', 1);
         $this->shouldWrite($taskPtr + 0x18, $njQueue + 1 * $sizeOfQueuedNj);
