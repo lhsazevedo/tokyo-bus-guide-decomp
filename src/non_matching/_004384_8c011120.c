@@ -236,7 +236,7 @@ void task_8c0111b4(_8c0111b4_Task* task, void* state) {
     }
 }
 
-/* Almost matching */
+/* Tested */
 int sortDatQueueAndPushUnknownTask_8c011310() {
     int r9;
     Task *created_task;
@@ -346,7 +346,7 @@ int requestNj_8c011492(char* basedir, char* filename, void* dest, void* dest2) {
     return 1;
 }
 
-/* wip */
+/* Tested */
 void task_8c0114cc(_8c0114cc_Task* task, void* state) {
     QueuedNj* qnj = task->queuedNj_0x18;
     Sint32 size;
@@ -492,6 +492,61 @@ void task_8c0114cc(_8c0114cc_Task* task, void* state) {
             }
             break;
         }
+}
+
+int sortNjQueueAndPushUnknownTask_8c0116b6() {
+    int r9;
+    Task *created_task;
+    void* created_state;
+    QueuedNj *temp_r11;
+
+    if ((int) var_njQueue_8c157a9c == (int) var_njQueueRear_8c157aa0) {
+        return 0;
+    }
+
+    /* 8c01132e */
+    var_8c157aa8 = 0;
+
+    temp_r11 = syMalloc((int) var_njQueueRear_8c157aa0 - (int) var_njQueue_8c157a9c);
+
+    /* 8c011340 */
+    while (1) {
+        int r9 = 0;
+        QueuedNj *a_r13 = var_njQueue_8c157a9c;
+        QueuedNj *b_r14 = var_njQueue_8c157a9c;
+
+        /* 8c011376 */
+        while (++b_r14 < var_njQueueRear_8c157aa0) {
+            /* 8c011348 */
+            if (strcmp(a_r13->filename, b_r14->filename) > 0) {
+                /* 8c011354 */
+                *temp_r11 = *a_r13;
+                *a_r13 = *b_r14;
+                *b_r14 = *temp_r11;
+                r9 = 1;
+            }
+
+            /* 8c011374 */
+            a_r13++;
+        }
+
+        if (r9 == 0) { /* 8c011374 */
+            break;
+        }
+    }
+
+    syFree(temp_r11);
+
+    if (!pushTask_8c014ae8(&var_tasks_8c1ba3c8, &task_8c0114cc, &created_task, &created_state, 0)) {
+        return 0;
+    }
+
+    created_task->field_0x18 = var_njQueue_8c157a9c;
+    created_task->field_0x08 = 0;
+    var_8c157a88 = 0;
+    var_datQueueBaseDir_8c157a80 = "DATA EMPTY";
+
+    return 1;
 }
 
 /* Matched */

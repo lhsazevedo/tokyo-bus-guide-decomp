@@ -60,7 +60,7 @@
           .EXPORT     _FUN_8c01147a
           .EXPORT     _requestNj_8c011492
           .EXPORT     _task_8c0114cc
-          .EXPORT     _FUN_8c0116b6
+          .EXPORT     _sortNjQueueAndPushUnknownTask_8c0116b6
           .EXPORT     _get8c157aa8_8c01179e
           .EXPORT     _freeNjQueue_8c0117a4
           .EXPORT     _FUN_8c0117b8
@@ -847,7 +847,7 @@ L55:
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-_FUN_8c0116b6:
+_sortNjQueueAndPushUnknownTask_8c0116b6:
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           MOV.L       R12,@-R15
@@ -1910,7 +1910,7 @@ L130:
 L131:
           MOV.L       @R14,R2
           ADD         #1,R2
-          BSR         _FUN_8c0116b6
+          BSR         _sortNjQueueAndPushUnknownTask_8c0116b6
           MOV.L       R2,@R14
           BRA         L137
           NOP
