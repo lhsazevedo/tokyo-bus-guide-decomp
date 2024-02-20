@@ -194,7 +194,7 @@ return new class extends TestCase {
             ->run();
     }
 
-    public function test_case0_breaksOnQueueCursor()
+    public function test_case0_breaksOnQueueRear()
     {
         $sizeOfQueuedDat = 0x10;
         $queueSize = 16;

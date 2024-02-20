@@ -1,6 +1,6 @@
 set -e
 
-sh4objtest=~/.config/composer/vendor/bin/sh4objtest
+sh4objtest=sh4objtest
 
 ASMSH_FLAGS="-debug=d -cpu=sh4 -endian=little -sjis"
 

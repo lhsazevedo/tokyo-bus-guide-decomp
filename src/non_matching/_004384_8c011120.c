@@ -193,15 +193,15 @@ void task_8c0111b4(_8c0111b4_Task* task, void* state) {
                 task->queuedDat_0x18 = var_datQueue_8c157a8c;
                 var_8c157a88 = 0;
                 var_datQueueBaseDir_8c157a80 = "DATA EMPTY";
-                return;
+                /* return */;
             } else {
                 /* 8c011262 */
                 var_8c157a98 = 1;
                 freeTask_8c014b66((Task*) task);
-                return;
+                /* return; */
             }
             break;
-    
+
         /* 8c0111d2 */
         case 1:
             /* 8c011270 */
@@ -354,90 +354,142 @@ void task_8c0114cc(_8c0114cc_Task* task, void* state) {
 
     switch (task->field_0x08)
     {
-        /* TODO: Test case 1 */
         case 0:
             while (1)
             {
-                /* TODO: Test this condition */
-                if (qnj < var_njQueueRear_8c157aa0) {
-                    if (qnj->field_0x10 == 0) {
-                        if (
-                            *qnj->basedir != 0 &&
-                            strcmp(var_datQueueBaseDir_8c157a80, qnj->basedir) != 0
-                        ) {
-                            var_datQueueBaseDir_8c157a80 = qnj->basedir;
-                            gdFsChangeDir(qnj->basedir);
-                        }
+                if (qnj >= var_njQueueRear_8c157aa0) {
+                    break;
+                }
 
-                        task->gdfs_0x0c = gdFsOpen(qnj->filename, 0);
+                if (qnj->field_0x10 == 0) {
+                    if (
+                        *qnj->basedir != 0 &&
+                        strcmp(var_datQueueBaseDir_8c157a80, qnj->basedir) != 0
+                    ) {
+                        var_datQueueBaseDir_8c157a80 = qnj->basedir;
+                        gdFsChangeDir(qnj->basedir);
+                    }
 
-                        if (task->gdfs_0x0c == NULL) {
-                            /* 8c01168c (shared) */
-                            if (var_8c157a84 != &var_texbuf_8c277ca0) {
-                                syFree(var_8c157a84);
-                            }
-                            var_8c157a88 = 1;
-                            task->queuedNj_0x18++;
-                            task->field_0x08 = 0;
-                            return;
-                        }
+                    task->gdfs_0x0c = gdFsOpen(qnj->filename, 0);
 
-                        if (!gdFsGetFileSctSize(task->gdfs_0x0c, &size)) {
-                            /* 8c01168c (shared) */
-                            if (var_8c157a84 != var_texbuf_8c277ca0) {
-                                syFree(var_8c157a84);
-                            }
-                            var_8c157a88 = 1;
-                            task->queuedNj_0x18++;
-                            task->field_0x08 = 0;
-                            return;
-                        }
-
-                        if (size > 0x100) {
-                            var_8c157a84 = syMalloc(size * 2048);
-                        } else {
-                            var_8c157a84 = var_texbuf_8c277ca0;
-                        }
-
-                        if (gdFsRead(task->gdfs_0x0c, size, var_8c157a84) != GDD_ERR_OK) {
-                            /* 8c01168c (shared) */
-                            if (var_8c157a84 != var_texbuf_8c277ca0) {
-                                syFree(var_8c157a84);
-                            }
-                            var_8c157a88 = 1;
-                            task->queuedNj_0x18++;
-                            task->field_0x08 = 0;
-                            return; 
-                        }
-
-                        gdFsClose(task->gdfs_0x0c);
-                        qnj->field_0x10 = 1;
-
-                        /* TODO: Test this skip */
-                        if (qnj->dest_0x08 != 0) {
-                            *qnj->dest_0x08 = njReadBinary(var_8c157a84, &fpos, &rtype);
-                        }
-
-                        /* TODO: Test this skip */
-                        if (qnj->dest_0x0c != 0) {
-                            *qnj->dest_0x0c = njReadBinary(var_8c157a84, &fpos, &rtype);
-                        }
-
-                        if (var_8c157a84 != var_texbuf_8c277ca0) {
+                    if (task->gdfs_0x0c == NULL) {
+                        /* 8c01168c (shared) */
+                        if (var_8c157a84 != &var_texbuf_8c277ca0) {
                             syFree(var_8c157a84);
                         }
-                        task->queuedNj_0x18 = ++qnj;
+                        var_8c157a88 = 1;
+                        task->queuedNj_0x18++;
                         task->field_0x08 = 0;
                         return;
                     }
+
+                    if (!gdFsGetFileSctSize(task->gdfs_0x0c, &size)) {
+                        /* 8c01168c (shared) */
+                        if (var_8c157a84 != var_texbuf_8c277ca0) {
+                            syFree(var_8c157a84);
+                        }
+                        var_8c157a88 = 1;
+                        task->queuedNj_0x18++;
+                        task->field_0x08 = 0;
+                        return;
+                    }
+
+                    if (size > 0x100) {
+                        var_8c157a84 = syMalloc(size * 2048);
+                    } else {
+                        var_8c157a84 = var_texbuf_8c277ca0;
+                    }
+
+                    if (gdFsRead(task->gdfs_0x0c, size, var_8c157a84) != GDD_ERR_OK) {
+                        /* 8c01168c (shared) */
+                        if (var_8c157a84 != var_texbuf_8c277ca0) {
+                            syFree(var_8c157a84);
+                        }
+                        var_8c157a88 = 1;
+                        task->queuedNj_0x18++;
+                        task->field_0x08 = 0;
+                        return; 
+                    }
+
+                    gdFsClose(task->gdfs_0x0c);
+                    qnj->field_0x10 = 1;
+
+                    if (qnj->dest_0x08 != 0) {
+                        *qnj->dest_0x08 = njReadBinary(var_8c157a84, &fpos, &rtype);
+                    }
+
+                    if (qnj->dest_0x0c != 0) {
+                        *qnj->dest_0x0c = njReadBinary(var_8c157a84, &fpos, &rtype);
+                    }
+
+                    if (var_8c157a84 != var_texbuf_8c277ca0) {
+                        syFree(var_8c157a84);
+                    }
+                    task->queuedNj_0x18 = ++qnj;
+                    task->field_0x08 = 0;
+                    return;
                 }
 
                 qnj++;
             }
-            
+
+            if (var_8c157a88 != 0) {
+                task->queuedNj_0x18 = var_njQueue_8c157a9c;
+                var_8c157a88 = 0;
+                var_datQueueBaseDir_8c157a80 = "DATA EMPTY";
+            } else {
+                var_8c157a88 = 1;
+                freeTask_8c014b66((Task*) task);
+            }
+
             break;
-        
-        default:
+
+        case 1:
+            switch (gdFsGetStat(task->gdfs_0x0c)) {
+                /* 8c011614 */
+                case GDD_STAT_COMPLETE: {
+                    gdFsClose(task->gdfs_0x0c);
+                    qnj->field_0x10 = 1;
+
+                    if (qnj->dest_0x08) {
+                        *qnj->dest_0x08 = njReadBinary(var_8c157a84, &fpos, &rtype);
+                    }
+
+                    if (qnj->dest_0x0c) {
+                        *qnj->dest_0x0c = njReadBinary(var_8c157a84, &fpos, &rtype);
+                    }
+
+                    if (var_8c157a84 != var_texbuf_8c277ca0) {
+                        syFree(var_8c157a84);
+                    }
+
+                    task->queuedNj_0x18 = ++qnj;
+                    task->field_0x08 = 0;
+
+                    break;
+                }
+                case GDD_STAT_READ: {
+                    if (gdFsGetTransStat(task->gdfs_0x0c) != GDD_FS_TRANS_READY) {
+                        /* TODO: Test this return */
+                        return;
+                    }
+
+                    gdFsTrans32(task->gdfs_0x0c, 2048, var_8c157a84);
+                    break;
+                }
+                default: {
+                    gdFsClose(task->gdfs_0x0c);
+                    if (var_8c157a84 != var_texbuf_8c277ca0) {
+                        syFree(var_8c157a84);
+                    }
+
+                    var_8c157a88 = 1;
+                    // TODO: Test this with other item indexes
+                    task->queuedNj_0x18 = ++qnj;
+                    task->field_0x08 = 0;
+                    break;
+                }
+            }
             break;
         }
 }
