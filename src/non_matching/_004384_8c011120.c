@@ -46,6 +46,9 @@ extern int var_8c157aa8;
 
 extern Task* var_tasks_8c1ba3c8;
 
+extern void* var_8c157aac;
+extern void* var_8c157ab4;
+
 extern Sint8 *var_8c157a84;
 /* TODO: DRY */
 #define TEX_BUFSIZE     0x80800
@@ -495,10 +498,9 @@ void task_8c0114cc(_8c0114cc_Task* task, void* state) {
 }
 
 int sortNjQueueAndPushUnknownTask_8c0116b6() {
-    int r9;
     Task *created_task;
     void* created_state;
-    QueuedNj *temp_r11;
+    QueuedNj *temp;
 
     if ((int) var_njQueue_8c157a9c == (int) var_njQueueRear_8c157aa0) {
         return 0;
@@ -507,35 +509,35 @@ int sortNjQueueAndPushUnknownTask_8c0116b6() {
     /* 8c01132e */
     var_8c157aa8 = 0;
 
-    temp_r11 = syMalloc((int) var_njQueueRear_8c157aa0 - (int) var_njQueue_8c157a9c);
+    temp = syMalloc((int) var_njQueueRear_8c157aa0 - (int) var_njQueue_8c157a9c);
 
     /* 8c011340 */
     while (1) {
-        int r9 = 0;
-        QueuedNj *a_r13 = var_njQueue_8c157a9c;
-        QueuedNj *b_r14 = var_njQueue_8c157a9c;
+        int swapped = 0;
+        QueuedNj *a = var_njQueue_8c157a9c;
+        QueuedNj *b = var_njQueue_8c157a9c;
 
         /* 8c011376 */
-        while (++b_r14 < var_njQueueRear_8c157aa0) {
+        while (++b < var_njQueueRear_8c157aa0) {
             /* 8c011348 */
-            if (strcmp(a_r13->filename, b_r14->filename) > 0) {
+            if (strcmp(a->filename, b->filename) > 0) {
                 /* 8c011354 */
-                *temp_r11 = *a_r13;
-                *a_r13 = *b_r14;
-                *b_r14 = *temp_r11;
-                r9 = 1;
+                *temp = *a;
+                *a = *b;
+                *b = *temp;
+                swapped = 1;
             }
 
             /* 8c011374 */
-            a_r13++;
+            a++;
         }
 
-        if (r9 == 0) { /* 8c011374 */
+        if (!swapped) { /* 8c011374 */
             break;
         }
     }
 
-    syFree(temp_r11);
+    syFree(temp);
 
     if (!pushTask_8c014ae8(&var_tasks_8c1ba3c8, &task_8c0114cc, &created_task, &created_state, 0)) {
         return 0;
@@ -560,3 +562,19 @@ freeNjQueue_8c0117a4() {
         syFree(var_njQueue_8c157a9c);
     }
 }
+
+/* Tested */
+int FUN_8c0117b8(int n) {
+  if (n != 0) {
+    var_8c157aac = syMalloc(n * 8);
+    if (var_8c157aac == NULL) {
+      return 0;
+    }
+    var_8c157ab4 = (void *) ((char*) var_8c157aac + n * 8);
+  } else {
+    var_8c157ab4 = (void *) -1;
+    var_8c157aac = (void *) -1;
+  }
+  return 1;
+}
+
