@@ -28,9 +28,9 @@
           .IMPORT     _var_8c157a84
           .IMPORT     _njReadBinary
           .IMPORT     __quick_odd_mvn
-          .IMPORT     _var_8c157aac
-          .IMPORT     _var_8c157ab4
-          .IMPORT     _var_8c157ab0
+          .IMPORT     _var_uknQueue_8c157aac
+          .IMPORT     _var_uknQueueTail_8c157ab4
+          .IMPORT     _var_uknQueueCursor_8c157ab0
           .IMPORT     _var_8c157ab8
           .IMPORT     _njSetTexture
           .IMPORT     _njLoadTextureNum
@@ -63,9 +63,9 @@
           .EXPORT     _sortNjQueueAndPushUnknownTask_8c0116b6
           .EXPORT     _get8c157aa8_8c01179e
           .EXPORT     _freeNjQueue_8c0117a4
-          .EXPORT     _FUN_8c0117b8
+          .EXPORT     _alloc8c157aac_8c0117b8
           .EXPORT     _FUN_8c0117fe
-          .EXPORT     _FUN_8c01181c
+          .EXPORT     _requestUnknownStruct_8c01181c
           .EXPORT     _FUN_8c0119f8
           .EXPORT     _FUN_8c011a42
           .EXPORT     _FUN_8c011a48
@@ -96,6 +96,7 @@
           .EXPORT     _init_8c03bf18
           .EXPORT     _var_8c157a60
           .EXPORT     _var_seed_8c157a64
+          .EXPORT     _var_8c157a68 ; For testing
           .SECTION    P,CODE,ALIGN=4
 _nop_8c011120:                   ; function: nop_8c011120
                                  ; frame size=0
@@ -983,7 +984,7 @@ _freeNjQueue_8c0117a4:                   ; function: _freeNjQueue_8c0117a4
 L64:
           RTS
           NOP
-_FUN_8c0117b8:
+_alloc8c157aac_8c0117b8:
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           STS.L       PR,@-R15
@@ -1039,7 +1040,7 @@ _FUN_8c0117fe:
           MOV.L       L84+64,R1
           RTS
           MOV.L       R3,@R1
-_FUN_8c01181c:
+_requestUnknownStruct_8c01181c:
           MOV.L       L84+52,R2
           MOV.L       L84+56,R6
           MOV.L       @R2,R3
@@ -1223,10 +1224,10 @@ L84:
           .DATA.L     _var_datQueueBaseDir_8c157a80 ; L84+32
           .DATA.L     _var_8c157aa8
           .DATA.L     _var_njQueue_8c157a9c
-          .DATA.L     _var_8c157aac
+          .DATA.L     _var_uknQueue_8c157aac
           .DATA.L     _syMalloc ; L84+48
-          .DATA.L     _var_8c157ab4
-          .DATA.L     _var_8c157ab0
+          .DATA.L     _var_uknQueueTail_8c157ab4
+          .DATA.L     _var_uknQueueCursor_8c157ab0
           .DATA.L     _var_8c157a68
           .DATA.L     _var_8c157ab8 ; L84+64
           .DATA.L     _gdFsChangeDir
@@ -1469,10 +1470,10 @@ L100:
 
 L101:
           .DATA.L     _var_8c157a68 ; L101
-          .DATA.L     _var_8c157ab0
+          .DATA.L     _var_uknQueueCursor_8c157ab0
           .DATA.L     _var_8c157ab8
           .DATA.L     _freeTask_8c014b66 ; L101+12
-          .DATA.L     _var_8c157aac
+          .DATA.L     _var_uknQueue_8c157aac
           .DATA.L     task_8c01183e
           .DATA.L     _var_tasks_8c1ba3c8
           .DATA.L     _pushTask_8c014ae8 ; L101+28
@@ -1991,7 +1992,7 @@ _initQueues_8c011f36:
           MOV.L       @(H'c,R15),R4
           BSR         _initNjQueue_8c011430
           MOV.L       @(8,R15),R4
-          BSR         _FUN_8c0117b8
+          BSR         _alloc8c157aac_8c0117b8
           MOV.L       @(4,R15),R4
           BSR         _FUN_8c011a5c
           MOV.L       @R15,R4

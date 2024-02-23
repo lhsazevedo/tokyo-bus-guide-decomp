@@ -32,6 +32,12 @@ typedef struct {
     int field_0x1c;
 } _8c0114cc_Task;
 
+struct UnknownStructA {
+    int basedir_0x00;
+    int field_0x04;
+}
+typedef UnknownStructA;
+
 extern char* var_datQueueBaseDir_8c157a80;
 extern int var_8c157a88;
 extern QueuedDat* var_datQueue_8c157a8c;
@@ -46,8 +52,11 @@ extern int var_8c157aa8;
 
 extern Task* var_tasks_8c1ba3c8;
 
-extern void* var_8c157aac;
-extern void* var_8c157ab4;
+extern UnknownStructA* var_uknQueue_8c157aac;
+extern UnknownStructA* var_uknQueueCursor_8c157ab0;
+extern UnknownStructA* var_uknQueueTail_8c157ab4;
+extern int var_8c157a68;
+extern int var_8c157ab8;
 
 extern Sint8 *var_8c157a84;
 /* TODO: DRY */
@@ -564,17 +573,38 @@ freeNjQueue_8c0117a4() {
 }
 
 /* Tested */
-int FUN_8c0117b8(int n) {
+int alloc8c157aac_8c0117b8(int n) {
   if (n != 0) {
-    var_8c157aac = syMalloc(n * 8);
-    if (var_8c157aac == NULL) {
+    var_uknQueue_8c157aac = syMalloc(n * sizeof(UnknownStructA));
+    if (var_uknQueue_8c157aac == NULL) {
       return 0;
     }
-    var_8c157ab4 = (void *) ((char*) var_8c157aac + n * 8);
+    var_uknQueueTail_8c157ab4 = (void *) ((char*) var_uknQueue_8c157aac + n * sizeof(UnknownStructA));
   } else {
-    var_8c157ab4 = (void *) -1;
-    var_8c157aac = (void *) -1;
+    var_uknQueueTail_8c157ab4 = (void *) -1;
+    var_uknQueue_8c157aac = (void *) -1;
   }
   return 1;
 }
 
+/* Tested */
+void FUN_8c0117fe() {
+    var_uknQueueCursor_8c157ab0 = var_uknQueue_8c157aac;
+    var_datQueueBaseDir_8c157a80 = "DATA EMPTY";
+    var_8c157a68 = 0;
+    var_8c157ab8 = 1;
+    return;
+}
+
+/* Tested */
+/* Param 2 looks like a struct */
+int requestUnknownStruct_8c01181c(int basedir, int param_2) {
+  if (var_uknQueueCursor_8c157ab0 >= var_uknQueueTail_8c157ab4) {
+    return 0;
+  }
+
+  var_uknQueueCursor_8c157ab0->basedir_0x00 = basedir;
+  var_uknQueueCursor_8c157ab0->field_0x04 = param_2;
+  var_uknQueueCursor_8c157ab0++;
+  return 1;
+}

@@ -42,6 +42,7 @@ extern Bool FUN_8c012984(void);
 extern void* var_8c225fb0;
 
 void task_title_8c015ab8(Task* task, void *state) {
+
     if (menuState_8c1bc7a8.state_0x18 >= TITLE_STATE_0X0B_BUS_SLIDE /* 8c015aec */
         && menuState_8c1bc7a8.state_0x18 <= TITLE_STATE_0X0C_FLAG_REVEAL) { /* 8c015af6 */
             if (peripheral_8c1ba35c[0].press & PDD_DGT_ST) { /* 8c015afa */
@@ -162,8 +163,8 @@ void task_title_8c015ab8(Task* task, void *state) {
                     return;
                 }
 
-                /* 8c015cda */
-                menuState_8c1bc7a8.state_0x18 = TITLE_STATE_0X0A_TITLE_FADE_IN;
+                /* 8c015cda */ = TITLE_STATE_0X0A_T
+                menuState_8c1bc7a8.state_0x18ITLE_FADE_IN;
 
                 /* 8c015cde */
                 push_fadein_8c022a9c(10);
