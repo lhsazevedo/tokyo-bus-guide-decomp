@@ -35,7 +35,7 @@ return new class extends TestCase {
         //$this->shouldReadSymbolOffset('peripheral_8c1ba35c', 16, 0);
 
         $this->shouldCall('_getUknPvmBool_8c01432a')->andReturn(0);
-        $this->shouldCall('_FUN_8c011f7e');
+        $this->shouldCall('_freeQueues_8c011f7e');
         $this->shouldCall('_FUN_8c01940e');
 
         // TODO: Fix Task size
@@ -78,7 +78,7 @@ return new class extends TestCase {
         //$this->shouldReadSymbolOffset('peripheral_8c1ba35c', 16, 0);
 
         $this->shouldCall('_getUknPvmBool_8c01432a')->andReturn(0);
-        $this->shouldCall('_FUN_8c011f7e');
+        $this->shouldCall('_freeQueues_8c011f7e');
         $this->shouldCall('_FUN_8c01940e');
 
         // TODO: Fix Task size

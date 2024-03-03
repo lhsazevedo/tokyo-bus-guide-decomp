@@ -102,7 +102,7 @@
           .IMPORT     _const_8c03a15c
           .IMPORT     _var_8c228430
           .IMPORT     _const_8c03a16c
-          .IMPORT     _freeTexlist_8c011e3c
+          .IMPORT     _releaseAndFreeTexlist_8c011e3c
           .IMPORT     _njSetTexture
           .IMPORT     _njCnkSimpleDrawMotion
           .IMPORT     _FUN_8c012178
@@ -3768,7 +3768,7 @@ LP_GEN_99465:
           .DATA.L _const_8c03a15c ; H'8C029D8C
           .DATA.L _var_8c228430 ; H'8C029D90
           .DATA.L _const_8c03a16c ; H'8C029D94
-          .DATA.L _freeTexlist_8c011e3c ; H'8C029D98
+          .DATA.L _releaseAndFreeTexlist_8c011e3c ; H'8C029D98
           .DATA.L _syFree ; H'8C029D9C
 LAB_8c029da0:
           MOV         R10,R12
@@ -5982,7 +5982,7 @@ LP_GEN_16602:
           .DATA.L H'C0000000 ; H'8C02AECC
           .DATA.L _var_8c22847c ; H'8C02AED0
           .DATA.L _var_8c1bb8e8 ; H'8C02AED4
-          .DATA.L _freeTexlist_8c011e3c ; H'8C02AED8
+          .DATA.L _releaseAndFreeTexlist_8c011e3c ; H'8C02AED8
           .DATA.L _syFree ; H'8C02AEDC
           .DATA.L _var_8c228514 ; H'8C02AEE0
           .DATA.L _var_8c228484 ; H'8C02AEE4

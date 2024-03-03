@@ -11,7 +11,7 @@
           .IMPORT     _var_8c1ba36c
           .IMPORT     _FUN_8c01967c
           .IMPORT     _getUknPvmBool_8c01432a
-          .IMPORT     _FUN_8c011f7e
+          .IMPORT     _freeQueues_8c011f7e
           .IMPORT     _var_8c226408
           .IMPORT     _var_8c1bb8dc
           .IMPORT     _midiResetFxAndPlay_8c010846
@@ -64,7 +64,7 @@
           .IMPORT     _njGarbageTexture
           .IMPORT     _FUN_8c02ae3e
           .IMPORT     _initQueues_8c011f36
-          .IMPORT     _FUN_8c011f6c
+          .IMPORT     _resetQueues_8c011f6c
           .IMPORT     _titleResourceGroup_8c044254
           .IMPORT     _var_8c1bc7b4
           .IMPORT     _requestSysResgrp_8c018568
@@ -532,7 +532,7 @@ LAB_8c01db36:
 LP_GEN_73625:
           .DATA.L _FUN_8c01967c ; H'8C01DB48
           .DATA.L _getUknPvmBool_8c01432a ; H'8C01DB4C
-          .DATA.L _FUN_8c011f7e ; H'8C01DB50
+          .DATA.L _freeQueues_8c011f7e ; H'8C01DB50
           .DATA.L _var_8c226408 ; H'8C01DB54
           .DATA.L _var_8c1bb8dc ; H'8C01DB58
           .DATA.L _midiResetFxAndPlay_8c010846 ; H'8C01DB5C
@@ -1162,7 +1162,7 @@ LP_GEN_43538:
           .DATA.L H'C0000000 ; H'8C01E074
           .DATA.L _FUN_8c02ae3e ; H'8C01E078
           .DATA.L _initQueues_8c011f36 ; H'8C01E07C
-          .DATA.L _FUN_8c011f6c ; H'8C01E080
+          .DATA.L _resetQueues_8c011f6c ; H'8C01E080
           .DATA.L _titleResourceGroup_8c044254 ; H'8C01E084
           .DATA.L _var_8c1bc7b4 ; H'8C01E088
           .DATA.L _requestSysResgrp_8c018568 ; H'8C01E08C

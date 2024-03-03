@@ -8,19 +8,19 @@
           .IMPORT     _var_8c1bc418
           .IMPORT     _var_8c1bc424
           .IMPORT     _init_8c043d64
-          .IMPORT     _FUN_8c012030
+          .IMPORT     _requestNjPvmPairs_8c012030
           .IMPORT     _var_8c1bc3f4
           .IMPORT     _njSetTexture
           .IMPORT     _njReleaseCacheTextureNum
-          .IMPORT     _freeTexlist_8c011e3c
+          .IMPORT     _releaseAndFreeTexlist_8c011e3c
           .IMPORT     _syFree
           .IMPORT     _var_8c1bbddc
           .IMPORT     _var_8c18ad20
           .IMPORT     _init_8c043dc4
           .IMPORT     _init_8c043ecc
-          .IMPORT     _FUN_8c011f7e
+          .IMPORT     _freeQueues_8c011f7e
           .IMPORT     _initQueues_8c011f36
-          .IMPORT     _FUN_8c011f6c
+          .IMPORT     _resetQueues_8c011f6c
           .IMPORT     _var_8c18adb0
           .IMPORT     _nop_8c011120
           .IMPORT     _FUN_8c011fe0
@@ -262,11 +262,11 @@ LP_GEN_83755:
           .DATA.L _var_8c1bc424
           .DATA.L s_busstop_pvm_8c0334b4
           .DATA.L _init_8c043d64
-          .DATA.L _FUN_8c012030
+          .DATA.L _requestNjPvmPairs_8c012030
           .DATA.L _var_8c1bc3f4
           .DATA.L _njSetTexture
           .DATA.L _njReleaseCacheTextureNum
-          .DATA.L _freeTexlist_8c011e3c
+          .DATA.L _releaseAndFreeTexlist_8c011e3c
           .DATA.L _syFree
 
           ; UNIT BOUNDARY?
@@ -432,9 +432,9 @@ LP_GEN_93614:
           .DATA.L _requestNj_8c011492
           .DATA.L _init_8c043ecc
           .DATA.L _requestPvm_8c011ac0
-          .DATA.L _freeTexlist_8c011e3c
+          .DATA.L _releaseAndFreeTexlist_8c011e3c
           .DATA.L _syFree
-          .DATA.L _FUN_8c011f7e
+          .DATA.L _freeQueues_8c011f7e
 
 _FUN_8c013d78:
           STS.L       PR,@-R15
@@ -578,13 +578,13 @@ LP_GEN_38230:
           .DATA.W H'0410
           .RES.W 1
           .DATA.L _initQueues_8c011f36
-          .DATA.L _FUN_8c011f6c
+          .DATA.L _resetQueues_8c011f6c
           .DATA.L _var_8c18adb0
           .DATA.L _FUN_8c013d42
           .DATA.L _nop_8c011120
           .DATA.L _FUN_8c011fe0
           .DATA.L _var_8c1bbddc
-          .DATA.L _freeTexlist_8c011e3c
+          .DATA.L _releaseAndFreeTexlist_8c011e3c
           .DATA.L _syFree
           .DATA.L _var_8c1bbfdc
           .DATA.L _init_8c043fd8
@@ -687,7 +687,7 @@ LAB_8c013f54:
 
 LP_GEN_91607:
           .DATA.W H'0410 ; LP_GEN_91607+0
-          .DATA.L _freeTexlist_8c011e3c
+          .DATA.L _releaseAndFreeTexlist_8c011e3c
           .DATA.L _var_8c1bbfdc
           .DATA.L _var_8c18ad18
           .DATA.L _var_8c228708
@@ -956,7 +956,7 @@ LP_GEN_25668:
           .DATA.L _var_8c226508
           .DATA.L _var_8c227dd0
           .DATA.L _var_8c18ad6c
-          .DATA.L _FUN_8c012030
+          .DATA.L _requestNjPvmPairs_8c012030
           .DATA.L _var_8c1bc3f0
           .DATA.L _var_8c18adb0
           .DATA.L _var_8c1bb900
@@ -1314,11 +1314,11 @@ LP_GEN_90737:
           .DATA.L _requestNj_8c011492
           .DATA.L _requestDat_8c011182
           .DATA.L _init_8c0440dc
-          .DATA.L _FUN_8c012030
+          .DATA.L _requestNjPvmPairs_8c012030
           .DATA.L _var_8c1bc3ec
           .DATA.L _var_8c18adac
           .DATA.L _var_8c1bc3f8
-          .DATA.L _FUN_8c011f6c
+          .DATA.L _resetQueues_8c011f6c
           .DATA.L _njSetTexture
           .DATA.L _njLoadCacheTexture
           .DATA.L _setUknPvmBool_8c014330
@@ -1334,7 +1334,7 @@ LP_GEN_90737:
           .DATA.L _FUN_8c02190a
           .DATA.L _FUN_8c021810
           .DATA.L _freeTask_8c014b66
-          .DATA.L _FUN_8c011f7e
+          .DATA.L _freeQueues_8c011f7e
           .DATA.L _var_8c157a6c
           .DATA.L _njReleaseTexture
           .DATA.L _FUN_8c01306e
@@ -1496,7 +1496,7 @@ LP_GEN_28406:
           .DATA.L _njGarbageTexture
           .DATA.L _initQueues_8c011f36
           .DATA.L _FUN_8c02b170
-          .DATA.L _FUN_8c011f6c
+          .DATA.L _resetQueues_8c011f6c
           .DATA.L _setUknPvmBool_8c014330
           .DATA.L _FUN_8c02190a
           .DATA.L _FUN_8c021810
@@ -1648,7 +1648,7 @@ LP_GEN_17698:
           .DATA.W H'0C00 ; LP_GEN_17698+0
           .DATA.W H'0800
           .DATA.L _freeTask_8c014b66
-          .DATA.L _FUN_8c011f7e
+          .DATA.L _freeQueues_8c011f7e
           .DATA.L _var_8c157a6c
           .DATA.L _var_8c1bc3f8
           .DATA.L _njReleaseTexture
@@ -1849,7 +1849,7 @@ LAB_8c0148c0:
 LP_GEN_48435:
           .RES.W      1 ; H'8c0148ca
           .DATA.L _var_8c1bc3f8
-          .DATA.L _FUN_8c011f6c
+          .DATA.L _resetQueues_8c011f6c
           .DATA.L _njSetTexture
           .DATA.L _njLoadCacheTexture
           .DATA.L _setUknPvmBool_8c014330
@@ -1864,7 +1864,7 @@ LP_GEN_48435:
           .DATA.L _FUN_8c02b170
           .DATA.L _FUN_8c02190a
           .DATA.L _freeTask_8c014b66
-          .DATA.L _FUN_8c011f7e
+          .DATA.L _freeQueues_8c011f7e
           .DATA.L _var_8c157a6c
           .DATA.L _njReleaseTexture
           .DATA.L _var_8c1bc438

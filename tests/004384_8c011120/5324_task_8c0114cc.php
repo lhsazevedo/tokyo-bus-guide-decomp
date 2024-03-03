@@ -15,7 +15,7 @@ return new class extends TestCase {
         $dirAStrAddress = $this->allocString('\\DIR_A');
         $dirBStrAddress = $this->allocString('\\DIR_B');
 
-        $this->initUint32($this->addressOf('_var_datQueueBaseDir_8c157a80'), $dataEmptyStrAddress);
+        $this->initUint32($this->addressOf('_var_queueBaseDir_8c157a80'), $dataEmptyStrAddress);
 
         // Dat queue has 3 items
         $currentQueuedNj = $njQueue;
@@ -74,7 +74,7 @@ return new class extends TestCase {
             ->with($dataEmptyStrAddress, $dirAStrAddress)
             ->andReturn(strcmp('\\DIR_A', 'DATA EMPTY'));
 
-        $this->shouldWriteTo('_var_datQueueBaseDir_8c157a80', $dirAStrAddress);
+        $this->shouldWriteTo('_var_queueBaseDir_8c157a80', $dirAStrAddress);
         $this->shouldCall('_gdFsChangeDir', $dirAStrAddress);
 
         $this->shouldCall('_gdFsOpen')
@@ -187,7 +187,7 @@ return new class extends TestCase {
 
         $this->shouldWrite($taskPtr + 0x18, $njQueue);
         $this->shouldwriteTo('_var_8c157a88', 0);
-        $this->shouldWriteTo('_var_datQueueBaseDir_8c157a80', 'DATA EMPTY');
+        $this->shouldWriteTo('_var_queueBaseDir_8c157a80', 'DATA EMPTY');
 
         $this->call('_task_8c0114cc')
             ->with($taskPtr, 0)
@@ -203,7 +203,7 @@ return new class extends TestCase {
         $dataEmptyStrAddress = $this->allocString('DATA EMPTY');
         $dirAStrAddress = $this->allocString('\\DIR_A');
 
-        $this->initUint32($this->addressOf('_var_datQueueBaseDir_8c157a80'), $dataEmptyStrAddress);
+        $this->initUint32($this->addressOf('_var_queueBaseDir_8c157a80'), $dataEmptyStrAddress);
 
         $currentQueuedNj = $njQueue;
         $nj1Dest = $this->alloc(4);
@@ -241,7 +241,7 @@ return new class extends TestCase {
             ->with($dataEmptyStrAddress, $dirAStrAddress)
             ->andReturn(strcmp('\\DIR_A', 'DATA EMPTY'));
 
-        $this->shouldWriteTo('_var_datQueueBaseDir_8c157a80', $dirAStrAddress);
+        $this->shouldWriteTo('_var_queueBaseDir_8c157a80', $dirAStrAddress);
         $this->shouldCall('_gdFsChangeDir', $dirAStrAddress);
 
         $this->shouldCall('_gdFsOpen')
@@ -285,7 +285,7 @@ return new class extends TestCase {
         $dataEmptyStrAddress = $this->allocString('DATA EMPTY');
         $dirAStrAddress = $this->allocString('\\DIR_A');
 
-        $this->initUint32($this->addressOf('_var_datQueueBaseDir_8c157a80'), $dataEmptyStrAddress);
+        $this->initUint32($this->addressOf('_var_queueBaseDir_8c157a80'), $dataEmptyStrAddress);
 
         $currentQueuedNj = $njQueue;
         $nj1Dest = $this->alloc(4);
@@ -321,7 +321,7 @@ return new class extends TestCase {
             ->with($dataEmptyStrAddress, $dirAStrAddress)
             ->andReturn(strcmp('\\DIR_A', 'DATA EMPTY'));
 
-        $this->shouldWriteTo('_var_datQueueBaseDir_8c157a80', $dirAStrAddress);
+        $this->shouldWriteTo('_var_queueBaseDir_8c157a80', $dirAStrAddress);
         $this->shouldCall('_gdFsChangeDir', $dirAStrAddress);
 
         $this->shouldCall('_gdFsOpen')
@@ -374,7 +374,7 @@ return new class extends TestCase {
         $dataEmptyStrAddress = $this->allocString('DATA EMPTY');
         $dirAStrAddress = $this->allocString('\\DIR_A');
 
-        $this->initUint32($this->addressOf('_var_datQueueBaseDir_8c157a80'), $dataEmptyStrAddress);
+        $this->initUint32($this->addressOf('_var_queueBaseDir_8c157a80'), $dataEmptyStrAddress);
 
         $currentQueuedNj = $njQueue;
         $nj1Dest = $this->alloc(4);
@@ -410,7 +410,7 @@ return new class extends TestCase {
             ->with($dataEmptyStrAddress, $dirAStrAddress)
             ->andReturn(strcmp('\\DIR_A', 'DATA EMPTY'));
 
-        $this->shouldWriteTo('_var_datQueueBaseDir_8c157a80', $dirAStrAddress);
+        $this->shouldWriteTo('_var_queueBaseDir_8c157a80', $dirAStrAddress);
         $this->shouldCall('_gdFsChangeDir', $dirAStrAddress);
 
         $this->shouldCall('_gdFsOpen')
@@ -464,7 +464,7 @@ return new class extends TestCase {
         $dirAStrAddress = $this->allocString('\\DIR_A');
         $dirBStrAddress = $this->allocString('\\DIR_B');
 
-        $this->initUint32($this->addressOf('_var_datQueueBaseDir_8c157a80'), $dataEmptyStrAddress);
+        $this->initUint32($this->addressOf('_var_queueBaseDir_8c157a80'), $dataEmptyStrAddress);
 
         /* Dat queue has 3 items */
 
@@ -524,7 +524,7 @@ return new class extends TestCase {
             ->with($dataEmptyStrAddress, $dirBStrAddress)
             ->andReturn(1);
 
-        $this->shouldWriteTo('_var_datQueueBaseDir_8c157a80', $dirBStrAddress);
+        $this->shouldWriteTo('_var_queueBaseDir_8c157a80', $dirBStrAddress);
         $this->shouldCall('_gdFsChangeDir', $dirBStrAddress);
 
         $this->shouldCall('_gdFsOpen')
@@ -586,7 +586,7 @@ return new class extends TestCase {
         $dataEmptyStrAddress = $this->allocString('DATA EMPTY');
         $dirAStrAddress = $this->allocString('\\DIR_A');
 
-        $this->initUint32($this->addressOf('_var_datQueueBaseDir_8c157a80'), $dataEmptyStrAddress);
+        $this->initUint32($this->addressOf('_var_queueBaseDir_8c157a80'), $dataEmptyStrAddress);
 
         $this->initQueuedNj(
             address:  $njQueue,
@@ -621,7 +621,7 @@ return new class extends TestCase {
             ->with($dataEmptyStrAddress, $dirAStrAddress)
             ->andReturn(1);
 
-        $this->shouldWriteTo('_var_datQueueBaseDir_8c157a80', $dirAStrAddress);
+        $this->shouldWriteTo('_var_queueBaseDir_8c157a80', $dirAStrAddress);
         $this->shouldCall('_gdFsChangeDir', $dirAStrAddress);
 
         // task->gdfs_0x0c = gdFsOpen(...)
@@ -648,7 +648,7 @@ return new class extends TestCase {
         $dataEmptyStrAddress = $this->allocString('DATA EMPTY');
         $dirAStrAddress = $this->allocString('\\DIR_A');
 
-        $this->initUint32($this->addressOf('_var_datQueueBaseDir_8c157a80'), $dataEmptyStrAddress);
+        $this->initUint32($this->addressOf('_var_queueBaseDir_8c157a80'), $dataEmptyStrAddress);
 
         $this->initQueuedNj(
             address:  $njQueue,
@@ -686,7 +686,7 @@ return new class extends TestCase {
             ->with($dataEmptyStrAddress, $dirAStrAddress)
             ->andReturn(1);
 
-        $this->shouldWriteTo('_var_datQueueBaseDir_8c157a80', $dirAStrAddress);
+        $this->shouldWriteTo('_var_queueBaseDir_8c157a80', $dirAStrAddress);
         $this->shouldCall('_gdFsChangeDir', $dirAStrAddress);
 
         // task->gdfs_0x0c = gdFsOpen(...)
@@ -715,7 +715,7 @@ return new class extends TestCase {
         $dataEmptyStrAddress = $this->allocString('DATA EMPTY');
         $dirAStrAddress = $this->allocString('\\DIR_A');
 
-        $this->initUint32($this->addressOf('_var_datQueueBaseDir_8c157a80'), $dataEmptyStrAddress);
+        $this->initUint32($this->addressOf('_var_queueBaseDir_8c157a80'), $dataEmptyStrAddress);
 
         $this->initQueuedNj(
             address:  $njQueue,
@@ -750,7 +750,7 @@ return new class extends TestCase {
             ->with($dataEmptyStrAddress, $dirAStrAddress)
             ->andReturn(1);
 
-        $this->shouldWriteTo('_var_datQueueBaseDir_8c157a80', $dirAStrAddress);
+        $this->shouldWriteTo('_var_queueBaseDir_8c157a80', $dirAStrAddress);
         $this->shouldCall('_gdFsChangeDir', $dirAStrAddress);
 
         // task->gdfs_0x0c = gdFsOpen(...)
@@ -784,7 +784,7 @@ return new class extends TestCase {
         $dataEmptyStrAddress = $this->allocString('DATA EMPTY');
         $dirAStrAddress = $this->allocString('\\DIR_A');
 
-        $this->initUint32($this->addressOf('_var_datQueueBaseDir_8c157a80'), $dataEmptyStrAddress);
+        $this->initUint32($this->addressOf('_var_queueBaseDir_8c157a80'), $dataEmptyStrAddress);
 
         $this->initQueuedNj(
             address:  $njQueue,
@@ -821,7 +821,7 @@ return new class extends TestCase {
             ->with($dataEmptyStrAddress, $dirAStrAddress)
             ->andReturn(1);
 
-        $this->shouldWriteTo('_var_datQueueBaseDir_8c157a80', $dirAStrAddress);
+        $this->shouldWriteTo('_var_queueBaseDir_8c157a80', $dirAStrAddress);
         $this->shouldCall('_gdFsChangeDir', $dirAStrAddress);
 
         // task->gdfs_0x0c = gdFsOpen(...)
@@ -857,7 +857,7 @@ return new class extends TestCase {
         $dataEmptyStrAddress = $this->allocString('DATA EMPTY');
         $dirAStrAddress = $this->allocString('\\DIR_A');
 
-        $this->initUint32($this->addressOf('_var_datQueueBaseDir_8c157a80'), $dataEmptyStrAddress);
+        $this->initUint32($this->addressOf('_var_queueBaseDir_8c157a80'), $dataEmptyStrAddress);
 
         $this->initQueuedNj(
             address:  $njQueue,
@@ -892,7 +892,7 @@ return new class extends TestCase {
             ->with($dataEmptyStrAddress, $dirAStrAddress)
             ->andReturn(1);
 
-        $this->shouldWriteTo('_var_datQueueBaseDir_8c157a80', $dirAStrAddress);
+        $this->shouldWriteTo('_var_queueBaseDir_8c157a80', $dirAStrAddress);
         $this->shouldCall('_gdFsChangeDir', $dirAStrAddress);
 
         // task->gdfs_0x0c = gdFsOpen(...)
@@ -932,7 +932,7 @@ return new class extends TestCase {
         $dataEmptyStrAddress = $this->allocString('DATA EMPTY');
         $dirAStrAddress = $this->allocString('\\DIR_A');
 
-        $this->initUint32($this->addressOf('_var_datQueueBaseDir_8c157a80'), $dataEmptyStrAddress);
+        $this->initUint32($this->addressOf('_var_queueBaseDir_8c157a80'), $dataEmptyStrAddress);
 
         $this->initQueuedNj(
             address:  $njQueue,
@@ -967,7 +967,7 @@ return new class extends TestCase {
             ->with($dataEmptyStrAddress, $dirAStrAddress)
             ->andReturn(1);
 
-        $this->shouldWriteTo('_var_datQueueBaseDir_8c157a80', $dirAStrAddress);
+        $this->shouldWriteTo('_var_queueBaseDir_8c157a80', $dirAStrAddress);
         $this->shouldCall('_gdFsChangeDir', $dirAStrAddress);
 
         // task->gdfs_0x0c = gdFsOpen(...)

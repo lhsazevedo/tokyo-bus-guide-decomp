@@ -33,7 +33,7 @@
           .IMPORT     _isFading_8c226568
           .IMPORT     _FUN_8c02aefc
           .IMPORT     _getUknPvmBool_8c01432a
-          .IMPORT     _FUN_8c011f7e
+          .IMPORT     _freeQueues_8c011f7e
           .IMPORT     _cycleOptionAndPlaySound_8c016c58
           .IMPORT     _var_8c1ba36c
           .IMPORT     _const_8c0380c8
@@ -85,7 +85,7 @@
           .IMPORT     _setTaskAction_8c014b3e
           .IMPORT     _push_fadein_8c022a9c
           .IMPORT     _initQueues_8c011f36
-          .IMPORT     _FUN_8c011f6c
+          .IMPORT     _resetQueues_8c011f6c
           .IMPORT     _const_8c038454
           .IMPORT     _const_8c03844c
           .IMPORT     _requestDat_8c011182
@@ -600,7 +600,7 @@ LP_GEN_91278:
           .DATA.L _isFading_8c226568 ; H'8C01B584
           .DATA.L _FUN_8c02aefc ; H'8C01B588
           .DATA.L _getUknPvmBool_8c01432a ; H'8C01B58C
-          .DATA.L _FUN_8c011f7e ; H'8C01B590
+          .DATA.L _freeQueues_8c011f7e ; H'8C01B590
           .DATA.L _cycleOptionAndPlaySound_8c016c58 ; H'8C01B594
           .DATA.L _var_8c1ba36c ; H'8C01B598
           .DATA.L _const_8c0380c8 ; H'8C01B59C
@@ -1273,7 +1273,7 @@ LP_GEN_62205:
           .DATA.L _FUN_8c02aefc ; H'8C01BB18
           .DATA.L _push_fadein_8c022a9c ; H'8C01BB1C
           .DATA.L _initQueues_8c011f36 ; H'8C01BB20
-          .DATA.L _FUN_8c011f6c ; H'8C01BB24
+          .DATA.L _resetQueues_8c011f6c ; H'8C01BB24
           .DATA.L _var_8c1ba344 ; H'8C01BB28
           .DATA.L _const_8c038454 ; H'8C01BB2C
           .DATA.L _const_8c03844c ; H'8C01BB30

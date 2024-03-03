@@ -13,7 +13,7 @@
           .IMPORT     _var_tex_8c157af8
           .IMPORT     _njGarbageTexture
           .IMPORT     _initQueues_8c011f36
-          .IMPORT     _FUN_8c011f6c
+          .IMPORT     _resetQueues_8c011f6c
           .IMPORT     _requestSysResgrp_8c018568
           .IMPORT     _setUknPvmBool_8c014330
           .IMPORT     _resetUknPvmBool_8c014322
@@ -26,7 +26,7 @@
           .IMPORT     _peripheral_8c1ba35c
           .IMPORT     _isFading_8c226568
           .IMPORT     _getUknPvmBool_8c01432a
-          .IMPORT     _FUN_8c011f7e
+          .IMPORT     _freeQueues_8c011f7e
           .IMPORT     _FUN_8c016d2c
           .IMPORT     _cycleOptionAndPlaySound_8c016c58
           .IMPORT     _FUN_8c016182
@@ -455,7 +455,7 @@ LP_GEN_72378:
           .DATA.L _var_tex_8c157af8 ; H'8C01CCBC
           .DATA.L _njGarbageTexture ; H'8C01CCC0
           .DATA.L _initQueues_8c011f36 ; H'8C01CCC4
-          .DATA.L _FUN_8c011f6c ; H'8C01CCC8
+          .DATA.L _resetQueues_8c011f6c ; H'8C01CCC8
           .DATA.L _requestSysResgrp_8c018568 ; H'8C01CCCC
           .DATA.L _setUknPvmBool_8c014330 ; H'8C01CCD0
           .DATA.L _resetUknPvmBool_8c014322 ; H'8C01CCD4
@@ -810,7 +810,7 @@ LAB_8c01cf5c:
           NOP
 LP_GEN_45604:
           .DATA.L _getUknPvmBool_8c01432a ; H'8C01CF64
-          .DATA.L _FUN_8c011f7e ; H'8C01CF68
+          .DATA.L _freeQueues_8c011f7e ; H'8C01CF68
           .DATA.L H'42400000 ; H'8C01CF6C
           .DATA.L H'40C00000 ; H'8C01CF70
           .DATA.L _FUN_8c016d2c ; H'8C01CF74
@@ -1202,7 +1202,7 @@ LP_GEN_13275:
           .DATA.L _var_tex_8c157af8 ; H'8C01D268
           .DATA.L _njGarbageTexture ; H'8C01D26C
           .DATA.L _initQueues_8c011f36 ; H'8C01D270
-          .DATA.L _FUN_8c011f6c ; H'8C01D274
+          .DATA.L _resetQueues_8c011f6c ; H'8C01D274
           .DATA.L _init_8c0450d8 ; H'8C01D278
           .DATA.L _requestSysResgrp_8c018568 ; H'8C01D27C
           .DATA.L _setUknPvmBool_8c014330 ; H'8C01D280

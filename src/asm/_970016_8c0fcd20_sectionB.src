@@ -3,7 +3,7 @@
           .EXPORT     _var_8c157a74
           .EXPORT     _var_8c157a78
           .EXPORT     _var_8c157a7c
-          .EXPORT     _var_datQueueBaseDir_8c157a80
+          .EXPORT     _var_queueBaseDir_8c157a80
           .EXPORT     _var_8c157a84
           .EXPORT     _var_8c157a88
           .EXPORT     _var_datQueue_8c157a8c
@@ -14,13 +14,13 @@
           .EXPORT     _var_njQueueRear_8c157aa0
           .EXPORT     _var_njQueueTail_8c157aa4
           .EXPORT     _var_8c157aa8
-          .EXPORT     _var_uknQueue_8c157aac
-          .EXPORT     _var_uknQueueCursor_8c157ab0
-          .EXPORT     _var_uknQueueTail_8c157ab4
+          .EXPORT     _var_texlistQueue_8c157aac
+          .EXPORT     _var_texlistQueueCursor_8c157ab0
+          .EXPORT     _var_texlistQueueTail_8c157ab4
           .EXPORT     _var_8c157ab8
-          .EXPORT     _var_8c157abc
-          .EXPORT     _var_8c157ac0
-          .EXPORT     _var_8c157ac4
+          .EXPORT     _var_pvmQueue_8c157abc
+          .EXPORT     _var_pvmQueueCursor_8c157ac0
+          .EXPORT     _var_pvmQueueTail_8c157ac4
           .EXPORT     _var_8c157ac8
           .EXPORT     _var_8c157acc
           .EXPORT     _var_8c157ad0
@@ -454,7 +454,7 @@ _var_8c157a78:
           .RES.B      4
 _var_8c157a7c:
           .RES.B      4
-_var_datQueueBaseDir_8c157a80:
+_var_queueBaseDir_8c157a80:
           .RES.B      4
 _var_8c157a84:
           .RES.B      4
@@ -476,19 +476,19 @@ _var_njQueueTail_8c157aa4:
           .RES.B      4
 _var_8c157aa8:
           .RES.B      4
-_var_uknQueue_8c157aac:
+_var_texlistQueue_8c157aac:
           .RES.B      4
-_var_uknQueueCursor_8c157ab0:
+_var_texlistQueueCursor_8c157ab0:
           .RES.B      4
-_var_uknQueueTail_8c157ab4:
+_var_texlistQueueTail_8c157ab4:
           .RES.B      4
 _var_8c157ab8:
           .RES.B      4
-_var_8c157abc:
+_var_pvmQueue_8c157abc:
           .RES.B      4
-_var_8c157ac0:
+_var_pvmQueueCursor_8c157ac0:
           .RES.B      4
-_var_8c157ac4:
+_var_pvmQueueTail_8c157ac4:
           .RES.B      4
 _var_8c157ac8:
           .RES.B      4

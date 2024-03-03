@@ -31,7 +31,7 @@
           .IMPORT     _FUN_8c019550
           .IMPORT     _isFading_8c226568
           .IMPORT     _getUknPvmBool_8c01432a
-          .IMPORT     _FUN_8c011f7e
+          .IMPORT     _freeQueues_8c011f7e
           .IMPORT     _cycleOptionAndPlaySound_8c016c58
           .IMPORT     _var_8c1ba36c
           .IMPORT     _FUN_8c0194de
@@ -67,7 +67,7 @@
           .IMPORT     _menuTextboxText_8c02af1c
           .IMPORT     _setTaskAction_8c014b3e
           .IMPORT     _initQueues_8c011f36
-          .IMPORT     _FUN_8c011f6c
+          .IMPORT     _resetQueues_8c011f6c
           .IMPORT     _init_8c044e90
           .IMPORT     _requestSysResgrp_8c018568
           .IMPORT     _const_8c038660
@@ -1078,7 +1078,7 @@ LAB_8c01c276:
           MOV.L       R3,@R15
 LP_GEN_76857:
           .DATA.L _getUknPvmBool_8c01432a ; H'8C01C284
-          .DATA.L _FUN_8c011f7e ; H'8C01C288
+          .DATA.L _freeQueues_8c011f7e ; H'8C01C288
           .DATA.L _drawSprite_8c014f54 ; H'8C01C28C
           .DATA.L _cycleOptionAndPlaySound_8c016c58 ; H'8C01C290
           .DATA.L _var_8c1ba36c ; H'8C01C294
@@ -1953,7 +1953,7 @@ LP_GEN_73212:
           .DATA.L _setTaskAction_8c014b3e ; H'8C01C924
           .DATA.L _menuState_8c1bc7a8 ; H'8C01C928
           .DATA.L _initQueues_8c011f36 ; H'8C01C92C
-          .DATA.L _FUN_8c011f6c ; H'8C01C930
+          .DATA.L _resetQueues_8c011f6c ; H'8C01C930
           .DATA.L _init_8c044e90 ; H'8C01C934
           .DATA.L _var_resourceGroup_8c2263a8 ; H'8C01C938
           .DATA.L _requestSysResgrp_8c018568 ; H'8C01C93C

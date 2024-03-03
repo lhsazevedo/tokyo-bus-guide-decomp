@@ -37,7 +37,7 @@
           .IMPORT     _init_8c03bd80
           .IMPORT     _isFading_8c226568
           .IMPORT     _getUknPvmBool_8c01432a
-          .IMPORT     _FUN_8c011f7e
+          .IMPORT     _freeQueues_8c011f7e
           .IMPORT     _FUN_8c010d8a
           .IMPORT     _push_fadein_8c022a9c
           .IMPORT     _var_8c1ba210
@@ -53,7 +53,7 @@
           .IMPORT     _var_tex_8c157af8
           .IMPORT     _njGarbageTexture
           .IMPORT     _initQueues_8c011f36
-          .IMPORT     _FUN_8c011f6c
+          .IMPORT     _resetQueues_8c011f6c
           .IMPORT     _init_8c044264
           .IMPORT     _setUknPvmBool_8c014330
           .IMPORT     _resetUknPvmBool_8c014322
@@ -83,7 +83,7 @@
           .IMPORT     _const_8c0362ac
           .IMPORT     _const_8c0362b8
           .IMPORT     _requestPvm_8c011ac0
-          .IMPORT     _freeTexlist_8c011e3c
+          .IMPORT     _releaseAndFreeTexlist_8c011e3c
           .IMPORT     _syFree
           .EXPORT     _FUN_8c016d2c
           .EXPORT     _FUN_8c016dc6
@@ -1521,7 +1521,7 @@ LP_GEN_90654:
           .DATA.L _isFading_8c226568 ; H'8C0177DC
           .DATA.L _var_8c225fbc ; H'8C0177E0
           .DATA.L _getUknPvmBool_8c01432a ; H'8C0177E4
-          .DATA.L _FUN_8c011f7e ; H'8C0177E8
+          .DATA.L _freeQueues_8c011f7e ; H'8C0177E8
           .DATA.L _FUN_8c010d8a ; H'8C0177EC
           .DATA.L _snd_8c010cd6 ; H'8C0177F0
           .DATA.L _push_fadein_8c022a9c ; H'8C0177F4
@@ -2045,7 +2045,7 @@ LP_GEN_86246:
           .DATA.L _var_8c225fbc ; H'8C017BE0
           .DATA.L _isFading_8c226568 ; H'8C017BE4
           .DATA.L _getUknPvmBool_8c01432a ; H'8C017BE8
-          .DATA.L _FUN_8c011f7e ; H'8C017BEC
+          .DATA.L _freeQueues_8c011f7e ; H'8C017BEC
           .DATA.L _FUN_8c010d8a ; H'8C017BF0
           .DATA.L _snd_8c010cd6 ; H'8C017BF4
           .DATA.L _push_fadein_8c022a9c ; H'8C017BF8
@@ -2480,13 +2480,13 @@ LP_GEN_67544:
           .DATA.L _var_tex_8c157af8 ; H'8C017F58
           .DATA.L _njGarbageTexture ; H'8C017F5C
           .DATA.L _initQueues_8c011f36 ; H'8C017F60
-          .DATA.L _FUN_8c011f6c ; H'8C017F64
+          .DATA.L _resetQueues_8c011f6c ; H'8C017F64
           .DATA.L _init_8c044264 ; H'8C017F68
           .DATA.L _setUknPvmBool_8c014330 ; H'8C017F6C
           .DATA.L _resetUknPvmBool_8c014322 ; H'8C017F70
           .DATA.L _nop_8c011120 ; H'8C017F74
           .DATA.L _FUN_8c011fe0 ; H'8C017F78
-          .DATA.L _FUN_8c011f7e ; H'8C017F7C
+          .DATA.L _freeQueues_8c011f7e ; H'8C017F7C
           .DATA.L _push_fadein_8c022a9c ; H'8C017F80
           .DATA.L _snd_8c010cd6 ; H'8C017F84
           .DATA.L _FUN_8c0128cc ; H'8C017F88
@@ -2653,7 +2653,7 @@ LP_GEN_56170:
           .DATA.L _FUN_8c02aefc ; H'8C0180E0
           .DATA.L _var_demo_8c1bb8d0 ; H'8C0180E4
           .DATA.L _initQueues_8c011f36 ; H'8C0180E8
-          .DATA.L _FUN_8c011f6c ; H'8C0180EC
+          .DATA.L _resetQueues_8c011f6c ; H'8C0180EC
           .DATA.L _init_8c044264 ; H'8C0180F0
           .DATA.L _setUknPvmBool_8c014330 ; H'8C0180F4
           .DATA.L _resetUknPvmBool_8c014322 ; H'8C0180F8
@@ -2983,7 +2983,7 @@ LP_GEN_82242:
           .DATA.L _FUN_8c010bae ; H'8C018380
           .DATA.L _isFading_8c226568 ; H'8C018384
           .DATA.L _getUknPvmBool_8c01432a ; H'8C018388
-          .DATA.L _FUN_8c011f7e ; H'8C01838C
+          .DATA.L _freeQueues_8c011f7e ; H'8C01838C
           .DATA.L _push_fadein_8c022a9c ; H'8C018390
           .DATA.L _snd_8c010cd6 ; H'8C018394
           .DATA.L _processNavInputAndPlaySound_8c016caa ; H'8C018398
@@ -3287,7 +3287,7 @@ LP_GEN_93008:
           .DATA.L _setTaskAction_8c014b3e ; H'8C0185FC
           .DATA.L _menuState_8c1bc7a8 ; H'8C018600
           .DATA.L _initQueues_8c011f36 ; H'8C018604
-          .DATA.L _FUN_8c011f6c ; H'8C018608
+          .DATA.L _resetQueues_8c011f6c ; H'8C018608
           .DATA.L _init_8c044d40 ; H'8C01860C
           .DATA.L _setUknPvmBool_8c014330 ; H'8C018610
           .DATA.L _resetUknPvmBool_8c014322 ; H'8C018614
@@ -3300,6 +3300,6 @@ LP_GEN_93008:
           .DATA.L _const_8c0362b8 ; H'8C018630
           .DATA.L _requestPvm_8c011ac0 ; H'8C018634
           .DATA.L _var_8c225fb0 ; H'8C018638
-          .DATA.L _freeTexlist_8c011e3c ; H'8C01863C
+          .DATA.L _releaseAndFreeTexlist_8c011e3c ; H'8C01863C
           .DATA.L _syFree ; H'8C018640
           .END

@@ -12,10 +12,10 @@ return new class extends TestCase {
             ->with(8)
             ->andReturn(0xbebacafe);
         
-        $this->shouldWriteTo('_var_uknQueue_8c157aac', 0xbebacafe);
-        $this->shouldWriteTo('_var_uknQueueTail_8c157ab4', 0xbebacafe + 8);
+        $this->shouldWriteTo('_var_texlistQueue_8c157aac', 0xbebacafe);
+        $this->shouldWriteTo('_var_texlistQueueTail_8c157ab4', 0xbebacafe + 8);
 
-        $this->call('_alloc8c157aac_8c0117b8')
+        $this->call('_initTexlistQueue_8c0117b8')
             ->with(1)
             ->shouldReturn(1)
             ->run();
@@ -27,10 +27,10 @@ return new class extends TestCase {
             ->with(16)
             ->andReturn(0xbebacafe);
 
-        $this->shouldWriteTo('_var_uknQueue_8c157aac', 0xbebacafe);
-        $this->shouldWriteTo('_var_uknQueueTail_8c157ab4', 0xbebacafe + 16);
+        $this->shouldWriteTo('_var_texlistQueue_8c157aac', 0xbebacafe);
+        $this->shouldWriteTo('_var_texlistQueueTail_8c157ab4', 0xbebacafe + 16);
 
-        $this->call('_alloc8c157aac_8c0117b8')
+        $this->call('_initTexlistQueue_8c0117b8')
             ->with(2)
             ->shouldReturn(1)
             ->run();
@@ -42,9 +42,9 @@ return new class extends TestCase {
             ->with(8)
             ->andReturn(0);
 
-        $this->shouldWriteTo('_var_uknQueue_8c157aac', 0);
+        $this->shouldWriteTo('_var_texlistQueue_8c157aac', 0);
 
-        $this->call('_alloc8c157aac_8c0117b8')
+        $this->call('_initTexlistQueue_8c0117b8')
             ->with(1)
             ->shouldReturn(0)
             ->run();
@@ -52,10 +52,10 @@ return new class extends TestCase {
 
     public function test_resetsPointersWhenParamIsZero()
     {
-        $this->shouldWriteTo('_var_uknQueueTail_8c157ab4', -1);
-        $this->shouldWriteTo('_var_uknQueue_8c157aac', -1);
+        $this->shouldWriteTo('_var_texlistQueueTail_8c157ab4', -1);
+        $this->shouldWriteTo('_var_texlistQueue_8c157aac', -1);
 
-        $this->call('_alloc8c157aac_8c0117b8')
+        $this->call('_initTexlistQueue_8c0117b8')
             ->with(0)
             ->shouldReturn(1)
             ->run();

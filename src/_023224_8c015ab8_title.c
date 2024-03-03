@@ -8,7 +8,7 @@
 
 
 extern Bool getUknPvmBool_8c01432a();
-extern void FUN_8c011f7e();
+extern void freeQueues_8c011f7e();
 extern void FUN_8c01940e();
 extern void push_fadein_8c022a9c();
 extern SDMIDI midiHandles_8c0fcd28[7];
@@ -31,7 +31,7 @@ extern FUN_8c019550(char** p1, int p2);
 extern void setVmSelectTaskAction_8c019e44(Task* task);
 extern FUN_8c016182();
 extern FUN_8c0159ac();
-extern void FUN_8c011f6c();
+extern void resetQueues_8c011f6c();
 extern void requestSysResgrp_8c018568(ResourceGroup* dds, ResourceGroupInfo* rg);
 extern void requestCommonResources_8c01852c();
 extern void setUknPvmBool_8c014330();
@@ -60,7 +60,7 @@ void task_title_8c015ab8(Task* task, void *state) {
         case TITLE_STATE_0X00_INIT: {
             if (getUknPvmBool_8c01432a() == FALSE) {
                 /* 8c015b96 */
-                FUN_8c011f7e(); /* messes with vmu */
+                freeQueues_8c011f7e(); /* messes with vmu */
                 FUN_8c01940e();
 
                 if (task->field_0x08 == FALSE) {
@@ -163,8 +163,8 @@ void task_title_8c015ab8(Task* task, void *state) {
                     return;
                 }
 
-                /* 8c015cda */ = TITLE_STATE_0X0A_T
-                menuState_8c1bc7a8.state_0x18ITLE_FADE_IN;
+                /* 8c015cda */
+                menuState_8c1bc7a8.state_0x18 = TITLE_STATE_0X0A_TITLE_FADE_IN;
 
                 /* 8c015cde */
                 push_fadein_8c022a9c(10);
@@ -426,7 +426,7 @@ void FUN_8c015fd6 (Bool direct) {
     njGarbageTexture(&var_tex_8c157af8, 3072);
     FUN_8c02ae3e(0x20, 0x178, -2.0, 0x240, 0x40, 0, 0, -1);
     initQueues_8c011f36(8, 0, 0, 8);
-    FUN_8c011f6c();
+    resetQueues_8c011f6c();
     var_8c225fb0 = (void *) -1;
     requestSysResgrp_8c018568(&menuState_8c1bc7a8.resourceGroupB_0x0c, &titleResourceGroup_8c044254);
     requestCommonResources_8c01852c();

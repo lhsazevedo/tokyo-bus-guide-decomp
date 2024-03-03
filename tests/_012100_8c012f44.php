@@ -274,7 +274,7 @@ return new class extends TestCase {
         $this->shouldWrite($taskPtr + 8, 1);
         $this->shouldWriteTo('_var_8c1bc450', fdec(41));
 
-        $this->shouldCall('_FUN_8c011f6c');
+        $this->shouldCall('_resetQueues_8c011f6c');
         $this->shouldCall('_requestDat_8c011182')->with("\\SOUND", "manatee.drv", $this->addressOf('_memblkSource_8c0fcd48'));
         $this->shouldCall('_requestDat_8c011182')->with("\\SOUND", "bus.mlt", $this->addressOf('_memblkSource_8c0fcd4c'));
         $this->shouldCall('_resetUknPvmBool_8c014322');
@@ -305,7 +305,7 @@ return new class extends TestCase {
 
         $this->shouldCall('_getUknPvmBool_8c01432a')->andReturn(1);
 
-        $this->shouldCall('_FUN_8c011f7e');
+        $this->shouldCall('_freeQueues_8c011f7e');
         $this->shouldCall('_freeTask_8c014b66')->with($taskPtr);
         $this->shouldCall('_initSoundMidiAdx_8c010e18');
         $this->shouldWriteTo('_var_8c2260a8', 1);
@@ -439,7 +439,7 @@ return new class extends TestCase {
         $this->shouldWrite($createdTaskPtr + 0x08, 0);
 
         $this->shouldCall('_initQueues_8c011f36')->with(0x10, 8, 0, 8);
-        $this->shouldCall('_FUN_8c011f6c');
+        $this->shouldCall('_resetQueues_8c011f6c');
 
         $this->shouldCall('_requestDat_8c011182')->with("\\SYSTEM", "mark_parts.dat", $this->addressOf('_var_mark_parts_dat_8c1bc41c'));
         $this->shouldCall('_requestDat_8c011182')->with("\\SYSTEM", "mark.dat", $this->addressOf('_var_mark_dat_8c1bc420'));
@@ -593,7 +593,7 @@ return new class extends TestCase {
         $this->shouldWrite($createdTaskPtr + 0x08, 0);
 
         $this->shouldCall('_initQueues_8c011f36')->with(0x10, 8, 0, 8);
-        $this->shouldCall('_FUN_8c011f6c');
+        $this->shouldCall('_resetQueues_8c011f6c');
 
         $this->shouldCall('_requestDat_8c011182')->with("\\SYSTEM", "mark_parts.dat", $this->addressOf('_var_mark_parts_dat_8c1bc41c'));
         $this->shouldCall('_requestDat_8c011182')->with("\\SYSTEM", "mark.dat", $this->addressOf('_var_mark_dat_8c1bc420'));
@@ -747,7 +747,7 @@ return new class extends TestCase {
         $this->shouldWrite($createdTaskPtr + 0x08, 0);
 
         $this->shouldCall('_initQueues_8c011f36')->with(0x10, 8, 0, 8);
-        $this->shouldCall('_FUN_8c011f6c');
+        $this->shouldCall('_resetQueues_8c011f6c');
 
         $this->shouldCall('_requestDat_8c011182')->with("\\SYSTEM", "mark_parts.dat", $this->addressOf('_var_mark_parts_dat_8c1bc41c'));
         $this->shouldCall('_requestDat_8c011182')->with("\\SYSTEM", "mark.dat", $this->addressOf('_var_mark_dat_8c1bc420'));
@@ -901,7 +901,7 @@ return new class extends TestCase {
         $this->shouldWrite($createdTaskPtr + 0x08, 0);
 
         $this->shouldCall('_initQueues_8c011f36')->with(0x10, 8, 0, 8);
-        $this->shouldCall('_FUN_8c011f6c');
+        $this->shouldCall('_resetQueues_8c011f6c');
 
         $this->shouldCall('_requestDat_8c011182')->with("\\SYSTEM", "mark_parts.dat", $this->addressOf('_var_mark_parts_dat_8c1bc41c'));
         $this->shouldCall('_requestDat_8c011182')->with("\\SYSTEM", "mark.dat", $this->addressOf('_var_mark_dat_8c1bc420'));

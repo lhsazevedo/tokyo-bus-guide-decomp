@@ -614,7 +614,7 @@ void task_8c013388(Task *task, void *state) {
                 task->field_0x08++;
                 var_8c1bc450 = (Float) var_loadedFooNjm_8c1bc448->nbFrame - 1;
 
-                FUN_8c011f6c();
+                resetQueues_8c011f6c();
                 requestDat_8c011182("\\SOUND", "manatee.drv", &memblkSource_8c0fcd48);
                 requestDat_8c011182("\\SOUND", "bus.mlt", &memblkSource_8c0fcd4c);
                 resetUknPvmBool_8c014322();
@@ -625,7 +625,7 @@ void task_8c013388(Task *task, void *state) {
         case 1: {
             /* 8c0133a0, 8c0134ce */
             if (getUknPvmBool_8c01432a() != 0) {
-                FUN_8c011f7e();
+                freeQueues_8c011f7e();
                 freeTask_8c014b66(task);
                 initSoundMidiAdx_8c010e18();
                 var_8c2260a8 = 1;
@@ -739,7 +739,7 @@ void njUserInit_8c0134ec() {
     created_task->field_0x08 = 0;
 
     initQueues_8c011f36(16, 8, 0, 8);
-    FUN_8c011f6c();
+    resetQueues_8c011f6c();
 
     requestDat_8c011182("\\SYSTEM", "mark_parts.dat", &var_mark_parts_dat_8c1bc41c);
     requestDat_8c011182("\\SYSTEM", "mark.dat", &var_mark_dat_8c1bc420);

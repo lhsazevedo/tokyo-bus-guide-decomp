@@ -62,9 +62,9 @@ compile  src/non_matching/_004384_8c011120.c
 $sh4objtest "tests/004384_8c011120/4384_nop_8c011120.php" "build/_004384_8c011120_c.obj"
 
 assemble  src/asm/_004384_8c011120.src
-$sh4objtest "tests/004384_8c011120/4458_FUN_8c01116a.php" "build/_004384_8c011120_src.obj"
+$sh4objtest "tests/004384_8c011120/4458_resetDatQueue_8c01116a.php" "build/_004384_8c011120_src.obj"
 compile  src/non_matching/_004384_8c011120.c
-$sh4objtest "tests/004384_8c011120/4458_FUN_8c01116a.php" "build/_004384_8c011120_c.obj"
+$sh4objtest "tests/004384_8c011120/4458_resetDatQueue_8c01116a.php" "build/_004384_8c011120_c.obj"
 
 assemble  src/asm/_004384_8c011120.src
 $sh4objtest "tests/004384_8c011120/4532_task_8c0111b4.php" "build/_004384_8c011120_src.obj"
@@ -87,6 +87,16 @@ compile  src/non_matching/_004384_8c011120.c
 $sh4objtest "tests/004384_8c011120/5814_sortNjQueueAndPushUnknownTask_8c0116b6.php" "build/_004384_8c011120_c.obj"
 
 assemble  src/asm/_004384_8c011120.src
-$sh4objtest "tests/004384_8c011120/6072_FUN_8c0117b8.php" "build/_004384_8c011120_src.obj"
+$sh4objtest "tests/004384_8c011120/6072_initTexlistQueue_8c0117b8.php" "build/_004384_8c011120_src.obj"
 compile  src/non_matching/_004384_8c011120.c
-$sh4objtest "tests/004384_8c011120/6072_FUN_8c0117b8.php" "build/_004384_8c011120_c.obj"
+$sh4objtest "tests/004384_8c011120/6072_initTexlistQueue_8c0117b8.php" "build/_004384_8c011120_c.obj"
+
+assemble  src/asm/_004384_8c011120.src
+$sh4objtest "tests/004384_8c011120/6142_resetTexlistQueue_8c0117fe.php" "build/_004384_8c011120_src.obj"
+compile  src/non_matching/_004384_8c011120.c
+$sh4objtest "tests/004384_8c011120/6142_resetTexlistQueue_8c0117fe.php" "build/_004384_8c011120_c.obj"
+
+assemble  src/asm/_004384_8c011120.src
+$sh4objtest "tests/004384_8c011120/6172_requestTexlist_8c01181c.php" "build/_004384_8c011120_src.obj"
+compile  src/non_matching/_004384_8c011120.c
+$sh4objtest "tests/004384_8c011120/6172_requestTexlist_8c01181c.php" "build/_004384_8c011120_c.obj"
