@@ -12,7 +12,7 @@ return new class extends TestCase {
         $queue = $this->alloc($queueSize * $sizeOfStruct);
         $queueTail = $queue + $queueSize * $sizeOfStruct;
 
-        $this->initUint32($this->addressOf('_var_texlistQueueCursor_8c157ab0'), $queue);
+        $this->initUint32($this->addressOf('_var_texlistQueueRear_8c157ab0'), $queue);
         $this->initUint32($this->addressOf('_var_texlistQueueTail_8c157ab4'), $queueTail);
 
         $dirname = $this->allocString('\\MY_DIR');
@@ -20,7 +20,7 @@ return new class extends TestCase {
 
         $this->shouldWrite($queue + 0, '\\MY_DIR');
         $this->shouldWrite($queue + 4, $unknownStruct);
-        $this->shouldWriteTo('_var_texlistQueueCursor_8c157ab0', $queue + $sizeOfStruct);
+        $this->shouldWriteTo('_var_texlistQueueRear_8c157ab0', $queue + $sizeOfStruct);
 
         $this->call('_requestTexlist_8c01181c')
             ->with($dirname, $unknownStruct)
@@ -35,7 +35,7 @@ return new class extends TestCase {
         $queue = $this->alloc($queueSize * $sizeOfStruct);
         $queueTail = $queue + $queueSize * $sizeOfStruct;
 
-        $this->initUint32($this->addressOf('_var_texlistQueueCursor_8c157ab0'), $queueTail);
+        $this->initUint32($this->addressOf('_var_texlistQueueRear_8c157ab0'), $queueTail);
         $this->initUint32($this->addressOf('_var_texlistQueueTail_8c157ab4'), $queueTail);
 
         $dirname = $this->allocString('\\MY_DIR');

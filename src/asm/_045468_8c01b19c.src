@@ -92,7 +92,7 @@
           .IMPORT     _setUknPvmBool_8c014330
           .IMPORT     _resetUknPvmBool_8c014322
           .IMPORT     _nop_8c011120
-          .IMPORT     _FUN_8c011fe0
+          .IMPORT     _processQueues_8c011fe0
           .EXPORT     _FUN_8c01b19c
           .EXPORT     _FUN_8c01b1c0
           .EXPORT     _FUN_8c01b206
@@ -1281,5 +1281,5 @@ LP_GEN_62205:
           .DATA.L _setUknPvmBool_8c014330 ; H'8C01BB38
           .DATA.L _resetUknPvmBool_8c014322 ; H'8C01BB3C
           .DATA.L _nop_8c011120 ; H'8C01BB40
-          .DATA.L _FUN_8c011fe0 ; H'8C01BB44
+          .DATA.L _processQueues_8c011fe0 ; H'8C01BB44
           .END

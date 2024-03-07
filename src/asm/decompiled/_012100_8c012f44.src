@@ -81,7 +81,7 @@
           .IMPORT     _resetUknPvmBool_8c014322
           .IMPORT     _setUknPvmBool_8c014330
           .IMPORT     _nop_8c011120
-          .IMPORT     _FUN_8c011fe0
+          .IMPORT     _processQueues_8c011fe0
           .IMPORT     _freeQueues_8c011f7e
           .IMPORT     _initSoundMidiAdx_8c010e18
           .IMPORT     _var_8c2260a8
@@ -164,7 +164,7 @@
           .IMPORT     _var_8c1bc410
           .IMPORT     _var_8c1bc414
           .IMPORT     _gdFsEntryErrFuncAll
-          .IMPORT     _var_8c157a60
+          .IMPORT     _var_queuesAreInitialized_8c157a60
           .IMPORT     _init_8c03bfa8
           .IMPORT     _gdFsReqDrvStat
           .IMPORT     _gdFsGetSysHn
@@ -912,7 +912,7 @@ LP_GEN_65923:
           .DATA.L _resetUknPvmBool_8c014322
           .DATA.L _setUknPvmBool_8c014330
           .DATA.L _nop_8c011120
-          .DATA.L _FUN_8c011fe0
+          .DATA.L _processQueues_8c011fe0
           .DATA.L _freeQueues_8c011f7e
           .DATA.L _freeTask_8c014b66
           .DATA.L _initSoundMidiAdx_8c010e18
@@ -1489,7 +1489,7 @@ LP_GEN_19861:
           .DATA.L     _resetUknPvmBool_8c014322
           .DATA.L     _setUknPvmBool_8c014330
           .DATA.L     _nop_8c011120
-          .DATA.L     _FUN_8c011fe0
+          .DATA.L     _processQueues_8c011fe0
           .DATA.L     _var_gdErr_8c18ad14
           .DATA.L     _FUN_8c0134d6
           .DATA.L     _gdFsEntryErrFuncAll
@@ -1497,7 +1497,7 @@ LP_GEN_19861:
           .DATA.L     _init_8c03bd80
           .DATA.L     _init_8c03bd84
           .DATA.L     _pdVibMxStop
-          .DATA.L     _var_8c157a60
+          .DATA.L     _var_queuesAreInitialized_8c157a60
           .DATA.L     _init_8c03bfa8
           .DATA.L     _gdFsReqDrvStat
           .DATA.L     _gdFsGetSysHn

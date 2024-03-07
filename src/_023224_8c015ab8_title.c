@@ -35,7 +35,7 @@ extern void resetQueues_8c011f6c();
 extern void requestSysResgrp_8c018568(ResourceGroup* dds, ResourceGroupInfo* rg);
 extern void requestCommonResources_8c01852c();
 extern void setUknPvmBool_8c014330();
-extern void FUN_8c011fe0(void* p1, int p2, int p3, int p4, void* p2);
+extern void processQueues_8c011fe0(void* p1, int p2, int p3, int p4, void* p2);
 extern void snd_8c010cd6(int p1, int p2);
 extern Bool FUN_8c012984(void);
 
@@ -431,5 +431,5 @@ void FUN_8c015fd6 (Bool direct) {
     requestSysResgrp_8c018568(&menuState_8c1bc7a8.resourceGroupB_0x0c, &titleResourceGroup_8c044254);
     requestCommonResources_8c01852c();
     setUknPvmBool_8c014330();
-    FUN_8c011fe0(&nop_8c011120, 0, 0, 0, &resetUknPvmBool_8c014322);
+    processQueues_8c011fe0(&nop_8c011120, 0, 0, 0, &resetUknPvmBool_8c014322);
 }

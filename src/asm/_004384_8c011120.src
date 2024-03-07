@@ -15,7 +15,7 @@
           .IMPORT     _var_datQueue_8c157a8c
           .IMPORT     _var_datQueueRear_8c157a90
           .IMPORT     _var_datQueueTail_8c157a94
-          .IMPORT     _var_8c157a98
+          .IMPORT     _var_datQueueIsIdle_8c157a98
           .IMPORT     _var_tasks_8c1ba3c8
           .IMPORT     _strcmp
           .IMPORT     __quick_evn_mvn
@@ -23,21 +23,21 @@
           .IMPORT     _var_njQueueTail_8c157aa4
           .IMPORT     _var_njQueueRear_8c157aa0
           .IMPORT     _ptr_str_DATA_EMPTY_8c03be7c
-          .IMPORT     _var_8c157aa8
+          .IMPORT     _var_njQueueIsIdle_8c157aa8
           .IMPORT     _var_texbuf_8c277ca0
-          .IMPORT     _var_8c157a84
+          .IMPORT     _var_queueBuffer_8c157a84
           .IMPORT     _njReadBinary
           .IMPORT     __quick_odd_mvn
           .IMPORT     _var_texlistQueue_8c157aac
           .IMPORT     _var_texlistQueueTail_8c157ab4
-          .IMPORT     _var_texlistQueueCursor_8c157ab0
-          .IMPORT     _var_8c157ab8
+          .IMPORT     _var_texlistQueueRear_8c157ab0
+          .IMPORT     _var_texlistQueueIsIdle_8c157ab8
           .IMPORT     _njSetTexture
           .IMPORT     _njLoadTextureNum
           .IMPORT     _var_pvmQueue_8c157abc
           .IMPORT     _var_pvmQueueTail_8c157ac4
           .IMPORT     _var_pvmQueueCursor_8c157ac0
-          .IMPORT     _var_8c157ac8
+          .IMPORT     _var_pvmQueueIsIdle_8c157ac8
           .IMPORT     _njSetPvmTextureList
           .IMPORT     _njLoadTexturePvmMemory
           .IMPORT     _var_8c157a6c
@@ -52,35 +52,35 @@
           .EXPORT     _initDatQueue_8c011124
           .EXPORT     _resetDatQueue_8c01116a
           .EXPORT     _requestDat_8c011182
-          .EXPORT     _task_8c0111b4
-          .EXPORT     _sortDatQueueAndPushUnknownTask_8c011310
-          .EXPORT     _get_8c157a98_8c0113d2
+          .EXPORT     _task_loadQueuedDats_8c0111b4
+          .EXPORT     _sortAndLoadDatQueue_8c011310
+          .EXPORT     _datQueueIsIdle_8c0113d2
           .EXPORT     _freeDatQueue_8c0113d8
           .EXPORT     _initNjQueue_8c011430
           .EXPORT     _resetNjQueue_8c01147a
           .EXPORT     _requestNj_8c011492
-          .EXPORT     _task_8c0114cc
-          .EXPORT     _sortNjQueueAndPushUnknownTask_8c0116b6
-          .EXPORT     _get8c157aa8_8c01179e
+          .EXPORT     _task_loadQueuedNjs_8c0114cc
+          .EXPORT     _sortAndLoadNjQueue_8c0116b6
+          .EXPORT     _njQueueIsIdle_8c01179e
           .EXPORT     _freeNjQueue_8c0117a4
           .EXPORT     _initTexlistQueue_8c0117b8
           .EXPORT     _resetTexlistQueue_8c0117fe
           .EXPORT     _requestTexlist_8c01181c
-          .EXPORT     _FUN_8c0119f8
-          .EXPORT     _FUN_8c011a42
+          .EXPORT     _loadTexlistQueue_8c0119f8
+          .EXPORT     _texlistQueueIsIdle_8c011a42
           .EXPORT     _freeTexlistQueue_8c011a48
           .EXPORT     _initPvmQueue_8c011a5c
           .EXPORT     _requestPvm_8c011ac0
           .EXPORT     _FUN_8c011d24
-          .EXPORT     _FUN_8c011e22
+          .EXPORT     _pvmQueueIsIdle_8c011e22
           .EXPORT     _freePvmQueue_8c011e28
           .EXPORT     _releaseAndFreeTexlist_8c011e3c
-          .EXPORT     _FUN_8c011e60
-          .EXPORT     _task_8c011e80
+          .EXPORT     _unusedFunction_8c011e60
+          .EXPORT     _task_processQueues_8c011e80
           .EXPORT     _initQueues_8c011f36
           .EXPORT     _resetQueues_8c011f6c
           .EXPORT     _freeQueues_8c011f7e
-          .EXPORT     _FUN_8c011fe0
+          .EXPORT     _processQueues_8c011fe0
           .EXPORT     _requestNjPvmPairs_8c012030
           .EXPORT     _FUN_8c0120fe
           .EXPORT     _FUN_8c012160
@@ -94,9 +94,10 @@
           .EXPORT     _init_8c03beb8
           .EXPORT     _init_8c03bef0
           .EXPORT     _init_8c03bf18
-          .EXPORT     _var_8c157a60
+          .EXPORT     _var_queuesAreInitialized_8c157a60
           .EXPORT     _var_seed_8c157a64
-          .EXPORT     _var_texlistQueueCount_8c157a68 ; For testing
+          .EXPORT     _task_loadQueuedTexlists_8c01183e ; For testing
+          .EXPORT     _var_texlistQueueDedupCount_8c157a68 ; For testing
           .SECTION    P,CODE,ALIGN=4
 _nop_8c011120:                   ; function: nop_8c011120
                                  ; frame size=0
@@ -154,7 +155,7 @@ _resetDatQueue_8c01116a:                   ; function: _resetDatQueue_8c01116a
           MOV.L       L14+16,R3; _init_8c03be7c
           MOV.L       @R3,R0
           MOV.L       R0,@R2
-          MOV.L       L14+24,R0; _var_8c157a98
+          MOV.L       L14+24,R0; _var_datQueueIsIdle_8c157a98
           RTS
           MOV.L       R1,@R0
 _requestDat_8c011182:           ; function: requestDat_8c011182
@@ -187,7 +188,7 @@ L5:
 L6:                               
           RTS
           NOP
-_task_8c0111b4:                  ; function: task_8c0111b4
+_task_loadQueuedDats_8c0111b4:                  ; function: task_loadQueuedDats_8c0111b4
                                  ; frame size=32
                                  ; used runtime library name:
                                  ; _strcmp
@@ -283,7 +284,7 @@ L10:
           BRA         L19
           MOV.L       R3,@R12
 L11:
-          MOV.L       L14+24,R1 ; _var_8c157a98
+          MOV.L       L14+24,R1 ; _var_datQueueIsIdle_8c157a98
           MOV.L       L14+52,R3
           MOV.L       R10,@R1
           JSR         @R3
@@ -314,7 +315,7 @@ L14:
           .DATA.L     _var_datQueueRear_8c157a90
           .DATA.L     _init_8c03be7c
           .DATA.L     _var_queueBaseDir_8c157a80 ; H'8c0112a0
-          .DATA.L     _var_8c157a98
+          .DATA.L     _var_datQueueIsIdle_8c157a98
           .DATA.L     _var_8c157a88
           .DATA.L     _strcmp
           .DATA.L     _gdFsChangeDir ; H'8c0112b0
@@ -365,7 +366,7 @@ L19:
           RTS
           MOV.L       @R15+,R14
 
-_sortDatQueueAndPushUnknownTask_8c011310:                   ; function: sortDatQueueAndPushUnknownTask_8c011310
+_sortAndLoadDatQueue_8c011310:                   ; function: sortAndLoadDatQueue_8c011310
                                  ; frame size=44
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
@@ -382,7 +383,7 @@ _sortDatQueueAndPushUnknownTask_8c011310:                   ; function: sortDatQ
           MOV.L       @R8,R3
           CMP/EQ      R3,R2
           BT          L24
-          MOV.L       L28+28,R2; _var_8c157a98
+          MOV.L       L28+28,R2; _var_datQueueIsIdle_8c157a98
           MOV         #0,R10
           MOV.L       R10,@R2
           MOV.L       L28+32,R2;_syMalloc
@@ -434,7 +435,7 @@ L23:
           MOV         #0,R2
           MOV.L       L28+48,R4; _var_tasks_8c1ba3c8
           MOV.L       R2,@-R15
-          MOV.L       L28+44,R5; _task_8c0111b4
+          MOV.L       L28+44,R5; _task_loadQueuedDats_8c0111b4
           MOV         R15,R7
           MOV.L       L28+52,R3; _pushTask_8c014ae8
           ADD         #8,R7
@@ -471,9 +472,9 @@ L26:
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-_get_8c157a98_8c0113d2:          ; function: get_8c157a98_8c0113d2
+_datQueueIsIdle_8c0113d2:          ; function: datQueueIsIdle_8c0113d2
                                  ; frame size=0
-          MOV.L       L28+28,R3; _var_8c157a98
+          MOV.L       L28+28,R3; _var_datQueueIsIdle_8c157a98
           RTS
           MOV.L       @R3,R0
 _freeDatQueue_8c0113d8:          ; function: freeDatQueue_8c0113d8
@@ -498,11 +499,11 @@ L28:
           .DATA.L     _syFree
           .DATA.L     _var_datQueueRear_8c157a90
           .DATA.L     _var_datQueue_8c157a8c
-          .DATA.L     _var_8c157a98
+          .DATA.L     _var_datQueueIsIdle_8c157a98
         .DATA.L     _syMalloc
           .DATA.L     _strcmp
           .DATA.L     __quick_evn_mvn
-          .DATA.L     _task_8c0111b4
+          .DATA.L     _task_loadQueuedDats_8c0111b4
           .DATA.L     _var_tasks_8c1ba3c8
           .DATA.L     _pushTask_8c014ae8
           .DATA.L     _var_8c157a88
@@ -563,7 +564,7 @@ _resetNjQueue_8c01147a:                   ; function: _resetNjQueue_8c01147a
           MOV.L       L36+18,R3; _ptr_str_DATA_EMPTY_8c03be7c
           MOV.L       @R3,R0
           MOV.L       R0,@R2
-          MOV.L       L36+26,R0; _var_8c157aa8
+          MOV.L       L36+26,R0; _var_njQueueIsIdle_8c157aa8
           RTS
           MOV.L       R1,@R0
 _requestNj_8c011492:             ; function: requestNj_8c011492
@@ -599,7 +600,7 @@ L34:
           MOV.L       R2,@R14
           RTS
           MOV.L       @R15+,R14
-_task_8c0114cc:
+_task_loadQueuedNjs_8c0114cc:
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           MOV.L       R12,@-R15
@@ -643,10 +644,10 @@ L36:
           .DATA.L     _var_njQueueRear_8c157aa0
           .DATA.L     _init_8c03be7c ; L36+18
           .DATA.L     _var_queueBaseDir_8c157a80
-          .DATA.L     _var_8c157aa8
+          .DATA.L     _var_njQueueIsIdle_8c157aa8
           .DATA.L     _syFree
           .DATA.L     _var_texbuf_8c277ca0 ; L36+34
-          .DATA.L     _var_8c157a84
+          .DATA.L     _var_queueBuffer_8c157a84
 
 L37:
           MOV.L       @R14,R2
@@ -754,7 +755,7 @@ L46:
           .DATA.L     _var_8c157a88
           .DATA.L     _var_njQueue_8c157a9c ; L46+32
           .DATA.L     _init_8c03be7c
-          .DATA.L     _var_8c157aa8
+          .DATA.L     _var_njQueueIsIdle_8c157aa8
           .DATA.L     _freeTask_8c014b66
           .DATA.L     _gdFsGetStat ; L46+48
 
@@ -848,7 +849,7 @@ L55:
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-_sortNjQueueAndPushUnknownTask_8c0116b6:
+_sortAndLoadNjQueue_8c0116b6:
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           MOV.L       R12,@-R15
@@ -888,7 +889,7 @@ L57:
           .DATA.L     _var_8c157a88 ; L57+18
           .DATA.L     _var_njQueueRear_8c157aa0
           .DATA.L     _var_njQueue_8c157a9c
-          .DATA.L     _var_8c157aa8
+          .DATA.L     _var_njQueueIsIdle_8c157aa8
           .DATA.L     _syMalloc ; L57+34
 
 L58:
@@ -966,7 +967,7 @@ L63:
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-_get8c157aa8_8c01179e:                   ; function: _get8c157aa8_8c01179e
+_njQueueIsIdle_8c01179e:                   ; function: _njQueueIsIdle_8c01179e
                                  ; frame size=0
           MOV.L       L84+36,R3
           RTS
@@ -1059,7 +1060,7 @@ L69:
           MOV.L       R2,@R6
           RTS
           NOP
-task_8c01183e:
+_task_loadQueuedTexlists_8c01183e:
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           MOV.L       R12,@-R15
@@ -1216,20 +1217,20 @@ L84:
           .DATA.L     _strcmp ; L84
           .DATA.L     __quick_odd_mvn
           .DATA.L     _syFree
-          .DATA.L     _task_8c0114cc
+          .DATA.L     _task_loadQueuedNjs_8c0114cc
           .DATA.L     _var_tasks_8c1ba3c8 ; L84+16
           .DATA.L     _pushTask_8c014ae8
           .DATA.L     _var_8c157a88
           .DATA.L     _init_8c03be7c
           .DATA.L     _var_queueBaseDir_8c157a80 ; L84+32
-          .DATA.L     _var_8c157aa8
+          .DATA.L     _var_njQueueIsIdle_8c157aa8
           .DATA.L     _var_njQueue_8c157a9c
           .DATA.L     _var_texlistQueue_8c157aac
           .DATA.L     _syMalloc ; L84+48
           .DATA.L     _var_texlistQueueTail_8c157ab4
-          .DATA.L     _var_texlistQueueCursor_8c157ab0
-          .DATA.L     _var_texlistQueueCount_8c157a68
-          .DATA.L     _var_8c157ab8 ; L84+64
+          .DATA.L     _var_texlistQueueRear_8c157ab0
+          .DATA.L     _var_texlistQueueDedupCount_8c157a68
+          .DATA.L     _var_texlistQueueIsIdle_8c157ab8 ; L84+64
           .DATA.L     _gdFsChangeDir
           .DATA.L     _njSetTexture
           .DATA.L     _njLoadTextureNum
@@ -1283,7 +1284,7 @@ L88:
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-_FUN_8c0119f8:
+_loadTexlistQueue_8c0119f8:
           STS.L       PR,@-R15
           ADD         #-H'8,R15
           MOV.L       L101+16,R0
@@ -1323,7 +1324,7 @@ L90:
           LDS.L       @R15+,PR
           RTS
           NOP
-_FUN_8c011a42:
+_texlistQueueIsIdle_8c011a42:
           MOV.L       L101+8,R3
           RTS
           MOV.L       @R3,R0
@@ -1430,7 +1431,7 @@ L98:
           MOV.L       R2,@R14
           RTS
           MOV.L       @R15+,R14
-task_8c011b00:
+task_loadQueuedPvms_8c011b00:
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           MOV.L       R12,@-R15
@@ -1469,12 +1470,12 @@ L100:
           ADD         #H'18,R14
 
 L101:
-          .DATA.L     _var_texlistQueueCount_8c157a68 ; L101
-          .DATA.L     _var_texlistQueueCursor_8c157ab0
-          .DATA.L     _var_8c157ab8
+          .DATA.L     _var_texlistQueueDedupCount_8c157a68 ; L101
+          .DATA.L     _var_texlistQueueRear_8c157ab0
+          .DATA.L     _var_texlistQueueIsIdle_8c157ab8
           .DATA.L     _freeTask_8c014b66 ; L101+12
           .DATA.L     _var_texlistQueue_8c157aac
-          .DATA.L     task_8c01183e
+          .DATA.L     _task_loadQueuedTexlists_8c01183e
           .DATA.L     _var_tasks_8c1ba3c8
           .DATA.L     _pushTask_8c014ae8 ; L101+28
           .DATA.L     _syFree
@@ -1484,9 +1485,9 @@ L101:
           .DATA.L     _var_pvmQueueCursor_8c157ac0
           .DATA.L     _init_8c03be7c
           .DATA.L     _var_queueBaseDir_8c157a80
-          .DATA.L     _var_8c157ac8 ; L101+60
+          .DATA.L     _var_pvmQueueIsIdle_8c157ac8 ; L101+60
           .DATA.L     _var_texbuf_8c277ca0
-          .DATA.L     _var_8c157a84
+          .DATA.L     _var_queueBuffer_8c157a84
 
 L102:
           MOV.L       @R14,R2
@@ -1617,7 +1618,7 @@ L113:
           .DATA.L     _var_8c157a88
           .DATA.L     _var_pvmQueue_8c157abc
           .DATA.L     _init_8c03be7c ; L113+32
-          .DATA.L     _var_8c157ac8
+          .DATA.L     _var_pvmQueueIsIdle_8c157ac8
           .DATA.L     _freeTask_8c014b66
           .DATA.L     _gdFsGetStat
           .DATA.L     _gdFsClose ; L113+48
@@ -1748,7 +1749,7 @@ L121:
           .DATA.L     _var_8c157a88 ; L121+28
           .DATA.L     _var_pvmQueueCursor_8c157ac0
           .DATA.L     _var_pvmQueue_8c157abc
-          .DATA.L     _var_8c157ac8
+          .DATA.L     _var_pvmQueueIsIdle_8c157ac8
           .DATA.L     _syMalloc ; L121+44
           .DATA.L     _var_8c157a6c
 
@@ -1828,7 +1829,7 @@ L128:
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-_FUN_8c011e22:
+_pvmQueueIsIdle_8c011e22:
           MOV.L       L139+36,R3
           RTS
           MOV.L       @R3,R0
@@ -1863,7 +1864,7 @@ _releaseAndFreeTexlist_8c011e3c:
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-_FUN_8c011e60:
+_unusedFunction_8c011e60:
           MOV.L       R14,@-R15
           MOV         R4,R14
           MOV.L       R13,@-R15
@@ -1880,7 +1881,7 @@ _FUN_8c011e60:
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-_task_8c011e80:
+_task_processQueues_8c011e80:
           MOV.L       R14,@-R15
           STS.L       PR,@-R15
           ADD         #-H'4,R15
@@ -1898,7 +1899,7 @@ _task_8c011e80:
           BRA         L137
           NOP
 L130:
-          BSR         _get_8c157a98_8c0113d2
+          BSR         _datQueueIsIdle_8c0113d2
           NOP
           TST         R0,R0
           BT          L137
@@ -1911,12 +1912,12 @@ L130:
 L131:
           MOV.L       @R14,R2
           ADD         #1,R2
-          BSR         _sortNjQueueAndPushUnknownTask_8c0116b6
+          BSR         _sortAndLoadNjQueue_8c0116b6
           MOV.L       R2,@R14
           BRA         L137
           NOP
 L132:
-          BSR         _get8c157aa8_8c01179e
+          BSR         _njQueueIsIdle_8c01179e
           NOP
           TST         R0,R0
           BT          L137
@@ -1934,7 +1935,7 @@ L133:
           BRA         L137
           NOP
 L134:
-          BSR         _FUN_8c011e22
+          BSR         _pvmQueueIsIdle_8c011e22
           NOP
           TST         R0,R0
           BT          L137
@@ -1947,12 +1948,12 @@ L134:
 L135:
           MOV.L       @R14,R2
           ADD         #1,R2
-          BSR         _FUN_8c0119f8
+          BSR         _loadTexlistQueue_8c0119f8
           MOV.L       R2,@R14
           BRA         L137
           NOP
 L136:
-          BSR         _FUN_8c011a42
+          BSR         _texlistQueueIsIdle_8c011a42
           NOP
           TST         R0,R0
           BT          L137
@@ -2042,20 +2043,20 @@ L139:
           .DATA.L     _strcmp ; L139
           .DATA.L     __quick_evn_mvn
           .DATA.L     _syFree
-          .DATA.L     task_8c011b00
+          .DATA.L     task_loadQueuedPvms_8c011b00
           .DATA.L     _var_tasks_8c1ba3c8 ; L139+16
           .DATA.L     _pushTask_8c014ae8
           .DATA.L     _var_8c157a88
           .DATA.L     _init_8c03be7c
           .DATA.L     _var_queueBaseDir_8c157a80 ; L139+32
-          .DATA.L     _var_8c157ac8
+          .DATA.L     _var_pvmQueueIsIdle_8c157ac8
           .DATA.L     _var_pvmQueue_8c157abc
           .DATA.L     _njReleaseTexture
           .DATA.L     _freeTask_8c014b66 ; L139+48
           .DATA.L     _vmsLcd_8c01c8fc
           .DATA.L     _vmsLcd_8c01c910
-          .DATA.L     _var_8c157a60
-_FUN_8c011fe0:
+          .DATA.L     _var_queuesAreInitialized_8c157a60
+_processQueues_8c011fe0:
           STS.L       PR,@-R15
           ADD         #-H'18,R15
           MOV         #H'18,R3
@@ -2090,7 +2091,7 @@ _FUN_8c011fe0:
           MOV.L       @(H'c,R15),R2
           MOV.L       @(H'4,R15),R3
           MOV.L       R2,@(H'4,R3)
-          BSR         _sortDatQueueAndPushUnknownTask_8c011310
+          BSR         _sortAndLoadDatQueue_8c011310
           NOP
           ADD         #H'1c,R15
           LDS.L       @R15+,PR
@@ -2356,7 +2357,7 @@ _FUN_8c0121e8:
 
 LP_GEN_90004:
           .RES.W      1 ; H'8c012206
-          .DATA.L     _task_8c011e80
+          .DATA.L     _task_processQueues_8c011e80
           .DATA.L     _var_tasks_8c1ba3c8
           .DATA.L     _pushTask_8c014ae8
           .DATA.L     _syMalloc
@@ -2566,10 +2567,10 @@ L372031:
           .SDATA      "DATA EMPTY"
           .DATA.B     H'00
           .SECTION    B,DATA,ALIGN=4
-_var_8c157a60:
+_var_queuesAreInitialized_8c157a60:
           .RES.B      4
 _var_seed_8c157a64:
           .RES.B      4
-_var_texlistQueueCount_8c157a68:
+_var_texlistQueueDedupCount_8c157a68:
           .RES.B      4
           .END

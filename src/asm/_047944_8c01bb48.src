@@ -76,7 +76,7 @@
           .IMPORT     _setUknPvmBool_8c014330
           .IMPORT     _resetUknPvmBool_8c014322
           .IMPORT     _nop_8c011120
-          .IMPORT     _FUN_8c011fe0
+          .IMPORT     _processQueues_8c011fe0
           .IMPORT     _var_8c2260ac
           .IMPORT     _var_8c2260c4
           .IMPORT     _var_8c2263a0
@@ -1964,7 +1964,7 @@ LP_GEN_73212:
           .DATA.L _setUknPvmBool_8c014330 ; H'8C01C950
           .DATA.L _resetUknPvmBool_8c014322 ; H'8C01C954
           .DATA.L _nop_8c011120 ; H'8C01C958
-          .DATA.L _FUN_8c011fe0 ; H'8C01C95C
+          .DATA.L _processQueues_8c011fe0 ; H'8C01C95C
           .DATA.L _const_8c03867c ; H'8C01C960
           .DATA.L _FUN_8c02aefc ; H'8C01C964
           .DATA.L _var_8c2260ac ; H'8C01C968

@@ -400,7 +400,7 @@ extern int var_8c227da8;
 extern task_load_8c014338;
 extern memblkSource_8c0fcd48;
 extern memblkSource_8c0fcd4c;
-extern var_8c157a60;
+extern var_queuesAreInitialized_8c157a60;
 extern init_8c03bfa8;
 
 extern var_8c18ad1c;
@@ -618,7 +618,7 @@ void task_8c013388(Task *task, void *state) {
                 requestDat_8c011182("\\SOUND", "manatee.drv", &memblkSource_8c0fcd48);
                 requestDat_8c011182("\\SOUND", "bus.mlt", &memblkSource_8c0fcd4c);
                 resetUknPvmBool_8c014322();
-                FUN_8c011fe0(&nop_8c011120, 0, 0, 0, &setUknPvmBool_8c014330);
+                processQueues_8c011fe0(&nop_8c011120, 0, 0, 0, &setUknPvmBool_8c014330);
             }
             break;
         }
@@ -764,7 +764,7 @@ void njUserInit_8c0134ec() {
     requestNj_8c011492("\\SD_COMMON","3s_bus_m2.njs", &var_8c1bc414, 0);
 
     resetUknPvmBool_8c014322();
-    FUN_8c011fe0(&nop_8c011120, 0, 0, 0, &setUknPvmBool_8c014330);
+    processQueues_8c011fe0(&nop_8c011120, 0, 0, 0, &setUknPvmBool_8c014330);
     var_gdErr_8c18ad14 = 0;
     gdFsEntryErrFuncAll(&usrGdErrFunc_8c0134d6, (void *) 0);
 }
@@ -792,7 +792,7 @@ int njUserMain_8c01392e(void) {
 
     /* 8c013956 */
     /* Hit just before logo/menu */
-    if (var_8c157a60 == 0) {
+    if (var_queuesAreInitialized_8c157a60 == 0) {
         /* 8c01395e */
         if (init_8c03bfa8 == 0) {
             /* 8c013966 */

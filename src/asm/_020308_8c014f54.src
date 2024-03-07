@@ -42,7 +42,7 @@
           .IMPORT     _resetUknPvmBool_8c014322
           .IMPORT     _setUknPvmBool_8c014330
           .IMPORT     _nop_8c011120
-          .IMPORT     _FUN_8c011fe0
+          .IMPORT     _processQueues_8c011fe0
           .IMPORT     _njDrawSprite2D
           .EXPORT     _drawSprite_8c014f54
           .EXPORT     _FUN_8c01524c
@@ -1550,7 +1550,7 @@ LP_GEN_51554:
           .DATA.L _resetUknPvmBool_8c014322
           .DATA.L _setUknPvmBool_8c014330
           .DATA.L _nop_8c011120
-          .DATA.L _FUN_8c011fe0
+          .DATA.L _processQueues_8c011fe0
 
           .END
 

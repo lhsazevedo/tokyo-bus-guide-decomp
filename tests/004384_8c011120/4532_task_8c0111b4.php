@@ -92,7 +92,7 @@ return new class extends TestCase {
         $this->shouldWrite($taskPtr + 0x18, $datQueue + $sizeOfQueuedDat);
         $this->shouldWrite($taskPtr + 0x08, 0);
 
-        $this->call('_task_8c0111b4')
+        $this->call('_task_loadQueuedDats_8c0111b4')
             ->with($taskPtr, 0)
             ->run();
     }
@@ -189,7 +189,7 @@ return new class extends TestCase {
         $this->shouldWrite($taskPtr + 0x18, $testQueuedDat + $sizeOfQueuedDat);
         $this->shouldWrite($taskPtr + 0x08, 0);
 
-        $this->call('_task_8c0111b4')
+        $this->call('_task_loadQueuedDats_8c0111b4')
             ->with($taskPtr, 0)
             ->run();
     }
@@ -245,7 +245,7 @@ return new class extends TestCase {
         $this->shouldWriteTo('_var_8c157a88', 0);
         $this->shouldWriteTo('_var_queueBaseDir_8c157a80', 'DATA EMPTY');
 
-        $this->call('_task_8c0111b4')
+        $this->call('_task_loadQueuedDats_8c0111b4')
             ->with($taskPtr, 0)
             ->run();
     }
@@ -297,11 +297,11 @@ return new class extends TestCase {
         $sizeLocal = $this->isAsmObject() ? 0xffffdc : 0xffffd4;
 
         $this->shouldReadFrom('_var_8c157a88', 0);
-        $this->shouldWriteTo('_var_8c157a98', 1);
+        $this->shouldWriteTo('_var_datQueueIsIdle_8c157a98', 1);
         $this->shouldCall('_freeTask_8c014b66')
             ->with($taskPtr);
 
-        $this->call('_task_8c0111b4')
+        $this->call('_task_loadQueuedDats_8c0111b4')
             ->with($taskPtr, 0)
             ->run();
     }
@@ -335,7 +335,7 @@ return new class extends TestCase {
         $this->shouldWrite($taskPtr + 0x18, $datQueue + $sizeOfQueuedDat);
         $this->shouldWrite($taskPtr + 0x08, 0);
 
-        $this->call('_task_8c0111b4')
+        $this->call('_task_loadQueuedDats_8c0111b4')
             ->with($taskPtr, 0)
             ->run();
     }
@@ -377,7 +377,7 @@ return new class extends TestCase {
         $this->shouldCall('_gdFsTrans32')
             ->with(0xbebacafe, 2048, 0xcafe1000);
 
-        $this->call('_task_8c0111b4')
+        $this->call('_task_loadQueuedDats_8c0111b4')
             ->with($taskPtr, 0)
             ->run();
     }
@@ -419,7 +419,7 @@ return new class extends TestCase {
         $this->shouldCall('_gdFsTrans32')
             ->with(0xbebacafe, 2048, 0xcafe1000);
 
-        $this->call('_task_8c0111b4')
+        $this->call('_task_loadQueuedDats_8c0111b4')
             ->with($taskPtr, 0)
             ->run();
     }
@@ -459,7 +459,7 @@ return new class extends TestCase {
             ->with(0xbebacafe)
             ->andReturn(1); // GDD_FS_TRANS_BUSY
 
-        $this->call('_task_8c0111b4')
+        $this->call('_task_loadQueuedDats_8c0111b4')
             ->with($taskPtr, 0)
             ->run();
     }
@@ -503,7 +503,7 @@ return new class extends TestCase {
         $this->shouldWrite($taskPtr + 0x18, $datQueue + $sizeOfQueuedDat);
         $this->shouldWrite($taskPtr + 0x08, 0);
 
-        $this->call('_task_8c0111b4')
+        $this->call('_task_loadQueuedDats_8c0111b4')
             ->with($taskPtr, 0)
             ->run();
     }
@@ -519,7 +519,7 @@ return new class extends TestCase {
         // task->field_0x08
         $this->initUint32($taskPtr + 0x08, 2);
 
-        $this->call('_task_8c0111b4')
+        $this->call('_task_loadQueuedDats_8c0111b4')
             ->with($taskPtr, 0)
             ->run();
     }

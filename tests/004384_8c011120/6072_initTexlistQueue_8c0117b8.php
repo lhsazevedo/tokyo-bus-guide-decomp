@@ -73,7 +73,7 @@ return new class extends TestCase {
     //         $njQueue,
     //     );
 
-    //     $this->call('_sortNjQueueAndPushUnknownTask_8c0116b6')
+    //     $this->call('_sortAndLoadNjQueue_8c0116b6')
     //         ->shouldReturn(0)
     //         ->run();
     // }
@@ -98,7 +98,7 @@ return new class extends TestCase {
 
     //     //
 
-    //     $this->shouldWriteTo('_var_8c157aa8', 0);
+    //     $this->shouldWriteTo('_var_njQueueIsIdle_8c157aa8', 0);
 
     //     $tempQueuedNj = $this->alloc(4);
     //     $this->shouldCall('_syMalloc')
@@ -120,7 +120,7 @@ return new class extends TestCase {
     //         )
     //         ->andReturn(0);
 
-    //     $this->call('_sortNjQueueAndPushUnknownTask_8c0116b6')
+    //     $this->call('_sortAndLoadNjQueue_8c0116b6')
     //         ->shouldReturn(0)
     //         ->run();
     // }

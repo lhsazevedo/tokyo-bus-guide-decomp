@@ -18,7 +18,7 @@
           .IMPORT     _setUknPvmBool_8c014330
           .IMPORT     _resetUknPvmBool_8c014322
           .IMPORT     _nop_8c011120
-          .IMPORT     _FUN_8c011fe0
+          .IMPORT     _processQueues_8c011fe0
           .IMPORT     _midiHandles_8c0fcd28
           .IMPORT     _sdMidiPlay
           .IMPORT     _push_fadein_8c022a9c
@@ -460,7 +460,7 @@ LP_GEN_72378:
           .DATA.L _setUknPvmBool_8c014330 ; H'8C01CCD0
           .DATA.L _resetUknPvmBool_8c014322 ; H'8C01CCD4
           .DATA.L _nop_8c011120 ; H'8C01CCD8
-          .DATA.L _FUN_8c011fe0 ; H'8C01CCDC
+          .DATA.L _processQueues_8c011fe0 ; H'8C01CCDC
           .DATA.L _midiHandles_8c0fcd28 ; H'8C01CCE0
           .DATA.L _sdMidiPlay ; H'8C01CCE4
           .DATA.L _push_fadein_8c022a9c ; H'8C01CCE8
@@ -1208,5 +1208,5 @@ LP_GEN_13275:
           .DATA.L _setUknPvmBool_8c014330 ; H'8C01D280
           .DATA.L _resetUknPvmBool_8c014322 ; H'8C01D284
           .DATA.L _nop_8c011120 ; H'8C01D288
-          .DATA.L _FUN_8c011fe0 ; H'8C01D28C
+          .DATA.L _processQueues_8c011fe0 ; H'8C01D28C
           .END

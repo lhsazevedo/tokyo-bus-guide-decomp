@@ -76,7 +76,7 @@
           .IMPORT     _setUknPvmBool_8c014330
           .IMPORT     _resetUknPvmBool_8c014322
           .IMPORT     _nop_8c011120
-          .IMPORT     _FUN_8c011fe0
+          .IMPORT     _processQueues_8c011fe0
           .IMPORT     _var_8c18ad20
           .IMPORT     _var_8c18ad1c
           .IMPORT     _init_8c0451a0
@@ -1174,7 +1174,7 @@ LP_GEN_43538:
           .DATA.L _setUknPvmBool_8c014330 ; H'8C01E0A4
           .DATA.L _resetUknPvmBool_8c014322 ; H'8C01E0A8
           .DATA.L _nop_8c011120 ; H'8C01E0AC
-          .DATA.L _FUN_8c011fe0 ; H'8C01E0B0
+          .DATA.L _processQueues_8c011fe0 ; H'8C01E0B0
 _FUN_8c01e0b4:
           MOV.L       LP_GEN_76652+14,R2
           MOV.L       R14,@-R15

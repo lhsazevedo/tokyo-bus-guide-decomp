@@ -50,7 +50,7 @@
           .IMPORT     _setUknPvmBool_8c014330
           .IMPORT     _resetUknPvmBool_8c014322
           .IMPORT     _nop_8c011120
-          .IMPORT     _FUN_8c011fe0
+          .IMPORT     _processQueues_8c011fe0
           .IMPORT     _FUN_8c01e24e
           .EXPORT     _FUN_8c01f3c0
           .EXPORT     _FUN_8c01f50e
@@ -891,5 +891,5 @@ LP_GEN_38893:
           .DATA.L _setUknPvmBool_8c014330 ; H'8C01FA68
           .DATA.L _resetUknPvmBool_8c014322 ; H'8C01FA6C
           .DATA.L _nop_8c011120 ; H'8C01FA70
-          .DATA.L _FUN_8c011fe0 ; H'8C01FA74
+          .DATA.L _processQueues_8c011fe0 ; H'8C01FA74
           .END

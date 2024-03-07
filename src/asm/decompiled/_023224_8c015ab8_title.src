@@ -32,7 +32,7 @@
           .IMPORT     _requestSysResgrp_8c018568
           .IMPORT     _requestCommonResources_8c01852c
           .IMPORT     _setUknPvmBool_8c014330
-          .IMPORT     _FUN_8c011fe0
+          .IMPORT     _processQueues_8c011fe0
           .IMPORT     _snd_8c010cd6
           .IMPORT     _FUN_8c012984
           .IMPORT     _FUN_8c010bae
@@ -806,7 +806,7 @@ _FUN_8c015fd6:                   ; function: FUN_8c015fd6
           MOV         #0,R7
           MOV.L       L53+104,R4; _nop_8c011120
           MOV         R7,R6
-          MOV.L       L53+108,R3; FUN_8c011fe0
+          MOV.L       L53+108,R3; processQueues_8c011fe0
           MOV.L       R2,@-R15
           JSR         @R3
           MOV         R7,R5
@@ -845,5 +845,5 @@ L53:
           .DATA.L     _setUknPvmBool_8c014330
           .DATA.L     _resetUknPvmBool_8c014322
           .DATA.L     _nop_8c011120
-          .DATA.L     _FUN_8c011fe0
+          .DATA.L     _processQueues_8c011fe0
           .END

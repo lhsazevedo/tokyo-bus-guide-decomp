@@ -48,7 +48,7 @@ return new class extends TestCase {
 
         //
 
-        $this->shouldWriteTo('_var_8c157a98', 0);
+        $this->shouldWriteTo('_var_datQueueIsIdle_8c157a98', 0);
 
         $tempQueuedDat = $this->alloc(4);
         $this->shouldCall('_syMalloc')
@@ -109,7 +109,7 @@ return new class extends TestCase {
         $this->shouldWriteTo('_var_8c157a88', 0);
         $this->shouldWriteTo('_var_queueBaseDir_8c157a80', 'DATA EMPTY');
 
-        $this->call('_sortDatQueueAndPushUnknownTask_8c011310')
+        $this->call('_sortAndLoadDatQueue_8c011310')
             ->shouldReturn(1)
             ->run();
     }
@@ -126,7 +126,7 @@ return new class extends TestCase {
             $datQueue,
         );
 
-        $this->call('_sortDatQueueAndPushUnknownTask_8c011310')
+        $this->call('_sortAndLoadDatQueue_8c011310')
             ->shouldReturn(0)
             ->run();
     }
@@ -156,7 +156,7 @@ return new class extends TestCase {
 
         //
 
-        $this->shouldWriteTo('_var_8c157a98', 0);
+        $this->shouldWriteTo('_var_datQueueIsIdle_8c157a98', 0);
 
         $tempQueuedDat = $this->alloc(4);
         $this->shouldCall('_syMalloc')
@@ -178,7 +178,7 @@ return new class extends TestCase {
             )
             ->andReturn(0);
 
-        $this->call('_sortDatQueueAndPushUnknownTask_8c011310')
+        $this->call('_sortAndLoadDatQueue_8c011310')
             ->shouldReturn(0)
             ->run();
     }

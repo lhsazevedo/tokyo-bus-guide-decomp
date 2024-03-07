@@ -29,24 +29,7 @@ typedef struct {
     int field_0x14;
     QueuedNj* queuedNj_0x18; /* Perhaps we should use a union or a void* to handle both cases? */
     int field_0x1c;
-} _8c0114cc_Task;
-
-typedef struct {
-    TaskAction action;
-    void *state;
-    int field_0x08;
-    GDFS gdfs_0x0c;
-    int field_0x10;
-    int field_0x14;
-    QueuedNj* queuedPvm_0x18;
-    int field_0x1c;
-} PvmTask;
-
-struct QueuedTexlist {
-    char *basedir_0x00;
-    NJS_TEXLIST *texlist_0x04;
-}
-typedef QueuedTexlist;
+} TaskLoadQueuedNjs;
 
 struct QueuedPvm {
     char *basedir;
@@ -58,37 +41,55 @@ struct QueuedPvm {
 }
 typedef QueuedPvm;
 
-struct Task1e80State {
-    int field_0x00;
-    void (*func_0x04)();
-    void (*func_0x08)();
-    void (*func_0x0c)();
-    void (*func_0x10)();
-    void (*func_0x14)();
-}
-typedef Task1e80State;
+typedef struct {
+    TaskAction action;
+    void *state;
+    int field_0x08;
+    GDFS gdfs_0x0c;
+    int field_0x10;
+    int field_0x14;
+    QueuedPvm* queuedPvm_0x18;
+    int field_0x1c;
+} TaskLoadQueuedPvms;
 
-extern int var_8c157a60;
+struct QueuedTexlist {
+    char *basedir_0x00;
+    NJS_TEXLIST *texlist_0x04;
+}
+typedef QueuedTexlist;
+
+
+struct TaskProcessQueuesState {
+    int queue_0x00;
+    void (*func_0x04)();
+    void (*afterDatCallback_0x08)();
+    void (*afterNjCallback_0x0c)();
+    void (*afterPvmCallback_0x10)();
+    void (*afterTexlistCallback_0x14)();
+}
+typedef TaskProcessQueuesState;
+
+extern int var_queuesAreInitialized_8c157a60;
 extern char *var_queueBaseDir_8c157a80;
 extern int var_8c157a88;
 
 extern QueuedDat *var_datQueue_8c157a8c;
 extern QueuedDat *var_datQueueRear_8c157a90;
 extern QueuedDat *var_datQueueTail_8c157a94;
-extern int var_8c157a98;
+extern int var_datQueueIsIdle_8c157a98;
 
 extern QueuedNj *var_njQueue_8c157a9c;
 extern QueuedNj *var_njQueueRear_8c157aa0;
 extern QueuedNj *var_njQueueTail_8c157aa4;
-extern int var_8c157aa8;
+extern int var_njQueueIsIdle_8c157aa8;
 
 extern QueuedTexlist *var_texlistQueue_8c157aac;
-extern QueuedTexlist *var_texlistQueueCursor_8c157ab0;
+extern QueuedTexlist *var_texlistQueueRear_8c157ab0;
 extern QueuedTexlist *var_texlistQueueTail_8c157ab4;
-extern int var_8c157ab8;
-extern int var_texlistQueueCount_8c157a68;
+extern int var_texlistQueueIsIdle_8c157ab8;
+extern int var_texlistQueueDedupCount_8c157a68;
 
-extern Sint8 *var_8c157a84;
+extern Sint8 *var_queueBuffer_8c157a84;
 
 extern Task *var_tasks_8c1ba3c8;
 
@@ -98,7 +99,7 @@ extern int var_8c1ba1cc[];
 extern QueuedPvm* var_pvmQueue_8c157abc;
 extern QueuedPvm* var_pvmQueueRear_8c157ac0;
 extern QueuedPvm* var_pvmQueueTail_8c157ac4;
-extern int var_8c157ac8;
+extern int var_pvmQueueIsIdle_8c157ac8;
 
 extern int var_8c157acc;
 extern int var_8c157ad0;
@@ -116,7 +117,7 @@ typedef struct {
     int field_0x14;
     QueuedDat* queuedDat_0x18;
     int field_0x1c;
-} _8c0111b4_Task;
+} TaskLoadQueuedDats;
 
 /* Matched :) */
 void nop_8c011120() {
@@ -142,7 +143,7 @@ int initDatQueue_8c011124(int n) {
 void resetDatQueue_8c01116a() {
     var_datQueueRear_8c157a90 = var_datQueue_8c157a8c;
     var_queueBaseDir_8c157a80 = "DATA EMPTY";
-    var_8c157a98 = 1;
+    var_datQueueIsIdle_8c157a98 = 1;
 }
 
 /* Matched */
@@ -165,42 +166,32 @@ int requestDat_8c011182(char* basedir, char* filename, void* dest) {
 }
 
 /* Almost matching */
-void task_8c0111b4(_8c0111b4_Task* task, void* state) {
-    /*
-     * r13 = Task* task
-     * r10 = 1
-     */
-
-    /* r14 */
-    QueuedDat* qd_r14 = task->queuedDat_0x18;
-
-    /* stack (r15) */
+void task_loadQueuedDats_8c0111b4(TaskLoadQueuedDats* task, void* state) {
+    QueuedDat* item = task->queuedDat_0x18;
     Sint32 size;
-
-    // Sint32 stat;
 
     switch (task->field_0x08) {
         /* 8c0111cc */
-        case 0:
+        case 0: {
             /* 8c0111da */
             while (1) {
                 /* TODO: Test this condition */
-                if (qd_r14 >= var_datQueueRear_8c157a90) {
+                if (item >= var_datQueueRear_8c157a90) {
                     break;
                 }
 
-                if (qd_r14->field_0x0c == 0) {
+                if (item->field_0x0c == 0) {
                     /* TODO: Test this update */
-                    if (*qd_r14->basedir != 0 && /* 8c0111ee */
-                        strcmp(var_queueBaseDir_8c157a80, qd_r14->basedir) != 0 /* 8c0111f6 */
+                    if (*item->basedir != 0 && /* 8c0111ee */
+                        strcmp(var_queueBaseDir_8c157a80, item->basedir) != 0 /* 8c0111f6 */
                     ) {
-                            var_queueBaseDir_8c157a80 = qd_r14->basedir;
-                            gdFsChangeDir(qd_r14->basedir);
+                            var_queueBaseDir_8c157a80 = item->basedir;
+                            gdFsChangeDir(item->basedir);
                         // }
                     }
 
                     /* 8c01120c */
-                    task->gdfs_0x0c = gdFsOpen(qd_r14->filename, 0);
+                    task->gdfs_0x0c = gdFsOpen(item->filename, 0);
                     if (task->gdfs_0x0c == NULL) {
                         /* 8c0112f4 (shared) */
                         /* TODO: Write test for this */
@@ -221,10 +212,10 @@ void task_8c0111b4(_8c0111b4_Task* task, void* state) {
                     }
 
                     /* 8c011226 */
-                    *qd_r14->dest = syMalloc(size * 2048);
+                    *item->dest = syMalloc(size * 2048);
 
                     /* 8c011234 */
-                    if (gdFsRead(task->gdfs_0x0c, size, *qd_r14->dest) != GDD_ERR_OK) {
+                    if (gdFsRead(task->gdfs_0x0c, size, *item->dest) != GDD_ERR_OK) {
                         /* 8c0112f4 (shared) */
                         /* TODO: Write test for this */
                         var_8c157a88 = 1;
@@ -235,12 +226,13 @@ void task_8c0111b4(_8c0111b4_Task* task, void* state) {
 
                     /* 8c011282 (shared) */
                     gdFsClose(task->gdfs_0x0c);
-                    qd_r14->field_0x0c = 1;
-                    task->queuedDat_0x18 = ++qd_r14;
+                    item->field_0x0c = 1;
+                    task->queuedDat_0x18 = ++item;
                     task->field_0x08 = 0;
                     return;
                 }
-                qd_r14++;
+
+                item++;
             }
 
             /* 8c01124a */
@@ -252,20 +244,21 @@ void task_8c0111b4(_8c0111b4_Task* task, void* state) {
                 /* return */;
             } else {
                 /* 8c011262 */
-                var_8c157a98 = 1;
+                var_datQueueIsIdle_8c157a98 = 1;
                 freeTask_8c014b66((Task*) task);
                 /* return; */
             }
             break;
+        }
 
         /* 8c0111d2 */
-        case 1:
+        case 1: {
             /* 8c011270 */
             switch (gdFsGetStat(task->gdfs_0x0c)) {
                 case GDD_STAT_COMPLETE: {
                     /* 8c011282 (shared) */
                     gdFsClose(task->gdfs_0x0c);
-                    qd_r14->field_0x0c = 1;
+                    item->field_0x0c = 1;
                     task->queuedDat_0x18++;
                     task->field_0x08 = 0;
                     return;
@@ -274,13 +267,13 @@ void task_8c0111b4(_8c0111b4_Task* task, void* state) {
                     /* 8c0112cc */
                     if (gdFsGetTransStat(task->gdfs_0x0c) == GDD_FS_TRANS_READY) {
                         /* 8c0112d6 */
-                        gdFsTrans32(task->gdfs_0x0c, 2048, *qd_r14->dest);
+                        gdFsTrans32(task->gdfs_0x0c, 2048, *item->dest);
                     }
                     break;
                 } 
                 default: {
                     gdFsClose(task->gdfs_0x0c);
-                    syFree(qd_r14->dest);
+                    syFree(item->dest);
                     /* 8c0112f4 (shared) */
                     var_8c157a88 = 1;
                     task->queuedDat_0x18++;
@@ -289,11 +282,12 @@ void task_8c0111b4(_8c0111b4_Task* task, void* state) {
                 }
             }
             break;
+        }
     }
 }
 
 /* Tested */
-int sortDatQueueAndPushUnknownTask_8c011310() {
+int sortAndLoadDatQueue_8c011310() {
     int r9;
     Task *created_task;
     void* created_state;
@@ -304,7 +298,7 @@ int sortDatQueueAndPushUnknownTask_8c011310() {
     }
 
     /* 8c01132e */
-    var_8c157a98 = 0;
+    var_datQueueIsIdle_8c157a98 = 0;
 
     temp_r11 = syMalloc((int) var_datQueueRear_8c157a90 - (int) var_datQueue_8c157a8c);
 
@@ -336,7 +330,7 @@ int sortDatQueueAndPushUnknownTask_8c011310() {
 
     syFree(temp_r11);
 
-    if (!pushTask_8c014ae8(&var_tasks_8c1ba3c8, &task_8c0111b4, &created_task, &created_state, 0)) {
+    if (!pushTask_8c014ae8(&var_tasks_8c1ba3c8, &task_loadQueuedDats_8c0111b4, &created_task, &created_state, 0)) {
         return 0;
     }
 
@@ -349,8 +343,8 @@ int sortDatQueueAndPushUnknownTask_8c011310() {
 }
 
 /* Matched */
-int get_8c157a98_8c0113d2() {
-    return var_8c157a98;
+int datQueueIsIdle_8c0113d2() {
+    return var_datQueueIsIdle_8c157a98;
 }
 
 /* Matched */
@@ -379,7 +373,7 @@ int initNjQueue_8c011430(int param) {
 void resetNjQueue_8c01147a() {
     var_njQueueRear_8c157aa0 = var_njQueue_8c157a9c;
     var_queueBaseDir_8c157a80 = "DATA EMPTY";
-    var_8c157aa8 = 1;
+    var_njQueueIsIdle_8c157aa8 = 1;
 }
 
 /* Matched */
@@ -403,7 +397,7 @@ int requestNj_8c011492(char* basedir, char* filename, void* dest, void* dest2) {
 }
 
 /* Tested */
-void task_8c0114cc(_8c0114cc_Task* task, void* state) {
+void task_loadQueuedNjs_8c0114cc(TaskLoadQueuedNjs* task, void* state) {
     QueuedNj* qnj = task->queuedNj_0x18;
     Sint32 size;
     Uint32 fpos, rtype;
@@ -430,8 +424,8 @@ void task_8c0114cc(_8c0114cc_Task* task, void* state) {
 
                     if (task->gdfs_0x0c == NULL) {
                         /* 8c01168c (shared) */
-                        if (var_8c157a84 != &var_texbuf_8c277ca0) {
-                            syFree(var_8c157a84);
+                        if (var_queueBuffer_8c157a84 != &var_texbuf_8c277ca0) {
+                            syFree(var_queueBuffer_8c157a84);
                         }
                         var_8c157a88 = 1;
                         task->queuedNj_0x18++;
@@ -441,8 +435,8 @@ void task_8c0114cc(_8c0114cc_Task* task, void* state) {
 
                     if (!gdFsGetFileSctSize(task->gdfs_0x0c, &size)) {
                         /* 8c01168c (shared) */
-                        if (var_8c157a84 != var_texbuf_8c277ca0) {
-                            syFree(var_8c157a84);
+                        if (var_queueBuffer_8c157a84 != var_texbuf_8c277ca0) {
+                            syFree(var_queueBuffer_8c157a84);
                         }
                         var_8c157a88 = 1;
                         task->queuedNj_0x18++;
@@ -451,15 +445,15 @@ void task_8c0114cc(_8c0114cc_Task* task, void* state) {
                     }
 
                     if (size > 0x100) {
-                        var_8c157a84 = syMalloc(size * 2048);
+                        var_queueBuffer_8c157a84 = syMalloc(size * 2048);
                     } else {
-                        var_8c157a84 = var_texbuf_8c277ca0;
+                        var_queueBuffer_8c157a84 = var_texbuf_8c277ca0;
                     }
 
-                    if (gdFsRead(task->gdfs_0x0c, size, var_8c157a84) != GDD_ERR_OK) {
+                    if (gdFsRead(task->gdfs_0x0c, size, var_queueBuffer_8c157a84) != GDD_ERR_OK) {
                         /* 8c01168c (shared) */
-                        if (var_8c157a84 != var_texbuf_8c277ca0) {
-                            syFree(var_8c157a84);
+                        if (var_queueBuffer_8c157a84 != var_texbuf_8c277ca0) {
+                            syFree(var_queueBuffer_8c157a84);
                         }
                         var_8c157a88 = 1;
                         task->queuedNj_0x18++;
@@ -471,15 +465,15 @@ void task_8c0114cc(_8c0114cc_Task* task, void* state) {
                     qnj->field_0x10 = 1;
 
                     if (qnj->dest_0x08 != 0) {
-                        *qnj->dest_0x08 = njReadBinary(var_8c157a84, &fpos, &rtype);
+                        *qnj->dest_0x08 = njReadBinary(var_queueBuffer_8c157a84, &fpos, &rtype);
                     }
 
                     if (qnj->dest_0x0c != 0) {
-                        *qnj->dest_0x0c = njReadBinary(var_8c157a84, &fpos, &rtype);
+                        *qnj->dest_0x0c = njReadBinary(var_queueBuffer_8c157a84, &fpos, &rtype);
                     }
 
-                    if (var_8c157a84 != var_texbuf_8c277ca0) {
-                        syFree(var_8c157a84);
+                    if (var_queueBuffer_8c157a84 != var_texbuf_8c277ca0) {
+                        syFree(var_queueBuffer_8c157a84);
                     }
                     task->queuedNj_0x18 = ++qnj;
                     task->field_0x08 = 0;
@@ -508,15 +502,15 @@ void task_8c0114cc(_8c0114cc_Task* task, void* state) {
                     qnj->field_0x10 = 1;
 
                     if (qnj->dest_0x08) {
-                        *qnj->dest_0x08 = njReadBinary(var_8c157a84, &fpos, &rtype);
+                        *qnj->dest_0x08 = njReadBinary(var_queueBuffer_8c157a84, &fpos, &rtype);
                     }
 
                     if (qnj->dest_0x0c) {
-                        *qnj->dest_0x0c = njReadBinary(var_8c157a84, &fpos, &rtype);
+                        *qnj->dest_0x0c = njReadBinary(var_queueBuffer_8c157a84, &fpos, &rtype);
                     }
 
-                    if (var_8c157a84 != var_texbuf_8c277ca0) {
-                        syFree(var_8c157a84);
+                    if (var_queueBuffer_8c157a84 != var_texbuf_8c277ca0) {
+                        syFree(var_queueBuffer_8c157a84);
                     }
 
                     task->queuedNj_0x18 = ++qnj;
@@ -530,17 +524,17 @@ void task_8c0114cc(_8c0114cc_Task* task, void* state) {
                         return;
                     }
 
-                    gdFsTrans32(task->gdfs_0x0c, 2048, var_8c157a84);
+                    gdFsTrans32(task->gdfs_0x0c, 2048, var_queueBuffer_8c157a84);
                     break;
                 }
                 default: {
                     gdFsClose(task->gdfs_0x0c);
-                    if (var_8c157a84 != var_texbuf_8c277ca0) {
-                        syFree(var_8c157a84);
+                    if (var_queueBuffer_8c157a84 != var_texbuf_8c277ca0) {
+                        syFree(var_queueBuffer_8c157a84);
                     }
 
                     var_8c157a88 = 1;
-                    // TODO: Test this with other item indexes
+                    /* TODO: Test this with other item indexes */
                     task->queuedNj_0x18 = ++qnj;
                     task->field_0x08 = 0;
                     break;
@@ -550,7 +544,7 @@ void task_8c0114cc(_8c0114cc_Task* task, void* state) {
         }
 }
 
-int sortNjQueueAndPushUnknownTask_8c0116b6() {
+int sortAndLoadNjQueue_8c0116b6() {
     Task *created_task;
     void* created_state;
     QueuedNj *temp;
@@ -560,7 +554,7 @@ int sortNjQueueAndPushUnknownTask_8c0116b6() {
     }
 
     /* 8c01132e */
-    var_8c157aa8 = 0;
+    var_njQueueIsIdle_8c157aa8 = 0;
 
     temp = syMalloc((int) var_njQueueRear_8c157aa0 - (int) var_njQueue_8c157a9c);
 
@@ -592,7 +586,7 @@ int sortNjQueueAndPushUnknownTask_8c0116b6() {
 
     syFree(temp);
 
-    if (!pushTask_8c014ae8(&var_tasks_8c1ba3c8, &task_8c0114cc, &created_task, &created_state, 0)) {
+    if (!pushTask_8c014ae8(&var_tasks_8c1ba3c8, &task_loadQueuedNjs_8c0114cc, &created_task, &created_state, 0)) {
         return 0;
     }
 
@@ -605,12 +599,12 @@ int sortNjQueueAndPushUnknownTask_8c0116b6() {
 }
 
 /* Matched */
-int get8c157aa8_8c01179e() {
-    return var_8c157aa8;
+int njQueueIsIdle_8c01179e() {
+    return var_njQueueIsIdle_8c157aa8;
 }
 
 /* Matched? */
-freeNjQueue_8c0117a4() {
+void freeNjQueue_8c0117a4() {
     if (var_njQueue_8c157a9c != (QueuedNj*) -1) {
         syFree(var_njQueue_8c157a9c);
     }
@@ -633,69 +627,83 @@ int initTexlistQueue_8c0117b8(int n) {
 
 /* Tested */
 void resetTexlistQueue_8c0117fe() {
-    var_texlistQueueCursor_8c157ab0 = var_texlistQueue_8c157aac;
+    var_texlistQueueRear_8c157ab0 = var_texlistQueue_8c157aac;
     var_queueBaseDir_8c157a80 = "DATA EMPTY";
-    var_texlistQueueCount_8c157a68 = 0;
-    var_8c157ab8 = 1;
+    var_texlistQueueDedupCount_8c157a68 = 0;
+    var_texlistQueueIsIdle_8c157ab8 = 1;
     return;
 }
 
 /* Tested */
 int requestTexlist_8c01181c(char *basedir, NJS_TEXLIST *texlist) {
-  if (var_texlistQueueCursor_8c157ab0 >= var_texlistQueueTail_8c157ab4) {
+  if (var_texlistQueueRear_8c157ab0 >= var_texlistQueueTail_8c157ab4) {
     return 0;
   }
 
-  var_texlistQueueCursor_8c157ab0->basedir_0x00 = basedir;
-  var_texlistQueueCursor_8c157ab0->texlist_0x04 = texlist;
-  var_texlistQueueCursor_8c157ab0++;
+  var_texlistQueueRear_8c157ab0->basedir_0x00 = basedir;
+  var_texlistQueueRear_8c157ab0->texlist_0x04 = texlist;
+  var_texlistQueueRear_8c157ab0++;
   return 1;
 }
 
-/* TODO: Write tests for this */
-void task_8c01183e(Task *task, void *state) {
+/* Tested */
+void task_loadQueuedTexlists_8c01183e(Task *task, void *state) {
     QueuedTexlist *item = task->field_0x18;
     NJS_TEXLIST *texlist = item->texlist_0x04;
 
     while (true) {
         int i;
-        bool breakedBeforeEnd = true;
+
+        /* Assume that the current texlist is already loaded */
+        bool alreadyLoaded = true;
 
         for (i = 0; i < texlist->nbTexture; i++)
         {
             int queueIdx;
-            NJS_TEXNAME *texture = texlist->textures + i;
+            NJS_TEXNAME *currentTexture = &texlist->textures[i];
 
-            for (queueIdx = 0; queueIdx < var_texlistQueueCount_8c157a68; queueIdx++)
+            for (queueIdx = 0; queueIdx < var_texlistQueueDedupCount_8c157a68; queueIdx++)
             {
-                QueuedTexlist *compared = &var_texlistQueue_8c157aac[queueIdx];
-                if (compared->texlist_0x04) {
-                    int comparedIdx;
-                    int comparedCount = compared->texlist_0x04->nbTexture;
-                    NJS_TEXNAME *comparedTextures = compared->texlist_0x04->textures;
+                QueuedTexlist *comparedItem = &var_texlistQueue_8c157aac[queueIdx];
+                int comparedIndex;
+                int comparedTextureCount;
+                NJS_TEXNAME *comparedTextures;
 
-                    if (comparedCount) {
-                        for (comparedIdx = 0; comparedIdx < comparedCount; comparedIdx++)
-                        {
-                            if (!strcmp(texture->filename, comparedTextures[comparedIdx].filename)) {
-                                texture->texaddr = comparedTextures[comparedIdx].texaddr;
-                                break;
-                            }
-                        }
-                        
-                    }
-
-                    if (comparedIdx != comparedCount) break;
+                if (!comparedItem->texlist_0x04) {
+                    continue;
                 }
+
+                comparedTextureCount = comparedItem->texlist_0x04->nbTexture;
+                comparedTextures = comparedItem->texlist_0x04->textures;
+
+                if (comparedTextureCount) {
+                    for (comparedIndex = 0; comparedIndex < comparedTextureCount; comparedIndex++)
+                    {
+                        if (!strcmp(currentTexture->filename, comparedTextures[comparedIndex].filename)) {
+                            currentTexture->texaddr = comparedTextures[comparedIndex].texaddr;
+                            break;
+                        }
+                    }
+                }
+
+                /* If we the current texture is already loaded,
+                   we can sdvance to next one in the current texlist.
+                   Note that breaking prevents the loop counter increment. */
+                if (comparedIndex != comparedTextureCount) break;
+
+                /* Refactor: */
+                /* if (currentTexture->texaddr) break */
             }
 
-            if (queueIdx == var_texlistQueueCount_8c157a68) {
-                breakedBeforeEnd = false;
-                break;
+            /* If the current texture was not found in any of
+               the compared texlists, then it should be loaded. */
+            if (queueIdx == var_texlistQueueDedupCount_8c157a68) {
+                alreadyLoaded = false;
             }
         }
 
-        if (breakedBeforeEnd) {
+        if (alreadyLoaded) {
+            /* TODO: Test this path */
             item->texlist_0x04 = NULL;
         } else {
             if (*item->basedir_0x00 && strcmp(var_queueBaseDir_8c157a80, item->basedir_0x00)) {
@@ -707,8 +715,9 @@ void task_8c01183e(Task *task, void *state) {
 
             if (texlist->nbTexture) {
                 int i;
+                /* TODO: Test this skip */
                 for (i = 0; i < texlist->nbTexture; i++) {
-                    if (texlist->textures[i].texaddr) {
+                    if (!texlist->textures[i].texaddr) {
                         njLoadTextureNum(i);
                     }
                 }
@@ -716,14 +725,15 @@ void task_8c01183e(Task *task, void *state) {
         }
 
         item++;
-        var_texlistQueueCount_8c157a68++;
-        if (item >= var_texlistQueueCursor_8c157ab0) {
-            var_8c157ab8 = 1;
+        var_texlistQueueDedupCount_8c157a68++;
+        if (item >= var_texlistQueueRear_8c157ab0) {
+            var_texlistQueueIsIdle_8c157ab8 = 1;
             freeTask_8c014b66(task);
             return;
         }
 
-        if (!breakedBeforeEnd) {
+        /* TODO: Test this path */
+        if (!alreadyLoaded) {
             task->field_0x18 = item;
             return;
         }
@@ -731,16 +741,16 @@ void task_8c01183e(Task *task, void *state) {
 }
 
 /* TODO: Write tests for this */
-int FUN_8c0119f8() {
+int loadTexlistQueue_8c0119f8() {
     Task *created_task;
     void *created_state;
 
-    if (var_texlistQueue_8c157aac != var_texlistQueueCursor_8c157ab0) {
+    if (var_texlistQueue_8c157aac != var_texlistQueueRear_8c157ab0) {
         return 0;
     }
 
-    var_8c157ab8 = 0;
-    if (!pushTask_8c014ae8(var_tasks_8c1ba3c8, task_8c01183e, &created_task, &created_state, 0)) {
+    var_texlistQueueIsIdle_8c157ab8 = 0;
+    if (!pushTask_8c014ae8(var_tasks_8c1ba3c8, task_loadQueuedTexlists_8c01183e, &created_task, &created_state, 0)) {
         return 0;
     }
 
@@ -749,8 +759,8 @@ int FUN_8c0119f8() {
 }
 
 /* TODO: Write tests for this */
-int FUN_8c011a42() {
-  return var_8c157ab8;
+int texlistQueueIsIdle_8c011a42() {
+  return var_texlistQueueIsIdle_8c157ab8;
 }
 
 /* TODO: Write tests for this */
@@ -796,7 +806,7 @@ int requestPvm_8c011ac0(char *basedir, char *filename, void *p3, int p4, int p5)
 }
 
 /* TODO: Write tests for this */
-void task_8c011b00(PvmTask* task, void* state) {
+void task_loadQueuedPvms_8c011b00(TaskLoadQueuedPvms* task, void* state) {
     QueuedPvm *pvm = (QueuedPvm*) task->queuedPvm_0x18;
     int size;
 
@@ -832,12 +842,12 @@ void task_8c011b00(PvmTask* task, void* state) {
                     }
 
                     if (size > 0x100) {
-                        var_8c157a84 = syMalloc(size * 2048);
+                        var_queueBuffer_8c157a84 = syMalloc(size * 2048);
                     } else {
-                        var_8c157a84 = var_texbuf_8c277ca0;
+                        var_queueBuffer_8c157a84 = var_texbuf_8c277ca0;
                     }
 
-                    if (gdFsRead(task->gdfs_0x0c, size, var_8c157a84)) {
+                    if (gdFsRead(task->gdfs_0x0c, size, var_queueBuffer_8c157a84)) {
                         var_8c157a88 = 1;
                         task->queuedPvm_0x18 = ++pvm;
                         task->field_0x08 = 0;
@@ -858,10 +868,10 @@ void task_8c011b00(PvmTask* task, void* state) {
                     filename = syMalloc(pvm->field_0x0c * 0x1c);
 
                     njSetPvmTextureList(texlist, texname, filename, pvm->field_0x0c);
-                    njLoadTexturePvmMemory(var_8c157a84, texlist);
+                    njLoadTexturePvmMemory(var_queueBuffer_8c157a84, texlist);
 
-                    if (var_8c157a84 != var_texbuf_8c277ca0) {
-                        syFree(var_8c157a84);
+                    if (var_queueBuffer_8c157a84 != var_texbuf_8c277ca0) {
+                        syFree(var_queueBuffer_8c157a84);
                     }
 
                     task->queuedPvm_0x18 = ++pvm;
@@ -904,10 +914,10 @@ void task_8c011b00(PvmTask* task, void* state) {
                     filename = syMalloc(pvm->field_0x0c * 0x1c);
 
                     njSetPvmTextureList(texlist, texname, filename, pvm->field_0x0c);
-                    njLoadTexturePvmMemory(var_8c157a84, texlist);
+                    njLoadTexturePvmMemory(var_queueBuffer_8c157a84, texlist);
 
-                    if (var_8c157a84 != var_texbuf_8c277ca0) {
-                        syFree(var_8c157a84);
+                    if (var_queueBuffer_8c157a84 != var_texbuf_8c277ca0) {
+                        syFree(var_queueBuffer_8c157a84);
                     }
 
                     task->queuedPvm_0x18 = ++pvm;
@@ -920,14 +930,14 @@ void task_8c011b00(PvmTask* task, void* state) {
                         return;
                     }
                     
-                    gdFsTrans32(task->gdfs_0x0c, 2048, var_8c157a84);
+                    gdFsTrans32(task->gdfs_0x0c, 2048, var_queueBuffer_8c157a84);
                     return;
                 }
 
                 default: {
                     gdFsClose(task->gdfs_0x0c);
-                    if (var_8c157a84 != var_texbuf_8c277ca0) {
-                        syFree(var_8c157a84);
+                    if (var_queueBuffer_8c157a84 != var_texbuf_8c277ca0) {
+                        syFree(var_queueBuffer_8c157a84);
                     }
 
                     var_8c157a88 = 1;
@@ -941,7 +951,7 @@ void task_8c011b00(PvmTask* task, void* state) {
 }
 
 /* TODO: Write tests for this */
-int sortPvmQueueAndPushUnknownTask_8c011d24() {
+int sortAndLoadPvmQueue_8c011d24() {
     Task *created_task;
     void* created_state;
     QueuedPvm *temp;
@@ -951,7 +961,7 @@ int sortPvmQueueAndPushUnknownTask_8c011d24() {
     }
 
     /* 8c01132e */
-    var_8c157ac8 = 0;
+    var_pvmQueueIsIdle_8c157ac8 = 0;
 
     temp = syMalloc((int) var_pvmQueueRear_8c157ac0 - (int) var_pvmQueue_8c157abc);
 
@@ -983,7 +993,7 @@ int sortPvmQueueAndPushUnknownTask_8c011d24() {
 
     syFree(temp);
 
-    if (!pushTask_8c014ae8(&var_tasks_8c1ba3c8, &task_8c011b00, &created_task, &created_state, 0)) {
+    if (!pushTask_8c014ae8(&var_tasks_8c1ba3c8, &task_loadQueuedPvms_8c011b00, &created_task, &created_state, 0)) {
         return 0;
     }
 
@@ -996,8 +1006,8 @@ int sortPvmQueueAndPushUnknownTask_8c011d24() {
 }
 
 /* TODO: Write tests for this */
-int FUN_8c011e22() {
-  return var_8c157ac8;
+int pvmQueueIsIdle_8c011e22() {
+  return var_pvmQueueIsIdle_8c157ac8;
 }
 
 /* TODO: Write tests for this */
@@ -1016,57 +1026,57 @@ void releaseAndFreeTexlist_8c011e3c(NJS_TEXLIST *texlist) {
 }
 
 /* TODO: Write tests for this */
-void FUN_8c011e60(void ***p1) {
+void unusedFunction_8c011e60(void ***p1) {
   syFree(**p1);
   syFree(*p1);
   syFree(p1);
 }
 
 /* TODO: Write tests for this */
-void task_8c011e80(Task *task, Task1e80State *state) {
-    switch (state->field_0x00) {
+void task_processQueues_8c011e80(Task *task, TaskProcessQueuesState *state) {
+    switch (state->queue_0x00) {
         /* TODO: Use enum */
         case 0: {
-            if (get_8c157a98_8c0113d2()) {
-                if (state->func_0x08) {
-                    state->func_0x08();
+            if (datQueueIsIdle_8c0113d2()) {
+                if (state->afterDatCallback_0x08) {
+                    state->afterDatCallback_0x08();
                 }
 
-                state->field_0x00++;
-                sortNjQueueAndPushUnknownTask_8c0116b6();
+                state->queue_0x00++;
+                sortAndLoadNjQueue_8c0116b6();
             }
             break;
         }
 
         case 1: {
-            if (get8c157aa8_8c01179e()) {
-                if (state->func_0x0c) {
-                    state->func_0x0c();
+            if (njQueueIsIdle_8c01179e()) {
+                if (state->afterNjCallback_0x0c) {
+                    state->afterNjCallback_0x0c();
                 }
 
-                state->field_0x00++;
-                sortPvmQueueAndPushUnknownTask_8c011d24();
+                state->queue_0x00++;
+                sortAndLoadPvmQueue_8c011d24();
             }
             break;
         }
 
         case 2: {
-            if (FUN_8c011e22()) {
-                if (state->func_0x10) {
-                    state->func_0x10();
+            if (pvmQueueIsIdle_8c011e22()) {
+                if (state->afterPvmCallback_0x10) {
+                    state->afterPvmCallback_0x10();
                 }
 
-                state->field_0x00++;
-                FUN_8c0119f8();
+                state->queue_0x00++;
+                loadTexlistQueue_8c0119f8();
             }
             break;
         }
 
         case 3: {
-            if (FUN_8c011a42()) {
+            if (texlistQueueIsIdle_8c011a42()) {
                 freeTask_8c014b66(task);
-                if (state->func_0x14) {
-                    state->func_0x14();
+                if (state->afterTexlistCallback_0x14) {
+                    state->afterTexlistCallback_0x14();
                 }
 
                 return;
@@ -1090,7 +1100,7 @@ void initQueues_8c011f36(int datCount,int njCount,int texlistCount,int uknCount)
   initPvmQueue_8c011a5c(uknCount);
   FUN_8c01c8fc(2);
   FUN_8c01c910();
-  var_8c157a60 = 1;
+  var_queuesAreInitialized_8c157a60 = 1;
 }
 
 /* TODO: Write tests for this */
@@ -1100,7 +1110,7 @@ void resetQueues_8c011f6c() {
     resetTexlistQueue_8c0117fe();
     var_pvmQueueRear_8c157ac0 = var_pvmQueue_8c157abc;
     var_queueBaseDir_8c157a80 = "DATA EMPTY";
-    var_8c157ac8 = 1;
+    var_pvmQueueIsIdle_8c157ac8 = 1;
 }
 
 /* TODO: Write tests for this */
@@ -1110,23 +1120,23 @@ void freeQueues_8c011f7e() {
     freeTexlistQueue_8c011a48();
     freePvmQueue_8c011e28();
     FUN_8c01c8fc(0);
-    var_8c157a60 = 0;
+    var_queuesAreInitialized_8c157a60 = 0;
 }
 
 /* TODO: Write tests for this */
-void FUN_8c011fe0(void *func_0x04, void *func_0x08, void *func_0x0c, void *func_0x10, void *func_0x14) {
+void processQueues_8c011fe0(void *func, void *afterDatCallback, void *afterNjCallback, void *afterPvmCallback, void *afterTexlistCallback) {
     Task* created_task;
-    Task1e80State* created_state;
+    TaskProcessQueuesState* created_state;
 
-    pushTask_8c014ae8(&var_tasks_8c1ba3c8, &task_8c011e80, created_task, created_state, 0x18);
-    created_state->field_0x00 = 0;
-    created_state->func_0x08 = func_0x08;
-    created_state->func_0x0c = func_0x0c;
-    created_state->func_0x10 = func_0x10;
-    created_state->func_0x14 = func_0x14;
-    created_state->func_0x04 = func_0x04;
+    pushTask_8c014ae8(&var_tasks_8c1ba3c8, &task_processQueues_8c011e80, created_task, created_state, 0x18);
+    created_state->queue_0x00 = 0;
+    created_state->afterDatCallback_0x08 = afterDatCallback;
+    created_state->afterNjCallback_0x0c = afterNjCallback;
+    created_state->afterPvmCallback_0x10 = afterPvmCallback;
+    created_state->afterTexlistCallback_0x14 = afterTexlistCallback;
+    created_state->func_0x04 = func;
 
-    FUN_8c011310();
+    sortAndLoadDatQueue_8c011310();
 }   
 
 /* TODO: Write tests for this */

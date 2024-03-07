@@ -92,7 +92,7 @@ return new class extends TestCase {
             ->andReturn(1);
 
         $this->initUint32($this->addressOf('_var_texbuf_8c277ca0'), 0xbebacafe);
-        $this->shouldWriteTo('_var_8c157a84', $this->addressOf('_var_texbuf_8c277ca0'));
+        $this->shouldWriteTo('_var_queueBuffer_8c157a84', $this->addressOf('_var_texbuf_8c277ca0'));
 
         $this->shouldCall('_gdFsRead')
             ->with(0xf5f50000, 0x100, $this->addressOf('_var_texbuf_8c277ca0'))
@@ -122,7 +122,7 @@ return new class extends TestCase {
         $this->shouldWrite($taskPtr + 0x18, $njQueue + $sizeOfQueuedNj);
         $this->shouldWrite($taskPtr + 0x08, 0);
 
-        $this->call('_task_8c0114cc')
+        $this->call('_task_loadQueuedNjs_8c0114cc')
             ->with($taskPtr, 0)
             ->run();
     }
@@ -181,7 +181,7 @@ return new class extends TestCase {
         $this->initUint32($taskPtr + 0x18, $njQueue);
 
         $this->initUint32($this->addressOf('_var_texbuf_8c277ca0'), 0xbebacafe);
-        $this->initUint32($this->addressOf('_var_8c157a84'), $this->addressOf('_var_texbuf_8c277ca0'));
+        $this->initUint32($this->addressOf('_var_queueBuffer_8c157a84'), $this->addressOf('_var_texbuf_8c277ca0'));
 
         $this->initUint32($this->addressOf('_var_8c157a88'), 1);
 
@@ -189,7 +189,7 @@ return new class extends TestCase {
         $this->shouldwriteTo('_var_8c157a88', 0);
         $this->shouldWriteTo('_var_queueBaseDir_8c157a80', 'DATA EMPTY');
 
-        $this->call('_task_8c0114cc')
+        $this->call('_task_loadQueuedNjs_8c0114cc')
             ->with($taskPtr, 0)
             ->run();
     }
@@ -259,7 +259,7 @@ return new class extends TestCase {
             ->andReturn(1);
 
         $this->initUint32($this->addressOf('_var_texbuf_8c277ca0'), 0xbebacafe);
-        $this->shouldWriteTo('_var_8c157a84', $this->addressOf('_var_texbuf_8c277ca0'));
+        $this->shouldWriteTo('_var_queueBuffer_8c157a84', $this->addressOf('_var_texbuf_8c277ca0'));
 
         $this->shouldCall('_gdFsRead')
             ->with(0xf5f50000, 0x100, $this->addressOf('_var_texbuf_8c277ca0'))
@@ -271,7 +271,7 @@ return new class extends TestCase {
         $this->shouldWrite($taskPtr + 0x18, $njQueue + $sizeOfQueuedNj);
         $this->shouldWrite($taskPtr + 0x08, 0);
 
-        $this->call('_task_8c0114cc')
+        $this->call('_task_loadQueuedNjs_8c0114cc')
             ->with($taskPtr, 0)
             ->run();
     }
@@ -339,7 +339,7 @@ return new class extends TestCase {
             ->andReturn(1);
 
         $this->initUint32($this->addressOf('_var_texbuf_8c277ca0'), 0xbebacafe);
-        $this->shouldWriteTo('_var_8c157a84', $this->addressOf('_var_texbuf_8c277ca0'));
+        $this->shouldWriteTo('_var_queueBuffer_8c157a84', $this->addressOf('_var_texbuf_8c277ca0'));
 
         $this->shouldCall('_gdFsRead')
             ->with(0xf5f50000, 0x100, $this->addressOf('_var_texbuf_8c277ca0'))
@@ -360,7 +360,7 @@ return new class extends TestCase {
         $this->shouldWrite($taskPtr + 0x18, $njQueue + $sizeOfQueuedNj);
         $this->shouldWrite($taskPtr + 0x08, 0);
 
-        $this->call('_task_8c0114cc')
+        $this->call('_task_loadQueuedNjs_8c0114cc')
             ->with($taskPtr, 0)
             ->run();
     }
@@ -428,7 +428,7 @@ return new class extends TestCase {
             ->andReturn(1);
 
         $this->initUint32($this->addressOf('_var_texbuf_8c277ca0'), 0xbebacafe);
-        $this->shouldWriteTo('_var_8c157a84', $this->addressOf('_var_texbuf_8c277ca0'));
+        $this->shouldWriteTo('_var_queueBuffer_8c157a84', $this->addressOf('_var_texbuf_8c277ca0'));
 
         $this->shouldCall('_gdFsRead')
             ->with(0xf5f50000, 0x100, $this->addressOf('_var_texbuf_8c277ca0'))
@@ -449,7 +449,7 @@ return new class extends TestCase {
         $this->shouldWrite($taskPtr + 0x18, $njQueue + $sizeOfQueuedNj);
         $this->shouldWrite($taskPtr + 0x08, 0);
 
-        $this->call('_task_8c0114cc')
+        $this->call('_task_loadQueuedNjs_8c0114cc')
             ->with($taskPtr, 0)
             ->run();
     }
@@ -542,7 +542,7 @@ return new class extends TestCase {
             ->andReturn(1);
 
         $this->initUint32($this->addressOf('_var_texbuf_8c277ca0'), 0xbebacafe);
-        $this->shouldWriteTo('_var_8c157a84', $this->addressOf('_var_texbuf_8c277ca0'));
+        $this->shouldWriteTo('_var_queueBuffer_8c157a84', $this->addressOf('_var_texbuf_8c277ca0'));
 
         $this->shouldCall('_gdFsRead')
             ->with(0xf5f50000, 0x100, $this->addressOf('_var_texbuf_8c277ca0'))
@@ -572,7 +572,7 @@ return new class extends TestCase {
         $this->shouldWrite($taskPtr + 0x18, $njQueue + 2 * $sizeOfQueuedNj);
         $this->shouldWrite($taskPtr + 0x08, 0);
 
-        $this->call('_task_8c0114cc')
+        $this->call('_task_loadQueuedNjs_8c0114cc')
             ->with($taskPtr, 0)
             ->run();
     }
@@ -608,7 +608,7 @@ return new class extends TestCase {
         // task->queuedDat_0x18 points to the first item in the queue
         $this->initUint32($taskPtr + 0x18, $njQueue);
         
-        $this->initUint32($this->addressOf('_var_8c157a84'), $this->addressOf('_var_texbuf_8c277ca0'));
+        $this->initUint32($this->addressOf('_var_queueBuffer_8c157a84'), $this->addressOf('_var_texbuf_8c277ca0'));
 
         $sizeLocal = $this->isAsmObject() ? 0xffffd0 : 0xffffc8;
         $fposLocal = $this->isAsmObject() ? 0xffffd4 : 0xffffcc;
@@ -634,7 +634,7 @@ return new class extends TestCase {
         $this->shouldWrite($taskPtr + 0x18, $njQueue + 1 * $sizeOfQueuedNj);
         $this->shouldWrite($taskPtr + 0x08, 0);
 
-        $this->call('_task_8c0114cc')
+        $this->call('_task_loadQueuedNjs_8c0114cc')
             ->with($taskPtr, 0)
             ->run();
     }
@@ -673,7 +673,7 @@ return new class extends TestCase {
         $readTarget = $this->alloc(4);
 
         $this->initUint32($this->addressOf('_var_texbuf_8c277ca0'), 0xbebacafe);
-        $this->initUint32($this->addressOf('_var_8c157a84'), $readTarget);
+        $this->initUint32($this->addressOf('_var_queueBuffer_8c157a84'), $readTarget);
 
         $sizeLocal = $this->isAsmObject() ? 0xffffd0 : 0xffffc8;
         $fposLocal = $this->isAsmObject() ? 0xffffd4 : 0xffffcc;
@@ -701,7 +701,7 @@ return new class extends TestCase {
         $this->shouldWrite($taskPtr + 0x18, $njQueue + 1 * $sizeOfQueuedNj);
         $this->shouldWrite($taskPtr + 0x08, 0);
 
-        $this->call('_task_8c0114cc')
+        $this->call('_task_loadQueuedNjs_8c0114cc')
             ->with($taskPtr, 0)
             ->run();
     }
@@ -737,7 +737,7 @@ return new class extends TestCase {
         // task->queuedDat_0x18 points to the first item in the queue
         $this->initUint32($taskPtr + 0x18, $njQueue);
         
-        $this->initUint32($this->addressOf('_var_8c157a84'), $this->addressOf('_var_texbuf_8c277ca0'));
+        $this->initUint32($this->addressOf('_var_queueBuffer_8c157a84'), $this->addressOf('_var_texbuf_8c277ca0'));
 
         $sizeLocal = $this->isAsmObject() ? 0xffffd0 : 0xffffc8;
         $fposLocal = $this->isAsmObject() ? 0xffffd4 : 0xffffcc;
@@ -770,7 +770,7 @@ return new class extends TestCase {
         $this->shouldWrite($taskPtr + 0x18, $njQueue + 1 * $sizeOfQueuedNj);
         $this->shouldWrite($taskPtr + 0x08, 0);
 
-        $this->call('_task_8c0114cc')
+        $this->call('_task_loadQueuedNjs_8c0114cc')
             ->with($taskPtr, 0)
             ->run();
     }
@@ -807,7 +807,7 @@ return new class extends TestCase {
         $this->initUint32($taskPtr + 0x18, $njQueue);
 
         $readTarget = $this->alloc(4);
-        $this->initUint32($this->addressOf('_var_8c157a84'), $readTarget);
+        $this->initUint32($this->addressOf('_var_queueBuffer_8c157a84'), $readTarget);
         $this->initUint32($this->addressOf('_var_texbuf_8c277ca0'), 0xbebacafe);
 
         $sizeLocal = $this->isAsmObject() ? 0xffffd0 : 0xffffc8;
@@ -843,7 +843,7 @@ return new class extends TestCase {
         $this->shouldWrite($taskPtr + 0x18, $njQueue + 1 * $sizeOfQueuedNj);
         $this->shouldWrite($taskPtr + 0x08, 0);
 
-        $this->call('_task_8c0114cc')
+        $this->call('_task_loadQueuedNjs_8c0114cc')
             ->with($taskPtr, 0)
             ->run();
     }
@@ -879,7 +879,7 @@ return new class extends TestCase {
         // task->queuedDat_0x18 points to the first item in the queue
         $this->initUint32($taskPtr + 0x18, $njQueue);
         
-        $this->initUint32($this->addressOf('_var_8c157a84'), $this->addressOf('_var_texbuf_8c277ca0'));
+        $this->initUint32($this->addressOf('_var_queueBuffer_8c157a84'), $this->addressOf('_var_texbuf_8c277ca0'));
 
         $sizeLocal = $this->isAsmObject() ? 0xffffd0 : 0xffffc8;
         $fposLocal = $this->isAsmObject() ? 0xffffd4 : 0xffffcc;
@@ -908,7 +908,7 @@ return new class extends TestCase {
             })
             ->andReturn(1);
 
-        $this->shouldWriteTo('_var_8c157a84', $this->addressOf('_var_texbuf_8c277ca0'));
+        $this->shouldWriteTo('_var_queueBuffer_8c157a84', $this->addressOf('_var_texbuf_8c277ca0'));
 
         $this->shouldCall('_gdFsRead')
             ->with(0xf5f50000, 0x100, $this->addressOf('_var_texbuf_8c277ca0'))
@@ -918,7 +918,7 @@ return new class extends TestCase {
         $this->shouldWrite($taskPtr + 0x18, $njQueue + 1 * $sizeOfQueuedNj);
         $this->shouldWrite($taskPtr + 0x08, 0);
 
-        $this->call('_task_8c0114cc')
+        $this->call('_task_loadQueuedNjs_8c0114cc')
             ->with($taskPtr, 0)
             ->run();
     }
@@ -987,7 +987,7 @@ return new class extends TestCase {
         $this->shouldCall('_syMalloc')
             ->with(0x101 * 2048)
             ->andReturn($texBuf);
-        $this->shouldWriteTo('_var_8c157a84', $texBuf);
+        $this->shouldWriteTo('_var_queueBuffer_8c157a84', $texBuf);
 
         $this->shouldCall('_gdFsRead')
             ->with(0xf5f50000, 0x101, $texBuf)
@@ -999,7 +999,7 @@ return new class extends TestCase {
         $this->shouldWrite($taskPtr + 0x18, $njQueue + 1 * $sizeOfQueuedNj);
         $this->shouldWrite($taskPtr + 0x08, 0);
 
-        $this->call('_task_8c0114cc')
+        $this->call('_task_loadQueuedNjs_8c0114cc')
             ->with($taskPtr, 0)
             ->run();
     }
@@ -1031,7 +1031,7 @@ return new class extends TestCase {
         $rtypeLocal = $this->isAsmObject() ? 0xffffd8 : 0xffffd0;
 
         $this->initUint32($this->addressOf('_var_texbuf_8c277ca0'), 0xbebacafe);
-        $this->initUint32($this->addressOf('_var_8c157a84'), $this->addressOf('_var_texbuf_8c277ca0'));
+        $this->initUint32($this->addressOf('_var_queueBuffer_8c157a84'), $this->addressOf('_var_texbuf_8c277ca0'));
 
         $this->shouldCall('_gdFsGetStat')
             ->with(0xf5f50000)
@@ -1063,7 +1063,7 @@ return new class extends TestCase {
         $this->shouldWrite($taskPtr + 0x18, $njQueue + $sizeOfQueuedNj);
         $this->shouldWrite($taskPtr + 0x08, 0);
 
-        $this->call('_task_8c0114cc')
+        $this->call('_task_loadQueuedNjs_8c0114cc')
             ->with($taskPtr, 0)
             ->run();
     }
@@ -1095,7 +1095,7 @@ return new class extends TestCase {
         $rtypeLocal = $this->isAsmObject() ? 0xffffd8 : 0xffffd0;
 
         $this->initUint32($this->addressOf('_var_texbuf_8c277ca0'), 0xbebacafe);
-        $this->initUint32($this->addressOf('_var_8c157a84'), $this->addressOf('_var_texbuf_8c277ca0'));
+        $this->initUint32($this->addressOf('_var_queueBuffer_8c157a84'), $this->addressOf('_var_texbuf_8c277ca0'));
 
         $this->shouldCall('_gdFsGetStat')
             ->with(0xf5f50000)
@@ -1109,7 +1109,7 @@ return new class extends TestCase {
         $this->shouldWrite($taskPtr + 0x18, $njQueue + $sizeOfQueuedNj);
         $this->shouldWrite($taskPtr + 0x08, 0);
 
-        $this->call('_task_8c0114cc')
+        $this->call('_task_loadQueuedNjs_8c0114cc')
             ->with($taskPtr, 0)
             ->run();
     }
@@ -1141,7 +1141,7 @@ return new class extends TestCase {
         $rtypeLocal = $this->isAsmObject() ? 0xffffd8 : 0xffffd0;
 
         $this->initUint32($this->addressOf('_var_texbuf_8c277ca0'), 0xbebacafe);
-        $this->initUint32($this->addressOf('_var_8c157a84'), $this->addressOf('_var_texbuf_8c277ca0'));
+        $this->initUint32($this->addressOf('_var_queueBuffer_8c157a84'), $this->addressOf('_var_texbuf_8c277ca0'));
 
         $this->shouldCall('_gdFsGetStat')
             ->with(0xf5f50000)
@@ -1164,7 +1164,7 @@ return new class extends TestCase {
         $this->shouldWrite($taskPtr + 0x18, $njQueue + $sizeOfQueuedNj);
         $this->shouldWrite($taskPtr + 0x08, 0);
 
-        $this->call('_task_8c0114cc')
+        $this->call('_task_loadQueuedNjs_8c0114cc')
             ->with($taskPtr, 0)
             ->run();
     }
@@ -1196,7 +1196,7 @@ return new class extends TestCase {
         $rtypeLocal = $this->isAsmObject() ? 0xffffd8 : 0xffffd0;
 
         $this->initUint32($this->addressOf('_var_texbuf_8c277ca0'), 0xbebacafe);
-        $this->initUint32($this->addressOf('_var_8c157a84'), $this->addressOf('_var_texbuf_8c277ca0'));
+        $this->initUint32($this->addressOf('_var_queueBuffer_8c157a84'), $this->addressOf('_var_texbuf_8c277ca0'));
 
         $this->shouldCall('_gdFsGetStat')
             ->with(0xf5f50000)
@@ -1219,7 +1219,7 @@ return new class extends TestCase {
         $this->shouldWrite($taskPtr + 0x18, $njQueue + $sizeOfQueuedNj);
         $this->shouldWrite($taskPtr + 0x08, 0);
 
-        $this->call('_task_8c0114cc')
+        $this->call('_task_loadQueuedNjs_8c0114cc')
             ->with($taskPtr, 0)
             ->run();
     }
@@ -1252,7 +1252,7 @@ return new class extends TestCase {
 
         $this->initUint32($this->addressOf('_var_texbuf_8c277ca0'), 0xbebacafe);
         $readTarget = $this->alloc(0x4);
-        $this->initUint32($this->addressOf('_var_8c157a84'), $readTarget);
+        $this->initUint32($this->addressOf('_var_queueBuffer_8c157a84'), $readTarget);
 
         $this->shouldCall('_gdFsGetStat')
             ->with(0xf5f50000)
@@ -1268,7 +1268,7 @@ return new class extends TestCase {
         $this->shouldWrite($taskPtr + 0x18, $njQueue + $sizeOfQueuedNj);
         $this->shouldWrite($taskPtr + 0x08, 0);
 
-        $this->call('_task_8c0114cc')
+        $this->call('_task_loadQueuedNjs_8c0114cc')
             ->with($taskPtr, 0)
             ->run();
     }
@@ -1300,7 +1300,7 @@ return new class extends TestCase {
         $rtypeLocal = $this->isAsmObject() ? 0xffffd8 : 0xffffd0;
 
         $this->initUint32($this->addressOf('_var_texbuf_8c277ca0'), 0xbebacafe);
-        $this->initUint32($this->addressOf('_var_8c157a84'), $this->addressOf('_var_texbuf_8c277ca0'));
+        $this->initUint32($this->addressOf('_var_queueBuffer_8c157a84'), $this->addressOf('_var_texbuf_8c277ca0'));
 
         $this->shouldCall('_gdFsGetStat')
             ->with(0xf5f50000)
@@ -1313,7 +1313,7 @@ return new class extends TestCase {
         $this->shouldCall('_gdFsTrans32')
             ->with(0xf5f50000, 2048, $this->addressOf('_var_texbuf_8c277ca0'));
 
-        $this->call('_task_8c0114cc')
+        $this->call('_task_loadQueuedNjs_8c0114cc')
             ->with($taskPtr, 0)
             ->run();
     }
@@ -1346,7 +1346,7 @@ return new class extends TestCase {
 
         $this->initUint32($this->addressOf('_var_texbuf_8c277ca0'), 0xbebacafe);
         $readTarget = $this->alloc(0x4);
-        $this->initUint32($this->addressOf('_var_8c157a84'), $readTarget);
+        $this->initUint32($this->addressOf('_var_queueBuffer_8c157a84'), $readTarget);
 
         $this->shouldCall('_gdFsGetStat')
             ->with(0xf5f50000)
@@ -1361,7 +1361,7 @@ return new class extends TestCase {
 
         // $this->shouldCall('_syFree')->with($readTarget);
 
-        $this->call('_task_8c0114cc')
+        $this->call('_task_loadQueuedNjs_8c0114cc')
             ->with($taskPtr, 0)
             ->run();
     }
@@ -1393,7 +1393,7 @@ return new class extends TestCase {
         $rtypeLocal = $this->isAsmObject() ? 0xffffd8 : 0xffffd0;
 
         $this->initUint32($this->addressOf('_var_texbuf_8c277ca0'), 0xbebacafe);
-        $this->initUint32($this->addressOf('_var_8c157a84'), $this->addressOf('_var_texbuf_8c277ca0'));
+        $this->initUint32($this->addressOf('_var_queueBuffer_8c157a84'), $this->addressOf('_var_texbuf_8c277ca0'));
 
         $this->shouldCall('_gdFsGetStat')
             ->with(0xf5f50000)
@@ -1406,7 +1406,7 @@ return new class extends TestCase {
         $this->shouldWrite($taskPtr + 0x18, $njQueue + 1 * $sizeOfQueuedNj);
         $this->shouldWrite($taskPtr + 0x08, 0);
 
-        $this->call('_task_8c0114cc')
+        $this->call('_task_loadQueuedNjs_8c0114cc')
             ->with($taskPtr, 0)
             ->run();
     }

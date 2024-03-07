@@ -23,7 +23,7 @@
           .IMPORT     _resetQueues_8c011f6c
           .IMPORT     _var_8c18adb0
           .IMPORT     _nop_8c011120
-          .IMPORT     _FUN_8c011fe0
+          .IMPORT     _processQueues_8c011fe0
           .IMPORT     _var_8c1bbfdc
           .IMPORT     _init_8c043fd8
           .IMPORT     _var_8c18ad18
@@ -582,7 +582,7 @@ LP_GEN_38230:
           .DATA.L _var_8c18adb0
           .DATA.L _FUN_8c013d42
           .DATA.L _nop_8c011120
-          .DATA.L _FUN_8c011fe0
+          .DATA.L _processQueues_8c011fe0
           .DATA.L _var_8c1bbddc
           .DATA.L _releaseAndFreeTexlist_8c011e3c
           .DATA.L _syFree
@@ -1323,7 +1323,7 @@ LP_GEN_90737:
           .DATA.L _njLoadCacheTexture
           .DATA.L _setUknPvmBool_8c014330
           .DATA.L _nop_8c011120
-          .DATA.L _FUN_8c011fe0
+          .DATA.L _processQueues_8c011fe0
           .DATA.L _FUN_8c02175a
           .DATA.L _var_8c1bb868
           .DATA.L _FUN_8c026da4
@@ -1501,7 +1501,7 @@ LP_GEN_28406:
           .DATA.L _FUN_8c02190a
           .DATA.L _FUN_8c021810
           .DATA.L _nop_8c011120
-          .DATA.L _FUN_8c011fe0
+          .DATA.L _processQueues_8c011fe0
 
 LAB_8c014610:
           MOV.L       LP_GEN_17698+4,R3
@@ -1854,7 +1854,7 @@ LP_GEN_48435:
           .DATA.L _njLoadCacheTexture
           .DATA.L _setUknPvmBool_8c014330
           .DATA.L _nop_8c011120
-          .DATA.L _FUN_8c011fe0
+          .DATA.L _processQueues_8c011fe0
           .DATA.L _FUN_8c02175a
           .DATA.L _var_8c1bb868
           .DATA.L _FUN_8c026da4

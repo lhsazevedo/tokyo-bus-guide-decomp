@@ -278,7 +278,7 @@ return new class extends TestCase {
         $this->shouldCall('_requestDat_8c011182')->with("\\SOUND", "manatee.drv", $this->addressOf('_memblkSource_8c0fcd48'));
         $this->shouldCall('_requestDat_8c011182')->with("\\SOUND", "bus.mlt", $this->addressOf('_memblkSource_8c0fcd4c'));
         $this->shouldCall('_resetUknPvmBool_8c014322');
-        $this->shouldCall('_FUN_8c011fe0')->with($this->addressOf('_nop_8c011120'), 0, 0, 0, $this->addressOf('_setUknPvmBool_8c014330'));;
+        $this->shouldCall('_processQueues_8c011fe0')->with($this->addressOf('_nop_8c011120'), 0, 0, 0, $this->addressOf('_setUknPvmBool_8c014330'));;
 
         $this->call('_task_8c013388')
             ->with($taskPtr, 0)
@@ -462,7 +462,7 @@ return new class extends TestCase {
         $this->shouldCall('_requestNj_8c011492')->with("\\SD_COMMON", "3s_bus_m2.njs", $this->addressOf('_var_8c1bc414'), 0);
 
         $this->shouldCall('_resetUknPvmBool_8c014322');
-        $this->shouldCall('_FUN_8c011fe0')->with($this->addressOf('_nop_8c011120'), 0, 0, 0, $this->addressOf('_setUknPvmBool_8c014330'));;
+        $this->shouldCall('_processQueues_8c011fe0')->with($this->addressOf('_nop_8c011120'), 0, 0, 0, $this->addressOf('_setUknPvmBool_8c014330'));;
 
         $this->shouldWriteTo('_var_gdErr_8c18ad14', 0);
 
@@ -616,7 +616,7 @@ return new class extends TestCase {
         $this->shouldCall('_requestNj_8c011492')->with("\\SD_COMMON", "3s_bus_m2.njs", $this->addressOf('_var_8c1bc414'), 0);
 
         $this->shouldCall('_resetUknPvmBool_8c014322');
-        $this->shouldCall('_FUN_8c011fe0')->with($this->addressOf('_nop_8c011120'), 0, 0, 0, $this->addressOf('_setUknPvmBool_8c014330'));;
+        $this->shouldCall('_processQueues_8c011fe0')->with($this->addressOf('_nop_8c011120'), 0, 0, 0, $this->addressOf('_setUknPvmBool_8c014330'));;
 
         $this->shouldWriteTo('_var_gdErr_8c18ad14', 0);
 
@@ -770,7 +770,7 @@ return new class extends TestCase {
         $this->shouldCall('_requestNj_8c011492')->with("\\SD_COMMON", "3s_bus_m2.njs", $this->addressOf('_var_8c1bc414'), 0);
 
         $this->shouldCall('_resetUknPvmBool_8c014322');
-        $this->shouldCall('_FUN_8c011fe0')->with($this->addressOf('_nop_8c011120'), 0, 0, 0, $this->addressOf('_setUknPvmBool_8c014330'));;
+        $this->shouldCall('_processQueues_8c011fe0')->with($this->addressOf('_nop_8c011120'), 0, 0, 0, $this->addressOf('_setUknPvmBool_8c014330'));;
 
         $this->shouldWriteTo('_var_gdErr_8c18ad14', 0);
 
@@ -924,7 +924,7 @@ return new class extends TestCase {
         $this->shouldCall('_requestNj_8c011492')->with("\\SD_COMMON", "3s_bus_m2.njs", $this->addressOf('_var_8c1bc414'), 0);
 
         $this->shouldCall('_resetUknPvmBool_8c014322');
-        $this->shouldCall('_FUN_8c011fe0')->with($this->addressOf('_nop_8c011120'), 0, 0, 0, $this->addressOf('_setUknPvmBool_8c014330'));;
+        $this->shouldCall('_processQueues_8c011fe0')->with($this->addressOf('_nop_8c011120'), 0, 0, 0, $this->addressOf('_setUknPvmBool_8c014330'));;
 
         $this->shouldWriteTo('_var_gdErr_8c18ad14', 0);
 
@@ -940,7 +940,7 @@ return new class extends TestCase {
         $this->initUint32($this->addressOf('_var_vibport_8c1ba354'), 0xbebacafe);
 
         $this->shouldReadFrom('_init_8c03bd80', 0);
-        $this->shouldReadFrom('_var_8c157a60', 0);
+        $this->shouldReadFrom('_var_queuesAreInitialized_8c157a60', 0);
         $this->shouldReadFrom('_init_8c03bfa8', 1);
 
         $this->shouldCall('_gdFsGetSysHn')->andReturn(0xbeba0001);
@@ -1000,7 +1000,7 @@ return new class extends TestCase {
     // public function test_njUserMain_8c01392e_0_0_0_idle_open_vib()
     // {
     //     $init_8c03bd80Ptr = $this->allocRellocate('_init_8c03bd80', 4);
-    //     $var_8c157a60Ptr = $this->allocRellocate('_var_8c157a60', 4);
+    //     $var_queuesAreInitialized_8c157a60Ptr = $this->allocRellocate('_var_queuesAreInitialized_8c157a60', 4);
     //     $init_8c03bfa8Ptr = $this->allocRellocate('_init_8c03bfa8', 4);
     //     $var_vibport_8c1ba354Ptr = $this->allocRellocate('_var_vibport_8c1ba354', 4);
     //     $this->initUint32($var_vibport_8c1ba354Ptr, 0xbebacafe);
@@ -1008,7 +1008,7 @@ return new class extends TestCase {
     //     $var_tasks_8c1ba3c8Ptr = $this->allocRellocate('_var_tasks_8c1ba3c8', 4);
 
     //     $this->shouldRead($init_8c03bd80Ptr, 0);
-    //     $this->shouldRead($var_8c157a60Ptr, 0);
+    //     $this->shouldRead($var_queuesAreInitialized_8c157a60Ptr, 0);
     //     $this->shouldRead($init_8c03bfa8Ptr, 0);
 
     //     $this->shouldCall('_gdFsReqDrvStat')->andReturn(0);
@@ -1027,7 +1027,7 @@ return new class extends TestCase {
     // public function test_njUserMain_8c01392e_0_0_0_idle_open()
     // {
     //     $init_8c03bd80Ptr = $this->allocRellocate('_init_8c03bd80', 4);
-    //     $var_8c157a60Ptr = $this->allocRellocate('_var_8c157a60', 4);
+    //     $var_queuesAreInitialized_8c157a60Ptr = $this->allocRellocate('_var_queuesAreInitialized_8c157a60', 4);
     //     $init_8c03bfa8Ptr = $this->allocRellocate('_init_8c03bfa8', 4);
     //     $var_vibport_8c1ba354Ptr = $this->allocRellocate('_var_vibport_8c1ba354', 4);
     //     $this->initUint32($var_vibport_8c1ba354Ptr, 0xbebacafe);
@@ -1035,7 +1035,7 @@ return new class extends TestCase {
     //     $var_tasks_8c1ba3c8Ptr = $this->allocRellocate('_var_tasks_8c1ba3c8', 4);
 
     //     $this->shouldRead($init_8c03bd80Ptr, 0);
-    //     $this->shouldRead($var_8c157a60Ptr, 0);
+    //     $this->shouldRead($var_queuesAreInitialized_8c157a60Ptr, 0);
     //     $this->shouldRead($init_8c03bfa8Ptr, 0);
         
     //     $this->shouldCall('_gdFsReqDrvStat')->andReturn(0);

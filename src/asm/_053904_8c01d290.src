@@ -27,7 +27,7 @@
           .IMPORT     _setUknPvmBool_8c014330
           .IMPORT     _resetUknPvmBool_8c014322
           .IMPORT     _nop_8c011120
-          .IMPORT     _FUN_8c011fe0
+          .IMPORT     _processQueues_8c011fe0
           .EXPORT     _FUN_8c01d290
           .EXPORT     _FUN_8c01d300
           .EXPORT     _FUN_8c01d6e2
@@ -742,5 +742,5 @@ LP_GEN_20271:
           .DATA.L _setUknPvmBool_8c014330 ; H'8C01D7EC
           .DATA.L _resetUknPvmBool_8c014322 ; H'8C01D7F0
           .DATA.L _nop_8c011120 ; H'8C01D7F4
-          .DATA.L _FUN_8c011fe0 ; H'8C01D7F8
+          .DATA.L _processQueues_8c011fe0 ; H'8C01D7F8
           .END

@@ -58,7 +58,7 @@
           .IMPORT     _setUknPvmBool_8c014330
           .IMPORT     _resetUknPvmBool_8c014322
           .IMPORT     _nop_8c011120
-          .IMPORT     _FUN_8c011fe0
+          .IMPORT     _processQueues_8c011fe0
           .IMPORT     _FUN_8c0128cc
           .IMPORT     _task_8c012f44
           .IMPORT     _FUN_8c02ae3e
@@ -2485,7 +2485,7 @@ LP_GEN_67544:
           .DATA.L _setUknPvmBool_8c014330 ; H'8C017F6C
           .DATA.L _resetUknPvmBool_8c014322 ; H'8C017F70
           .DATA.L _nop_8c011120 ; H'8C017F74
-          .DATA.L _FUN_8c011fe0 ; H'8C017F78
+          .DATA.L _processQueues_8c011fe0 ; H'8C017F78
           .DATA.L _freeQueues_8c011f7e ; H'8C017F7C
           .DATA.L _push_fadein_8c022a9c ; H'8C017F80
           .DATA.L _snd_8c010cd6 ; H'8C017F84
@@ -2658,7 +2658,7 @@ LP_GEN_56170:
           .DATA.L _setUknPvmBool_8c014330 ; H'8C0180F4
           .DATA.L _resetUknPvmBool_8c014322 ; H'8C0180F8
           .DATA.L _nop_8c011120 ; H'8C0180FC
-          .DATA.L _FUN_8c011fe0 ; H'8C018100
+          .DATA.L _processQueues_8c011fe0 ; H'8C018100
           .DATA.L _drawSprite_8c014f54 ; H'8C018104
           .DATA.L H'C0800000 ; H'8C018108
           .DATA.L H'41980000 ; H'8C01810C
@@ -3292,7 +3292,7 @@ LP_GEN_93008:
           .DATA.L _setUknPvmBool_8c014330 ; H'8C018610
           .DATA.L _resetUknPvmBool_8c014322 ; H'8C018614
           .DATA.L _nop_8c011120 ; H'8C018618
-          .DATA.L _FUN_8c011fe0 ; H'8C01861C
+          .DATA.L _processQueues_8c011fe0 ; H'8C01861C
           .DATA.L _const_8c036290 ; H'8C018620
           .DATA.L _const_8c036298 ; H'8C018624
           .DATA.L _requestDat_8c011182 ; H'8C018628

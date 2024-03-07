@@ -21,7 +21,7 @@
           .IMPORT     _setUknPvmBool_8c014330
           .IMPORT     _resetUknPvmBool_8c014322
           .IMPORT     _nop_8c011120
-          .IMPORT     _FUN_8c011fe0
+          .IMPORT     _processQueues_8c011fe0
           .EXPORT     _task_mainmenu_8c019e98
           .EXPORT     _FUN_8c01a09a
           .SECTION     P, CODE, ALIGN=4
@@ -364,5 +364,5 @@ LP_GEN_13822:
           .DATA.L _setUknPvmBool_8c014330 ; H'8C01A138
           .DATA.L _resetUknPvmBool_8c014322 ; H'8C01A13C
           .DATA.L _nop_8c011120 ; H'8C01A140
-          .DATA.L _FUN_8c011fe0 ; H'8C01A144
+          .DATA.L _processQueues_8c011fe0 ; H'8C01A144
           .END
