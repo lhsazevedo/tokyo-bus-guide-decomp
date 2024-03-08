@@ -740,17 +740,17 @@ void task_loadQueuedTexlists_8c01183e(Task *task, void *state) {
     }
 }
 
-/* TODO: Write tests for this */
+/* Tested */
 int loadTexlistQueue_8c0119f8() {
     Task *created_task;
     void *created_state;
 
-    if (var_texlistQueue_8c157aac != var_texlistQueueRear_8c157ab0) {
+    if (var_texlistQueue_8c157aac == var_texlistQueueRear_8c157ab0) {
         return 0;
     }
 
     var_texlistQueueIsIdle_8c157ab8 = 0;
-    if (!pushTask_8c014ae8(var_tasks_8c1ba3c8, task_loadQueuedTexlists_8c01183e, &created_task, &created_state, 0)) {
+    if (!pushTask_8c014ae8(&var_tasks_8c1ba3c8, task_loadQueuedTexlists_8c01183e, &created_task, &created_state, 0)) {
         return 0;
     }
 
