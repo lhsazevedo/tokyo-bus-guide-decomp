@@ -7,6 +7,8 @@ use Lhsazevedo\Sh4ObjTest\TestCase;
 return new class extends TestCase {
     public function test_case0_readsFirstItem()
     {
+        $this->resolveImports();
+
         $sizeOfQueuedDat = 0x10;
         $queueSize = 16;
         $datQueue = $this->alloc($queueSize * $sizeOfQueuedDat);
@@ -99,6 +101,8 @@ return new class extends TestCase {
 
     public function test_case0_skipsItemsWith0x0cFlagSet()
     {
+        $this->resolveImports();
+
         $sizeOfQueuedDat = 0x10;
         $queueSize = 16;
         $datQueue = $this->alloc($queueSize * $sizeOfQueuedDat);
@@ -196,6 +200,8 @@ return new class extends TestCase {
 
     public function test_case0_breaksOnQueueRear()
     {
+        $this->resolveImports();
+
         $sizeOfQueuedDat = 0x10;
         $queueSize = 16;
         $datQueue = $this->alloc($queueSize * $sizeOfQueuedDat);
@@ -227,6 +233,8 @@ return new class extends TestCase {
         $this->initUint32($currentQueuedDat + 0x08, $dat1Dest); // void* dest;
         $this->initUint32($currentQueuedDat + 0x0c, 1); // int field_0x0c;
 
+        $this->initUint32($this->addressOf('_var_8c157a88'), 1);
+
         $this->initUint32(
             $this->addressOf('_var_datQueueRear_8c157a90'),
             $datQueue + 3 * $sizeOfQueuedDat
@@ -252,6 +260,8 @@ return new class extends TestCase {
 
     public function test_case0_breaksOnQueueCursorAndFreeTask()
     {
+        $this->resolveImports();
+
         $sizeOfQueuedDat = 0x10;
         $queueSize = 16;
         $datQueue = $this->alloc($queueSize * $sizeOfQueuedDat);
@@ -308,6 +318,8 @@ return new class extends TestCase {
 
     public function test_case1_gdfsStatComplete()
     {
+        $this->resolveImports();
+
         $sizeOfQueuedDat = 0x10;
         $queueSize = 16;
         $datQueue = $this->alloc($queueSize * $sizeOfQueuedDat);
@@ -342,6 +354,8 @@ return new class extends TestCase {
 
     public function test_case1_gdfsStatRead()
     {
+        $this->resolveImports();
+
         $sizeOfQueuedDat = 0x10;
         $queueSize = 16;
         $datQueue = $this->alloc($queueSize * $sizeOfQueuedDat);
@@ -384,6 +398,8 @@ return new class extends TestCase {
 
     public function test_case1_gdfsStatRead_gdfsFsTransReady()
     {
+        $this->resolveImports();
+
         $sizeOfQueuedDat = 0x10;
         $queueSize = 16;
         $datQueue = $this->alloc($queueSize * $sizeOfQueuedDat);
@@ -426,6 +442,8 @@ return new class extends TestCase {
 
     public function test_case1_gdfsStatRead_gdfsFsTransBusy()
     {
+        $this->resolveImports();
+
         $sizeOfQueuedDat = 0x10;
         $queueSize = 16;
         $datQueue = $this->alloc($queueSize * $sizeOfQueuedDat);
@@ -466,6 +484,8 @@ return new class extends TestCase {
 
     public function test_case1_gdfsStatBusy()
     {
+        $this->resolveImports();
+
         $sizeOfQueuedDat = 0x10;
         $queueSize = 16;
         $datQueue = $this->alloc($queueSize * $sizeOfQueuedDat);
@@ -510,6 +530,8 @@ return new class extends TestCase {
 
     public function test_nocase()
     {
+        $this->resolveImports();
+
         $sizeOfQueuedDat = 0x10;
         $queueSize = 16;
         $datQueue = $this->alloc($queueSize * $sizeOfQueuedDat);
@@ -522,6 +544,14 @@ return new class extends TestCase {
         $this->call('_task_loadQueuedDats_8c0111b4')
             ->with($taskPtr, 0)
             ->run();
+    }
+
+    private function resolveImports()
+    {
+        $this->setSize('_var_8c157a88', 4);
+
+        // Functions
+        $this->setSize('_gdFsClose', 4);
     }
 
     protected function isAsmObject(): bool

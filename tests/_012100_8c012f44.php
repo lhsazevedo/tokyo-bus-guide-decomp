@@ -24,6 +24,9 @@ return new class extends TestCase {
         $this->initUint32($this->addressOf('_var_seed_8c157a64'), 0xcafe0001);
         $this->initUint32($this->addressOf('_var_demo_8c1bb8d0'), 1);
 
+        $createdTask = $this->alloc(0x0c);
+        $this->initUint32(0xffffe4, $createdTask);
+
         $this->shouldCall('_njInitMatrix')->with($this->addressOf('_var_matrix_8c2f8ca0'), 16, 0);
         $this->shouldCall('_njSetBackColor')->with(0, 0, 0);
         $this->shouldCall('_njSetFogColor')->with(0x40302010);
@@ -44,8 +47,18 @@ return new class extends TestCase {
         
         $this->shouldCall('_FUN_8c0128cc')->with(1);
 
-        $this->shouldCall('_pushTask_8c014ae8')->with($this->addressOf('_var_tasks_8c1ba3c8'), $this->addressOf('_task_8c012cbc'), 0xffffe4, 0xFFFFE8, 0);
-        $this->shouldCall('_pushTask_8c014ae8')->with($this->addressOf('_var_tasks_8c1ba5e8'), $this->addressOf('_task_8c01677e'), 0xffffe4, 0xFFFFE8, 0);
+        $this->shouldCall('_pushTask_8c014ae8')
+            ->with(
+                $this->addressOf('_var_tasks_8c1ba3c8'),
+                $this->addressOf('_task_8c012cbc'),
+                0xffffe4, 0xFFFFE8, 0
+            );
+        $this->shouldCall('_pushTask_8c014ae8')
+            ->with(
+                $this->addressOf('_var_tasks_8c1ba5e8'),
+                $this->addressOf('_task_8c01677e'),
+                0xffffe4, 0xFFFFE8, 0
+            );
 
         $this->shouldWriteTo('_var_8c1bb8cc', 0);
         $this->shouldWriteTo('_var_8c22847c', 0);
@@ -72,7 +85,6 @@ return new class extends TestCase {
             0
         );
 
-        $createdTask = $this->alloc(0x0c);
         $this->shouldRead(0xffffe4, $createdTask);
         $this->shouldWrite($createdTask + 0x08, 0);
 
@@ -83,8 +95,6 @@ return new class extends TestCase {
 
     public function testFUN_8c01306e_DemoIs2_8c1bb8d4Is0()
     {
-        $matrixPtr = $this->allocRellocate('_var_matrix_8c2f8ca0', 0x04);
-
         $var_8c18ad28Ptr = $this->alloc(0x14);
         $this->initUint8($var_8c18ad28Ptr + 0x08, 0x10);
         $this->initUint8($var_8c18ad28Ptr + 0x09, 0x20);
@@ -99,6 +109,9 @@ return new class extends TestCase {
 
         $var_8c1bb8d4Ptr = $this->allocRellocate('_var_8c1bb8d4', 4);
         $this->initUint32($var_8c1bb8d4Ptr, 0);
+
+        $createdTask = $this->alloc(0x0c);
+        $this->initUint32(0xffffe4, $createdTask);
 
         $this->shouldCall('_njInitMatrix')->with($this->addressOf('_var_matrix_8c2f8ca0'), 16, 0);
         $this->shouldCall('_njSetBackColor')->with(0, 0, 0);
@@ -146,7 +159,6 @@ return new class extends TestCase {
             0xFFFFE8,
             0
         );
-        $createdTask = $this->alloc(0x0c);
         $this->shouldRead(0xffffe4, $createdTask);
         $this->shouldWrite($createdTask + 0x08, 0);
 
@@ -157,8 +169,6 @@ return new class extends TestCase {
 
     public function testFUN_8c01306e_DemoIs2_8c1bb8d4Is1()
     {
-        $matrixPtr = $this->allocRellocate('_var_matrix_8c2f8ca0', 0x04);
-
         $var_8c18ad28Ptr = $this->alloc(0x14);
         $this->initUint8($var_8c18ad28Ptr + 0x08, 0x10);
         $this->initUint8($var_8c18ad28Ptr + 0x09, 0x20);
@@ -171,6 +181,9 @@ return new class extends TestCase {
         $this->initUint32($this->addressOf('_var_seed_8c157a64'), 0xcafe0001);
         $this->initUint32($this->addressOf('_var_demo_8c1bb8d0'), 2);
         $this->initUint32($this->addressOf('_var_8c1bb8d4'), 1);
+
+        $createdTask = $this->alloc(0x0c);
+        $createdTask2 = $this->alloc(0x0c);
 
         $this->shouldCall('_njInitMatrix')->with($this->addressOf('_var_matrix_8c2f8ca0'), 16, 0);
         $this->shouldCall('_njSetBackColor')->with(0, 0, 0);
@@ -192,27 +205,30 @@ return new class extends TestCase {
         
         $this->shouldCall('_FUN_8c0128cc')->with(1);
 
-        $this->shouldCall('_pushTask_8c014ae8')->with(
-            $this->addressOf('_var_tasks_8c1ba3c8'),
-            $this->addressOf('_task_8c012d5a'),
-            0xffffe4,
-            0xFFFFE8,
-            0
-        );
+        $this->shouldCall('_pushTask_8c014ae8')
+            ->with(
+                $this->addressOf('_var_tasks_8c1ba3c8'),
+                $this->addressOf('_task_8c012d5a'),
+                0xffffe4,
+                0xFFFFE8,
+                0
+            )
+            ->do(function ($params) use ($createdTask) {
+                $this->memory->writeUInt32($params[2], $createdTask);
+            });
 
-        $createdTask = $this->alloc(0x0c);
         $this->shouldRead(0xffffe4, $createdTask);
         $this->shouldWrite($createdTask + 0x08, 0);
-        $this->shouldRead(0xffffe4, $createdTask);
         $this->shouldWrite($createdTask + 0x0c, 0);
 
-        $this->shouldCall('_pushTask_8c014ae8')->with(
-            $this->addressOf('_var_tasks_8c1ba5e8'),
-            $this->addressOf('_task_8c016bf4'),
-            0xffffe4,
-            0xFFFFE8,
-            0
-        );
+        $this->shouldCall('_pushTask_8c014ae8')
+            ->with(
+                $this->addressOf('_var_tasks_8c1ba5e8'),
+                $this->addressOf('_task_8c016bf4'),
+                0xffffe4,
+                0xFFFFE8,
+                0
+            );
 
         $this->shouldCall('_FUN_8c025af4');
 
@@ -231,16 +247,20 @@ return new class extends TestCase {
         $this->shouldCall('_FUN_8c02d968');
         $this->shouldCall('_FUN_8c020528');
 
-        $this->shouldCall('_pushTask_8c014ae8')->with(
-            $this->addressOf('_var_tasks_8c1ba5e8'),
-            new WildcardArgument,
-            0xffffe4,
-            0xFFFFE8,
-            0
-        );
-        $createdTask = $this->alloc(0x0c);
-        $this->shouldRead(0xffffe4, $createdTask);
-        $this->shouldWrite($createdTask + 0x08, 0);
+        $this->shouldCall('_pushTask_8c014ae8')
+            ->with(
+                $this->addressOf('_var_tasks_8c1ba5e8'),
+                new WildcardArgument,
+                0xffffe4,
+                0xFFFFE8,
+                0
+            )
+            ->do(function ($params) use ($createdTask2) {
+                $this->memory->writeUInt32($params[2], $createdTask2);
+            });
+
+        $this->shouldRead(0xffffe4, $createdTask2);
+        $this->shouldWrite($createdTask2 + 0x08, 0);
 
         $this->shouldCall('_FUN_8c0228a2');
 
@@ -937,11 +957,13 @@ return new class extends TestCase {
 
     public function test_njUserMain_8c01392e_happyPath()
     {
-        $this->initUint32($this->addressOf('_var_vibport_8c1ba354'), 0xbebacafe);
+        $this->resolveNjUserMain();
 
-        $this->shouldReadFrom('_init_8c03bd80', 0);
-        $this->shouldReadFrom('_var_queuesAreInitialized_8c157a60', 0);
-        $this->shouldReadFrom('_init_8c03bfa8', 1);
+        $this->initUint32($this->addressOf('_var_vibport_8c1ba354'), 0xbebacafe);
+        $this->initUint32($this->addressOf('_init_8c03bd80'), 0);
+        $this->initUint32($this->addressOf('_var_queuesAreInitialized_8c157a60'), 0);
+        $this->initUint32($this->addressOf('_init_8c03bfa8'), 1);
+        $this->initUint32($this->addressOf('_var_gdErr_8c18ad14'), 0);
 
         $this->shouldCall('_gdFsGetSysHn')->andReturn(0xbeba0001);
         // GDD_STAT_IDLE
@@ -965,8 +987,10 @@ return new class extends TestCase {
 
     public function test_njUserMain_8c01392e_block1_ok()
     {
-        $this->shouldReadFrom('_init_8c03bd80', 1);
-        $this->shouldReadFrom('_init_8c03bd84', 1);
+        $this->resolveNjUserMain();
+
+        $this->initUint32($this->addressOf('_init_8c03bd80'), 1);
+        $this->initUint32($this->addressOf('_init_8c03bd84'), 1);
 
         $this->shouldCall('_execTasks_8c014b42')->with($this->addressOf('_var_tasks_8c1ba3c8'));
 
@@ -975,9 +999,12 @@ return new class extends TestCase {
 
     public function test_njUserMain_8c01392e_block1_fail_noVib()
     {
-        $this->shouldReadFrom('_init_8c03bd80', 1);
-        $this->shouldReadFrom('_init_8c03bd84', 0);
-        $this->shouldReadFrom('_var_vibport_8c1ba354', -1);
+        $this->resolveNjUserMain();
+
+        $this->initUint32($this->addressOf('_init_8c03bd80'), 1);
+        $this->initUint32($this->addressOf('_init_8c03bd84'), 0);
+        // TODO: -1
+        $this->initUint32($this->addressOf('_var_vibport_8c1ba354'), -1 & 0xffffffff);
 
         // FIXME: -1 & 0xffffffff
         $this->call('_njUserMain_8c01392e')->shouldReturn(-1 & 0xffffffff)->run();
@@ -985,7 +1012,11 @@ return new class extends TestCase {
 
     public function test_njUserMain_8c01392e_block1_fail_vib()
     {
+        $this->resolveNjUserMain();
+
         $this->initUint32($this->addressOf('_var_vibport_8c1ba354'), 0xbebacafe);
+        $this->initUint32($this->addressOf('_init_8c03bd80'), 1);
+        $this->initUint32($this->addressOf('_init_8c03bd84'), 0);
 
         $this->shouldReadFrom('_init_8c03bd80', 1);
         $this->shouldReadFrom('_init_8c03bd84', 0);
@@ -1049,6 +1080,24 @@ return new class extends TestCase {
     //     // FIXME: -1 & 0xffffffff
     //     $this->call('_njUserMain_8c01392e')->shouldReturn(-1 & 0xffffffff)->run();
     // }
+
+    private function resolveNjUserMain()
+    {
+        $this->setSize('_var_vibport_8c1ba354', 4);
+        $this->setSize('_init_8c03bd80', 4);
+        $this->setSize('_var_queuesAreInitialized_8c157a60', 4);
+        $this->setSize('_init_8c03bfa8', 4);
+        $this->setSize('_var_gdErr_8c18ad14', 4);
+        $this->setSize('_var_tasks_8c1ba3c8', 4);
+
+        // Functions
+        $this->setSize('_gdFsGetSysHn', 4);
+        $this->setSize('_gdFsGetStat', 4);
+        $this->setSize('_gdFsGetDrvStat', 4);
+        $this->setSize('_gdFsReqDrvStat', 4);
+        $this->setSize('_execTasks_8c014b42', 4);
+        $this->setSize('_pdVibMxStop', 4);
+    }
 
     private function allocRellocate($name, $size)
     {

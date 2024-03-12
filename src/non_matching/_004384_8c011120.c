@@ -87,7 +87,7 @@ extern QueuedTexlist *var_texlistQueue_8c157aac;
 extern QueuedTexlist *var_texlistQueueRear_8c157ab0;
 extern QueuedTexlist *var_texlistQueueTail_8c157ab4;
 extern int var_texlistQueueIsIdle_8c157ab8;
-extern int var_texlistQueueDedupCount_8c157a68;
+extern int var_texlistQueueCount_8c157a68;
 
 extern Sint8 *var_queueBuffer_8c157a84;
 
@@ -629,7 +629,7 @@ int initTexlistQueue_8c0117b8(int n) {
 void resetTexlistQueue_8c0117fe() {
     var_texlistQueueRear_8c157ab0 = var_texlistQueue_8c157aac;
     var_queueBaseDir_8c157a80 = "DATA EMPTY";
-    var_texlistQueueDedupCount_8c157a68 = 0;
+    var_texlistQueueCount_8c157a68 = 0;
     var_texlistQueueIsIdle_8c157ab8 = 1;
     return;
 }
@@ -662,7 +662,7 @@ void task_loadQueuedTexlists_8c01183e(Task *task, void *state) {
             int queueIdx;
             NJS_TEXNAME *currentTexture = &texlist->textures[i];
 
-            for (queueIdx = 0; queueIdx < var_texlistQueueDedupCount_8c157a68; queueIdx++)
+            for (queueIdx = 0; queueIdx < var_texlistQueueCount_8c157a68; queueIdx++)
             {
                 QueuedTexlist *comparedItem = &var_texlistQueue_8c157aac[queueIdx];
                 int comparedIndex;
@@ -697,7 +697,7 @@ void task_loadQueuedTexlists_8c01183e(Task *task, void *state) {
 
             /* If the current texture was not found in any of
                the compared texlists, then it should be loaded. */
-            if (queueIdx == var_texlistQueueDedupCount_8c157a68) {
+            if (queueIdx == var_texlistQueueCount_8c157a68) {
                 alreadyLoaded = false;
             }
         }
@@ -725,7 +725,7 @@ void task_loadQueuedTexlists_8c01183e(Task *task, void *state) {
         }
 
         item++;
-        var_texlistQueueDedupCount_8c157a68++;
+        var_texlistQueueCount_8c157a68++;
         if (item >= var_texlistQueueRear_8c157ab0) {
             var_texlistQueueIsIdle_8c157ab8 = 1;
             freeTask_8c014b66(task);

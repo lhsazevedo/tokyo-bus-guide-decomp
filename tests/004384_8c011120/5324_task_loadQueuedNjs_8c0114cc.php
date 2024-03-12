@@ -7,6 +7,8 @@ use Lhsazevedo\Sh4ObjTest\TestCase;
 return new class extends TestCase {
     public function test_case0_readsFirstItem()
     {
+        $this->resolveImports();
+
         $sizeOfQueuedNj = 0x14;
         $queueSize = 16;
         $njQueue = $this->alloc($queueSize * $sizeOfQueuedNj);
@@ -17,7 +19,7 @@ return new class extends TestCase {
 
         $this->initUint32($this->addressOf('_var_queueBaseDir_8c157a80'), $dataEmptyStrAddress);
 
-        // Dat queue has 3 items
+        // Nj queue has 3 items
         $currentQueuedNj = $njQueue;
         $nj1Dest = $this->alloc(4);
         $nj1Dest2 = $this->alloc(4);
@@ -58,7 +60,7 @@ return new class extends TestCase {
         $taskPtr = $this->alloc(0x20);
         // task->field_0x08
         $this->initUint32($taskPtr + 0x08, 0);
-        // task->queuedDat_0x18 points to the first item in the queue
+        // task->queuedNj_0x18 points to the first item in the queue
         $this->initUint32($taskPtr + 0x18, $njQueue);
 
         $sizeLocal = $this->isAsmObject() ? 0xffffd0 : 0xffffc8;
@@ -129,6 +131,8 @@ return new class extends TestCase {
 
     public function test_case0_breaksOnQueueRear()
     {
+        $this->resolveImports();
+
         $sizeOfQueuedNj = 0x14;
         $queueSize = 16;
         $njQueue = $this->alloc($queueSize * $sizeOfQueuedNj);
@@ -138,7 +142,7 @@ return new class extends TestCase {
             $njQueue
         );
 
-        // Dat queue has 3 items
+        // Nj queue has 3 items
         $currentQueuedNj = $njQueue;
         $this->initQueuedNj(
             address:  $currentQueuedNj,
@@ -196,6 +200,8 @@ return new class extends TestCase {
 
     public function test_case0_skipsNjReadBinary()
     {
+        $this->resolveImports();
+
         $sizeOfQueuedNj = 0x14;
         $queueSize = 16;
         $njQueue = $this->alloc($queueSize * $sizeOfQueuedNj);
@@ -278,6 +284,8 @@ return new class extends TestCase {
 
     public function test_case0_skipsFirstNjReadBinary()
     {
+        $this->resolveImports();
+
         $sizeOfQueuedNj = 0x14;
         $queueSize = 16;
         $njQueue = $this->alloc($queueSize * $sizeOfQueuedNj);
@@ -367,6 +375,8 @@ return new class extends TestCase {
 
     public function test_case0_skipsSecondNjReadBinary()
     {
+        $this->resolveImports();
+
         $sizeOfQueuedNj = 0x14;
         $queueSize = 16;
         $njQueue = $this->alloc($queueSize * $sizeOfQueuedNj);
@@ -456,6 +466,8 @@ return new class extends TestCase {
 
     public function test_case0_skipItemsWith0x10FlagSet()
     {
+        $this->resolveImports();
+
         $sizeOfQueuedNj = 0x14;
         $queueSize = 16;
         $njQueue = $this->alloc($queueSize * $sizeOfQueuedNj);
@@ -466,7 +478,7 @@ return new class extends TestCase {
 
         $this->initUint32($this->addressOf('_var_queueBaseDir_8c157a80'), $dataEmptyStrAddress);
 
-        /* Dat queue has 3 items */
+        /* Nj queue has 3 items */
 
         $currentQueuedNj = $njQueue;
         $nj1Dest = $this->alloc(4);
@@ -579,6 +591,8 @@ return new class extends TestCase {
 
     public function test_case0_gdFsOpenFailure()
     {
+        $this->resolveImports();
+
         $sizeOfQueuedNj = 0x14;
         $queueSize = 16;
         $njQueue = $this->alloc($queueSize * $sizeOfQueuedNj);
@@ -641,6 +655,8 @@ return new class extends TestCase {
 
     public function test_case0_gdFsOpenFailureWithFree()
     {
+        $this->resolveImports();
+
         $sizeOfQueuedNj = 0x14;
         $queueSize = 16;
         $njQueue = $this->alloc($queueSize * $sizeOfQueuedNj);
@@ -708,6 +724,8 @@ return new class extends TestCase {
 
     public function test_case0_gdFsGetFileSctSizeFailure()
     {
+        $this->resolveImports();
+
         $sizeOfQueuedNj = 0x14;
         $queueSize = 16;
         $njQueue = $this->alloc($queueSize * $sizeOfQueuedNj);
@@ -777,6 +795,8 @@ return new class extends TestCase {
 
     public function test_case0_gdFsGetFileSctSizeFailureWithFree()
     {
+        $this->resolveImports();
+
         $sizeOfQueuedNj = 0x14;
         $queueSize = 16;
         $njQueue = $this->alloc($queueSize * $sizeOfQueuedNj);
@@ -850,6 +870,8 @@ return new class extends TestCase {
 
     public function test_case0_gdFsReadFailure()
     {
+        $this->resolveImports();
+
         $sizeOfQueuedNj = 0x14;
         $queueSize = 16;
         $njQueue = $this->alloc($queueSize * $sizeOfQueuedNj);
@@ -925,6 +947,8 @@ return new class extends TestCase {
 
     public function test_case0_gdFsReadFailureWithFree()
     {
+        $this->resolveImports();
+
         $sizeOfQueuedNj = 0x14;
         $queueSize = 16;
         $njQueue = $this->alloc($queueSize * $sizeOfQueuedNj);
@@ -1006,6 +1030,8 @@ return new class extends TestCase {
 
     public function test_case1_gdFsStatComplete()
     {
+        $this->resolveImports();
+
         $sizeOfQueuedNj = 0x14;
         $queueSize = 16;
         $njQueue = $this->alloc($queueSize * $sizeOfQueuedNj);
@@ -1070,6 +1096,8 @@ return new class extends TestCase {
 
     public function test_case1_gddStatCompleteSkipsReadBinary()
     {
+        $this->resolveImports();
+
         $sizeOfQueuedNj = 0x14;
         $queueSize = 16;
         $njQueue = $this->alloc($queueSize * $sizeOfQueuedNj);
@@ -1116,6 +1144,8 @@ return new class extends TestCase {
 
     public function test_case1_gddStatCompleteSkipsFirstReadBinary()
     {
+        $this->resolveImports();
+
         $sizeOfQueuedNj = 0x14;
         $queueSize = 16;
         $njQueue = $this->alloc($queueSize * $sizeOfQueuedNj);
@@ -1171,6 +1201,8 @@ return new class extends TestCase {
 
     public function test_case1_gddStatCompleteSkipsSecondReadBinary()
     {
+        $this->resolveImports();
+
         $sizeOfQueuedNj = 0x14;
         $queueSize = 16;
         $njQueue = $this->alloc($queueSize * $sizeOfQueuedNj);
@@ -1226,6 +1258,8 @@ return new class extends TestCase {
 
     public function test_case1_gddStatCompleteWithFree()
     {
+        $this->resolveImports();
+
         $sizeOfQueuedNj = 0x14;
         $queueSize = 16;
         $njQueue = $this->alloc($queueSize * $sizeOfQueuedNj);
@@ -1275,6 +1309,8 @@ return new class extends TestCase {
 
     public function test_case1_gddStatRead()
     {
+        $this->resolveImports();
+
         $sizeOfQueuedNj = 0x14;
         $queueSize = 16;
         $njQueue = $this->alloc($queueSize * $sizeOfQueuedNj);
@@ -1320,6 +1356,8 @@ return new class extends TestCase {
 
     public function test_case1_gddStatReadWithFree()
     {
+        $this->resolveImports();
+
         $sizeOfQueuedNj = 0x14;
         $queueSize = 16;
         $njQueue = $this->alloc($queueSize * $sizeOfQueuedNj);
@@ -1368,6 +1406,8 @@ return new class extends TestCase {
 
     public function test_case1_gddStatOther()
     {
+        $this->resolveImports();
+
         $sizeOfQueuedNj = 0x14;
         $queueSize = 16;
         $njQueue = $this->alloc($queueSize * $sizeOfQueuedNj);
@@ -1409,6 +1449,14 @@ return new class extends TestCase {
         $this->call('_task_loadQueuedNjs_8c0114cc')
             ->with($taskPtr, 0)
             ->run();
+    }
+
+    private function resolveImports(): void
+    {
+        $this->setSize('_var_8c157a88', 4);
+
+        // Functions
+        $this->setSize('_syFree', 4);
     }
 
     protected function isAsmObject(): bool
