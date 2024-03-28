@@ -89,3 +89,19 @@ $sh4objtest "tests/004384_8c011120/6206_task_loadQueuedTexlists_8c01183e.php" "b
 
 $sh4objtest "tests/004384_8c011120/6648_loadTexlistQueue_8c0119f8.php" "build/_004384_8c011120_src.obj"
 $sh4objtest "tests/004384_8c011120/6648_loadTexlistQueue_8c0119f8.php" "build/_004384_8c011120_c.obj"
+
+$sh4objtest "tests/004384_8c011120/6722_texlistQueueIsIdle_8c011a42.php" "build/_004384_8c011120_src.obj"
+$sh4objtest "tests/004384_8c011120/6722_texlistQueueIsIdle_8c011a42.php" "build/_004384_8c011120_c.obj"
+
+$sh4objtest "tests/004384_8c011120/6729_freeTexlistQueue_8c011a48.php" "build/_004384_8c011120_src.obj"
+$sh4objtest "tests/004384_8c011120/6729_freeTexlistQueue_8c011a48.php" "build/_004384_8c011120_c.obj"
+
+$sh4objtest "tests/004384_8c011120/6748_initPvmQueue_8c011a5c.php" "build/_004384_8c011120_src.obj"
+$sh4objtest "tests/004384_8c011120/6748_initPvmQueue_8c011a5c.php" "build/_004384_8c011120_c.obj"
+
+$sh4objtest "tests/004384_8c011120/6848_requestPvm_8c011ac0.php" "build/_004384_8c011120_src.obj"
+$sh4objtest "tests/004384_8c011120/6848_requestPvm_8c011ac0.php" "build/_004384_8c011120_c.obj"
+
+$sh4objtest "tests/004384_8c011120/6912_task_loadQueuedPvms_8c011b00.php" "build/_004384_8c011120_src.obj"
+$sh4objtest "tests/004384_8c011120/6912_task_loadQueuedPvms_8c011b00.php" "build/_004384_8c011120_c.obj"
+

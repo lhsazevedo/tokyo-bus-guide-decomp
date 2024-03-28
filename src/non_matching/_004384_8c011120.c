@@ -34,9 +34,9 @@ typedef struct {
 struct QueuedPvm {
     char *basedir;
     char *filename;
-    void **field_0x08;
-    int field_0x0c;
-    int field_0x10;
+    void **texlist_0x08;
+    int count_0x0c;
+    int attr_0x10;
     int field_0x14;
 }
 typedef QueuedPvm;
@@ -758,7 +758,7 @@ int loadTexlistQueue_8c0119f8() {
     return 1;
 }
 
-/* TODO: Write tests for this */
+/* Tested */
 int texlistQueueIsIdle_8c011a42() {
   return var_texlistQueueIsIdle_8c157ab8;
 }
@@ -770,7 +770,7 @@ void freeTexlistQueue_8c011a48() {
     }
 }
 
-/* TODO: Write tests for this */
+/* Tested */
 int initPvmQueue_8c011a5c(int count) {
     if (count) {
         var_pvmQueue_8c157abc = syMalloc(count * sizeof(QueuedPvm));
@@ -778,7 +778,7 @@ int initPvmQueue_8c011a5c(int count) {
             return 0;
         }
 
-        var_pvmQueueTail_8c157ac4 = var_pvmQueue_8c157abc + count * 0x18;
+        var_pvmQueueTail_8c157ac4 = var_pvmQueue_8c157abc + count;
     } else {
         var_pvmQueueTail_8c157ac4 = (void*) -1;
         var_pvmQueue_8c157abc = (void*) -1;
@@ -787,17 +787,17 @@ int initPvmQueue_8c011a5c(int count) {
     return 1;
 }
 
-/* TODO: Write tests for this */
-int requestPvm_8c011ac0(char *basedir, char *filename, void *p3, int p4, int p5) {
+/* Tested */
+int requestPvm_8c011ac0(char *basedir, char *filename, void *texlist, int count, int attr) {
     if (!*filename || var_pvmQueueRear_8c157ac0 >= var_pvmQueueTail_8c157ac4) {
         return 0;
     }
 
     var_pvmQueueRear_8c157ac0->basedir = basedir;
     var_pvmQueueRear_8c157ac0->filename = filename;
-    var_pvmQueueRear_8c157ac0->field_0x08 = p3;
-    var_pvmQueueRear_8c157ac0->field_0x0c = p4;
-    var_pvmQueueRear_8c157ac0->field_0x10 = p5;
+    var_pvmQueueRear_8c157ac0->texlist_0x08 = texlist;
+    var_pvmQueueRear_8c157ac0->count_0x0c = count;
+    var_pvmQueueRear_8c157ac0->attr_0x10 = attr;
     var_pvmQueueRear_8c157ac0->field_0x14 = 0;
 
     var_pvmQueueRear_8c157ac0++;
@@ -805,7 +805,7 @@ int requestPvm_8c011ac0(char *basedir, char *filename, void *p3, int p4, int p5)
     return 1;
 }
 
-/* TODO: Write tests for this */
+/* Tested */
 void task_loadQueuedPvms_8c011b00(TaskLoadQueuedPvms* task, void* state) {
     QueuedPvm *pvm = (QueuedPvm*) task->queuedPvm_0x18;
     int size;
@@ -834,7 +834,7 @@ void task_loadQueuedPvms_8c011b00(TaskLoadQueuedPvms* task, void* state) {
                         return;
                     }
 
-                    if (!gsFsGetFileSctSize(task->gdfs_0x0c, &size)) {
+                    if (!gdFsGetFileSctSize(task->gdfs_0x0c, &size)) {
                         var_8c157a88 = 1;
                         task->queuedPvm_0x18 = ++pvm;
                         task->field_0x08 = 0;
@@ -842,9 +842,10 @@ void task_loadQueuedPvms_8c011b00(TaskLoadQueuedPvms* task, void* state) {
                     }
 
                     if (size > 0x100) {
+                        /* TODO: Test this path */
                         var_queueBuffer_8c157a84 = syMalloc(size * 2048);
                     } else {
-                        var_queueBuffer_8c157a84 = var_texbuf_8c277ca0;
+                        var_queueBuffer_8c157a84 = &var_texbuf_8c277ca0;
                     }
 
                     if (gdFsRead(task->gdfs_0x0c, size, var_queueBuffer_8c157a84)) {
@@ -857,20 +858,20 @@ void task_loadQueuedPvms_8c011b00(TaskLoadQueuedPvms* task, void* state) {
                     gdFsClose(task->gdfs_0x0c);
                     pvm->field_0x14 = 1;
 
-                    *pvm->field_0x08 = syMalloc(8);
+                    *pvm->texlist_0x08 = texlist = syMalloc(sizeof(NJS_TEXLIST));
 
-                    texname = syMalloc(pvm->field_0x0c * 0xc);
-                    for (i = 0; i < pvm->field_0x0c; i++) {
-                        texname[i].attr = pvm->field_0x10;
+                    texname = syMalloc(pvm->count_0x0c * 0xc);
+                    for (i = 0; i < pvm->count_0x0c; i++) {
+                        texname[i].attr = pvm->attr_0x10;
                     }
 
                     /* Huh? */
-                    filename = syMalloc(pvm->field_0x0c * 0x1c);
+                    filename = syMalloc(pvm->count_0x0c * 0x1c);
 
-                    njSetPvmTextureList(texlist, texname, filename, pvm->field_0x0c);
+                    njSetPvmTextureList(texlist, texname, filename, pvm->count_0x0c);
                     njLoadTexturePvmMemory(var_queueBuffer_8c157a84, texlist);
 
-                    if (var_queueBuffer_8c157a84 != var_texbuf_8c277ca0) {
+                    if (var_queueBuffer_8c157a84 != &var_texbuf_8c277ca0) {
                         syFree(var_queueBuffer_8c157a84);
                     }
 
@@ -885,10 +886,10 @@ void task_loadQueuedPvms_8c011b00(TaskLoadQueuedPvms* task, void* state) {
                 var_8c157a88 = 0;
                 var_queueBaseDir_8c157a80 = "DATA EMPTY";
             } else {
-                var_8c157a88 = 1;
+                var_pvmQueueIsIdle_8c157ac8 = 1;
                 freeTask_8c014b66(task);
             }
-            
+
             break;
         }
 
@@ -903,20 +904,21 @@ void task_loadQueuedPvms_8c011b00(TaskLoadQueuedPvms* task, void* state) {
                     gdFsClose(task->gdfs_0x0c);
                     pvm->field_0x14 = 1;
 
-                    *pvm->field_0x08 = syMalloc(8);
+                    *pvm->texlist_0x08 = texlist = syMalloc(sizeof(NJS_TEXLIST));
 
-                    texname = syMalloc(pvm->field_0x0c * 0xc);
-                    for (i = 0; i < pvm->field_0x0c; i++) {
-                        texname[i].attr = pvm->field_0x10;
+                    texname = syMalloc(pvm->count_0x0c * sizeof(NJS_TEXNAME));
+                    for (i = 0; i < pvm->count_0x0c; i++) {
+                        texname[i].attr = pvm->attr_0x10;
                     }
 
                     /* Huh? */
-                    filename = syMalloc(pvm->field_0x0c * 0x1c);
+                    filename = syMalloc(pvm->count_0x0c * 0x1c);
 
-                    njSetPvmTextureList(texlist, texname, filename, pvm->field_0x0c);
+                    njSetPvmTextureList(texlist, texname, filename, pvm->count_0x0c);
                     njLoadTexturePvmMemory(var_queueBuffer_8c157a84, texlist);
 
                     if (var_queueBuffer_8c157a84 != var_texbuf_8c277ca0) {
+                        /* TODO: Test this path */
                         syFree(var_queueBuffer_8c157a84);
                     }
 
@@ -926,7 +928,7 @@ void task_loadQueuedPvms_8c011b00(TaskLoadQueuedPvms* task, void* state) {
                 }
 
                 case GDD_STAT_READ: {
-                    if (gdFsGetTransStat(task->gdfs_0x0c) != GDD_FS_TRANS_COMPLETE) {
+                    if (gdFsGetTransStat(task->gdfs_0x0c) != GDD_FS_TRANS_READY) {
                         return;
                     }
                     
@@ -937,6 +939,7 @@ void task_loadQueuedPvms_8c011b00(TaskLoadQueuedPvms* task, void* state) {
                 default: {
                     gdFsClose(task->gdfs_0x0c);
                     if (var_queueBuffer_8c157a84 != var_texbuf_8c277ca0) {
+                        /* TODO: Test this path */
                         syFree(var_queueBuffer_8c157a84);
                     }
 

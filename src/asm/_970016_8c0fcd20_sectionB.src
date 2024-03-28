@@ -19,7 +19,7 @@
           .EXPORT     _var_texlistQueueTail_8c157ab4
           .EXPORT     _var_texlistQueueIsIdle_8c157ab8
           .EXPORT     _var_pvmQueue_8c157abc
-          .EXPORT     _var_pvmQueueCursor_8c157ac0
+          .EXPORT     _var_pvmQueueRear_8c157ac0
           .EXPORT     _var_pvmQueueTail_8c157ac4
           .EXPORT     _var_pvmQueueIsIdle_8c157ac8
           .EXPORT     _var_8c157acc
@@ -486,7 +486,7 @@ _var_texlistQueueIsIdle_8c157ab8:
           .RES.B      4
 _var_pvmQueue_8c157abc:
           .RES.B      4
-_var_pvmQueueCursor_8c157ac0:
+_var_pvmQueueRear_8c157ac0:
           .RES.B      4
 _var_pvmQueueTail_8c157ac4:
           .RES.B      4

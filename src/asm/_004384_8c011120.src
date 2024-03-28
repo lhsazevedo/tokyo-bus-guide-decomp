@@ -36,7 +36,7 @@
           .IMPORT     _njLoadTextureNum
           .IMPORT     _var_pvmQueue_8c157abc
           .IMPORT     _var_pvmQueueTail_8c157ac4
-          .IMPORT     _var_pvmQueueCursor_8c157ac0
+          .IMPORT     _var_pvmQueueRear_8c157ac0
           .IMPORT     _var_pvmQueueIsIdle_8c157ac8
           .IMPORT     _njSetPvmTextureList
           .IMPORT     _njLoadTexturePvmMemory
@@ -98,6 +98,7 @@
           .EXPORT     _var_seed_8c157a64
           .EXPORT     _task_loadQueuedTexlists_8c01183e ; For testing
           .EXPORT     _var_texlistQueueCount_8c157a68 ; For testing
+          .EXPORT     _task_loadQueuedPvms_8c011b00; For testing
           .SECTION    P,CODE,ALIGN=4
 _nop_8c011120:                   ; function: nop_8c011120
                                  ; frame size=0
@@ -1431,7 +1432,7 @@ L98:
           MOV.L       R2,@R14
           RTS
           MOV.L       @R15+,R14
-task_loadQueuedPvms_8c011b00:
+_task_loadQueuedPvms_8c011b00:
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           MOV.L       R12,@-R15
@@ -1482,7 +1483,7 @@ L101:
           .DATA.L     _var_pvmQueue_8c157abc
           .DATA.L     _syMalloc
           .DATA.L     _var_pvmQueueTail_8c157ac4 ; L101+44
-          .DATA.L     _var_pvmQueueCursor_8c157ac0
+          .DATA.L     _var_pvmQueueRear_8c157ac0
           .DATA.L     _init_8c03be7c
           .DATA.L     _var_queueBaseDir_8c157a80
           .DATA.L     _var_pvmQueueIsIdle_8c157ac8 ; L101+60
@@ -1747,7 +1748,7 @@ L121:
           .DATA.L     _gdFsTrans32
           .DATA.L     _gdFsClose
           .DATA.L     _var_8c157a88 ; L121+28
-          .DATA.L     _var_pvmQueueCursor_8c157ac0
+          .DATA.L     _var_pvmQueueRear_8c157ac0
           .DATA.L     _var_pvmQueue_8c157abc
           .DATA.L     _var_pvmQueueIsIdle_8c157ac8
           .DATA.L     _syMalloc ; L121+44
@@ -2043,7 +2044,7 @@ L139:
           .DATA.L     _strcmp ; L139
           .DATA.L     __quick_evn_mvn
           .DATA.L     _syFree
-          .DATA.L     task_loadQueuedPvms_8c011b00
+          .DATA.L     _task_loadQueuedPvms_8c011b00
           .DATA.L     _var_tasks_8c1ba3c8 ; L139+16
           .DATA.L     _pushTask_8c014ae8
           .DATA.L     _var_8c157a88
