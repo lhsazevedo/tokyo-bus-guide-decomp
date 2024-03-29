@@ -70,6 +70,7 @@ struct TaskProcessQueuesState {
 typedef TaskProcessQueuesState;
 
 extern int var_queuesAreInitialized_8c157a60;
+extern int var_8c157a6c;
 extern char *var_queueBaseDir_8c157a80;
 extern int var_8c157a88;
 
@@ -544,6 +545,7 @@ void task_loadQueuedNjs_8c0114cc(TaskLoadQueuedNjs* task, void* state) {
         }
 }
 
+/* Tested */
 int sortAndLoadNjQueue_8c0116b6() {
     Task *created_task;
     void* created_state;
@@ -603,7 +605,7 @@ int njQueueIsIdle_8c01179e() {
     return var_njQueueIsIdle_8c157aa8;
 }
 
-/* Matched? */
+/* Tested */
 void freeNjQueue_8c0117a4() {
     if (var_njQueue_8c157a9c != (QueuedNj*) -1) {
         syFree(var_njQueue_8c157a9c);
@@ -763,7 +765,7 @@ int texlistQueueIsIdle_8c011a42() {
   return var_texlistQueueIsIdle_8c157ab8;
 }
 
-/* TODO: Write tests for this */
+/* Tested */
 void freeTexlistQueue_8c011a48() {
     if (var_texlistQueue_8c157aac != (void *) -1) {
         syFree(var_texlistQueue_8c157aac);
@@ -953,7 +955,7 @@ void task_loadQueuedPvms_8c011b00(TaskLoadQueuedPvms* task, void* state) {
     }
 }
 
-/* TODO: Write tests for this */
+/* Tested */
 int sortAndLoadPvmQueue_8c011d24() {
     Task *created_task;
     void* created_state;
@@ -963,34 +965,32 @@ int sortAndLoadPvmQueue_8c011d24() {
         return 0;
     }
 
-    /* 8c01132e */
     var_pvmQueueIsIdle_8c157ac8 = 0;
 
+    /* Why not allocate a single QueuedPvm? */
     temp = syMalloc((int) var_pvmQueueRear_8c157ac0 - (int) var_pvmQueue_8c157abc);
 
-    /* 8c011340 */
-    while (1) {
-        int swapped = 0;
-        QueuedPvm *a = var_pvmQueue_8c157abc;
-        QueuedPvm *b = var_pvmQueue_8c157abc;
+    /* TODO: Test this skip */
+    if (var_8c157a6c != 0) {
+        while (1) {
+            int swapped = 0;
+            QueuedPvm *a = var_pvmQueue_8c157abc;
+            QueuedPvm *b = var_pvmQueue_8c157abc;
 
-        /* 8c011376 */
-        while (++b < var_pvmQueueRear_8c157ac0) {
-            /* 8c011348 */
-            if (strcmp(a->filename, b->filename) > 0) {
-                /* 8c011354 */
-                *temp = *a;
-                *a = *b;
-                *b = *temp;
-                swapped = 1;
+            while (++b < var_pvmQueueRear_8c157ac0) {
+                if (strcmp(a->filename, b->filename) > 0) {
+                    *temp = *a;
+                    *a = *b;
+                    *b = *temp;
+                    swapped = 1;
+                }
+
+                a++;
             }
 
-            /* 8c011374 */
-            a++;
-        }
-
-        if (!swapped) { /* 8c011374 */
-            break;
+            if (!swapped) {
+                break;
+            }
         }
     }
 
@@ -1008,31 +1008,32 @@ int sortAndLoadPvmQueue_8c011d24() {
     return 1;
 }
 
-/* TODO: Write tests for this */
+/* Tested */
 int pvmQueueIsIdle_8c011e22() {
   return var_pvmQueueIsIdle_8c157ac8;
 }
 
-/* TODO: Write tests for this */
+/* Tested */
 void freePvmQueue_8c011e28() {
   if (var_pvmQueue_8c157abc != (void *) -1) {
     syFree(var_pvmQueue_8c157abc);
   }
 }
 
-/* TODO: Write tests for this */
+/* Tested */
 void releaseAndFreeTexlist_8c011e3c(NJS_TEXLIST *texlist) {
-  njReleaseTexture(texlist);
-  syFree(texlist->textures->filename);
-  syFree(texlist->textures);
-  syFree(texlist);
+    njReleaseTexture(texlist);
+    syFree(texlist->textures[0].filename);
+    syFree(texlist->textures);
+    syFree(texlist);
 }
 
-/* TODO: Write tests for this */
-void unusedFunction_8c011e60(void ***p1) {
-  syFree(**p1);
-  syFree(*p1);
-  syFree(p1);
+/* Tested */
+/* Unused */
+void freeTexlist_8c011e60(NJS_TEXLIST *texlist) {
+    syFree(texlist->textures[0].filename);
+    syFree(texlist->textures);
+    syFree(texlist);
 }
 
 /* TODO: Write tests for this */
@@ -1094,19 +1095,19 @@ void task_processQueues_8c011e80(Task *task, TaskProcessQueuesState *state) {
     }
 }
 
-/* TODO: Write tests for this */
-void initQueues_8c011f36(int datCount,int njCount,int texlistCount,int uknCount)
+/* Tested */
+void initQueues_8c011f36(int datCount,int njCount,int texlistCount,int pvmCount)
 {
   initDatQueue_8c011124(datCount);
   initNjQueue_8c011430(njCount);
   initTexlistQueue_8c0117b8(texlistCount);
-  initPvmQueue_8c011a5c(uknCount);
-  FUN_8c01c8fc(2);
-  FUN_8c01c910();
+  initPvmQueue_8c011a5c(pvmCount);
+  vmsLcd_8c01c8fc(2);
+  vmsLcd_8c01c910();
   var_queuesAreInitialized_8c157a60 = 1;
 }
 
-/* TODO: Write tests for this */
+/* Tested */
 void resetQueues_8c011f6c() {
     resetDatQueue_8c01116a();
     resetNjQueue_8c01147a();
@@ -1116,13 +1117,13 @@ void resetQueues_8c011f6c() {
     var_pvmQueueIsIdle_8c157ac8 = 1;
 }
 
-/* TODO: Write tests for this */
+/* Tested */
 void freeQueues_8c011f7e() {
     freeDatQueue_8c0113d8();
     freeNjQueue_8c0117a4();
     freeTexlistQueue_8c011a48();
     freePvmQueue_8c011e28();
-    FUN_8c01c8fc(0);
+    vmsLcd_8c01c8fc(0);
     var_queuesAreInitialized_8c157a60 = 0;
 }
 

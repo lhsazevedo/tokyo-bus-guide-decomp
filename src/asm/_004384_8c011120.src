@@ -71,11 +71,11 @@
           .EXPORT     _freeTexlistQueue_8c011a48
           .EXPORT     _initPvmQueue_8c011a5c
           .EXPORT     _requestPvm_8c011ac0
-          .EXPORT     _FUN_8c011d24
+          .EXPORT     _sortAndLoadPvmQueue_8c011d24
           .EXPORT     _pvmQueueIsIdle_8c011e22
           .EXPORT     _freePvmQueue_8c011e28
           .EXPORT     _releaseAndFreeTexlist_8c011e3c
-          .EXPORT     _unusedFunction_8c011e60
+          .EXPORT     _freeTexlist_8c011e60
           .EXPORT     _task_processQueues_8c011e80
           .EXPORT     _initQueues_8c011f36
           .EXPORT     _resetQueues_8c011f6c
@@ -1703,7 +1703,7 @@ L119:
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-_FUN_8c011d24:
+_sortAndLoadPvmQueue_8c011d24:
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           MOV.L       R12,@-R15
@@ -1865,7 +1865,7 @@ _releaseAndFreeTexlist_8c011e3c:
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-_unusedFunction_8c011e60:
+_freeTexlist_8c011e60:
           MOV.L       R14,@-R15
           MOV         R4,R14
           MOV.L       R13,@-R15
@@ -1931,7 +1931,7 @@ L132:
 L133:
           MOV.L       @R14,R2
           ADD         #1,R2
-          BSR         _FUN_8c011d24
+          BSR         _sortAndLoadPvmQueue_8c011d24
           MOV.L       R2,@R14
           BRA         L137
           NOP
