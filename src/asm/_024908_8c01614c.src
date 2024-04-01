@@ -9,7 +9,7 @@
           .IMPORT     _var_tasks_8c1ba3c8
           .IMPORT     _FUN_8c013ee4
           .IMPORT     _FUN_8c013dae
-          .IMPORT     _FUN_8c0120fe
+          .IMPORT     _freeNjPvmPairs_8c0120fe
           .IMPORT     _var_8c1bc3ec
           .IMPORT     _var_8c1bc3f0
           .IMPORT     _var_8c1bc3f4
@@ -415,7 +415,7 @@ LP_GEN_42967:
           .DATA.L _FUN_8c029cfe ; H'8C0163B8
           .DATA.L _FUN_8c013ee4 ; H'8C0163BC
           .DATA.L _FUN_8c013dae ; H'8C0163C0
-          .DATA.L _FUN_8c0120fe ; H'8C0163C4
+          .DATA.L _freeNjPvmPairs_8c0120fe ; H'8C0163C4
           .DATA.L _var_8c1bc3ec ; H'8C0163C8
           .DATA.L _var_8c1bc3f0 ; H'8C0163CC
           .DATA.L _var_8c1bc3f4 ; H'8C0163D0

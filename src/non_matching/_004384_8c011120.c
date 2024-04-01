@@ -69,17 +69,17 @@ struct TaskProcessQueuesState {
 }
 typedef TaskProcessQueuesState;
 
-struct NjPvmPair {
+struct NjPvmPairFilenames {
     char *njFilename;
     char *pvmFilename;
 }
-typedef NjPvmPair;
+typedef NjPvmPairFilenames;
 
-struct NjPvmDestPair {
+struct NjPvmPair {
     NJS_TEXLIST *texlist;
     void *njDest;
 }
-typedef NjPvmDestPair;
+typedef NjPvmPair;
 
 extern int var_queuesAreInitialized_8c157a60;
 extern int var_8c157a6c;
@@ -1156,16 +1156,16 @@ void processQueues_8c011fe0(void *func, void *afterDatCallback, void *afterNjCal
 }
 
 /* Tested */
-void* requestNjPvmPairs_8c012030(char *basedir, NjPvmPair *pairs, int texlistCount) {
+NjPvmPair* requestNjPvmPairs_8c012030(char *basedir, NjPvmPairFilenames *pairs, int texlistCount) {
     int pairCount = 0;
-    NjPvmDestPair *dest;
+    NjPvmPair *dest;
     int currentPair;
 
     while (*pairs[pairCount].njFilename || *pairs[pairCount].pvmFilename) {
         pairCount++;
     }
 
-    dest = syMalloc((pairCount + 1) * sizeof(NjPvmDestPair));
+    dest = syMalloc((pairCount + 1) * sizeof(NjPvmPair));
 
     if (pairCount > 0) {
         for (currentPair = 0; currentPair < pairCount; currentPair++) {
@@ -1183,24 +1183,24 @@ void* requestNjPvmPairs_8c012030(char *basedir, NjPvmPair *pairs, int texlistCou
     return dest;
 }
 
-/* TODO: Write tests for this */
-int FUN_8c0120fe(void **p1) {
+/* Tested */
+void freeNjPvmPairs_8c0120fe(NjPvmPair **pairsPtr) {
     int i;
-    NJS_TEXLIST **ptr = *p1;
+    NjPvmPair *pairs = *pairsPtr;
 
-    if (ptr != (void*) -1) {
-        for (i = 0; ptr[i * 2] != 0; i++) {
-            if (ptr[i * 2] != (void*) -1) {
-                releaseAndFreeTexlist_8c011e3c(ptr[i * 2]);
+    if (pairs != (void*) -1) {
+        for (i = 0; pairs[i].texlist != (void*) 0; i++) {
+            if (pairs[i].texlist != (void*) -1) {
+                releaseAndFreeTexlist_8c011e3c(pairs[i].texlist);
             }
 
-            if (ptr[i * 2 + 1] != (void*) -1) {
-                syFree(ptr[i * 2 + 1]);
+            if (pairs[i].njDest != (void*) -1) {
+                syFree(pairs[i].njDest);
             }
         }
 
-        syFree(ptr);
-        *p1 = (void *) -1;
+        syFree(pairs);
+        *pairsPtr = (void *) -1;
     }
 }
 

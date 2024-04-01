@@ -140,3 +140,6 @@ $sh4objtest "tests/004384_8c011120/8160_processQueues_8c011fe0.php" "build/_0043
 
 $sh4objtest "tests/004384_8c011120/8240_requestNjPvmPairs_8c012030.php" "build/_004384_8c011120_src.obj"
 $sh4objtest "tests/004384_8c011120/8240_requestNjPvmPairs_8c012030.php" "build/_004384_8c011120_c.obj"
+
+$sh4objtest "tests/004384_8c011120/8446_freeNjPvmPairs_8c0120fe.php" "build/_004384_8c011120_src.obj"
+$sh4objtest "tests/004384_8c011120/8446_freeNjPvmPairs_8c0120fe.php" "build/_004384_8c011120_c.obj"

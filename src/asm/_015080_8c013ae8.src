@@ -29,7 +29,7 @@
           .IMPORT     _var_8c18ad18
           .IMPORT     _var_8c228708
           .IMPORT     _var_8c1bc3f0
-          .IMPORT     _FUN_8c0120fe
+          .IMPORT     _freeNjPvmPairs_8c0120fe
           .IMPORT     _FUN_8c021a24
           .IMPORT     _var_8c18ad28
           .IMPORT     _var_8c226504
@@ -692,7 +692,7 @@ LP_GEN_91607:
           .DATA.L _var_8c18ad18
           .DATA.L _var_8c228708
           .DATA.L _var_8c1bc3f0
-          .DATA.L _FUN_8c0120fe
+          .DATA.L _freeNjPvmPairs_8c0120fe
           .DATA.L _FUN_8c021a24
 
 _FUN_8c013f78:

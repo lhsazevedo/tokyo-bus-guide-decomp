@@ -82,7 +82,7 @@
           .EXPORT     _freeQueues_8c011f7e
           .EXPORT     _processQueues_8c011fe0
           .EXPORT     _requestNjPvmPairs_8c012030
-          .EXPORT     _FUN_8c0120fe
+          .EXPORT     _freeNjPvmPairs_8c0120fe
           .EXPORT     _FUN_8c012160
           .EXPORT     _FUN_8c012166
           .EXPORT     _FUN_8c012178
@@ -2208,7 +2208,7 @@ LAB_8c0120e0:
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-_FUN_8c0120fe:
+_freeNjPvmPairs_8c0120fe:
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           MOV.L       R12,@-R15
