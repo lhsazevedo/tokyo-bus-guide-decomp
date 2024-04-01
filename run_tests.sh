@@ -123,6 +123,9 @@ $sh4objtest "tests/004384_8c011120/7740_releaseAndFreeTexlist_8c011e3c.php" "bui
 $sh4objtest "tests/004384_8c011120/7776_freeTexlist_8c011e60.php" "build/_004384_8c011120_src.obj"
 $sh4objtest "tests/004384_8c011120/7776_freeTexlist_8c011e60.php" "build/_004384_8c011120_c.obj"
 
+$sh4objtest "tests/004384_8c011120/7808_task_processQueues_8c011e80.php" "build/_004384_8c011120_src.obj"
+$sh4objtest "tests/004384_8c011120/7808_task_processQueues_8c011e80.php" "build/_004384_8c011120_c.obj"
+
 $sh4objtest "tests/004384_8c011120/7990_initQueues_8c011f36.php" "build/_004384_8c011120_src.obj"
 $sh4objtest "tests/004384_8c011120/7990_initQueues_8c011f36.php" "build/_004384_8c011120_c.obj"
 
@@ -131,3 +134,9 @@ $sh4objtest "tests/004384_8c011120/8044_resetQueues_8c011f6c.php" "build/_004384
 
 $sh4objtest "tests/004384_8c011120/8062_freeQueues_8c011f7e.php" "build/_004384_8c011120_src.obj"
 $sh4objtest "tests/004384_8c011120/8062_freeQueues_8c011f7e.php" "build/_004384_8c011120_c.obj"
+
+$sh4objtest "tests/004384_8c011120/8160_processQueues_8c011fe0.php" "build/_004384_8c011120_src.obj"
+$sh4objtest "tests/004384_8c011120/8160_processQueues_8c011fe0.php" "build/_004384_8c011120_c.obj"
+
+$sh4objtest "tests/004384_8c011120/8240_requestNjPvmPairs_8c012030.php" "build/_004384_8c011120_src.obj"
+$sh4objtest "tests/004384_8c011120/8240_requestNjPvmPairs_8c012030.php" "build/_004384_8c011120_c.obj"

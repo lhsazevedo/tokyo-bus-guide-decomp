@@ -69,6 +69,18 @@ struct TaskProcessQueuesState {
 }
 typedef TaskProcessQueuesState;
 
+struct NjPvmPair {
+    char *njFilename;
+    char *pvmFilename;
+}
+typedef NjPvmPair;
+
+struct NjPvmDestPair {
+    NJS_TEXLIST *texlist;
+    void *njDest;
+}
+typedef NjPvmDestPair;
+
 extern int var_queuesAreInitialized_8c157a60;
 extern int var_8c157a6c;
 extern char *var_queueBaseDir_8c157a80;
@@ -1036,7 +1048,7 @@ void freeTexlist_8c011e60(NJS_TEXLIST *texlist) {
     syFree(texlist);
 }
 
-/* TODO: Write tests for this */
+/* Tested */
 void task_processQueues_8c011e80(Task *task, TaskProcessQueuesState *state) {
     switch (state->queue_0x00) {
         /* TODO: Use enum */
@@ -1127,12 +1139,12 @@ void freeQueues_8c011f7e() {
     var_queuesAreInitialized_8c157a60 = 0;
 }
 
-/* TODO: Write tests for this */
+/* Tested */
 void processQueues_8c011fe0(void *func, void *afterDatCallback, void *afterNjCallback, void *afterPvmCallback, void *afterTexlistCallback) {
     Task* created_task;
     TaskProcessQueuesState* created_state;
 
-    pushTask_8c014ae8(&var_tasks_8c1ba3c8, &task_processQueues_8c011e80, created_task, created_state, 0x18);
+    pushTask_8c014ae8(&var_tasks_8c1ba3c8, &task_processQueues_8c011e80, &created_task, &created_state, 0x18);
     created_state->queue_0x00 = 0;
     created_state->afterDatCallback_0x08 = afterDatCallback;
     created_state->afterNjCallback_0x0c = afterNjCallback;
@@ -1141,37 +1153,34 @@ void processQueues_8c011fe0(void *func, void *afterDatCallback, void *afterNjCal
     created_state->func_0x04 = func;
 
     sortAndLoadDatQueue_8c011310();
-}   
+}
 
-/* TODO: Write tests for this */
-void* requestNjPvmPairs_8c012030(char *basedir, char **filenames, int p3) {
-    int i = 0;
-    char *mem;
-    int j;
-    char **k;
-    char *l;
-    char *m;
+/* Tested */
+void* requestNjPvmPairs_8c012030(char *basedir, NjPvmPair *pairs, int texlistCount) {
+    int pairCount = 0;
+    NjPvmDestPair *dest;
+    int currentPair;
 
-    while (*filenames[i * 2] || *filenames[i * 2 + 1]) {
-        i++;
+    while (*pairs[pairCount].njFilename || *pairs[pairCount].pvmFilename) {
+        pairCount++;
     }
 
-    mem = syMalloc(++i * 8);
+    dest = syMalloc((pairCount + 1) * sizeof(NjPvmDestPair));
 
-    if (i > 0) {
-        for (j = 0; j < i; j++) {
-            if (!requestNj_8c011492(basedir, filenames[j * 2], 0, (void *) mem[j * 2 + 1])) {
-                *(int *) (mem + j * 2 + 1) = -1;
+    if (pairCount > 0) {
+        for (currentPair = 0; currentPair < pairCount; currentPair++) {
+            if (!requestNj_8c011492(basedir, pairs[currentPair].njFilename, 0, &dest[currentPair].njDest)) {
+                dest[currentPair].njDest = (void*) -1;
             }
 
-            if (!requestPvm_8c011ac0(basedir, filenames[j * 2 + 1], (void *) mem[j * 2], p3, 0)) {
-                *(int *) (mem + j * 2) = -1;
+            if (!requestPvm_8c011ac0(basedir, pairs[currentPair].pvmFilename, &dest[currentPair].texlist, texlistCount, 0)) {
+                dest[currentPair].texlist = (void*) -1;
             }
         }
     }
 
-    mem[i * 2] = 0;
-    return mem;
+    dest[pairCount].texlist = 0;
+    return dest;
 }
 
 /* TODO: Write tests for this */
