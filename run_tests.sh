@@ -152,3 +152,15 @@ $sh4objtest "tests/004384_8c011120/8550_FUN_8c012166.php" "build/_004384_8c01112
 
 $sh4objtest "tests/004384_8c011120/8568_FUN_8c012178.php" "build/_004384_8c011120_src.obj"
 $sh4objtest "tests/004384_8c011120/8568_FUN_8c012178.php" "build/_004384_8c011120_c.obj"
+
+$sh4objtest "tests/004384_8c011120/8610_FUN_8c0121a2.php" "build/_004384_8c011120_src.obj"
+$sh4objtest "tests/004384_8c011120/8610_FUN_8c0121a2.php" "build/_004384_8c011120_c.obj"
+
+$sh4objtest "tests/004384_8c011120/8616_FUN_8c0121a8.php" "build/_004384_8c011120_src.obj"
+$sh4objtest "tests/004384_8c011120/8616_FUN_8c0121a8.php" "build/_004384_8c011120_c.obj"
+
+$sh4objtest "tests/004384_8c011120/8638_FUN_8c0121be.php" "build/_004384_8c011120_src.obj"
+$sh4objtest "tests/004384_8c011120/8638_FUN_8c0121be.php" "build/_004384_8c011120_c.obj"
+
+$sh4objtest "tests/004384_8c011120/8680_FUN_8c0121e8.php" "build/_004384_8c011120_src.obj"
+$sh4objtest "tests/004384_8c011120/8680_FUN_8c0121e8.php" "build/_004384_8c011120_c.obj"

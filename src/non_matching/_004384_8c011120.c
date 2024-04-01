@@ -108,7 +108,7 @@ extern Task *var_tasks_8c1ba3c8;
 
 extern int init_8c03be80[48];
 
-extern int var_8c1ba1cc[];
+extern char var_8c1ba1cc[];
 extern QueuedPvm* var_pvmQueue_8c157abc;
 extern QueuedPvm* var_pvmQueueRear_8c157ac0;
 extern QueuedPvm* var_pvmQueueTail_8c157ac4;
@@ -1224,19 +1224,19 @@ int FUN_8c012178(unsigned int p1) {
     return 0;
 }
 
-/* TODO: Write tests for this */
+/* Tested */
 void FUN_8c0121a2(int p1) {
     var_8c157ad0 = p1;
 }
 
-/* TODO: Write tests for this */
+/* Tested */
 int FUN_8c0121a8() {
     var_8c157ad0 = (var_8c157ad0 >> 1) * 7 + 0xb;
     return var_8c157ad0;
 }
 
-/* TODO: Write tests for this */
-int FUN_8c0121be(int p1) {
+/* Tested */
+int FUN_8c0121be(unsigned int p1) {
     if (p1) {
         return FUN_8c0121a8() % p1;
     }
@@ -1244,7 +1244,7 @@ int FUN_8c0121be(int p1) {
     return 0;
 }
 
-/* TODO: Write tests for this */
+/* Tested */
 void FUN_8c0121e8() {
     int i;
 
@@ -1252,16 +1252,12 @@ void FUN_8c0121e8() {
         init_8c03be80[i] = init_8c03be80[i+1];
     }
 
-    // for (i = &init_8c03be80; i < &init_8c03be80[14]; i +=2) {
-    //     *i = *(i + 1)
-    // }
-
     if (var_8c1ba1cc[0xcc] != 0) {
         if (var_8c1ba1cc[0xcc] == 1) {
             init_8c03be80[0] = 4;
             init_8c03be80[6] = 0x400; /* init_8c03be98 */
         } else if (var_8c1ba1cc[0xcc] == 2) {
-            init_8c03be80[0] = 4;
+            init_8c03be80[2] = 4;
             init_8c03be80[6] = 2; /* init_8c03be98 */
         }
     }
@@ -1278,7 +1274,7 @@ void FUN_8c0121e8() {
             init_8c03be80[14] = 4; /* init_8c03beb8 */
             init_8c03be80[20] = 0x400; /* init_8c03bed0 */
         } else if (var_8c1ba1cc[0xcd] == 2) {
-            init_8c03be80[14] = 4; /* init_8c03beb8 */
+            init_8c03be80[16] = 4; /* init_8c03beb8 */
             init_8c03be80[20] = 2; /* init_8c03bed0 */
         }
     }
@@ -1292,34 +1288,36 @@ void FUN_8c0121e8() {
         init_8c03be80[28] = 0x02; /* init_8c03bef0 */
         init_8c03be80[30] = 0x04; /* init_8c03bef8 */
         init_8c03be80[32] = 0x20; /* init_8c03bf00 */
-        init_8c03be80[34] = 0x30; /* init_8c03bf08 */
+        init_8c03be80[34] = 0x10; /* init_8c03bf08 */
     }
 
     init_8c03be80[36] = 8;
 
-    if (var_8c1ba1cc[0xcf] != 0) {
+    if (var_8c1ba1cc[0xcf] == 0) {
         init_8c03be80[38] = 0x20;
         init_8c03be80[40] = 0x10;
         init_8c03be80[42] = 2;
-        init_8c03be80[46] = 4;
+        init_8c03be80[44] = 4;
     } else {
         if (var_8c1ba1cc[0xcf] == 1) {
             init_8c03be80[38] = 2;
             init_8c03be80[40] = 4;
+            init_8c03be80[42] = 0x20;
+            init_8c03be80[44] = 0x10;
         } else {
             if (var_8c1ba1cc[0xcf] != 2) {
                 init_8c03be80[38] = 0x20;
                 init_8c03be80[40] = 0x10;
                 init_8c03be80[42] = 2;
-                init_8c03be80[46] = 4;
+                init_8c03be80[44] = 4;
             } else {
                 init_8c03be80[38] = 0x40;
                 init_8c03be80[40] = 0x80;
+                init_8c03be80[42] = 0x20;
+                init_8c03be80[44] = 0x10;
             }
         }
-        init_8c03be80[42] = 0x20;
-        init_8c03be80[46] = 0x10;
     }
 
-    init_8c03be80[48] = 8;
+    init_8c03be80[46] = 8;
 }
