@@ -1204,19 +1204,19 @@ void freeNjPvmPairs_8c0120fe(NjPvmPair **pairsPtr) {
     }
 }
 
-/* TODO: Write tests for this */
+/* Tested */
 void FUN_8c012160(int p1) {
     var_8c157acc = p1;
 }
 
-/* TODO: Write tests for this */
+/* Tested */
 int FUN_8c012166() {
-    var_8c157acc = var_8c157acc * 5 + 0xd;
+    var_8c157acc = var_8c157acc * 5 + 13;
     return var_8c157acc;
 }
 
-/* TODO: Write tests for this */
-int FUN_8c012178(int p1) {
+/* Tested */
+int FUN_8c012178(unsigned int p1) {
     if (p1) {
         return FUN_8c012166() % p1;
     }

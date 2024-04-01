@@ -143,3 +143,12 @@ $sh4objtest "tests/004384_8c011120/8240_requestNjPvmPairs_8c012030.php" "build/_
 
 $sh4objtest "tests/004384_8c011120/8446_freeNjPvmPairs_8c0120fe.php" "build/_004384_8c011120_src.obj"
 $sh4objtest "tests/004384_8c011120/8446_freeNjPvmPairs_8c0120fe.php" "build/_004384_8c011120_c.obj"
+
+$sh4objtest "tests/004384_8c011120/8544_FUN_8c012160.php" "build/_004384_8c011120_src.obj"
+$sh4objtest "tests/004384_8c011120/8544_FUN_8c012160.php" "build/_004384_8c011120_c.obj"
+
+$sh4objtest "tests/004384_8c011120/8550_FUN_8c012166.php" "build/_004384_8c011120_src.obj"
+$sh4objtest "tests/004384_8c011120/8550_FUN_8c012166.php" "build/_004384_8c011120_c.obj"
+
+$sh4objtest "tests/004384_8c011120/8568_FUN_8c012178.php" "build/_004384_8c011120_src.obj"
+$sh4objtest "tests/004384_8c011120/8568_FUN_8c012178.php" "build/_004384_8c011120_c.obj"
