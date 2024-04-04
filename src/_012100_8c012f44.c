@@ -425,7 +425,7 @@ void task_8c012f44()
             init_8c03bd80 = 1;
             init_8c03bd84 = 0;
         } else {
-            FUN_8c015fd6(1);
+            pushTitle_8c015fd6(1);
         }
     }
 }
@@ -629,7 +629,7 @@ void task_8c013388(Task *task, void *state) {
                 freeTask_8c014b66(task);
                 initSoundMidiAdx_8c010e18();
                 var_8c2260a8 = 1;
-                FUN_8c015fd6(0);
+                pushTitle_8c015fd6(0);
             }
             break;
         }

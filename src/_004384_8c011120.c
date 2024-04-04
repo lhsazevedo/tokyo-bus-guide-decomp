@@ -1,7 +1,6 @@
 #include <shinobi.h>
 #include <string.h>
 #include "_019100_8c014a9c_tasks.h"
-#include "scif.h"
 
 /* struct QueuedDat {
     char *basedir;

@@ -38,7 +38,7 @@
           .IMPORT     _FUN_8c010bae
           .IMPORT     _FUN_8c0128cc
           .EXPORT     _task_title_8c015ab8
-          .EXPORT     _FUN_8c015fd6
+          .EXPORT     _pushTitle_8c015fd6
           .SECTION    P,CODE,ALIGN=4
 _task_title_8c015ab8:            ; function: task_title_8c015ab8
                                  ; frame size=?
@@ -715,7 +715,7 @@ L52:
           RTS
           MOV.L       @R15+,R14
 
-_FUN_8c015fd6:                   ; function: FUN_8c015fd6
+_pushTitle_8c015fd6:                   ; function: pushTitle_8c015fd6
                                  ; frame size=44
           MOV.L       R14,@-R15
           STS.L       PR,@-R15

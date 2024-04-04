@@ -31,7 +31,7 @@
           .IMPORT     _init_8c045290
           .IMPORT     _FUN_8c016182
           .IMPORT     _var_8c1ba34c
-          .IMPORT     _FUN_8c015fd6
+          .IMPORT     _pushTitle_8c015fd6
           .IMPORT     _init_8c044c08
           .IMPORT     _FUN_8c0128cc
           .IMPORT     _task_8c012f44
@@ -767,7 +767,7 @@ LP_GEN_28976:
           .DATA.L _FUN_8c016182 ; H'8C01F944
           .DATA.L _var_8c1ba34c ; H'8C01F948
           .DATA.L _FUN_8c01e24e ; H'8C01F94C
-          .DATA.L _FUN_8c015fd6 ; H'8C01F950
+          .DATA.L _pushTitle_8c015fd6 ; H'8C01F950
 _FUN_8c01f954:
           MOV.L       R14,@-R15
           STS.L       PR,@-R15

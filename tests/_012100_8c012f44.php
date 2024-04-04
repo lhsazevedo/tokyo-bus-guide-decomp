@@ -329,7 +329,7 @@ return new class extends TestCase {
         $this->shouldCall('_freeTask_8c014b66')->with($taskPtr);
         $this->shouldCall('_initSoundMidiAdx_8c010e18');
         $this->shouldWriteTo('_var_8c2260a8', 1);
-        $this->shouldCall('_FUN_8c015fd6');
+        $this->shouldCall('_pushTitle_8c015fd6');
 
         $this->call('_task_8c013388')
             ->with($taskPtr, 0)

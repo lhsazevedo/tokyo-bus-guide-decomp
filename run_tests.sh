@@ -51,8 +51,8 @@ $sh4objtest "tests/_012100_8c012f44.php" "build/_012100_8c012f44_c.obj"
 
 # _004384_8c011120
 # TODO: Integrate
-assemble  src/asm/_004384_8c011120.src
-compile  src/non_matching/_004384_8c011120.c
+assemble  src/asm/decompiled/_004384_8c011120.src
+compile  src/_004384_8c011120.c
 
 $sh4objtest "tests/004384_8c011120/4338_initDatQueue_8c011124.php" "build/_004384_8c011120_src.obj"
 $sh4objtest "tests/004384_8c011120/4338_initDatQueue_8c011124.php" "build/_004384_8c011120_c.obj"

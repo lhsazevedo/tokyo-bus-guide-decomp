@@ -410,7 +410,7 @@ void task_title_8c015ab8(Task* task, void *state) {
 }
 
 /* Matched */
-void FUN_8c015fd6 (Bool direct) {
+void pushTitle_8c015fd6 (Bool direct) {
     Task* created_task;
     void* created_state;
     FUN_8c0128cc(0);
