@@ -1,0 +1,192 @@
+; 8c02b2f0
+          .IMPORT     _njDrawQuadTexture
+          .IMPORT     _var_8c2285c8
+          .IMPORT     _var_8c1bc418
+          .IMPORT     _njSetTexture
+          .IMPORT     _njQuadTextureStart
+          .IMPORT     _njSetQuadTextureG
+          .IMPORT     _var_8c228564
+          .IMPORT     _njQuadTextureEnd
+          .IMPORT     _drawSprite_8c014f54
+          .EXPORT     _FUN_8c02b2f0
+          .EXPORT     _FUN_8c02b388
+          .SECTION     P, CODE, ALIGN=4
+_FUN_8c02b2f0:
+          MOV.L       R14,@-R15
+          MOV.L       R13,@-R15
+          MOV.L       R12,@-R15
+          MOV.L       R11,@-R15
+          MOV.L       R10,@-R15
+          FMOV.S      FR15,@-R15
+          FMOV.S      FR14,@-R15
+          FMOV.S      FR13,@-R15
+          FMOV.S      FR12,@-R15
+          STS.L       PR,@-R15
+          ADD         #-H'20,R15
+          MOV         #H'4,R0
+          MOV.L       LP_GEN_28247+6,R10
+          FMOV        FR5,@(R0,R15)
+          MOVA        LP_GEN_28247+2,R0
+          FMOV.S      @R0,FR13
+          MOV         #H'c,R0
+          MOV         R5,R14
+          CMP/PL      R14
+          FADD        FR13,FR5
+          FMOV        FR4,FR14
+          MOV         R4,R13
+          MOV         #-H'10,R12
+          MOV         #H'f,R11
+          FMOV        FR5,@(R0,R15)
+          MOVA        LP_GEN_28247+10,R0
+          FMOV.S      @R0,FR12
+          MOVA        LP_GEN_28247+14,R0
+          BF/S        LAB_8c02b370
+          FMOV.S      @R0,FR15
+LAB_8c02b32c:
+          MOV.L       @R13+,R4
+          MOV         #H'8,R0
+          FMOV.S      FR14,@R15
+          FADD        FR13,FR14
+          MOV         R4,R3
+          AND         R11,R3
+          LDS         R3,FPUL
+          AND         R12,R4
+          FMOV        FR12,FR4
+          FMOV        FR14,@(R0,R15)
+          MOVA        LP_GEN_28247+18,R0
+          FLOAT       FPUL,FR3
+          FMOV.S      @R0,FR2
+          MOV         #H'10,R0
+          LDS         R4,FPUL
+          FDIV        FR2,FR3
+          FMOV        FR3,@(R0,R15)
+          FADD        FR15,FR3
+          MOV         #H'18,R0
+          FMOV        FR3,@(R0,R15)
+          FLOAT       FPUL,FR3
+          MOVA        LP_GEN_28247+22,R0
+          FMOV.S      @R0,FR1
+          MOV         #H'14,R0
+          FDIV        FR1,FR3
+          FMOV        FR3,@(R0,R15)
+          FADD        FR15,FR3
+          MOV         #H'1c,R0
+          FMOV        FR3,@(R0,R15)
+          JSR         @R10
+          MOV         R15,R4
+          ADD         #-H'1,R14
+          CMP/PL      R14
+          BT          LAB_8c02b32c
+LAB_8c02b370:
+          ADD         #H'20,R15
+          LDS.L       @R15+,PR
+          FMOV.S      @R15+,FR12
+          FMOV.S      @R15+,FR13
+          FMOV.S      @R15+,FR14
+          FMOV.S      @R15+,FR15
+          MOV.L       @R15+,R10
+          MOV.L       @R15+,R11
+          MOV.L       @R15+,R12
+          MOV.L       @R15+,R13
+          RTS
+          MOV.L       @R15+,R14
+_FUN_8c02b388:
+          MOV.L       R14,@-R15
+          MOV.L       R13,@-R15
+          MOV.L       R12,@-R15
+          MOV.L       R11,@-R15
+          FMOV.S      FR15,@-R15
+          FMOV.S      FR14,@-R15
+          STS.L       PR,@-R15
+          ADD         #-H'20,R15
+          MOV.L       LP_GEN_28247+26,R2
+          MOV.L       @R2,R3
+          TST         R3,R3
+          BF          LAB_8c02b400
+          MOV.L       LP_GEN_28247+34,R1
+          MOV.L       LP_GEN_28247+30,R3
+          JSR         @R1
+          MOV.L       @R3,R4
+          MOV.L       LP_GEN_28247+38,R3
+          JSR         @R3
+          MOV         #H'1,R4
+          MOV.L       LP_GEN_28247+42,R2
+          MOV.W       LP_GEN_28247,R4
+          JSR         @R2
+          MOV         #-H'1,R5
+          MOVA        LP_GEN_28247+2,R0
+          MOV.L       LP_GEN_28247+46,R11
+          FMOV.S      @R0,FR14
+          MOVA        LP_GEN_28247+50,R0
+          FMOV.S      @R0,FR15
+          MOV         #H'4,R12
+          MOV         #H'0,R13
+LAB_8c02b3c4:
+          MOV         R13,R14
+          SHLL        R14
+          MOV         R13,R3
+          ADD         R3,R14
+          SHLL2       R14
+          SHLL        R14
+          ADD         R11,R14
+          MOV.L       @(H'14,R14),R2
+          TST         R2,R2
+          BT          LAB_8c02b3e4
+          MOV.L       @(H'4,R14),R4
+          MOV         #H'8,R0
+          MOV.L       @(H'c,R14),R5
+          FMOV        FR15,FR5
+          BSR         _FUN_8c02b2f0
+          FMOV.S      @(R0,R14),FR4
+LAB_8c02b3e4:
+          ADD         #H'1,R13
+          CMP/GE      R12,R13
+          BF/S        LAB_8c02b3c4
+          FSUB        FR14,FR15
+          ADD         #H'20,R15
+          LDS.L       @R15+,PR
+          MOV.L       LP_GEN_28247+54,R3
+          FMOV.S      @R15+,FR14
+          FMOV.S      @R15+,FR15
+          MOV.L       @R15+,R11
+          MOV.L       @R15+,R12
+          MOV.L       @R15+,R13
+          JMP         @R3
+          MOV.L       @R15+,R14
+LAB_8c02b400:
+          MOVA        LP_GEN_28247+58,R0
+          FLDI0       FR15
+          FMOV.S      @R0,FR6
+          MOV         #H'78,R5
+          MOV.L       LP_GEN_28247+30,R4
+          FMOV        FR15,FR4
+          FMOV        FR15,FR5
+          ADD         #H'20,R15
+          LDS.L       @R15+,PR
+          MOV.L       LP_GEN_28247+62,R3
+          FMOV.S      @R15+,FR14
+          FMOV.S      @R15+,FR15
+          MOV.L       @R15+,R11
+          MOV.L       @R15+,R12
+          MOV.L       @R15+,R13
+          JMP         @R3
+          MOV.L       @R15+,R14
+LP_GEN_28247:
+          .DATA.W H'0A8D ; H'8C02B422
+          .DATA.L H'42000000 ; H'8C02B424
+          .DATA.L _njDrawQuadTexture ; H'8C02B428
+          .DATA.L H'3F5391FB ; H'8C02B42C
+          .DATA.L H'3D800000 ; H'8C02B430
+          .DATA.L H'41800000 ; H'8C02B434
+          .DATA.L H'43800000 ; H'8C02B438
+          .DATA.L _var_8c2285c8 ; H'8C02B43C
+          .DATA.L _var_8c1bc418 ; H'8C02B440
+          .DATA.L _njSetTexture ; H'8C02B444
+          .DATA.L _njQuadTextureStart ; H'8C02B448
+          .DATA.L _njSetQuadTextureG ; H'8C02B44C
+          .DATA.L _var_8c228564 ; H'8C02B450
+          .DATA.L H'43400000 ; H'8C02B454
+          .DATA.L _njQuadTextureEnd ; H'8C02B458
+          .DATA.L H'BF947AE1 ; H'8C02B45C
+          .DATA.L _drawSprite_8c014f54 ; H'8C02B460
+          .END

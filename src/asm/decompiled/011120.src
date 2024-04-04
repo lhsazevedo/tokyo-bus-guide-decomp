@@ -1,0 +1,2578 @@
+; 8c011120
+          .IMPORT     _gdFsChangeDir
+          .IMPORT     _gdFsOpen
+          .IMPORT     _gdFsClose
+          .IMPORT     _gdFsGetFileSctSize
+          .IMPORT     _gdFsRead
+          .IMPORT     _gdFsGetStat
+          .IMPORT     _gdFsTrans32
+          .IMPORT     _gdFsGetTransStat
+          .IMPORT     _syMalloc
+          .IMPORT     _syFree
+          .IMPORT     _pushTask_8c014ae8
+          .IMPORT     _freeTask_8c014b66
+          .IMPORT     _var_queueBaseDir_8c157a80
+          .IMPORT     _var_8c157a88
+          .IMPORT     _var_datQueue_8c157a8c
+          .IMPORT     _var_datQueueRear_8c157a90
+          .IMPORT     _var_datQueueTail_8c157a94
+          .IMPORT     _var_datQueueIsIdle_8c157a98
+          .IMPORT     _var_tasks_8c1ba3c8
+          .IMPORT     _strcmp
+          .IMPORT     __quick_evn_mvn
+          .IMPORT     _var_njQueue_8c157a9c
+          .IMPORT     _var_njQueueTail_8c157aa4
+          .IMPORT     _var_njQueueRear_8c157aa0
+          .IMPORT     _ptr_str_DATA_EMPTY_8c03be7c
+          .IMPORT     _var_njQueueIsIdle_8c157aa8
+          .IMPORT     _var_texbuf_8c277ca0
+          .IMPORT     _var_queueBuffer_8c157a84
+          .IMPORT     _njReadBinary
+          .IMPORT     __quick_odd_mvn
+          .IMPORT     _var_texlistQueue_8c157aac
+          .IMPORT     _var_texlistQueueTail_8c157ab4
+          .IMPORT     _var_texlistQueueRear_8c157ab0
+          .IMPORT     _var_texlistQueueIsIdle_8c157ab8
+          .IMPORT     _njSetTexture
+          .IMPORT     _njLoadTextureNum
+          .IMPORT     _var_pvmQueue_8c157abc
+          .IMPORT     _var_pvmQueueTail_8c157ac4
+          .IMPORT     _var_pvmQueueRear_8c157ac0
+          .IMPORT     _var_pvmQueueIsIdle_8c157ac8
+          .IMPORT     _njSetPvmTextureList
+          .IMPORT     _njLoadTexturePvmMemory
+          .IMPORT     _var_8c157a6c
+          .IMPORT     _njReleaseTexture
+          .IMPORT     _vmsLcd_8c01c8fc
+          .IMPORT     _vmsLcd_8c01c910
+          .IMPORT     _var_8c157acc
+          .IMPORT     __modlu
+          .IMPORT     _var_8c157ad0
+          .IMPORT     _var_8c1ba1cc
+          .EXPORT     _nop_8c011120
+          .EXPORT     _initDatQueue_8c011124
+          .EXPORT     _resetDatQueue_8c01116a
+          .EXPORT     _requestDat_8c011182
+          .EXPORT     _task_loadQueuedDats_8c0111b4
+          .EXPORT     _sortAndLoadDatQueue_8c011310
+          .EXPORT     _datQueueIsIdle_8c0113d2
+          .EXPORT     _freeDatQueue_8c0113d8
+          .EXPORT     _initNjQueue_8c011430
+          .EXPORT     _resetNjQueue_8c01147a
+          .EXPORT     _requestNj_8c011492
+          .EXPORT     _task_loadQueuedNjs_8c0114cc
+          .EXPORT     _sortAndLoadNjQueue_8c0116b6
+          .EXPORT     _njQueueIsIdle_8c01179e
+          .EXPORT     _freeNjQueue_8c0117a4
+          .EXPORT     _initTexlistQueue_8c0117b8
+          .EXPORT     _resetTexlistQueue_8c0117fe
+          .EXPORT     _requestTexlist_8c01181c
+          .EXPORT     _loadTexlistQueue_8c0119f8
+          .EXPORT     _texlistQueueIsIdle_8c011a42
+          .EXPORT     _freeTexlistQueue_8c011a48
+          .EXPORT     _initPvmQueue_8c011a5c
+          .EXPORT     _requestPvm_8c011ac0
+          .EXPORT     _sortAndLoadPvmQueue_8c011d24
+          .EXPORT     _pvmQueueIsIdle_8c011e22
+          .EXPORT     _freePvmQueue_8c011e28
+          .EXPORT     _releaseAndFreeTexlist_8c011e3c
+          .EXPORT     _freeTexlist_8c011e60
+          .EXPORT     _task_processQueues_8c011e80
+          .EXPORT     _initQueues_8c011f36
+          .EXPORT     _resetQueues_8c011f6c
+          .EXPORT     _freeQueues_8c011f7e
+          .EXPORT     _processQueues_8c011fe0
+          .EXPORT     _requestNjPvmPairs_8c012030
+          .EXPORT     _freeNjPvmPairs_8c0120fe
+          .EXPORT     _FUN_8c012160
+          .EXPORT     _FUN_8c012166
+          .EXPORT     _FUN_8c012178
+          .EXPORT     _FUN_8c0121a2
+          .EXPORT     _FUN_8c0121a8
+          .EXPORT     _FUN_8c0121be
+          .EXPORT     _FUN_8c0121e8
+          .EXPORT     _init_8c03be80
+          .EXPORT     _init_8c03beb8
+          .EXPORT     _init_8c03bef0
+          .EXPORT     _init_8c03bf18
+          .EXPORT     _var_queuesAreInitialized_8c157a60
+          .EXPORT     _var_seed_8c157a64
+          .EXPORT     _task_loadQueuedTexlists_8c01183e ; For testing
+          .EXPORT     _var_texlistQueueCount_8c157a68 ; For testing
+          .EXPORT     _task_loadQueuedPvms_8c011b00; For testing
+          .SECTION    P,CODE,ALIGN=4
+_nop_8c011120:                   ; function: nop_8c011120
+                                 ; frame size=0
+          RTS
+          NOP
+_initDatQueue_8c011124:          ; function: initDatQueue_8c011124
+                                 ; frame size=16
+          MOV.L       R14,@-R15
+          MOV.L       R13,@-R15
+          STS.L       PR,@-R15
+          ADD         #-4,R15
+          MOV         R4,R3
+          MOV.L       L14,R14  ; _var_datQueue_8c157a8c
+          TST         R3,R3
+          BT/S        L1
+          MOV.L       R4,@R15
+          MOV.L       @R15,R13
+          MOV.L       L14+4,R3 ; _syMalloc
+          SHLL2       R13
+          SHLL2       R13
+          JSR         @R3
+          MOV         R13,R4
+          TST         R0,R0
+          BF/S        L0
+          MOV.L       R0,@R14
+          BRA         L3
+          MOV         #0,R0
+L0:                               
+          MOV.L       @R14,R3
+          MOV.L       L14+8,R2 ; _var_datQueueTail_8c157a94
+          ADD         R3,R13
+          BRA         L2
+          MOV.L       R13,@R2
+L1:                               
+          MOV.L       L14+8,R3 ; _var_datQueueTail_8c157a94
+          MOV         #-1,R1
+          MOV.L       R1,@R3
+          MOV.L       R1,@R14
+L2:                               
+          MOV         #1,R0
+L3:                               
+          ADD         #4,R15
+          LDS.L       @R15+,PR
+          MOV.L       @R15+,R13
+          RTS
+          MOV.L       @R15+,R14
+_resetDatQueue_8c01116a:                   ; function: _resetDatQueue_8c01116a
+                                 ; frame size=0
+          MOV.L       L14,R2   ; _var_datQueue_8c157a8c
+          MOV.L       L14+12,R1; _var_datQueueRear_8c157a90
+          MOV.L       @R2,R3
+          MOV.L       L14+20,R2; _var_queueBaseDir_8c157a80
+          MOV.L       R3,@R1
+          MOV         #1,R1
+          MOV.L       L14+16,R3; _init_8c03be7c
+          MOV.L       @R3,R0
+          MOV.L       R0,@R2
+          MOV.L       L14+24,R0; _var_datQueueIsIdle_8c157a98
+          RTS
+          MOV.L       R1,@R0
+_requestDat_8c011182:           ; function: requestDat_8c011182
+                                 ; frame size=0
+          MOV.B       @R5,R3
+          TST         R3,R3
+          BT          L4
+          MOV.L       L14+8,R2 ; _var_datQueueTail_8c157a94
+          MOV.L       L14+12,R7; _var_datQueueRear_8c157a90
+          MOV.L       @R2,R3
+          MOV.L       @R7,R0
+          CMP/HS      R3,R0
+          BF          L5
+L4:
+          RTS
+          MOV         #0,R0
+L5:                               
+          MOV.L       R4,@R0
+          MOV         #1,R0
+          MOV.L       @R7,R3
+          MOV.L       R5,@(4,R3)
+          MOV.L       @R7,R2
+          MOV.L       R6,@(8,R2)
+          MOV         #0,R2
+          MOV.L       @R7,R3
+          MOV.L       R2,@(12,R3)
+          MOV.L       @R7,R3
+          ADD         #16,R3
+          MOV.L       R3,@R7
+L6:                               
+          RTS
+          NOP
+_task_loadQueuedDats_8c0111b4:                  ; function: task_loadQueuedDats_8c0111b4
+                                 ; frame size=32
+                                 ; used runtime library name:
+                                 ; _strcmp
+          MOV.L       R14,@-R15
+          MOV.L       R13,@-R15
+          MOV.L       R12,@-R15
+          MOV.L       R11,@-R15
+          MOV.L       R10,@-R15
+          MOV.L       R8,@-R15
+          STS.L       PR,@-R15
+          ADD         #-4,R15
+          MOV         R4,R13
+          MOV.L       @(8,R13),R0
+          MOV.L       L14+28,R11; _var_8c157a88
+          MOV.L       @(24,R13),R14
+          CMP/EQ      #0,R0
+          BT/S        L7
+          MOV         #1,R10
+          CMP/EQ      #1,R0
+          BT          L12
+          BRA         L19
+          NOP
+L7:                               
+          MOV.L       L14+12,R2; _var_datQueueRear_8c157a90
+          MOV.L       L14+20,R12 ; _var_queueBaseDir_8c157a80
+          MOV.L       @R2,R3
+          CMP/HS      R3,R14
+          BT          L10
+          MOV.L       @(12,R14),R0
+          TST         R0,R0
+          BT          L8
+          BRA         L7
+          ADD         #16,R14
+L8:
+          MOV.L       @R14,R2
+          MOV.B       @R2,R3
+          TST         R3,R3
+          BT          L9
+          MOV.L       L14+32,R3
+          MOV.L       @R14,R5
+          JSR         @R3
+          MOV.L       @R12,R4
+          TST         R0,R0
+          BT          L9
+          MOV.L       @R14,R3
+          MOV.L       L14+36,R2
+          MOV.L       R3,@R12
+          JSR         @R2
+          MOV         R3,R4
+L9:
+          MOV.L       L14+40,R3; _gdFsOpen
+          MOV         #0,R5
+          JSR         @R3
+          MOV.L       @(4,R14),R4
+          TST         R0,R0
+          BT/S        L17
+          MOV.L       R0,@(12,R13)
+          MOV.L       L14+44,R2; _gdFsGetFileSctSize
+          MOV         R15,R5
+          JSR         @R2
+          MOV.L       @(12,R13),R4
+          TST         R0,R0
+          BT          L17
+          MOV.L       @R15,R4
+          MOV.L       L14+4,R3 ; _syMalloc
+          SHLL8       R4
+          MOV.L       @(8,R14),R8
+          SHLL2       R4
+          JSR         @R3
+          SHLL        R4
+          MOV.L       L14+48,R3
+          MOV.L       R0,@R8
+          MOV.L       @(8,R14),R6
+          MOV.L       @R15,R5
+          MOV.L       @R6,R6
+          JSR         @R3
+          MOV.L       @(12,R13),R4
+          TST         R0,R0
+          BF          L17
+          BRA         L13
+          NOP
+L10:
+          MOV.L       @R11,R1
+          TST         R1,R1
+          BT          L11
+          MOV.L       L14,R1
+          MOV         #0,R0
+          MOV.L       @R1,R3
+          MOV.L       R3,@(24,R13)
+          MOV.L       R0,@R11
+          MOV.L       L14+16,R0 ; _init_8c03be7c
+          MOV.L       @R0,R3
+          BRA         L19
+          MOV.L       R3,@R12
+L11:
+          MOV.L       L14+24,R1 ; _var_datQueueIsIdle_8c157a98
+          MOV.L       L14+52,R3
+          MOV.L       R10,@R1
+          JSR         @R3
+          MOV         R13,R4
+          BRA         L19
+          NOP
+L12:
+          MOV.L       L14+56,R3
+          JSR         @R3
+          MOV.L       @(12,R13),R4
+          CMP/EQ      #1,R0
+          BT          L13
+          CMP/EQ      #H'2,R0
+          BT          L15
+          BRA         L16
+          NOP
+L13:
+          MOV.L       L14+60,R2
+          JSR         @R2
+          MOV.L       @(12,R13),R4
+          BRA         L18
+          MOV.L       R10,@(12,R14)
+
+L14:
+          .DATA.L     _var_datQueue_8c157a8c ; H'8c01128c
+          .DATA.L     _syMalloc ; H'8c011290
+          .DATA.L     _var_datQueueTail_8c157a94
+          .DATA.L     _var_datQueueRear_8c157a90
+          .DATA.L     _init_8c03be7c
+          .DATA.L     _var_queueBaseDir_8c157a80 ; H'8c0112a0
+          .DATA.L     _var_datQueueIsIdle_8c157a98
+          .DATA.L     _var_8c157a88
+          .DATA.L     _strcmp
+          .DATA.L     _gdFsChangeDir ; H'8c0112b0
+          .DATA.L     _gdFsOpen
+          .DATA.L     _gdFsGetFileSctSize
+          .DATA.L     _gdFsRead ; H'8c0112c0
+          .DATA.L     _freeTask_8c014b66
+          .DATA.L     _gdFsGetStat
+          .DATA.L     _gdFsClose
+
+L15:
+          MOV.L       L28+4,R3
+          JSR         @R3
+          MOV.L       @(12,R13),R4
+          TST         R0,R0
+          BF          L19
+          MOV.L       @(8,R14),R6
+          MOV.L       L28+8,R3
+          MOV.W       L28,R5
+          MOV.L       @R6,R6
+          JSR         @R3
+          MOV.L       @(12,R13),R4
+          BRA         L19
+          NOP
+L16:
+          MOV.L       L28+12,R3
+          JSR         @R3
+          MOV.L       @(12,R13),R4
+          MOV.L       L28+16,R2
+          MOV.L       @(8,R14),R4
+          JSR         @R2
+          MOV.L       @R4,R4
+L17:
+          MOV.L       R10,@R11
+L18:
+          MOV         #0,R3
+          ADD         #16,R14
+          MOV.L       R14,@(24,R13)
+          MOV.L       R3,@(8,R13)
+L19:
+          ADD         #4,R15
+          LDS.L       @R15+,PR
+          MOV.L       @R15+,R8
+          MOV.L       @R15+,R10
+          MOV.L       @R15+,R11
+          MOV.L       @R15+,R12
+          MOV.L       @R15+,R13
+          RTS
+          MOV.L       @R15+,R14
+
+_sortAndLoadDatQueue_8c011310:                   ; function: sortAndLoadDatQueue_8c011310
+                                 ; frame size=44
+          MOV.L       R14,@-R15
+          MOV.L       R13,@-R15
+          MOV.L       R12,@-R15
+          MOV.L       R11,@-R15
+          MOV.L       R10,@-R15
+          MOV.L       R9,@-R15
+          MOV.L       R8,@-R15
+          STS.L       PR,@-R15
+          ADD         #-8,R15
+          MOV.L       L28+24,R12; _var_datQueue_8c157a8c
+          MOV.L       L28+20,R8; _var_datQueueRear_8c157a90
+          MOV.L       @R12,R2
+          MOV.L       @R8,R3
+          CMP/EQ      R3,R2
+          BT          L24
+          MOV.L       L28+28,R2; _var_datQueueIsIdle_8c157a98
+          MOV         #0,R10
+          MOV.L       R10,@R2
+          MOV.L       L28+32,R2;_syMalloc
+          MOV.L       @R8,R4
+          MOV.L       @R12,R3
+          JSR         @R2
+          SUB         R3,R4
+          MOV         R0,R11
+L20:
+          MOV.L       @R12,R13
+          MOV         R10,R9
+          BRA         L23
+          MOV         R13,R14
+L21:
+          MOV.L       L28+36,R2;_strcmp
+          MOV.L       @(4,R14),R5
+          JSR         @R2
+          MOV.L       @(4,R13),R4
+          CMP/PL      R0
+          BF          L22
+          MOV.L       L28+40,R3; __quick_evn_mvn
+          MOV         R13,R2
+          MOV         R11,R1
+          JSR         @R3
+          MOV         #16,R0
+          MOV.L       L28+40,R3; __quick_evn_mvn
+          MOV         R14,R2
+          MOV         R13,R1
+          JSR         @R3
+          MOV         #16,R0
+          MOV.L       L28+40,R3; __quick_evn_mvn
+          MOV         R11,R2
+          MOV         R14,R1
+          JSR         @R3
+          MOV         #16,R0
+          MOV         #1,R9
+L22:
+          ADD         #16,R13
+L23:
+          MOV.L       @R8,R2
+          ADD         #16,R14
+          CMP/HS      R2,R14
+          BF          L21
+          TST         R9,R9
+          BF          L20
+          MOV.L       L28+16,R3; _syFree
+          JSR         @R3
+          MOV         R11,R4
+          MOV         #0,R2
+          MOV.L       L28+48,R4; _var_tasks_8c1ba3c8
+          MOV.L       R2,@-R15
+          MOV.L       L28+44,R5; _task_loadQueuedDats_8c0111b4
+          MOV         R15,R7
+          MOV.L       L28+52,R3; _pushTask_8c014ae8
+          ADD         #8,R7
+          MOV         R15,R6
+          JSR         @R3
+          ADD         #4,R6
+          TST         R0,R0
+          BF/S        L25
+          ADD         #4,R15
+L24:
+          BRA         L26
+          MOV         #0,R0
+L25:
+          MOV.L       @R12,R2
+          MOV.L       @R15,R3
+          MOV.L       L28+60,R1
+          MOV.L       R2,@(24,R3)
+          MOV.L       @R15,R3
+          MOV.L       L28+64,R0
+          MOV.L       R10,@(8,R3)
+          MOV.L       L28+56,R3
+          MOV.L       R10,@R3
+          MOV.L       @R1,R2
+          MOV.L       R2,@R0
+          MOV         #1,R0
+L26:
+          ADD         #8,R15
+          LDS.L       @R15+,PR
+          MOV.L       @R15+,R8
+          MOV.L       @R15+,R9
+          MOV.L       @R15+,R10
+          MOV.L       @R15+,R11
+          MOV.L       @R15+,R12
+          MOV.L       @R15+,R13
+          RTS
+          MOV.L       @R15+,R14
+_datQueueIsIdle_8c0113d2:          ; function: datQueueIsIdle_8c0113d2
+                                 ; frame size=0
+          MOV.L       L28+28,R3; _var_datQueueIsIdle_8c157a98
+          RTS
+          MOV.L       @R3,R0
+_freeDatQueue_8c0113d8:          ; function: freeDatQueue_8c0113d8
+                                 ; frame size=0
+          MOV.L       L28+24,R2; _var_datQueue_8c157a8c
+          MOV.L       @R2,R0
+          CMP/EQ      #-1,R0
+          BT/S        L27
+          MOV         R0,R4
+          MOV.L       L28+16,R3
+          JMP         @R3
+          NOP
+L27:
+          RTS
+          NOP
+L28:
+          .DATA.W     H'0800
+          .RES.W      1 ; H'8c0113ec
+          .DATA.L     _gdFsGetTransStat
+          .DATA.L     _gdFsTrans32
+          .DATA.L     _gdFsClose
+          .DATA.L     _syFree
+          .DATA.L     _var_datQueueRear_8c157a90
+          .DATA.L     _var_datQueue_8c157a8c
+          .DATA.L     _var_datQueueIsIdle_8c157a98
+        .DATA.L     _syMalloc
+          .DATA.L     _strcmp
+          .DATA.L     __quick_evn_mvn
+          .DATA.L     _task_loadQueuedDats_8c0111b4
+          .DATA.L     _var_tasks_8c1ba3c8
+          .DATA.L     _pushTask_8c014ae8
+          .DATA.L     _var_8c157a88
+          .DATA.L     _init_8c03be7c
+          .DATA.L     _var_queueBaseDir_8c157a80
+_initNjQueue_8c011430:           ; function: initNjQueue_8c011430
+                                 ; frame size=16
+          MOV.L       R14,@-R15
+          MOV.L       R13,@-R15
+          STS.L       PR,@-R15
+          ADD         #-4,R15
+          MOV         R4,R3
+          MOV.L       L36+2,R14; _var_njQueue_8c157a9c
+          TST         R3,R3
+          BT/S        L30
+          MOV.L       R4,@R15
+          MOV.L       @R15,R13
+          MOV         R13,R3
+          SHLL2       R13
+          ADD         R3,R13
+          MOV.L       L36+6,R3 ; _syMalloc
+          SHLL2       R13
+          JSR         @R3
+          MOV         R13,R4
+          TST         R0,R0
+          BF/S        L29
+          MOV.L       R0,@R14
+          BRA         L32
+          MOV         #0,R0
+L29:                               
+          MOV.L       @R14,R3
+          MOV.L       L36+10,R2; _var_njQueueTail_8c157aa4
+          ADD         R3,R13
+          BRA         L31
+          MOV.L       R13,@R2
+L30:                               
+          MOV.L       L36+10,R3; _var_njQueueTail_8c157aa4
+          MOV         #-1,R1
+          MOV.L       R1,@R3
+          MOV.L       R1,@R14
+L31:                               
+          MOV         #1,R0
+L32:                               
+          ADD         #4,R15
+          LDS.L       @R15+,PR
+          MOV.L       @R15+,R13
+          RTS
+          MOV.L       @R15+,R14
+_resetNjQueue_8c01147a:                   ; function: _resetNjQueue_8c01147a
+                                 ; frame size=0
+          MOV.L       L36+2,R2 ; _var_njQueue_8c157a9c
+          MOV.L       L36+14,R1; _var_njQueueRear_8c157aa0
+
+          MOV.L       @R2,R3
+          MOV.L       L36+22,R2; _var_queueBaseDir_8c157a80
+          MOV.L       R3,@R1
+          MOV         #1,R1
+          MOV.L       L36+18,R3; _ptr_str_DATA_EMPTY_8c03be7c
+          MOV.L       @R3,R0
+          MOV.L       R0,@R2
+          MOV.L       L36+26,R0; _var_njQueueIsIdle_8c157aa8
+          RTS
+          MOV.L       R1,@R0
+_requestNj_8c011492:             ; function: requestNj_8c011492
+                                 ; frame size=4
+          MOV.L       R14,@-R15
+          MOV.B       @R5,R3
+          TST         R3,R3
+          BT          L33
+          MOV.L       L36+10,R2; _var_njQueueTail_8c157aa4
+          MOV.L       L36+14,R14; _var_njQueueRear_8c157aa0
+          MOV.L       @R2,R3
+          MOV.L       @R14,R0
+          CMP/HS      R3,R0
+          BF          L34
+L33:
+          MOV         #0,R0
+          RTS
+          MOV.L       @R15+,R14
+L34:                               
+          MOV.L       R4,@R0
+          MOV         #1,R0
+          MOV.L       @R14,R3
+          MOV.L       R5,@(4,R3)
+          MOV.L       @R14,R2
+          MOV.L       R6,@(8,R2)
+          MOV.L       @R14,R3
+          MOV.L       R7,@(12,R3)
+          MOV         #0,R3
+          MOV.L       @R14,R2
+          MOV.L       R3,@(16,R2)
+          MOV.L       @R14,R2
+          ADD         #20,R2
+          MOV.L       R2,@R14
+          RTS
+          MOV.L       @R15+,R14
+_task_loadQueuedNjs_8c0114cc:
+          MOV.L       R14,@-R15
+          MOV.L       R13,@-R15
+          MOV.L       R12,@-R15
+          MOV.L       R11,@-R15
+          MOV.L       R10,@-R15
+          MOV.L       R9,@-R15
+          MOV.L       R8,@-R15
+          STS.L       PR,@-R15
+          ADD         #-12,R15
+          MOV         R4,R13
+          MOV.L       L36+34,R11
+          MOV.L       L36+38,R12
+          MOV         #0,R8
+          MOV.L       L36+30,R10
+          MOV.L       R8,@(4,R15)
+          MOV.L       @(8,R13),R0   
+          CMP/EQ      #0,R0
+          BT/S        L35
+          MOV.L       @(24,R13),R14
+          CMP/EQ      #1,R0
+          BT          L45
+          BRA         L55
+          NOP
+L35:                               
+          MOV.L       L36+14,R2
+          MOV.L       L36+22,R9
+          MOV.L       @R2,R3
+          CMP/HS      R3,R14
+          BT          L43
+          MOV.L       @(16,R14),R0
+          TST         R0,R0
+          BT          L37
+          BRA         L35
+          ADD         #20,R14
+
+L36:
+          .RES.W      1 ; H'8c01150e
+          .DATA.L     _var_njQueue_8c157a9c ; L36+2
+          .DATA.L     _syMalloc
+          .DATA.L     _var_njQueueTail_8c157aa4
+          .DATA.L     _var_njQueueRear_8c157aa0
+          .DATA.L     _init_8c03be7c ; L36+18
+          .DATA.L     _var_queueBaseDir_8c157a80
+          .DATA.L     _var_njQueueIsIdle_8c157aa8
+          .DATA.L     _syFree
+          .DATA.L     _var_texbuf_8c277ca0 ; L36+34
+          .DATA.L     _var_queueBuffer_8c157a84
+
+L37:
+          MOV.L       @R14,R2
+          MOV.B       @R2,R3
+          TST         R3,R3
+          BT          L38
+          MOV.L       L46+4,R3
+          MOV.L       @R14,R5
+          JSR         @R3
+          MOV.L       @R9,R4
+          TST         R0,R0
+          BT          L38
+          MOV.L       @R14,R3
+          MOV.L       L46+8,R2
+          MOV.L       R3,@R9
+          JSR         @R2
+          MOV         R3,R4
+L38:
+          MOV.L       L46+12,R3
+          MOV         #0,R5
+          JSR         @R3
+          MOV.L       @(4,R14),R4
+          TST         R0,R0
+          BF/S        L39
+          MOV.L       R0,@(H'c,R13)
+          BRA         L52
+          NOP
+L39:
+          MOV.L       L46+16,R2
+          MOV         R15,R5
+          JSR         @R2
+          MOV.L       @(H'c,R13),R4
+          TST         R0,R0
+          BF          L40
+          BRA         L52
+          NOP
+L40:
+          MOV.L       @R15,R2
+          MOV.W       L46,R3
+          CMP/GT      R3,R2
+          BT          L41
+          BRA         L42
+          MOV.L       R11,@R12
+L41:
+          MOV.L       @R15,R4
+          MOV.L       L46+20,R2
+          SHLL8       R4
+          SHLL2       R4
+          JSR         @R2
+          SHLL        R4
+          MOV.L       R0,@R12
+L42:
+          MOV.L       L46+24,R3
+          MOV.L       @R15,R5
+          MOV.L       @R12,R6
+          JSR         @R3
+          MOV.L       @(H'c,R13),R4
+          TST         R0,R0
+          BF          L52
+          BRA         L47
+          NOP
+L43:
+          MOV.L       L46+28,R3
+          MOV.L       @R3,R1
+          TST         R1,R1
+          BT          L44
+          MOV.L       L46+32,R0
+          MOV.L       L46+28,R2
+          MOV.L       @R0,R1
+          MOV.L       R1,@(24,R13)
+          MOV.L       L46+36,R1
+          MOV.L       R8,@R2
+          MOV.L       @R1,R3
+          BRA         L55
+          MOV.L       R3,@R9
+L44:
+          MOV.L       L46+40,R0
+          MOV         #1,R2
+          MOV.L       L46+44,R3
+          MOV.L       R2,@R0
+          JSR         @R3
+          MOV         R13,R4
+          BRA         L55
+          NOP
+L45:
+          MOV.L       L46+48,R3
+          JSR         @R3
+          MOV.L       @(H'c,R13),R4
+          CMP/EQ      #1,R0
+          BT          L47
+          CMP/EQ      #2,R0
+          BT          L50
+          BRA         L51
+          NOP
+
+L46:
+          .DATA.W     H'0100
+          .RES.W      1
+          .DATA.L     _strcmp
+          .DATA.L     _gdFsChangeDir
+          .DATA.L     _gdFsOpen
+          .DATA.L     _gdFsGetFileSctSize ; L46+16
+          .DATA.L     _syMalloc
+          .DATA.L     _gdFsRead
+          .DATA.L     _var_8c157a88
+          .DATA.L     _var_njQueue_8c157a9c ; L46+32
+          .DATA.L     _init_8c03be7c
+          .DATA.L     _var_njQueueIsIdle_8c157aa8
+          .DATA.L     _freeTask_8c014b66
+          .DATA.L     _gdFsGetStat ; L46+48
+
+L47:
+          MOV.L       L57+2,R2
+          JSR         @R2
+          MOV.L       @(H'c,R13),R4
+          MOV         #1,R3
+          MOV.L       R3,@(16,R14)
+          MOV.L       @(8,R14),R2
+          TST         R2,R2
+          BT          L48
+          MOV.L       @(8,R14),R2
+          MOV.L       L57+6,R3
+          MOV.L       R2,@-R15
+          MOV         R15,R5
+          MOV         R15,R6
+          ADD         #8,R5
+          ADD         #H'c,R6
+          JSR         @R3
+          MOV.L       @R12,R4
+          MOV.L       @R15+,R1
+          MOV.L       R0,@R1
+L48:
+          MOV.L       @(H'c,R14),R3
+          TST         R3,R3
+          BT          L49
+          MOV.L       @(H'c,R14),R3
+          MOV.L       L57+6,R2
+          MOV.L       R3,@-R15
+          MOV         R15,R5
+          MOV         R15,R6
+          ADD         #8,R5
+          ADD         #H'c,R6
+          JSR         @R2
+          MOV.L       @R12,R4
+          MOV.L       @R15+,R1
+          MOV.L       R0,@R1
+L49:
+          MOV.L       @R12,R3
+          CMP/EQ      R11,R3
+          BT          L54
+          JSR         @R10
+          MOV.L       @R12,R4
+          BRA         L54
+          NOP
+L50:
+          MOV.L       L57+10,R3
+          JSR         @R3
+          MOV.L       @(H'c,R13),R4
+          TST         R0,R0
+          BF          L55
+          MOV.L       L57+14,R3
+          MOV.W       L57,R5
+          MOV.L       @R12,R6
+          JSR         @R3
+          MOV.L       @(H'c,R13),R4
+          BRA         L55
+          NOP
+L51:
+          MOV.L       L57+2,R3
+          JSR         @R3
+          MOV.L       @(H'c,R13),R4
+          MOV.L       @R12,R2
+          CMP/EQ      R11,R2
+          BT          L52
+          JSR         @R10
+          MOV.L       @R12,R4
+L52:
+          MOV.L       @R12,R4
+          CMP/EQ      R11,R4
+          BT          L53
+          JSR         @R10
+          NOP
+L53:
+          MOV.L       L57+18,R2
+          MOV         #1,R3
+          MOV.L       R3,@R2
+L54:
+          ADD         #20,R14
+          MOV.L       R14,@(24,R13)
+          MOV.L       R8,@(8,R13)
+L55:
+          ADD         #H'c,R15
+          LDS.L       @R15+,PR
+          MOV.L       @R15+,R8
+          MOV.L       @R15+,R9
+          MOV.L       @R15+,R10
+          MOV.L       @R15+,R11
+          MOV.L       @R15+,R12
+          MOV.L       @R15+,R13
+          RTS
+          MOV.L       @R15+,R14
+_sortAndLoadNjQueue_8c0116b6:
+          MOV.L       R14,@-R15
+          MOV.L       R13,@-R15
+          MOV.L       R12,@-R15
+          MOV.L       R11,@-R15
+          MOV.L       R10,@-R15
+          MOV.L       R9,@-R15
+          MOV.L       R8,@-R15
+          STS.L       PR,@-R15
+          ADD         #-H'8,R15
+          MOV.L       L57+26,R12
+          MOV.L       L57+22,R8
+          MOV.L       @R12,R2
+          MOV.L       @R8,R3
+          CMP/EQ      R3,R2
+          BT          L61
+          MOV.L       L57+30,R2
+          MOV         #0,R10
+          MOV.L       R10,@R2
+          MOV.L       L57+34,R2
+          MOV.L       @R8,R4
+          MOV.L       @R12,R3
+          JSR         @R2
+          SUB         R3,R4
+          MOV         R0,R11
+L56:
+          MOV.L       @R12,R13
+          MOV         R10,R9
+          BRA         L60
+          MOV         R13,R14
+
+L57:
+          .DATA.W     H'0800 ; L57
+          .DATA.L     _gdFsClose ; L57+2
+          .DATA.L     _njReadBinary
+          .DATA.L     _gdFsGetTransStat
+          .DATA.L     _gdFsTrans32
+          .DATA.L     _var_8c157a88 ; L57+18
+          .DATA.L     _var_njQueueRear_8c157aa0
+          .DATA.L     _var_njQueue_8c157a9c
+          .DATA.L     _var_njQueueIsIdle_8c157aa8
+          .DATA.L     _syMalloc ; L57+34
+
+L58:
+          MOV.L       L84,R2
+          MOV.L       @(4,R14),R5
+          JSR         @R2
+          MOV.L       @(4,R13),R4
+          CMP/PL      R0
+          BF          L59
+          MOV.L       L84+4,R3
+          MOV         R13,R2
+          MOV         R11,R1
+          JSR         @R3
+          MOV         #20,R0
+          MOV.L       L84+4,R3
+          MOV         R14,R2
+          MOV         R13,R1
+          JSR         @R3
+          MOV         #20,R0
+          MOV.L       L84+4,R3
+          MOV         R11,R2
+          MOV         R14,R1
+          JSR         @R3
+          MOV         #20,R0
+          MOV         #1,R9
+L59:
+          ADD         #20,R13
+L60:
+          MOV.L       @R8,R2
+          ADD         #20,R14
+          CMP/HS      R2,R14
+          BF          L58
+          TST         R9,R9
+          BF          L56
+          MOV.L       L84+8,R3
+          JSR         @R3
+          MOV         R11,R4
+          MOV         #0,R2
+          MOV.L       L84+16,R4
+          MOV.L       R2,@-R15
+          MOV.L       L84+12,R5
+          MOV         R15,R7
+          MOV.L       L84+20,R3
+          ADD         #8,R7
+          MOV         R15,R6
+          JSR         @R3
+          ADD         #4,R6
+          TST         R0,R0
+          BF/S        L62
+          ADD         #4,R15
+L61:
+          BRA         L63
+          MOV         #0,R0
+L62:
+          MOV.L       @R12,R2
+          MOV.L       @R15,R3
+          MOV.L       L84+28,R1
+          MOV.L       R2,@(24,R3)
+          MOV.L       @R15,R3
+          MOV.L       L84+32,R0
+          MOV.L       R10,@(8,R3)
+          MOV.L       L84+24,R3
+          MOV.L       R10,@R3
+          MOV.L       @R1,R2
+          MOV.L       R2,@R0
+          MOV         #1,R0
+L63:
+          ADD         #8,R15
+          LDS.L       @R15+,PR
+          MOV.L       @R15+,R8
+          MOV.L       @R15+,R9
+          MOV.L       @R15+,R10
+          MOV.L       @R15+,R11
+          MOV.L       @R15+,R12
+          MOV.L       @R15+,R13
+          RTS
+          MOV.L       @R15+,R14
+_njQueueIsIdle_8c01179e:                   ; function: _njQueueIsIdle_8c01179e
+                                 ; frame size=0
+          MOV.L       L84+36,R3
+          RTS
+          MOV.L       @R3,R0
+_freeNjQueue_8c0117a4:                   ; function: _freeNjQueue_8c0117a4
+                                 ; frame size=0
+          MOV.L       L84+40,R2
+          MOV.L       @R2,R0
+          CMP/EQ      #-1,R0
+          BT/S        L64
+          MOV         R0,R4
+          MOV.L       L84+8,R3
+          JMP         @R3
+          NOP
+L64:
+          RTS
+          NOP
+_initTexlistQueue_8c0117b8:
+          MOV.L       R14,@-R15
+          MOV.L       R13,@-R15
+          STS.L       PR,@-R15
+          ADD         #-H'4,R15
+          MOV         R4,R3
+          MOV.L       L84+44,R14
+          TST         R3,R3
+          BT/S        L66
+          MOV.L       R4,@R15
+          MOV.L       @R15,R13
+          MOV.L       L84+48,R3
+          SHLL2       R13
+          SHLL        R13
+          JSR         @R3
+          MOV         R13,R4
+          TST         R0,R0
+          BF/S        L65
+          MOV.L       R0,@R14
+          BRA         L68
+          MOV         #0,R0
+L65:
+          MOV.L       @R14,R3
+          MOV.L       L84+52,R2
+          ADD         R3,R13
+          BRA         L67
+          MOV.L       R13,@R2
+L66:
+          MOV.L       L84+52,R3
+          MOV         #-1,R1
+          MOV.L       R1,@R3
+          MOV.L       R1,@R14
+L67:
+          MOV         #1,R0
+L68:
+          ADD         #4,R15
+          LDS.L       @R15+,PR
+          MOV.L       @R15+,R13
+          RTS
+          MOV.L       @R15+,R14
+_resetTexlistQueue_8c0117fe:
+          MOV.L       L84+44,R2
+          MOV.L       L84+56,R1
+          MOV.L       @R2,R3
+          MOV.L       L84+32,R2
+          MOV.L       R3,@R1
+          MOV         #0,R1
+          MOV.L       L84+28,R3
+          MOV.L       @R3,R0
+          MOV         #1,R3
+          MOV.L       R0,@R2
+          MOV.L       L84+60,R0
+          MOV.L       R1,@R0
+          MOV.L       L84+64,R1
+          RTS
+          MOV.L       R3,@R1
+_requestTexlist_8c01181c:
+          MOV.L       L84+52,R2
+          MOV.L       L84+56,R6
+          MOV.L       @R2,R3
+          MOV.L       @R6,R7
+          CMP/HS      R3,R7
+          BF          L69
+          RTS
+          MOV         #0,R0
+L69:
+          MOV         #1,R0
+          MOV.L       R4,@R7
+          MOV.L       @R6,R3
+          MOV.L       R5,@(4,R3)
+          MOV.L       @R6,R2
+          ADD         #8,R2
+          MOV.L       R2,@R6
+          RTS
+          NOP
+_task_loadQueuedTexlists_8c01183e:
+          MOV.L       R14,@-R15
+          MOV.L       R13,@-R15
+          MOV.L       R12,@-R15
+          MOV.L       R11,@-R15
+          MOV.L       R10,@-R15
+          MOV.L       R9,@-R15
+          MOV.L       R8,@-R15
+          STS.L       PR,@-R15
+          ADD         #-H'18,R15
+          MOV         R4,R9
+          MOV.L       R4,@(16,R15)
+          MOV.L       @(24,R9),R9
+L70:
+          MOV         #1,R3
+          MOV.L       R3,@(H'14,R15)
+          MOV         #0,R13
+          MOV.L       @(4,R9),R4
+          MOV.L       @R4,R3
+          MOV.L       R3,@(8,R15)
+          MOV.L       @(4,R4),R2
+          MOV.L       R2,@(4,R15)
+          BRA         L80
+          MOV.L       R13,@R15
+L71:
+          MOV.L       @R15,R10
+          MOV         R13,R12
+          MOV.L       @(8,R15),R2
+          MOV         R10,R3
+          SHLL        R10
+          ADD         R3,R10
+          SHLL2       R10
+          BRA         L77
+          ADD         R2,R10
+L72:
+          MOV.L       L84+44,R2
+          MOV         R12,R4
+          SHLL2       R4
+          MOV.L       @R2,R3
+          SHLL        R4
+          ADD         R3,R4
+          MOV.L       @(4,R4),R1
+          TST         R1,R1
+          BT          L76
+          MOV         #0,R3
+          MOV.L       R4,@(H'c,R15)
+          MOV.L       @(4,R4),R5
+          MOV.L       @(4,R5),R11
+          MOV.L       @R5,R8
+          CMP/HS      R11,R3
+          BT/S        L75
+          MOV         R13,R14
+L73:
+          MOV         R14,R5
+          SHLL        R5
+          MOV         R14,R3
+          ADD         R3,R5
+          SHLL2       R5
+          MOV.L       L84,R2
+          ADD         R8,R5
+          MOV.L       @R5,R5
+          JSR         @R2
+          MOV.L       @R10,R4
+          TST         R0,R0
+          BF          L74
+          MOV         R14,R2
+          SHLL        R2
+          MOV         R14,R3
+          ADD         R3,R2
+          SHLL2       R2
+          ADD         R8,R2
+          MOV.L       @(8,R2),R1
+          BRA         L75
+          MOV.L       R1,@(8,R10)
+L74:
+          ADD         #1,R14
+          CMP/HS      R11,R14
+          BF          L73
+L75:
+          CMP/EQ      R11,R14
+          BF          L78
+L76:
+          ADD         #1,R12
+L77:
+          MOV.L       L84+60,R2
+          MOV.L       @R2,R3
+          CMP/HS      R3,R12
+          BF          L72
+L78:
+          MOV.L       L84+60,R1
+          MOV.L       @R1,R0
+          CMP/EQ      R0,R12
+          BF          L79
+          MOV.L       R13,@(H'14,R15)
+L79:
+          MOV.L       @R15,R3
+          ADD         #1,R3
+          MOV.L       R3,@R15
+L80:
+          MOV.L       @R15,R1
+          MOV.L       @(4,R15),R2
+          CMP/HS      R2,R1
+          BF          L71
+          MOV.L       @(H'14,R15),R3
+          TST         R3,R3
+          BF          LAB_8c0119a0
+          MOV.L       @R9,R3
+          MOV.B       @R3,R2
+          TST         R2,R2
+          BT          L81
+          MOV.L       L84,R2
+          MOV.L       @R9,R5
+          MOV.L       L84+32,R14
+          JSR         @R2
+          MOV.L       @R14,R4
+          TST         R0,R0
+          BT          L81
+          MOV.L       @R9,R2
+          MOV.L       L84+68,R3
+          MOV.L       R2,@R14
+          JSR         @R3
+          MOV         R2,R4
+L81:
+          MOV.L       L84+72,R2
+          JSR         @R2
+          MOV.L       @(4,R9),R4
+          MOV.L       @(4,R15),R3
+          MOV         #0,R2
+          MOV.L       L84+76,R12
+          CMP/HS      R3,R2
+          BT/S        L85
+          MOV         R13,R14
+L82:
+          MOV         R14,R3
+          SHLL        R3
+          MOV         R14,R2
+          MOV.L       @(8,R15),R1
+          ADD         R2,R3
+          SHLL2       R3
+          ADD         R1,R3
+          MOV.L       @(8,R3),R2
+          TST         R2,R2
+          BF          L83
+          JSR         @R12
+          MOV         R14,R4
+L83:
+          MOV.L       @(4,R15),R3
+          ADD         #1,R14
+          CMP/HS      R3,R14
+          BF          L82
+          BRA         L85
+          NOP
+
+L84:
+          .DATA.L     _strcmp ; L84
+          .DATA.L     __quick_odd_mvn
+          .DATA.L     _syFree
+          .DATA.L     _task_loadQueuedNjs_8c0114cc
+          .DATA.L     _var_tasks_8c1ba3c8 ; L84+16
+          .DATA.L     _pushTask_8c014ae8
+          .DATA.L     _var_8c157a88
+          .DATA.L     _init_8c03be7c
+          .DATA.L     _var_queueBaseDir_8c157a80 ; L84+32
+          .DATA.L     _var_njQueueIsIdle_8c157aa8
+          .DATA.L     _var_njQueue_8c157a9c
+          .DATA.L     _var_texlistQueue_8c157aac
+          .DATA.L     _syMalloc ; L84+48
+          .DATA.L     _var_texlistQueueTail_8c157ab4
+          .DATA.L     _var_texlistQueueRear_8c157ab0
+          .DATA.L     _var_texlistQueueCount_8c157a68
+          .DATA.L     _var_texlistQueueIsIdle_8c157ab8 ; L84+64
+          .DATA.L     _gdFsChangeDir
+          .DATA.L     _njSetTexture
+          .DATA.L     _njLoadTextureNum
+
+LAB_8c0119a0:
+          MOV.L       R13,@(4,R9)
+L85:
+          MOV.L       L101,R3
+          ADD         #8,R9
+          MOV.L       L101+4,R1
+          MOV.L       @R3,R2
+          ADD         #1,R2
+          MOV.L       R2,@R3
+          MOV.L       @R1,R3
+          CMP/HS      R3,R9
+          BT          L87
+          MOV.L       @(H'14,R15),R3
+          TST         R3,R3
+          BT          L86
+          BRA         L70
+          NOP
+L86:
+          MOV.L       @(16,R15),R3
+          MOV.L       R9,@(24,R3)
+          BRA         L88
+          NOP
+L87:
+          MOV.L       L101+8,R3
+          MOV         #1,R0
+          MOV.L       R0,@R3
+          MOV.L       @(16,R15),R4
+          ADD         #H'18,R15
+          LDS.L       @R15+,PR
+          MOV.L       L101+12,R2
+          MOV.L       @R15+,R8
+          MOV.L       @R15+,R9
+          MOV.L       @R15+,R10
+          MOV.L       @R15+,R11
+          MOV.L       @R15+,R12
+          MOV.L       @R15+,R13
+          JMP         @R2
+          MOV.L       @R15+,R14
+L88:
+          ADD         #H'18,R15
+          LDS.L       @R15+,PR
+          MOV.L       @R15+,R8
+          MOV.L       @R15+,R9
+          MOV.L       @R15+,R10
+          MOV.L       @R15+,R11
+          MOV.L       @R15+,R12
+          MOV.L       @R15+,R13
+          RTS
+          MOV.L       @R15+,R14
+_loadTexlistQueue_8c0119f8:
+          STS.L       PR,@-R15
+          ADD         #-H'8,R15
+          MOV.L       L101+16,R0
+          MOV.L       L101+4,R1
+          MOV.L       @R0,R2
+          MOV.L       @R1,R3
+          CMP/EQ      R3,R2
+          BT          L89
+          MOV.L       L101+8,R0
+          MOV         #0,R2
+          MOV         R2,R3
+          MOV.L       L101+20,R5
+          MOV.L       R2,@R0
+          MOV.L       R2,@-R15
+          MOV.L       L101+24,R4
+          MOV         R15,R7
+          MOV.L       L101+28,R2
+          ADD         #8,R7
+          MOV         R15,R6
+          JSR         @R2
+          ADD         #4,R6
+          TST         R0,R0
+          BF/S        L90
+          ADD         #4,R15
+L89:
+          ADD         #8,R15
+          LDS.L       @R15+,PR
+          RTS
+          MOV         #0,R0
+L90:
+          MOV.L       L101+16,R1
+          MOV         #1,R0
+          MOV.L       @R15,R2
+          MOV.L       @R1,R3
+          MOV.L       R3,@(24,R2)
+          ADD         #8,R15
+          LDS.L       @R15+,PR
+          RTS
+          NOP
+_texlistQueueIsIdle_8c011a42:
+          MOV.L       L101+8,R3
+          RTS
+          MOV.L       @R3,R0
+_freeTexlistQueue_8c011a48:
+          MOV.L       L101+16,R2
+          MOV.L       @R2,R0
+          CMP/EQ      #-1,R0
+          BT/S        L91
+          MOV         R0,R4
+          MOV.L       L101+32,R3
+          JMP         @R3
+          NOP
+L91:
+          RTS
+          NOP
+_initPvmQueue_8c011a5c:
+          MOV.L       R14,@-R15
+          MOV.L       R13,@-R15
+          STS.L       PR,@-R15
+          ADD         #-H'4,R15
+          MOV         R4,R3
+          MOV.L       L101+36,R14
+          TST         R3,R3
+          BT/S        L93
+          MOV.L       R4,@R15
+          MOV.L       @R15,R13
+          MOV         R13,R3
+          SHLL        R13
+          ADD         R3,R13
+          MOV.L       L101+40,R3
+          SHLL2       R13
+          SHLL        R13
+          JSR         @R3
+          MOV         R13,R4
+          TST         R0,R0
+          BF/S        L92
+          MOV.L       R0,@R14
+          BRA         L95
+          MOV         #0,R0
+L92:
+          MOV.L       @R14,R3
+          MOV.L       L101+44,R2
+          ADD         R3,R13
+          BRA         L94
+          MOV.L       R13,@R2
+L93:
+          MOV.L       L101+44,R3
+          MOV         #-1,R1
+          MOV.L       R1,@R3
+          MOV.L       R1,@R14
+L94:
+          MOV         #1,R0
+L95:
+          ADD         #4,R15
+          LDS.L       @R15+,PR
+          MOV.L       @R15+,R13
+          RTS
+          MOV.L       @R15+,R14
+L96:
+          MOV.L       L101+36,R2
+          MOV.L       L101+48,R1
+          MOV.L       @R2,R3
+          MOV.L       L101+56,R2
+          MOV.L       R3,@R1
+          MOV         #1,R1
+          MOV.L       L101+52,R3
+          MOV.L       @R3,R0
+          MOV.L       R0,@R2
+          MOV.L       L101+60,R0
+          RTS
+          MOV.L       R1,@R0
+_requestPvm_8c011ac0:
+          MOV.L       R14,@-R15
+          MOV.B       @R5,R3
+          TST         R3,R3
+          BT          L97
+          MOV.L       L101+44,R2
+          MOV.L       L101+48,R14
+          MOV.L       @R2,R3
+          MOV.L       @R14,R0
+          CMP/HS      R3,R0
+          BF          L98
+L97:
+          MOV         #0,R0
+          RTS
+          MOV.L       @R15+,R14
+L98:
+          MOV.L       R4,@R0
+          MOV         #1,R0
+          MOV.L       @R14,R3
+          MOV.L       R5,@(4,R3)
+          MOV.L       @R14,R2
+          MOV.L       R6,@(8,R2)
+          MOV.L       @R14,R3
+          MOV.L       R7,@(H'c,R3)
+          MOV.L       @(4,R15),R3
+          MOV.L       @R14,R2
+          MOV.L       R3,@(16,R2)
+          MOV         #0,R3
+          MOV.L       @R14,R2
+          MOV.L       R3,@(H'14,R2)
+          MOV.L       @R14,R2
+          ADD         #H'18,R2
+          MOV.L       R2,@R14
+          RTS
+          MOV.L       @R15+,R14
+_task_loadQueuedPvms_8c011b00:
+          MOV.L       R14,@-R15
+          MOV.L       R13,@-R15
+          MOV.L       R12,@-R15
+          MOV.L       R11,@-R15
+          MOV.L       R10,@-R15
+          MOV.L       R9,@-R15
+          MOV.L       R8,@-R15
+          STS.L       PR,@-R15
+          ADD         #-H'8,R15
+          MOV         R4,R13
+          MOV.L       @(8,R13),R0
+          MOV.L       L101+68,R12
+          MOV.L       L101+40,R11
+          CMP/EQ      #0,R0
+          MOV.L       @(24,R13),R14
+          MOV.L       L101+64,R8
+          BT/S        L100
+          MOV         #0,R9
+          CMP/EQ      #1,R0
+          BF          L99
+          BRA         L111
+          NOP
+L99:
+          BRA         L119
+          NOP
+L100:
+          MOV.L       L101+48,R2
+          MOV.L       L101+56,R10
+          MOV.L       @R2,R3
+          CMP/HS      R3,R14
+          BT          L109
+          MOV.L       @(H'14,R14),R0
+          TST         R0,R0
+          BT          L102
+          BRA         L100
+          ADD         #H'18,R14
+
+L101:
+          .DATA.L     _var_texlistQueueCount_8c157a68 ; L101
+          .DATA.L     _var_texlistQueueRear_8c157ab0
+          .DATA.L     _var_texlistQueueIsIdle_8c157ab8
+          .DATA.L     _freeTask_8c014b66 ; L101+12
+          .DATA.L     _var_texlistQueue_8c157aac
+          .DATA.L     _task_loadQueuedTexlists_8c01183e
+          .DATA.L     _var_tasks_8c1ba3c8
+          .DATA.L     _pushTask_8c014ae8 ; L101+28
+          .DATA.L     _syFree
+          .DATA.L     _var_pvmQueue_8c157abc
+          .DATA.L     _syMalloc
+          .DATA.L     _var_pvmQueueTail_8c157ac4 ; L101+44
+          .DATA.L     _var_pvmQueueRear_8c157ac0
+          .DATA.L     _init_8c03be7c
+          .DATA.L     _var_queueBaseDir_8c157a80
+          .DATA.L     _var_pvmQueueIsIdle_8c157ac8 ; L101+60
+          .DATA.L     _var_texbuf_8c277ca0
+          .DATA.L     _var_queueBuffer_8c157a84
+
+L102:
+          MOV.L       @R14,R2
+          MOV.B       @R2,R3
+          TST         R3,R3
+          BT          L103
+          MOV.L       L113+4,R3
+          MOV.L       @R14,R5
+          JSR         @R3
+          MOV.L       @R10,R4
+          TST         R0,R0
+          BT          L103
+          MOV.L       @R14,R3
+          MOV.L       L113+8,R2
+          MOV.L       R3,@R10
+          JSR         @R2
+          MOV         R3,R4
+L103:
+          MOV.L       L113+12,R3
+          MOV         #0,R5
+          JSR         @R3
+          MOV.L       @(4,R14),R4
+          TST         R0,R0
+          BF/S        L104
+          MOV.L       R0,@(H'c,R13)
+          BRA         L117
+          NOP
+L104:
+          MOV.L       L113+16,R2
+          MOV         R15,R5
+          JSR         @R2
+          MOV.L       @(H'c,R13),R4
+          TST         R0,R0
+          BF          L105
+          BRA         L117
+          NOP
+L105:
+          MOV.L       @R15,R2
+          MOV.W       L113,R3
+          CMP/GT      R3,R2
+          BT          L106
+          BRA         L107
+          MOV.L       R8,@R12
+L106:
+          MOV.L       @R15,R4
+          SHLL8       R4
+          SHLL2       R4
+          JSR         @R11
+          SHLL        R4
+          MOV.L       R0,@R12
+L107:
+          MOV.L       L113+20,R3
+          MOV.L       @R15,R5
+          MOV.L       @R12,R6
+          JSR         @R3
+          MOV.L       @(H'c,R13),R4
+          TST         R0,R0
+          BT          L108
+          BRA         L117
+          NOP
+L108:
+          BRA         L112
+          NOP
+L109:
+          MOV.L       L113+24,R3
+          MOV.L       @R3,R1
+          TST         R1,R1
+          BT          L110
+          MOV.L       L113+28,R0
+          MOV.L       L113+24,R2
+          MOV.L       @R0,R1
+          MOV.L       R1,@(24,R13)
+          MOV.L       L113+32,R1
+          MOV.L       R9,@R2
+          MOV.L       @R1,R3
+          BRA         L119
+          MOV.L       R3,@R10
+L110:
+          MOV.L       L113+36,R0
+          MOV         #1,R2
+          MOV.L       L113+40,R3
+          MOV.L       R2,@R0
+          JSR         @R3
+          MOV         R13,R4
+          BRA         L119
+          NOP
+L111:
+          MOV.L       L113+44,R3
+          JSR         @R3
+          MOV.L       @(H'c,R13),R4
+          CMP/EQ      #1,R0
+          BT          L112
+          CMP/EQ      #2,R0
+          BT          L115
+          BRA         L116
+          NOP
+L112:
+          MOV.L       L113+48,R2
+          JSR         @R2
+          MOV.L       @(H'c,R13),R4
+          MOV         #1,R3
+          MOV.L       R3,@(H'14,R14)
+          MOV.L       @(8,R14),R2
+          MOV.L       R2,@-R15
+          JSR         @R11
+          MOV         #8,R4
+          MOV.L       @R15+,R3
+          MOV.L       R0,@R3
+          MOV.L       R0,@(4,R15)
+          MOV.L       @(H'c,R14),R4
+          MOV         R4,R3
+          SHLL        R4
+          ADD         R3,R4
+          JSR         @R11
+          SHLL2       R4
+          MOV         R0,R10
+          BRA         L114
+          MOV         R9,R4
+
+L113:
+          .DATA.W     H'0100 ; L113
+          .RES.W      1
+          .DATA.L     _strcmp
+          .DATA.L     _gdFsChangeDir
+          .DATA.L     _gdFsOpen
+          .DATA.L     _gdFsGetFileSctSize ; L113+16
+          .DATA.L     _gdFsRead
+          .DATA.L     _var_8c157a88
+          .DATA.L     _var_pvmQueue_8c157abc
+          .DATA.L     _init_8c03be7c ; L113+32
+          .DATA.L     _var_pvmQueueIsIdle_8c157ac8
+          .DATA.L     _freeTask_8c014b66
+          .DATA.L     _gdFsGetStat
+          .DATA.L     _gdFsClose ; L113+48
+
+LAB_8c011c94:
+          MOV         R4,R3
+          SHLL        R3
+          MOV         R4,R2
+          ADD         R2,R3
+          MOV.L       @(16,R14),R1
+          SHLL2       R3
+          ADD         R10,R3
+          ADD         #1,R4
+          MOV.L       R1,@(4,R3)
+L114:
+          MOV.L       @(H'c,R14),R3
+          CMP/HS      R3,R4
+          BF          LAB_8c011c94
+          MOV.L       @(H'c,R14),R2
+          MOV         #H'1c,R3
+          MUL.L       R3,R2
+          JSR         @R11
+          STS         MACL,R4
+          MOV.L       L121+4,R3
+          MOV         R0,R6
+          MOV.L       @(H'c,R14),R7
+          MOV         R10,R5
+          JSR         @R3
+          MOV.L       @(4,R15),R4
+          MOV.L       L121+8,R3
+          MOV.L       @(4,R15),R5
+          JSR         @R3
+          MOV.L       @R12,R4
+          MOV.L       @R12,R2
+          CMP/EQ      R8,R2
+          BT          L118
+          MOV.L       L121+12,R2
+          JSR         @R2
+          MOV.L       @R12,R4
+          BRA         L118
+          NOP
+L115:
+          MOV.L       L121+16,R3
+          JSR         @R3
+          MOV.L       @(H'c,R13),R4
+          TST         R0,R0
+          BF          L119
+          MOV.L       L121+20,R3
+          MOV.W       L121,R5
+          MOV.L       @R12,R6
+          JSR         @R3
+          MOV.L       @(H'c,R13),R4
+          BRA         L119
+          NOP
+L116:
+          MOV.L       L121+24,R3
+          JSR         @R3
+          MOV.L       @(H'c,R13),R4
+          MOV.L       @R12,R2
+          CMP/EQ      R8,R2
+          BT          L117
+          MOV.L       L121+12,R2
+          JSR         @R2
+          MOV.L       @R12,R4
+L117:
+          MOV.L       L121+28,R2
+          MOV         #1,R3
+          MOV.L       R3,@R2
+L118:
+          ADD         #H'18,R14
+          MOV.L       R14,@(24,R13)
+          MOV.L       R9,@(8,R13)
+L119:
+          ADD         #8,R15
+          LDS.L       @R15+,PR
+          MOV.L       @R15+,R8
+          MOV.L       @R15+,R9
+          MOV.L       @R15+,R10
+          MOV.L       @R15+,R11
+          MOV.L       @R15+,R12
+          MOV.L       @R15+,R13
+          RTS
+          MOV.L       @R15+,R14
+_sortAndLoadPvmQueue_8c011d24:
+          MOV.L       R14,@-R15
+          MOV.L       R13,@-R15
+          MOV.L       R12,@-R15
+          MOV.L       R11,@-R15
+          MOV.L       R10,@-R15
+          MOV.L       R9,@-R15
+          MOV.L       R8,@-R15
+          STS.L       PR,@-R15
+          ADD         #-H'8,R15
+          MOV.L       L121+36,R12
+          MOV.L       L121+32,R8
+          MOV.L       @R12,R2
+          MOV.L       @R8,R3
+          CMP/EQ      R3,R2
+          BT          L126
+          MOV.L       L121+40,R2
+          MOV         #0,R10
+          MOV.L       R10,@R2
+          MOV.L       L121+44,R2
+          MOV.L       @R8,R4
+          MOV.L       @R12,R3
+          JSR         @R2
+          SUB         R3,R4
+          MOV.L       L121+48,R2
+          MOV.L       @R2,R3
+          TST         R3,R3
+          BT/S        L125
+          MOV         R0,R11
+L120:
+          MOV.L       @R12,R13
+          MOV         R10,R9
+          BRA         L124
+          MOV         R13,R14
+
+L121:
+          .DATA.W     H'0800 ; L121
+          .RES.W      1
+          .DATA.L     _njSetPvmTextureList
+          .DATA.L     _njLoadTexturePvmMemory
+          .DATA.L     _syFree ; L121+12
+          .DATA.L     _gdFsGetTransStat
+          .DATA.L     _gdFsTrans32
+          .DATA.L     _gdFsClose
+          .DATA.L     _var_8c157a88 ; L121+28
+          .DATA.L     _var_pvmQueueRear_8c157ac0
+          .DATA.L     _var_pvmQueue_8c157abc
+          .DATA.L     _var_pvmQueueIsIdle_8c157ac8
+          .DATA.L     _syMalloc ; L121+44
+          .DATA.L     _var_8c157a6c
+
+L122:
+          MOV.L       L139,R2
+          MOV.L       @(4,R14),R5
+          JSR         @R2
+          MOV.L       @(4,R13),R4
+          CMP/PL      R0
+          BF          L123
+          MOV.L       L139+4,R3
+          MOV         R13,R2
+          MOV         R11,R1
+          JSR         @R3
+          MOV         #H'18,R0
+          MOV.L       L139+4,R3
+          MOV         R14,R2
+          MOV         R13,R1
+          JSR         @R3
+          MOV         #H'18,R0
+          MOV.L       L139+4,R3
+          MOV         R11,R2
+          MOV         R14,R1
+          JSR         @R3
+          MOV         #H'18,R0
+          MOV         #1,R9
+L123:
+          ADD         #H'18,R13
+L124:
+          MOV.L       @R8,R2
+          ADD         #H'18,R14
+          CMP/HS      R2,R14
+          BF          L122
+          TST         R9,R9
+          BF          L120
+L125:
+          MOV.L       L139+8,R3
+          JSR         @R3
+          MOV         R11,R4
+          MOV         #0,R2
+          MOV.L       L139+16,R4
+          MOV.L       R2,@-R15
+          MOV.L       L139+12,R5
+          MOV         R15,R7
+          MOV.L       L139+20,R3
+          ADD         #8,R7
+          MOV         R15,R6
+          JSR         @R3
+          ADD         #4,R6
+          TST         R0,R0
+          BF/S        L127
+          ADD         #4,R15
+L126:
+          BRA         L128
+          MOV         #0,R0
+L127:
+          MOV.L       @R12,R2
+          MOV.L       @R15,R3
+          MOV.L       L139+28,R1
+          MOV.L       R2,@(24,R3)
+          MOV.L       @R15,R3
+          MOV.L       L139+32,R0
+          MOV.L       R10,@(8,R3)
+          MOV.L       L139+24,R3
+          MOV.L       R10,@R3
+          MOV.L       @R1,R2
+          MOV.L       R2,@R0
+          MOV         #1,R0
+L128:
+          ADD         #8,R15
+          LDS.L       @R15+,PR
+          MOV.L       @R15+,R8
+          MOV.L       @R15+,R9
+          MOV.L       @R15+,R10
+          MOV.L       @R15+,R11
+          MOV.L       @R15+,R12
+          MOV.L       @R15+,R13
+          RTS
+          MOV.L       @R15+,R14
+_pvmQueueIsIdle_8c011e22:
+          MOV.L       L139+36,R3
+          RTS
+          MOV.L       @R3,R0
+_freePvmQueue_8c011e28:
+          MOV.L       L139+40,R2
+          MOV.L       @R2,R0
+          CMP/EQ      #-1,R0
+          BT/S        L129
+          MOV         R0,R4
+          MOV.L       L139+8,R3
+          JMP         @R3
+          NOP
+L129:
+          RTS
+          NOP
+_releaseAndFreeTexlist_8c011e3c:
+          MOV.L       R14,@-R15
+          MOV.L       R13,@-R15
+          STS.L       PR,@-R15
+          MOV.L       L139+44,R3
+          JSR         @R3
+          MOV         R4,R14
+          MOV.L       @R14,R4
+          MOV.L       L139+8,R13
+          JSR         @R13
+          MOV.L       @R4,R4
+          JSR         @R13
+          MOV.L       @R14,R4
+          JSR         @R13
+          MOV         R14,R4
+          LDS.L       @R15+,PR
+          MOV.L       @R15+,R13
+          RTS
+          MOV.L       @R15+,R14
+_freeTexlist_8c011e60:
+          MOV.L       R14,@-R15
+          MOV         R4,R14
+          MOV.L       R13,@-R15
+          STS.L       PR,@-R15
+          MOV.L       @R14,R4
+          MOV.L       L139+8,R13
+          JSR         @R13
+          MOV.L       @R4,R4
+          JSR         @R13
+          MOV.L       @R14,R4
+          JSR         @R13
+          MOV         R14,R4
+          LDS.L       @R15+,PR
+          MOV.L       @R15+,R13
+          RTS
+          MOV.L       @R15+,R14
+_task_processQueues_8c011e80:
+          MOV.L       R14,@-R15
+          STS.L       PR,@-R15
+          ADD         #-H'4,R15
+          MOV         R5,R14
+          MOV.L       R4,@R15
+          MOV.L       @R14,R0
+          CMP/EQ      #0,R0
+          BT          L130
+          CMP/EQ      #1,R0
+          BT          L132
+          CMP/EQ      #2,R0
+          BT          L134
+          CMP/EQ      #3,R0
+          BT          L136
+          BRA         L137
+          NOP
+L130:
+          BSR         _datQueueIsIdle_8c0113d2
+          NOP
+          TST         R0,R0
+          BT          L137
+          MOV.L       @(8,R14),R3
+          TST         R3,R3
+          BT          L131
+          MOV.L       @(8,R14),R3
+          JSR         @R3
+          NOP
+L131:
+          MOV.L       @R14,R2
+          ADD         #1,R2
+          BSR         _sortAndLoadNjQueue_8c0116b6
+          MOV.L       R2,@R14
+          BRA         L137
+          NOP
+L132:
+          BSR         _njQueueIsIdle_8c01179e
+          NOP
+          TST         R0,R0
+          BT          L137
+          MOV.L       @(H'c,R14),R3
+          TST         R3,R3
+          BT          L133
+          MOV.L       @(H'c,R14),R3
+          JSR         @R3
+          NOP
+L133:
+          MOV.L       @R14,R2
+          ADD         #1,R2
+          BSR         _sortAndLoadPvmQueue_8c011d24
+          MOV.L       R2,@R14
+          BRA         L137
+          NOP
+L134:
+          BSR         _pvmQueueIsIdle_8c011e22
+          NOP
+          TST         R0,R0
+          BT          L137
+          MOV.L       @(16,R14),R3
+          TST         R3,R3
+          BT          L135
+          MOV.L       @(16,R14),R3
+          JSR         @R3
+          NOP
+L135:
+          MOV.L       @R14,R2
+          ADD         #1,R2
+          BSR         _loadTexlistQueue_8c0119f8
+          MOV.L       R2,@R14
+          BRA         L137
+          NOP
+L136:
+          BSR         _texlistQueueIsIdle_8c011a42
+          NOP
+          TST         R0,R0
+          BT          L137
+          MOV.L       L139+48,R3
+          JSR         @R3
+          MOV.L       @R15,R4
+          MOV.L       @(H'14,R14),R2
+          TST         R2,R2
+          BT          L138
+          MOV.L       @(H'14,R14),R3
+          ADD         #4,R15
+          LDS.L       @R15+,PR
+          JMP         @R3
+          MOV.L       @R15+,R14
+L137:
+          MOV.L       @(4,R14),R1
+          TST         R1,R1
+          BT          L138
+          MOV.L       @(4,R14),R2
+          ADD         #4,R15
+          LDS.L       @R15+,PR
+          JMP         @R2
+          MOV.L       @R15+,R14
+L138:
+          ADD         #4,R15
+          LDS.L       @R15+,PR
+          RTS
+          MOV.L       @R15+,R14
+_initQueues_8c011f36:
+          STS.L       PR,@-R15
+          ADD         #-H'10,R15
+          MOV.L       R4,@(H'c,R15)
+          MOV.L       R5,@(8,R15)
+          MOV.L       R6,@(4,R15)
+          MOV.L       R7,@R15
+          BSR         _initDatQueue_8c011124
+          MOV.L       @(H'c,R15),R4
+          BSR         _initNjQueue_8c011430
+          MOV.L       @(8,R15),R4
+          BSR         _initTexlistQueue_8c0117b8
+          MOV.L       @(4,R15),R4
+          BSR         _initPvmQueue_8c011a5c
+          MOV.L       @R15,R4
+          MOV.L       L139+52,R2
+          JSR         @R2
+          MOV         #2,R4
+          MOV.L       L139+56,R3
+          JSR         @R3
+          NOP
+          MOV.L       L139+60,R3
+          MOV         #1,R2
+          MOV.L       R2,@R3
+          ADD         #H'10,R15
+          LDS.L       @R15+,PR
+          RTS
+          NOP
+_resetQueues_8c011f6c:
+          STS.L       PR,@-R15
+          BSR         _resetDatQueue_8c01116a
+          NOP
+          BSR         _resetNjQueue_8c01147a
+          NOP
+          BSR         _resetTexlistQueue_8c0117fe
+          NOP
+          BRA         L96
+          LDS.L       @R15+,PR
+_freeQueues_8c011f7e:
+          STS.L       PR,@-R15
+          BSR         _freeDatQueue_8c0113d8
+          NOP
+          BSR         _freeNjQueue_8c0117a4
+          NOP
+          BSR         _freeTexlistQueue_8c011a48
+          NOP
+          BSR         _freePvmQueue_8c011e28
+          NOP
+          MOV.L       L139+52,R2
+          JSR         @R2
+          MOV         #0,R4
+          LDS.L       @R15+,PR
+          MOV.L       L139+60,R2
+          MOV         #0,R3
+          RTS
+          MOV.L       R3,@R2
+
+L139:
+          .DATA.L     _strcmp ; L139
+          .DATA.L     __quick_evn_mvn
+          .DATA.L     _syFree
+          .DATA.L     _task_loadQueuedPvms_8c011b00
+          .DATA.L     _var_tasks_8c1ba3c8 ; L139+16
+          .DATA.L     _pushTask_8c014ae8
+          .DATA.L     _var_8c157a88
+          .DATA.L     _init_8c03be7c
+          .DATA.L     _var_queueBaseDir_8c157a80 ; L139+32
+          .DATA.L     _var_pvmQueueIsIdle_8c157ac8
+          .DATA.L     _var_pvmQueue_8c157abc
+          .DATA.L     _njReleaseTexture
+          .DATA.L     _freeTask_8c014b66 ; L139+48
+          .DATA.L     _vmsLcd_8c01c8fc
+          .DATA.L     _vmsLcd_8c01c910
+          .DATA.L     _var_queuesAreInitialized_8c157a60
+_processQueues_8c011fe0:
+          STS.L       PR,@-R15
+          ADD         #-H'18,R15
+          MOV         #H'18,R3
+          MOV.L       R4,@(H'8,R15)
+          MOV.L       R5,@(H'14,R15)
+          MOV.L       R6,@(H'10,R15)
+          MOV.L       R7,@(H'c,R15)
+          MOV.L       R3,@-R15
+          MOV.L       LP_GEN_90004+6,R4
+          MOV         R15,R7
+          MOV.L       LP_GEN_90004+2,R5
+          ADD         #H'4,R7
+          MOV.L       LP_GEN_90004+10,R2
+          MOV         R15,R6
+          JSR         @R2
+          ADD         #H'8,R6
+          MOV.L       @(H'4,R15),R3
+          MOV         #H'0,R2
+          MOV.L       R2,@R3
+          MOV.L       @(H'18,R15),R2
+          MOV.L       @(H'4,R15),R3
+          MOV.L       R2,@(H'8,R3)
+          MOV.L       @(H'14,R15),R2
+          MOV.L       @(H'4,R15),R3
+          MOV.L       R2,@(H'c,R3)
+          MOV.L       @(H'10,R15),R2
+          MOV.L       @(H'4,R15),R3
+          MOV.L       R2,@(H'10,R3)
+          MOV.L       @(H'20,R15),R2
+          MOV.L       @(H'4,R15),R3
+          MOV.L       R2,@(H'14,R3)
+          MOV.L       @(H'c,R15),R2
+          MOV.L       @(H'4,R15),R3
+          MOV.L       R2,@(H'4,R3)
+          BSR         _sortAndLoadDatQueue_8c011310
+          NOP
+          ADD         #H'1c,R15
+          LDS.L       @R15+,PR
+          RTS
+          NOP
+_requestNjPvmPairs_8c012030:
+          MOV.L       R14,@-R15
+          MOV.L       R13,@-R15
+          MOV.L       R12,@-R15
+          MOV.L       R11,@-R15
+          MOV.L       R10,@-R15
+          MOV.L       R9,@-R15
+          MOV.L       R8,@-R15
+          STS.L       PR,@-R15
+          ADD         #-H'10,R15
+          MOV         #H'0,R8
+          MOV.L       R4,@R15
+          MOV.L       R6,@(H'c,R15)
+          MOV         R5,R9
+          BRA         LAB_8c012050
+          MOV         R8,R13
+LAB_8c01204e:
+          ADD         #H'1,R13
+LAB_8c012050:
+          MOV         R13,R4
+          SHLL        R4
+          MOV         R4,R0
+          SHLL2       R0
+          MOV.L       @(R0,R9),R3
+          MOV.B       @R3,R2
+          TST         R2,R2
+          BF          LAB_8c01204e
+          MOV         R4,R0
+          ADD         #H'1,R0
+          SHLL2       R0
+          MOV.L       @(R0,R9),R3
+          MOV.B       @R3,R2
+          TST         R2,R2
+          BF          LAB_8c01204e
+          MOV         R13,R4
+          MOV.L       LP_GEN_90004+14,R3
+          ADD         #H'1,R4
+          SHLL2       R4
+          JSR         @R3
+          SHLL        R4
+          MOV         #H'0,R4
+          MOV         R0,R12
+          MOV         #H'4,R11
+          CMP/PL      R13
+          ADD         R12,R4
+          MOV         R8,R14
+          ADD         R9,R11
+          MOV.L       R4,@(H'8,R15)
+          MOV.L       R4,@(H'4,R15)
+          BF/S        LAB_8c0120e0
+          MOV         #-H'1,R10
+LAB_8c012090:
+          MOV         R14,R0
+          MOV         R14,R7
+          SHLL2       R7
+          SHLL        R7
+          SHLL        R0
+          SHLL2       R0
+          ADD         R12,R7
+          MOV.L       @(R0,R9),R5
+          ADD         #H'4,R7
+          MOV         #H'0,R6
+          BSR         _requestNj_8c011492
+          MOV.L       @R15,R4
+          TST         R0,R0
+          BF          LAB_8c0120b6
+          MOV         R14,R3
+          SHLL2       R3
+          SHLL        R3
+          ADD         R12,R3
+          MOV.L       R10,@(H'4,R3)
+LAB_8c0120b6:
+          MOV.L       R8,@-R15
+          MOV.L       @R11,R5
+          MOV.L       @(H'8,R15),R6
+          MOV.L       @(H'10,R15),R7
+          BSR         _requestPvm_8c011ac0
+          MOV.L       @(H'4,R15),R4
+          TST         R0,R0
+          BF/S        LAB_8c0120cc
+          ADD         #H'4,R15
+          MOV.L       @(H'8,R15),R3
+          MOV.L       R10,@R3
+LAB_8c0120cc:
+          MOV.L       @(H'8,R15),R3
+          ADD         #H'1,R14
+          CMP/GE      R13,R14
+          ADD         #H'8,R11
+          ADD         #H'8,R3
+          MOV.L       R3,@(H'8,R15)
+          MOV.L       @(H'4,R15),R2
+          ADD         #H'8,R2
+          BF/S        LAB_8c012090
+          MOV.L       R2,@(H'4,R15)
+LAB_8c0120e0:
+          SHLL2       R13
+          MOV         R12,R0
+          SHLL        R13
+          ADD         R12,R13
+          MOV.L       R8,@R13
+          ADD         #H'10,R15
+          LDS.L       @R15+,PR
+          MOV.L       @R15+,R8
+          MOV.L       @R15+,R9
+          MOV.L       @R15+,R10
+          MOV.L       @R15+,R11
+          MOV.L       @R15+,R12
+          MOV.L       @R15+,R13
+          RTS
+          MOV.L       @R15+,R14
+_freeNjPvmPairs_8c0120fe:
+          MOV.L       R14,@-R15
+          MOV.L       R13,@-R15
+          MOV.L       R12,@-R15
+          MOV.L       R11,@-R15
+          STS.L       PR,@-R15
+          ADD         #-H'4,R15
+          MOV         R4,R13
+          MOV.L       R4,@R15
+          MOV.L       @R13,R13
+          MOV         R13,R0
+          CMP/EQ      #-H'1,R0
+          BT          LAB_8c012152
+          MOV.L       LP_GEN_90004+18,R11
+          BRA         LAB_8c01213a
+          MOV         #H'0,R12
+LAB_8c01211c:
+          MOV         R12,R14
+          SHLL2       R14
+          SHLL        R14
+          ADD         R13,R14
+          MOV.L       @R14,R0
+          CMP/EQ      #-H'1,R0
+          BT          LAB_8c01212e
+          BSR         _releaseAndFreeTexlist_8c011e3c
+          MOV.L       @R14,R4
+LAB_8c01212e:
+          MOV.L       @(H'4,R14),R0
+          CMP/EQ      #-H'1,R0
+          BT          LAB_8c012138
+          JSR         @R11
+          MOV.L       @(H'4,R14),R4
+LAB_8c012138:
+          ADD         #H'1,R12
+LAB_8c01213a:
+          MOV         R12,R2
+          SHLL2       R2
+          SHLL        R2
+          ADD         R13,R2
+          MOV.L       @R2,R3
+          TST         R3,R3
+          BF          LAB_8c01211c
+          JSR         @R11
+          MOV         R13,R4
+          MOV.L       @R15,R3
+          MOV         #-H'1,R2
+          MOV.L       R2,@R3
+LAB_8c012152:
+          ADD         #H'4,R15
+          LDS.L       @R15+,PR
+          MOV.L       @R15+,R11
+          MOV.L       @R15+,R12
+          MOV.L       @R15+,R13
+          RTS
+          MOV.L       @R15+,R14
+_FUN_8c012160:
+          MOV.L       LP_GEN_90004+22,R3
+          RTS
+          MOV.L       R4,@R3
+_FUN_8c012166:
+          MOV.L       LP_GEN_90004+22,R4
+          MOV.L       @R4,R3
+          MOV         R3,R2
+          SHLL2       R3
+          ADD         R2,R3
+          ADD         #H'd,R3
+          MOV.L       R3,@R4
+          RTS
+          MOV         R3,R0
+_FUN_8c012178:
+          STS.L       PR,@-R15
+          ADD         #-H'4,R15
+          MOV         R4,R3
+          TST         R3,R3
+          BT/S        LAB_8c012198
+          MOV.L       R4,@R15
+          BSR         _FUN_8c012166
+          NOP
+          MOV.L       LP_GEN_90004+26,R2
+          MOV         R0,R1
+          JSR         @R2
+          MOV.L       @R15,R0
+          ADD         #H'4,R15
+          LDS.L       @R15+,PR
+          RTS
+          NOP
+LAB_8c012198:
+          MOV         #H'0,R0
+          ADD         #H'4,R15
+          LDS.L       @R15+,PR
+          RTS
+          NOP
+_FUN_8c0121a2:
+          MOV.L       LP_GEN_90004+30,R3
+          RTS
+          MOV.L       R4,@R3
+_FUN_8c0121a8:
+          MOV.L       LP_GEN_90004+30,R4
+          MOV.L       @R4,R3
+          SHAR        R3
+          MOV         R3,R1
+          SHLL2       R1
+          SHLL        R1
+          SUB         R3,R1
+          ADD         #H'b,R1
+          MOV.L       R1,@R4
+          RTS
+          MOV         R1,R0
+_FUN_8c0121be:
+          STS.L       PR,@-R15
+          ADD         #-H'4,R15
+          MOV         R4,R3
+          TST         R3,R3
+          BT/S        LAB_8c0121de
+          MOV.L       R4,@R15
+          BSR         _FUN_8c0121a8
+          NOP
+          MOV.L       LP_GEN_90004+26,R2
+          MOV         R0,R1
+          JSR         @R2
+          MOV.L       @R15,R0
+          ADD         #H'4,R15
+          LDS.L       @R15+,PR
+          RTS
+          NOP
+LAB_8c0121de:
+          MOV         #H'0,R0
+          ADD         #H'4,R15
+          LDS.L       @R15+,PR
+          RTS
+          NOP
+_FUN_8c0121e8:
+          MOV.L       R14,@-R15
+          MOV         #H'4,R6
+          MOV.L       R13,@-R15
+          MOV         #H'20,R13
+          MOV.L       LP_GEN_90004+42,R7
+          MOV         #H'2,R14
+          MOV.L       R12,@-R15
+          MOV.L       LP_GEN_90004+34,R12
+          MOV         R7,R0
+          MOV.L       R10,@-R15
+          MOV         R7,R4
+          MOV.L       LP_GEN_90004+38,R5
+          MOV         #H'8,R10
+          BRA         LAB_8c01223a
+          ADD         #H'38,R0
+
+LP_GEN_90004:
+          .RES.W      1 ; H'8c012206
+          .DATA.L     _task_processQueues_8c011e80
+          .DATA.L     _var_tasks_8c1ba3c8
+          .DATA.L     _pushTask_8c014ae8
+          .DATA.L     _syMalloc
+          .DATA.L     _syFree
+          .DATA.L     _var_8c157acc
+          .DATA.L     __modlu
+          .DATA.L     _var_8c157ad0
+          .DATA.L     _var_8c1ba1cc
+          .DATA.L     _init_8c03bf18
+          .DATA.L     _init_8c03be80
+
+LAB_8c012234:
+          MOV.L       @(H'4,R4),R2
+          MOV.L       R2,@R4
+          ADD         #H'8,R4
+LAB_8c01223a:
+          CMP/HS      R0,R4
+          BF          LAB_8c012234
+          MOV.W       LP_GEN_88006+0,R0
+          MOV.B       @(R0,R12),R0
+          CMP/EQ      #H'0,R0
+          BT/S        LAB_8c012260
+          MOV         R7,R4
+          CMP/EQ      #H'1,R0
+          BT          LAB_8c012254
+          CMP/EQ      #H'2,R0
+          BT          LAB_8c01225c
+          BRA         LAB_8c012260
+          NOP
+LAB_8c012254:
+          MOV.W       LP_GEN_88006+2,R2
+          MOV.L       R6,@R4
+          BRA         LAB_8c012260
+          MOV.L       R2,@(H'18,R7)
+LAB_8c01225c:
+          MOV.L       R6,@(H'8,R4)
+          MOV.L       R14,@(H'18,R7)
+LAB_8c012260:
+          MOV.L       LP_GEN_88006+14,R7
+          MOV         R7,R0
+          MOV         R7,R4
+          BRA         LAB_8c012270
+          ADD         #H'38,R0
+LAB_8c01226a:
+          MOV.L       @(H'4,R4),R2
+          MOV.L       R2,@R4
+          ADD         #H'8,R4
+LAB_8c012270:
+          CMP/HS      R0,R4
+          BF          LAB_8c01226a
+          MOV.W       LP_GEN_88006+6,R0
+          MOV         #H'40,R2
+          MOV.W       LP_GEN_88006+4,R3
+          MOV.L       R2,@(H'20,R7)
+          MOV.L       R3,@(H'28,R7)
+          MOV.B       @(R0,R12),R0
+          CMP/EQ      #H'0,R0
+          BT/S        LAB_8c01229e
+          MOV         R7,R4
+          CMP/EQ      #H'1,R0
+          BT          LAB_8c012292
+          CMP/EQ      #H'2,R0
+          BT          LAB_8c01229a
+          BRA         LAB_8c01229e
+          NOP
+LAB_8c012292:
+          MOV.W       LP_GEN_88006+2,R2
+          MOV.L       R6,@R4
+          BRA         LAB_8c01229e
+          MOV.L       R2,@(H'18,R7)
+LAB_8c01229a:
+          MOV.L       R6,@(H'8,R4)
+          MOV.L       R14,@(H'18,R7)
+LAB_8c01229e:
+          MOV.W       LP_GEN_88006+8,R0
+          MOV.L       LP_GEN_88006+18,R4
+          MOV.B       @(R0,R12),R0
+          CMP/EQ      #H'0,R0
+          BT/S        LAB_8c0122b2
+          MOV         R4,R7
+          CMP/EQ      #H'1,R0
+          BT          LAB_8c0122be
+          BRA         LAB_8c0122b2
+          NOP
+LAB_8c0122b2:
+          MOV         #H'10,R3
+          MOV.L       R13,@R7
+          MOV.L       R3,@(H'8,R4)
+          MOV.L       R14,@(H'10,R4)
+          BRA         LAB_8c0122c8
+          MOV.L       R6,@(H'18,R4)
+LAB_8c0122be:
+          MOV         #H'10,R2
+          MOV.L       R14,@R7
+          MOV.L       R6,@(H'8,R4)
+          MOV.L       R13,@(H'10,R4)
+          MOV.L       R2,@(H'18,R4)
+LAB_8c0122c8:
+          MOV.W       LP_GEN_88006+10,R0
+          MOV.L       R10,@(H'20,R4)
+          MOV.B       @(R0,R12),R0
+          CMP/EQ      #H'0,R0
+          BT/S        LAB_8c0122e0
+          MOV         R5,R4
+          CMP/EQ      #H'1,R0
+          BT          LAB_8c0122ee
+          CMP/EQ      #H'2,R0
+          BT          LAB_8c0122f4
+          BRA         LAB_8c0122e0
+          NOP
+LAB_8c0122e0:
+          MOV         #H'10,R3
+          MOV.L       R13,@R4
+          MOV.L       R3,@(H'8,R5)
+          MOV.L       R14,@(H'10,R5)
+          MOV.L       R6,@(H'18,R5)
+          BRA         LAB_8c012304
+          MOV.L       R10,@(H'20,R5)
+LAB_8c0122ee:
+          MOV.L       R14,@R4
+          BRA         LAB_8c0122fc
+          MOV.L       R6,@(H'8,R5)
+LAB_8c0122f4:
+          MOV.W       LP_GEN_88006+4,R2
+          MOV         #H'40,R3
+          MOV.L       R3,@R4
+          MOV.L       R2,@(H'8,R5)
+LAB_8c0122fc:
+          MOV         #H'10,R3
+          MOV.L       R13,@(H'10,R5)
+          MOV.L       R3,@(H'18,R5)
+          MOV.L       R10,@(H'20,R5)
+LAB_8c012304:
+          MOV.L       @R15+,R10
+          MOV.L       @R15+,R12
+          MOV.L       @R15+,R13
+          RTS
+          MOV.L       @R15+,R14
+
+LP_GEN_88006:
+          .DATA.W H'00CC ; LP_GEN_88006+0
+          .DATA.W H'0400
+          .DATA.W H'0080
+          .DATA.W H'00CD
+          .DATA.W H'00CE
+          .DATA.W H'00CF
+          .DATA.W H'0000
+          .DATA.L _init_8c03beb8
+          .DATA.L _init_8c03bef0
+          .SECTION    D,DATA,ALIGN=4
+_init_8c03be7c:                      ; static: _8c03334c
+          .DATA.L     L372031
+_init_8c03be80:        ; from defines
+          .DATA.L      H'00000000
+          .DATA.L      H'00000400
+          .DATA.L      H'00000000
+          .DATA.L      H'00000002
+          .DATA.L      H'00000000
+          .DATA.L      H'00000200
+          .DATA.L      H'00000000
+          .DATA.L      H'00000004
+          .DATA.L      H'00000000
+          .DATA.L      H'00000010
+          .DATA.L      H'00000000
+          .DATA.L      H'00000020
+          .DATA.L      H'00000000
+          .DATA.L      H'00000008
+_init_8c03beb8:        ; from defines
+          .DATA.L      H'00000000
+          .DATA.L      H'00000400
+          .DATA.L      H'00000000
+          .DATA.L      H'00000002
+          .DATA.L      H'00000000
+          .DATA.L      H'00000200
+          .DATA.L      H'00000000
+          .DATA.L      H'00000004
+          .DATA.L      H'00000000
+          .DATA.L      H'00000400
+          .DATA.L      H'00000000
+          .DATA.L      H'00000002
+          .DATA.L      H'00000000
+          .DATA.L      H'00000008
+_init_8c03bef0:        ; from defines
+          .DATA.L      H'00000000
+          .DATA.L      H'00000400
+          .DATA.L      H'00000000
+          .DATA.L      H'00000002
+          .DATA.L      H'00000000
+          .DATA.L      H'00000200
+          .DATA.L      H'00000000
+          .DATA.L      H'00000004
+          .DATA.L      H'00000000
+          .DATA.L      H'00000008
+_init_8c03bf18:        ; from defines
+          .DATA.L      H'00000000
+          .DATA.L      H'00000400
+          .DATA.L      H'00000000
+          .DATA.L      H'00000002
+          .DATA.L      H'00000000
+          .DATA.L      H'00000200
+          .DATA.L      H'00000000
+          .DATA.L      H'00000004
+          .DATA.L      H'00000000
+          .DATA.L      H'00000008
+          .SECTION    C,DATA,ALIGN=4
+L372031:
+          .SDATA      "DATA EMPTY"
+          .DATA.B     H'00
+          .SECTION    B,DATA,ALIGN=4
+_var_queuesAreInitialized_8c157a60:
+          .RES.B      4
+_var_seed_8c157a64:
+          .RES.B      4
+_var_texlistQueueCount_8c157a68:
+          .RES.B      4
+          .END
