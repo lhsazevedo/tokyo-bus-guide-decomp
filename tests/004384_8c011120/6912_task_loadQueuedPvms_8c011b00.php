@@ -55,7 +55,7 @@ return new class extends TestCase {
         // task->queuedPvm_0x18 points to the first item in the queue
         $this->initUint32($taskPtr + 0x18, $pvmQueue);
 
-        $sizeLocal = $this->isAsmObject() ? 0xffffd4 : 0xffffd0;
+        $sizeLocal = $this->isAsmObject() ? 0xffffd4 : 0xffffd4;
 
         /// First iteration
 
@@ -174,7 +174,7 @@ return new class extends TestCase {
         // task->queuedPvm_0x18 points to the first item in the queue
         $this->initUint32($taskPtr + 0x18, $pvmQueue);
 
-        $sizeLocal = $this->isAsmObject() ? 0xffffd4 : 0xffffd0;
+        $sizeLocal = $this->isAsmObject() ? 0xffffd4 : 0xffffd4;
 
         /// First iteration skipped
 
@@ -293,11 +293,11 @@ return new class extends TestCase {
         // task->queuedPvm_0x18 points to the first item in the queue
         $this->initUint32($taskPtr + 0x18, $pvmQueue);
 
-        $sizeLocal = $this->isAsmObject() ? 0xffffd4 : 0xffffd0;
+        $sizeLocal = $this->isAsmObject() ? 0xffffd4 : 0xffffd4;
 
         $this->shouldWrite($taskPtr + 0x18, 0xbaadf00d);
         $this->shouldWriteTo('_var_8c157a88', 0);
-        $this->shouldWriteTo('_var_queueBaseDir_8c157a80', 'DATA EMPTY');
+        $this->shouldWriteStringTo('_var_queueBaseDir_8c157a80', 'DATA EMPTY');
 
         $this->call('_task_loadQueuedPvms_8c011b00')
             ->with($taskPtr, 0)
@@ -358,7 +358,7 @@ return new class extends TestCase {
         // task->queuedPvm_0x18 points to the first item in the queue
         $this->initUint32($taskPtr + 0x18, $pvmQueue);
 
-        $sizeLocal = $this->isAsmObject() ? 0xffffd4 : 0xffffd0;
+        $sizeLocal = $this->isAsmObject() ? 0xffffd4 : 0xffffd4;
 
         $this->shouldWriteTo('_var_pvmQueueIsIdle_8c157ac8', 1);
         $this->shouldCall('_freeTask_8c014b66')->with($taskPtr);

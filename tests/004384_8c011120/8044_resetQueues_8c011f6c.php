@@ -15,7 +15,7 @@ return new class extends TestCase {
         $this->shouldCall('_resetTexlistQueue_8c0117fe')->with();
 
         $this->shouldWriteTo('_var_pvmQueueRear_8c157ac0', 0xbebacafe);
-        $this->shouldWriteTo('_var_queueBaseDir_8c157a80', 'DATA EMPTY');
+        $this->shouldWriteStringTo('_var_queueBaseDir_8c157a80', 'DATA EMPTY');
         $this->shouldWriteTo('_var_pvmQueueIsIdle_8c157ac8', 1);
 
         $this->call('_resetQueues_8c011f6c')->run();

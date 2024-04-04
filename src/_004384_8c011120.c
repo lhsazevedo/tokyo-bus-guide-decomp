@@ -1,6 +1,7 @@
 #include <shinobi.h>
 #include <string.h>
 #include "_019100_8c014a9c_tasks.h"
+#include "scif.h"
 
 /* struct QueuedDat {
     char *basedir;
@@ -81,7 +82,6 @@ struct NjPvmPair {
 }
 typedef NjPvmPair;
 
-extern int var_queuesAreInitialized_8c157a60;
 extern int var_8c157a6c;
 extern char *var_queueBaseDir_8c157a80;
 extern int var_8c157a88;
@@ -100,13 +100,10 @@ extern QueuedTexlist *var_texlistQueue_8c157aac;
 extern QueuedTexlist *var_texlistQueueRear_8c157ab0;
 extern QueuedTexlist *var_texlistQueueTail_8c157ab4;
 extern int var_texlistQueueIsIdle_8c157ab8;
-extern int var_texlistQueueCount_8c157a68;
 
 extern Sint8 *var_queueBuffer_8c157a84;
 
-extern Task *var_tasks_8c1ba3c8;
-
-extern int init_8c03be80[48];
+extern Task var_tasks_8c1ba3c8[];
 
 extern char var_8c1ba1cc[];
 extern QueuedPvm* var_pvmQueue_8c157abc;
@@ -114,8 +111,73 @@ extern QueuedPvm* var_pvmQueueRear_8c157ac0;
 extern QueuedPvm* var_pvmQueueTail_8c157ac4;
 extern int var_pvmQueueIsIdle_8c157ac8;
 
+
 extern int var_8c157acc;
 extern int var_8c157ad0;
+
+int var_queuesAreInitialized_8c157a60;
+int var_seed_8c157a64;
+int var_texlistQueueCount_8c157a68;
+
+int init_8c03be80[14] = {
+    0x00000000,
+    0x00000400,
+    0x00000000,
+    0x00000002,
+    0x00000000,
+    0x00000200,
+    0x00000000,
+    0x00000004,
+    0x00000000,
+    0x00000010,
+    0x00000000,
+    0x00000020,
+    0x00000000,
+    0x00000008
+};
+
+int init_8c03beb8[14] = {
+    0x00000000,
+    0x00000400,
+    0x00000000,
+    0x00000002,
+    0x00000000,
+    0x00000200,
+    0x00000000,
+    0x00000004,
+    0x00000000,
+    0x00000400,
+    0x00000000,
+    0x00000002,
+    0x00000000,
+    0x00000008
+};
+
+int init_8c03bef0[10] = {
+    0x00000000,
+    0x00000400,
+    0x00000000,
+    0x00000002,
+    0x00000000,
+    0x00000200,
+    0x00000000,
+    0x00000004,
+    0x00000000,
+    0x00000008
+};
+
+int init_8c03bf18[10] = {
+    0x00000000,
+    0x00000400,
+    0x00000000,
+    0x00000002,
+    0x00000000,
+    0x00000200,
+    0x00000000,
+    0x00000004,
+    0x00000000,
+    0x00000008
+};
 
 /* TODO: DRY */
 #define TEX_BUFSIZE     0x80800
@@ -303,7 +365,7 @@ void task_loadQueuedDats_8c0111b4(TaskLoadQueuedDats* task, void* state) {
 int sortAndLoadDatQueue_8c011310() {
     int r9;
     Task *created_task;
-    void* created_state;
+    void *created_state;
     QueuedDat *temp_r11;
 
     if ((int) var_datQueue_8c157a8c == (int) var_datQueueRear_8c157a90) {
@@ -343,11 +405,11 @@ int sortAndLoadDatQueue_8c011310() {
 
     syFree(temp_r11);
 
-    if (!pushTask_8c014ae8(&var_tasks_8c1ba3c8, &task_loadQueuedDats_8c0111b4, &created_task, &created_state, 0)) {
+    if (!pushTask_8c014ae8(var_tasks_8c1ba3c8, &task_loadQueuedDats_8c0111b4, &created_task, &created_state, 0)) {
         return 0;
     }
 
-    created_task->field_0x18 = var_datQueue_8c157a8c;
+    created_task->queuedItem_0x18 = var_datQueue_8c157a8c;
     created_task->field_0x08 = 0;
     var_8c157a88 = 0;
     var_queueBaseDir_8c157a80 = "DATA EMPTY";
@@ -437,7 +499,7 @@ void task_loadQueuedNjs_8c0114cc(TaskLoadQueuedNjs* task, void* state) {
 
                     if (task->gdfs_0x0c == NULL) {
                         /* 8c01168c (shared) */
-                        if (var_queueBuffer_8c157a84 != &var_texbuf_8c277ca0) {
+                        if (var_queueBuffer_8c157a84 != var_texbuf_8c277ca0) {
                             syFree(var_queueBuffer_8c157a84);
                         }
                         var_8c157a88 = 1;
@@ -501,7 +563,7 @@ void task_loadQueuedNjs_8c0114cc(TaskLoadQueuedNjs* task, void* state) {
                 var_8c157a88 = 0;
                 var_queueBaseDir_8c157a80 = "DATA EMPTY";
             } else {
-                var_8c157a88 = 1;
+                var_njQueueIsIdle_8c157aa8 = 1;
                 freeTask_8c014b66((Task*) task);
             }
 
@@ -600,11 +662,11 @@ int sortAndLoadNjQueue_8c0116b6() {
 
     syFree(temp);
 
-    if (!pushTask_8c014ae8(&var_tasks_8c1ba3c8, &task_loadQueuedNjs_8c0114cc, &created_task, &created_state, 0)) {
+    if (!pushTask_8c014ae8(var_tasks_8c1ba3c8, &task_loadQueuedNjs_8c0114cc, &created_task, &created_state, 0)) {
         return 0;
     }
 
-    created_task->field_0x18 = var_njQueue_8c157a9c;
+    created_task->queuedItem_0x18 = var_njQueue_8c157a9c;
     created_task->field_0x08 = 0;
     var_8c157a88 = 0;
     var_queueBaseDir_8c157a80 = "DATA EMPTY";
@@ -662,14 +724,15 @@ int requestTexlist_8c01181c(char *basedir, NJS_TEXLIST *texlist) {
 
 /* Tested */
 void task_loadQueuedTexlists_8c01183e(Task *task, void *state) {
-    QueuedTexlist *item = task->field_0x18;
-    NJS_TEXLIST *texlist = item->texlist_0x04;
+    QueuedTexlist *item = task->queuedItem_0x18;
+    NJS_TEXLIST *texlist;
 
     while (true) {
         int i;
-
         /* Assume that the current texlist is already loaded */
         bool alreadyLoaded = true;
+
+        texlist = item->texlist_0x04;
 
         for (i = 0; i < texlist->nbTexture; i++)
         {
@@ -717,7 +780,6 @@ void task_loadQueuedTexlists_8c01183e(Task *task, void *state) {
         }
 
         if (alreadyLoaded) {
-            /* TODO: Test this path */
             item->texlist_0x04 = NULL;
         } else {
             if (*item->basedir_0x00 && strcmp(var_queueBaseDir_8c157a80, item->basedir_0x00)) {
@@ -748,7 +810,7 @@ void task_loadQueuedTexlists_8c01183e(Task *task, void *state) {
 
         /* TODO: Test this path */
         if (!alreadyLoaded) {
-            task->field_0x18 = item;
+            task->queuedItem_0x18 = item;
             return;
         }
     }
@@ -764,11 +826,11 @@ int loadTexlistQueue_8c0119f8() {
     }
 
     var_texlistQueueIsIdle_8c157ab8 = 0;
-    if (!pushTask_8c014ae8(&var_tasks_8c1ba3c8, task_loadQueuedTexlists_8c01183e, &created_task, &created_state, 0)) {
+    if (!pushTask_8c014ae8(var_tasks_8c1ba3c8, task_loadQueuedTexlists_8c01183e, &created_task, &created_state, 0)) {
         return 0;
     }
 
-    created_task->field_0x18 = var_texlistQueue_8c157aac;
+    created_task->queuedItem_0x18 = var_texlistQueue_8c157aac;
     return 1;
 }
 
@@ -822,7 +884,7 @@ int requestPvm_8c011ac0(char *basedir, char *filename, void *texlist, int count,
 /* Tested */
 void task_loadQueuedPvms_8c011b00(TaskLoadQueuedPvms* task, void* state) {
     QueuedPvm *pvm = (QueuedPvm*) task->queuedPvm_0x18;
-    int size;
+    Sint32 size;
 
     switch (task->field_0x08) {
         case 0: {
@@ -859,7 +921,7 @@ void task_loadQueuedPvms_8c011b00(TaskLoadQueuedPvms* task, void* state) {
                         /* TODO: Test this path */
                         var_queueBuffer_8c157a84 = syMalloc(size * 2048);
                     } else {
-                        var_queueBuffer_8c157a84 = &var_texbuf_8c277ca0;
+                        var_queueBuffer_8c157a84 = var_texbuf_8c277ca0;
                     }
 
                     if (gdFsRead(task->gdfs_0x0c, size, var_queueBuffer_8c157a84)) {
@@ -883,9 +945,9 @@ void task_loadQueuedPvms_8c011b00(TaskLoadQueuedPvms* task, void* state) {
                     filename = syMalloc(pvm->count_0x0c * 0x1c);
 
                     njSetPvmTextureList(texlist, texname, filename, pvm->count_0x0c);
-                    njLoadTexturePvmMemory(var_queueBuffer_8c157a84, texlist);
+                    njLoadTexturePvmMemory((Uint8*) var_queueBuffer_8c157a84, texlist);
 
-                    if (var_queueBuffer_8c157a84 != &var_texbuf_8c277ca0) {
+                    if (var_queueBuffer_8c157a84 != var_texbuf_8c277ca0) {
                         syFree(var_queueBuffer_8c157a84);
                     }
 
@@ -901,7 +963,7 @@ void task_loadQueuedPvms_8c011b00(TaskLoadQueuedPvms* task, void* state) {
                 var_queueBaseDir_8c157a80 = "DATA EMPTY";
             } else {
                 var_pvmQueueIsIdle_8c157ac8 = 1;
-                freeTask_8c014b66(task);
+                freeTask_8c014b66((Task*) task);
             }
 
             break;
@@ -929,7 +991,7 @@ void task_loadQueuedPvms_8c011b00(TaskLoadQueuedPvms* task, void* state) {
                     filename = syMalloc(pvm->count_0x0c * 0x1c);
 
                     njSetPvmTextureList(texlist, texname, filename, pvm->count_0x0c);
-                    njLoadTexturePvmMemory(var_queueBuffer_8c157a84, texlist);
+                    njLoadTexturePvmMemory((Uint8*) var_queueBuffer_8c157a84, texlist);
 
                     if (var_queueBuffer_8c157a84 != var_texbuf_8c277ca0) {
                         /* TODO: Test this path */
@@ -1008,11 +1070,11 @@ int sortAndLoadPvmQueue_8c011d24() {
 
     syFree(temp);
 
-    if (!pushTask_8c014ae8(&var_tasks_8c1ba3c8, &task_loadQueuedPvms_8c011b00, &created_task, &created_state, 0)) {
+    if (!pushTask_8c014ae8(var_tasks_8c1ba3c8, &task_loadQueuedPvms_8c011b00, &created_task, &created_state, 0)) {
         return 0;
     }
 
-    created_task->field_0x18 = var_pvmQueue_8c157abc;
+    created_task->queuedItem_0x18 = var_pvmQueue_8c157abc;
     created_task->field_0x08 = 0;
     var_8c157a88 = 0;
     var_queueBaseDir_8c157a80 = "DATA EMPTY";
@@ -1144,7 +1206,7 @@ void processQueues_8c011fe0(void *func, void *afterDatCallback, void *afterNjCal
     Task* created_task;
     TaskProcessQueuesState* created_state;
 
-    pushTask_8c014ae8(&var_tasks_8c1ba3c8, &task_processQueues_8c011e80, &created_task, &created_state, 0x18);
+    pushTask_8c014ae8(var_tasks_8c1ba3c8, &task_processQueues_8c011e80, &created_task, (void**) &created_state, 0x18);
     created_state->queue_0x00 = 0;
     created_state->afterDatCallback_0x08 = afterDatCallback;
     created_state->afterNjCallback_0x0c = afterNjCallback;
@@ -1262,62 +1324,62 @@ void FUN_8c0121e8() {
         }
     }
 
-    for (i = 14; i < 28; i += 2) {
-        init_8c03be80[i] = init_8c03be80[i + 1];
+    for (i = 0; i < 14; i += 2) {
+        init_8c03beb8[i] = init_8c03beb8[i + 1];
     }
 
-    init_8c03be80[22] = 0x40;
-    init_8c03be80[24] = 0x80;
+    init_8c03beb8[8] = 0x40;
+    init_8c03beb8[10] = 0x80;
 
     if (var_8c1ba1cc[0xcd] != 0) {
         if (var_8c1ba1cc[0xcd] == 1) {
-            init_8c03be80[14] = 4; /* init_8c03beb8 */
-            init_8c03be80[20] = 0x400; /* init_8c03bed0 */
+            init_8c03beb8[0] = 4;
+            init_8c03beb8[6] = 0x400;
         } else if (var_8c1ba1cc[0xcd] == 2) {
-            init_8c03be80[16] = 4; /* init_8c03beb8 */
-            init_8c03be80[20] = 2; /* init_8c03bed0 */
+            init_8c03beb8[2] = 4;
+            init_8c03beb8[6] = 2;
         }
     }
 
     if (var_8c1ba1cc[0xce] == 0 || var_8c1ba1cc[0xce] != 1) {
-        init_8c03be80[28] = 0x20; /* init_8c03bef0 */
-        init_8c03be80[30] = 0x10; /* init_8c03bef8 */
-        init_8c03be80[32] = 0x02; /* init_8c03bf00 */
-        init_8c03be80[34] = 0x04; /* init_8c03bf08 */
+        init_8c03bef0[0] = 0x20;
+        init_8c03bef0[2] = 0x10;
+        init_8c03bef0[4] = 0x02;
+        init_8c03bef0[6] = 0x04;
     } else {
-        init_8c03be80[28] = 0x02; /* init_8c03bef0 */
-        init_8c03be80[30] = 0x04; /* init_8c03bef8 */
-        init_8c03be80[32] = 0x20; /* init_8c03bf00 */
-        init_8c03be80[34] = 0x10; /* init_8c03bf08 */
+        init_8c03bef0[0] = 0x02;
+        init_8c03bef0[2] = 0x04;
+        init_8c03bef0[4] = 0x20;
+        init_8c03bef0[6] = 0x10;
     }
 
-    init_8c03be80[36] = 8;
+    init_8c03bef0[8] = 8;
 
     if (var_8c1ba1cc[0xcf] == 0) {
-        init_8c03be80[38] = 0x20;
-        init_8c03be80[40] = 0x10;
-        init_8c03be80[42] = 2;
-        init_8c03be80[44] = 4;
+        init_8c03bf18[0] = 0x20;
+        init_8c03bf18[2] = 0x10;
+        init_8c03bf18[4] = 2;
+        init_8c03bf18[6] = 4;
     } else {
         if (var_8c1ba1cc[0xcf] == 1) {
-            init_8c03be80[38] = 2;
-            init_8c03be80[40] = 4;
-            init_8c03be80[42] = 0x20;
-            init_8c03be80[44] = 0x10;
+            init_8c03bf18[0] = 2;
+            init_8c03bf18[2] = 4;
+            init_8c03bf18[4] = 0x20;
+            init_8c03bf18[6] = 0x10;
         } else {
             if (var_8c1ba1cc[0xcf] != 2) {
-                init_8c03be80[38] = 0x20;
-                init_8c03be80[40] = 0x10;
-                init_8c03be80[42] = 2;
-                init_8c03be80[44] = 4;
+                init_8c03bf18[0] = 0x20;
+                init_8c03bf18[2] = 0x10;
+                init_8c03bf18[4] = 2;
+                init_8c03bf18[6] = 4;
             } else {
-                init_8c03be80[38] = 0x40;
-                init_8c03be80[40] = 0x80;
-                init_8c03be80[42] = 0x20;
-                init_8c03be80[44] = 0x10;
+                init_8c03bf18[0] = 0x40;
+                init_8c03bf18[2] = 0x80;
+                init_8c03bf18[4] = 0x20;
+                init_8c03bf18[6] = 0x10;
             }
         }
     }
 
-    init_8c03be80[46] = 8;
+    init_8c03bf18[8] = 8;
 }

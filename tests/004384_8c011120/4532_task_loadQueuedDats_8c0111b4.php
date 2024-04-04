@@ -251,7 +251,7 @@ return new class extends TestCase {
         $this->shouldReadFrom('_var_8c157a88', 1);
         $this->shouldWrite($taskPtr + 0x18, $datQueue);
         $this->shouldWriteTo('_var_8c157a88', 0);
-        $this->shouldWriteTo('_var_queueBaseDir_8c157a80', 'DATA EMPTY');
+        $this->shouldWriteStringTo('_var_queueBaseDir_8c157a80', 'DATA EMPTY');
 
         $this->call('_task_loadQueuedDats_8c0111b4')
             ->with($taskPtr, 0)

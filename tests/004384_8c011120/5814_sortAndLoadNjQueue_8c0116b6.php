@@ -95,7 +95,7 @@ return new class extends TestCase {
         $this->shouldWrite($createdTask + 0x18, $njQueue);
         $this->shouldWrite($createdTask + 0x08, 0);
         $this->shouldWriteTo('_var_8c157a88', 0);
-        $this->shouldWriteTo('_var_queueBaseDir_8c157a80', 'DATA EMPTY');
+        $this->shouldWriteStringTo('_var_queueBaseDir_8c157a80', 'DATA EMPTY');
 
         $this->call('_sortAndLoadNjQueue_8c0116b6')
             ->shouldReturn(1)

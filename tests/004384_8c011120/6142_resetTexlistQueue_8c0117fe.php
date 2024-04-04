@@ -11,7 +11,7 @@ return new class extends TestCase {
         $this->initUint32($this->addressOf('_var_texlistQueue_8c157aac'), 0xbebacafe);
 
         $this->shouldWriteTo('_var_texlistQueueRear_8c157ab0', 0xbebacafe);
-        $this->shouldWriteTo('_var_queueBaseDir_8c157a80', "DATA EMPTY");
+        $this->shouldWriteStringTo('_var_queueBaseDir_8c157a80', "DATA EMPTY");
         $this->shouldWriteTo('_var_texlistQueueCount_8c157a68', 0);
         $this->shouldWriteTo('_var_texlistQueueIsIdle_8c157ab8', 1);
 

@@ -21,7 +21,7 @@ struct Task {
     void* field_0x0c;
     int field_0x10;
     int field_0x14;
-    QueuedDat* field_0x18;
+    void* queuedItem_0x18;
     int field_0x1c;
 }
 typedef Task;

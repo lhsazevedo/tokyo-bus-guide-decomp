@@ -10,7 +10,7 @@ return new class extends TestCase {
         $this->initUint32($this->addressOf('_var_datQueue_8c157a8c'), 0xbebacafe);
 
         $this->shouldWriteTo('_var_datQueueRear_8c157a90', 0xbebacafe);
-        $this->shouldWriteTo('_var_queueBaseDir_8c157a80', 'DATA EMPTY');
+        $this->shouldWriteStringTo('_var_queueBaseDir_8c157a80', 'DATA EMPTY');
         $this->shouldWriteTo('_var_datQueueIsIdle_8c157a98', 1);
 
         $this->call('_resetDatQueue_8c01116a')

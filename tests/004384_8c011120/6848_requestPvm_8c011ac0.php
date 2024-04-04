@@ -18,8 +18,8 @@ return new class extends TestCase {
         $dirname = $this->allocString('\\MY_DIR');
         $filename = $this->allocString('MY_FILE.PVM');
 
-        $this->shouldWrite($queue + 0x00, '\\MY_DIR');
-        $this->shouldWrite($queue + 0x04, 'MY_FILE.PVM');
+        $this->shouldWriteString($queue + 0x00, '\\MY_DIR');
+        $this->shouldWriteString($queue + 0x04, 'MY_FILE.PVM');
         $this->shouldWrite($queue + 0x08, 0xcafe0001);
         $this->shouldWrite($queue + 0x0c, 0xcafe0002);
         $this->shouldWrite($queue + 0x10, 0xcafe0003);

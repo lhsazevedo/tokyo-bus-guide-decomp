@@ -18,7 +18,7 @@ return new class extends TestCase {
         $dirname = $this->allocString('\\MY_DIR');
         $unknownStruct = $this->alloc(4);
 
-        $this->shouldWrite($queue + 0, '\\MY_DIR');
+        $this->shouldWriteString($queue + 0, '\\MY_DIR');
         $this->shouldWrite($queue + 4, $unknownStruct);
         $this->shouldWriteTo('_var_texlistQueueRear_8c157ab0', $queue + $sizeOfStruct);
 

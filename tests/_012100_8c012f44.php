@@ -371,7 +371,7 @@ return new class extends TestCase {
         $this->shouldCall('_syRtcInit');
 
         $this->shouldCall('_getSoundMode_8c010924')->andReturn(1);
-        $this->shouldWriteTo('_var_soundMode_8c226070', 1);
+        $this->shouldWriteByteTo('_var_soundMode_8c226070', 1);
         $this->shouldCall('_setSoundMode_8c0108c0')->with(1);
 
         $this->shouldCall('_vibClear_8c010fbe');
@@ -525,7 +525,7 @@ return new class extends TestCase {
 
         // FIXME: Handle SInt8 -1, using & 0xff for now... 
         $this->shouldCall('_getSoundMode_8c010924')->andReturn(-1 & 0xff);
-        $this->shouldWriteTo('_var_soundMode_8c226070', -1 & 0xff);
+        $this->shouldWriteByteTo('_var_soundMode_8c226070', -1 & 0xff);
         $this->shouldCall('_setSoundMode_8c0108c0')->with(0);
 
         $this->shouldCall('_vibClear_8c010fbe');
@@ -679,7 +679,7 @@ return new class extends TestCase {
         $this->shouldCall('_syRtcInit');
 
         $this->shouldCall('_getSoundMode_8c010924')->andReturn(1);
-        $this->shouldWriteTo('_var_soundMode_8c226070', 1);
+        $this->shouldWriteByteTo('_var_soundMode_8c226070', 1);
         $this->shouldCall('_setSoundMode_8c0108c0')->with(1);
 
         $this->shouldCall('_vibClear_8c010fbe');
@@ -834,7 +834,7 @@ return new class extends TestCase {
 
         // FIXME andReturn(-1) or andReturn(new SInt8(-1))?
         $this->shouldCall('_getSoundMode_8c010924')->andReturn(-1 & 0xff);
-        $this->shouldWriteTo('_var_soundMode_8c226070', -1 & 0xff);
+        $this->shouldWriteByteTo('_var_soundMode_8c226070', -1 & 0xff);
         $this->shouldCall('_setSoundMode_8c0108c0')->with(0);
 
         $this->shouldCall('_vibClear_8c010fbe');
