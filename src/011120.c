@@ -475,7 +475,7 @@ int requestNj_8c011492(char* basedir, char* filename, void* dest, void* dest2) {
 void task_loadQueuedNjs_8c0114cc(TaskLoadQueuedNjs* task, void* state) {
     QueuedNj* qnj = task->queuedNj_0x18;
     Sint32 size;
-    Uint32 fpos, rtype;
+    Uint32 fpos = 0, rtype;
 
     switch (task->field_0x08)
     {
@@ -595,7 +595,6 @@ void task_loadQueuedNjs_8c0114cc(TaskLoadQueuedNjs* task, void* state) {
                 }
                 case GDD_STAT_READ: {
                     if (gdFsGetTransStat(task->gdfs_0x0c) != GDD_FS_TRANS_READY) {
-                        /* TODO: Test this return */
                         return;
                     }
 
@@ -604,6 +603,11 @@ void task_loadQueuedNjs_8c0114cc(TaskLoadQueuedNjs* task, void* state) {
                 }
                 default: {
                     gdFsClose(task->gdfs_0x0c);
+                    
+                    if (var_queueBuffer_8c157a84 != var_texbuf_8c277ca0) {
+                        syFree(var_queueBuffer_8c157a84);
+                    }
+
                     if (var_queueBuffer_8c157a84 != var_texbuf_8c277ca0) {
                         syFree(var_queueBuffer_8c157a84);
                     }
