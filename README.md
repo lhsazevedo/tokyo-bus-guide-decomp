@@ -4,21 +4,41 @@
 [![Build](https://github.com/lhsazevedo/tokyo-bus-guide-decomp/actions/workflows/build.yml/badge.svg)](https://github.com/lhsazevedo/tokyo-bus-guide-decomp/actions/workflows/build.yml)
 [![Build Matching](https://github.com/lhsazevedo/tokyo-bus-guide-decomp/actions/workflows/build_matching.yml/badge.svg)](https://github.com/lhsazevedo/tokyo-bus-guide-decomp/actions/workflows/build_matching.yml)
 
-
-An attempt to decompile the Sega Dreamcast game called "Tokyo Bus Guide".
-
 ![Main function hero](./tbg.png)
 
-## Updates
-See [this thread](https://twitter.com/lhs_azevedo/status/1508270685784793089).
+## Introduction
+
+This project focuses on decompiling the Sega Dreamcast game Tokyo Bus Guide. It prioritizes achieving identical behavior between the original and decompiled code, rather than traditional methods targeting byte-level matching. The primary objectives of this project are:
+
+- Achieving functional equivalence between decompiled code and the original assembly.
+- Establishing a scalable and reliable method for Dreamcast game decompilation.
+- Promoting community collaboration and knowledge sharing in Dreamcast reverse engineering.
+
+## Approach
+
+Traditional decompilation attempts to recreate the original source code from compiled machine code, which can be challenging due to minor changes in the compiled code resulting in significant alterations in the assembly. To address this challenge, a new approach has been adopted in this project, utilizing a custom-made [SH4 object simulator and testing framework](https://github.com/lhsazevedo/sh4objtest). This framework tests decompiled functions against their original counterparts, ensuring exact behavioral replication.
+
+To the best of the author's knowledge, this is the first public Dreamcast game decompilation project.
+
+## Project Status
+This is an ongoing project, the decompilation process will be regularly updated. While under development, the project allows building the game using the available decompiled functions.
+
+### Current Achivements
+- Rebuilding the game binary with decompiled functions alongside original code.
+- Custom logs from decompiled C files, written to the Dreamcast serial interface and on-screen debug text: [view tweet](https://twitter.com/lhs_azevedo/status/1777558619480867048).
+- Decompiled C function outputting a debug log message: [view code](https://github.com/lhsazevedo/tokyo-bus-guide-decomp/blob/7cbc8608b7a7568db8e26e9c9302b8a6f983460e/src/011120_asset_queues.c#L1186-L1197).
+- CI workflows with matching builds, non-matching builds and unit tests checks.
+
+## How to Contribute
+Contributions to this project are encouraged and welcomed! Your expertise in code, testing, or documentation can significantly advance this decompilation effort. Detailed contribution guidelines will be available shortly.
 
 ## Requirements
-- OS: I'm running Linux Mint. It should work on most Ubuntu-based distros. Other distros may require additional steps.
-- [Wine](https://www.winehq.org/)
+- Operating System: Linux Mint or similar Ubuntu-based distributions (additional steps may be required for other distributions).
+- [Wine](https://www.winehq.org/) 32.
 - Dreamcast SDK (Sega Library) Ver.1.55J (Google is your friend)
 
 ## Project Setup
-1. Make sure your SDK is organized as bellow.
+1. Ensure your SDK is organized as follows.
    ```
    ├── bin (From disc Vol.1 dc_sdk/bin)
    │   ├── binadj.exe
@@ -34,48 +54,34 @@ See [this thread](https://twitter.com/lhs_azevedo/status/1508270685784793089).
       └── sample
    ```
 
-2. The Hitachi compiler suite expects some environments variables to be set. Create a copy of `set_kt.example.sh` called `set_kt.sh` and update the DK_SDK variable with your location of the SDK.
+2. The Hitachi compiler suite expects some environments variables to be set. Create a copy of `set_kt.example.sh` named `set_kt.sh` and update the `DK_SDK` environment variable with your SDK location.
 
-3. Source your `set_kt.sh` script to make the env vars available in the current shell:
+3. Source your `set_kt.sh` script to make the environment variables available in the current shell:
    ```
    $ source set_kt.sh
    ```
 
-4. You should now be able to build the binary using the `build.sh` script (yes, no fancy makefile for now).
+4. Build the binary using the provided `build.sh` script.
    ```
-   ./compile.sh
-   SH SERIES ASSEMBLER Ver. 4.0('98.07.06)
-   Copyright (C) Hitachi, Ltd. 1992,1997
-   Copyright (C) HITACHI MICROCOMPUTER SYSTEM LTD. 1992,1997
-   Licensed Material of Hitachi, Ltd.
-   *****TOTAL ERRORS       0
-   *****TOTAL WARNINGS     0
+   $ ./build.sh
+
    (...)
-   ======================
-   Yay! Build matches :)
-   ======================
+
+   LINKAGE EDITOR COMPLETED
+   ELF2BIN: ELF -> binary converter Ver. 1.04
+   Copyright (c) 1998, Hitachi, Ltd.  All rights reserved.
+   Module  address: 8c008000 - 8c0fde20
+   Convert address: 8c010000 - 8c0fde20  size: 000ede20 (974368)
+
+   ================
+   Project built :)
+   ================
    ```
 
-## Details
+A successful build will display "Project built :)".
 
-### Program sections:
-
-| Section         | Address    |
-| --------------- | ---------: |
-| DSGLH           | 0x8c010000 |
-| DSGLE           | 0x8c010060 |
-| P (program)     | 0x8c010080 |
-| C (const. data) | 0x8c03327c |
-| C32             | ?          |
-| D (init. data)  | 0x8C03BD80 |
-| D32             | 0x8c04f6c0 |
-| PSG             | 0x8c04f6c0 |
-| R               | ?          |
-| R32             | ?          |
-| CSG             | 0x8c0e7f98 |
-| CSG32           | ?          |
-| DSG             | ?          |
-| DSG32           | ?          |
+## Acknowledgements
+Acknowledgements and contributors will be listed soon. Your contributions are appreciated and will be recognized accordingly.
 
 ## Useful resources
 - [Dreamcast Programming](https://mc.pp.se/dc/) by Marcus Comstedt
