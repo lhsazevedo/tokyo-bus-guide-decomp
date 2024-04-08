@@ -29,7 +29,7 @@ input build\010080_main.obj
 input build\0100bc_sound.obj
 input build\010e90.obj
 input build\010fe8_unused.obj
-input build\011120.obj
+input build\011120_asset_queues.obj
 input build\012324.obj
 input build\012504.obj
 input build\0129cc.obj
@@ -100,6 +100,8 @@ input build\02f320.obj
 input build\0332a4_sectionC.obj
 input build\03bd80_sectionD.obj
 input build\0fcd20_sectionB.obj
+
+input build\scif.obj
 
 ; USER LIBS
 library @DC_SDK@\shinobi\lib\cri_adxs.lib

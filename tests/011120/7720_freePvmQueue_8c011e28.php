@@ -28,8 +28,6 @@ return new class extends TestCase {
 
     private function resolveImports()
     {
-        $this->setSize('_var_pvmQueue_8c157abc', 4);
-
         // Functions
         $this->setSize('_syFree', 4);
     }

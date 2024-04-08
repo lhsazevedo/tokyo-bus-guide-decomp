@@ -28,8 +28,6 @@ return new class extends TestCase {
 
     private function resolveImports()
     {
-        $this->setSize('_var_njQueue_8c157a9c', 4);
-
         // Functions
         $this->setSize('_syFree', 4);
     }

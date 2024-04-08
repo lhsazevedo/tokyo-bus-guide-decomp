@@ -28,8 +28,6 @@ return new class extends TestCase {
 
     private function resolveImports()
     {
-        $this->setSize('_var_texlistQueue_8c157aac', 4);
-
         // Functions
         $this->setSize('_syFree', 4);
     }

@@ -1,24 +1,31 @@
 /* 8c011120 */
+
 #include <shinobi.h>
 #include <string.h>
+#include "definitions.h"
 #include "014a9c_tasks.h"
+#include "stdio.h"
 
-/* struct QueuedDat {
-    char *basedir;
-    char *filename;
-    void **dest;
-    int field_0x0c;
-}
-typedef QueuedDat; */
+/* ====================
+ * Compiler Definitions
+ * ====================
+ */
 
-struct QueuedNj {
+#define TEX_BUFSIZE     0x80800
+
+
+/* =================
+ * Type Declarations
+ * =================
+ */
+
+typedef struct {
     char *basedir;
     char *filename;
     void **dest_0x08;
     void **dest_0x0c;
     int field_0x10;
-}
-typedef QueuedNj;
+} QueuedNj;
 
 /* TODO: Same struct as Task, but with QueuedNj. */
 typedef struct {
@@ -28,19 +35,19 @@ typedef struct {
     GDFS gdfs_0x0c;
     int field_0x10;
     int field_0x14;
-    QueuedNj* queuedNj_0x18; /* Perhaps we should use a union or a void* to handle both cases? */
+    /* Perhaps we should use a union or a void* to handle both cases? */
+    QueuedNj* queuedNj_0x18;
     int field_0x1c;
 } TaskLoadQueuedNjs;
 
-struct QueuedPvm {
+typedef struct {
     char *basedir;
     char *filename;
     void **texlist_0x08;
     int count_0x0c;
     int attr_0x10;
     int field_0x14;
-}
-typedef QueuedPvm;
+} QueuedPvm;
 
 typedef struct {
     TaskAction action;
@@ -53,135 +60,29 @@ typedef struct {
     int field_0x1c;
 } TaskLoadQueuedPvms;
 
-struct QueuedTexlist {
+typedef struct {
     char *basedir_0x00;
     NJS_TEXLIST *texlist_0x04;
-}
-typedef QueuedTexlist;
+} QueuedTexlist;
 
-
-struct TaskProcessQueuesState {
+typedef struct {
     int queue_0x00;
     void (*func_0x04)();
     void (*afterDatCallback_0x08)();
     void (*afterNjCallback_0x0c)();
     void (*afterPvmCallback_0x10)();
     void (*afterTexlistCallback_0x14)();
-}
-typedef TaskProcessQueuesState;
+} TaskProcessQueuesState;
 
-struct NjPvmPairFilenames {
+typedef struct {
     char *njFilename;
     char *pvmFilename;
-}
-typedef NjPvmPairFilenames;
+} NjPvmPairFilenames;
 
-struct NjPvmPair {
+typedef struct {
     NJS_TEXLIST *texlist;
     void *njDest;
-}
-typedef NjPvmPair;
-
-extern int var_8c157a6c;
-extern char *var_queueBaseDir_8c157a80;
-extern int var_8c157a88;
-
-extern QueuedDat *var_datQueue_8c157a8c;
-extern QueuedDat *var_datQueueRear_8c157a90;
-extern QueuedDat *var_datQueueTail_8c157a94;
-extern int var_datQueueIsIdle_8c157a98;
-
-extern QueuedNj *var_njQueue_8c157a9c;
-extern QueuedNj *var_njQueueRear_8c157aa0;
-extern QueuedNj *var_njQueueTail_8c157aa4;
-extern int var_njQueueIsIdle_8c157aa8;
-
-extern QueuedTexlist *var_texlistQueue_8c157aac;
-extern QueuedTexlist *var_texlistQueueRear_8c157ab0;
-extern QueuedTexlist *var_texlistQueueTail_8c157ab4;
-extern int var_texlistQueueIsIdle_8c157ab8;
-
-extern Sint8 *var_queueBuffer_8c157a84;
-
-extern Task var_tasks_8c1ba3c8[];
-
-extern char var_8c1ba1cc[];
-extern QueuedPvm* var_pvmQueue_8c157abc;
-extern QueuedPvm* var_pvmQueueRear_8c157ac0;
-extern QueuedPvm* var_pvmQueueTail_8c157ac4;
-extern int var_pvmQueueIsIdle_8c157ac8;
-
-
-extern int var_8c157acc;
-extern int var_8c157ad0;
-
-int var_queuesAreInitialized_8c157a60;
-int var_seed_8c157a64;
-int var_texlistQueueCount_8c157a68;
-
-int init_8c03be80[14] = {
-    0x00000000,
-    0x00000400,
-    0x00000000,
-    0x00000002,
-    0x00000000,
-    0x00000200,
-    0x00000000,
-    0x00000004,
-    0x00000000,
-    0x00000010,
-    0x00000000,
-    0x00000020,
-    0x00000000,
-    0x00000008
-};
-
-int init_8c03beb8[14] = {
-    0x00000000,
-    0x00000400,
-    0x00000000,
-    0x00000002,
-    0x00000000,
-    0x00000200,
-    0x00000000,
-    0x00000004,
-    0x00000000,
-    0x00000400,
-    0x00000000,
-    0x00000002,
-    0x00000000,
-    0x00000008
-};
-
-int init_8c03bef0[10] = {
-    0x00000000,
-    0x00000400,
-    0x00000000,
-    0x00000002,
-    0x00000000,
-    0x00000200,
-    0x00000000,
-    0x00000004,
-    0x00000000,
-    0x00000008
-};
-
-int init_8c03bf18[10] = {
-    0x00000000,
-    0x00000400,
-    0x00000000,
-    0x00000002,
-    0x00000000,
-    0x00000200,
-    0x00000000,
-    0x00000004,
-    0x00000000,
-    0x00000008
-};
-
-/* TODO: DRY */
-#define TEX_BUFSIZE     0x80800
-extern Sint8 var_texbuf_8c277ca0[TEX_BUFSIZE];
+} NjPvmPair;
 
 typedef struct {
     TaskAction action;
@@ -194,13 +95,110 @@ typedef struct {
     int field_0x1c;
 } TaskLoadQueuedDats;
 
+
+/* =====================
+ * External Declarations
+   =====================
+ */
+
+extern char var_8c1ba1cc[];
+extern Task var_tasks_8c1ba3c8[];
+/* TODO: DRY */
+extern Sint8 var_texbuf_8c277ca0[TEX_BUFSIZE];
+
+
+/* =======================
+ * Non-initialized Globals
+ * =======================
+ */
+
+int var_queuesAreInitialized_8c157a60;
+int var_seed_8c157a64;
+STATIC int var_texlistQueueCount_8c157a68;
+int var_8c157a6c;
+
+/* TODO: Confirm type */
+int var_8c157a70;
+int var_8c157a74;
+int var_8c157a78;
+int var_8c157a7c;
+
+STATIC char *var_queueBaseDir_8c157a80;
+STATIC Sint8 *var_queueBuffer_8c157a84;
+STATIC int var_8c157a88;
+
+STATIC QueuedDat *var_datQueue_8c157a8c;
+STATIC QueuedDat *var_datQueueRear_8c157a90;
+STATIC QueuedDat *var_datQueueTail_8c157a94;
+STATIC int var_datQueueIsIdle_8c157a98;
+
+STATIC QueuedNj *var_njQueue_8c157a9c;
+STATIC QueuedNj *var_njQueueRear_8c157aa0;
+STATIC QueuedNj *var_njQueueTail_8c157aa4;
+STATIC int var_njQueueIsIdle_8c157aa8;
+
+STATIC QueuedTexlist *var_texlistQueue_8c157aac;
+STATIC QueuedTexlist *var_texlistQueueRear_8c157ab0;
+STATIC QueuedTexlist *var_texlistQueueTail_8c157ab4;
+STATIC int var_texlistQueueIsIdle_8c157ab8;
+
+STATIC QueuedPvm* var_pvmQueue_8c157abc;
+STATIC QueuedPvm* var_pvmQueueRear_8c157ac0;
+STATIC QueuedPvm* var_pvmQueueTail_8c157ac4;
+STATIC int var_pvmQueueIsIdle_8c157ac8;
+
+STATIC int var_8c157acc;
+STATIC int var_8c157ad0;
+
+/* ===================
+ * Initialized Globals
+   ===================
+ */
+
+int init_8c03be80[14] = {
+    0x0, 0x400,
+    0x0,   0x2,
+    0x0, 0x200,
+    0x0,   0x4,
+    0x0,  0x10,
+    0x0,  0x20,
+    0x0,   0x8,
+};
+
+int init_8c03beb8[14] = {
+    0x0, 0x400,
+    0x0,   0x2,
+    0x0, 0x200,
+    0x0,   0x4,
+    0x0, 0x400,
+    0x0,   0x2,
+    0x0,   0x8,
+};
+
+int init_8c03bef0[10] = {
+    0x0, 0x400,
+    0x0,   0x2,
+    0x0, 0x200,
+    0x0,   0x4,
+    0x0,   0x8,
+};
+
+int init_8c03bf18[10] = {
+    0x0, 0x400,
+    0x0,   0x2,
+    0x0, 0x200,
+    0x0,   0x4,
+    0x0,   0x8,
+};
+
+
 /* Matched :) */
 void nop_8c011120() {
     /* Empty body */
 }
 
 /* Matched :) */
-int initDatQueue_8c011124(int n) {
+STATIC int initDatQueue_8c011124(int n) {
     if (n != 0) {
         if ((var_datQueue_8c157a8c = syMalloc(n * sizeof(QueuedDat))) == NULL) {
             return 0;
@@ -215,7 +213,7 @@ int initDatQueue_8c011124(int n) {
 }
 
 /* Matched */
-void resetDatQueue_8c01116a() {
+STATIC void resetDatQueue_8c01116a() {
     var_datQueueRear_8c157a90 = var_datQueue_8c157a8c;
     var_queueBaseDir_8c157a80 = "DATA EMPTY";
     var_datQueueIsIdle_8c157a98 = 1;
@@ -223,13 +221,17 @@ void resetDatQueue_8c01116a() {
 
 /* Matched */
 int requestDat_8c011182(char* basedir, char* filename, void* dest) {
+
     if (*filename == 0) {
         return 0;
     }
 
     if (var_datQueueRear_8c157a90 >= var_datQueueTail_8c157a94) {
+        LOG_WARN(("[ASSET_QUEUES] DAT queue is full. Cannot enqueue \"%s\" (basedir \"%s\")\n", filename, basedir));
         return 0;
     }
+
+    LOG_DEBUG(("[ASSET_QUEUES] DAT enqueued: \"%s\" (basedir \"%s\")\n", filename, basedir));
 
     var_datQueueRear_8c157a90->basedir = basedir;
     var_datQueueRear_8c157a90->filename = filename;
@@ -241,7 +243,7 @@ int requestDat_8c011182(char* basedir, char* filename, void* dest) {
 }
 
 /* Almost matching */
-void task_loadQueuedDats_8c0111b4(TaskLoadQueuedDats* task, void* state) {
+STATIC void task_loadQueuedDats_8c0111b4(TaskLoadQueuedDats* task, void* state) {
     QueuedDat* item = task->queuedDat_0x18;
     Sint32 size;
 
@@ -362,7 +364,7 @@ void task_loadQueuedDats_8c0111b4(TaskLoadQueuedDats* task, void* state) {
 }
 
 /* Tested */
-int sortAndLoadDatQueue_8c011310() {
+STATIC int sortAndLoadDatQueue_8c011310() {
     int r9;
     Task *created_task;
     void *created_state;
@@ -418,19 +420,19 @@ int sortAndLoadDatQueue_8c011310() {
 }
 
 /* Matched */
-int datQueueIsIdle_8c0113d2() {
+STATIC int datQueueIsIdle_8c0113d2() {
     return var_datQueueIsIdle_8c157a98;
 }
 
 /* Matched */
-void freeDatQueue_8c0113d8() {
+STATIC void freeDatQueue_8c0113d8() {
     if (var_datQueue_8c157a8c != (QueuedDat*) -1) {
         syFree((void*) var_datQueue_8c157a8c);
     }
 }
 
 /* Matched */
-int initNjQueue_8c011430(int param) {
+STATIC int initNjQueue_8c011430(int param) {
     if (param != 0) {
         if ((var_njQueue_8c157a9c = syMalloc(param * sizeof(QueuedNj))) == NULL) {
             return 0;
@@ -445,7 +447,7 @@ int initNjQueue_8c011430(int param) {
 }
 
 /* Matched */
-void resetNjQueue_8c01147a() {
+STATIC void resetNjQueue_8c01147a() {
     var_njQueueRear_8c157aa0 = var_njQueue_8c157a9c;
     var_queueBaseDir_8c157a80 = "DATA EMPTY";
     var_njQueueIsIdle_8c157aa8 = 1;
@@ -453,6 +455,7 @@ void resetNjQueue_8c01147a() {
 
 /* Matched */
 int requestNj_8c011492(char* basedir, char* filename, void* dest, void* dest2) {
+
     if (*filename == 0) {
         return 0;
     }
@@ -460,6 +463,8 @@ int requestNj_8c011492(char* basedir, char* filename, void* dest, void* dest2) {
     if (var_njQueueRear_8c157aa0 >= var_njQueueTail_8c157aa4) {
         return 0;
     }
+
+    LOG_DEBUG(("[ASSET_QUEUES] NJ enqueued: \"%s\" (basedir \"%s\")\n", filename, basedir));
 
     var_njQueueRear_8c157aa0->basedir = basedir;
     var_njQueueRear_8c157aa0->filename = filename;
@@ -472,7 +477,7 @@ int requestNj_8c011492(char* basedir, char* filename, void* dest, void* dest2) {
 }
 
 /* Tested */
-void task_loadQueuedNjs_8c0114cc(TaskLoadQueuedNjs* task, void* state) {
+STATIC void task_loadQueuedNjs_8c0114cc(TaskLoadQueuedNjs* task, void* state) {
     QueuedNj* qnj = task->queuedNj_0x18;
     Sint32 size;
     Uint32 fpos = 0, rtype;
@@ -624,7 +629,7 @@ void task_loadQueuedNjs_8c0114cc(TaskLoadQueuedNjs* task, void* state) {
 }
 
 /* Tested */
-int sortAndLoadNjQueue_8c0116b6() {
+STATIC int sortAndLoadNjQueue_8c0116b6() {
     Task *created_task;
     void* created_state;
     QueuedNj *temp;
@@ -679,19 +684,19 @@ int sortAndLoadNjQueue_8c0116b6() {
 }
 
 /* Matched */
-int njQueueIsIdle_8c01179e() {
+STATIC int njQueueIsIdle_8c01179e() {
     return var_njQueueIsIdle_8c157aa8;
 }
 
 /* Tested */
-void freeNjQueue_8c0117a4() {
+STATIC void freeNjQueue_8c0117a4() {
     if (var_njQueue_8c157a9c != (QueuedNj*) -1) {
         syFree(var_njQueue_8c157a9c);
     }
 }
 
 /* Tested */
-int initTexlistQueue_8c0117b8(int n) {
+STATIC int initTexlistQueue_8c0117b8(int n) {
   if (n != 0) {
     var_texlistQueue_8c157aac = syMalloc(n * sizeof(QueuedTexlist));
     if (var_texlistQueue_8c157aac == NULL) {
@@ -706,7 +711,7 @@ int initTexlistQueue_8c0117b8(int n) {
 }
 
 /* Tested */
-void resetTexlistQueue_8c0117fe() {
+STATIC void resetTexlistQueue_8c0117fe() {
     var_texlistQueueRear_8c157ab0 = var_texlistQueue_8c157aac;
     var_queueBaseDir_8c157a80 = "DATA EMPTY";
     var_texlistQueueCount_8c157a68 = 0;
@@ -716,18 +721,20 @@ void resetTexlistQueue_8c0117fe() {
 
 /* Tested */
 int requestTexlist_8c01181c(char *basedir, NJS_TEXLIST *texlist) {
-  if (var_texlistQueueRear_8c157ab0 >= var_texlistQueueTail_8c157ab4) {
-    return 0;
-  }
+    if (var_texlistQueueRear_8c157ab0 >= var_texlistQueueTail_8c157ab4) {
+        return 0;
+    }
 
-  var_texlistQueueRear_8c157ab0->basedir_0x00 = basedir;
-  var_texlistQueueRear_8c157ab0->texlist_0x04 = texlist;
-  var_texlistQueueRear_8c157ab0++;
-  return 1;
+    LOG_DEBUG(("[ASSET_QUEUES] Texlist enqueued: %p (basedir \"%s\")\n", texlist, basedir));
+
+    var_texlistQueueRear_8c157ab0->basedir_0x00 = basedir;
+    var_texlistQueueRear_8c157ab0->texlist_0x04 = texlist;
+    var_texlistQueueRear_8c157ab0++;
+    return 1;
 }
 
 /* Tested */
-void task_loadQueuedTexlists_8c01183e(Task *task, void *state) {
+STATIC void task_loadQueuedTexlists_8c01183e(Task *task, void *state) {
     QueuedTexlist *item = task->queuedItem_0x18;
     NJS_TEXLIST *texlist;
 
@@ -821,7 +828,7 @@ void task_loadQueuedTexlists_8c01183e(Task *task, void *state) {
 }
 
 /* Tested */
-int loadTexlistQueue_8c0119f8() {
+STATIC int loadTexlistQueue_8c0119f8() {
     Task *created_task;
     void *created_state;
 
@@ -839,19 +846,19 @@ int loadTexlistQueue_8c0119f8() {
 }
 
 /* Tested */
-int texlistQueueIsIdle_8c011a42() {
+STATIC int texlistQueueIsIdle_8c011a42() {
   return var_texlistQueueIsIdle_8c157ab8;
 }
 
 /* Tested */
-void freeTexlistQueue_8c011a48() {
+STATIC void freeTexlistQueue_8c011a48() {
     if (var_texlistQueue_8c157aac != (void *) -1) {
         syFree(var_texlistQueue_8c157aac);
     }
 }
 
 /* Tested */
-int initPvmQueue_8c011a5c(int count) {
+STATIC int initPvmQueue_8c011a5c(int count) {
     if (count) {
         var_pvmQueue_8c157abc = syMalloc(count * sizeof(QueuedPvm));
         if (var_pvmQueue_8c157abc == NULL) {
@@ -873,6 +880,8 @@ int requestPvm_8c011ac0(char *basedir, char *filename, void *texlist, int count,
         return 0;
     }
 
+    LOG_DEBUG(("[ASSET_QUEUES] PVM enqueued: %s (basedir %s)\n", filename, basedir));
+
     var_pvmQueueRear_8c157ac0->basedir = basedir;
     var_pvmQueueRear_8c157ac0->filename = filename;
     var_pvmQueueRear_8c157ac0->texlist_0x08 = texlist;
@@ -886,7 +895,7 @@ int requestPvm_8c011ac0(char *basedir, char *filename, void *texlist, int count,
 }
 
 /* Tested */
-void task_loadQueuedPvms_8c011b00(TaskLoadQueuedPvms* task, void* state) {
+STATIC void task_loadQueuedPvms_8c011b00(TaskLoadQueuedPvms* task, void* state) {
     QueuedPvm *pvm = (QueuedPvm*) task->queuedPvm_0x18;
     Sint32 size;
 
@@ -1034,7 +1043,7 @@ void task_loadQueuedPvms_8c011b00(TaskLoadQueuedPvms* task, void* state) {
 }
 
 /* Tested */
-int sortAndLoadPvmQueue_8c011d24() {
+STATIC int sortAndLoadPvmQueue_8c011d24() {
     Task *created_task;
     void* created_state;
     QueuedPvm *temp;
@@ -1087,12 +1096,12 @@ int sortAndLoadPvmQueue_8c011d24() {
 }
 
 /* Tested */
-int pvmQueueIsIdle_8c011e22() {
+STATIC int pvmQueueIsIdle_8c011e22() {
   return var_pvmQueueIsIdle_8c157ac8;
 }
 
 /* Tested */
-void freePvmQueue_8c011e28() {
+STATIC void freePvmQueue_8c011e28() {
   if (var_pvmQueue_8c157abc != (void *) -1) {
     syFree(var_pvmQueue_8c157abc);
   }
@@ -1115,7 +1124,7 @@ void freeTexlist_8c011e60(NJS_TEXLIST *texlist) {
 }
 
 /* Tested */
-void task_processQueues_8c011e80(Task *task, TaskProcessQueuesState *state) {
+STATIC void task_processQueues_8c011e80(Task *task, TaskProcessQueuesState *state) {
     switch (state->queue_0x00) {
         /* TODO: Use enum */
         case 0: {
@@ -1176,17 +1185,21 @@ void task_processQueues_8c011e80(Task *task, TaskProcessQueuesState *state) {
 /* Tested */
 void initQueues_8c011f36(int datCount,int njCount,int texlistCount,int pvmCount)
 {
-  initDatQueue_8c011124(datCount);
-  initNjQueue_8c011430(njCount);
-  initTexlistQueue_8c0117b8(texlistCount);
-  initPvmQueue_8c011a5c(pvmCount);
-  vmsLcd_8c01c8fc(2);
-  vmsLcd_8c01c910();
-  var_queuesAreInitialized_8c157a60 = 1;
+    LOG_INFO(("[ASSET_QUEUES] Initializing queues: DAT %d, NJ %d, TEXLIST %d, PVM %d\n", datCount, njCount, texlistCount, pvmCount));
+
+    initDatQueue_8c011124(datCount);
+    initNjQueue_8c011430(njCount);
+    initTexlistQueue_8c0117b8(texlistCount);
+    initPvmQueue_8c011a5c(pvmCount);
+    vmsLcd_8c01c8fc(2);
+    vmsLcd_8c01c910();
+    var_queuesAreInitialized_8c157a60 = 1;
 }
 
 /* Tested */
 void resetQueues_8c011f6c() {
+    LOG_INFO(("[ASSET_QUEUES] Resetting queues\n"));
+
     resetDatQueue_8c01116a();
     resetNjQueue_8c01147a();
     resetTexlistQueue_8c0117fe();
@@ -1197,6 +1210,8 @@ void resetQueues_8c011f6c() {
 
 /* Tested */
 void freeQueues_8c011f7e() {
+    LOG_INFO(("[ASSET_QUEUES] Freeing queues\n"));
+
     freeDatQueue_8c0113d8();
     freeNjQueue_8c0117a4();
     freeTexlistQueue_8c011a48();

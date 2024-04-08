@@ -11,70 +11,26 @@
           .IMPORT     _syFree
           .IMPORT     _pushTask_8c014ae8
           .IMPORT     _freeTask_8c014b66
-          .IMPORT     _var_queueBaseDir_8c157a80
-          .IMPORT     _var_8c157a88
-          .IMPORT     _var_datQueue_8c157a8c
-          .IMPORT     _var_datQueueRear_8c157a90
-          .IMPORT     _var_datQueueTail_8c157a94
-          .IMPORT     _var_datQueueIsIdle_8c157a98
           .IMPORT     _var_tasks_8c1ba3c8
           .IMPORT     _strcmp
           .IMPORT     __quick_evn_mvn
-          .IMPORT     _var_njQueue_8c157a9c
-          .IMPORT     _var_njQueueTail_8c157aa4
-          .IMPORT     _var_njQueueRear_8c157aa0
-          .IMPORT     _ptr_str_DATA_EMPTY_8c03be7c
-          .IMPORT     _var_njQueueIsIdle_8c157aa8
-          .IMPORT     _var_texbuf_8c277ca0
-          .IMPORT     _var_queueBuffer_8c157a84
           .IMPORT     _njReadBinary
           .IMPORT     __quick_odd_mvn
-          .IMPORT     _var_texlistQueue_8c157aac
-          .IMPORT     _var_texlistQueueTail_8c157ab4
-          .IMPORT     _var_texlistQueueRear_8c157ab0
-          .IMPORT     _var_texlistQueueIsIdle_8c157ab8
           .IMPORT     _njSetTexture
           .IMPORT     _njLoadTextureNum
-          .IMPORT     _var_pvmQueue_8c157abc
-          .IMPORT     _var_pvmQueueTail_8c157ac4
-          .IMPORT     _var_pvmQueueRear_8c157ac0
-          .IMPORT     _var_pvmQueueIsIdle_8c157ac8
           .IMPORT     _njSetPvmTextureList
           .IMPORT     _njLoadTexturePvmMemory
-          .IMPORT     _var_8c157a6c
+          .IMPORT     _var_texbuf_8c277ca0
           .IMPORT     _njReleaseTexture
           .IMPORT     _vmsLcd_8c01c8fc
           .IMPORT     _vmsLcd_8c01c910
-          .IMPORT     _var_8c157acc
           .IMPORT     __modlu
-          .IMPORT     _var_8c157ad0
           .IMPORT     _var_8c1ba1cc
           .EXPORT     _nop_8c011120
-          .EXPORT     _initDatQueue_8c011124
-          .EXPORT     _resetDatQueue_8c01116a
           .EXPORT     _requestDat_8c011182
-          .EXPORT     _task_loadQueuedDats_8c0111b4
-          .EXPORT     _sortAndLoadDatQueue_8c011310
-          .EXPORT     _datQueueIsIdle_8c0113d2
-          .EXPORT     _freeDatQueue_8c0113d8
-          .EXPORT     _initNjQueue_8c011430
-          .EXPORT     _resetNjQueue_8c01147a
           .EXPORT     _requestNj_8c011492
-          .EXPORT     _task_loadQueuedNjs_8c0114cc
-          .EXPORT     _sortAndLoadNjQueue_8c0116b6
-          .EXPORT     _njQueueIsIdle_8c01179e
-          .EXPORT     _freeNjQueue_8c0117a4
-          .EXPORT     _initTexlistQueue_8c0117b8
-          .EXPORT     _resetTexlistQueue_8c0117fe
           .EXPORT     _requestTexlist_8c01181c
-          .EXPORT     _loadTexlistQueue_8c0119f8
-          .EXPORT     _texlistQueueIsIdle_8c011a42
-          .EXPORT     _freeTexlistQueue_8c011a48
-          .EXPORT     _initPvmQueue_8c011a5c
           .EXPORT     _requestPvm_8c011ac0
-          .EXPORT     _sortAndLoadPvmQueue_8c011d24
-          .EXPORT     _pvmQueueIsIdle_8c011e22
-          .EXPORT     _freePvmQueue_8c011e28
           .EXPORT     _releaseAndFreeTexlist_8c011e3c
           .EXPORT     _freeTexlist_8c011e60
           .EXPORT     _task_processQueues_8c011e80
@@ -91,15 +47,68 @@
           .EXPORT     _FUN_8c0121a8
           .EXPORT     _FUN_8c0121be
           .EXPORT     _FUN_8c0121e8
+
           .EXPORT     _init_8c03be80
           .EXPORT     _init_8c03beb8
           .EXPORT     _init_8c03bef0
           .EXPORT     _init_8c03bf18
+
           .EXPORT     _var_queuesAreInitialized_8c157a60
           .EXPORT     _var_seed_8c157a64
-          .EXPORT     _task_loadQueuedTexlists_8c01183e ; For testing
-          .EXPORT     _var_texlistQueueCount_8c157a68 ; For testing
-          .EXPORT     _task_loadQueuedPvms_8c011b00; For testing
+          .EXPORT     _var_8c157a6c
+          .EXPORT     _var_8c157a70
+          .EXPORT     _var_8c157a74
+          .EXPORT     _var_8c157a78
+          .EXPORT     _var_8c157a7c
+
+          .AIFDEF UNIT_TESTING
+          .EXPORT     _initDatQueue_8c011124
+          .EXPORT     _initNjQueue_8c011430
+          .EXPORT     _initTexlistQueue_8c0117b8
+          .EXPORT     _initPvmQueue_8c011a5c
+          .EXPORT     _task_loadQueuedTexlists_8c01183e
+          .EXPORT     _resetDatQueue_8c01116a
+          .EXPORT     _task_loadQueuedDats_8c0111b4
+          .EXPORT     _sortAndLoadDatQueue_8c011310
+          .EXPORT     _datQueueIsIdle_8c0113d2
+          .EXPORT     _freeDatQueue_8c0113d8
+          .EXPORT     _resetNjQueue_8c01147a
+          .EXPORT     _task_loadQueuedNjs_8c0114cc
+          .EXPORT     _sortAndLoadNjQueue_8c0116b6
+          .EXPORT     _njQueueIsIdle_8c01179e
+          .EXPORT     _freeNjQueue_8c0117a4
+          .EXPORT     _loadTexlistQueue_8c0119f8
+          .EXPORT     _resetTexlistQueue_8c0117fe
+          .EXPORT     _texlistQueueIsIdle_8c011a42
+          .EXPORT     _freeTexlistQueue_8c011a48
+          .EXPORT     _sortAndLoadPvmQueue_8c011d24
+          .EXPORT     _pvmQueueIsIdle_8c011e22
+          .EXPORT     _freePvmQueue_8c011e28
+
+          .EXPORT     _var_texlistQueueCount_8c157a68
+          .EXPORT     _task_loadQueuedPvms_8c011b00
+          .EXPORT     _var_queueBaseDir_8c157a80
+          .EXPORT     _var_queueBuffer_8c157a84
+          .EXPORT     _var_8c157a88
+          .EXPORT     _var_datQueue_8c157a8c
+          .EXPORT     _var_datQueueRear_8c157a90
+          .EXPORT     _var_datQueueTail_8c157a94
+          .EXPORT     _var_datQueueIsIdle_8c157a98
+          .EXPORT     _var_njQueue_8c157a9c
+          .EXPORT     _var_njQueueRear_8c157aa0
+          .EXPORT     _var_njQueueTail_8c157aa4
+          .EXPORT     _var_njQueueIsIdle_8c157aa8
+          .EXPORT     _var_texlistQueue_8c157aac
+          .EXPORT     _var_texlistQueueRear_8c157ab0
+          .EXPORT     _var_texlistQueueTail_8c157ab4
+          .EXPORT     _var_texlistQueueIsIdle_8c157ab8
+          .EXPORT     _var_pvmQueue_8c157abc
+          .EXPORT     _var_pvmQueueRear_8c157ac0
+          .EXPORT     _var_pvmQueueTail_8c157ac4
+          .EXPORT     _var_pvmQueueIsIdle_8c157ac8
+          .EXPORT     _var_8c157acc
+          .EXPORT     _var_8c157ad0
+          .AENDI
           .SECTION    P,CODE,ALIGN=4
 _nop_8c011120:                   ; function: nop_8c011120
                                  ; frame size=0
@@ -563,7 +572,7 @@ _resetNjQueue_8c01147a:                   ; function: _resetNjQueue_8c01147a
           MOV.L       L36+22,R2; _var_queueBaseDir_8c157a80
           MOV.L       R3,@R1
           MOV         #1,R1
-          MOV.L       L36+18,R3; _ptr_str_DATA_EMPTY_8c03be7c
+          MOV.L       L36+18,R3; _init_8c03be7c
           MOV.L       @R3,R0
           MOV.L       R0,@R2
           MOV.L       L36+26,R0; _var_njQueueIsIdle_8c157aa8
@@ -2574,5 +2583,57 @@ _var_queuesAreInitialized_8c157a60:
 _var_seed_8c157a64:
           .RES.B      4
 _var_texlistQueueCount_8c157a68:
+          .RES.B      4
+_var_8c157a6c:
+          .RES.B      4
+_var_8c157a70:
+          .RES.B      4
+_var_8c157a74:
+          .RES.B      4
+_var_8c157a78:
+          .RES.B      4
+_var_8c157a7c:
+          .RES.B      4
+_var_queueBaseDir_8c157a80:
+          .RES.B      4
+_var_queueBuffer_8c157a84:
+          .RES.B      4
+_var_8c157a88:
+          .RES.B      4
+_var_datQueue_8c157a8c:
+          .RES.B      4
+_var_datQueueRear_8c157a90:
+          .RES.B      4
+_var_datQueueTail_8c157a94:
+          .RES.B      4
+_var_datQueueIsIdle_8c157a98:
+          .RES.B      4
+_var_njQueue_8c157a9c:
+          .RES.B      4
+_var_njQueueRear_8c157aa0:
+          .RES.B      4
+_var_njQueueTail_8c157aa4:
+          .RES.B      4
+_var_njQueueIsIdle_8c157aa8:
+          .RES.B      4
+_var_texlistQueue_8c157aac:
+          .RES.B      4
+_var_texlistQueueRear_8c157ab0:
+          .RES.B      4
+_var_texlistQueueTail_8c157ab4:
+          .RES.B      4
+_var_texlistQueueIsIdle_8c157ab8:
+          .RES.B      4
+_var_pvmQueue_8c157abc:
+          .RES.B      4
+_var_pvmQueueRear_8c157ac0:
+          .RES.B      4
+_var_pvmQueueTail_8c157ac4:
+          .RES.B      4
+_var_pvmQueueIsIdle_8c157ac8:
+          .RES.B      4
+_var_8c157acc:
+          .RES.B      4
+_var_8c157ad0:
           .RES.B      4
           .END

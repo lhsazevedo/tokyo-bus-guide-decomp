@@ -1,30 +1,4 @@
 ; 8c0fcd20
-          .EXPORT     _var_8c157a6c
-          .EXPORT     _var_8c157a70
-          .EXPORT     _var_8c157a74
-          .EXPORT     _var_8c157a78
-          .EXPORT     _var_8c157a7c
-          .EXPORT     _var_queueBaseDir_8c157a80
-          .EXPORT     _var_queueBuffer_8c157a84
-          .EXPORT     _var_8c157a88
-          .EXPORT     _var_datQueue_8c157a8c
-          .EXPORT     _var_datQueueRear_8c157a90
-          .EXPORT     _var_datQueueTail_8c157a94
-          .EXPORT     _var_datQueueIsIdle_8c157a98
-          .EXPORT     _var_njQueue_8c157a9c
-          .EXPORT     _var_njQueueRear_8c157aa0
-          .EXPORT     _var_njQueueTail_8c157aa4
-          .EXPORT     _var_njQueueIsIdle_8c157aa8
-          .EXPORT     _var_texlistQueue_8c157aac
-          .EXPORT     _var_texlistQueueRear_8c157ab0
-          .EXPORT     _var_texlistQueueTail_8c157ab4
-          .EXPORT     _var_texlistQueueIsIdle_8c157ab8
-          .EXPORT     _var_pvmQueue_8c157abc
-          .EXPORT     _var_pvmQueueRear_8c157ac0
-          .EXPORT     _var_pvmQueueTail_8c157ac4
-          .EXPORT     _var_pvmQueueIsIdle_8c157ac8
-          .EXPORT     _var_8c157acc
-          .EXPORT     _var_8c157ad0
           .EXPORT     _var_8c157ad4
           .EXPORT     _var_8c157ae4
           .EXPORT     _var_8c157ae8
@@ -445,58 +419,6 @@
           .EXPORT     _var_shapebuf_8c2f84a0
           .EXPORT     _var_matrix_8c2f8ca0
           .SECTION    B,DATA,ALIGN=4
-_var_8c157a6c:
-          .RES.B      4
-_var_8c157a70:
-          .RES.B      4
-_var_8c157a74:
-          .RES.B      4
-_var_8c157a78:
-          .RES.B      4
-_var_8c157a7c:
-          .RES.B      4
-_var_queueBaseDir_8c157a80:
-          .RES.B      4
-_var_queueBuffer_8c157a84:
-          .RES.B      4
-_var_8c157a88:
-          .RES.B      4
-_var_datQueue_8c157a8c:
-          .RES.B      4
-_var_datQueueRear_8c157a90:
-          .RES.B      4
-_var_datQueueTail_8c157a94:
-          .RES.B      4
-_var_datQueueIsIdle_8c157a98:
-          .RES.B      4
-_var_njQueue_8c157a9c:
-          .RES.B      4
-_var_njQueueRear_8c157aa0:
-          .RES.B      4
-_var_njQueueTail_8c157aa4:
-          .RES.B      4
-_var_njQueueIsIdle_8c157aa8:
-          .RES.B      4
-_var_texlistQueue_8c157aac:
-          .RES.B      4
-_var_texlistQueueRear_8c157ab0:
-          .RES.B      4
-_var_texlistQueueTail_8c157ab4:
-          .RES.B      4
-_var_texlistQueueIsIdle_8c157ab8:
-          .RES.B      4
-_var_pvmQueue_8c157abc:
-          .RES.B      4
-_var_pvmQueueRear_8c157ac0:
-          .RES.B      4
-_var_pvmQueueTail_8c157ac4:
-          .RES.B      4
-_var_pvmQueueIsIdle_8c157ac8:
-          .RES.B      4
-_var_8c157acc:
-          .RES.B      4
-_var_8c157ad0:
-          .RES.B      4
 _var_8c157ad4:
           .RES.B      16
 _var_8c157ae4:

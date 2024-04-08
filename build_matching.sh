@@ -26,7 +26,7 @@ compile  src/010080_main.c
 assemble src/asm/0100bc_sound.src
 compile  src/010e90.c
 assemble src/asm/010fe8_unused.src
-assemble src/asm/decompiled/011120.src
+assemble src/asm/decompiled/011120_asset_queues.src
 assemble src/asm/012324.src
 assemble src/asm/012504.src
 assemble src/asm/0129cc.src

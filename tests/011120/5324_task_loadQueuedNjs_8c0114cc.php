@@ -1779,9 +1779,6 @@ return new class extends TestCase {
 
     private function resolveImports(): void
     {
-        $this->setSize('_var_8c157a88', 4);
-        $this->setSize('_var_queueBaseDir_8c157a80', 4);
-
         // Functions
         $this->setSize('_syFree', 4);
     }

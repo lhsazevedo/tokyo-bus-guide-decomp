@@ -27,7 +27,7 @@ compile  src/010080_main.c
 assemble src/asm/0100bc_sound.src
 compile  src/010e90.c
 assemble src/asm/010fe8_unused.src
-compile  src/011120.c
+compile  src/011120_asset_queues.c
 assemble src/asm/012324.src
 assemble src/asm/012504.src
 assemble src/asm/0129cc.src
@@ -98,6 +98,8 @@ assemble src/asm/02f320.src
 assemble src/asm/0332a4_sectionC.src
 assemble src/asm/03bd80_sectionD.src
 assemble src/asm/0fcd20_sectionB.src
+
+compile  src/scif.c
 
 wine $SHC_BIN/lnk.exe -sub=lnk.sub
 

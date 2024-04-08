@@ -548,10 +548,9 @@ return new class extends TestCase {
 
     private function resolveImports()
     {
-        $this->setSize('_var_8c157a88', 4);
-
         // Functions
         $this->setSize('_gdFsClose', 4);
+        $this->setSize('_freeTask_8c014b66', 4);
     }
 
     protected function isAsmObject(): bool

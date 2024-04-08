@@ -2,8 +2,10 @@
 #include <shinobi.h>
 #include <njdef.h>
 #include "includes.h"
+#include "definitions.h"
 #include "014a9c_tasks.h"
 #include "015ab8_title.h"
+#include "scif.h"
 
 #define TEX_BUFSIZE     0x80800
 #define TEX_NUM         3072
@@ -651,6 +653,10 @@ void njUserInit_8c0134ec() {
     NJS_TEXINFO info;
     Task *created_task;
     void *created_state;
+
+#ifdef SERIAL_DEBUG
+    scif_init(57600);
+#endif
 
     /* 8c0134fc */
     njSetTextureMemorySize(0x100000);

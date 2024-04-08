@@ -792,7 +792,6 @@ return new class extends TestCase {
 
     private function resolveImports(): void
     {
-        //$this->setSize('_init_8c03be80', 49 * 4);
         $this->setSize('_var_8c1ba1cc', 0xd0);
     }
 };

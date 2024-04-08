@@ -575,10 +575,7 @@ return new class extends TestCase {
 
     private function resolveImports()
     {
-        $this->setSize('_var_8c157a88', 4);
-        $this->setSize('_var_queueBuffer_8c157a84', 4);
         $this->setSize('_var_texbuf_8c277ca0', 0x80800);
-        $this->setSize('_var_pvmQueueIsIdle_8c157ac8', 4);
 
         // Functions
         $this->setSize('_gdFsClose', 4);
