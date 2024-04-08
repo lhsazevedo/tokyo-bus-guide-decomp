@@ -38,20 +38,27 @@ return new class extends TestCase {
 
         $this->shouldWriteTo('_var_njQueueIsIdle_8c157aa8', 0);
 
-        $tempQueuedNj = $this->alloc(4);
+        $tempQueuedNj = $this->alloc(3 * $sizeOfQueuedNj);
         $this->shouldCall('_syMalloc')
             ->with(3 * $sizeOfQueuedNj)
             ->andReturn($tempQueuedNj);
 
         // 1st iteration
         $strCmp = $this->isAsmObject() ? '_strcmp' : '__slow_strcmp1';
+        $strCmpFn = function ($params) {
+            $this->registers[0] = strcmp(
+                $this->memory->readString($params[0]),
+                $this->memory->readString($params[1])
+            );
+        };
+
         $this->shouldCall($strCmp)
             ->with($fileAStrAddr, $fileCStrAddr)
-            ->andReturn(strcmp('FILEA.BIN', 'FILEC.BIN'));
+            ->do($strCmpFn);
 
         $this->shouldCall($strCmp)
             ->with($fileCStrAddr, $fileBStrAddr)
-            ->andReturn(strcmp('FILEC.BIN', 'FILEB.BIN'));
+            ->do($strCmpFn);
 
 
         // TODO: Move implementation to Simulator
@@ -71,11 +78,11 @@ return new class extends TestCase {
 
         $this->shouldCall($strCmp)
             ->with($fileAStrAddr, $fileBStrAddr)
-            ->andReturn(strcmp('FILEA.BIN', 'FILEB.BIN'));
+            ->do($strCmpFn);
 
         $this->shouldCall($strCmp)
             ->with($fileBStrAddr, $fileCStrAddr)
-            ->andReturn(strcmp('FILEB.BIN', 'FILEC.BIN'));
+            ->do($strCmpFn);
 
         $this->shouldCall('_syFree')
             ->with($tempQueuedNj);

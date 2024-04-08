@@ -129,6 +129,134 @@ return new class extends TestCase {
             ->run();
     }
 
+    public function test_case0_readsFirstItemWithAlloc()
+    {
+        $this->resolveImports();
+
+        $sizeOfQueuedNj = 0x14;
+        $queueSize = 16;
+        $njQueue = $this->alloc($queueSize * $sizeOfQueuedNj);
+
+        $dataEmptyStrAddress = $this->allocString('DATA EMPTY');
+        $dirAStrAddress = $this->allocString('\\DIR_A');
+        $dirBStrAddress = $this->allocString('\\DIR_B');
+
+        $this->initUint32($this->addressOf('_var_queueBaseDir_8c157a80'), $dataEmptyStrAddress);
+
+        // Nj queue has 3 items
+        $currentQueuedNj = $njQueue;
+        $nj1Dest = $this->alloc(4);
+        $nj1Dest2 = $this->alloc(4);
+        $this->initQueuedNj(
+            address:  $currentQueuedNj,
+            basedir:  $dirAStrAddress,
+            filename: 0xcafe0002,
+            dest:     $nj1Dest,
+            dest2:    $nj1Dest2,
+            flag:     0,
+        );
+
+        $currentQueuedNj += $sizeOfQueuedNj;
+        $this->initQueuedNj(
+            address:  $currentQueuedNj,
+            basedir:  $dirBStrAddress,
+            filename: 0xcafe1002,
+            dest:     0xcafe1003,
+            dest2:    0xcafe1004,
+            flag:     0,
+        );
+
+        $currentQueuedNj += $sizeOfQueuedNj;
+        $this->initQueuedNj(
+            address:  $currentQueuedNj,
+            basedir:  0xcafe2001,
+            filename: 0xcafe2002,
+            dest:     0xcafe2003,
+            dest2:    0xcafe2004,
+            flag:     0,
+        );
+
+        $this->initUint32(
+            $this->addressOf('_var_njQueueRear_8c157aa0'),
+            $njQueue + 3 * $sizeOfQueuedNj
+        );
+
+        $taskPtr = $this->alloc(0x20);
+        // task->field_0x08
+        $this->initUint32($taskPtr + 0x08, 0);
+        // task->queuedNj_0x18 points to the first item in the queue
+        $this->initUint32($taskPtr + 0x18, $njQueue);
+        
+        $this->initUint32($this->addressOf('_var_texbuf_8c277ca0'), 0xdeadbeef);
+
+        $sizeLocal = $this->isAsmObject() ? 0xffffd0 : 0xffffcc;
+        $fposLocal = $this->isAsmObject() ? 0xffffd4 : 0xffffd0;
+        $rtypeLocal = $this->isAsmObject() ? 0xffffd8 : 0xffffd4;
+
+        /// First iteration
+
+        // TODO: Implement blind shouldRead
+
+        $strCmp = $this->isAsmObject() ? '_strcmp' : '__slow_strcmp1';
+        $this->shouldCall($strCmp)
+            ->with($dataEmptyStrAddress, $dirAStrAddress)
+            ->andReturn(strcmp('\\DIR_A', 'DATA EMPTY'));
+
+        $this->shouldWriteTo('_var_queueBaseDir_8c157a80', $dirAStrAddress);
+        $this->shouldCall('_gdFsChangeDir', $dirAStrAddress);
+
+        $this->shouldCall('_gdFsOpen')
+            ->with(0xcafe0002, 0)
+            ->andReturn(0xf5f50000);
+
+        // task->gdfs_0x0c = gdFsOpen(...)
+        $this->shouldWrite($taskPtr + 0x0c, 0xf5f50000);
+
+        $this->shouldCall('_gdFsGetFileSctSize')
+            ->with(0xf5f50000, $sizeLocal)
+            ->do(function ($params) {
+                $this->memory->writeUInt32($params[1], 0x101);
+            })
+            ->andReturn(1);
+
+        $this->shouldCall('_syMalloc')->with(0x101 * 2048)->andReturn(0xbebacafe);
+        $this->shouldWriteTo('_var_queueBuffer_8c157a84', 0xbebacafe);
+
+        $this->shouldCall('_gdFsRead')
+            ->with(0xf5f50000, 0x101, 0xbebacafe)
+            ->andReturn(0); // GDD_ERR_OK
+
+        $this->shouldCall('_gdFsClose')->with(0xf5f50000);
+        $this->shouldWrite($njQueue + 0x10, 1);
+
+        $this->shouldCall('_njReadBinary')
+            ->with(
+                0xbebacafe,
+                $fposLocal,
+                $rtypeLocal,
+            )
+            ->andReturn(0xb1b1b1b1);
+        $this->shouldWrite($nj1Dest, 0xb1b1b1b1);
+
+        $this->shouldCall('_njReadBinary')
+            ->with(
+                0xbebacafe,
+                $fposLocal,
+                $rtypeLocal,
+            )
+            ->andReturn(0xb2b2b2b2);
+        $this->shouldWrite($nj1Dest2, 0xb2b2b2b2);
+
+        $this->shouldCall('_syFree')->with(0xbebacafe);
+
+        $this->shouldWrite($taskPtr + 0x18, $njQueue + $sizeOfQueuedNj);
+        $this->shouldWrite($taskPtr + 0x08, 0);
+
+        $this->call('_task_loadQueuedNjs_8c0114cc')
+            ->with($taskPtr, 0)
+            ->run();
+    }
+
     public function test_case0_breaksOnQueueRear()
     {
         $this->resolveImports();
@@ -1422,6 +1550,50 @@ return new class extends TestCase {
             ->run();
     }
 
+    public function test_case1_gddStatRead_NotReady()
+    {
+        $this->resolveImports();
+
+        $sizeOfQueuedNj = 0x14;
+        $queueSize = 16;
+        $njQueue = $this->alloc($queueSize * $sizeOfQueuedNj);
+
+        $nj1Dest = $this->alloc(4);
+        $nj1Dest2 = $this->alloc(4);
+        $this->initQueuedNj(
+            address:  $njQueue,
+            basedir:  0xcafe1001,
+            filename: 0xcafe1002,
+            dest:     $nj1Dest,
+            dest2:    $nj1Dest2,
+            flag:     0,
+        );
+
+        $taskPtr = $this->alloc(0x20);
+        $this->initUint32($taskPtr + 0x08, 1);
+        $this->initUint32($taskPtr + 0x0c, 0xf5f50000);
+        $this->initUint32($taskPtr + 0x18, $njQueue);
+
+        $sizeLocal = $this->isAsmObject() ? 0xffffd0 : 0xffffcc;
+        $fposLocal = $this->isAsmObject() ? 0xffffd4 : 0xffffd0;
+        $rtypeLocal = $this->isAsmObject() ? 0xffffd8 : 0xffffd4;
+
+        $this->initUint32($this->addressOf('_var_texbuf_8c277ca0'), 0xbebacafe);
+        $this->initUint32($this->addressOf('_var_queueBuffer_8c157a84'), $this->addressOf('_var_texbuf_8c277ca0'));
+
+        $this->shouldCall('_gdFsGetStat')
+            ->with(0xf5f50000)
+            ->andReturn(2); // GDD_STAT_READ
+
+        $this->shouldCall('_gdFsGetTransStat')
+            ->with(0xf5f50000)
+            ->andReturn(1); // GDD_FS_TRANS_BUSY
+
+        $this->call('_task_loadQueuedNjs_8c0114cc')
+            ->with($taskPtr, 0)
+            ->run();
+    }
+
     public function test_case1_gddStatReadWithFree()
     {
         $this->resolveImports();
@@ -1513,6 +1685,92 @@ return new class extends TestCase {
         $this->shouldwriteTo('_var_8c157a88', 1);
         $this->shouldWrite($taskPtr + 0x18, $njQueue + 1 * $sizeOfQueuedNj);
         $this->shouldWrite($taskPtr + 0x08, 0);
+
+        $this->call('_task_loadQueuedNjs_8c0114cc')
+            ->with($taskPtr, 0)
+            ->run();
+    }
+
+    public function test_case1_gddStatOtherWithFree()
+    {
+        $this->resolveImports();
+
+        $sizeOfQueuedNj = 0x14;
+        $queueSize = 16;
+        $njQueue = $this->alloc($queueSize * $sizeOfQueuedNj);
+
+        $nj1Dest = $this->alloc(4);
+        $nj1Dest2 = $this->alloc(4);
+        $this->initQueuedNj(
+            address:  $njQueue,
+            basedir:  0xcafe1001,
+            filename: 0xcafe1002,
+            dest:     $nj1Dest,
+            dest2:    $nj1Dest2,
+            flag:     0,
+        );
+
+        $taskPtr = $this->alloc(0x20);
+        $this->initUint32($taskPtr + 0x08, 1);
+        $this->initUint32($taskPtr + 0x0c, 0xf5f50000);
+        $this->initUint32($taskPtr + 0x18, $njQueue);
+
+        $sizeLocal = $this->isAsmObject() ? 0xffffd0 : 0xffffcc;
+        $fposLocal = $this->isAsmObject() ? 0xffffd4 : 0xffffd0;
+        $rtypeLocal = $this->isAsmObject() ? 0xffffd8 : 0xffffd4;
+
+        $this->initUint32($this->addressOf('_var_texbuf_8c277ca0'), 0xdeadbeef);
+        $this->initUint32($this->addressOf('_var_queueBuffer_8c157a84'), 0xbebacafe);
+
+        $this->shouldCall('_gdFsGetStat')
+            ->with(0xf5f50000)
+            ->andReturn(3); // GDD_STAT_SEEK
+
+        $this->shouldCall('_gdFsClose')
+            ->with(0xf5f50000);
+
+        $this->shouldCall('_syFree')->with(0xbebacafe);
+        $this->shouldCall('_syFree')->with(0xbebacafe);
+        
+        $this->shouldwriteTo('_var_8c157a88', 1);
+        $this->shouldWrite($taskPtr + 0x18, $njQueue + 1 * $sizeOfQueuedNj);
+        $this->shouldWrite($taskPtr + 0x08, 0);
+
+        $this->call('_task_loadQueuedNjs_8c0114cc')
+            ->with($taskPtr, 0)
+            ->run();
+    }
+
+    public function test_case2()
+    {
+        $this->resolveImports();
+
+        $sizeOfQueuedNj = 0x14;
+        $queueSize = 16;
+        $njQueue = $this->alloc($queueSize * $sizeOfQueuedNj);
+
+        $nj1Dest = $this->alloc(4);
+        $nj1Dest2 = $this->alloc(4);
+        $this->initQueuedNj(
+            address:  $njQueue,
+            basedir:  0xcafe1001,
+            filename: 0xcafe1002,
+            dest:     $nj1Dest,
+            dest2:    $nj1Dest2,
+            flag:     0,
+        );
+
+        $taskPtr = $this->alloc(0x20);
+        $this->initUint32($taskPtr + 0x08, 2);
+        $this->initUint32($taskPtr + 0x0c, 0xf5f50000);
+        $this->initUint32($taskPtr + 0x18, $njQueue);
+
+        $sizeLocal = $this->isAsmObject() ? 0xffffd0 : 0xffffcc;
+        $fposLocal = $this->isAsmObject() ? 0xffffd4 : 0xffffd0;
+        $rtypeLocal = $this->isAsmObject() ? 0xffffd8 : 0xffffd4;
+
+        $this->initUint32($this->addressOf('_var_texbuf_8c277ca0'), 0xdeadbeef);
+        $this->initUint32($this->addressOf('_var_queueBuffer_8c157a84'), 0xbebacafe);
 
         $this->call('_task_loadQueuedNjs_8c0114cc')
             ->with($taskPtr, 0)
