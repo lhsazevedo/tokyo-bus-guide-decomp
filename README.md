@@ -6,27 +6,24 @@
 
 ![Main function hero](./tbg.png)
 
+
 ## Introduction
-
-This project focuses on decompiling the Sega Dreamcast game Tokyo Bus Guide. It prioritizes achieving identical behavior between the original and decompiled code, rather than traditional methods targeting byte-level matching. The primary objectives of this project are:
-
-- Achieving functional equivalence between decompiled code and the original assembly.
-- Establishing a scalable and reliable method for Dreamcast game decompilation.
-- Promoting community collaboration and knowledge sharing in Dreamcast reverse engineering.
-
-## Approach
-
-Traditional decompilation attempts to recreate the original source code from compiled machine code, which can be challenging due to minor changes in the compiled code resulting in significant alterations in the assembly. To address this challenge, a new approach has been adopted in this project, utilizing a custom-made [SH4 object simulator and testing framework](https://github.com/lhsazevedo/sh4objtest). This framework tests decompiled functions against their original counterparts, ensuring exact behavioral replication.
+This project focuses on decompiling the Sega Dreamcast game Tokyo Bus Guide. It prioritizes achieving identical behavior between the original and decompiled code, rather than traditional methods targeting byte-level matching. Key objectives include functional equivalence, scalable decompilation methods, and community collaboration in Dreamcast reverse engineering.
 
 To the best of the author's knowledge, this is the first public Dreamcast game decompilation project.
+
+
+## Approach
+Unlike traditional byte-level matching, this project uses a custom [SH4 object simulator and testing framework](https://github.com/lhsazevedo/sh4objtest). This tool tests decompiled functions against their original counterparts, ensuring exact behavioral replication.
+
 
 ## Project Status
 This is an ongoing project, the decompilation process will be regularly updated. While under development, the project allows building the game using the available decompiled functions.
 
-### Current Achivements
+
+### Current Achivements:
 - Rebuilding the game binary with decompiled functions alongside original code.
-- Custom logs from decompiled C files, written to the Dreamcast serial interface and on-screen debug text: [view tweet](https://twitter.com/lhs_azevedo/status/1777558619480867048).
-- Decompiled C function outputting a debug log message: [view code](https://github.com/lhsazevedo/tokyo-bus-guide-decomp/blob/7cbc8608b7a7568db8e26e9c9302b8a6f983460e/src/011120_asset_queues.c#L1186-L1197).
+- Custom logs from decompiled C files, written to the Dreamcast serial interface and on-screen debug text: [watch video](https://twitter.com/lhs_azevedo/status/1777558619480867048), [view code](https://github.com/lhsazevedo/tokyo-bus-guide-decomp/blob/7cbc8608b7a7568db8e26e9c9302b8a6f983460e/src/011120_asset_queues.c#L1186-L1197).
 - CI workflows with matching builds, non-matching builds and unit tests checks.
 
 ## How to Contribute
@@ -80,8 +77,10 @@ Contributions to this project are encouraged and welcomed! Your expertise in cod
 
 A successful build will display "Project built :)".
 
+
 ## Acknowledgements
-Acknowledgements and contributors will be listed soon. Your contributions are appreciated and will be recognized accordingly.
+Acknowledgements and contributors will be listed soon.
+
 
 ## Useful resources
 - [Dreamcast Programming](https://mc.pp.se/dc/) by Marcus Comstedt
