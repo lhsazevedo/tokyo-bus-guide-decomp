@@ -52,7 +52,7 @@ void task_title_8c015ab8(Task* task, void *state) {
 
                 peripheral_8c1ba35c[0].press = 0;
                 menuState_8c1bc7a8.state_0x18 = TITLE_STATE_0X0E_PRESS_START;
-                LOG_TRACE(("[TITLE] State changed: 0X0E_PRESS_START\n"));
+                LOG_DEBUG(("[TITLE] State changed: 0X0E_PRESS_START\n"));
                 isFading_8c226568 = FALSE;
             }
     }
@@ -68,7 +68,7 @@ void task_title_8c015ab8(Task* task, void *state) {
                 if (task->field_0x08 == FALSE) {
                     /* 8c015bd8 */
                     menuState_8c1bc7a8.state_0x18 = TITLE_STATE_0X01_FORTYFIVE_FADE_IN;
-                    LOG_TRACE(("[TITLE] State changed: 0X01_FORTYFIVE_FADE_IN\n"));
+                    LOG_DEBUG(("[TITLE] State changed: 0X01_FORTYFIVE_FADE_IN\n"));
 
                     push_fadein_8c022a9c(20);
 
@@ -77,7 +77,7 @@ void task_title_8c015ab8(Task* task, void *state) {
                 } else {
                     /* 8c015baa */
                     menuState_8c1bc7a8.state_0x18 = TITLE_STATE_0X0D_TITLE_FADE_IN_DIRECT;
-                    LOG_TRACE(("[TITLE] State changed: 0X0D_TITLE_FADE_IN_DIRECT\n"));
+                    LOG_DEBUG(("[TITLE] State changed: 0X0D_TITLE_FADE_IN_DIRECT\n"));
 
                     push_fadein_8c022a9c(10);
 
@@ -92,7 +92,7 @@ void task_title_8c015ab8(Task* task, void *state) {
         case TITLE_STATE_0X01_FORTYFIVE_FADE_IN: {
             if (isFading_8c226568 == FALSE) {
                 menuState_8c1bc7a8.state_0x18 = TITLE_STATE_0X02_FORTYFIVE;
-                LOG_TRACE(("[TITLE] State changed: 0X02_FORTYFIVE\n"));
+                LOG_DEBUG(("[TITLE] State changed: 0X02_FORTYFIVE\n"));
                 menuState_8c1bc7a8.logo_timer_0x68 = 0;
             }
 
@@ -107,7 +107,7 @@ void task_title_8c015ab8(Task* task, void *state) {
             /* menuState_8c1bc7a8.logo_timer_0x68++; */
             if (++menuState_8c1bc7a8.logo_timer_0x68 > 30) {
                 menuState_8c1bc7a8.state_0x18 = TITLE_STATE_0X03_FORTYFIVE_FADE_OUT;
-                LOG_TRACE(("[TITLE] State changed: 0X03_FORTYFIVE_FADE_OUT\n"));
+                LOG_DEBUG(("[TITLE] State changed: 0X03_FORTYFIVE_FADE_OUT\n"));
                 push_fadeout_8c022b60(20);
             }
 
@@ -121,7 +121,7 @@ void task_title_8c015ab8(Task* task, void *state) {
         case TITLE_STATE_0X03_FORTYFIVE_FADE_OUT: {
             if (isFading_8c226568 == FALSE) {
                 menuState_8c1bc7a8.state_0x18 = TITLE_STATE_0X04_ADX_FADE_IN;
-                LOG_TRACE(("[TITLE] State changed: 0X04_ADX_FADE_IN\n"));
+                LOG_DEBUG(("[TITLE] State changed: 0X04_ADX_FADE_IN\n"));
                 push_fadein_8c022a9c(20);
                 return;
             }
@@ -136,7 +136,7 @@ void task_title_8c015ab8(Task* task, void *state) {
         case TITLE_STATE_0X04_ADX_FADE_IN: {
             if (isFading_8c226568 == FALSE) {
                 menuState_8c1bc7a8.state_0x18 = TITLE_STATE_0X05_ADX;
-                LOG_TRACE(("[TITLE] State changed: 0X05_ADX\n"));
+                LOG_DEBUG(("[TITLE] State changed: 0X05_ADX\n"));
                 menuState_8c1bc7a8.logo_timer_0x68 = 0;
             }
 
@@ -151,7 +151,7 @@ void task_title_8c015ab8(Task* task, void *state) {
             /* menuState_8c1bc7a8.logo_timer_0x68++; */
             if (++menuState_8c1bc7a8.logo_timer_0x68 > 30) {
                 menuState_8c1bc7a8.state_0x18 = TITLE_STATE_0X06_ADX_FADE_OUT;
-                LOG_TRACE(("[TITLE] State changed: 0X06_ADX_FADE_OUT\n"));
+                LOG_DEBUG(("[TITLE] State changed: 0X06_ADX_FADE_OUT\n"));
                 push_fadeout_8c022b60(20);
             }
 
@@ -168,14 +168,14 @@ void task_title_8c015ab8(Task* task, void *state) {
                 if (FUN_8c012984() != FALSE && FUN_8c019550(saveNames_8c044d50, 3) == FALSE) {
                     /* 8c015c62 */
                     menuState_8c1bc7a8.state_0x18 = TITLE_STATE_0X07_VMU_WARNING_FADE_IN;
-                    LOG_TRACE(("[TITLE] State changed: 0X07_VMU_WARNING_FADE_IN\n"));
+                    LOG_DEBUG(("[TITLE] State changed: 0X07_VMU_WARNING_FADE_IN\n"));
                     push_fadein_8c022a9c(10);
                     return;
                 }
 
                 /* 8c015cda */
                 menuState_8c1bc7a8.state_0x18 = TITLE_STATE_0X0A_TITLE_FADE_IN;
-                LOG_TRACE(("[TITLE] State changed: 0X0A_TITLE_FADE_IN\n"));
+                LOG_DEBUG(("[TITLE] State changed: 0X0A_TITLE_FADE_IN\n"));
 
                 /* 8c015cde */
                 push_fadein_8c022a9c(10);
@@ -192,7 +192,7 @@ void task_title_8c015ab8(Task* task, void *state) {
         case TITLE_STATE_0X07_VMU_WARNING_FADE_IN: {
             if (isFading_8c226568 == FALSE) {
                 menuState_8c1bc7a8.state_0x18 = TITLE_STATE_0X08_VMU_WARNING;
-                LOG_TRACE(("[TITLE] State changed: 0X08_VMU_WARNING\n"));
+                LOG_DEBUG(("[TITLE] State changed: 0X08_VMU_WARNING\n"));
             }
 
             /* 8c015c78 */
@@ -211,7 +211,7 @@ void task_title_8c015ab8(Task* task, void *state) {
             ) {
                 sdMidiPlay(midiHandles_8c0fcd28[0], 1, 0, 0);
                 menuState_8c1bc7a8.state_0x18 = TITLE_STATE_0X09_VMU_WARNING_FADE_OUT;
-                LOG_TRACE(("[TITLE] State changed: 0X09_VMU_WARNING_FADE_OUT\n"));
+                LOG_DEBUG(("[TITLE] State changed: 0X09_VMU_WARNING_FADE_OUT\n"));
                 push_fadeout_8c022b60(10);
             }
 
@@ -225,7 +225,7 @@ void task_title_8c015ab8(Task* task, void *state) {
         case TITLE_STATE_0X09_VMU_WARNING_FADE_OUT: {
             if (isFading_8c226568 == FALSE) {
                 menuState_8c1bc7a8.state_0x18 = TITLE_STATE_0X0A_TITLE_FADE_IN;
-                LOG_TRACE(("[TITLE] State changed: 0X0A_TITLE_FADE_IN\n"));
+                LOG_DEBUG(("[TITLE] State changed: 0X0A_TITLE_FADE_IN\n"));
                 push_fadein_8c022a9c(10);
                 return;
             }
@@ -240,7 +240,7 @@ void task_title_8c015ab8(Task* task, void *state) {
             if (isFading_8c226568 == FALSE) {
                 /* 8c015cf2 */
                 menuState_8c1bc7a8.state_0x18 = TITLE_STATE_0X0B_BUS_SLIDE;
-                LOG_TRACE(("[TITLE] State changed: 0X0B_BUS_SLIDE\n"));
+                LOG_DEBUG(("[TITLE] State changed: 0X0B_BUS_SLIDE\n"));
                 menuState_8c1bc7a8.busX_0x20 = 640;
 
                 /* Related to music */
@@ -260,7 +260,7 @@ void task_title_8c015ab8(Task* task, void *state) {
 
             if (menuState_8c1bc7a8.busX_0x20 <= 180) {
                 menuState_8c1bc7a8.state_0x18 = TITLE_STATE_0X0C_FLAG_REVEAL;
-                LOG_TRACE(("[TITLE] State changed: 0X0C_FLAG_REVEAL\n"));
+                LOG_DEBUG(("[TITLE] State changed: 0X0C_FLAG_REVEAL\n"));
                 menuState_8c1bc7a8.flagY_0x24 = 167.0;
 
                 /* Missing break! */
@@ -284,7 +284,7 @@ void task_title_8c015ab8(Task* task, void *state) {
 
             if (menuState_8c1bc7a8.flagY_0x24 <= 97) {
                 menuState_8c1bc7a8.state_0x18 = TITLE_STATE_0X0E_PRESS_START;
-                LOG_TRACE(("[TITLE] State changed: 0X0E_PRESS_START\n"));
+                LOG_DEBUG(("[TITLE] State changed: 0X0E_PRESS_START\n"));
             }
 
             /* 8c015d6a - Draw flag */
@@ -304,7 +304,7 @@ void task_title_8c015ab8(Task* task, void *state) {
         case TITLE_STATE_0X0D_TITLE_FADE_IN_DIRECT: {
             if (isFading_8c226568 == FALSE) {
                 menuState_8c1bc7a8.state_0x18 = TITLE_STATE_0X0E_PRESS_START;
-                LOG_TRACE(("[TITLE] State changed: 0X0E_PRESS_START\n"));
+                LOG_DEBUG(("[TITLE] State changed: 0X0E_PRESS_START\n"));
             }
 
             /* 8c015f60 (shared) */
@@ -328,14 +328,14 @@ void task_title_8c015ab8(Task* task, void *state) {
                 sdMidiPlay(midiHandles_8c0fcd28[0], 1, 0, 0);
 
                 menuState_8c1bc7a8.state_0x18 = TITLE_STATE_0X0F_START_PRESSED;
-                LOG_TRACE(("[TITLE] State changed: 0X0F_START_PRESSED\n"));
+                LOG_DEBUG(("[TITLE] State changed: 0X0F_START_PRESSED\n"));
                 menuState_8c1bc7a8.logo_timer_0x68 = 0;
             } else {
                 /* 8c015e42 */
                 if (++menuState_8c1bc7a8.startTimer_0x64 > 1050) {
                     /* 8c015e54 */
                     menuState_8c1bc7a8.state_0x18 = TITLE_STATE_0X11_TIME_OUT;
-                    LOG_TRACE(("[TITLE] State changed: 0X11_TIME_OUT\n"));
+                    LOG_DEBUG(("[TITLE] State changed: 0X11_TIME_OUT\n"));
                     FUN_8c010bae(0);
                     FUN_8c010bae(1);
 
@@ -358,7 +358,7 @@ void task_title_8c015ab8(Task* task, void *state) {
         case TITLE_STATE_0X0F_START_PRESSED: {
             if (++menuState_8c1bc7a8.logo_timer_0x68 > 10) {
                 menuState_8c1bc7a8.state_0x18 = TITLE_STATE_0X10_START_PRESSED_FADE_OUT;
-                LOG_TRACE(("[TITLE] State changed: 0X10_START_PRESSED_FADE_OUT\n"));
+                LOG_DEBUG(("[TITLE] State changed: 0X10_START_PRESSED_FADE_OUT\n"));
                 push_fadeout_8c022b60(10);
             }
 
@@ -440,7 +440,7 @@ void pushTitle_8c015fd6 (Bool direct) {
     njSetBackColor(0,0,0);
     pushTask_8c014ae8(var_tasks_8c1ba3c8, &task_title_8c015ab8, &created_task, &created_state, 0);
     menuState_8c1bc7a8.state_0x18 = TITLE_STATE_0X00_INIT;
-    LOG_TRACE(("[TITLE] State changed: 0X00_INIT\n"));
+    LOG_DEBUG(("[TITLE] State changed: 0X00_INIT\n"));
     menuState_8c1bc7a8.startTimer_0x64 = 0;
     created_task->field_0x08 = direct;
     var_8c1bb8c4 = 1;
