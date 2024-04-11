@@ -47,4 +47,4 @@ jobs:
           echo "HLNK_LIBRARY3=$(winepath -w $DC_SDK/shc/lib/sh4nlfzn.lib)" >> "$GITHUB_ENV"
 
       - name: Build
-        run: bash build.sh
+        run: bash scripts/build.sh

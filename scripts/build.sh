@@ -5,7 +5,7 @@ ASMSH_FLAGS="-debug=d -cpu=sh4 -endian=little -sjis"
 assemble() {
   local src_file="$1"
   local base_name=$(basename "$src_file" .src)
-  local obj_file="build\\$base_name.obj"
+  local obj_file="build\\output\\$base_name.obj"
 
   wine "$SHC_BIN/asmsh.exe" $(echo "$src_file"| tr / '\\') -object="$obj_file" $ASMSH_FLAGS
 }
@@ -13,15 +13,15 @@ assemble() {
 compile() {
   local src_file="$1"
   local base_name=$(basename "$src_file" .c)
-  local obj_file="build\\$base_name.obj"
+  local obj_file="build\\output\\$base_name.obj"
 
-  wine "$SHC_BIN/shc.exe" $(echo "$src_file" | tr / '\\') -object="$obj_file" -sub=shc.sub
+  wine "$SHC_BIN/shc.exe" $(echo "$src_file" | tr / '\\') -object="$obj_file" -sub=build/shc.sub
 }
 
-sed "s/@DC_SDK@/$(printf %q "$KATANA_SDK_DIR")/g" lnk_template.sub > lnk.sub
+sed "s/@DC_SDK@/$(printf %q "$KATANA_SDK_DIR")/g" build/lnk_template.sub > build/lnk.sub
 
-rm -rf build
-mkdir build
+rm -rf build/output
+mkdir build/output
 
 compile  src/010080_main.c
 assemble src/asm/0100bc_sound.src
@@ -101,14 +101,14 @@ assemble src/asm/0fcd20_sectionB.src
 
 compile  src/scif.c
 
-wine $SHC_BIN/lnk.exe -sub=lnk.sub
+wine $SHC_BIN/lnk.exe -sub=build\\lnk.sub
 
 rm -f build/tbg.bin
-wine $KATANA_SDK_DIR/bin/elf2bin.exe -s 8c010000 build/tbg.elf
+wine $KATANA_SDK_DIR/bin/elf2bin.exe -s 8c010000 build/output/tbg.elf
 
 echo
 
-if ! sha1sum --status -c <<<"a6df9e0de39b2d11e9339aef915d20e35763ec81 *build/tbg.bin"; then
+if ! sha1sum --status -c <<<"a6df9e0de39b2d11e9339aef915d20e35763ec81 *build/output/tbg.bin"; then
     echo "================"
     echo "Project built :)"
     echo "================"

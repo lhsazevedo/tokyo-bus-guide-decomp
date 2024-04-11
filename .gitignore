@@ -1,8 +1,8 @@
-/build
+/build/output
 /diskroot
 
 # Ignore game binary
 1ST_READ.BIN
 
-set_kt.sh
-lnk.sub
+scripts/set_kt.sh
+build/lnk.sub

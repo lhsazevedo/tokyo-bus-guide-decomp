@@ -46,4 +46,4 @@ jobs:
           echo "SHC_INC=$(winepath -w $DC_SDK/shc/include),$(winepath -w $DC_SDK/shinobi/include)" >> "$GITHUB_ENV"
 
       - name: Test
-        run: bash run_tests.sh
+        run: bash scripts/run_tests.sh
