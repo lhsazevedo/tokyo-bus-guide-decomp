@@ -23,7 +23,6 @@
           .IMPORT     _var_8c157ad4
           .IMPORT     _var_8c1bb8c8
           .IMPORT     _init_8c03bf40
-          .IMPORT     _var_8c157aec
           .IMPORT     _strcmp
           .IMPORT     _strcpy
           .EXPORT     _FUN_8c012718
@@ -31,6 +30,10 @@
           .EXPORT     _FUN_8c012984
           .EXPORT     _FUN_8c012970
           .EXPORT     _const_8c033358
+
+          .AIFDEF UNIT_TESTING
+          .EXPORT     _var_8c157aec
+          .AENDI
           .SECTION     P, CODE, ALIGN=4
 task_8c012504:
           MOV.L       R14,@-R15
@@ -676,4 +679,7 @@ _const_8c033358:
           .SDATA      "FortyFive"
           .DATA.B     H'00
           .RES.W      1
+          .SECTION    B,DATA,ALIGN=4
+_var_8c157aec:
+          .RES.B      12
           .END

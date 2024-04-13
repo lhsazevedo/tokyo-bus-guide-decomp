@@ -1,8 +1,4 @@
 ; 8c0fcd20
-          .EXPORT     _var_8c157ad4
-          .EXPORT     _var_8c157ae4
-          .EXPORT     _var_8c157ae8
-          .EXPORT     _var_8c157aec
           .EXPORT     _var_tex_8c157af8
           .EXPORT     _var_fogTable_8c18aaf8
           .EXPORT     _var_texname_8c18acf8
@@ -419,14 +415,6 @@
           .EXPORT     _var_shapebuf_8c2f84a0
           .EXPORT     _var_matrix_8c2f8ca0
           .SECTION    B,DATA,ALIGN=4
-_var_8c157ad4:
-          .RES.B      16
-_var_8c157ae4:
-          .RES.B      4
-_var_8c157ae8:
-          .RES.B      4
-_var_8c157aec:
-          .RES.B      12
 _var_tex_8c157af8:
           .RES.B      208896
 _var_fogTable_8c18aaf8:
