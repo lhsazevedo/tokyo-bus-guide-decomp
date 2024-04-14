@@ -3,7 +3,7 @@
           .IMPORT     _njSqrt
           .IMPORT     _sdMidiPlay
           .IMPORT     _var_8c228660
-          .IMPORT     _midiHandles_8c0fcd28
+          .IMPORT     _var_midiHandles_8c0fcd28
           .IMPORT     _var_8c1bc460
           .IMPORT     _var_8c1bc46c
           .IMPORT     _njUnitMatrix
@@ -443,7 +443,7 @@ LP_GEN_66497:
           .DATA.L H'3E99999A ; H'8C023C78
           .DATA.L _sdMidiPlay ; H'8C023C7C
           .DATA.L _var_8c228660 ; H'8C023C80
-          .DATA.L _midiHandles_8c0fcd28 ; H'8C023C84
+          .DATA.L _var_midiHandles_8c0fcd28 ; H'8C023C84
           .DATA.L H'3E0E38E4 ; H'8C023C88
           .DATA.L H'3E8E38E4 ; H'8C023C8C
 LAB_8c023c90:
@@ -1041,7 +1041,7 @@ LP_GEN_73891:
           .DATA.W H'025C ; H'8C02410E
           .DATA.W H'0334 ; H'8C024110
           .RES.W 1 ; H'8C024112
-          .DATA.L _midiHandles_8c0fcd28 ; H'8C024114
+          .DATA.L _var_midiHandles_8c0fcd28 ; H'8C024114
           .DATA.L _var_8c1bc458 ; H'8C024118
           .DATA.L _var_8c1bc45c ; H'8C02411C
           .DATA.L _FUN_8c0206f0 ; H'8C024120

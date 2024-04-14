@@ -28,7 +28,7 @@ return new class extends TestCase {
         $optionPtr = $this->alloc(0x0c);
         $this->initUint32($optionPtr, 0);
         $this->initUint32($this->addressOf('_peripheral_8c1ba35c') + 16, 0x80);
-        $this->initUint32($this->addressOf('_midiHandles_8c0fcd28'), 0xbebacafe);
+        $this->initUint32($this->addressOf('_var_midiHandles_8c0fcd28'), 0xbebacafe);
 
         $this->shouldCall('_sdMidiPlay')->with(0xbebacafe, 1, 3, 0);
 
@@ -47,7 +47,7 @@ return new class extends TestCase {
         $optionPtr = $this->alloc(0x0c);
         $this->initUint32($optionPtr, 3);
         $this->initUint32($this->addressOf('_peripheral_8c1ba35c') + 16, 0x40);
-        $this->initUint32($this->addressOf('_midiHandles_8c0fcd28'), 0xbebacafe);
+        $this->initUint32($this->addressOf('_var_midiHandles_8c0fcd28'), 0xbebacafe);
         
         $this->shouldCall('_sdMidiPlay')->with(0xbebacafe, 1, 3, 0);
 
@@ -66,7 +66,7 @@ return new class extends TestCase {
         $optionPtr = $this->alloc(0x0c);
         $this->initUint32($optionPtr, 2);
         $this->initUint32($this->addressOf('_peripheral_8c1ba35c') + 16, 0x80);
-        $this->initUint32($this->addressOf('_midiHandles_8c0fcd28'), 0xbebacafe);
+        $this->initUint32($this->addressOf('_var_midiHandles_8c0fcd28'), 0xbebacafe);
 
         $this->shouldCall('_sdMidiPlay')->with(0xbebacafe, 1, 3, 0);
 
@@ -85,7 +85,7 @@ return new class extends TestCase {
         $optionPtr = $this->alloc(0x0c);
         $this->initUint32($optionPtr, 0);
         $this->initUint32($this->addressOf('_peripheral_8c1ba35c') + 16, 0x40);
-        $this->initUint32($this->addressOf('_midiHandles_8c0fcd28'), 0xbebacafe);
+        $this->initUint32($this->addressOf('_var_midiHandles_8c0fcd28'), 0xbebacafe);
 
         $this->shouldCall('_sdMidiPlay')->with(0xbebacafe, 1, 3, 0);
 
@@ -116,6 +116,6 @@ return new class extends TestCase {
     private function resolveImports() {
         // sizeof PERIPHERAL = 52
         $this->setSize('_peripheral_8c1ba35c', 52 * 2);
-        $this->setSize('_midiHandles_8c0fcd28', 0x8);
+        $this->setSize('_var_midiHandles_8c0fcd28', 0x8);
     }
 };

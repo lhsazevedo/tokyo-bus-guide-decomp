@@ -1,7 +1,7 @@
 ; 8c0129cc
           .IMPORT     _var_8c1bb8cc
           .IMPORT     _var_8c18ad04
-          .IMPORT     _midiHandles_8c0fcd28
+          .IMPORT     _var_midiHandles_8c0fcd28
           .IMPORT     _sdMidiPlay
           .IMPORT     _var_8c1ba358
           .IMPORT     _var_8c157a70
@@ -325,7 +325,7 @@ LAB_8c012ba6:
 LP_GEN_41107:
           .DATA.L _var_8c1bb8cc ; LP_GEN_41107+0
           .DATA.L _var_8c18ad04
-          .DATA.L _midiHandles_8c0fcd28
+          .DATA.L _var_midiHandles_8c0fcd28
           .DATA.L _sdMidiPlay
           .DATA.L _var_8c1ba358
           .DATA.L _var_8c157a70
@@ -632,7 +632,7 @@ LP_GEN_43727:
           .DATA.L _FUN_adxVol_8c010a40
           .DATA.L _FUN_8c010bae
           .DATA.L _var_8c1ba36c
-          .DATA.L _midiHandles_8c0fcd28
+          .DATA.L _var_midiHandles_8c0fcd28
           .DATA.L _sdMidiPlay
 
 LAB_8c012e5c:

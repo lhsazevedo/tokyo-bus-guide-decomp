@@ -13,7 +13,7 @@
           .IMPORT     _var_8c1ba36c
           .IMPORT     _const_8c03896c
           .IMPORT     _FUN_8c02aefc
-          .IMPORT     _midiHandles_8c0fcd28
+          .IMPORT     _var_midiHandles_8c0fcd28
           .IMPORT     _sdMidiPlay
           .IMPORT     _FUN_8c010bae
           .IMPORT     _processNavInputAndPlaySound_8c016caa
@@ -524,7 +524,7 @@ _FUN_8c01e576:
 LP_GEN_38636:
           .DATA.L _const_8c03896c ; H'8C01E5C0
           .DATA.L _FUN_8c02aefc ; H'8C01E5C4
-          .DATA.L _midiHandles_8c0fcd28 ; H'8C01E5C8
+          .DATA.L _var_midiHandles_8c0fcd28 ; H'8C01E5C8
           .DATA.L _sdMidiPlay ; H'8C01E5CC
           .DATA.L _FUN_8c010bae ; H'8C01E5D0
           .DATA.L _processNavInputAndPlaySound_8c016caa ; H'8C01E5D4
@@ -748,7 +748,7 @@ LP_GEN_92116:
           .DATA.L _var_8c22640c ; H'8C01E794
           .DATA.L _menuState_8c1bc7a8 ; H'8C01E798
           .DATA.L _isFading_8c226568 ; H'8C01E79C
-          .DATA.L _midiHandles_8c0fcd28 ; H'8C01E7A0
+          .DATA.L _var_midiHandles_8c0fcd28 ; H'8C01E7A0
           .DATA.L _sdMidiPlay ; H'8C01E7A4
           .DATA.L _var_8c1ba36c ; H'8C01E7A8
           .DATA.L _getUknPvmBool_8c01432a ; H'8C01E7AC
@@ -1555,7 +1555,7 @@ LP_GEN_52292:
           .DATA.L _isFading_8c226568 ; H'8C01EDEC
           .DATA.L _FUN_8c02aefc ; H'8C01EDF0
           .DATA.L _sdMidiPlay ; H'8C01EDF4
-          .DATA.L _midiHandles_8c0fcd28 ; H'8C01EDF8
+          .DATA.L _var_midiHandles_8c0fcd28 ; H'8C01EDF8
           .DATA.L _var_8c1ba36c ; H'8C01EDFC
           .DATA.L _getUknPvmBool_8c01432a ; H'8C01EE00
           .DATA.L _freeQueues_8c011f7e ; H'8C01EE04

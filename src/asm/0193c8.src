@@ -23,7 +23,7 @@
           .IMPORT     _FUN_8c010d8a
           .IMPORT     _snd_8c010cd6
           .IMPORT     _push_fadein_8c022a9c
-          .IMPORT     _midiHandles_8c0fcd28
+          .IMPORT     _var_midiHandles_8c0fcd28
           .IMPORT     _var_8c1ba36c
           .IMPORT     _sdMidiPlay
           .IMPORT     _const_8c037ef8
@@ -911,7 +911,7 @@ LP_GEN_31723:
           .DATA.L _FUN_8c010d8a ; H'8C019A24
           .DATA.L _snd_8c010cd6 ; H'8C019A28
           .DATA.L _push_fadein_8c022a9c ; H'8C019A2C
-          .DATA.L _midiHandles_8c0fcd28 ; H'8C019A30
+          .DATA.L _var_midiHandles_8c0fcd28 ; H'8C019A30
 LAB_8c019a34:
           ADD         #H'1,R14
 LAB_8c019a36:
@@ -1164,7 +1164,7 @@ LP_GEN_27695:
           .DATA.L _FUN_8c02aefc ; H'8C019BEC
           .DATA.L _BupGetInfo_8c014bba ; H'8C019BF0
           .DATA.L _const_8c037f0c ; H'8C019BF4
-          .DATA.L _midiHandles_8c0fcd28 ; H'8C019BF8
+          .DATA.L _var_midiHandles_8c0fcd28 ; H'8C019BF8
           .DATA.L _init_8c044dc4 ; H'8C019BFC
           .DATA.L _FUN_8c016d2c ; H'8C019C00
 LAB_8c019c04:

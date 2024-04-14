@@ -295,8 +295,8 @@ return new class extends TestCase {
         $this->shouldWriteTo('_var_8c1bc450', fdec(41));
 
         $this->shouldCall('_resetQueues_8c011f6c');
-        $this->shouldCall('_requestDat_8c011182')->with("\\SOUND", "manatee.drv", $this->addressOf('_memblkSource_8c0fcd48'));
-        $this->shouldCall('_requestDat_8c011182')->with("\\SOUND", "bus.mlt", $this->addressOf('_memblkSource_8c0fcd4c'));
+        $this->shouldCall('_requestDat_8c011182')->with("\\SOUND", "manatee.drv", $this->addressOf('_var_memblkSource_8c0fcd48'));
+        $this->shouldCall('_requestDat_8c011182')->with("\\SOUND", "bus.mlt", $this->addressOf('_var_memblkSource_8c0fcd4c'));
         $this->shouldCall('_resetUknPvmBool_8c014322');
         $this->shouldCall('_processQueues_8c011fe0')->with($this->addressOf('_nop_8c011120'), 0, 0, 0, $this->addressOf('_setUknPvmBool_8c014330'));;
 

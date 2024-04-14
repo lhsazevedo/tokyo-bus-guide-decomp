@@ -40,22 +40,22 @@
           .IMPORT     _memset
           .IMPORT     _strlen
           .IMPORT     _var_8c1bbcb0
-          .IMPORT     _varvar_uknVol_8c226468
+          .IMPORT     _var_uknVol_8c226468
           .IMPORT     __divls
           .IMPORT     __slow_mvn
           .IMPORT     __quick_evn_mvn
           .EXPORT     _init_8c03bd80
           .EXPORT     _init_8c03bd84
-          .EXPORT     _var_uknAdxVol_8c03bd88
+          .EXPORT     _init_uknAdxVol_8c03bd88
           .EXPORT     _init_vol_8c03bd90
-          .EXPORT     _adxfPartitionInfo_8c03bd94
-          .EXPORT     _adxtHandles_8c0fcd20
-          .EXPORT     _midiHandles_8c0fcd28
-          .EXPORT     _memblkSource_8c0fcd48
-          .EXPORT     _memblkSource_8c0fcd4c
+          .EXPORT     _init_adxfPartitionInfo_8c03bd94
+          .EXPORT     _var_adxtHandles_8c0fcd20
+          .EXPORT     _var_midiHandles_8c0fcd28
+          .EXPORT     _var_memblkSource_8c0fcd48
+          .EXPORT     _var_memblkSource_8c0fcd4c
           .EXPORT     _var_uknVol_8c0fcd50
-          .EXPORT     _work_8c0fcd74
-          .EXPORT     _adxf_work_8c156efc
+          .EXPORT     _var_work_8c0fcd74
+          .EXPORT     _var_adxf_work_8c156efc
           .EXPORT     _var_uknAdxVol_8c157a34
           .EXPORT     _midiResetFxAndPlay_8c010846
           .EXPORT     _FUN_8c010ca6
@@ -152,7 +152,7 @@ _initUknVol_8c0100bc:             ; function: initUknVol_8c0100bc
           FMOV.S      FR3,@(R0,R4)
 _midiSetVol_8c010128:            ; function: midiSetVol_8c010128
                                  ; frame size=32
-          MOV.L       L3+28,R3; _varvar_uknVol_8c226468
+          MOV.L       L3+28,R3; _var_uknVol_8c226468
           MOVA        L3+36,R0
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
@@ -167,7 +167,7 @@ _midiSetVol_8c010128:            ; function: midiSetVol_8c010128
           FMOV.S      @R0,FR14
           FTRC        FR3,FPUL
           MOV.L       @R14,R0
-          MOV.L       L3+32,R10; _midiHandles_8c0fcd28
+          MOV.L       L3+32,R10; _var_midiHandles_8c0fcd28
           AND         #2,R0
           MOV.L       L3+40,R12; _sdMidiSetVol
           CMP/EQ      #2,R0
@@ -274,8 +274,8 @@ L3:
           .DATA.L     H'453B8000
           .DATA.L     __divls
           .DATA.L     H'4573C000
-          .DATA.L     _varvar_uknVol_8c226468
-          .DATA.L     _midiHandles_8c0fcd28
+          .DATA.L     _var_uknVol_8c226468
+          .DATA.L     _var_midiHandles_8c0fcd28
           .DATA.L     H'C2FE0000
           .DATA.L     _sdMidiSetVol
           .DATA.L     H'41200000
@@ -291,7 +291,7 @@ _midiSetPitch_8c01023c:          ; function: midiSetPitch_8c01023c
           FMOV.S      FR13,@-R15
           STS.L       PR,@-R15
           ADD         #-4,R15
-          MOV.L       L6+4,R3 ; _varvar_uknVol_8c226468
+          MOV.L       L6+4,R3 ; _var_uknVol_8c226468
           MOVA        L6+8,R0
           FMOV.S      @R0,FR13
           MOVA        L6+12,R0
@@ -300,7 +300,7 @@ _midiSetPitch_8c01023c:          ; function: midiSetPitch_8c01023c
           MOVA        L6+24,R0
           FTRC        FR3,FPUL
           FMOV.S      @R0,FR2
-          MOV.L       L6+16,R12; _midiHandles_8c0fcd28
+          MOV.L       L6+16,R12; _var_midiHandles_8c0fcd28
           MOV.L       L6+20,R14; _sdMidiSetPitch
           MOV         R12,R13
           STS         FPUL,R4
@@ -365,7 +365,7 @@ L5:
           MOV.L       @R15+,R14
 _FUN_8c0102d8:                   ; function: FUN_8c0102d8
                                  ; frame size=32
-          MOV.L       L6+4,R2 ; _varvar_uknVol_8c226468
+          MOV.L       L6+4,R2 ; _var_uknVol_8c226468
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           MOV.L       R12,@-R15
@@ -375,7 +375,7 @@ _FUN_8c0102d8:                   ; function: FUN_8c0102d8
           MOV.L       R9,@-R15
           MOV.L       R8,@-R15
           MOV.L       L6+36,R3; _var_8c1bbcb0
-          MOV.L       L6+16,R9; _midiHandles_8c0fcd28
+          MOV.L       L6+16,R9; _var_midiHandles_8c0fcd28
           STS.L       PR,@-R15
           FMOV.S      @R2,FR3
           MOV         R9,R12
@@ -416,10 +416,10 @@ _FUN_8c0102d8:                   ; function: FUN_8c0102d8
 L6:                               
           .DATA.W     H'FF38
           .RES.W      1
-          .DATA.L     _varvar_uknVol_8c226468
+          .DATA.L     _var_uknVol_8c226468
           .DATA.L     H'C1200000
           .DATA.L     H'3D4CCCCD
-          .DATA.L     _midiHandles_8c0fcd28
+          .DATA.L     _var_midiHandles_8c0fcd28
           .DATA.L     _sdMidiSetPitch
           .DATA.L     H'41200000
           .DATA.L     H'453B8000
@@ -539,9 +539,9 @@ _createAdxHandles_8c010428:      ; function: createAdxHandles_8c010428
           MOV.L       R9,@-R15
           STS.L       PR,@-R15
           MOV.L       L14+20,R14; H'0002D0C4
-          MOV.L       L14+24,R13; _adxtHandles_8c0fcd20
+          MOV.L       L14+24,R13; _var_adxtHandles_8c0fcd20
           MOV.L       L14+16,R9; _ADXT_Create
-          MOV.L       L14+12,R12; _work_8c0fcd74
+          MOV.L       L14+12,R12; _var_work_8c0fcd74
 L12:                              
           MOV         R12,R5
           MOV         R14,R6
@@ -566,7 +566,7 @@ _createMidiHandles_8c010468:     ; function: createMidiHandles_8c010468
                                  ; frame size=16
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
-          MOV.L       L14+28,R4; _midiHandles_8c0fcd28
+          MOV.L       L14+28,R4; _var_midiHandles_8c0fcd28
           MOV.L       R12,@-R15
           STS.L       PR,@-R15
           MOV.L       L14+32,R13; _sdMidiOpenPort
@@ -597,11 +597,11 @@ L14:
           .RES.W      1
           .DATA.L     H'43C80000
           .DATA.L     H'45034000
-          .DATA.L     _work_8c0fcd74
+          .DATA.L     _var_work_8c0fcd74
           .DATA.L     _ADXT_Create
           .DATA.L     H'0002D0C4
-          .DATA.L     _adxtHandles_8c0fcd20
-          .DATA.L     _midiHandles_8c0fcd28
+          .DATA.L     _var_adxtHandles_8c0fcd20
+          .DATA.L     _var_midiHandles_8c0fcd28
           .DATA.L     _sdMidiOpenPort
 _unused_8c0104bc:                ; function: unused_8c0104bc
                                  ; frame size=0
@@ -724,12 +724,12 @@ _adxLoad_8c01057a:               ; function: adxLoad_8c01057a
           STS.L       PR,@-R15
           MOV.L       L21+46,R8; _ADXF_LoadPartition
           MOV.L       L21+50,R9; _ADXF_GetPtinfoSize
-          MOV.L       L21+54,R13; _adxfPartitionInfo_8c03bd94
+          MOV.L       L21+54,R13; _init_adxfPartitionInfo_8c03bd94
           BRA         L20
           MOV         R4,R14
 L19:                              
           EXTS.B      R14,R10
-          MOV.L       L21+58,R6; _adxf_work_8c156efc
+          MOV.L       L21+58,R6; _var_adxf_work_8c156efc
           SHLL2       R10
           SHLL        R10
           ADD         R13,R10
@@ -775,8 +775,8 @@ L21:
           .DATA.L     _init_8c03bd84
           .DATA.L     _ADXF_LoadPartition
           .DATA.L     _ADXF_GetPtinfoSize
-          .DATA.L     _adxfPartitionInfo_8c03bd94
-          .DATA.L     _adxf_work_8c156efc
+          .DATA.L     _init_adxfPartitionInfo_8c03bd94
+          .DATA.L     _var_adxf_work_8c156efc
 _finishSoundInit_8c010614:       ; function: finishSoundInit_8c010614
                                  ; frame size=12
           STS.L       PR,@-R15
@@ -784,7 +784,7 @@ _finishSoundInit_8c010614:       ; function: finishSoundInit_8c010614
           MOV.L       L29,R3   ; _sdMemBlkCreate
           JSR         @R3
           MOV         R15,R4
-          MOV.L       L29+8,R3 ; _memblkSource_8c0fcd4c
+          MOV.L       L29+8,R3 ; _var_memblkSource_8c0fcd4c
           MOV         #0,R2
           MOV.L       L29+12,R1; _sdMemBlkSetPrm
           MOV         #-1,R7
@@ -797,7 +797,7 @@ _finishSoundInit_8c010614:       ; function: finishSoundInit_8c010614
           JSR         @R3
           MOV.L       @(4,R15),R4
           MOV.L       L29+20,R3; _syFree
-          MOV.L       L29+8,R2 ; _memblkSource_8c0fcd4c
+          MOV.L       L29+8,R2 ; _var_memblkSource_8c0fcd4c
           JSR         @R3
           MOV.L       @R2,R4
           MOV.L       L29+24,R3; _sdMemBlkDestroy
@@ -833,7 +833,7 @@ _soundInit_8c01065e:             ; function: soundInit_8c01065e
           MOV.L       L29,R2   ; _sdMemBlkCreate
           JSR         @R2
           MOV         R15,R4
-          MOV.L       L29+44,R2; _memblkSource_8c0fcd48
+          MOV.L       L29+44,R2; _var_memblkSource_8c0fcd48
           MOV         #0,R3
           MOV.L       R3,@-R15
           MOV         #-1,R7
@@ -849,7 +849,7 @@ _soundInit_8c01065e:             ; function: soundInit_8c01065e
           JSR         @R3
           MOV.L       @(4,R15),R4
           MOV.L       L29+20,R3; _syFree
-          MOV.L       L29+44,R2; _memblkSource_8c0fcd48
+          MOV.L       L29+44,R2; _var_memblkSource_8c0fcd48
           JSR         @R3
           MOV.L       @R2,R4
           MOV.L       L29+52,R2; _sdMemBlkSetTransferMode
@@ -863,7 +863,7 @@ _FUN_8c0106ac:                   ; function: FUN_8c0106ac
                                  ; frame size=4
           STS.L       PR,@-R15
           MOV.L       L29+60,R3; _ADXT_GetStat
-          MOV.L       L29+56,R4; H'00000004+_adxtHandles_8c0fcd20
+          MOV.L       L29+56,R4; H'00000004+_var_adxtHandles_8c0fcd20
           JSR         @R3
           MOV.L       @R4,R4
           MOV         R0,R4
@@ -909,7 +909,7 @@ L25:
           MOV         #70,R1
           CMP/GT      R1,R14
           BT          L27
-          MOV.L       L29+68,R4; _midiHandles_8c0fcd28
+          MOV.L       L29+68,R4; _var_midiHandles_8c0fcd28
           MOV         R14,R6
           MOV.L       L29+72,R3; _sdMidiPlay
           MOV         #1,R5
@@ -947,7 +947,7 @@ _FUN_8c010720:                   ; function: FUN_8c010720
 L29:                              
           .DATA.L     _sdMemBlkCreate
           .DATA.L     H'00119D00
-          .DATA.L     _memblkSource_8c0fcd4c
+          .DATA.L     _var_memblkSource_8c0fcd4c
           .DATA.L     _sdMemBlkSetPrm
           .DATA.L     _sdMultiUnitDownload
           .DATA.L     _syFree
@@ -956,13 +956,13 @@ L29:
           .DATA.L     _usr_adx_err_func_8c010532
           .DATA.L     _ADXT_EntryErrFunc
           .DATA.L     _sdLibInit
-          .DATA.L     _memblkSource_8c0fcd48
+          .DATA.L     _var_memblkSource_8c0fcd48
           .DATA.L     _sdDrvInit
           .DATA.L     _sdMemBlkSetTransferMode
-          .DATA.L     H'00000004+_adxtHandles_8c0fcd20
+          .DATA.L     H'00000004+_var_adxtHandles_8c0fcd20
           .DATA.L     _ADXT_GetStat
           .DATA.L     _init_8c03bd80
-          .DATA.L     _midiHandles_8c0fcd28
+          .DATA.L     _var_midiHandles_8c0fcd28
           .DATA.L     _sdMidiPlay
 L30:                              
           MOV         #63,R3
@@ -1021,8 +1021,8 @@ _controlAdxtWithOutVol_8c0107d2: ; function: controlAdxtWithOutVol_8c0107d2
           STS.L       PR,@-R15
           MOV.L       L41+14,R14; _ADXT_SetOutVol
           MOV.W       L41+2,R13; H'FC22
-          MOV.L       L41+6,R10; _adxtHandles_8c0fcd20
-          MOV.L       L41+10,R12; _midiHandles_8c0fcd28
+          MOV.L       L41+6,R10; _var_adxtHandles_8c0fcd20
+          MOV.L       L41+10,R12; _var_midiHandles_8c0fcd28
           BF/S        L37
           MOV         R10,R11
           MOV         R13,R5
@@ -1045,12 +1045,12 @@ L36:
 L37:                              
           TST         R4,R4
           BF          L39
-          MOV.L       L41+22,R3; _var_uknAdxVol_8c03bd88
+          MOV.L       L41+22,R3; _init_uknAdxVol_8c03bd88
           MOV.L       @R3,R5
           ADD         R13,R5
           JSR         @R14
           MOV.L       @R11,R4
-          MOV.L       L41+26,R2; H'00000004+_var_uknAdxVol_8c03bd88
+          MOV.L       L41+26,R2; H'00000004+_init_uknAdxVol_8c03bd88
           MOV.L       @R2,R5
           ADD         R13,R5
           JSR         @R14
@@ -1087,7 +1087,7 @@ _midiResetFxAndPlay_8c010846:    ; function: midiResetFxAndPlay_8c010846
           MOV         #0,R5
           JSR         @R3
           MOV         R5,R4
-          MOV.L       L41+10,R14; _midiHandles_8c0fcd28
+          MOV.L       L41+10,R14; _var_midiHandles_8c0fcd28
           MOV         #0,R13
           MOV.L       L41+38,R11; _sdMidiSetFxLev
           MOV         #6,R12
@@ -1101,7 +1101,7 @@ L40:
           BF          L40
           MOV.L       @R15,R4
           MOV         #0,R7
-          MOV.L       L41+10,R0; _midiHandles_8c0fcd28
+          MOV.L       L41+10,R0; _var_midiHandles_8c0fcd28
           MOV         R7,R5
           SHLL2       R4
           MOV.L       @(4,R15),R6
@@ -1118,12 +1118,12 @@ L41:
           .DATA.W     H'056C
           .DATA.W     H'FC22
           .RES.W      1
-          .DATA.L     _adxtHandles_8c0fcd20
-          .DATA.L     _midiHandles_8c0fcd28
+          .DATA.L     _var_adxtHandles_8c0fcd20
+          .DATA.L     _var_midiHandles_8c0fcd28
           .DATA.L     _ADXT_SetOutVol
           .DATA.L     _sdMidiPause
-          .DATA.L     _var_uknAdxVol_8c03bd88
-          .DATA.L     H'00000004+_var_uknAdxVol_8c03bd88
+          .DATA.L     _init_uknAdxVol_8c03bd88
+          .DATA.L     H'00000004+_init_uknAdxVol_8c03bd88
           .DATA.L     _sdMidiContinue
           .DATA.L     _sdSndSetFxPrg
           .DATA.L     _sdMidiSetFxLev
@@ -1252,9 +1252,9 @@ _setAdxVol_8c010972:                   ; function: setAdxVol_8c010972
           BRA         L54
           NOP
 L50:                              ; case label 
-          MOV.L       L51+42,R1; _var_uknAdxVol_8c03bd88
+          MOV.L       L51+42,R1; _init_uknAdxVol_8c03bd88
           MOV.L       @R6,R3
-          MOV.L       L51+46,R4; _adxtHandles_8c0fcd20
+          MOV.L       L51+46,R4; _var_adxtHandles_8c0fcd20
           MOV.L       R3,@R1
           MOV.L       @R1,R5
           MOV.W       L51+2,R3 ; H'FC22
@@ -1274,8 +1274,8 @@ L51:
           .DATA.L     _syCfgGetSoundMode
           .DATA.L     L82
           .DATA.L     __quick_evn_mvn
-          .DATA.L     _var_uknAdxVol_8c03bd88
-          .DATA.L     _adxtHandles_8c0fcd20
+          .DATA.L     _init_uknAdxVol_8c03bd88
+          .DATA.L     _var_adxtHandles_8c0fcd20
 L52:                              ; case label 
           MOV.L       L59+6,R1
           MOV.L       @R6,R3
@@ -1311,7 +1311,7 @@ _setMidiVolAndInitStruct_8c0109f4:                   ; function: setMidiVolAndIn
           MOV         #40,R0
           MOV         R4,R0
           SHLL2       R0
-          MOV.L       L59+30,R4; _midiHandles_8c0fcd28
+          MOV.L       L59+30,R4; _var_midiHandles_8c0fcd28
           MOV.L       @(R0,R5),R3
           MOV.L       L59+26,R13; _init_vol_8c03bd90
           MOV         R4,R11
@@ -1438,19 +1438,19 @@ L59:
           .DATA.W     H'FC22 ; L59
           .DATA.W     H'FED4 ; L59+2
           .RES.W      1
-          .DATA.L     _var_uknAdxVol_8c03bd88+4 ; L59+6
-          .DATA.L     H'00000004+_adxtHandles_8c0fcd20
+          .DATA.L     H'00000004+_init_uknAdxVol_8c03bd88 ; L59+6
+          .DATA.L     H'00000004+_var_adxtHandles_8c0fcd20
           .DATA.L     _ADXT_SetOutVol
           .DATA.L     L83 ; Initialized var
           .DATA.L     __quick_evn_mvn ; L59+22
           .DATA.L     _init_vol_8c03bd90
-          .DATA.L     H'00000008+_adxtHandles_8c0fcd20
+          .DATA.L     H'00000008+_var_adxtHandles_8c0fcd20
           .DATA.L     _sdMidiSetVol
-          .DATA.L     _adxtHandles_8c0fcd20 ; L59+38
+          .DATA.L     _var_adxtHandles_8c0fcd20 ; L59+38
           .DATA.L     _var_uknAdxVol_8c157a34
           .DATA.L     _init_8c03bd80
           .DATA.L     _ADXT_Stop
-          .DATA.L     _var_uknAdxVol_8c03bd88 ; L59+54
+          .DATA.L     _init_uknAdxVol_8c03bd88 ; L59+54
 L60:                              
           MOV.W       L67+0,R0
           TST         R4,R0
@@ -1527,7 +1527,7 @@ _FUN_8c010bae:                   ; function: FUN_8c010bae
           MOV.L       @R5,R6
           TST         R6,R3
           BF          L66
-          MOV.W       L67+2,R7  ; _var_uknAdxVol_8c03bd88
+          MOV.W       L67+2,R7  ; _init_uknAdxVol_8c03bd88
           TST         R4,R4
           BF          L65
           MOV         #15,R0
@@ -1579,8 +1579,8 @@ L67:
           .DATA.W     H'00F0 ; L67+0
           .DATA.W     H'FC22
           .DATA.W     H'FED4
-          .DATA.L     _var_uknAdxVol_8c03bd88
-          .DATA.L     _var_uknAdxVol_8c03bd88+4 ; L67+10
+          .DATA.L     _init_uknAdxVol_8c03bd88
+          .DATA.L     H'00000004+_init_uknAdxVol_8c03bd88 ; L67+10
           .DATA.L     _var_uknAdxVol_8c157a34
           .DATA.L     __divls
 
@@ -1635,7 +1635,7 @@ _FUN_8c010c7c:                   ; function: FUN_8c010c7c
                                  ; frame size=16
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
-          MOV.L       L74+20,R4; _adxtHandles_8c0fcd20
+          MOV.L       L74+20,R4; _var_adxtHandles_8c0fcd20
           MOV.L       R12,@-R15
           STS.L       PR,@-R15
           MOV.L       L74+24,R13; _ADXT_Stop
@@ -1676,7 +1676,7 @@ L70:
           AND         R3,R2
           MOV.L       R2,@R4
 L71:                              
-          MOV.L       L74+20,R0 ; _adxtHandles_8c0fcd20
+          MOV.L       L74+20,R0 ; _var_adxtHandles_8c0fcd20
           MOV         R14,R4
           SHLL2       R4
           MOV.L       L74+24,R3; _ADXT_Stop
@@ -1739,9 +1739,9 @@ L74:
           .DATA.W     H'0000
           .DATA.L     _var_uknAdxVol_8c157a34
           .DATA.L     _init_8c03bd80
-          .DATA.L     H'00000004+_var_uknAdxVol_8c03bd88
+          .DATA.L     H'00000004+_init_uknAdxVol_8c03bd88
           .DATA.L     __divls
-          .DATA.L     _adxtHandles_8c0fcd20
+          .DATA.L     _var_adxtHandles_8c0fcd20
           .DATA.L     _ADXT_Stop
           .DATA.L     _ADXT_StartAfs
 L75:
@@ -1783,10 +1783,10 @@ _FUN_8c010d8a:                   ; function: FUN_8c010d8a
           MOV.L       R12,@-R15
           STS.L       PR,@-R15
           MOV.L       L80+12,R3 ; _ADXT_Stop
-          MOV.L       L80+8,R14 ; _adxtHandles_8c0fcd20
+          MOV.L       L80+8,R14 ; _var_adxtHandles_8c0fcd20
           JSR         @R3
           MOV.L       @R14,R4
-          MOV.L       L80+16,R2; _var_uknAdxVol_8c03bd88
+          MOV.L       L80+16,R2; _init_uknAdxVol_8c03bd88
           MOV.W       L80,R3   ; H'FC22
           MOV.L       @R2,R5
           MOV.L       L80+20,R1; _ADXT_SetOutVol
@@ -1805,7 +1805,7 @@ _FUN_8c010d8a:                   ; function: FUN_8c010d8a
           MOV.L       R3,@R13
           JSR         @R2
           MOV.L       @R14,R4
-          MOV.L       L80+16,R2; _var_uknAdxVol_8c03bd88
+          MOV.L       L80+16,R2; _init_uknAdxVol_8c03bd88
           MOV.W       L80,R3   ; H'FC22
           MOV.L       @R2,R5
           MOV.L       L80+20,R1; _ADXT_SetOutVol
@@ -1831,11 +1831,11 @@ _unusedStopMidiAdx_8c010de6:                   ; function: unusedStopMidiAdx_8c0
           JSR         @R2
           NOP
           MOV.L       L80+12,R3; _ADXT_Stop
-          MOV.L       L80+8,R4 ; _adxtHandles_8c0fcd20
+          MOV.L       L80+8,R4 ; _var_adxtHandles_8c0fcd20
           JSR         @R3
           MOV.L       @R4,R4
           MOV.L       L80+12,R2; _ADXT_Stop
-          MOV.L       L80+36,R4; H'00000004+_adxtHandles_8c0fcd20
+          MOV.L       L80+36,R4; H'00000004+_var_adxtHandles_8c0fcd20
           JSR         @R2
           MOV.L       @R4,R4
           MOV.L       L80+28,R2; _init_8c03bd80
@@ -1891,14 +1891,14 @@ L80:
           .DATA.W     H'FC22
           .RES.W      1
           .DATA.L     H'7FFFFFFF
-          .DATA.L     _adxtHandles_8c0fcd20
+          .DATA.L     _var_adxtHandles_8c0fcd20
           .DATA.L     _ADXT_Stop
-          .DATA.L     _var_uknAdxVol_8c03bd88
+          .DATA.L     _init_uknAdxVol_8c03bd88
           .DATA.L     _ADXT_SetOutVol
           .DATA.L     _var_uknAdxVol_8c157a34
           .DATA.L     _init_8c03bd80
           .DATA.L     _sdMidiStopAll
-          .DATA.L     H'00000004+_adxtHandles_8c0fcd20
+          .DATA.L     H'00000004+_var_adxtHandles_8c0fcd20
           .DATA.L     _init_8c03bd84
           .DATA.L     _memset
           .DATA.L     _gdFsChangeDir
@@ -1907,11 +1907,11 @@ _init_8c03bd80:                      ; static: init_8c03bd80
           .DATA.L     H'00000000
 _init_8c03bd84:                      ; static: _init_8c03bd84
           .DATA.L     H'00000001
-_var_uknAdxVol_8c03bd88:                      ; static: var_uknAdxVol_8c03bd88
+_init_uknAdxVol_8c03bd88:                      ; static: init_uknAdxVol_8c03bd88
           .DATA.L     H'000003DE,H'000003DE
 _init_vol_8c03bd90:                      ; static: init_vol_8c03bd90
           .DATA.L     H'0000007F
-_adxfPartitionInfo_8c03bd94:     ; static: adxfPartitionInfo_8c03bd94
+_init_adxfPartitionInfo_8c03bd94:     ; static: init_adxfPartitionInfo_8c03bd94
           .DATA.L     L84
           .DATA.L     H'00000050
           .DATA.L     L85
@@ -1938,19 +1938,19 @@ L85:
 L86:
           .DATA.B     H'00
           .SECTION    B,DATA,ALIGN=4
-_adxtHandles_8c0fcd20:           ; static: adxtHandles_8c0fcd20
+_var_adxtHandles_8c0fcd20:           ; static: var_adxtHandles_8c0fcd20
           .RES.L      2
-_midiHandles_8c0fcd28:           ; static: midiHandles_8c0fcd28
+_var_midiHandles_8c0fcd28:           ; static: var_midiHandles_8c0fcd28
           .RES.L      8
-_memblkSource_8c0fcd48:          ; static: memblkSource_8c0fcd48
+_var_memblkSource_8c0fcd48:          ; static: var_memblkSource_8c0fcd48
           .RES.L      1
-_memblkSource_8c0fcd4c:          ; static: memblkSource_8c0fcd4c
+_var_memblkSource_8c0fcd4c:          ; static: var_memblkSource_8c0fcd4c
           .RES.L      1
 _var_uknVol_8c0fcd50:                      ; static: var_uknVol_8c0fcd50
           .RES.L      9
-_work_8c0fcd74:                  ; static: work_8c0fcd74
+_var_work_8c0fcd74:                  ; static: var_work_8c0fcd74
           .RES.B      369032
-_adxf_work_8c156efc:             ; static: adxf_work_8c156efc
+_var_adxf_work_8c156efc:             ; static: var_adxf_work_8c156efc
           .RES.B      2872
 _var_uknAdxVol_8c157a34:                      ; static: var_uknAdxVol_8c157a34
           .RES.L      5

@@ -76,9 +76,9 @@
           .IMPORT     _var_loadedFooNjm_8c1bc448
           .IMPORT     _var_8c1bc450
           .IMPORT     _resetQueues_8c011f6c
-          .IMPORT     _memblkSource_8c0fcd48
+          .IMPORT     _var_memblkSource_8c0fcd48
           .IMPORT     _requestDat_8c011182
-          .IMPORT     _memblkSource_8c0fcd4c
+          .IMPORT     _var_memblkSource_8c0fcd4c
           .IMPORT     _resetUknPvmBool_8c014322
           .IMPORT     _setUknPvmBool_8c014330
           .IMPORT     _nop_8c011120
@@ -905,10 +905,10 @@ LP_GEN_65923:
           .DATA.L H'4F800000
           .DATA.L _var_8c1bc450
           .DATA.L _resetQueues_8c011f6c
-          .DATA.L _memblkSource_8c0fcd48
+          .DATA.L _var_memblkSource_8c0fcd48
           .DATA.L _const_8c03336c
           .DATA.L _requestDat_8c011182
-          .DATA.L _memblkSource_8c0fcd4c
+          .DATA.L _var_memblkSource_8c0fcd4c
           .DATA.L _const_8c033378
           .DATA.L _resetUknPvmBool_8c014322
           .DATA.L _setUknPvmBool_8c014330

@@ -1,6 +1,6 @@
 ; 8c016c58
           .IMPORT     _sdMidiPlay
-          .IMPORT     _midiHandles_8c0fcd28
+          .IMPORT     _var_midiHandles_8c0fcd28
           .IMPORT     _peripheral_8c1ba35c
           .EXPORT     _cycleOptionAndPlaySound_8c016c58
           .EXPORT     _processNavInputAndPlaySound_8c016caa
@@ -118,7 +118,7 @@ L9:
 L10:                               
           .DATA.W     H'0080 ; H'8C016D1A
           .DATA.L     H'00000010+_peripheral_8c1ba35c ; H'8C016D1C
-          .DATA.L     _midiHandles_8c0fcd28 ; H'8C016D20
+          .DATA.L     _var_midiHandles_8c0fcd28 ; H'8C016D20
           .DATA.L     _sdMidiPlay ; H'8C016D24
           .DATA.L     _peripheral_8c1ba35c ; H'8C016D28
           .END

@@ -1,6 +1,6 @@
 ; 8c020214
           .IMPORT     _FUN_8c0121be
-          .IMPORT     _midiHandles_8c0fcd28
+          .IMPORT     _var_midiHandles_8c0fcd28
           .IMPORT     _sdMidiPlay
           .IMPORT     _var_8c22870c
           .IMPORT     _var_8c2264b8
@@ -164,7 +164,7 @@ LP_GEN_12106:
           .DATA.W H'0096 ; H'8C020310
           .RES.W 1 ; H'8C020312
           .DATA.L _FUN_8c0121be ; H'8C020314
-          .DATA.L _midiHandles_8c0fcd28 ; H'8C020318
+          .DATA.L _var_midiHandles_8c0fcd28 ; H'8C020318
           .DATA.L _sdMidiPlay ; H'8C02031C
           .DATA.L _var_8c22870c ; H'8C020320
           .DATA.L _var_8c2264b8 ; H'8C020324

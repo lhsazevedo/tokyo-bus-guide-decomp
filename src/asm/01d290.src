@@ -8,7 +8,7 @@
           .IMPORT     _freeQueues_8c011f7e
           .IMPORT     _snd_8c010cd6
           .IMPORT     _push_fadein_8c022a9c
-          .IMPORT     _midiHandles_8c0fcd28
+          .IMPORT     _var_midiHandles_8c0fcd28
           .IMPORT     _sdMidiPlay
           .IMPORT     _FUN_8c010bae
           .IMPORT     _push_fadeout_8c022b60
@@ -237,7 +237,7 @@ LP_GEN_16673:
           .DATA.L _freeQueues_8c011f7e ; H'8C01D410
           .DATA.L _snd_8c010cd6 ; H'8C01D414
           .DATA.L _push_fadein_8c022a9c ; H'8C01D418
-          .DATA.L _midiHandles_8c0fcd28 ; H'8C01D41C
+          .DATA.L _var_midiHandles_8c0fcd28 ; H'8C01D41C
           .DATA.L _sdMidiPlay ; H'8C01D420
           .DATA.L _FUN_8c010bae ; H'8C01D424
           .DATA.L _push_fadeout_8c022b60 ; H'8C01D428
@@ -493,7 +493,7 @@ LP_GEN_25803:
           .DATA.W H'270F ; H'8C01D5E6
           .DATA.L _init_8c045170 ; H'8C01D5E8
           .DATA.L H'40C00000 ; H'8C01D5EC
-          .DATA.L _midiHandles_8c0fcd28 ; H'8C01D5F0
+          .DATA.L _var_midiHandles_8c0fcd28 ; H'8C01D5F0
           .DATA.L _sdMidiPlay ; H'8C01D5F4
 LAB_8c01d5f8:
           MOV.L       @(H'10,R9),R0
@@ -672,7 +672,7 @@ LAB_8c01d730:
           MOV.L       R7,@(H'8,R13)
 LP_GEN_43132:
           .RES.W 1 ; H'8C01D73A
-          .DATA.L _midiHandles_8c0fcd28 ; H'8C01D73C
+          .DATA.L _var_midiHandles_8c0fcd28 ; H'8C01D73C
           .DATA.L _sdMidiPlay ; H'8C01D740
           .DATA.L _FUN_8c010bae ; H'8C01D744
           .DATA.L _push_fadeout_8c022b60 ; H'8C01D748

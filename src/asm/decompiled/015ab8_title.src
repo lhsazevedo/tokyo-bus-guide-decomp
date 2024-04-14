@@ -7,7 +7,7 @@
           .IMPORT     _freeQueues_8c011f7e
           .IMPORT     _FUN_8c01940e
           .IMPORT     _push_fadein_8c022a9c
-          .IMPORT     _midiHandles_8c0fcd28
+          .IMPORT     _var_midiHandles_8c0fcd28
           .IMPORT     _isFading_8c226568
           .IMPORT     _drawSprite_8c014f54
           .IMPORT     _push_fadeout_8c022b60
@@ -79,7 +79,7 @@ _task_title_8c015ab8:            ; function: task_title_8c015ab8
           MOV.L       @(16,R9),R0
           TST         #8,R0
           BT          L0
-          MOV.L       L3+30,R4; _midiHandles_8c0fcd28
+          MOV.L       L3+30,R4; _var_midiHandles_8c0fcd28
           MOV         #0,R7
           MOV.L       L3+34,R2; _sdMidiPlay
           MOV         R7,R6
@@ -118,7 +118,7 @@ L3:
           .DATA.L     _menuState_8c1bc7a8
           .DATA.L     _peripheral_8c1ba35c
           .DATA.L     _isFading_8c226568 ; H'8c015b50
-          .DATA.L     _midiHandles_8c0fcd28
+          .DATA.L     _var_midiHandles_8c0fcd28
           .DATA.L     _sdMidiPlay
           .DATA.L     _push_fadein_8c022a9c
           .DATA.L     _push_fadeout_8c022b60 ; H'8c015b60
@@ -473,7 +473,7 @@ L37:
           .DATA.L     _FUN_8c012984 ; H'8c015de0
           .DATA.L     _saveNames_8c044d50
           .DATA.L     _FUN_8c019550
-          .DATA.L     _midiHandles_8c0fcd28
+          .DATA.L     _var_midiHandles_8c0fcd28
           .DATA.L     _sdMidiPlay ; H'8c015df0
           .DATA.L     H'44200000 ; 640.0
           .DATA.L     _snd_8c010cd6
@@ -642,7 +642,7 @@ L47:                              ; case label 11
 L48:                              
           .DATA.W     H'041A ; H'8c015f36
           .DATA.L     _FUN_8c010bae ; H'8c015f38
-          .DATA.L     _midiHandles_8c0fcd28
+          .DATA.L     _var_midiHandles_8c0fcd28
           .DATA.L     _sdMidiPlay ; H'8c015f40
           .DATA.L     _saveNames_8c044d50
           .DATA.L     _FUN_8c019550

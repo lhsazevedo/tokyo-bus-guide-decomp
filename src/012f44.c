@@ -401,8 +401,8 @@ extern Uint32 var_8c1ba292;
 extern Uint32 var_8c1ba291;
 extern int var_8c227da8;
 extern task_load_8c014338;
-extern memblkSource_8c0fcd48;
-extern memblkSource_8c0fcd4c;
+extern var_memblkSource_8c0fcd48;
+extern var_memblkSource_8c0fcd4c;
 extern var_queuesAreInitialized_8c157a60;
 extern init_8c03bfa8;
 
@@ -618,8 +618,8 @@ void task_8c013388(Task *task, void *state) {
                 var_8c1bc450 = (Float) var_loadedFooNjm_8c1bc448->nbFrame - 1;
 
                 resetQueues_8c011f6c();
-                requestDat_8c011182("\\SOUND", "manatee.drv", &memblkSource_8c0fcd48);
-                requestDat_8c011182("\\SOUND", "bus.mlt", &memblkSource_8c0fcd4c);
+                requestDat_8c011182("\\SOUND", "manatee.drv", &var_memblkSource_8c0fcd48);
+                requestDat_8c011182("\\SOUND", "bus.mlt", &var_memblkSource_8c0fcd4c);
                 resetUknPvmBool_8c014322();
                 processQueues_8c011fe0(&nop_8c011120, 0, 0, 0, &setUknPvmBool_8c014330);
             }

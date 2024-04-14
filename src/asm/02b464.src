@@ -6,7 +6,7 @@
           .IMPORT     _var_8c2285c4
           .IMPORT     _var_8c1bb8f0
           .IMPORT     _var_8c1bb8ec
-          .IMPORT     _midiHandles_8c0fcd28
+          .IMPORT     _var_midiHandles_8c0fcd28
           .IMPORT     _sdMidiPlay
           .IMPORT     __quick_evn_mvn
           .IMPORT     _init_8c04c35c
@@ -243,7 +243,7 @@ LP_GEN_45010:
           .DATA.L _var_8c2285c4 ; H'8C02B55C
           .DATA.L _var_8c1bb8f0 ; H'8C02B560
           .DATA.L _var_8c1bb8ec ; H'8C02B564
-          .DATA.L _midiHandles_8c0fcd28 + 20 ; H'8C02B568
+          .DATA.L _var_midiHandles_8c0fcd28 + 20 ; H'8C02B568
           .DATA.L _sdMidiPlay ; H'8C02B56C
           .DATA.L __quick_evn_mvn ; H'8C02B570
           .DATA.L _init_8c04c35c ; H'8C02B574
@@ -603,7 +603,7 @@ LP_GEN_48273:
           .DATA.L _var_8c1bbd9c ; H'8C02B824
           .DATA.L _var_8c228664 ; H'8C02B828
           .DATA.L _FUN_8c02e2dc ; H'8C02B82C
-          .DATA.L _midiHandles_8c0fcd28 ; H'8C02B830
+          .DATA.L _var_midiHandles_8c0fcd28 ; H'8C02B830
           .DATA.L _sdMidiPlay ; H'8C02B834
           .DATA.L _var_8c228668 ; H'8C02B838
           .DATA.L _var_8c228670 ; H'8C02B83C
