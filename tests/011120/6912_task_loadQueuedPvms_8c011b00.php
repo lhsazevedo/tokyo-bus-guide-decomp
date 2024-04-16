@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use Lhsazevedo\Sh4ObjTest\TestCase;
+use Lhsazevedo\Sh4ObjTest\Simulator\Types\U32;
 
 return new class extends TestCase {
     public function test_case0_readsFirstItem()
@@ -77,7 +78,7 @@ return new class extends TestCase {
         $this->shouldCall('_gdFsGetFileSctSize')
             ->with(0xf5f50000, $sizeLocal)
             ->do(function (...$params) use ($sizeLocal) {
-                $this->writeUInt32($sizeLocal, 0, 0x100);
+                $this->writeUInt32($sizeLocal, 0, U32::of(0x100));
             })
             ->andReturn(1);
 
@@ -198,7 +199,7 @@ return new class extends TestCase {
         $this->shouldCall('_gdFsGetFileSctSize')
             ->with(0xf5f50000, $sizeLocal)
             ->do(function (...$params) use ($sizeLocal) {
-                $this->writeUInt32($sizeLocal, 0, 0x100);
+                $this->writeUInt32($sizeLocal, 0, U32::of(0x100));
             })
             ->andReturn(1);
 

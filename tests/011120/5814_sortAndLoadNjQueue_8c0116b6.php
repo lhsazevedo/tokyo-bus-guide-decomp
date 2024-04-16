@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use Lhsazevedo\Sh4ObjTest\TestCase;
 use Lhsazevedo\Sh4ObjTest\Simulator\Arguments\WildcardArgument;
+use Lhsazevedo\Sh4ObjTest\Simulator\Types\U32;
 
 return new class extends TestCase {
     public function test_sortQueuedNjs()
@@ -46,10 +47,10 @@ return new class extends TestCase {
         // 1st iteration
         $strCmp = $this->isAsmObject() ? '_strcmp' : '__slow_strcmp1';
         $strCmpFn = function ($params) {
-            $this->registers[0] = strcmp(
+            $this->registers[0] = U32::of(strcmp(
                 $this->memory->readString($params[0]),
                 $this->memory->readString($params[1])
-            );
+            ) & 0xffffffff);
         };
 
         $this->shouldCall($strCmp)
@@ -67,8 +68,8 @@ return new class extends TestCase {
             $dst = $this->registers[1];
             $len = $this->registers[0];
 
-            for ($i = 0; $i < $len; $i++) {
-                $this->memory->writeUInt8($dst + $i, $this->readUInt8($src + $i));
+            for ($i = 0; $i < $len->value; $i++) {
+                $this->memory->writeUInt8($dst->value + $i, $this->readUInt8($src->value + $i));
             }
         };
 

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use Lhsazevedo\Sh4ObjTest\TestCase;
 use Lhsazevedo\Sh4ObjTest\Simulator\Arguments\WildcardArgument;
+use Lhsazevedo\Sh4ObjTest\Simulator\Types\U32;
 
 function fdec(float $value) {
     return unpack('L', pack('f', $value))[1];
@@ -214,7 +215,7 @@ return new class extends TestCase {
                 0
             )
             ->do(function ($params) use ($createdTask) {
-                $this->memory->writeUInt32($params[2], $createdTask);
+                $this->memory->writeUInt32($params[2], U32::of($createdTask));
             });
 
         $this->shouldRead(0xffffe4, $createdTask);
@@ -256,7 +257,7 @@ return new class extends TestCase {
                 0
             )
             ->do(function ($params) use ($createdTask2) {
-                $this->memory->writeUInt32($params[2], $createdTask2);
+                $this->memory->writeUInt32($params[2], U32::of($createdTask2));
             });
 
         $this->shouldRead(0xffffe4, $createdTask2);

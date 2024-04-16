@@ -9,7 +9,17 @@
  * ====================
  */
 
-struct UnknownVolStructA {
+#define WKSIZE 184516
+// #define	MAX_NFILES (256)
+#define	MAX_NFILES (1424)
+
+
+/* =================
+ * Type Declarations
+ * =================
+ */
+
+typedef struct {
     int field_0x00;
     int field_0x04;
     int field_0x08;
@@ -19,43 +29,34 @@ struct UnknownVolStructA {
     float field_0x18;
     float field_0x1c;
     float field_0x20;
-}
-typedef UnknownVolStructA;
+} UnknownVolStructA;
 
-/* =================
- * Type Declarations
- * =================
- */
-struct UnknownVolStructB {
+typedef struct {
     float field_0x00;
-}
-typedef UnknownVolStructB;
+} UnknownVolStructB;
 
-struct AdxfPartitionInfo {
+typedef struct {
     char* fname_0x00;
     int nfile_0x04;
-}
-typedef AdxfPartitionInfo;
+} AdxfPartitionInfo;
 
-struct UnknownAdxVolStructA {
+typedef struct {
     int field_0x00;
     int field_0x04;
-}
-typedef UnknownAdxVolStructA;
+} UnknownAdxVolStructA;
 
-struct UnknownAdxVolStructB {
+typedef struct {
     int flags_0x00;
     int field_0x04;
     int field_0x08;
     int field_0x0c;
     int field_0x10;
-}
-typedef UnknownAdxVolStructB;
+} UnknownAdxVolStructB;
 
 
 /* =====================
  * External Declarations
-   =====================
+ * =====================
  */
 
 extern Uint32 _8c1bbcb0;
@@ -73,9 +74,6 @@ void* var_memblkSource_8c0fcd48;
 void* var_memblkSource_8c0fcd4c;
 UnknownVolStructA var_uknVol_8c0fcd50;
 
-#define WKSIZE 184516
-// #define	MAX_NFILES (256)
-#define	MAX_NFILES (1424)
 char var_work_8c0fcd74[WKSIZE * 2];
 char var_adxf_work_8c156efc[ADXF_CALC_PTINFO_SIZE(MAX_NFILES)];
 
@@ -119,7 +117,9 @@ void midiSetVol_8c010128() {
     int r13var_uknVol_8c226468_as_int = var_uknVol_8c226468.field_0x00;
 
     if ((var_uknVol_8c0fcd50.field_0x00 & 2) == 2) {
+        /* A */
         if (r13var_uknVol_8c226468_as_int >= 10.f && r13var_uknVol_8c226468_as_int < 3000.f) {
+            /* B */
             sdMidiSetVol(
                 var_midiHandles_8c0fcd28[7],
                 var_uknVol_8c0fcd50.field_0x08 + (r13var_uknVol_8c226468_as_int - 10.f) * var_uknVol_8c0fcd50.field_0x18 - 127,
@@ -127,6 +127,7 @@ void midiSetVol_8c010128() {
             );
         /* 8c010192 */
         } else if (r13var_uknVol_8c226468_as_int >= 3000.f) {
+            /* C */
             /* 8c01019a */
             sdMidiSetVol(
                 var_midiHandles_8c0fcd28[7],
@@ -138,15 +139,17 @@ void midiSetVol_8c010128() {
 
     /* LAB_8c0101bc */
     if ((var_uknVol_8c0fcd50.field_0x00 & 4) == 4) {
+        /* D */
         sdMidiSetVol(
             var_midiHandles_8c0fcd28[6],
             (r13var_uknVol_8c226468_as_int - 1000.f) * var_uknVol_8c0fcd50.field_0x20 - 127,
-           0
+            0
         );
 
         if (r13var_uknVol_8c226468_as_int < 2100) {
+            /* E */
             /* 8c0101e2 */
-            var_uknVol_8c0fcd50.field_0x00 &= -5;
+            var_uknVol_8c0fcd50.field_0x00 &= ~4;
 
             sdMidiSetVol(
                 var_midiHandles_8c0fcd28[6],

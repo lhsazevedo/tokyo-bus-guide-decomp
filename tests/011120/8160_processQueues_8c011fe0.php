@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use Lhsazevedo\Sh4ObjTest\TestCase;
 use Lhsazevedo\Sh4ObjTest\Simulator\Arguments\WildcardArgument;
+use Lhsazevedo\Sh4ObjTest\Simulator\Types\U32;
 
 return new class extends TestCase {
     public function test_basic()
@@ -20,7 +21,7 @@ return new class extends TestCase {
                 0x18
             )
             ->do(function ($params) use ($state) {
-                $this->memory->writeUint32($params[3], $state);
+                $this->memory->writeUint32($params[3], U32::of($state));
             });
 
         $this->shouldWrite($state + 0x00, 0);

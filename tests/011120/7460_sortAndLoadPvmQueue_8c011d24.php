@@ -56,8 +56,8 @@ return new class extends TestCase {
             $dst = $this->registers[1];
             $len = $this->registers[0];
 
-            for ($i = 0; $i < $len; $i++) {
-                $this->memory->writeUInt8($dst + $i, $this->readUInt8($src + $i));
+            for ($i = 0; $i < $len->value; $i++) {
+                $this->memory->writeUInt8($dst->value + $i, $this->readUInt8($src->value + $i));
             }
         };
 
