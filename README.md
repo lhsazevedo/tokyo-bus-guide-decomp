@@ -37,18 +37,18 @@ Contributions to this project are encouraged and welcomed! Your expertise in cod
 ## Project Setup
 1. Ensure your SDK is organized as follows.
    ```
-   â”œâ”€â”€ bin (From disc Vol.1 dc_sdk/bin)
-   â”?   â”œâ”€â”€ binadj.exe
-   â”?   â””â”€â”€ ...
-   â”œâ”€â”€ shc (From disc Vol.2)
-   â”?   â”œâ”€â”€ bin
-   â”?   â”œâ”€â”€ include
-   â”?   â””â”€â”€ lib
-   â””â”€â”€ shinobi (From disc Vol.2)
-      â”œâ”€â”€ driver
-      â”œâ”€â”€ include
-      â”œâ”€â”€ lib
-      â””â”€â”€ sample
+   „¥„Ÿ„Ÿ bin (From disc Vol.1 dc_sdk/bin)
+   „    „¥„Ÿ„Ÿ binadj.exe
+   „    „¤„Ÿ„Ÿ ...
+   „¥„Ÿ„Ÿ shc (From disc Vol.2)
+   „    „¥„Ÿ„Ÿ bin
+   „    „¥„Ÿ„Ÿ include
+   „    „¤„Ÿ„Ÿ lib
+   „¤„Ÿ„Ÿ shinobi (From disc Vol.2)
+      „¥„Ÿ„Ÿ driver
+      „¥„Ÿ„Ÿ include
+      „¥„Ÿ„Ÿ lib
+      „¤„Ÿ„Ÿ sample
    ```
 
 2. The Hitachi compiler suite expects some environments variables to be set. Create a copy of `set_kt.example.sh` named `set_kt.sh` and update the `DK_SDK` environment variable with your SDK location.
