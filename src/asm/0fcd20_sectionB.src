@@ -223,7 +223,7 @@
           .EXPORT     _var_8c226438
           .EXPORT     _var_8c22643c
           .EXPORT     _var_8c226450
-          .EXPORT     _varvar_uknVol_8c226468
+          .EXPORT     _var_uknVol_8c226468
           .EXPORT     _var_8c226478
           .EXPORT     _var_8c2264a8
           .EXPORT     _var_8c2264b8
@@ -863,7 +863,7 @@ _var_8c22643c:
           .RES.B      20
 _var_8c226450:
           .RES.B      24
-_varvar_uknVol_8c226468:
+_var_uknVol_8c226468:
           .RES.B      16
 _var_8c226478:
           .RES.B      48
