@@ -38,12 +38,12 @@ Contributions to this project are encouraged and welcomed! Your expertise in cod
 1. Ensure your SDK is organized as follows.
    ```
    ├── bin (From disc Vol.1 dc_sdk/bin)
-   │   ├── binadj.exe
-   │   └── ...
+   �?   ├── binadj.exe
+   �?   └── ...
    ├── shc (From disc Vol.2)
-   │   ├── bin
-   │   ├── include
-   │   └── lib
+   �?   ├── bin
+   �?   ├── include
+   �?   └── lib
    └── shinobi (From disc Vol.2)
       ├── driver
       ├── include
@@ -76,6 +76,55 @@ Contributions to this project are encouraged and welcomed! Your expertise in cod
    ```
 
 A successful build will display "Project built :)".
+
+
+## Docker Container Development
+
+This needs to have Wine32 Installed on your Linux machine prior to running this (at least in the current version of this README file)
+
+1. Open run_container.sh with your favorite text editor and update the SDK_PATH variable with the location of the SDK Files mentioned in the Project Setup
+
+2. Run run_container.sh. you should be inside a bash shell inside /app (your current folder)
+   ```
+   $ ./run_container.sh
+   ```
+
+3. Source your `set_kt.docker.sh` script to make the environment variables available in the current shell:
+
+   ```
+   $ source set_kt.docker.sh
+   ```
+
+4. Build the binary using the provided `build.sh` script.
+   ```
+   $ ./scripts/build.sh
+
+   (...)
+
+   LINKAGE EDITOR COMPLETED
+   ELF2BIN: ELF -> binary converter Ver. 1.04
+   Copyright (c) 1998, Hitachi, Ltd.  All rights reserved.
+   Module  address: 8c008000 - 8c0fde20
+   Convert address: 8c010000 - 8c0fde20  size: 000ede20 (974368)
+
+   ================
+   Project built :)
+   ================
+   ```
+
+A successful build will display "Project built :)".
+
+5. Install Composer sh4objtest
+   ```
+   $ composer global require lhsazevedo/sh4objtest:dev-main
+   ```
+
+6. Run the tests
+
+   ```
+   $ ./scripts/run_tests.docker.sh
+   ```
+
 
 
 ## Acknowledgements
