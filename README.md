@@ -92,7 +92,7 @@ This needs to have Wine32 Installed on your Linux machine prior to running this 
 3. Source your `set_kt.docker.sh` script to make the environment variables available in the current shell:
 
    ```
-   $ source set_kt.docker.sh
+   $ source ./scripts/set_kt.docker.sh
    ```
 
 4. Build the binary using the provided `build.sh` script.
