@@ -80,9 +80,7 @@ A successful build will display "Project built :)".
 
 ## Docker Container Development
 
-This needs to have Wine32 Installed on your Linux machine prior to running this (at least in the current version of this README file)
-
-1. Open run_container.sh with your favorite text editor and update the SDK_PATH variable with the location of the SDK Files mentioned in the Project Setup
+1. Open run_container.sh with your favorite text editor and update the SDK_PATH variable with the absolute path location of the SDK Files mentioned in the Project Setup
 
 2. Run run_container.sh. you should be inside a bash shell inside /app (your current folder)
    ```
@@ -124,7 +122,6 @@ A successful build will display "Project built :)".
    ```
    $ ./scripts/run_tests.docker.sh
    ```
-
 
 
 ## Acknowledgements
