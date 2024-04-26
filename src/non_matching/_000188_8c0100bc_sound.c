@@ -113,6 +113,7 @@ void initUknVol_8c0100bc() {
     var_uknVol_8c0fcd50.field_0x20 = (float) init_vol_8c03bd90 / 3900;
 }
 
+/* Tested */
 void midiSetVol_8c010128() {
     int r13var_uknVol_8c226468_as_int = var_uknVol_8c226468.field_0x00;
 
