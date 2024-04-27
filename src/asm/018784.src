@@ -48,7 +48,7 @@
           .IMPORT     _init_8c03bd80
           .IMPORT     _var_8c225fb0
           .IMPORT     _FUN_8c01a09a
-          .IMPORT     _setVmSelectTaskAction_8c019e44
+          .IMPORT     _setMenuTaskAction_8c019e44
           .IMPORT     _setTaskAction_8c014b3e
           .IMPORT     _const_8c037ecc
           .IMPORT     _push_fadein_8c022a9c
@@ -1639,7 +1639,7 @@ LAB_8c019382:
 LP_GEN_41958:
           .RES.W 1 ; H'8C019392
           .DATA.L _var_8c22606c ; H'8C019394
-          .DATA.L _setVmSelectTaskAction_8c019e44 ; H'8C019398
+          .DATA.L _setMenuTaskAction_8c019e44 ; H'8C019398
           .DATA.L _FUN_8c018e7e ; H'8C01939C
           .DATA.L _setTaskAction_8c014b3e ; H'8C0193A0
           .DATA.L _var_8c22600c ; H'8C0193A4

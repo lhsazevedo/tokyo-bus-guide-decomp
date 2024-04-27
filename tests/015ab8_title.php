@@ -945,7 +945,7 @@ return new class extends TestCase {
 
         $this->shouldReadSymbolOffset('_init_8c03bd80', 0, 0);
         $this->shouldWriteSymbolOffset('_var_8c1bb8c4', 0, 0);
-        $this->shouldCall('_setVmSelectTaskAction_8c019e44')->with(0xbebacafe);
+        $this->shouldCall('_setMenuTaskAction_8c019e44')->with(0xbebacafe);
 
         $this->call('_task_title_8c015ab8')
             ->with(0xbebacafe, 0)

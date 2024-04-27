@@ -51,7 +51,7 @@
           .EXPORT     _FUN_8c0197c0
           .EXPORT     _FUN_8c019852
           .EXPORT     _task_menu_8c0198a0
-          .EXPORT     _setVmSelectTaskAction_8c019e44
+          .EXPORT     _setMenuTaskAction_8c019e44
           .SECTION     P, CODE, ALIGN=4
 _FUN_8c0193c8:
           MOV.L       R14,@-R15
@@ -1477,7 +1477,7 @@ LAB_8c019e2a:
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-_setVmSelectTaskAction_8c019e44:
+_setMenuTaskAction_8c019e44:
           STS.L       PR,@-R15
           MOV.L       LP_GEN_77899+50,R3
           MOV.L       LP_GEN_77899+46,R5
