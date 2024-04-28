@@ -505,9 +505,10 @@ getSoundMode_8c010924() {
     return mode;
 }
 
-setAdxVol_8c010972(int param1, int param2) {
+/* Tested */
+void setAdxVol_8c010972(int volNo, int handle) {
     // Initialized data
-    const int vols_8c0332b0[10] = {
+    const int vols_from_8c0332b0[10] = {
         0,
         110,
         220,
@@ -520,19 +521,15 @@ setAdxVol_8c010972(int param1, int param2) {
         990
     };
 
-    switch (param2)
+    switch (handle)
     {
         case 0: {
-            // int vol = vols_8c0332b0[param1];
-            init_uknAdxVol_8c03bd88.field_0x00 = vols_8c0332b0[param1];
-            ADXT_SetOutVol(var_adxtHandles_8c0fcd20[param2], init_uknAdxVol_8c03bd88.field_0x00 - 990);
-            break;
+            init_uknAdxVol_8c03bd88.field_0x00 = vols_from_8c0332b0[volNo];
+            ADXT_SetOutVol(var_adxtHandles_8c0fcd20[handle], init_uknAdxVol_8c03bd88.field_0x00 - 990);
         }
         case 1: {
-            // int vol = vols_8c0332b0[param1];
-            init_uknAdxVol_8c03bd88.field_0x04 = vols_8c0332b0[param1];
-            ADXT_SetOutVol(var_adxtHandles_8c0fcd20[param2], init_uknAdxVol_8c03bd88.field_0x04 - 990);
-            break;
+            init_uknAdxVol_8c03bd88.field_0x04 = vols_from_8c0332b0[volNo];
+            ADXT_SetOutVol(var_adxtHandles_8c0fcd20[handle], init_uknAdxVol_8c03bd88.field_0x04 - 990);
         }
     }
 }
