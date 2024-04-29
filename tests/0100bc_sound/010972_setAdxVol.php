@@ -4,10 +4,6 @@ declare(strict_types=1);
 
 use Lhsazevedo\Sh4ObjTest\TestCase;
 
-function fdec(float $value) {
-    return unpack('L', pack('f', $value))[1];
-}
-
 return new class extends TestCase {
     public function test_setField0x00Vol1()
     {
