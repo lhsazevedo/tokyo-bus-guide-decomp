@@ -28,14 +28,32 @@ rm -rf build/output
 mkdir build/output
 
 # 0100bc_sound
-assemble  src/asm/0100bc_sound.src
-compile  src/non_matching/_000188_8c0100bc_sound.c
+assemble  src/asm/decompiled/0100bc_sound.src
+compile  src/0100bc_sound.c
 
 $sh4objtest "tests/0100bc_sound/0100bc_initUknVol.php" "build/output/0100bc_sound_src.obj"
-$sh4objtest "tests/0100bc_sound/0100bc_initUknVol.php" "build/output/_000188_8c0100bc_sound_c.obj"
+$sh4objtest "tests/0100bc_sound/0100bc_initUknVol.php" "build/output/0100bc_sound_c.obj"
 
 $sh4objtest "tests/0100bc_sound/010128_midiSetVol.php" "build/output/0100bc_sound_src.obj"
-$sh4objtest "tests/0100bc_sound/010128_midiSetVol.php" "build/output/_000188_8c0100bc_sound_c.obj"
+$sh4objtest "tests/0100bc_sound/010128_midiSetVol.php" "build/output/0100bc_sound_c.obj"
+
+$sh4objtest "tests/0100bc_sound/0102d8_FUN.php" "build/output/0100bc_sound_src.obj"
+$sh4objtest "tests/0100bc_sound/0102d8_FUN.php" "build/output/0100bc_sound_c.obj"
+
+$sh4objtest "tests/0100bc_sound/010972_setAdxVol.php" "build/output/0100bc_sound_src.obj"
+$sh4objtest "tests/0100bc_sound/010972_setAdxVol.php" "build/output/0100bc_sound_c.obj"
+
+$sh4objtest "tests/0100bc_sound/010a40_FUN_adxVol.php" "build/output/0100bc_sound_src.obj"
+$sh4objtest "tests/0100bc_sound/010a40_FUN_adxVol.php" "build/output/0100bc_sound_c.obj"
+
+$sh4objtest "tests/0100bc_sound/010bae_FUN.php" "build/output/0100bc_sound_src.obj"
+$sh4objtest "tests/0100bc_sound/010bae_FUN.php" "build/output/0100bc_sound_c.obj"
+
+$sh4objtest "tests/0100bc_sound/010c2c_FUN.php" "build/output/0100bc_sound_src.obj"
+$sh4objtest "tests/0100bc_sound/010c2c_FUN.php" "build/output/0100bc_sound_c.obj"
+
+$sh4objtest "tests/0100bc_sound/010cd6_snd.php" "build/output/0100bc_sound_src.obj"
+$sh4objtest "tests/0100bc_sound/010cd6_snd.php" "build/output/0100bc_sound_c.obj"
 
 # 015ab8_title
 assemble  src/asm/decompiled/015ab8_title.src

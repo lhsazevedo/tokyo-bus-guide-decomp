@@ -1,6 +1,3 @@
-#include <stdarg.h>
-#include "scif.h"
-
 #ifndef _DEFINITIONS_H_
 #define _DEFINITIONS_H_
 
@@ -25,16 +22,8 @@
 #define DEBUG_LEVEL LOG_LEVEL_TRACE
 #endif
 
-#ifdef SERIAL_DEBUG
-void serialprintf(const char *fmt, ...) {
-    char buf[256];
-
-    va_list args;
-    va_start(args, fmt);
-    vsprintf(buf, fmt, args);
-    scif_puts(buf);
-    va_end(args);
-}
+#if defined(SERIAL_DEBUG)
+void serialprintf(const char *fmt, ...);
 #endif
 
 #if defined(SERIAL_DEBUG) && DEBUG_LEVEL >= LOG_LEVEL_FATAL

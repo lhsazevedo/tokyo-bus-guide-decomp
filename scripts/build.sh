@@ -24,7 +24,7 @@ rm -rf build/output
 mkdir build/output
 
 compile  src/010080_main.c
-assemble src/asm/0100bc_sound.src
+compile  src/0100bc_sound.c
 compile  src/010e90.c
 assemble src/asm/010fe8_unused.src
 compile  src/011120_asset_queues.c
@@ -100,6 +100,7 @@ assemble src/asm/03bd80_sectionD.src
 assemble src/asm/0fcd20_sectionB.src
 
 compile  src/scif.c
+compile  src/serial_debug.c
 
 wine $SHC_BIN/lnk.exe -sub=build\\lnk.sub
 

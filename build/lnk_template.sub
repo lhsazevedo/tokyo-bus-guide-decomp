@@ -102,6 +102,7 @@ input build\output\03bd80_sectionD.obj
 input build\output\0fcd20_sectionB.obj
 
 input build\output\scif.obj
+input build\output\serial_debug.obj
 
 ; USER LIBS
 library @DC_SDK@\shinobi\lib\cri_adxs.lib

@@ -23,7 +23,7 @@ mkdir build/output
 
 assemble src/asm/010000.src
 compile  src/010080_main.c
-assemble src/asm/0100bc_sound.src
+assemble src/asm/decompiled/0100bc_sound.src
 compile  src/010e90.c
 assemble src/asm/010fe8_unused.src
 assemble src/asm/decompiled/011120_asset_queues.src

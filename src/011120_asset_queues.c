@@ -2,7 +2,7 @@
 
 #include <shinobi.h>
 #include <string.h>
-#include "definitions.h"
+#include "serial_debug.h"
 #include "014a9c_tasks.h"
 #include "stdio.h"
 

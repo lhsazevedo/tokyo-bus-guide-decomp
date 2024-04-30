@@ -6,7 +6,7 @@
 #include <sg_sd.h>
 #include "014a9c_tasks.h"
 #include "015ab8_title.h"
-#include "definitions.h"
+#include "serial_debug.h"
 
 extern Bool getUknPvmBool_8c01432a();
 extern void freeQueues_8c011f7e();
