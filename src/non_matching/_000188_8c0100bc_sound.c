@@ -561,6 +561,7 @@ void setMidiVolAndInitStruct_8c0109f4(int param1) {
     initUknVol_8c0100bc();
 }
 
+/* Tested */
 void FUN_adxVol_8c010a40() {
     /* 8c010a56 */
     if ((var_uknAdxVol_8c157a34.flags_0x00 & 0xf) != 0)
@@ -648,15 +649,18 @@ void FUN_adxVol_8c010a40() {
     }
 }
 
+/* Tested */
 void FUN_8c010bae(int param1) {
     if ((var_uknAdxVol_8c157a34.flags_0x00 & 0xf0) == 0) {
         /* 8c010bba */
         if (param1 == 0 && (var_uknAdxVol_8c157a34.flags_0x00 & 0xf) != 1) {
+            /* A */
             var_uknAdxVol_8c157a34.flags_0x00 |= 1;
             var_uknAdxVol_8c157a34.field_0x04 = (init_uknAdxVol_8c03bd88.field_0x00 - 300) / 90;
             var_uknAdxVol_8c157a34.field_0x0c = init_uknAdxVol_8c03bd88.field_0x00 - 990;
         }
         if (param1 == 1 && (var_uknAdxVol_8c157a34.flags_0x00 & 0xf) != 2) {
+            /* B */
             var_uknAdxVol_8c157a34.flags_0x00 |= 2;
             var_uknAdxVol_8c157a34.field_0x08 = (init_uknAdxVol_8c03bd88.field_0x04 - 300) / 90;
             var_uknAdxVol_8c157a34.field_0x10 = init_uknAdxVol_8c03bd88.field_0x04 - 990;

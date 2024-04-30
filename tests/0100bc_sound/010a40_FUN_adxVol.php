@@ -176,8 +176,6 @@ return new class extends TestCase {
             0b1100_0000
         );
 
-        //$this->shouldWrite($this->addressOf('_init_8c03bd80'), 0b11011111);
-
         $this->call('_FUN_adxVol_8c010a40')->run();
     }
 
