@@ -711,7 +711,7 @@ void FUN_8c010ca6(Bool p1) {
     return;
 }
 
-/* wip */
+/* Tested */
 int snd_8c010cd6(int p1, int p2) {
     switch (p1) {
         case 0: {
@@ -723,15 +723,14 @@ int snd_8c010cd6(int p1, int p2) {
 
         case 1: {
             ADXT_Stop(var_adxtHandles_8c0fcd20[p1]);
-            p2 == 0x7FFFFFFF;
             ADXT_StartAfs(var_adxtHandles_8c0fcd20[p1], 0, p2);
             init_8c03bd80 |= 0x10;
             return 1;
         }
 
         case 2: {
-            ADXT_Stop(var_adxtHandles_8c0fcd20[p1]);
-            ADXT_StartAfs(var_adxtHandles_8c0fcd20[p1], 1, p2);
+            ADXT_Stop(var_adxtHandles_8c0fcd20[1]);
+            ADXT_StartAfs(var_adxtHandles_8c0fcd20[1], 1, p2);
             init_8c03bd80 |= 0x10;
             return 1;
         }

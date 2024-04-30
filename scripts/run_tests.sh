@@ -52,6 +52,9 @@ $sh4objtest "tests/0100bc_sound/010bae_FUN.php" "build/output/_000188_8c0100bc_s
 $sh4objtest "tests/0100bc_sound/010c2c_FUN.php" "build/output/0100bc_sound_src.obj"
 $sh4objtest "tests/0100bc_sound/010c2c_FUN.php" "build/output/_000188_8c0100bc_sound_c.obj"
 
+$sh4objtest "tests/0100bc_sound/010cd6_snd.php" "build/output/0100bc_sound_src.obj"
+$sh4objtest "tests/0100bc_sound/010cd6_snd.php" "build/output/_000188_8c0100bc_sound_c.obj"
+
 # 015ab8_title
 assemble  src/asm/decompiled/015ab8_title.src
 $sh4objtest "tests/015ab8_title.php" "build/output/015ab8_title_src.obj"
