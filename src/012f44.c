@@ -6,6 +6,7 @@
 #include "014a9c_tasks.h"
 #include "015ab8_title.h"
 #include "scif.h"
+#include "011120_asset_queues.h"
 
 #define TEX_BUFSIZE     0x80800
 #define TEX_NUM         3072
@@ -348,7 +349,6 @@ extern void* var_8c1bbfdc;
 
 extern int var_8c1bb8c4;
 extern int var_8c1bb8d8;
-extern int var_8c157a6c;
 
 extern void* var_mark_parts_dat_8c1bc41c;
 extern void* var_mark_dat_8c1bc420;
@@ -365,13 +365,10 @@ extern NJS_MOTION* var_loadedFooNjm_8c1bc448;
 extern void* var_8c1bc410;
 extern void* var_8c1bc414;
 
-extern int var_8c157a78;
-extern int var_8c157a7c;
 extern Uint32 var_vibport_8c1ba354;
 extern int init_8c03bd80;
 extern int init_8c03bd84;
 
-extern nop_8c011120;
 extern setUknPvmBool_8c014330;
 extern int var_gdErr_8c18ad14;
 
@@ -394,7 +391,6 @@ extern var_8c22847c;
 extern int var_8c1bb868;
 extern int var_8c228704;
 extern int var_8c1bb8c8;
-extern var_seed_8c157a64;
 extern var_8c227dd4;
 extern Uint32 var_8c227da0;
 extern Uint32 var_8c1ba292;
@@ -403,7 +399,6 @@ extern int var_8c227da8;
 extern task_load_8c014338;
 extern var_memblkSource_8c0fcd48;
 extern var_memblkSource_8c0fcd4c;
-extern var_queuesAreInitialized_8c157a60;
 extern init_8c03bfa8;
 
 extern var_8c18ad1c;
@@ -511,8 +506,8 @@ void FUN_8c01306e(void)
     clearTasks_8c014a9c(var_tasks_8c1bb448, 0x20);
 
     njRandomSeed(var_seed_8c157a64);
-    FUN_8c012160(var_seed_8c157a64);
-    FUN_8c0121a2(var_seed_8c157a64);
+    AsqFUN_12160(var_seed_8c157a64);
+    AsqFUN_121a2(var_seed_8c157a64);
 
     FUN_8c0128cc(1);
 
@@ -563,7 +558,7 @@ void FUN_8c01328c() {
         var_8c1bb868 = var_8c1bc824->field_0x00;
         var_8c228704 = var_8c1bc824->field_0x04;
         var_8c1bb8c8 = var_8c1bc824->field_0x08;
-        var_seed_8c157a64 = FUN_8c012166();
+        var_seed_8c157a64 = AsqFUN_12166();
     } else if ((var_demo_8c1bb8d0 == 2) && (var_8c1bb8d4 != 0)) {
         var_8c227dd4 = init_8c0460b0[var_8c1bb868 - 0x26];
         FUN_8c01895e();
@@ -572,9 +567,9 @@ void FUN_8c01328c() {
     }
 
     njRandomSeed(var_seed_8c157a64);
-    FUN_8c012160(var_seed_8c157a64);
-    FUN_8c0121a2(var_seed_8c157a64);
-    FUN_8c0121e8();
+    AsqFUN_12160(var_seed_8c157a64);
+    AsqFUN_121a2(var_seed_8c157a64);
+    AsqFUN_121e8();
     var_8c227da0 = (char) var_8c1ba292;
     var_8c227da8 = 0;
 
@@ -590,7 +585,7 @@ void FUN_8c013310(int p1) {
         var_8c1bb868 = p1;
         var_8c228704 = 0;
         var_8c1bb8c8 = (char) var_8c1ba291;
-        var_seed_8c157a64 = FUN_8c012166();
+        var_seed_8c157a64 = AsqFUN_12166();
     } else if (var_demo_8c1bb8d0 == 2 && var_8c1bb8d4 != 0) {
         var_8c227dd4 = init_8c0460b0[var_8c1bb868 - 0x26];
     } else {
@@ -598,9 +593,9 @@ void FUN_8c013310(int p1) {
     }
 
     njRandomSeed(var_seed_8c157a64);
-    FUN_8c012160(var_seed_8c157a64);
-    FUN_8c0121a2(var_seed_8c157a64);
-    FUN_8c0121e8();
+    AsqFUN_12160(var_seed_8c157a64);
+    AsqFUN_121a2(var_seed_8c157a64);
+    AsqFUN_121e8();
     var_8c227da0 = (char) var_8c1ba292;
     var_8c227da8 = 0;
 
@@ -617,18 +612,18 @@ void task_8c013388(Task *task, void *state) {
                 task->field_0x08++;
                 var_8c1bc450 = (Float) var_loadedFooNjm_8c1bc448->nbFrame - 1;
 
-                resetQueues_8c011f6c();
-                requestDat_8c011182("\\SOUND", "manatee.drv", &var_memblkSource_8c0fcd48);
-                requestDat_8c011182("\\SOUND", "bus.mlt", &var_memblkSource_8c0fcd4c);
+                AsqResetQueues_11f6c();
+                AsqRequestDat_11182("\\SOUND", "manatee.drv", &var_memblkSource_8c0fcd48);
+                AsqRequestDat_11182("\\SOUND", "bus.mlt", &var_memblkSource_8c0fcd4c);
                 resetUknPvmBool_8c014322();
-                processQueues_8c011fe0(&nop_8c011120, 0, 0, 0, &setUknPvmBool_8c014330);
+                AsqProcessQueues_11fe0(&AsqNop_11120, 0, 0, 0, &setUknPvmBool_8c014330);
             }
             break;
         }
         case 1: {
             /* 8c0133a0, 8c0134ce */
             if (getUknPvmBool_8c01432a() != 0) {
-                freeQueues_8c011f7e();
+                AsqFreeQueues_11f7e();
                 freeTask_8c014b66(task);
                 initSoundMidiAdx_8c010e18();
                 var_8c2260a8 = 1;
@@ -745,33 +740,33 @@ void njUserInit_8c0134ec() {
     pushTask_8c014ae8(var_tasks_8c1ba3c8, &task_8c013388, &created_task, &created_state, 0);
     created_task->field_0x08 = 0;
 
-    initQueues_8c011f36(16, 8, 0, 8);
-    resetQueues_8c011f6c();
+    AsqInitQueues_11f36(16, 8, 0, 8);
+    AsqResetQueues_11f6c();
 
-    requestDat_8c011182("\\SYSTEM", "mark_parts.dat", &var_mark_parts_dat_8c1bc41c);
-    requestDat_8c011182("\\SYSTEM", "mark.dat", &var_mark_dat_8c1bc420);
-    requestDat_8c011182("\\SYSTEM", "busstop_parts.dat", &var_busstop_parts_dat_8c1bc428);
-    requestDat_8c011182("\\SYSTEM", "busstop.dat", &var_busstop_dat_8c1bc42c);
+    AsqRequestDat_11182("\\SYSTEM", "mark_parts.dat", &var_mark_parts_dat_8c1bc41c);
+    AsqRequestDat_11182("\\SYSTEM", "mark.dat", &var_mark_dat_8c1bc420);
+    AsqRequestDat_11182("\\SYSTEM", "busstop_parts.dat", &var_busstop_parts_dat_8c1bc428);
+    AsqRequestDat_11182("\\SYSTEM", "busstop.dat", &var_busstop_dat_8c1bc42c);
 
     /*  TODO: Fix var_8c1bc3f8 type */ 
-    requestPvm_8c011ac0("\\SYSTEM", "loading.pvm", &var_8c1bc3f8[0], 1, 0x80000000);
-    requestDat_8c011182("\\SYSTEM", "load_parts.dat", &var_8c1bc3f8[1]);
-    requestDat_8c011182("\\SYSTEM", "loading.dat", &var_8c1bc3f8[2]);
+    AsqRequestPvm_11ac0("\\SYSTEM", "loading.pvm", &var_8c1bc3f8[0], 1, 0x80000000);
+    AsqRequestDat_11182("\\SYSTEM", "load_parts.dat", &var_8c1bc3f8[1]);
+    AsqRequestDat_11182("\\SYSTEM", "loading.dat", &var_8c1bc3f8[2]);
 
-    requestDat_8c011182("\\SYSTEM", "bus_font.fff", &var_8c1ba1c8);
-    requestDat_8c011182("\\SYSTEM", "vm_bus.lcd", &var_8c2260ac);
-    requestDat_8c011182("\\SYSTEM", "vm_danger.lcd", &var_8c2260b8);
-    requestDat_8c011182("\\SYSTEM", "now_loading.lcd", &var_8c2260c4);
+    AsqRequestDat_11182("\\SYSTEM", "bus_font.fff", &var_8c1ba1c8);
+    AsqRequestDat_11182("\\SYSTEM", "vm_bus.lcd", &var_8c2260ac);
+    AsqRequestDat_11182("\\SYSTEM", "vm_danger.lcd", &var_8c2260b8);
+    AsqRequestDat_11182("\\SYSTEM", "now_loading.lcd", &var_8c2260c4);
 
-    requestPvm_8c011ac0("\\SYSTEM", "fuu.pvm", &var_8c1bc440, 1, 0);
-    requestNj_8c011492("\\SYSTEM", "fuu.njd", &var_8c1bc444, 0);
-    requestNj_8c011492("\\SYSTEM", "fuu.njm", &var_loadedFooNjm_8c1bc448, 0);
+    AsqRequestPvm_11ac0("\\SYSTEM", "fuu.pvm", &var_8c1bc440, 1, 0);
+    AsqRequestNj_11492("\\SYSTEM", "fuu.njd", &var_8c1bc444, 0);
+    AsqRequestNj_11492("\\SYSTEM", "fuu.njm", &var_loadedFooNjm_8c1bc448, 0);
 
-    requestNj_8c011492("\\SD_COMMON","3s_bus_m2.njm", &var_8c1bc410, 0);
-    requestNj_8c011492("\\SD_COMMON","3s_bus_m2.njs", &var_8c1bc414, 0);
+    AsqRequestNj_11492("\\SD_COMMON","3s_bus_m2.njm", &var_8c1bc410, 0);
+    AsqRequestNj_11492("\\SD_COMMON","3s_bus_m2.njs", &var_8c1bc414, 0);
 
     resetUknPvmBool_8c014322();
-    processQueues_8c011fe0(&nop_8c011120, 0, 0, 0, &setUknPvmBool_8c014330);
+    AsqProcessQueues_11fe0(&AsqNop_11120, 0, 0, 0, &setUknPvmBool_8c014330);
     var_gdErr_8c18ad14 = 0;
     gdFsEntryErrFuncAll(&usrGdErrFunc_8c0134d6, (void *) 0);
 }

@@ -11,11 +11,22 @@ return new class extends TestCase {
         // Resolve modlu symbol
         $this->setSize('__modlu', 4);
 
-        $this->shouldCall('_FUN_8c0121a8')->andReturn(42);
+        $this->shouldCall('_AsqFUN_12166')->andReturn(42);
 
-        $this->call('_FUN_8c0121be')
+        $this->call('_AsqFUN_12178')
             ->with(20)
             ->shouldReturn(2)
+            ->run();
+    }
+
+    public function test_itSkipsIfParamIsZero()
+    {
+        // Resolve modlu symbol
+        $this->setSize('__modlu', 4);
+
+        $this->call('_AsqFUN_12178')
+            ->with(0)
+            ->shouldReturn(0)
             ->run();
     }
 };

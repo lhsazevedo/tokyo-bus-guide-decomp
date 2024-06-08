@@ -2,6 +2,7 @@
 
 #include <shinobi.h>
 #include <string.h>
+#include "011120_asset_queues.h"
 #include "serial_debug.h"
 #include "014a9c_tasks.h"
 #include "stdio.h"
@@ -10,8 +11,6 @@
  * Compiler Definitions
  * ====================
  */
-
-#define TEX_BUFSIZE     0x80800
 
 
 /* =================
@@ -75,16 +74,6 @@ typedef struct {
 } TaskProcessQueuesState;
 
 typedef struct {
-    char *njFilename;
-    char *pvmFilename;
-} NjPvmPairFilenames;
-
-typedef struct {
-    NJS_TEXLIST *texlist;
-    void *njDest;
-} NjPvmPair;
-
-typedef struct {
     TaskAction action;
     void *state;
     int field_0x08;
@@ -94,18 +83,6 @@ typedef struct {
     QueuedDat* queuedDat_0x18;
     int field_0x1c;
 } TaskLoadQueuedDats;
-
-
-/* =====================
- * External Declarations
-   =====================
- */
-
-extern char var_8c1ba1cc[];
-extern Task var_tasks_8c1ba3c8[];
-/* TODO: DRY */
-extern Sint8 var_texbuf_8c277ca0[TEX_BUFSIZE];
-
 
 /* =======================
  * Non-initialized Globals
@@ -198,7 +175,7 @@ int init_8c03bf18[10] = {
  */
 
 /* Matched :) */
-void nop_8c011120() {
+void AsqNop_11120() {
     /* Empty body */
 }
 
@@ -225,7 +202,7 @@ STATIC void resetDatQueue_8c01116a() {
 }
 
 /* Matched */
-int requestDat_8c011182(char* basedir, char* filename, void* dest) {
+int AsqRequestDat_11182(char* basedir, char* filename, void* dest) {
 
     if (*filename == 0) {
         return 0;
@@ -459,7 +436,7 @@ STATIC void resetNjQueue_8c01147a() {
 }
 
 /* Matched */
-int requestNj_8c011492(char* basedir, char* filename, void* dest, void* dest2) {
+int AsqRequestNj_11492(char* basedir, char* filename, void* dest, void* dest2) {
 
     if (*filename == 0) {
         return 0;
@@ -725,7 +702,7 @@ STATIC void resetTexlistQueue_8c0117fe() {
 }
 
 /* Tested */
-int requestTexlist_8c01181c(char *basedir, NJS_TEXLIST *texlist) {
+int AsqRequestTexlist_1181c(char *basedir, NJS_TEXLIST *texlist) {
     if (var_texlistQueueRear_8c157ab0 >= var_texlistQueueTail_8c157ab4) {
         return 0;
     }
@@ -880,7 +857,7 @@ STATIC int initPvmQueue_8c011a5c(int count) {
 }
 
 /* Tested */
-int requestPvm_8c011ac0(char *basedir, char *filename, void *texlist, int count, int attr) {
+int AsqRequestPvm_11ac0(char *basedir, char *filename, void *texlist, int count, int attr) {
     if (!*filename || var_pvmQueueRear_8c157ac0 >= var_pvmQueueTail_8c157ac4) {
         return 0;
     }
@@ -1113,7 +1090,7 @@ STATIC void freePvmQueue_8c011e28() {
 }
 
 /* Tested */
-void releaseAndFreeTexlist_8c011e3c(NJS_TEXLIST *texlist) {
+void AsqReleaseAndFreeTexlist_11e3c(NJS_TEXLIST *texlist) {
     njReleaseTexture(texlist);
     syFree(texlist->textures[0].filename);
     syFree(texlist->textures);
@@ -1122,7 +1099,7 @@ void releaseAndFreeTexlist_8c011e3c(NJS_TEXLIST *texlist) {
 
 /* Tested */
 /* Unused */
-void freeTexlist_8c011e60(NJS_TEXLIST *texlist) {
+void AsqFreeTexlist_11e60(NJS_TEXLIST *texlist) {
     syFree(texlist->textures[0].filename);
     syFree(texlist->textures);
     syFree(texlist);
@@ -1188,7 +1165,7 @@ STATIC void task_processQueues_8c011e80(Task *task, TaskProcessQueuesState *stat
 }
 
 /* Tested */
-void initQueues_8c011f36(int datCount,int njCount,int texlistCount,int pvmCount)
+void AsqInitQueues_11f36(int datCount,int njCount,int texlistCount,int pvmCount)
 {
     LOG_INFO(("[ASSET_QUEUES] Initializing queues: DAT %d, NJ %d, TEXLIST %d, PVM %d\n", datCount, njCount, texlistCount, pvmCount));
 
@@ -1202,7 +1179,7 @@ void initQueues_8c011f36(int datCount,int njCount,int texlistCount,int pvmCount)
 }
 
 /* Tested */
-void resetQueues_8c011f6c() {
+void AsqResetQueues_11f6c() {
     LOG_INFO(("[ASSET_QUEUES] Resetting queues\n"));
 
     resetDatQueue_8c01116a();
@@ -1214,7 +1191,7 @@ void resetQueues_8c011f6c() {
 }
 
 /* Tested */
-void freeQueues_8c011f7e() {
+void AsqFreeQueues_11f7e() {
     LOG_INFO(("[ASSET_QUEUES] Freeing queues\n"));
 
     freeDatQueue_8c0113d8();
@@ -1226,7 +1203,7 @@ void freeQueues_8c011f7e() {
 }
 
 /* Tested */
-void processQueues_8c011fe0(void *func, void *afterDatCallback, void *afterNjCallback, void *afterPvmCallback, void *afterTexlistCallback) {
+void AsqProcessQueues_11fe0(void *func, void *afterDatCallback, void *afterNjCallback, void *afterPvmCallback, void *afterTexlistCallback) {
     Task* created_task;
     TaskProcessQueuesState* created_state;
 
@@ -1242,7 +1219,7 @@ void processQueues_8c011fe0(void *func, void *afterDatCallback, void *afterNjCal
 }
 
 /* Tested */
-NjPvmPair* requestNjPvmPairs_8c012030(char *basedir, NjPvmPairFilenames *pairs, int texlistCount) {
+NjPvmPair* AsqRequestNjPvmPairs_12030(char *basedir, NjPvmPairFilenames *pairs, int texlistCount) {
     int pairCount = 0;
     NjPvmPair *dest;
     int currentPair;
@@ -1255,11 +1232,11 @@ NjPvmPair* requestNjPvmPairs_8c012030(char *basedir, NjPvmPairFilenames *pairs, 
 
     if (pairCount > 0) {
         for (currentPair = 0; currentPair < pairCount; currentPair++) {
-            if (!requestNj_8c011492(basedir, pairs[currentPair].njFilename, 0, &dest[currentPair].njDest)) {
+            if (!AsqRequestNj_11492(basedir, pairs[currentPair].njFilename, 0, &dest[currentPair].njDest)) {
                 dest[currentPair].njDest = (void*) -1;
             }
 
-            if (!requestPvm_8c011ac0(basedir, pairs[currentPair].pvmFilename, &dest[currentPair].texlist, texlistCount, 0)) {
+            if (!AsqRequestPvm_11ac0(basedir, pairs[currentPair].pvmFilename, &dest[currentPair].texlist, texlistCount, 0)) {
                 dest[currentPair].texlist = (void*) -1;
             }
         }
@@ -1270,14 +1247,14 @@ NjPvmPair* requestNjPvmPairs_8c012030(char *basedir, NjPvmPairFilenames *pairs, 
 }
 
 /* Tested */
-void freeNjPvmPairs_8c0120fe(NjPvmPair **pairsPtr) {
+void AsqFreeNjPvmPairs_120fe(NjPvmPair **pairsPtr) {
     int i;
     NjPvmPair *pairs = *pairsPtr;
 
     if (pairs != (void*) -1) {
         for (i = 0; pairs[i].texlist != (void*) 0; i++) {
             if (pairs[i].texlist != (void*) -1) {
-                releaseAndFreeTexlist_8c011e3c(pairs[i].texlist);
+                AsqReleaseAndFreeTexlist_11e3c(pairs[i].texlist);
             }
 
             if (pairs[i].njDest != (void*) -1) {
@@ -1291,47 +1268,47 @@ void freeNjPvmPairs_8c0120fe(NjPvmPair **pairsPtr) {
 }
 
 /* Tested */
-void FUN_8c012160(int p1) {
+void AsqFUN_12160(int p1) {
     var_8c157acc = p1;
 }
 
 /* Tested */
-int FUN_8c012166() {
+int AsqFUN_12166() {
     var_8c157acc = var_8c157acc * 5 + 13;
     return var_8c157acc;
 }
 
 /* Tested */
-int FUN_8c012178(unsigned int p1) {
+int AsqFUN_12178(unsigned int p1) {
     if (p1) {
-        return FUN_8c012166() % p1;
+        return AsqFUN_12166() % p1;
     }
 
     return 0;
 }
 
 /* Tested */
-void FUN_8c0121a2(int p1) {
+void AsqFUN_121a2(int p1) {
     var_8c157ad0 = p1;
 }
 
 /* Tested */
-int FUN_8c0121a8() {
+int AsqFUN_121a8() {
     var_8c157ad0 = (var_8c157ad0 >> 1) * 7 + 0xb;
     return var_8c157ad0;
 }
 
 /* Tested */
-int FUN_8c0121be(unsigned int p1) {
+int AsqFUN_121be(unsigned int p1) {
     if (p1) {
-        return FUN_8c0121a8() % p1;
+        return AsqFUN_121a8() % p1;
     }
 
     return 0;
 }
 
 /* Tested */
-void FUN_8c0121e8() {
+void AsqFUN_121e8() {
     int i;
 
     for (i = 0; i < 14; i += 2) {

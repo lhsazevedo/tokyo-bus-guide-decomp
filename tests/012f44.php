@@ -43,8 +43,8 @@ return new class extends TestCase {
 
         // njRandomSeed
         $this->shouldCall('_srand')->with(0xcafe0001);
-        $this->shouldCall('_FUN_8c012160')->with(0xcafe0001);
-        $this->shouldCall('_FUN_8c0121a2')->with(0xcafe0001);
+        $this->shouldCall('_AsqFUN_12160')->with(0xcafe0001);
+        $this->shouldCall('_AsqFUN_121a2')->with(0xcafe0001);
         
         $this->shouldCall('_FUN_8c0128cc')->with(1);
 
@@ -129,8 +129,8 @@ return new class extends TestCase {
 
         // njRandomSeed
         $this->shouldCall('_srand')->with(0xcafe0001);
-        $this->shouldCall('_FUN_8c012160')->with(0xcafe0001);
-        $this->shouldCall('_FUN_8c0121a2')->with(0xcafe0001);
+        $this->shouldCall('_AsqFUN_12160')->with(0xcafe0001);
+        $this->shouldCall('_AsqFUN_121a2')->with(0xcafe0001);
         
         $this->shouldCall('_FUN_8c0128cc')->with(1);
 
@@ -201,8 +201,8 @@ return new class extends TestCase {
 
         // njRandomSeed
         $this->shouldCall('_srand')->with(0xcafe0001);
-        $this->shouldCall('_FUN_8c012160')->with(0xcafe0001);
-        $this->shouldCall('_FUN_8c0121a2')->with(0xcafe0001);
+        $this->shouldCall('_AsqFUN_12160')->with(0xcafe0001);
+        $this->shouldCall('_AsqFUN_121a2')->with(0xcafe0001);
         
         $this->shouldCall('_FUN_8c0128cc')->with(1);
 
@@ -295,11 +295,11 @@ return new class extends TestCase {
         $this->shouldWrite($taskPtr + 8, 1);
         $this->shouldWriteTo('_var_8c1bc450', fdec(41));
 
-        $this->shouldCall('_resetQueues_8c011f6c');
-        $this->shouldCall('_requestDat_8c011182')->with("\\SOUND", "manatee.drv", $this->addressOf('_var_memblkSource_8c0fcd48'));
-        $this->shouldCall('_requestDat_8c011182')->with("\\SOUND", "bus.mlt", $this->addressOf('_var_memblkSource_8c0fcd4c'));
+        $this->shouldCall('_AsqResetQueues_11f6c');
+        $this->shouldCall('_AsqRequestDat_11182')->with("\\SOUND", "manatee.drv", $this->addressOf('_var_memblkSource_8c0fcd48'));
+        $this->shouldCall('_AsqRequestDat_11182')->with("\\SOUND", "bus.mlt", $this->addressOf('_var_memblkSource_8c0fcd4c'));
         $this->shouldCall('_resetUknPvmBool_8c014322');
-        $this->shouldCall('_processQueues_8c011fe0')->with($this->addressOf('_nop_8c011120'), 0, 0, 0, $this->addressOf('_setUknPvmBool_8c014330'));;
+        $this->shouldCall('_AsqProcessQueues_11fe0')->with($this->addressOf('_AsqNop_11120'), 0, 0, 0, $this->addressOf('_setUknPvmBool_8c014330'));;
 
         $this->call('_task_8c013388')
             ->with($taskPtr, 0)
@@ -326,7 +326,7 @@ return new class extends TestCase {
 
         $this->shouldCall('_getUknPvmBool_8c01432a')->andReturn(1);
 
-        $this->shouldCall('_freeQueues_8c011f7e');
+        $this->shouldCall('_AsqFreeQueues_11f7e');
         $this->shouldCall('_freeTask_8c014b66')->with($taskPtr);
         $this->shouldCall('_initSoundMidiAdx_8c010e18');
         $this->shouldWriteTo('_var_8c2260a8', 1);
@@ -459,31 +459,31 @@ return new class extends TestCase {
         );
         $this->shouldWrite($createdTaskPtr + 0x08, 0);
 
-        $this->shouldCall('_initQueues_8c011f36')->with(0x10, 8, 0, 8);
-        $this->shouldCall('_resetQueues_8c011f6c');
+        $this->shouldCall('_AsqInitQueues_11f36')->with(0x10, 8, 0, 8);
+        $this->shouldCall('_AsqResetQueues_11f6c');
 
-        $this->shouldCall('_requestDat_8c011182')->with("\\SYSTEM", "mark_parts.dat", $this->addressOf('_var_mark_parts_dat_8c1bc41c'));
-        $this->shouldCall('_requestDat_8c011182')->with("\\SYSTEM", "mark.dat", $this->addressOf('_var_mark_dat_8c1bc420'));
-        $this->shouldCall('_requestDat_8c011182')->with("\\SYSTEM", "busstop_parts.dat", $this->addressOf('_var_busstop_parts_dat_8c1bc428'));
-        $this->shouldCall('_requestDat_8c011182')->with("\\SYSTEM", "busstop.dat", $this->addressOf('_var_busstop_dat_8c1bc42c'));
+        $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "mark_parts.dat", $this->addressOf('_var_mark_parts_dat_8c1bc41c'));
+        $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "mark.dat", $this->addressOf('_var_mark_dat_8c1bc420'));
+        $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "busstop_parts.dat", $this->addressOf('_var_busstop_parts_dat_8c1bc428'));
+        $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "busstop.dat", $this->addressOf('_var_busstop_dat_8c1bc42c'));
 
-        $this->shouldCall('_requestPvm_8c011ac0')->with("\\SYSTEM", "loading.pvm", $this->addressOf('_var_8c1bc3f8'), 1, 0x80000000);
-        $this->shouldCall('_requestDat_8c011182')->with("\\SYSTEM", "load_parts.dat", $this->addressOf('_var_8c1bc3f8') + 4);
-        $this->shouldCall('_requestDat_8c011182')->with("\\SYSTEM", "loading.dat", $this->addressOf('_var_8c1bc3f8') + 8);
+        $this->shouldCall('_AsqRequestPvm_11ac0')->with("\\SYSTEM", "loading.pvm", $this->addressOf('_var_8c1bc3f8'), 1, 0x80000000);
+        $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "load_parts.dat", $this->addressOf('_var_8c1bc3f8') + 4);
+        $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "loading.dat", $this->addressOf('_var_8c1bc3f8') + 8);
 
-        $this->shouldCall('_requestDat_8c011182')->with("\\SYSTEM", "bus_font.fff", $this->addressOf('_var_8c1ba1c8'));
-        $this->shouldCall('_requestDat_8c011182')->with("\\SYSTEM", "vm_bus.lcd", $this->addressOf('_var_8c2260ac'));
-        $this->shouldCall('_requestDat_8c011182')->with("\\SYSTEM", "vm_danger.lcd", $this->addressOf('_var_8c2260b8'));
-        $this->shouldCall('_requestDat_8c011182')->with("\\SYSTEM", "now_loading.lcd", $this->addressOf('_var_8c2260c4'));
+        $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "bus_font.fff", $this->addressOf('_var_8c1ba1c8'));
+        $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "vm_bus.lcd", $this->addressOf('_var_8c2260ac'));
+        $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "vm_danger.lcd", $this->addressOf('_var_8c2260b8'));
+        $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "now_loading.lcd", $this->addressOf('_var_8c2260c4'));
 
-        $this->shouldCall('_requestPvm_8c011ac0')->with("\\SYSTEM", "fuu.pvm", $this->addressOf('_var_8c1bc440'), 1, 0);
-        $this->shouldCall('_requestNj_8c011492')->with("\\SYSTEM", "fuu.njd", $this->addressOf('_var_8c1bc444'), 0);
-        $this->shouldCall('_requestNj_8c011492')->with("\\SYSTEM", "fuu.njm", $this->addressOf('_var_loadedFooNjm_8c1bc448'), 0);
-        $this->shouldCall('_requestNj_8c011492')->with("\\SD_COMMON", "3s_bus_m2.njm", $this->addressOf('_var_8c1bc410'), 0);
-        $this->shouldCall('_requestNj_8c011492')->with("\\SD_COMMON", "3s_bus_m2.njs", $this->addressOf('_var_8c1bc414'), 0);
+        $this->shouldCall('_AsqRequestPvm_11ac0')->with("\\SYSTEM", "fuu.pvm", $this->addressOf('_var_8c1bc440'), 1, 0);
+        $this->shouldCall('_AsqRequestNj_11492')->with("\\SYSTEM", "fuu.njd", $this->addressOf('_var_8c1bc444'), 0);
+        $this->shouldCall('_AsqRequestNj_11492')->with("\\SYSTEM", "fuu.njm", $this->addressOf('_var_loadedFooNjm_8c1bc448'), 0);
+        $this->shouldCall('_AsqRequestNj_11492')->with("\\SD_COMMON", "3s_bus_m2.njm", $this->addressOf('_var_8c1bc410'), 0);
+        $this->shouldCall('_AsqRequestNj_11492')->with("\\SD_COMMON", "3s_bus_m2.njs", $this->addressOf('_var_8c1bc414'), 0);
 
         $this->shouldCall('_resetUknPvmBool_8c014322');
-        $this->shouldCall('_processQueues_8c011fe0')->with($this->addressOf('_nop_8c011120'), 0, 0, 0, $this->addressOf('_setUknPvmBool_8c014330'));;
+        $this->shouldCall('_AsqProcessQueues_11fe0')->with($this->addressOf('_AsqNop_11120'), 0, 0, 0, $this->addressOf('_setUknPvmBool_8c014330'));;
 
         $this->shouldWriteTo('_var_gdErr_8c18ad14', 0);
 
@@ -613,31 +613,31 @@ return new class extends TestCase {
         );
         $this->shouldWrite($createdTaskPtr + 0x08, 0);
 
-        $this->shouldCall('_initQueues_8c011f36')->with(0x10, 8, 0, 8);
-        $this->shouldCall('_resetQueues_8c011f6c');
+        $this->shouldCall('_AsqInitQueues_11f36')->with(0x10, 8, 0, 8);
+        $this->shouldCall('_AsqResetQueues_11f6c');
 
-        $this->shouldCall('_requestDat_8c011182')->with("\\SYSTEM", "mark_parts.dat", $this->addressOf('_var_mark_parts_dat_8c1bc41c'));
-        $this->shouldCall('_requestDat_8c011182')->with("\\SYSTEM", "mark.dat", $this->addressOf('_var_mark_dat_8c1bc420'));
-        $this->shouldCall('_requestDat_8c011182')->with("\\SYSTEM", "busstop_parts.dat", $this->addressOf('_var_busstop_parts_dat_8c1bc428'));
-        $this->shouldCall('_requestDat_8c011182')->with("\\SYSTEM", "busstop.dat", $this->addressOf('_var_busstop_dat_8c1bc42c'));
+        $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "mark_parts.dat", $this->addressOf('_var_mark_parts_dat_8c1bc41c'));
+        $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "mark.dat", $this->addressOf('_var_mark_dat_8c1bc420'));
+        $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "busstop_parts.dat", $this->addressOf('_var_busstop_parts_dat_8c1bc428'));
+        $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "busstop.dat", $this->addressOf('_var_busstop_dat_8c1bc42c'));
 
-        $this->shouldCall('_requestPvm_8c011ac0')->with("\\SYSTEM", "loading.pvm", $this->addressOf('_var_8c1bc3f8'), 1, 0x80000000);
-        $this->shouldCall('_requestDat_8c011182')->with("\\SYSTEM", "load_parts.dat", $this->addressOf('_var_8c1bc3f8') + 4);
-        $this->shouldCall('_requestDat_8c011182')->with("\\SYSTEM", "loading.dat", $this->addressOf('_var_8c1bc3f8') + 8);
+        $this->shouldCall('_AsqRequestPvm_11ac0')->with("\\SYSTEM", "loading.pvm", $this->addressOf('_var_8c1bc3f8'), 1, 0x80000000);
+        $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "load_parts.dat", $this->addressOf('_var_8c1bc3f8') + 4);
+        $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "loading.dat", $this->addressOf('_var_8c1bc3f8') + 8);
 
-        $this->shouldCall('_requestDat_8c011182')->with("\\SYSTEM", "bus_font.fff", $this->addressOf('_var_8c1ba1c8'));
-        $this->shouldCall('_requestDat_8c011182')->with("\\SYSTEM", "vm_bus.lcd", $this->addressOf('_var_8c2260ac'));
-        $this->shouldCall('_requestDat_8c011182')->with("\\SYSTEM", "vm_danger.lcd", $this->addressOf('_var_8c2260b8'));
-        $this->shouldCall('_requestDat_8c011182')->with("\\SYSTEM", "now_loading.lcd", $this->addressOf('_var_8c2260c4'));
+        $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "bus_font.fff", $this->addressOf('_var_8c1ba1c8'));
+        $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "vm_bus.lcd", $this->addressOf('_var_8c2260ac'));
+        $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "vm_danger.lcd", $this->addressOf('_var_8c2260b8'));
+        $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "now_loading.lcd", $this->addressOf('_var_8c2260c4'));
 
-        $this->shouldCall('_requestPvm_8c011ac0')->with("\\SYSTEM", "fuu.pvm", $this->addressOf('_var_8c1bc440'), 1, 0);
-        $this->shouldCall('_requestNj_8c011492')->with("\\SYSTEM", "fuu.njd", $this->addressOf('_var_8c1bc444'), 0);
-        $this->shouldCall('_requestNj_8c011492')->with("\\SYSTEM", "fuu.njm", $this->addressOf('_var_loadedFooNjm_8c1bc448'), 0);
-        $this->shouldCall('_requestNj_8c011492')->with("\\SD_COMMON", "3s_bus_m2.njm", $this->addressOf('_var_8c1bc410'), 0);
-        $this->shouldCall('_requestNj_8c011492')->with("\\SD_COMMON", "3s_bus_m2.njs", $this->addressOf('_var_8c1bc414'), 0);
+        $this->shouldCall('_AsqRequestPvm_11ac0')->with("\\SYSTEM", "fuu.pvm", $this->addressOf('_var_8c1bc440'), 1, 0);
+        $this->shouldCall('_AsqRequestNj_11492')->with("\\SYSTEM", "fuu.njd", $this->addressOf('_var_8c1bc444'), 0);
+        $this->shouldCall('_AsqRequestNj_11492')->with("\\SYSTEM", "fuu.njm", $this->addressOf('_var_loadedFooNjm_8c1bc448'), 0);
+        $this->shouldCall('_AsqRequestNj_11492')->with("\\SD_COMMON", "3s_bus_m2.njm", $this->addressOf('_var_8c1bc410'), 0);
+        $this->shouldCall('_AsqRequestNj_11492')->with("\\SD_COMMON", "3s_bus_m2.njs", $this->addressOf('_var_8c1bc414'), 0);
 
         $this->shouldCall('_resetUknPvmBool_8c014322');
-        $this->shouldCall('_processQueues_8c011fe0')->with($this->addressOf('_nop_8c011120'), 0, 0, 0, $this->addressOf('_setUknPvmBool_8c014330'));;
+        $this->shouldCall('_AsqProcessQueues_11fe0')->with($this->addressOf('_AsqNop_11120'), 0, 0, 0, $this->addressOf('_setUknPvmBool_8c014330'));;
 
         $this->shouldWriteTo('_var_gdErr_8c18ad14', 0);
 
@@ -767,31 +767,31 @@ return new class extends TestCase {
         );
         $this->shouldWrite($createdTaskPtr + 0x08, 0);
 
-        $this->shouldCall('_initQueues_8c011f36')->with(0x10, 8, 0, 8);
-        $this->shouldCall('_resetQueues_8c011f6c');
+        $this->shouldCall('_AsqInitQueues_11f36')->with(0x10, 8, 0, 8);
+        $this->shouldCall('_AsqResetQueues_11f6c');
 
-        $this->shouldCall('_requestDat_8c011182')->with("\\SYSTEM", "mark_parts.dat", $this->addressOf('_var_mark_parts_dat_8c1bc41c'));
-        $this->shouldCall('_requestDat_8c011182')->with("\\SYSTEM", "mark.dat", $this->addressOf('_var_mark_dat_8c1bc420'));
-        $this->shouldCall('_requestDat_8c011182')->with("\\SYSTEM", "busstop_parts.dat", $this->addressOf('_var_busstop_parts_dat_8c1bc428'));
-        $this->shouldCall('_requestDat_8c011182')->with("\\SYSTEM", "busstop.dat", $this->addressOf('_var_busstop_dat_8c1bc42c'));
+        $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "mark_parts.dat", $this->addressOf('_var_mark_parts_dat_8c1bc41c'));
+        $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "mark.dat", $this->addressOf('_var_mark_dat_8c1bc420'));
+        $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "busstop_parts.dat", $this->addressOf('_var_busstop_parts_dat_8c1bc428'));
+        $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "busstop.dat", $this->addressOf('_var_busstop_dat_8c1bc42c'));
 
-        $this->shouldCall('_requestPvm_8c011ac0')->with("\\SYSTEM", "loading.pvm", $this->addressOf('_var_8c1bc3f8'), 1, 0x80000000);
-        $this->shouldCall('_requestDat_8c011182')->with("\\SYSTEM", "load_parts.dat", $this->addressOf('_var_8c1bc3f8') + 4);
-        $this->shouldCall('_requestDat_8c011182')->with("\\SYSTEM", "loading.dat", $this->addressOf('_var_8c1bc3f8') + 8);
+        $this->shouldCall('_AsqRequestPvm_11ac0')->with("\\SYSTEM", "loading.pvm", $this->addressOf('_var_8c1bc3f8'), 1, 0x80000000);
+        $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "load_parts.dat", $this->addressOf('_var_8c1bc3f8') + 4);
+        $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "loading.dat", $this->addressOf('_var_8c1bc3f8') + 8);
 
-        $this->shouldCall('_requestDat_8c011182')->with("\\SYSTEM", "bus_font.fff", $this->addressOf('_var_8c1ba1c8'));
-        $this->shouldCall('_requestDat_8c011182')->with("\\SYSTEM", "vm_bus.lcd", $this->addressOf('_var_8c2260ac'));
-        $this->shouldCall('_requestDat_8c011182')->with("\\SYSTEM", "vm_danger.lcd", $this->addressOf('_var_8c2260b8'));
-        $this->shouldCall('_requestDat_8c011182')->with("\\SYSTEM", "now_loading.lcd", $this->addressOf('_var_8c2260c4'));
+        $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "bus_font.fff", $this->addressOf('_var_8c1ba1c8'));
+        $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "vm_bus.lcd", $this->addressOf('_var_8c2260ac'));
+        $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "vm_danger.lcd", $this->addressOf('_var_8c2260b8'));
+        $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "now_loading.lcd", $this->addressOf('_var_8c2260c4'));
 
-        $this->shouldCall('_requestPvm_8c011ac0')->with("\\SYSTEM", "fuu.pvm", $this->addressOf('_var_8c1bc440'), 1, 0);
-        $this->shouldCall('_requestNj_8c011492')->with("\\SYSTEM", "fuu.njd", $this->addressOf('_var_8c1bc444'), 0);
-        $this->shouldCall('_requestNj_8c011492')->with("\\SYSTEM", "fuu.njm", $this->addressOf('_var_loadedFooNjm_8c1bc448'), 0);
-        $this->shouldCall('_requestNj_8c011492')->with("\\SD_COMMON", "3s_bus_m2.njm", $this->addressOf('_var_8c1bc410'), 0);
-        $this->shouldCall('_requestNj_8c011492')->with("\\SD_COMMON", "3s_bus_m2.njs", $this->addressOf('_var_8c1bc414'), 0);
+        $this->shouldCall('_AsqRequestPvm_11ac0')->with("\\SYSTEM", "fuu.pvm", $this->addressOf('_var_8c1bc440'), 1, 0);
+        $this->shouldCall('_AsqRequestNj_11492')->with("\\SYSTEM", "fuu.njd", $this->addressOf('_var_8c1bc444'), 0);
+        $this->shouldCall('_AsqRequestNj_11492')->with("\\SYSTEM", "fuu.njm", $this->addressOf('_var_loadedFooNjm_8c1bc448'), 0);
+        $this->shouldCall('_AsqRequestNj_11492')->with("\\SD_COMMON", "3s_bus_m2.njm", $this->addressOf('_var_8c1bc410'), 0);
+        $this->shouldCall('_AsqRequestNj_11492')->with("\\SD_COMMON", "3s_bus_m2.njs", $this->addressOf('_var_8c1bc414'), 0);
 
         $this->shouldCall('_resetUknPvmBool_8c014322');
-        $this->shouldCall('_processQueues_8c011fe0')->with($this->addressOf('_nop_8c011120'), 0, 0, 0, $this->addressOf('_setUknPvmBool_8c014330'));;
+        $this->shouldCall('_AsqProcessQueues_11fe0')->with($this->addressOf('_AsqNop_11120'), 0, 0, 0, $this->addressOf('_setUknPvmBool_8c014330'));;
 
         $this->shouldWriteTo('_var_gdErr_8c18ad14', 0);
 
@@ -921,31 +921,31 @@ return new class extends TestCase {
         );
         $this->shouldWrite($createdTaskPtr + 0x08, 0);
 
-        $this->shouldCall('_initQueues_8c011f36')->with(0x10, 8, 0, 8);
-        $this->shouldCall('_resetQueues_8c011f6c');
+        $this->shouldCall('_AsqInitQueues_11f36')->with(0x10, 8, 0, 8);
+        $this->shouldCall('_AsqResetQueues_11f6c');
 
-        $this->shouldCall('_requestDat_8c011182')->with("\\SYSTEM", "mark_parts.dat", $this->addressOf('_var_mark_parts_dat_8c1bc41c'));
-        $this->shouldCall('_requestDat_8c011182')->with("\\SYSTEM", "mark.dat", $this->addressOf('_var_mark_dat_8c1bc420'));
-        $this->shouldCall('_requestDat_8c011182')->with("\\SYSTEM", "busstop_parts.dat", $this->addressOf('_var_busstop_parts_dat_8c1bc428'));
-        $this->shouldCall('_requestDat_8c011182')->with("\\SYSTEM", "busstop.dat", $this->addressOf('_var_busstop_dat_8c1bc42c'));
+        $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "mark_parts.dat", $this->addressOf('_var_mark_parts_dat_8c1bc41c'));
+        $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "mark.dat", $this->addressOf('_var_mark_dat_8c1bc420'));
+        $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "busstop_parts.dat", $this->addressOf('_var_busstop_parts_dat_8c1bc428'));
+        $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "busstop.dat", $this->addressOf('_var_busstop_dat_8c1bc42c'));
 
-        $this->shouldCall('_requestPvm_8c011ac0')->with("\\SYSTEM", "loading.pvm", $this->addressOf('_var_8c1bc3f8'), 1, 0x80000000);
-        $this->shouldCall('_requestDat_8c011182')->with("\\SYSTEM", "load_parts.dat", $this->addressOf('_var_8c1bc3f8') + 4);
-        $this->shouldCall('_requestDat_8c011182')->with("\\SYSTEM", "loading.dat", $this->addressOf('_var_8c1bc3f8') + 8);
+        $this->shouldCall('_AsqRequestPvm_11ac0')->with("\\SYSTEM", "loading.pvm", $this->addressOf('_var_8c1bc3f8'), 1, 0x80000000);
+        $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "load_parts.dat", $this->addressOf('_var_8c1bc3f8') + 4);
+        $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "loading.dat", $this->addressOf('_var_8c1bc3f8') + 8);
 
-        $this->shouldCall('_requestDat_8c011182')->with("\\SYSTEM", "bus_font.fff", $this->addressOf('_var_8c1ba1c8'));
-        $this->shouldCall('_requestDat_8c011182')->with("\\SYSTEM", "vm_bus.lcd", $this->addressOf('_var_8c2260ac'));
-        $this->shouldCall('_requestDat_8c011182')->with("\\SYSTEM", "vm_danger.lcd", $this->addressOf('_var_8c2260b8'));
-        $this->shouldCall('_requestDat_8c011182')->with("\\SYSTEM", "now_loading.lcd", $this->addressOf('_var_8c2260c4'));
+        $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "bus_font.fff", $this->addressOf('_var_8c1ba1c8'));
+        $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "vm_bus.lcd", $this->addressOf('_var_8c2260ac'));
+        $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "vm_danger.lcd", $this->addressOf('_var_8c2260b8'));
+        $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "now_loading.lcd", $this->addressOf('_var_8c2260c4'));
 
-        $this->shouldCall('_requestPvm_8c011ac0')->with("\\SYSTEM", "fuu.pvm", $this->addressOf('_var_8c1bc440'), 1, 0);
-        $this->shouldCall('_requestNj_8c011492')->with("\\SYSTEM", "fuu.njd", $this->addressOf('_var_8c1bc444'), 0);
-        $this->shouldCall('_requestNj_8c011492')->with("\\SYSTEM", "fuu.njm", $this->addressOf('_var_loadedFooNjm_8c1bc448'), 0);
-        $this->shouldCall('_requestNj_8c011492')->with("\\SD_COMMON", "3s_bus_m2.njm", $this->addressOf('_var_8c1bc410'), 0);
-        $this->shouldCall('_requestNj_8c011492')->with("\\SD_COMMON", "3s_bus_m2.njs", $this->addressOf('_var_8c1bc414'), 0);
+        $this->shouldCall('_AsqRequestPvm_11ac0')->with("\\SYSTEM", "fuu.pvm", $this->addressOf('_var_8c1bc440'), 1, 0);
+        $this->shouldCall('_AsqRequestNj_11492')->with("\\SYSTEM", "fuu.njd", $this->addressOf('_var_8c1bc444'), 0);
+        $this->shouldCall('_AsqRequestNj_11492')->with("\\SYSTEM", "fuu.njm", $this->addressOf('_var_loadedFooNjm_8c1bc448'), 0);
+        $this->shouldCall('_AsqRequestNj_11492')->with("\\SD_COMMON", "3s_bus_m2.njm", $this->addressOf('_var_8c1bc410'), 0);
+        $this->shouldCall('_AsqRequestNj_11492')->with("\\SD_COMMON", "3s_bus_m2.njs", $this->addressOf('_var_8c1bc414'), 0);
 
         $this->shouldCall('_resetUknPvmBool_8c014322');
-        $this->shouldCall('_processQueues_8c011fe0')->with($this->addressOf('_nop_8c011120'), 0, 0, 0, $this->addressOf('_setUknPvmBool_8c014330'));;
+        $this->shouldCall('_AsqProcessQueues_11fe0')->with($this->addressOf('_AsqNop_11120'), 0, 0, 0, $this->addressOf('_setUknPvmBool_8c014330'));;
 
         $this->shouldWriteTo('_var_gdErr_8c18ad14', 0);
 

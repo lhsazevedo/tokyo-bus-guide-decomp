@@ -8,9 +8,9 @@
 #include "015ab8_title.h"
 #include "serial_debug.h"
 #include "0193c8_vm_menu.h"
+#include "011120_asset_queues.h"
 
 extern Bool getUknPvmBool_8c01432a();
-extern void freeQueues_8c011f7e();
 extern void push_fadein_8c022a9c();
 extern SDMIDI var_midiHandles_8c0fcd28[7];
 extern Bool isFading_8c226568;
@@ -25,16 +25,12 @@ extern Task var_tasks_8c1ba3c8[16];
 extern void task_8c012f44(Task* task, void* state);
 extern NJS_TEXMEMLIST var_tex_8c157af8;
 extern FUN_8c02ae3e(int p1, int p2, float fp1, int p3, int p4, int p5, int p6, int p7);
-extern initQueues_8c011f36(int p1, int p2, int p3, int p4);
-extern void nop_8c011120();
 extern void resetUknPvmBool_8c014322();
 extern FUN_8c016182();
 extern FUN_8c0159ac();
-extern void resetQueues_8c011f6c();
 extern void requestSysResgrp_8c018568(ResourceGroup* dds, ResourceGroupInfo* rg);
 extern void requestCommonResources_8c01852c();
 extern void setUknPvmBool_8c014330();
-extern void processQueues_8c011fe0(void* p1, int p2, int p3, int p4, void* p2);
 extern void snd_8c010cd6(int p1, int p2);
 extern Bool FUN_8c012984(void);
 
@@ -60,7 +56,7 @@ void task_title_8c015ab8(Task* task, void *state) {
         case TITLE_STATE_0X00_INIT: {
             if (getUknPvmBool_8c01432a() == FALSE) {
                 /* 8c015b96 */
-                freeQueues_8c011f7e();
+                AsqFreeQueues_11f7e();
                 VmMenuMountVms_1940e();
 
                 if (task->field_0x08 == FALSE) {
@@ -445,11 +441,11 @@ void pushTitle_8c015fd6 (Bool direct) {
 
     njGarbageTexture(&var_tex_8c157af8, 3072);
     FUN_8c02ae3e(0x20, 0x178, -2.0, 0x240, 0x40, 0, 0, -1);
-    initQueues_8c011f36(8, 0, 0, 8);
-    resetQueues_8c011f6c();
+    AsqInitQueues_11f36(8, 0, 0, 8);
+    AsqResetQueues_11f6c();
     var_8c225fb0 = (void *) -1;
     requestSysResgrp_8c018568(&menuState_8c1bc7a8.resourceGroupB_0x0c, &titleResourceGroup_8c044254);
     requestCommonResources_8c01852c();
     setUknPvmBool_8c014330();
-    processQueues_8c011fe0(&nop_8c011120, 0, 0, 0, &resetUknPvmBool_8c014322);
+    AsqProcessQueues_11fe0(&AsqNop_11120, 0, 0, 0, &resetUknPvmBool_8c014322);
 }

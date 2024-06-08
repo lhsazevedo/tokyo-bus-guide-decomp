@@ -10,7 +10,7 @@
           .IMPORT     _var_tasks_8c1ba3c8
           .IMPORT     _FUN_8c013ee4
           .IMPORT     _FUN_8c013dae
-          .IMPORT     _freeNjPvmPairs_8c0120fe
+          .IMPORT     _AsqFreeNjPvmPairs_120fe
           .IMPORT     _var_8c1bc3ec
           .IMPORT     _var_8c1bc3f0
           .IMPORT     _var_8c1bc3f4
@@ -39,7 +39,7 @@
           .IMPORT     _pushTask_8c014ae8
           .IMPORT     _init_8c04429c
           .IMPORT     _var_8c1bc824
-          .IMPORT     _FUN_8c012166
+          .IMPORT     _AsqFUN_12166
           .IMPORT     _FUN_8c0128cc
           .IMPORT     _var_8c1bc828
           .IMPORT     _var_8c225fa8
@@ -416,7 +416,7 @@ LP_GEN_42967:
           .DATA.L _FUN_8c029cfe ; H'8C0163B8
           .DATA.L _FUN_8c013ee4 ; H'8C0163BC
           .DATA.L _FUN_8c013dae ; H'8C0163C0
-          .DATA.L _freeNjPvmPairs_8c0120fe ; H'8C0163C4
+          .DATA.L _AsqFreeNjPvmPairs_120fe ; H'8C0163C4
           .DATA.L _var_8c1bc3ec ; H'8C0163C8
           .DATA.L _var_8c1bc3f0 ; H'8C0163CC
           .DATA.L _var_8c1bc3f4 ; H'8C0163D0
@@ -1008,7 +1008,7 @@ LP_GEN_94139:
           .DATA.L H'000C0000 ; H'8C016854
           .DATA.L _const_8c0360b0 ; H'8C016858
           .DATA.L H'000A0000 ; H'8C01685C
-          .DATA.L _FUN_8c012166 ; H'8C016860
+          .DATA.L _AsqFUN_12166 ; H'8C016860
           .DATA.L _FUN_8c0128cc ; H'8C016864
           .DATA.L _FUN_8c01666a ; H'8C016868
           .DATA.L _var_8c1bc828 ; H'8C01686C

@@ -22,7 +22,7 @@ return new class extends TestCase {
         $this->shouldWrite($queue + 4, $unknownStruct);
         $this->shouldWriteTo('_var_texlistQueueRear_8c157ab0', $queue + $sizeOfStruct);
 
-        $this->call('_requestTexlist_8c01181c')
+        $this->call('_AsqRequestTexlist_1181c')
             ->with($dirname, $unknownStruct)
             ->shouldReturn(1)
             ->run();
@@ -42,7 +42,7 @@ return new class extends TestCase {
         $unknownStruct = $this->alloc(4);
 
 
-        $this->call('_requestTexlist_8c01181c')
+        $this->call('_AsqRequestTexlist_1181c')
             ->with($dirname, $unknownStruct)
             ->shouldReturn(0)
             ->run();

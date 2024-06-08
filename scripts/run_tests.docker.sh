@@ -130,8 +130,8 @@ compile  src/011120_asset_queues.c
 $sh4objtest "tests/011120/4338_initDatQueue_8c011124.php" "build/output/011120_asset_queues_src.obj"
 $sh4objtest "tests/011120/4338_initDatQueue_8c011124.php" "build/output/011120_asset_queues_c.obj"
 
-$sh4objtest "tests/011120/4384_nop_8c011120.php" "build/output/011120_asset_queues_src.obj"
-$sh4objtest "tests/011120/4384_nop_8c011120.php" "build/output/011120_asset_queues_c.obj"
+$sh4objtest "tests/011120/4384_AsqNop_11120.php" "build/output/011120_asset_queues_src.obj"
+$sh4objtest "tests/011120/4384_AsqNop_11120.php" "build/output/011120_asset_queues_c.obj"
 
 $sh4objtest "tests/011120/4458_resetDatQueue_8c01116a.php" "build/output/011120_asset_queues_src.obj"
 $sh4objtest "tests/011120/4458_resetDatQueue_8c01116a.php" "build/output/011120_asset_queues_c.obj"
@@ -157,8 +157,8 @@ $sh4objtest "tests/011120/6072_initTexlistQueue_8c0117b8.php" "build/output/0111
 $sh4objtest "tests/011120/6142_resetTexlistQueue_8c0117fe.php" "build/output/011120_asset_queues_src.obj"
 $sh4objtest "tests/011120/6142_resetTexlistQueue_8c0117fe.php" "build/output/011120_asset_queues_c.obj"
 
-$sh4objtest "tests/011120/6172_requestTexlist_8c01181c.php" "build/output/011120_asset_queues_src.obj"
-$sh4objtest "tests/011120/6172_requestTexlist_8c01181c.php" "build/output/011120_asset_queues_c.obj"
+$sh4objtest "tests/011120/6172_AsqRequestTexlist_1181c.php" "build/output/011120_asset_queues_src.obj"
+$sh4objtest "tests/011120/6172_AsqRequestTexlist_1181c.php" "build/output/011120_asset_queues_c.obj"
 
 $sh4objtest "tests/011120/6206_task_loadQueuedTexlists_8c01183e.php" "build/output/011120_asset_queues_src.obj"
 $sh4objtest "tests/011120/6206_task_loadQueuedTexlists_8c01183e.php" "build/output/011120_asset_queues_c.obj"
@@ -175,8 +175,8 @@ $sh4objtest "tests/011120/6728_freeTexlistQueue_8c011a48.php" "build/output/0111
 $sh4objtest "tests/011120/6748_initPvmQueue_8c011a5c.php" "build/output/011120_asset_queues_src.obj"
 $sh4objtest "tests/011120/6748_initPvmQueue_8c011a5c.php" "build/output/011120_asset_queues_c.obj"
 
-$sh4objtest "tests/011120/6848_requestPvm_8c011ac0.php" "build/output/011120_asset_queues_src.obj"
-$sh4objtest "tests/011120/6848_requestPvm_8c011ac0.php" "build/output/011120_asset_queues_c.obj"
+$sh4objtest "tests/011120/6848_AsqRequestPvm_11ac0.php" "build/output/011120_asset_queues_src.obj"
+$sh4objtest "tests/011120/6848_AsqRequestPvm_11ac0.php" "build/output/011120_asset_queues_c.obj"
 
 $sh4objtest "tests/011120/6912_task_loadQueuedPvms_8c011b00.php" "build/output/011120_asset_queues_src.obj"
 $sh4objtest "tests/011120/6912_task_loadQueuedPvms_8c011b00.php" "build/output/011120_asset_queues_c.obj"
@@ -190,50 +190,50 @@ $sh4objtest "tests/011120/7714_pvmQueueIsIdle_8c011e22.php" "build/output/011120
 $sh4objtest "tests/011120/7720_freePvmQueue_8c011e28.php" "build/output/011120_asset_queues_src.obj"
 $sh4objtest "tests/011120/7720_freePvmQueue_8c011e28.php" "build/output/011120_asset_queues_c.obj"
 
-$sh4objtest "tests/011120/7740_releaseAndFreeTexlist_8c011e3c.php" "build/output/011120_asset_queues_src.obj"
-$sh4objtest "tests/011120/7740_releaseAndFreeTexlist_8c011e3c.php" "build/output/011120_asset_queues_c.obj"
+$sh4objtest "tests/011120/7740_AsqReleaseAndFreeTexlist_11e3c.php" "build/output/011120_asset_queues_src.obj"
+$sh4objtest "tests/011120/7740_AsqReleaseAndFreeTexlist_11e3c.php" "build/output/011120_asset_queues_c.obj"
 
-$sh4objtest "tests/011120/7776_freeTexlist_8c011e60.php" "build/output/011120_asset_queues_src.obj"
-$sh4objtest "tests/011120/7776_freeTexlist_8c011e60.php" "build/output/011120_asset_queues_c.obj"
+$sh4objtest "tests/011120/7776_AsqFreeTexlist_11e60.php" "build/output/011120_asset_queues_src.obj"
+$sh4objtest "tests/011120/7776_AsqFreeTexlist_11e60.php" "build/output/011120_asset_queues_c.obj"
 
 $sh4objtest "tests/011120/7808_task_processQueues_8c011e80.php" "build/output/011120_asset_queues_src.obj"
 $sh4objtest "tests/011120/7808_task_processQueues_8c011e80.php" "build/output/011120_asset_queues_c.obj"
 
-$sh4objtest "tests/011120/7990_initQueues_8c011f36.php" "build/output/011120_asset_queues_src.obj"
-$sh4objtest "tests/011120/7990_initQueues_8c011f36.php" "build/output/011120_asset_queues_c.obj"
+$sh4objtest "tests/011120/7990_AsqInitQueues_11f36.php" "build/output/011120_asset_queues_src.obj"
+$sh4objtest "tests/011120/7990_AsqInitQueues_11f36.php" "build/output/011120_asset_queues_c.obj"
 
-$sh4objtest "tests/011120/8044_resetQueues_8c011f6c.php" "build/output/011120_asset_queues_src.obj"
-$sh4objtest "tests/011120/8044_resetQueues_8c011f6c.php" "build/output/011120_asset_queues_c.obj"
+$sh4objtest "tests/011120/8044_AsqResetQueues_11f6c.php" "build/output/011120_asset_queues_src.obj"
+$sh4objtest "tests/011120/8044_AsqResetQueues_11f6c.php" "build/output/011120_asset_queues_c.obj"
 
-$sh4objtest "tests/011120/8062_freeQueues_8c011f7e.php" "build/output/011120_asset_queues_src.obj"
-$sh4objtest "tests/011120/8062_freeQueues_8c011f7e.php" "build/output/011120_asset_queues_c.obj"
+$sh4objtest "tests/011120/8062_AsqFreeQueues_11f7e.php" "build/output/011120_asset_queues_src.obj"
+$sh4objtest "tests/011120/8062_AsqFreeQueues_11f7e.php" "build/output/011120_asset_queues_c.obj"
 
-$sh4objtest "tests/011120/8160_processQueues_8c011fe0.php" "build/output/011120_asset_queues_src.obj"
-$sh4objtest "tests/011120/8160_processQueues_8c011fe0.php" "build/output/011120_asset_queues_c.obj"
+$sh4objtest "tests/011120/8160_AsqProcessQueues_11fe0.php" "build/output/011120_asset_queues_src.obj"
+$sh4objtest "tests/011120/8160_AsqProcessQueues_11fe0.php" "build/output/011120_asset_queues_c.obj"
 
-$sh4objtest "tests/011120/8240_requestNjPvmPairs_8c012030.php" "build/output/011120_asset_queues_src.obj"
-$sh4objtest "tests/011120/8240_requestNjPvmPairs_8c012030.php" "build/output/011120_asset_queues_c.obj"
+$sh4objtest "tests/011120/8240_AsqRequestNjPvmPairs_12030.php" "build/output/011120_asset_queues_src.obj"
+$sh4objtest "tests/011120/8240_AsqRequestNjPvmPairs_12030.php" "build/output/011120_asset_queues_c.obj"
 
-$sh4objtest "tests/011120/8446_freeNjPvmPairs_8c0120fe.php" "build/output/011120_asset_queues_src.obj"
-$sh4objtest "tests/011120/8446_freeNjPvmPairs_8c0120fe.php" "build/output/011120_asset_queues_c.obj"
+$sh4objtest "tests/011120/8446_AsqFreeNjPvmPairs_120fe.php" "build/output/011120_asset_queues_src.obj"
+$sh4objtest "tests/011120/8446_AsqFreeNjPvmPairs_120fe.php" "build/output/011120_asset_queues_c.obj"
 
-$sh4objtest "tests/011120/8544_FUN_8c012160.php" "build/output/011120_asset_queues_src.obj"
-$sh4objtest "tests/011120/8544_FUN_8c012160.php" "build/output/011120_asset_queues_c.obj"
+$sh4objtest "tests/011120/8544_AsqFUN_12160.php" "build/output/011120_asset_queues_src.obj"
+$sh4objtest "tests/011120/8544_AsqFUN_12160.php" "build/output/011120_asset_queues_c.obj"
 
-$sh4objtest "tests/011120/8550_FUN_8c012166.php" "build/output/011120_asset_queues_src.obj"
-$sh4objtest "tests/011120/8550_FUN_8c012166.php" "build/output/011120_asset_queues_c.obj"
+$sh4objtest "tests/011120/8550_AsqFUN_12166.php" "build/output/011120_asset_queues_src.obj"
+$sh4objtest "tests/011120/8550_AsqFUN_12166.php" "build/output/011120_asset_queues_c.obj"
 
-$sh4objtest "tests/011120/8568_FUN_8c012178.php" "build/output/011120_asset_queues_src.obj"
-$sh4objtest "tests/011120/8568_FUN_8c012178.php" "build/output/011120_asset_queues_c.obj"
+$sh4objtest "tests/011120/8568_AsqFUN_12178.php" "build/output/011120_asset_queues_src.obj"
+$sh4objtest "tests/011120/8568_AsqFUN_12178.php" "build/output/011120_asset_queues_c.obj"
 
-$sh4objtest "tests/011120/8610_FUN_8c0121a2.php" "build/output/011120_asset_queues_src.obj"
-$sh4objtest "tests/011120/8610_FUN_8c0121a2.php" "build/output/011120_asset_queues_c.obj"
+$sh4objtest "tests/011120/8610_AsqFUN_121a2.php" "build/output/011120_asset_queues_src.obj"
+$sh4objtest "tests/011120/8610_AsqFUN_121a2.php" "build/output/011120_asset_queues_c.obj"
 
-$sh4objtest "tests/011120/8616_FUN_8c0121a8.php" "build/output/011120_asset_queues_src.obj"
-$sh4objtest "tests/011120/8616_FUN_8c0121a8.php" "build/output/011120_asset_queues_c.obj"
+$sh4objtest "tests/011120/8616_AsqFUN_121a8.php" "build/output/011120_asset_queues_src.obj"
+$sh4objtest "tests/011120/8616_AsqFUN_121a8.php" "build/output/011120_asset_queues_c.obj"
 
-$sh4objtest "tests/011120/8638_FUN_8c0121be.php" "build/output/011120_asset_queues_src.obj"
-$sh4objtest "tests/011120/8638_FUN_8c0121be.php" "build/output/011120_asset_queues_c.obj"
+$sh4objtest "tests/011120/8638_AsqFUN_121be.php" "build/output/011120_asset_queues_src.obj"
+$sh4objtest "tests/011120/8638_AsqFUN_121be.php" "build/output/011120_asset_queues_c.obj"
 
-$sh4objtest "tests/011120/8680_FUN_8c0121e8.php" "build/output/011120_asset_queues_src.obj"
-$sh4objtest "tests/011120/8680_FUN_8c0121e8.php" "build/output/011120_asset_queues_c.obj"
+$sh4objtest "tests/011120/8680_AsqFUN_121e8.php" "build/output/011120_asset_queues_src.obj"
+$sh4objtest "tests/011120/8680_AsqFUN_121e8.php" "build/output/011120_asset_queues_c.obj"

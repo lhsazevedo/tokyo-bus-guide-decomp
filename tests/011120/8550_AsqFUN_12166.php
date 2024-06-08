@@ -13,7 +13,7 @@ return new class extends TestCase {
         // 42 * 5 + 13 = 210 + 13 = 223
         $this->shouldWriteTo('_var_8c157acc', 223);
 
-        $this->call('_FUN_8c012166')
+        $this->call('_AsqFUN_12166')
             ->shouldReturn(223)
             ->run();
     }

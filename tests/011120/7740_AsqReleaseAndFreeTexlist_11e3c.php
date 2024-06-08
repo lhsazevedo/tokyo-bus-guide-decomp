@@ -28,13 +28,14 @@ return new class extends TestCase {
         // NJS_TEXLIST
         $texlist = $this->alloc(0x8);
         $this->initUint32($texlist + 0x0, $textures);
-        $this->initUint32($texlist + 0x4, 3); // nbTexture
+        $this->initUint32($texlist + 0x4, 3);  // nbTexture
 
+        $this->shouldCall('_njReleaseTexture')->with($texlist);
         $this->shouldCall('_syFree')->with($texAFile);
         $this->shouldCall('_syFree')->with($textures);
         $this->shouldCall('_syFree')->with($texlist);
 
-        $this->call('_freeTexlist_8c011e60')
+        $this->call('_AsqReleaseAndFreeTexlist_11e3c')
             ->with($texlist)
             ->run();
     }

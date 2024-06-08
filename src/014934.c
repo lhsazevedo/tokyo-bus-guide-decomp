@@ -1,8 +1,8 @@
 /* 8c014934 */
 #include <shinobi.h>
 #include "014a9c_tasks.h"
+#include "011120_asset_queues.h"
 
-extern int var_8c157a6c;
 extern Task var_tasks_8c1ba3c8[16];
 extern TaskAction prob_task_8c014784;
 extern NJS_TEXMEMLIST var_tex_8c157af8;
@@ -21,5 +21,5 @@ void FUN_8c014934()
 
     njGarbageTexture(&var_tex_8c157af8, 0xc00);
 
-    initQueues_8c011f36(0x20,0x400,0x400,0x40);
+    AsqInitQueues_11f36(0x20,0x400,0x400,0x40);
 }

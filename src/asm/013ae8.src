@@ -1,36 +1,36 @@
 ; 8c013ae8
           .IMPORT     _var_8c18ad6c
           .IMPORT     _var_8c1bc434
-          .IMPORT     _requestNj_8c011492
-          .IMPORT     _requestPvm_8c011ac0
+          .IMPORT     _AsqRequestNj_11492
+          .IMPORT     _AsqRequestPvm_11ac0
           .IMPORT     _var_8c1bc430
           .IMPORT     _var_8c1bc43c
           .IMPORT     _var_8c1bc438
           .IMPORT     _var_8c1bc418
           .IMPORT     _var_8c1bc424
           .IMPORT     _init_8c043d64
-          .IMPORT     _requestNjPvmPairs_8c012030
+          .IMPORT     _AsqRequestNjPvmPairs_12030
           .IMPORT     _var_8c1bc3f4
           .IMPORT     _njSetTexture
           .IMPORT     _njReleaseCacheTextureNum
-          .IMPORT     _releaseAndFreeTexlist_8c011e3c
+          .IMPORT     _AsqReleaseAndFreeTexlist_11e3c
           .IMPORT     _syFree
           .IMPORT     _var_8c1bbddc
           .IMPORT     _var_8c18ad20
           .IMPORT     _init_8c043dc4
           .IMPORT     _init_8c043ecc
-          .IMPORT     _freeQueues_8c011f7e
-          .IMPORT     _initQueues_8c011f36
-          .IMPORT     _resetQueues_8c011f6c
+          .IMPORT     _AsqFreeQueues_11f7e
+          .IMPORT     _AsqInitQueues_11f36
+          .IMPORT     _AsqResetQueues_11f6c
           .IMPORT     _var_8c18adb0
-          .IMPORT     _nop_8c011120
-          .IMPORT     _processQueues_8c011fe0
+          .IMPORT     _AsqNop_11120
+          .IMPORT     _AsqProcessQueues_11fe0
           .IMPORT     _var_8c1bbfdc
           .IMPORT     _init_8c043fd8
           .IMPORT     _var_8c18ad18
           .IMPORT     _var_8c228708
           .IMPORT     _var_8c1bc3f0
-          .IMPORT     _freeNjPvmPairs_8c0120fe
+          .IMPORT     _AsqFreeNjPvmPairs_120fe
           .IMPORT     _FUN_8c021a24
           .IMPORT     _var_8c18ad28
           .IMPORT     _var_8c226504
@@ -43,7 +43,7 @@
           .IMPORT     _var_8c226534
           .IMPORT     _var_8c18adb4
           .IMPORT     _var_8c18ad2c
-          .IMPORT     _requestDat_8c011182
+          .IMPORT     _AsqRequestDat_11182
           .IMPORT     _FUN_8c02aa36
           .IMPORT     _var_8c1bb868
           .IMPORT     _init_8c043ca4
@@ -249,8 +249,8 @@ LP_GEN_83755:
           .DATA.L _var_8c18ad6c
           .DATA.L _var_8c1bc434
           .DATA.L s_front_njd_8c033478
-          .DATA.L _requestNj_8c011492
-          .DATA.L _requestPvm_8c011ac0
+          .DATA.L _AsqRequestNj_11492
+          .DATA.L _AsqRequestPvm_11ac0
           .DATA.L _var_8c1bc430
           .DATA.L s_front_pvm_8c033484
           .DATA.L _var_8c1bc43c
@@ -263,11 +263,11 @@ LP_GEN_83755:
           .DATA.L _var_8c1bc424
           .DATA.L s_busstop_pvm_8c0334b4
           .DATA.L _init_8c043d64
-          .DATA.L _requestNjPvmPairs_8c012030
+          .DATA.L _AsqRequestNjPvmPairs_12030
           .DATA.L _var_8c1bc3f4
           .DATA.L _njSetTexture
           .DATA.L _njReleaseCacheTextureNum
-          .DATA.L _releaseAndFreeTexlist_8c011e3c
+          .DATA.L _AsqReleaseAndFreeTexlist_11e3c
           .DATA.L _syFree
 
           ; UNIT BOUNDARY?
@@ -430,12 +430,12 @@ LP_GEN_93614:
           .DATA.L _var_8c18ad6c
           .DATA.L _var_8c18ad20
           .DATA.L _init_8c043dc4
-          .DATA.L _requestNj_8c011492
+          .DATA.L _AsqRequestNj_11492
           .DATA.L _init_8c043ecc
-          .DATA.L _requestPvm_8c011ac0
-          .DATA.L _releaseAndFreeTexlist_8c011e3c
+          .DATA.L _AsqRequestPvm_11ac0
+          .DATA.L _AsqReleaseAndFreeTexlist_11e3c
           .DATA.L _syFree
-          .DATA.L _freeQueues_8c011f7e
+          .DATA.L _AsqFreeQueues_11f7e
 
 _FUN_8c013d78:
           STS.L       PR,@-R15
@@ -578,19 +578,19 @@ LP_GEN_38230:
           .DATA.W H'0200 ; LP_GEN_38230+0
           .DATA.W H'0410
           .RES.W 1
-          .DATA.L _initQueues_8c011f36
-          .DATA.L _resetQueues_8c011f6c
+          .DATA.L _AsqInitQueues_11f36
+          .DATA.L _AsqResetQueues_11f6c
           .DATA.L _var_8c18adb0
           .DATA.L _FUN_8c013d42
-          .DATA.L _nop_8c011120
-          .DATA.L _processQueues_8c011fe0
+          .DATA.L _AsqNop_11120
+          .DATA.L _AsqProcessQueues_11fe0
           .DATA.L _var_8c1bbddc
-          .DATA.L _releaseAndFreeTexlist_8c011e3c
+          .DATA.L _AsqReleaseAndFreeTexlist_11e3c
           .DATA.L _syFree
           .DATA.L _var_8c1bbfdc
           .DATA.L _init_8c043fd8
           .DATA.L _var_8c18ad6c
-          .DATA.L _requestPvm_8c011ac0
+          .DATA.L _AsqRequestPvm_11ac0
 
 LAB_8c013eb0:
           MOV.L       @R11,R2
@@ -688,12 +688,12 @@ LAB_8c013f54:
 
 LP_GEN_91607:
           .DATA.W H'0410 ; LP_GEN_91607+0
-          .DATA.L _releaseAndFreeTexlist_8c011e3c
+          .DATA.L _AsqReleaseAndFreeTexlist_11e3c
           .DATA.L _var_8c1bbfdc
           .DATA.L _var_8c18ad18
           .DATA.L _var_8c228708
           .DATA.L _var_8c1bc3f0
-          .DATA.L _freeNjPvmPairs_8c0120fe
+          .DATA.L _AsqFreeNjPvmPairs_120fe
           .DATA.L _FUN_8c021a24
 
 _FUN_8c013f78:
@@ -957,7 +957,7 @@ LP_GEN_25668:
           .DATA.L _var_8c226508
           .DATA.L _var_8c227dd0
           .DATA.L _var_8c18ad6c
-          .DATA.L _requestNjPvmPairs_8c012030
+          .DATA.L _AsqRequestNjPvmPairs_12030
           .DATA.L _var_8c1bc3f0
           .DATA.L _var_8c18adb0
           .DATA.L _var_8c1bb900
@@ -967,7 +967,7 @@ LP_GEN_25668:
           .DATA.L _var_8c226534
           .DATA.L _var_8c18adb4
           .DATA.L _var_8c18ad2c
-          .DATA.L _requestDat_8c011182
+          .DATA.L _AsqRequestDat_11182
           .DATA.L _FUN_8c02aa36
           .DATA.L _var_8c1bb868
           .DATA.L _init_8c043ca4
@@ -1312,19 +1312,19 @@ LP_GEN_90737:
           .DATA.L s_ON_PVR_8c033530
           .DATA.L _var_8c18ad8c
           .DATA.L _var_8c18ad2c
-          .DATA.L _requestNj_8c011492
-          .DATA.L _requestDat_8c011182
+          .DATA.L _AsqRequestNj_11492
+          .DATA.L _AsqRequestDat_11182
           .DATA.L _init_8c0440dc
-          .DATA.L _requestNjPvmPairs_8c012030
+          .DATA.L _AsqRequestNjPvmPairs_12030
           .DATA.L _var_8c1bc3ec
           .DATA.L _var_8c18adac
           .DATA.L _var_8c1bc3f8
-          .DATA.L _resetQueues_8c011f6c
+          .DATA.L _AsqResetQueues_11f6c
           .DATA.L _njSetTexture
           .DATA.L _njLoadCacheTexture
           .DATA.L _setUknPvmBool_8c014330
-          .DATA.L _nop_8c011120
-          .DATA.L _processQueues_8c011fe0
+          .DATA.L _AsqNop_11120
+          .DATA.L _AsqProcessQueues_11fe0
           .DATA.L _FUN_8c02175a
           .DATA.L _var_8c1bb868
           .DATA.L _FUN_8c026da4
@@ -1335,7 +1335,7 @@ LP_GEN_90737:
           .DATA.L _FUN_8c02190a
           .DATA.L _FUN_8c021810
           .DATA.L _freeTask_8c014b66
-          .DATA.L _freeQueues_8c011f7e
+          .DATA.L _AsqFreeQueues_11f7e
           .DATA.L _var_8c157a6c
           .DATA.L _njReleaseTexture
           .DATA.L _FUN_8c01306e
@@ -1495,14 +1495,14 @@ LP_GEN_28406:
           .DATA.L _pushTask_8c014ae8
           .DATA.L _var_tex_8c157af8
           .DATA.L _njGarbageTexture
-          .DATA.L _initQueues_8c011f36
+          .DATA.L _AsqInitQueues_11f36
           .DATA.L _FUN_8c02b170
-          .DATA.L _resetQueues_8c011f6c
+          .DATA.L _AsqResetQueues_11f6c
           .DATA.L _setUknPvmBool_8c014330
           .DATA.L _FUN_8c02190a
           .DATA.L _FUN_8c021810
-          .DATA.L _nop_8c011120
-          .DATA.L _processQueues_8c011fe0
+          .DATA.L _AsqNop_11120
+          .DATA.L _AsqProcessQueues_11fe0
 
 LAB_8c014610:
           MOV.L       LP_GEN_17698+4,R3
@@ -1649,7 +1649,7 @@ LP_GEN_17698:
           .DATA.W H'0C00 ; LP_GEN_17698+0
           .DATA.W H'0800
           .DATA.L _freeTask_8c014b66
-          .DATA.L _freeQueues_8c011f7e
+          .DATA.L _AsqFreeQueues_11f7e
           .DATA.L _var_8c157a6c
           .DATA.L _var_8c1bc3f8
           .DATA.L _njReleaseTexture
@@ -1670,7 +1670,7 @@ LP_GEN_17698:
           .DATA.L _pushTask_8c014ae8
           .DATA.L _var_tex_8c157af8
           .DATA.L _njGarbageTexture
-          .DATA.L _initQueues_8c011f36
+          .DATA.L _AsqInitQueues_11f36
           .DATA.L H'FF418DFF
           .DATA.L _njSetBackColor
 
@@ -1850,12 +1850,12 @@ LAB_8c0148c0:
 LP_GEN_48435:
           .RES.W      1 ; H'8c0148ca
           .DATA.L _var_8c1bc3f8
-          .DATA.L _resetQueues_8c011f6c
+          .DATA.L _AsqResetQueues_11f6c
           .DATA.L _njSetTexture
           .DATA.L _njLoadCacheTexture
           .DATA.L _setUknPvmBool_8c014330
-          .DATA.L _nop_8c011120
-          .DATA.L _processQueues_8c011fe0
+          .DATA.L _AsqNop_11120
+          .DATA.L _AsqProcessQueues_11fe0
           .DATA.L _FUN_8c02175a
           .DATA.L _var_8c1bb868
           .DATA.L _FUN_8c026da4
@@ -1865,7 +1865,7 @@ LP_GEN_48435:
           .DATA.L _FUN_8c02b170
           .DATA.L _FUN_8c02190a
           .DATA.L _freeTask_8c014b66
-          .DATA.L _freeQueues_8c011f7e
+          .DATA.L _AsqFreeQueues_11f7e
           .DATA.L _var_8c157a6c
           .DATA.L _njReleaseTexture
           .DATA.L _var_8c1bc438

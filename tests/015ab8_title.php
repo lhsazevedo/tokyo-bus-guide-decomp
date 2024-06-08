@@ -36,7 +36,7 @@ return new class extends TestCase {
         $this->initUint32($this->addressOf('_menuState_8c1bc7a8') + 0x18 , 0);
 
         $this->shouldCall('_getUknPvmBool_8c01432a')->andReturn(0);
-        $this->shouldCall('_freeQueues_8c011f7e');
+        $this->shouldCall('_AsqFreeQueues_11f7e');
         $this->shouldCall('_VmMenuMountVms_1940e');
 
         $task = $this->alloc(0x0c);
@@ -74,7 +74,7 @@ return new class extends TestCase {
         $this->initUint32($this->addressOf('_menuState_8c1bc7a8') + 0x18 , 0);
 
         $this->shouldCall('_getUknPvmBool_8c01432a')->andReturn(0);
-        $this->shouldCall('_freeQueues_8c011f7e');
+        $this->shouldCall('_AsqFreeQueues_11f7e');
         $this->shouldCall('_VmMenuMountVms_1940e');
 
         // TODO: Fix Task size

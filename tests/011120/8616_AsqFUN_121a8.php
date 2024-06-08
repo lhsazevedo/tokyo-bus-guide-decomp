@@ -12,7 +12,7 @@ return new class extends TestCase {
 
         $this->shouldWriteTo('_var_8c157ad0', 158);
 
-        $this->call('_FUN_8c0121a8')
+        $this->call('_AsqFUN_121a8')
             ->shouldReturn(158)
             ->run();
     }

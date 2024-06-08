@@ -17,7 +17,7 @@ return new class extends TestCase {
 
         $this->shouldWriteTo('_var_queuesAreInitialized_8c157a60', 1);
 
-        $this->call('_initQueues_8c011f36')
+        $this->call('_AsqInitQueues_11f36')
             ->with(42, 69, 37, 73)
             ->run();
     }
