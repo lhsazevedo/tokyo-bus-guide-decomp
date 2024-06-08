@@ -1,6 +1,8 @@
 #ifndef _TITLE_H_
 #define _TITLE_H_
 
+#include "014b8c_backup.h"
+
 enum TITLE_STATE {
     TITLE_STATE_0X00_INIT,
     TITLE_STATE_0X01_FORTYFIVE_FADE_IN,
@@ -40,19 +42,21 @@ typedef ResourceGroup;
 
 struct MenuState {
     ResourceGroup resourceGroupA_0x00;
-    // void *field_0x04;
-    // void *field_0x08;
     ResourceGroup resourceGroupB_0x0c;
-    // void *field_0x10;
-    // void *field_0x14;
     TITLE_STATE state_0x18;
     int field_0x1c;
-    float busX_0x20;
-    float flagY_0x24;
-    int field_0x28;
-    int field_0x2c;
-    int field_0x30;
-    int field_0x34;
+    union {
+        struct {
+            float busX_0x20;
+            float flagY_0x24;
+        } title;
+        struct {
+            NJS_POINT2 cursor_0x20;
+            NJS_POINT2 cursorTarget_0x28;
+        } vmSelect;
+    } pos;
+    float uknX_0x30;
+    float uknY_0x34;
     int field_0x38;
     int field_0x3c;
     int field_0x40;
@@ -66,6 +70,10 @@ struct MenuState {
     int field_0x60;
     int startTimer_0x64;
     int logo_timer_0x68;
+    int selectedVmuSlot_0x6c;
+    int field_0x70;
+    int field_0x74;
+    BACKUPINFO* bupInfo_0x78;
 }
 typedef MenuState;
 

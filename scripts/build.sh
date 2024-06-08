@@ -1,3 +1,5 @@
+#!/bin/bash
+
 set -e
 
 ASMSH_FLAGS="-debug=d -cpu=sh4 -endian=little -sjis"
@@ -32,7 +34,7 @@ assemble src/asm/012324.src
 assemble src/asm/012504.src
 assemble src/asm/0129cc.src
 compile  src/012f44.c
-assemble src/asm/_012101_data.src
+assemble src/asm/012101_data.src
 assemble src/asm/013ae8.src
 compile  src/014934.c
 compile  src/0149b0_sbinit.c
@@ -43,11 +45,12 @@ compile  src/015ab8_title.c
 compile  src/016108.c
 assemble src/asm/01614c.src
 assemble src/asm/016bf4.src
-compile  src/016c58.c
+compile  src//016c58_prompt.c
 assemble src/asm/016d2c.src
 assemble src/asm/018644.src
 assemble src/asm/018784.src
-assemble src/asm/0193c8.src
+assemble src/asm/0193c8_pre_data.src
+compile src/0193c8_vm_menu.c
 assemble src/asm/019e98.src
 assemble src/asm/01a148.src
 assemble src/asm/01b19c.src

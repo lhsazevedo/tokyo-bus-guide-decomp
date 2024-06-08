@@ -31,7 +31,7 @@
           .IMPORT     _var_8c1bc408
           .IMPORT     _init_8c045290
           .IMPORT     _FUN_8c016182
-          .IMPORT     _var_8c1ba34c
+          .IMPORT     _var_selectedVm_8c1ba34c
           .IMPORT     _pushTitle_8c015fd6
           .IMPORT     _init_8c044c08
           .IMPORT     _FUN_8c0128cc
@@ -42,7 +42,7 @@
           .IMPORT     _njGarbageTexture
           .IMPORT     _FUN_8c02ae3e
           .IMPORT     _const_8c039f48
-          .IMPORT     _FUN_8c02aefc
+          .IMPORT     _swapMessageBoxFor_8c02aefc
           .IMPORT     _initQueues_8c011f36
           .IMPORT     _resetQueues_8c011f6c
           .IMPORT     _init_8c045324
@@ -766,7 +766,7 @@ LP_GEN_28976:
           .RES.W 1 ; H'8C01F93E
           .DATA.L _push_fadeout_8c022b60 ; H'8C01F940
           .DATA.L _FUN_8c016182 ; H'8C01F944
-          .DATA.L _var_8c1ba34c ; H'8C01F948
+          .DATA.L _var_selectedVm_8c1ba34c ; H'8C01F948
           .DATA.L _FUN_8c01e24e ; H'8C01F94C
           .DATA.L _pushTitle_8c015fd6 ; H'8C01F950
 _FUN_8c01f954:
@@ -882,7 +882,7 @@ LP_GEN_38893:
           .DATA.L H'C0000000 ; H'8C01FA40
           .DATA.L _FUN_8c02ae3e ; H'8C01FA44
           .DATA.L _const_8c039f48 ; H'8C01FA48
-          .DATA.L _FUN_8c02aefc ; H'8C01FA4C
+          .DATA.L _swapMessageBoxFor_8c02aefc ; H'8C01FA4C
           .DATA.L _var_8c225fb8 ; H'8C01FA50
           .DATA.L _initQueues_8c011f36 ; H'8C01FA54
           .DATA.L _resetQueues_8c011f6c ; H'8C01FA58

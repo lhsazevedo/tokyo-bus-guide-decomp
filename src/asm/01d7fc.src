@@ -4,13 +4,13 @@
           .IMPORT     __modls
           .IMPORT     __divls
           .IMPORT     _menuTextboxText_8c02af1c
-          .IMPORT     _var_8c1ba34c
+          .IMPORT     _var_selectedVm_8c1ba34c
           .IMPORT     _isFading_8c226568
-          .IMPORT     _FUN_8c02aefc
+          .IMPORT     _swapMessageBoxFor_8c02aefc
           .IMPORT     _var_8c1ba350
-          .IMPORT     _saveNames_8c044d50
-          .IMPORT     _var_8c1ba36c
-          .IMPORT     _FUN_8c01967c
+          .IMPORT     _init_saveNames_8c044d50
+          .IMPORT     _var_peripheral_8c1ba35c
+          .IMPORT     _VmMenuUpdateVmuStatus_1967c
           .IMPORT     _getUknPvmBool_8c01432a
           .IMPORT     _freeQueues_8c011f7e
           .IMPORT     _var_8c226408
@@ -29,14 +29,14 @@
           .IMPORT     _var_8c1bb8fc
           .IMPORT     _var_8c1ba1cc
           .IMPORT     _push_fadeout_8c022b60
-          .IMPORT     _var_8c226048
+          .IMPORT     _var_vmuStatus_8c226048
           .IMPORT     _const_8c0387fc
           .IMPORT     _const_8c038828
           .IMPORT     _const_8c038858
           .IMPORT     _const_8c038894
           .IMPORT     _const_8c0388b8
           .IMPORT     _const_8c0388f0
-          .IMPORT     _processNavInputAndPlaySound_8c016caa
+          .IMPORT     _promptHandleBinary_16caa
           .IMPORT     _push_fadein_8c022a9c
           .IMPORT     _FUN_8c01890a
           .IMPORT     _FUN_8c01b26c
@@ -253,13 +253,13 @@ LP_GEN_44131:
           .DATA.L H'43020000 ; H'8C01D93C
           .DATA.L H'42C00000 ; H'8C01D940
           .DATA.L H'C0800000 ; H'8C01D944
-          .DATA.L _var_8c1ba34c ; H'8C01D948
+          .DATA.L _var_selectedVm_8c1ba34c ; H'8C01D948
           .DATA.L _isFading_8c226568 ; H'8C01D94C
-          .DATA.L _FUN_8c02aefc ; H'8C01D950
+          .DATA.L _swapMessageBoxFor_8c02aefc ; H'8C01D950
           .DATA.L _menuState_8c1bc7a8 ; H'8C01D954
           .DATA.L _var_8c1ba350 ; H'8C01D958
-          .DATA.L _saveNames_8c044d50 ; H'8C01D95C
-          .DATA.L _var_8c1ba36c ; H'8C01D960
+          .DATA.L _init_saveNames_8c044d50 ; H'8C01D95C
+          .DATA.L H'10+_var_peripheral_8c1ba35c ; H'8C01D960
           .DATA.W H'0044 ; H'8C01D964
           .DATA.W H'0094 ; H'8C01D966
           .DATA.W H'00AC ; H'8C01D968
@@ -531,7 +531,7 @@ LAB_8c01db36:
           BRA         LAB_8c01df50
           NOP
 LP_GEN_73625:
-          .DATA.L _FUN_8c01967c ; H'8C01DB48
+          .DATA.L _VmMenuUpdateVmuStatus_1967c ; H'8C01DB48
           .DATA.L _getUknPvmBool_8c01432a ; H'8C01DB4C
           .DATA.L _freeQueues_8c011f7e ; H'8C01DB50
           .DATA.L _var_8c226408 ; H'8C01DB54
@@ -683,9 +683,9 @@ LP_GEN_38701:
           .DATA.W H'00FF ; H'8C01DC84
           .RES.W 1 ; H'8C01DC86
           .DATA.L _var_8c1ba350 ; H'8C01DC88
-          .DATA.L _saveNames_8c044d50 ; H'8C01DC8C
-          .DATA.L _FUN_8c01967c ; H'8C01DC90
-          .DATA.L _var_8c226048 ; H'8C01DC94
+          .DATA.L _init_saveNames_8c044d50 ; H'8C01DC8C
+          .DATA.L _VmMenuUpdateVmuStatus_1967c ; H'8C01DC90
+          .DATA.L _var_vmuStatus_8c226048 ; H'8C01DC94
           .DATA.L _const_8c0387fc ; H'8C01DC98
           .DATA.L _const_8c038828 ; H'8C01DC9C
           .DATA.L _const_8c038858 ; H'8C01DCA0
@@ -693,7 +693,7 @@ LP_GEN_38701:
           .DATA.L _const_8c0388b8 ; H'8C01DCA8
           .DATA.L _var_midiHandles_8c0fcd28 ; H'8C01DCAC
           .DATA.L _sdMidiPlay ; H'8C01DCB0
-          .DATA.L _var_8c1ba36c ; H'8C01DCB4
+          .DATA.L H'10+_var_peripheral_8c1ba35c ; H'8C01DCB4
           .DATA.L _const_8c0388f0 ; H'8C01DCB8
           .DATA.L _menuTextboxText_8c02af1c ; H'8C01DCBC
 caseD_6_2:
@@ -979,11 +979,11 @@ LAB_8c01dea6:
           JMP         @R2
           MOV.L       @R15+,R14
 LP_GEN_50614:
-          .DATA.L _FUN_8c01967c ; H'8C01DEC4
-          .DATA.L _processNavInputAndPlaySound_8c016caa ; H'8C01DEC8
+          .DATA.L _VmMenuUpdateVmuStatus_1967c ; H'8C01DEC4
+          .DATA.L _promptHandleBinary_16caa ; H'8C01DEC8
           .DATA.L _push_fadeout_8c022b60 ; H'8C01DECC
           .DATA.L _push_fadein_8c022a9c ; H'8C01DED0
-          .DATA.L _var_8c226048 ; H'8C01DED4
+          .DATA.L _var_vmuStatus_8c226048 ; H'8C01DED4
           .DATA.L _var_8c226408 ; H'8C01DED8
           .DATA.L _FUN_8c01890a ; H'8C01DEDC
           .DATA.L _FUN_8c01b26c ; H'8C01DEE0

@@ -1,55 +1,54 @@
 ; 8c0fcd20
           .EXPORT     _var_tex_8c157af8
-          .EXPORT     _var_fogTable_8c18aaf8
-          .EXPORT     _var_texname_8c18acf8
-          .EXPORT     _var_8c18ad04
-          .EXPORT     _var_8c18ad08
-          .EXPORT     _var_8c18ad0c
-          .EXPORT     _var_8c18ad10
-          .EXPORT     _var_gdErr_8c18ad14
-          .EXPORT     _var_8c18ad18
-          .EXPORT     _var_8c18ad1c
-          .EXPORT     _var_8c18ad20
-          .EXPORT     _var_8c18ad24
-          .EXPORT     _var_8c18ad28
-          .EXPORT     _var_8c18ad2c
-          .EXPORT     _var_8c18ad4c
-          .EXPORT     _var_8c18ad6c
-          .EXPORT     _var_8c18ad8c
-          .EXPORT     _var_8c18adac
-          .EXPORT     _var_8c18adb0
-          .EXPORT     _var_8c18adb4
-          .EXPORT     _gMapleRecvBuf
-          .EXPORT     _gMapleSendBuf
-          .EXPORT     _gdfswork
-          .EXPORT     _gdfscurdir
-          .EXPORT     _var_8c1ba1c8
-          .EXPORT     _var_8c1ba1cc
+          .EXPORT     _var_fogTable_8c18aaf8 ; 012f44
+          .EXPORT     _var_texname_8c18acf8  ; 012f44
+          .EXPORT     _var_8c18ad04          ; 0129cc
+          .EXPORT     _var_8c18ad08          ; 0129cc
+          .EXPORT     _var_8c18ad0c          ; 0129cc
+          .EXPORT     _var_8c18ad10          ; 0129cc
+          .EXPORT     _var_gdErr_8c18ad14    ; 012f44
+          .EXPORT     _var_8c18ad18          ; 013ae8
+          .EXPORT     _var_8c18ad1c          ; 013ae8
+          .EXPORT     _var_8c18ad20          ; 013ae8
+          .EXPORT     _var_8c18ad24          ; 013ae8
+          .EXPORT     _var_8c18ad28          ; 013ae8
+          .EXPORT     _var_8c18ad2c          ; 013ae8
+          .EXPORT     _var_8c18ad4c          ; 013ae8
+          .EXPORT     _var_8c18ad6c          ; 013ae8
+          .EXPORT     _var_8c18ad8c          ; 013ae8
+          .EXPORT     _var_8c18adac          ; 013ae8
+          .EXPORT     _var_8c18adb0          ; 013ae8
+          .EXPORT     _var_8c18adb4          ; 013ae8
+          .EXPORT     _gMapleRecvBuf         ; 0149b0
+          .EXPORT     _gMapleSendBuf         ; 0149b0
+          .EXPORT     _gdfswork              ; 0149b0
+          .EXPORT     _gdfscurdir            ; 0149b0
+          .EXPORT     _var_8c1ba1c8          ; 014f54
+          .EXPORT     _var_8c1ba1cc          ; 016d2c
           .EXPORT     _var_8c1ba1d0
           .EXPORT     _var_8c1ba1e4
-          .EXPORT     _var_8c1ba210
-          .EXPORT     _var_8c1ba25c
-          .EXPORT     _var_8c1ba264
-          .EXPORT     _var_8c1ba290
-          .EXPORT     _var_8c1ba291
-          .EXPORT     _var_8c1ba292
+          .EXPORT     _var_8c1ba210          ; 016d2c
+          .EXPORT     _var_8c1ba25c          ; 016d2c
+          .EXPORT     _var_8c1ba264          ; 01e27c
+          .EXPORT     _var_8c1ba290          ; 013ae8
+          .EXPORT     _var_8c1ba291          ; 012f44
+          .EXPORT     _var_8c1ba292          ; 012f44
           .EXPORT     _var_8c1ba293
           .EXPORT     _var_8c1ba29c
           .EXPORT     _var_8c1ba29d
           .EXPORT     _var_8c1ba2b4
-          .EXPORT     _var_8c1ba2b8
-          .EXPORT     _var_8c1ba2cc
-          .EXPORT     _var_8c1ba2e0
-          .EXPORT     _var_8c1ba2e4
-          .EXPORT     _var_8c1ba33c
-          .EXPORT     _var_8c1ba344
-          .EXPORT     _var_8c1ba348
-          .EXPORT     _var_8c1ba34c
+          .EXPORT     _var_8c1ba2b8          ; 016d2c
+          .EXPORT     _var_8c1ba2cc          ; 016d2c
+          .EXPORT     _var_8c1ba2e0          ; 018784
+          .EXPORT     _var_8c1ba2e4          ; 018644
+          .EXPORT     _var_8c1ba33c          ; 018644
+          .EXPORT     _var_8c1ba344          ; 018784
+          .EXPORT     _var_8c1ba348          ; 018644
+          .EXPORT     _var_selectedVm_8c1ba34c
           .EXPORT     _var_8c1ba350
           .EXPORT     _var_vibport_8c1ba354
           .EXPORT     _var_8c1ba358
-          .EXPORT     _peripheral_8c1ba35c
-          .EXPORT     _var_8c1ba36c
+          .EXPORT     _var_peripheral_8c1ba35c
           .EXPORT     _var_8c1ba374
           .EXPORT     _var_8c1ba376
           .EXPORT     _var_8c1ba3c4
@@ -185,7 +184,7 @@
           .EXPORT     _var_8c226010
           .EXPORT     _var_8c226014
           .EXPORT     _var_8c226018
-          .EXPORT     _var_8c226048
+          .EXPORT     _var_vmuStatus_8c226048
           .EXPORT     _var_8c22606c
           .EXPORT     _var_soundMode_8c226070
           .EXPORT     _var_8c226074
@@ -505,7 +504,7 @@ _var_8c1ba344:
           .RES.B      4
 _var_8c1ba348:
           .RES.B      4
-_var_8c1ba34c:
+_var_selectedVm_8c1ba34c:
           .RES.B      4
 _var_8c1ba350:
           .RES.B      4
@@ -513,10 +512,8 @@ _var_vibport_8c1ba354:
           .RES.B      4
 _var_8c1ba358:
           .RES.B      4
-_peripheral_8c1ba35c:
-          .RES.B      16
-_var_8c1ba36c:
-          .RES.B      8
+_var_peripheral_8c1ba35c:
+          .RES.B      24
 _var_8c1ba374:
           .RES.B      2
 _var_8c1ba376:
@@ -787,7 +784,7 @@ _var_8c226014:
           .RES.B      4
 _var_8c226018:
           .RES.B      48
-_var_8c226048:
+_var_vmuStatus_8c226048:
           .RES.B      36
 _var_8c22606c:
           .RES.B      4

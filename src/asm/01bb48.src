@@ -22,20 +22,20 @@
           .IMPORT     _menuState_8c1bc7a8
           .IMPORT     _drawSprite_8c014f54
           .IMPORT     _var_resourceGroup_8c2263a8
-          .IMPORT     _var_8c226048
+          .IMPORT     _var_vmuStatus_8c226048
           .IMPORT     _init_8c044e50
-          .IMPORT     _FUN_8c02aefc
+          .IMPORT     _swapMessageBoxFor_8c02aefc
           .IMPORT     _const_8c038460
           .IMPORT     _const_8c03847c
           .IMPORT     _const_8c03867c
           .IMPORT     _init_8c044e48
-          .IMPORT     _FUN_8c019550
+          .IMPORT     _VmMenuUpdateVmusStatus_19550
           .IMPORT     _isFading_8c226568
           .IMPORT     _getUknPvmBool_8c01432a
           .IMPORT     _freeQueues_8c011f7e
-          .IMPORT     _cycleOptionAndPlaySound_8c016c58
-          .IMPORT     _var_8c1ba36c
-          .IMPORT     _FUN_8c0194de
+          .IMPORT     _promptHandleMultiple_16c58
+          .IMPORT     _var_peripheral_8c1ba35c
+          .IMPORT     _VmMenuUnmountVms_194de
           .IMPORT     _push_fadeout_8c022b60
           .IMPORT     _var_midiHandles_8c0fcd28
           .IMPORT     _sdMidiPlay
@@ -43,8 +43,8 @@
           .IMPORT     _const_8c038498
           .IMPORT     _const_8c0384b0
           .IMPORT     _const_8c0384e8
-          .IMPORT     _FUN_8c016d2c
-          .IMPORT     _processNavInputAndPlaySound_8c016caa
+          .IMPORT     _interpolated_8c016d2c
+          .IMPORT     _promptHandleBinary_16caa
           .IMPORT     _const_8c03866c
           .IMPORT     _var_8c1bc454
           .IMPORT     _const_8c038510
@@ -64,7 +64,7 @@
           .IMPORT     _var_8c22606c
           .IMPORT     _freeResourceGroup_8c0185c4
           .IMPORT     _syFree
-          .IMPORT     _FUN_8c01a09a
+          .IMPORT     _switchToMainMenuTask_8c01a09a
           .IMPORT     _menuTextboxText_8c02af1c
           .IMPORT     _setTaskAction_8c014b3e
           .IMPORT     _initQueues_8c011f36
@@ -706,14 +706,14 @@ LP_GEN_34738:
           .DATA.L _drawSprite_8c014f54 ; H'8C01BFB4
           .DATA.L _var_resourceGroup_8c2263a8 ; H'8C01BFB8
           .DATA.L H'C0800000 ; H'8C01BFBC
-          .DATA.L _var_8c226048 ; H'8C01BFC0
+          .DATA.L _var_vmuStatus_8c226048 ; H'8C01BFC0
           .DATA.L H'C0A00000 ; H'8C01BFC4
           .DATA.L H'C0C00000 ; H'8C01BFC8
           .DATA.L H'C089999A ; H'8C01BFCC
           .DATA.L H'C0E00000 ; H'8C01BFD0
           .DATA.L _init_8c044e50 ; H'8C01BFD4
           .DATA.L H'40C00000 ; H'8C01BFD8
-          .DATA.L _FUN_8c02aefc ; H'8C01BFDC
+          .DATA.L _swapMessageBoxFor_8c02aefc ; H'8C01BFDC
           .DATA.L _const_8c038460 ; H'8C01BFE0
           .DATA.L _const_8c03847c ; H'8C01BFE4
           .DATA.L _const_8c03867c ; H'8C01BFE8
@@ -776,10 +776,10 @@ LP_GEN_95139:
           .DATA.L H'C0A00000 ; H'8C01C058
           .DATA.L _menuState_8c1bc7a8 ; H'8C01C05C
           .DATA.L _init_8c044e48 ; H'8C01C060
-          .DATA.L _FUN_8c019550 ; H'8C01C064
+          .DATA.L _VmMenuUpdateVmusStatus_19550 ; H'8C01C064
           .DATA.L _isFading_8c226568 ; H'8C01C068
-          .DATA.L _FUN_8c02aefc ; H'8C01C06C
-          .DATA.L _var_8c226048 ; H'8C01C070
+          .DATA.L _swapMessageBoxFor_8c02aefc ; H'8C01C06C
+          .DATA.L _var_vmuStatus_8c226048 ; H'8C01C070
           .DATA.W H'0042 ; H'8C01C074
           .DATA.W H'005C ; H'8C01C076
           .DATA.W H'0088 ; H'8C01C078
@@ -1081,9 +1081,9 @@ LP_GEN_76857:
           .DATA.L _getUknPvmBool_8c01432a ; H'8C01C284
           .DATA.L _freeQueues_8c011f7e ; H'8C01C288
           .DATA.L _drawSprite_8c014f54 ; H'8C01C28C
-          .DATA.L _cycleOptionAndPlaySound_8c016c58 ; H'8C01C290
-          .DATA.L _var_8c1ba36c ; H'8C01C294
-          .DATA.L _FUN_8c0194de ; H'8C01C298
+          .DATA.L _promptHandleMultiple_16c58 ; H'8C01C290
+          .DATA.L H'10+_var_peripheral_8c1ba35c ; H'8C01C294
+          .DATA.L _VmMenuUnmountVms_194de ; H'8C01C298
           .DATA.L _push_fadeout_8c022b60 ; H'8C01C29C
           .DATA.L _var_midiHandles_8c0fcd28 ; H'8C01C2A0
           .DATA.L _sdMidiPlay ; H'8C01C2A4
@@ -1334,15 +1334,15 @@ LAB_8c01c43e:
           NOP
 LP_GEN_25641:
           .RES.W 1 ; H'8C01C452
-          .DATA.L _var_8c1ba36c ; H'8C01C454
+          .DATA.L H'10+_var_peripheral_8c1ba35c ; H'8C01C454
           .DATA.L _var_midiHandles_8c0fcd28 ; H'8C01C458
           .DATA.L _sdMidiPlay ; H'8C01C45C
           .DATA.L _const_8c0384b0 ; H'8C01C460
           .DATA.L _const_8c0384e8 ; H'8C01C464
           .DATA.L _push_fadeout_8c022b60 ; H'8C01C468
           .DATA.L _const_8c038498 ; H'8C01C46C
-          .DATA.L _FUN_8c016d2c ; H'8C01C470
-          .DATA.L _processNavInputAndPlaySound_8c016caa ; H'8C01C474
+          .DATA.L _interpolated_8c016d2c ; H'8C01C470
+          .DATA.L _promptHandleBinary_16caa ; H'8C01C474
 LAB_8c01c478:
           MOV         #H'6c,R0
           MOV.L       LP_GEN_18425,R5
@@ -1581,7 +1581,7 @@ LP_GEN_18425:
           .DATA.L _var_8c2260b8 ; H'8C01C630
           .DATA.L _const_8c0385bc ; H'8C01C634
           .DATA.L _var_texbuf_8c277ca0 ; H'8C01C638
-          .DATA.L _processNavInputAndPlaySound_8c016caa ; H'8C01C63C
+          .DATA.L _promptHandleBinary_16caa ; H'8C01C63C
           .DATA.L _const_8c0385d8 ; H'8C01C640
           .DATA.L H'43640000 ; H'8C01C644
           .DATA.L _drawSprite_8c014f54 ; H'8C01C648
@@ -1849,7 +1849,7 @@ LAB_8c01c826:
           MOV.L       @R15+,R14
 LP_GEN_33412:
           .DATA.W H'00FF ; H'8C01C842
-          .DATA.L _var_8c1ba36c ; H'8C01C844
+          .DATA.L H'10+_var_peripheral_8c1ba35c ; H'8C01C844
           .DATA.L _const_8c03867c ; H'8C01C848
           .DATA.L _push_fadeout_8c022b60 ; H'8C01C84C
           .DATA.L _var_midiHandles_8c0fcd28 ; H'8C01C850
@@ -1860,7 +1860,7 @@ LP_GEN_33412:
           .DATA.L _freeResourceGroup_8c0185c4 ; H'8C01C864
           .DATA.L _var_8c1bc454 ; H'8C01C868
           .DATA.L _syFree ; H'8C01C86C
-          .DATA.L _FUN_8c01a09a ; H'8C01C870
+          .DATA.L _switchToMainMenuTask_8c01a09a ; H'8C01C870
           .DATA.L _menuTextboxText_8c02af1c ; H'8C01C874
           .DATA.L H'C0800000 ; H'8C01C878
           .DATA.L _drawSprite_8c014f54 ; H'8C01C87C
@@ -1967,7 +1967,7 @@ LP_GEN_73212:
           .DATA.L _nop_8c011120 ; H'8C01C958
           .DATA.L _processQueues_8c011fe0 ; H'8C01C95C
           .DATA.L _const_8c03867c ; H'8C01C960
-          .DATA.L _FUN_8c02aefc ; H'8C01C964
+          .DATA.L _swapMessageBoxFor_8c02aefc ; H'8C01C964
           .DATA.L _var_8c2260ac ; H'8C01C968
           .DATA.L _var_8c2260b8 ; H'8C01C96C
           .DATA.L _var_8c2260c4 ; H'8C01C970

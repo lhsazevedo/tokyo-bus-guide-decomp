@@ -1,6 +1,8 @@
+#!/bin/bash
+
 set -e
 
-ASMSH_FLAGS="-debug=d -cpu=sh4 -endian=little -sjis"
+ASMSH_FLAGS="-define=MATCHING=1 -debug=d -cpu=sh4 -endian=little -sjis"
 
 assemble() {
   local src_file="$1"
@@ -15,7 +17,7 @@ compile() {
   local base_name=$(basename "$src_file" .c)
   local obj_file="build\\output\\$base_name.obj"
 
-  wine "$SHC_BIN/shc.exe" $(echo "$src_file" | tr / '\\') -object="$obj_file" -sub=build/shc.sub
+  wine "$SHC_BIN/shc.exe" $(echo "$src_file" | tr / '\\') -object="$obj_file" -sub=build/shc_matching.sub
 }
 
 rm -rf build/output
@@ -31,7 +33,7 @@ assemble src/asm/012324.src
 assemble src/asm/012504.src
 assemble src/asm/0129cc.src
 assemble src/asm/decompiled/012f44.src
-assemble src/asm/_012101_data.src
+assemble src/asm/012101_data.src
 assemble src/asm/013ae8.src
 compile  src/014934.c
 compile  src/0149b0_sbinit.c
@@ -42,11 +44,12 @@ assemble src/asm/decompiled/015ab8_title.src
 compile  src/016108.c
 assemble src/asm/01614c.src
 assemble src/asm/016bf4.src
-assemble src/asm/decompiled/016c58.src
+assemble src/asm/decompiled/016c58_prompt.src
 assemble src/asm/016d2c.src
 assemble src/asm/018644.src
 assemble src/asm/018784.src
-assemble src/asm/0193c8.src
+assemble src/asm/0193c8_pre_data.src
+assemble src/asm/decompiled/0193c8_vm_menu.src
 assemble src/asm/019e98.src
 assemble src/asm/01a148.src
 assemble src/asm/01b19c.src

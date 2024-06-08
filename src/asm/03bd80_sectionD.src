@@ -3,7 +3,7 @@
           .IMPORT     _FUN_8c0167c0
           .IMPORT     _FUN_8c016b4c
           .IMPORT     _FUN_8c0184cc
-          .IMPORT     _FUN_8c01a09a
+          .IMPORT     _switchToMainMenuTask_8c01a09a
           .IMPORT     _FUN_8c01a3c0
           .IMPORT     _FUN_8c01a89c
           .IMPORT     _FUN_8c01afd8
@@ -805,32 +805,18 @@
           .IMPORT     _const_8c03b950
           .IMPORT     _const_8c03b95c
           .IMPORT     _const_8c03b968
-          .EXPORT     _init_8c044128
-          .EXPORT     _init_8c04413c
-          .EXPORT     _init_8c044154
+          .EXPORT     _init_8c044128 ; 014f54
+          .EXPORT     _init_8c04413c ; 014f54
+          .EXPORT     _init_8c044154 ; 014f54
           .EXPORT     _init_8c044158
           .EXPORT     _init_8c04415c
-          .EXPORT     _init_8c044264
-          .EXPORT     _init_8c044274
-          .EXPORT     _init_8c044284
-          .EXPORT     _init_8c044294
-          .EXPORT     _init_8c04429c
-          .EXPORT     _init_8c0442b0
-          .EXPORT     _init_8c04442c
-          .EXPORT     _init_8c044430
-          .EXPORT     _init_8c04443c
-          .EXPORT     _init_8c04444c
-          .EXPORT     _init_8c044468
-          .EXPORT     _init_8c044484
-          .EXPORT     _init_8c04449c
-          .EXPORT     _init_8c0444b8
-          .EXPORT     _init_8c0444bc
-          .EXPORT     _init_8c0444f4
+          .EXPORT     _init_8c044264 ; 016d2c
+          .EXPORT     _init_8c044274 ; 01e27c
+          .EXPORT     _init_8c044284 ; 01e27c
+          .EXPORT     _init_8c044294 ; 01614c
+          .EXPORT     _init_8c04429c ; 01614c
+          .EXPORT     _init_8c04442c ; 016d2c
           .EXPORT     _titleResourceGroup_8c044254
-          .EXPORT     _init_8c044544
-          .EXPORT     _init_8c0445d0
-          .EXPORT     _init_8c044620
-          .EXPORT     _init_8c044650
           .EXPORT     _init_8c044680
           .EXPORT     _init_8c0446b8
           .EXPORT     _init_8c0446e0
@@ -900,10 +886,9 @@
           .EXPORT     _init_8c044d2e
           .EXPORT     _init_8c044d2f
           .EXPORT     _init_8c044d40
-          .EXPORT     _saveNames_8c044d50
-          .EXPORT     _init_8c044d7c
-          .EXPORT     _init_8c044d80
-          .EXPORT     _init_8c044dc4
+          .EXPORT     _init_saveNames_8c044d50
+          .EXPORT     _init_vmIconsPositions_8c044d7c
+          .EXPORT     _init_vmuStatusMessages_8c044dc4
           .EXPORT     _init_8c044de0
           .EXPORT     _init_8c044de8
           .EXPORT     _init_8c044dec
@@ -2365,7 +2350,7 @@ _init_8c044d40:        ; from defines
           .DATA.L      _const_8c037e48 ; ukn
           .DATA.L      _const_8c037e54 ; ukn
           .DATA.B      H'04, H'00, H'00, H'00
-_saveNames_8c044d50:        ; from defines
+_init_saveNames_8c044d50:        ; from defines
           .DATA.L      _const_8c037f60 ; ukn
           .DATA.L      _const_8c037f70 ; ukn
           .DATA.L      _const_8c037f80 ; ukn
@@ -2377,15 +2362,14 @@ _saveNames_8c044d50:        ; from defines
           .DATA.L      _const_8c037fe0 ; ukn
           .DATA.L      _const_8c037ff0 ; ukn
           .DATA.L      _const_8c038000 ; ukn
-_init_8c044d7c:        ; from defines
+_init_vmIconsPositions_8c044d7c:        ; from defines
           .DATA.B      H'00, H'00, H'39, H'43
-_init_8c044d80:        ; from ghidra
           .DATA.B      H'00, H'00, H'C4, H'42, H'00, H'00, H'7F, H'43, H'00, H'00, H'C4, H'42, H'00, H'80, H'A2, H'43
           .DATA.B      H'00, H'00, H'C4, H'42, H'00, H'80, H'C5, H'43, H'00, H'00, H'C4, H'42, H'00, H'00, H'16, H'43
           .DATA.B      H'00, H'00, H'42, H'43, H'00, H'00, H'5C, H'43, H'00, H'00, H'42, H'43, H'00, H'00, H'91, H'43
           .DATA.B      H'00, H'00, H'42, H'43, H'00, H'00, H'B4, H'43, H'00, H'00, H'42, H'43, H'00, H'00, H'D7, H'43
           .DATA.B      H'00, H'00, H'42, H'43
-_init_8c044dc4:        ; from defines
+_init_vmuStatusMessages_8c044dc4:        ; from defines
           .DATA.B      H'00, H'00, H'00, H'00
           .DATA.L      _const_8c038004 ; ukn
           .DATA.L      _const_8c038014 ; ukn
@@ -2411,7 +2395,7 @@ _init_8c044e28:        ; from defines
           .DATA.L      _FUN_8c01a3c0 ; ukn
           .DATA.L      _FUN_8c01a89c ; ukn
           .DATA.L      _FUN_8c01afd8 ; ukn
-          .DATA.L      _FUN_8c01a09a ; ukn
+          .DATA.L      _switchToMainMenuTask_8c01a09a ; ukn
 _init_8c044e38:        ; from defines
           .DATA.L      _var_8c2260ac ; ukn
           .DATA.L      _var_8c2260b8 ; ukn

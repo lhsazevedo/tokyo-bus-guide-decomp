@@ -5,7 +5,7 @@
           .IMPORT     _freeQueues_8c011f7e
           .IMPORT     _push_fadein_8c022a9c
           .IMPORT     _sdMidiPlay
-          .IMPORT     _var_8c1ba36c
+          .IMPORT     _var_peripheral_8c1ba35c
           .IMPORT     _var_midiHandles_8c0fcd28
           .IMPORT     _push_fadeout_8c022b60
           .IMPORT     _var_8c1bb8fc
@@ -24,7 +24,7 @@
           .IMPORT     _nop_8c011120
           .IMPORT     _processQueues_8c011fe0
           .EXPORT     _task_mainmenu_8c019e98
-          .EXPORT     _FUN_8c01a09a
+          .EXPORT     _switchToMainMenuTask_8c01a09a
           .SECTION     P, CODE, ALIGN=4
 _task_mainmenu_8c019e98:
           MOV.L       R14,@-R15
@@ -162,7 +162,7 @@ LP_GEN_56609:
           .DATA.L _freeQueues_8c011f7e ; H'8C019F90
           .DATA.L _push_fadein_8c022a9c ; H'8C019F94
           .DATA.L _sdMidiPlay ; H'8C019F98
-          .DATA.L _var_8c1ba36c ; H'8C019F9C
+          .DATA.L H'10+_var_peripheral_8c1ba35c ; H'8C019F9C
           .DATA.L _var_midiHandles_8c0fcd28 ; H'8C019FA0
           .DATA.L _push_fadeout_8c022b60 ; H'8C019FA4
 LAB_8c019fa8:
@@ -297,7 +297,7 @@ LAB_8c01a088:
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-_FUN_8c01a09a:
+_switchToMainMenuTask_8c01a09a:
           MOV.L       R14,@-R15
           STS.L       PR,@-R15
           ADD         #-H'4,R15

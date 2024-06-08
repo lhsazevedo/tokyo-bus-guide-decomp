@@ -113,7 +113,7 @@ void BupUnmount_8c014c46(Sint32 drive)
     }
 }
 
-static void ClearInfo_8c014c8a(Sint32 drive)
+void ClearInfo_8c014c8a(Sint32 drive)
 {
     BACKUPINFO* info;
 

@@ -1,6 +1,6 @@
 ; 8c018644
           .IMPORT     _var_8c225fe0
-          .IMPORT     _var_8c1ba34c
+          .IMPORT     _var_selectedVm_8c1ba34c
           .IMPORT     _var_8c22600c
           .IMPORT     _buIsExistFile
           .IMPORT     _BupLoad_8c014bc6
@@ -154,7 +154,7 @@ LP_GEN_13769:
           .DATA.W H'00E8 ; H'8C01873C
           .DATA.W H'0600 ; H'8C01873E
           .DATA.L _var_8c225fe0 ; H'8C018740
-          .DATA.L _var_8c1ba34c ; H'8C018744
+          .DATA.L _var_selectedVm_8c1ba34c ; H'8C018744
           .DATA.L _var_8c22600c ; H'8C018748
           .DATA.L _buIsExistFile ; H'8C01874C
           .DATA.L _BupLoad_8c014bc6 ; H'8C018750

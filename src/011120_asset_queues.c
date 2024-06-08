@@ -192,6 +192,11 @@ int init_8c03bf18[10] = {
 };
 
 
+/* =========
+ * Functions
+   =========
+ */
+
 /* Matched :) */
 void nop_8c011120() {
     /* Empty body */

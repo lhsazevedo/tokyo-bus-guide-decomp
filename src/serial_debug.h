@@ -39,13 +39,13 @@ void serialprintf(const char *fmt, ...);
 #endif
 
 #if defined(SERIAL_DEBUG) && DEBUG_LEVEL >= LOG_LEVEL_WARN
-#define LOG_WARN(x) serialprintf("[WARN]"),serialprintf x
+#define LOG_WARN(x) serialprintf("[WARN ]"),serialprintf x
 #else
 #define LOG_WARN(x)
 #endif
 
 #if defined(SERIAL_DEBUG) && DEBUG_LEVEL >= LOG_LEVEL_INFO
-#define LOG_INFO(x) serialprintf("[INFO]"),serialprintf x
+#define LOG_INFO(x) serialprintf("[INFO ]"),serialprintf x
 #else
 #define LOG_INFO(x)
 #endif

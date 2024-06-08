@@ -28,14 +28,15 @@ typedef struct {
 
 void BupInit(void);
 void BupExit(void);
-const BACKUPINFO* BupGetInfo(Sint32 drive);
+const BACKUPINFO* BupGetInfo_8c014bba(Sint32 drive);
 const char* BupGetErrorString(Sint32 err);
 const char* BupGetOperationString(Sint32 op);
 Sint32 BupLoad(Sint32 drive, const char* fname, void* buf);
 Sint32 BupSave(Sint32 drive, const char* fname, void* buf, Sint32 nblock);
 Sint32 BupDelete(Sint32 drive, const char* fname);
-void BupMount(Sint32 drive);
-void BupUnmount(Sint32 drive);
+void BupMount_8c014c00(Sint32 drive);
+void BupUnmount_8c014c46(Sint32 drive);
+void ClearInfo_8c014c8a(Sint32 drive);
 
 #ifdef __cplusplus
 }

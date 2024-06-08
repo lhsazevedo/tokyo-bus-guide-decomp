@@ -200,7 +200,7 @@
           .EXPORT     _FUN_8c02ad8c
           .EXPORT     _FUN_8c02adee
           .EXPORT     _FUN_8c02ae3e
-          .EXPORT     _FUN_8c02aefc
+          .EXPORT     _swapMessageBoxFor_8c02aefc
           .EXPORT     _menuTextboxText_8c02af1c
           .EXPORT     _free_8c1bc404_8c02af32
           .SECTION     P, CODE, ALIGN=4
@@ -5608,7 +5608,7 @@ LAB_8c02abd0:
           MOV.L       R3,@(H'18,R14)
 LAB_8c02abe4:
           MOV.L       @(H'18,R14),R4
-          BSR         _FUN_8c02aefc
+          BSR         _swapMessageBoxFor_8c02aefc
           MOV.L       @R4,R4
           MOV.L       LP_GEN_90033+6,R3
           MOV.L       R0,@(H'4,R14)
@@ -5992,7 +5992,7 @@ LP_GEN_16602:
           .DATA.L _FUN_8c0152fc ; H'8C02AEF0
           .DATA.L _var_8c1bc40c ; H'8C02AEF4
           .DATA.L _var_8c225fb8 ; H'8C02AEF8
-_FUN_8c02aefc:
+_swapMessageBoxFor_8c02aefc:
           MOV.L       R14,@-R15
           ADD         #-H'4,R15
           MOV.L       LP_GEN_47883,R14

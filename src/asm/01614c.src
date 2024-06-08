@@ -19,10 +19,10 @@
           .IMPORT     _var_8c1ba3c4
           .IMPORT     _var_8c1bc454
           .IMPORT     _freeResourceGroups_8c016108
-          .IMPORT     _var_8c1ba34c
+          .IMPORT     _var_selectedVm_8c1ba34c
           .IMPORT     _init_8c044294
-          .IMPORT     _var_8c1ba36c
-          .IMPORT     _var_8c226048
+          .IMPORT     _var_peripheral_8c1ba35c
+          .IMPORT     _var_vmuStatus_8c226048
           .IMPORT     _const_8c0360a4
           .IMPORT     _BupGetInfo_8c014bba
           .IMPORT     _BupMount_8c014c00
@@ -45,7 +45,7 @@
           .IMPORT     _var_8c225fa8
           .IMPORT     _var_8c225fac
           .IMPORT     _var_8c1bbc84
-          .IMPORT     _peripheral_8c1ba35c
+          .IMPORT     _var_peripheral_8c1ba35c
           .IMPORT     _var_demo_8c1bb8d0
           .IMPORT     _FUN_8c01328c
           .IMPORT     _var_8c228ba4
@@ -77,8 +77,8 @@
           .IMPORT     _FUN_8c029cfe
           .IMPORT     _FUN_8c021724
           .IMPORT     _FUN_8c0187d0
-          .IMPORT     _FUN_8c019504
-          .IMPORT     _FUN_8c019550
+          .IMPORT     _VmMenuFreeAndClear_19504
+          .IMPORT     _VmMenuUpdateVmusStatus_19550
           .IMPORT     _FUN_8c017ef2
           .EXPORT     _task_8c01677e
           .EXPORT     _FUN_8c016182
@@ -428,14 +428,14 @@ LP_GEN_42967:
           .DATA.L _var_8c1bc454 ; H'8C0163E8
           .DATA.L _freeResourceGroups_8c016108 ; H'8C0163EC
           .DATA.L _FUN_8c0187d0 ; H'8C0163F0
-          .DATA.L _FUN_8c019504 ; H'8C0163F4
-          .DATA.L _var_8c1ba34c ; H'8C0163F8
+          .DATA.L _VmMenuFreeAndClear_19504 ; H'8C0163F4
+          .DATA.L _var_selectedVm_8c1ba34c ; H'8C0163F8
           .DATA.L H'000A000A ; H'8C0163FC
           .DATA.L _njPrintC ; H'8C016400
           .DATA.L _init_8c044294 ; H'8C016404
-          .DATA.L _var_8c1ba36c ; H'8C016408
-          .DATA.L _FUN_8c019550 ; H'8C01640C
-          .DATA.L _var_8c226048 ; H'8C016410
+          .DATA.L H'10+_var_peripheral_8c1ba35c ; H'8C016408
+          .DATA.L _VmMenuUpdateVmusStatus_19550 ; H'8C01640C
+          .DATA.L _var_vmuStatus_8c226048 ; H'8C016410
           .DATA.L H'000F0000 ; H'8C016414
           .DATA.L _njPrintD ; H'8C016418
           .DATA.L _const_8c0360a4 ; H'8C01641C
@@ -539,7 +539,7 @@ LAB_8c0164bc:
           OR          R3,R4
 LP_GEN_63429:
           .RES.W 1 ; H'8C0164CA
-          .DATA.L _var_8c1ba36c ; H'8C0164CC
+          .DATA.L H'10+_var_peripheral_8c1ba35c ; H'8C0164CC
           .DATA.L _BupGetInfo_8c014bba ; H'8C0164D0
           .DATA.L _BupMount_8c014c00 ; H'8C0164D4
           .DATA.L _const_8c0360b0 ; H'8C0164D8
@@ -993,7 +993,7 @@ LAB_8c01681e:
           BRA         LAB_8c016918
           MOV.L       R1,@(H'8,R14)
 LP_GEN_94139:
-          .DATA.L _FUN_8c019550 ; H'8C016824
+          .DATA.L _VmMenuUpdateVmusStatus_19550 ; H'8C016824
           .DATA.L _const_8c036120 ; H'8C016828
           .DATA.L _freeTask_8c014b66 ; H'8C01682C
           .DATA.L H'0000C060 ; H'8C016830
@@ -1002,7 +1002,7 @@ LP_GEN_94139:
           .DATA.L _var_tasks_8c1ba3c8 ; H'8C01683C
           .DATA.L _pushTask_8c014ae8 ; H'8C016840
           .DATA.L _init_8c04429c ; H'8C016844
-          .DATA.L _var_8c1ba36c ; H'8C016848
+          .DATA.L H'10+_var_peripheral_8c1ba35c ; H'8C016848
           .DATA.L _var_8c1bc824 ; H'8C01684C
           .DATA.L _njPrintC ; H'8C016850
           .DATA.L H'000C0000 ; H'8C016854
@@ -1016,12 +1016,12 @@ LP_GEN_94139:
           .DATA.L _var_8c225fac ; H'8C016874
           .DATA.L _var_8c1bbc84 ; H'8C016878
           .DATA.L _var_8c225fa8 ; H'8C01687C
-          .DATA.L _peripheral_8c1ba35c ; H'8C016880
+          .DATA.L _var_peripheral_8c1ba35c ; H'8C016880
           .DATA.L _var_demo_8c1bb8d0 ; H'8C016884
           .DATA.L _FUN_8c01328c ; H'8C016888
           .DATA.L _BupGetInfo_8c014bba ; H'8C01688C
           .DATA.L _var_8c1ba3c4 ; H'8C016890
-          .DATA.L _var_8c1ba34c ; H'8C016894
+          .DATA.L _var_selectedVm_8c1ba34c ; H'8C016894
           .DATA.L _BupMount_8c014c00 ; H'8C016898
 LAB_8c01689c:
           JSR         @R11
@@ -1260,7 +1260,7 @@ LP_GEN_65913:
           .DATA.L _FUN_8c0167ca ; H'8C016A68
           .DATA.L _var_tasks_8c1ba3c8 ; H'8C016A6C
           .DATA.L _pushTask_8c014ae8 ; H'8C016A70
-          .DATA.L _var_8c1ba34c ; H'8C016A74
+          .DATA.L _var_selectedVm_8c1ba34c ; H'8C016A74
           .DATA.L _var_8c225fa8 ; H'8C016A78
           .DATA.L _var_8c225fa8 ; H'8C016A7C
           .DATA.L _var_8c1bc828 ; H'8C016A80
@@ -1416,7 +1416,7 @@ LP_GEN_41084:
           .DATA.L _freeTask_8c014b66 ; H'8C016BD4
           .DATA.L _FUN_8c01328c ; H'8C016BD8
           .DATA.L _var_demo_8c1bb8d0 ; H'8C016BDC
-          .DATA.L _var_8c1ba34c ; H'8C016BE0
+          .DATA.L _var_selectedVm_8c1ba34c ; H'8C016BE0
           .DATA.L _var_8c1bb8d4 ; H'8C016BE4
           .DATA.L _FUN_8c0169bc ; H'8C016BE8
           .DATA.L _var_tasks_8c1ba3c8 ; H'8C016BEC

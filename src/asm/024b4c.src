@@ -44,7 +44,7 @@
           .IMPORT     _njPointCameraInterest
           .IMPORT     _var_8c227dac
           .IMPORT     _njSin
-          .IMPORT     _var_8c1ba36c
+          .IMPORT     _var_peripheral_8c1ba35c
           .IMPORT     _var_8c1bbc84
           .IMPORT     _njInitCamera
           .IMPORT     _njSetCameraAngle
@@ -1023,7 +1023,7 @@ LP_GEN_48962:
           .DATA.W H'27D2 ; H'8C0252DA
           .DATA.W H'00C8 ; H'8C0252DC
           .RES.W 1 ; H'8C0252DE
-          .DATA.L _var_8c1ba36c ; H'8C0252E0
+          .DATA.L H'10+_var_peripheral_8c1ba35c ; H'8C0252E0
           .DATA.L _var_8c1bbc84 ; H'8C0252E4
           .DATA.L _var_8c227d9c ; H'8C0252E8
           .DATA.L _var_8c1bb904 ; H'8C0252EC

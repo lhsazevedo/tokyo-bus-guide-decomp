@@ -4,7 +4,7 @@
           .IMPORT     _var_8c157a78
           .IMPORT     _var_8c1ba358
           .IMPORT     _var_8c157a70
-          .IMPORT     _peripheral_8c1ba35c
+          .IMPORT     _var_peripheral_8c1ba35c
           .IMPORT     _init_8c03be80
           .IMPORT     _init_8c03bef0
           .IMPORT     _var_8c1bbc4c
@@ -22,14 +22,12 @@
           .IMPORT     _var_8c157ae8
           .IMPORT     _var_8c157ad4
           .IMPORT     _var_8c1bb8c8
-          .IMPORT     _init_8c03bf40
           .IMPORT     _strcmp
           .IMPORT     _strcpy
           .EXPORT     _FUN_8c012718
           .EXPORT     _FUN_8c0128cc
           .EXPORT     _FUN_8c012984
           .EXPORT     _FUN_8c012970
-          .EXPORT     _const_8c033358
 
           .AIFDEF UNIT_TESTING
           .EXPORT     _var_8c157aec
@@ -170,7 +168,7 @@ LP_GEN_80518:
           .DATA.L _var_8c1ba358
           .DATA.L H'000F06FE
           .DATA.L _var_8c157a70
-          .DATA.L _peripheral_8c1ba35c
+          .DATA.L _var_peripheral_8c1ba35c
           .DATA.L H'000700FE
           .DATA.L _init_8c03be80
           .DATA.L _init_8c03bef0
@@ -452,7 +450,7 @@ LP_GEN_64371:
           .DATA.L _var_8c157a78
           .DATA.L _var_8c1ba358
           .DATA.L H'000F06FE
-          .DATA.L _peripheral_8c1ba35c
+          .DATA.L _var_peripheral_8c1ba35c
           .DATA.L H'000700FE
           .DATA.L _var_8c157a70
           .DATA.L _init_8c03beb8
@@ -674,6 +672,9 @@ LP_GEN_44279:
           .DATA.L     _var_8c157aec
           .DATA.L     _strcmp
           .DATA.L     _strcpy
+          .SECTION    D,DATA,ALIGN=4
+_init_8c03bf40:        ; from defines
+          .DATA.L      _const_8c033358 ; ukn
           .SECTION    C,DATA,ALIGN=4
 _const_8c033358:
           .SDATA      "FortyFive"

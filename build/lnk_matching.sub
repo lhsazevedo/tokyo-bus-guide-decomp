@@ -192,7 +192,7 @@ input build\output\012324.obj
 input build\output\012504.obj
 input build\output\0129cc.obj
 input build\output\012f44.obj
-input build\output\_012101_data.obj
+input build\output\012101_data.obj
 input build\output\013ae8.obj
 input build\output\014934.obj
 input build\output\0149b0_sbinit.obj
@@ -203,11 +203,12 @@ input build\output\015ab8_title.obj
 input build\output\016108.obj
 input build\output\01614c.obj
 input build\output\016bf4.obj
-input build\output\016c58.obj
+input build\output\016c58_prompt.obj
 input build\output\016d2c.obj
 input build\output\018644.obj
 input build\output\018784.obj
-input build\output\0193c8.obj
+input build\output\0193c8_pre_data.obj
+input build\output\0193c8_vm_menu.obj
 input build\output\019e98.obj
 input build\output\01a148.obj
 input build\output\01b19c.obj

@@ -7,20 +7,20 @@
 #include "014a9c_tasks.h"
 #include "015ab8_title.h"
 #include "serial_debug.h"
+#include "0193c8_vm_menu.h"
 
 extern Bool getUknPvmBool_8c01432a();
 extern void freeQueues_8c011f7e();
-extern void FUN_8c01940e();
 extern void push_fadein_8c022a9c();
 extern SDMIDI var_midiHandles_8c0fcd28[7];
 extern Bool isFading_8c226568;
 extern void drawSprite_8c014f54(ResourceGroup *r4, int r5, float fr4, float fr5, float fr6);
 extern void push_fadeout_8c022b60();
-extern char* saveNames_8c044d50[11];
+extern char* init_saveNames_8c044d50[11];
 extern Bool init_8c03bd80;
 extern Bool var_8c1bb8c4;
 extern ResourceGroupInfo titleResourceGroup_8c044254;
-extern PDS_PERIPHERAL peripheral_8c1ba35c[2];
+extern PDS_PERIPHERAL var_peripheral_8c1ba35c[2];
 extern Task var_tasks_8c1ba3c8[16];
 extern void task_8c012f44(Task* task, void* state);
 extern NJS_TEXMEMLIST var_tex_8c157af8;
@@ -28,8 +28,6 @@ extern FUN_8c02ae3e(int p1, int p2, float fp1, int p3, int p4, int p5, int p6, i
 extern initQueues_8c011f36(int p1, int p2, int p3, int p4);
 extern void nop_8c011120();
 extern void resetUknPvmBool_8c014322();
-extern FUN_8c019550(char** p1, int p2);
-extern void setMenuTaskAction_8c019e44(Task* task);
 extern FUN_8c016182();
 extern FUN_8c0159ac();
 extern void resetQueues_8c011f6c();
@@ -46,11 +44,11 @@ void task_title_8c015ab8(Task* task, void *state) {
 
     if (menuState_8c1bc7a8.state_0x18 >= TITLE_STATE_0X0B_BUS_SLIDE /* 8c015aec */
         && menuState_8c1bc7a8.state_0x18 <= TITLE_STATE_0X0C_FLAG_REVEAL) { /* 8c015af6 */
-            if (peripheral_8c1ba35c[0].press & PDD_DGT_ST) { /* 8c015afa */
+            if (var_peripheral_8c1ba35c[0].press & PDD_DGT_ST) { /* 8c015afa */
                 /* 8c015b00 */
                 sdMidiPlay(var_midiHandles_8c0fcd28[0], 1, 0, 0);
 
-                peripheral_8c1ba35c[0].press = 0;
+                var_peripheral_8c1ba35c[0].press = 0;
                 menuState_8c1bc7a8.state_0x18 = TITLE_STATE_0X0E_PRESS_START;
                 LOG_DEBUG(("[TITLE] State changed: 0X0E_PRESS_START\n"));
                 isFading_8c226568 = FALSE;
@@ -62,8 +60,8 @@ void task_title_8c015ab8(Task* task, void *state) {
         case TITLE_STATE_0X00_INIT: {
             if (getUknPvmBool_8c01432a() == FALSE) {
                 /* 8c015b96 */
-                freeQueues_8c011f7e(); /* messes with vmu */
-                FUN_8c01940e();
+                freeQueues_8c011f7e();
+                VmMenuMountVms_1940e();
 
                 if (task->field_0x08 == FALSE) {
                     /* 8c015bd8 */
@@ -165,7 +163,7 @@ void task_title_8c015ab8(Task* task, void *state) {
         case TITLE_STATE_0X06_ADX_FADE_OUT: {
             if (isFading_8c226568 == FALSE) {
                 // VMU Check?
-                if (FUN_8c012984() != FALSE && FUN_8c019550(saveNames_8c044d50, 3) == FALSE) {
+                if (FUN_8c012984() != FALSE && VmMenuUpdateVmusStatus_19550(init_saveNames_8c044d50, 3) == FALSE) {
                     /* 8c015c62 */
                     menuState_8c1bc7a8.state_0x18 = TITLE_STATE_0X07_VMU_WARNING_FADE_IN;
                     LOG_DEBUG(("[TITLE] State changed: 0X07_VMU_WARNING_FADE_IN\n"));
@@ -206,8 +204,8 @@ void task_title_8c015ab8(Task* task, void *state) {
         /* 0x8c015ca8 (0x8c015b32 + 4 + 0x172) */
         case TITLE_STATE_0X08_VMU_WARNING: {
             if (
-                peripheral_8c1ba35c[0].press & (PDD_DGT_TA | PDD_DGT_ST)
-                || FUN_8c019550(saveNames_8c044d50, 3)
+                var_peripheral_8c1ba35c[0].press & (PDD_DGT_TA | PDD_DGT_ST)
+                || VmMenuUpdateVmusStatus_19550(init_saveNames_8c044d50, 3)
             ) {
                 sdMidiPlay(var_midiHandles_8c0fcd28[0], 1, 0, 0);
                 menuState_8c1bc7a8.state_0x18 = TITLE_STATE_0X09_VMU_WARNING_FADE_OUT;
@@ -241,7 +239,7 @@ void task_title_8c015ab8(Task* task, void *state) {
                 /* 8c015cf2 */
                 menuState_8c1bc7a8.state_0x18 = TITLE_STATE_0X0B_BUS_SLIDE;
                 LOG_DEBUG(("[TITLE] State changed: 0X0B_BUS_SLIDE\n"));
-                menuState_8c1bc7a8.busX_0x20 = 640;
+                menuState_8c1bc7a8.pos.title.busX_0x20 = 640;
 
                 /* Related to music */
                 snd_8c010cd6(0, 0);
@@ -256,19 +254,19 @@ void task_title_8c015ab8(Task* task, void *state) {
 
         /* 0x8c015d10 (0x8c015b32 + 4 + 0x1DA) */
         case TITLE_STATE_0X0B_BUS_SLIDE: {
-            menuState_8c1bc7a8.busX_0x20 -= 5.111111; /* ~ 46/9 */
+            menuState_8c1bc7a8.pos.title.busX_0x20 -= 5.111111; /* ~ 46/9 */
 
-            if (menuState_8c1bc7a8.busX_0x20 <= 180) {
+            if (menuState_8c1bc7a8.pos.title.busX_0x20 <= 180) {
                 menuState_8c1bc7a8.state_0x18 = TITLE_STATE_0X0C_FLAG_REVEAL;
                 LOG_DEBUG(("[TITLE] State changed: 0X0C_FLAG_REVEAL\n"));
-                menuState_8c1bc7a8.flagY_0x24 = 167.0;
+                menuState_8c1bc7a8.pos.title.flagY_0x24 = 167.0;
 
                 /* Missing break! */
                 goto gambi;
             }
 
             /* 8c015d38 - Draw bus */
-            drawSprite_8c014f54(&menuState_8c1bc7a8.resourceGroupB_0x0c, 1, menuState_8c1bc7a8.busX_0x20, 0.0, -4.0);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.resourceGroupB_0x0c, 1, menuState_8c1bc7a8.pos.title.busX_0x20, 0.0, -4.0);
 
             /* 8c015d7c (shared) - Draw title */
             drawSprite_8c014f54(&menuState_8c1bc7a8.resourceGroupB_0x0c, 2, 0.0, 0.0, -5.0);
@@ -280,15 +278,15 @@ void task_title_8c015ab8(Task* task, void *state) {
         /* 0x8c015d4a (0x8c015b32 + 4 + 0x214) */
         case TITLE_STATE_0X0C_FLAG_REVEAL: {
             gambi:
-            menuState_8c1bc7a8.flagY_0x24 -= 2.3333333; /* ~ 7/3 */
+            menuState_8c1bc7a8.pos.title.flagY_0x24 -= 2.3333333; /* ~ 7/3 */
 
-            if (menuState_8c1bc7a8.flagY_0x24 <= 97) {
+            if (menuState_8c1bc7a8.pos.title.flagY_0x24 <= 97) {
                 menuState_8c1bc7a8.state_0x18 = TITLE_STATE_0X0E_PRESS_START;
                 LOG_DEBUG(("[TITLE] State changed: 0X0E_PRESS_START\n"));
             }
 
             /* 8c015d6a - Draw flag */
-            drawSprite_8c014f54(&menuState_8c1bc7a8.resourceGroupB_0x0c, 4, 302, menuState_8c1bc7a8.flagY_0x24, -4.5);
+            drawSprite_8c014f54(&menuState_8c1bc7a8.resourceGroupB_0x0c, 4, 302, menuState_8c1bc7a8.pos.title.flagY_0x24, -4.5);
 
             /* 8c015da4 - Draw bus */
             drawSprite_8c014f54(&menuState_8c1bc7a8.resourceGroupB_0x0c, 1, 180, 0.0, -4.0);
@@ -320,7 +318,7 @@ void task_title_8c015ab8(Task* task, void *state) {
 
         /* 0x8c015e18 (0x8c015b32 + 4 + 0x2E2) */
         case TITLE_STATE_0X0E_PRESS_START: {
-            if (peripheral_8c1ba35c[0].press & PDD_DGT_ST) {
+            if (var_peripheral_8c1ba35c[0].press & PDD_DGT_ST) {
                 /* 8c015e20 */
                 FUN_8c010bae(0);
                 FUN_8c010bae(1);
@@ -377,7 +375,7 @@ void task_title_8c015ab8(Task* task, void *state) {
 
         /* 0x8c015e98 (0x8c015b32 + 4 + 0x362) */
         case TITLE_STATE_0X10_START_PRESSED_FADE_OUT: {
-            FUN_8c019550(saveNames_8c044d50, 3);
+            VmMenuUpdateVmusStatus_19550(init_saveNames_8c044d50, 3);
 
             if (isFading_8c226568 == FALSE) {
                 if (!init_8c03bd80) {
@@ -385,7 +383,7 @@ void task_title_8c015ab8(Task* task, void *state) {
                     var_8c1bb8c4 = FALSE;
 
                     /* Push menu task */
-                    setMenuTaskAction_8c019e44(task);
+                    VmMenuSwitchFromTask_19e44(task);
                 }
 
                 return;

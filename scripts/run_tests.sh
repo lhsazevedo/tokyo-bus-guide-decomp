@@ -55,11 +55,54 @@ $sh4objtest "tests/0100bc_sound/010c2c_FUN.php" "build/output/0100bc_sound_c.obj
 $sh4objtest "tests/0100bc_sound/010cd6_snd.php" "build/output/0100bc_sound_src.obj"
 $sh4objtest "tests/0100bc_sound/010cd6_snd.php" "build/output/0100bc_sound_c.obj"
 
-# 015ab8_title
+# # 015ab8_title
 assemble  src/asm/decompiled/015ab8_title.src
 $sh4objtest "tests/015ab8_title.php" "build/output/015ab8_title_src.obj"
 compile  src/015ab8_title.c
 $sh4objtest "tests/015ab8_title.php" "build/output/015ab8_title_c.obj"
+
+# 0193c8
+assemble  src/asm/decompiled/0193c8_vm_menu.src
+compile  src/0193c8_vm_menu.c
+
+$sh4objtest "tests/0193c8_vm_menu/198a0_VmMenuTask.php" "build/output/0193c8_vm_menu_src.obj"
+$sh4objtest "tests/0193c8_vm_menu/198a0_VmMenuTask.php" "build/output/0193c8_vm_menu_c.obj"
+
+$sh4objtest "tests/0193c8_vm_menu/19852_drawVmuWarning.php" "build/output/0193c8_vm_menu_src.obj"
+$sh4objtest "tests/0193c8_vm_menu/19852_drawVmuWarning.php" "build/output/0193c8_vm_menu_c.obj"
+
+$sh4objtest "tests/0193c8_vm_menu/193c8_TaskWaitForVmsReady.php" "build/output/0193c8_vm_menu_src.obj"
+$sh4objtest "tests/0193c8_vm_menu/193c8_TaskWaitForVmsReady.php" "build/output/0193c8_vm_menu_c.obj"
+
+$sh4objtest "tests/0193c8_vm_menu/1940e_VmMenuMountVms.php" "build/output/0193c8_vm_menu_src.obj"
+$sh4objtest "tests/0193c8_vm_menu/1940e_VmMenuMountVms.php" "build/output/0193c8_vm_menu_c.obj"
+
+$sh4objtest "tests/0193c8_vm_menu/1946a_TaskUnmountVms.php" "build/output/0193c8_vm_menu_src.obj"
+$sh4objtest "tests/0193c8_vm_menu/1946a_TaskUnmountVms.php" "build/output/0193c8_vm_menu_c.obj"
+
+$sh4objtest "tests/0193c8_vm_menu/194de_VmMenuUnmountVms.php" "build/output/0193c8_vm_menu_src.obj"
+$sh4objtest "tests/0193c8_vm_menu/194de_VmMenuUnmountVms.php" "build/output/0193c8_vm_menu_c.obj"
+
+$sh4objtest "tests/0193c8_vm_menu/19504_VmMenuFreeAndClear.php" "build/output/0193c8_vm_menu_src.obj"
+$sh4objtest "tests/0193c8_vm_menu/19504_VmMenuFreeAndClear.php" "build/output/0193c8_vm_menu_c.obj"
+
+$sh4objtest "tests/0193c8_vm_menu/19550_fetchVmusStatus.php" "build/output/0193c8_vm_menu_src.obj"
+$sh4objtest "tests/0193c8_vm_menu/19550_fetchVmusStatus.php" "build/output/0193c8_vm_menu_c.obj"
+
+$sh4objtest "tests/0193c8_vm_menu/19e44_VmMenuSwitchFromTask.php" "build/output/0193c8_vm_menu_src.obj"
+$sh4objtest "tests/0193c8_vm_menu/19e44_VmMenuSwitchFromTask.php" "build/output/0193c8_vm_menu_c.obj"
+
+$sh4objtest "tests/0193c8_vm_menu/1967c_VmMenuUpdateVmuStatus.php" "build/output/0193c8_vm_menu_src.obj"
+$sh4objtest "tests/0193c8_vm_menu/1967c_VmMenuUpdateVmuStatus.php" "build/output/0193c8_vm_menu_c.obj"
+
+$sh4objtest "tests/0193c8_vm_menu/19730_saveFileExists.php" "build/output/0193c8_vm_menu_src.obj"
+$sh4objtest "tests/0193c8_vm_menu/19730_saveFileExists.php" "build/output/0193c8_vm_menu_c.obj"
+
+$sh4objtest "tests/0193c8_vm_menu/19788_initCursorLerp.php" "build/output/0193c8_vm_menu_src.obj"
+$sh4objtest "tests/0193c8_vm_menu/19788_initCursorLerp.php" "build/output/0193c8_vm_menu_c.obj"
+
+$sh4objtest "tests/0193c8_vm_menu/197c0_drawVmMenu.php" "build/output/0193c8_vm_menu_src.obj"
+$sh4objtest "tests/0193c8_vm_menu/197c0_drawVmMenu.php" "build/output/0193c8_vm_menu_c.obj"
 
 # 0207d4
 assemble  src/asm/decompiled/0207d4.src
@@ -67,11 +110,11 @@ $sh4objtest "tests/0207d4.php" "build/output/0207d4_src.obj"
 compile  src/0207d4.c
 $sh4objtest "tests/0207d4.php" "build/output/0207d4_c.obj"
 
-# 016c58
-assemble  src/asm/decompiled/016c58.src
-$sh4objtest "tests/016c58.php" "build/output/016c58_src.obj"
-compile  src/016c58.c
-$sh4objtest "tests/016c58.php" "build/output/016c58_c.obj"
+# 016c58_prompt
+assemble  src/asm/decompiled/016c58_prompt.src
+$sh4objtest "tests/016c58.php" "build/output/016c58_prompt_src.obj"
+compile  src/016c58_prompt.c
+$sh4objtest "tests/016c58.php" "build/output/016c58_prompt_c.obj"
 
 # 012f44
 assemble  src/asm/decompiled/012f44.src

@@ -10,13 +10,13 @@
           .IMPORT     _init_8c0451b4
           .IMPORT     _snd_8c010cd6
           .IMPORT     _push_fadein_8c022a9c
-          .IMPORT     _var_8c1ba36c
+          .IMPORT     _var_peripheral_8c1ba35c
           .IMPORT     _const_8c03896c
-          .IMPORT     _FUN_8c02aefc
+          .IMPORT     _swapMessageBoxFor_8c02aefc
           .IMPORT     _var_midiHandles_8c0fcd28
           .IMPORT     _sdMidiPlay
           .IMPORT     _FUN_8c010bae
-          .IMPORT     _processNavInputAndPlaySound_8c016caa
+          .IMPORT     _promptHandleBinary_16caa
           .IMPORT     _push_fadeout_8c022b60
           .IMPORT     _njSetBackColor
           .IMPORT     _FUN_8c016182
@@ -236,7 +236,7 @@ LP_GEN_72974:
           .DATA.L _init_8c0451b4 ; H'8C01E3A0
           .DATA.L _snd_8c010cd6 ; H'8C01E3A4
           .DATA.L _push_fadein_8c022a9c ; H'8C01E3A8
-          .DATA.L _var_8c1ba36c ; H'8C01E3AC
+          .DATA.L H'10+_var_peripheral_8c1ba35c ; H'8C01E3AC
 LAB_8c01e3b0:
           MOV.L       LP_GEN_38636,R4
           MOV         #H'3,R3
@@ -523,11 +523,11 @@ _FUN_8c01e576:
           NOP
 LP_GEN_38636:
           .DATA.L _const_8c03896c ; H'8C01E5C0
-          .DATA.L _FUN_8c02aefc ; H'8C01E5C4
+          .DATA.L _swapMessageBoxFor_8c02aefc ; H'8C01E5C4
           .DATA.L _var_midiHandles_8c0fcd28 ; H'8C01E5C8
           .DATA.L _sdMidiPlay ; H'8C01E5CC
           .DATA.L _FUN_8c010bae ; H'8C01E5D0
-          .DATA.L _processNavInputAndPlaySound_8c016caa ; H'8C01E5D4
+          .DATA.L _promptHandleBinary_16caa ; H'8C01E5D4
           .DATA.L _push_fadeout_8c022b60 ; H'8C01E5D8
           .DATA.L H'43960000 ; H'8C01E5DC
           .DATA.L H'C0A00000 ; H'8C01E5E0
@@ -750,7 +750,7 @@ LP_GEN_92116:
           .DATA.L _isFading_8c226568 ; H'8C01E79C
           .DATA.L _var_midiHandles_8c0fcd28 ; H'8C01E7A0
           .DATA.L _sdMidiPlay ; H'8C01E7A4
-          .DATA.L _var_8c1ba36c ; H'8C01E7A8
+          .DATA.L H'10+_var_peripheral_8c1ba35c ; H'8C01E7A8
           .DATA.L _getUknPvmBool_8c01432a ; H'8C01E7AC
           .DATA.L _freeQueues_8c011f7e ; H'8C01E7B0
           .DATA.L _snd_8c010cd6 ; H'8C01E7B4
@@ -1229,7 +1229,7 @@ LP_GEN_88702:
           .DATA.L _setTaskAction_8c014b3e ; H'8C01EB4C
           .DATA.L _menuState_8c1bc7a8 ; H'8C01EB50
           .DATA.L _const_8c038984 ; H'8C01EB54
-          .DATA.L _FUN_8c02aefc ; H'8C01EB58
+          .DATA.L _swapMessageBoxFor_8c02aefc ; H'8C01EB58
           .DATA.L _initQueues_8c011f36 ; H'8C01EB5C
           .DATA.L _resetQueues_8c011f6c ; H'8C01EB60
           .DATA.L _init_8c044274 ; H'8C01EB64
@@ -1553,10 +1553,10 @@ LP_GEN_52292:
           .DATA.L _drawSprite_8c014f54 ; H'8C01EDE4
           .DATA.L _var_8c1bb8bc ; H'8C01EDE8
           .DATA.L _isFading_8c226568 ; H'8C01EDEC
-          .DATA.L _FUN_8c02aefc ; H'8C01EDF0
+          .DATA.L _swapMessageBoxFor_8c02aefc ; H'8C01EDF0
           .DATA.L _sdMidiPlay ; H'8C01EDF4
           .DATA.L _var_midiHandles_8c0fcd28 ; H'8C01EDF8
-          .DATA.L _var_8c1ba36c ; H'8C01EDFC
+          .DATA.L H'10+_var_peripheral_8c1ba35c ; H'8C01EDFC
           .DATA.L _getUknPvmBool_8c01432a ; H'8C01EE00
           .DATA.L _freeQueues_8c011f7e ; H'8C01EE04
           .DATA.L _FUN_8c010d8a ; H'8C01EE08
@@ -1708,7 +1708,7 @@ LAB_8c01ef0c:
           MOV.L       @R15+,R14
 LP_GEN_95699:
           .DATA.W H'0090 ; H'8C01EF2A
-          .DATA.L _processNavInputAndPlaySound_8c016caa ; H'8C01EF2C
+          .DATA.L _promptHandleBinary_16caa ; H'8C01EF2C
           .DATA.L _FUN_8c010bae ; H'8C01EF30
           .DATA.L _push_fadeout_8c022b60 ; H'8C01EF34
           .DATA.L _const_8c038984 ; H'8C01EF38
@@ -2225,7 +2225,7 @@ LP_GEN_37649:
           .DATA.L H'C0000000 ; H'8C01F388
           .DATA.L _FUN_8c02ae3e ; H'8C01F38C
           .DATA.L _const_8c038984 ; H'8C01F390
-          .DATA.L _FUN_8c02aefc ; H'8C01F394
+          .DATA.L _swapMessageBoxFor_8c02aefc ; H'8C01F394
           .DATA.L _initQueues_8c011f36 ; H'8C01F398
           .DATA.L _resetQueues_8c011f6c ; H'8C01F39C
           .DATA.L _var_8c225fb0 ; H'8C01F3A0

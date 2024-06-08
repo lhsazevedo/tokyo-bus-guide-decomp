@@ -15,7 +15,7 @@
           .IMPORT     _var_8c227dd4
           .IMPORT     _var_8c227e0c
           .IMPORT     __quick_odd_mvn
-          .IMPORT     _FUN_8c02aefc
+          .IMPORT     _swapMessageBoxFor_8c02aefc
           .IMPORT     _menuTextboxText_8c02af1c
           .IMPORT     _FUN_8c0223ea
           .IMPORT     _var_8c18ad1c
@@ -317,7 +317,7 @@ LP_GEN_71160:
           .DATA.L _var_8c227e0c ; H'8C025AB8
           .DATA.L _var_8c227d9c ; H'8C025ABC
           .DATA.L __quick_odd_mvn ; H'8C025AC0
-          .DATA.L _FUN_8c02aefc ; H'8C025AC4
+          .DATA.L _swapMessageBoxFor_8c02aefc ; H'8C025AC4
 LAB_8c025ac8:
           TST         R4,R4
           BF          LAB_8c025ace

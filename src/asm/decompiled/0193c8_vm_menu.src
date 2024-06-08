@@ -11,49 +11,50 @@
           .IMPORT     _ClearInfo_8c014c8a
           .IMPORT     _gBupInfo_8c1bc4ac
           .IMPORT     _buIsExistFile
-          .IMPORT     _var_8c226048
-          .IMPORT     _init_8c044d7c
+          .IMPORT     _var_vmuStatus_8c226048
+          .IMPORT     _init_vmIconsPositions_8c044d7c
           .IMPORT     _menuState_8c1bc7a8
           .IMPORT     _drawSprite_8c014f54
           .IMPORT     _isFading_8c226568
-          .IMPORT     _saveNames_8c044d50
+          .IMPORT     _init_saveNames_8c044d50
           .IMPORT     __quick_evn_mvn
-          .IMPORT     _init_8c044dc4
-          .IMPORT     _FUN_8c02aefc
+          .IMPORT     _init_vmuStatusMessages_8c044dc4
+          .IMPORT     _swapMessageBoxFor_8c02aefc
           .IMPORT     _FUN_8c010d8a
           .IMPORT     _snd_8c010cd6
           .IMPORT     _push_fadein_8c022a9c
           .IMPORT     _var_midiHandles_8c0fcd28
-          .IMPORT     _var_8c1ba36c
+          .IMPORT     _var_peripheral_8c1ba35c
           .IMPORT     _sdMidiPlay
-          .IMPORT     _const_8c037ef8
-          .IMPORT     _const_8c037f0c
-          .IMPORT     _FUN_8c016d2c
-          .IMPORT     _processNavInputAndPlaySound_8c016caa
-          .IMPORT     _var_8c1ba34c
+          .IMPORT     _interpolated_8c016d2c
+          .IMPORT     _promptHandleBinary_16caa
+          .IMPORT     _var_selectedVm_8c1ba34c
           .IMPORT     _push_fadeout_8c022b60
           .IMPORT     _FUN_8c01895e
           .IMPORT     _FUN_8c010bae
           .IMPORT     _menuTextboxText_8c02af1c
           .IMPORT     _FUN_8c019334
           .IMPORT     _init_8c03bd80
-          .IMPORT     _FUN_8c01a09a
+          .IMPORT     _switchToMainMenuTask_8c01a09a
           .IMPORT     _setTaskAction_8c014b3e
-          .EXPORT     _FUN_8c0193c8
-          .EXPORT     _FUN_8c01940e
-          .EXPORT     _task_8c01946a
-          .EXPORT     _FUN_8c0194de
-          .EXPORT     _FUN_8c019504
-          .EXPORT     _FUN_8c019550
-          .EXPORT     _FUN_8c01967c
-          .EXPORT     _FUN_8c019730
-          .EXPORT     _FUN_8c019788
-          .EXPORT     _FUN_8c0197c0
-          .EXPORT     _FUN_8c019852
-          .EXPORT     _task_menu_8c0198a0
-          .EXPORT     _setMenuTaskAction_8c019e44
+          .EXPORT     _VmMenuMountVms_1940e
+          .EXPORT     _VmMenuUnmountVms_194de
+          .EXPORT     _VmMenuFreeAndClear_19504
+          .EXPORT     _VmMenuUpdateVmusStatus_19550
+          .EXPORT     _VmMenuUpdateVmuStatus_1967c
+          .EXPORT     _VmMenuSwitchFromTask_19e44
+
+          .AIFDEF UNIT_TESTING
+          .EXPORT     _TaskWaitForVmsReady_193c8
+          .EXPORT     _TaskUnmountVms_1946a
+          .EXPORT     _saveFileExists_19730
+          .EXPORT     _initCursorLerp_19788
+          .EXPORT     _drawVmMenu_197c0
+          .EXPORT     _DrawVmWarning_19852
+          .EXPORT     _VmMenuTask_198a0
+          .AENDI
           .SECTION     P, CODE, ALIGN=4
-_FUN_8c0193c8:
+_TaskWaitForVmsReady_193c8:
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           MOV.L       R12,@-R15
@@ -93,7 +94,7 @@ LAB_8c019402:
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-_FUN_8c01940e:
+_VmMenuMountVms_1940e:
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           MOV.L       R12,@-R15
@@ -142,7 +143,7 @@ LAB_8c01943c:
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-_task_8c01946a:
+_TaskUnmountVms_1946a:
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           MOV.L       R12,@-R15
@@ -206,7 +207,7 @@ LAB_8c0194ca:
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-_FUN_8c0194de:
+_VmMenuUnmountVms_194de:
           STS.L       PR,@-R15
           ADD         #-H'8,R15
           MOV         #H'0,R1
@@ -226,7 +227,7 @@ _FUN_8c0194de:
           LDS.L       @R15+,PR
           RTS
           NOP
-_FUN_8c019504:
+_VmMenuFreeAndClear_19504:
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           MOV.L       R12,@-R15
@@ -268,7 +269,7 @@ LAB_8c01953a:
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-_FUN_8c019550:
+_VmMenuUpdateVmusStatus_19550:
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           MOV.L       R12,@-R15
@@ -314,12 +315,12 @@ LP_GEN_33095:
           .DATA.L _freeTask_8c014b66 ; H'8C0195A0
           .DATA.L _var_8c22606c ; H'8C0195A4
           .DATA.L _BupMount_8c014c00 ; H'8C0195A8
-          .DATA.L _FUN_8c0193c8 ; H'8C0195AC
+          .DATA.L _TaskWaitForVmsReady_193c8 ; H'8C0195AC
           .DATA.L _var_tasks_8c1ba3c8 ; H'8C0195B0
           .DATA.L _pushTask_8c014ae8 ; H'8C0195B4
           .DATA.L _BupUnmount_8c014c46 ; H'8C0195B8
           .DATA.L _buStat ; H'8C0195BC
-          .DATA.L _task_8c01946a ; H'8C0195C0
+          .DATA.L _TaskUnmountVms_1946a ; H'8C0195C0
           .DATA.L _syFree ; H'8C0195C4
           .DATA.L _ClearInfo_8c014c8a ; H'8C0195C8
           .DATA.L _gBupInfo_8c1bc4ac ; H'8C0195CC
@@ -420,8 +421,8 @@ LP_GEN_86643:
           .DATA.W H'FF03 ; H'8C019670
           .RES.W 1 ; H'8C019672
           .DATA.L _buIsExistFile ; H'8C019674
-          .DATA.L _var_8c226048 ; H'8C019678
-_FUN_8c01967c:
+          .DATA.L _var_vmuStatus_8c226048 ; H'8C019678
+_VmMenuUpdateVmuStatus_1967c:
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           MOV.L       R12,@-R15
@@ -524,7 +525,7 @@ LAB_8c019722:
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-_FUN_8c019730:
+_saveFileExists_19730:
           STS.L       PR,@-R15
           ADD         #-H'8,R15
           MOV.L       LP_GEN_27799+4,R3
@@ -564,10 +565,10 @@ LP_GEN_27799:
           .DATA.W H'FF03 ; H'8C019774
           .RES.W 1 ; H'8C019776
           .DATA.L _BupGetInfo_8c014bba ; H'8C019778
-          .DATA.L _var_8c226048 ; H'8C01977C
+          .DATA.L _var_vmuStatus_8c226048 ; H'8C01977C
           .DATA.L _BupMount_8c014c00 ; H'8C019780
           .DATA.L _buIsExistFile ; H'8C019784
-_FUN_8c019788:
+_initCursorLerp_19788:
           MOV         R4,R5
           MOV.L       LP_GEN_31723+2,R3
           SHLL2       R5
@@ -596,7 +597,7 @@ _FUN_8c019788:
           FDIV        FR6,FR5
           RTS
           FMOV        FR5,@(R0,R4)
-_FUN_8c0197c0:
+_drawVmMenu_197c0:
           MOV.L       R14,@-R15
           MOVA        LP_GEN_31723+18,R0
           MOV.L       R13,@-R15
@@ -672,7 +673,7 @@ LAB_8c01980c:
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-_FUN_8c019852:
+_DrawVmWarning_19852:
           MOV.L       R14,@-R15
           MOVA        LP_GEN_31723+26,R0
           MOV.L       R13,@-R15
@@ -712,7 +713,7 @@ _FUN_8c019852:
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-_task_menu_8c0198a0:
+_VmMenuTask_198a0:
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           MOV.L       R12,@-R15
@@ -804,7 +805,7 @@ LAB_8c019930:
           NOP
 LAB_8c019940:
           MOV.L       LP_GEN_31723+54,R4
-          BSR         _FUN_8c019550
+          BSR         _VmMenuUpdateVmusStatus_19550
           MOV         #H'3,R5
           TST         R0,R0
           BT          LAB_8c019992
@@ -820,7 +821,7 @@ LAB_8c019954:
           MOV.L       @(R0,R13),R3
           TST         R3,R3
           BT          LAB_8c019952
-          BSR         _FUN_8c019788
+          BSR         _initCursorLerp_19788
           MOV         R14,R4
           MOV         R12,R2
           MOV.L       LP_GEN_31723+58,R3
@@ -879,7 +880,7 @@ LAB_8c0199c4:
           BRA         LAB_8c019e24
           MOV.L       R3,@(H'18,R12)
 LAB_8c0199ca:
-          BSR         _FUN_8c019550
+          BSR         _VmMenuUpdateVmusStatus_19550
           MOV         #H'3,R5
           MOV.L       LP_GEN_31723+82,R2
           MOV.L       R2,@R15
@@ -891,12 +892,12 @@ LAB_8c0199ca:
           MOV         R9,R14
 LP_GEN_31723:
           .RES.W 1 ; H'8C0199DE
-          .DATA.L _init_8c044d7c ; H'8C0199E0
+          .DATA.L _init_vmIconsPositions_8c044d7c ; H'8C0199E0
           .DATA.L _menuState_8c1bc7a8 ; H'8C0199E4
           .DATA.L H'40C00000 ; H'8C0199E8
           .DATA.L _drawSprite_8c014f54 ; H'8C0199EC
           .DATA.L H'C0800000 ; H'8C0199F0
-          .DATA.L _var_8c226048 ; H'8C0199F4
+          .DATA.L _var_vmuStatus_8c226048 ; H'8C0199F4
           .DATA.L H'C0A00000 ; H'8C0199F8
           .DATA.L H'C0C00000 ; H'8C0199FC
           .DATA.L H'C089999A ; H'8C019A00
@@ -904,10 +905,10 @@ LP_GEN_31723:
           .DATA.L H'43980000 ; H'8C019A08
           .DATA.L H'43640000 ; H'8C019A0C
           .DATA.L _isFading_8c226568 ; H'8C019A10
-          .DATA.L _saveNames_8c044d50 ; H'8C019A14
+          .DATA.L _init_saveNames_8c044d50 ; H'8C019A14
           .DATA.L __quick_evn_mvn ; H'8C019A18
-          .DATA.L _init_8c044dc4 ; H'8C019A1C
-          .DATA.L _FUN_8c02aefc ; H'8C019A20
+          .DATA.L _init_vmuStatusMessages_8c044dc4 ; H'8C019A1C
+          .DATA.L _swapMessageBoxFor_8c02aefc ; H'8C019A20
           .DATA.L _FUN_8c010d8a ; H'8C019A24
           .DATA.L _snd_8c010cd6 ; H'8C019A28
           .DATA.L _push_fadein_8c022a9c ; H'8C019A2C
@@ -1123,7 +1124,7 @@ LAB_8c019b8c:
           MOV         #H'3,R6
           JSR         @R3
           MOV.L       @R4,R4
-          BSR         _FUN_8c019788
+          BSR         _initCursorLerp_19788
           MOV         R14,R4
           MOV         R14,R0
           SHLL2       R0
@@ -1152,21 +1153,21 @@ LAB_8c019bba:
           JSR         @R3
           MOV.L       @(R0,R4),R4
 LAB_8c019bd6:
-          BSR         _FUN_8c0197c0
+          BSR         _drawVmMenu_197c0
           NOP
           BRA         LAB_8c019ca2
           MOV         #H'20,R4
 LP_GEN_27695:
           .RES.W 1 ; H'8C019BDE
-          .DATA.L _var_8c1ba36c ; H'8C019BE0
+          .DATA.L H'10+_var_peripheral_8c1ba35c ; H'8C019BE0
           .DATA.L _sdMidiPlay ; H'8C019BE4
           .DATA.L _const_8c037ef8 ; H'8C019BE8
-          .DATA.L _FUN_8c02aefc ; H'8C019BEC
+          .DATA.L _swapMessageBoxFor_8c02aefc ; H'8C019BEC
           .DATA.L _BupGetInfo_8c014bba ; H'8C019BF0
           .DATA.L _const_8c037f0c ; H'8C019BF4
           .DATA.L _var_midiHandles_8c0fcd28 ; H'8C019BF8
-          .DATA.L _init_8c044dc4 ; H'8C019BFC
-          .DATA.L _FUN_8c016d2c ; H'8C019C00
+          .DATA.L _init_vmuStatusMessages_8c044dc4 ; H'8C019BFC
+          .DATA.L _interpolated_8c016d2c ; H'8C019C00
 LAB_8c019c04:
           MOV.L       LP_GEN_17403+4,R3
           MOV         R12,R4
@@ -1250,7 +1251,7 @@ LAB_8c019c8c:
           FMOV        FR15,FR6
           JSR         @R3
           FMOV        FR13,FR4
-          BSR         _FUN_8c0197c0
+          BSR         _drawVmMenu_197c0
           NOP
           MOV.W       LP_GEN_17403,R4
 LAB_8c019ca2:
@@ -1266,7 +1267,7 @@ LAB_8c019cac:
           MOV         #H'7,R3
           MOV.L       R3,@(H'18,R12)
 LAB_8c019cb6:
-          BSR         _FUN_8c019852
+          BSR         _DrawVmWarning_19852
           NOP
           BRA         LAB_8c019e28
           NOP
@@ -1287,17 +1288,17 @@ LAB_8c019cbe:
 LP_GEN_17403:
           .DATA.W H'00FF ; H'8C019CD8
           .RES.W 1 ; H'8C019CDA
-          .DATA.L _processNavInputAndPlaySound_8c016caa ; H'8C019CDC
-          .DATA.L _var_8c1ba34c ; H'8C019CE0
+          .DATA.L _promptHandleBinary_16caa ; H'8C019CDC
+          .DATA.L _var_selectedVm_8c1ba34c ; H'8C019CE0
           .DATA.L _push_fadeout_8c022b60 ; H'8C019CE4
-          .DATA.L _init_8c044dc4 ; H'8C019CE8
-          .DATA.L _FUN_8c02aefc ; H'8C019CEC
+          .DATA.L _init_vmuStatusMessages_8c044dc4 ; H'8C019CE8
+          .DATA.L _swapMessageBoxFor_8c02aefc ; H'8C019CEC
           .DATA.L _FUN_8c01895e ; H'8C019CF0
           .DATA.L _FUN_8c010bae ; H'8C019CF4
           .DATA.L _drawSprite_8c014f54 ; H'8C019CF8
           .DATA.L _menuTextboxText_8c02af1c ; H'8C019CFC
 LAB_8c019d00:
-          BSR         _FUN_8c019550
+          BSR         _VmMenuUpdateVmusStatus_19550
           MOV         #H'3,R5
           TST         R0,R0
           BT          LAB_8c019d12
@@ -1338,7 +1339,7 @@ LAB_8c019d3e:
           MOV.L       @(R0,R13),R3
           TST         R3,R3
           BT          LAB_8c019d3c
-          BSR         _FUN_8c019788
+          BSR         _initCursorLerp_19788
           MOV         R14,R4
           MOV         R12,R2
           MOV.L       LP_GEN_77899+14,R3
@@ -1395,7 +1396,7 @@ LAB_8c019d9a:
           MOV.L       @R15+,R11
           MOV.L       @R15+,R12
           MOV.L       @R15+,R13
-          BRA         _FUN_8c019852
+          BRA         _DrawVmWarning_19852
           MOV.L       @R15+,R14
 LAB_8c019db4:
           MOV.L       @R5,R3
@@ -1459,7 +1460,7 @@ LAB_8c019e1a:
           MOV         #H'2,R3
           MOV.L       R3,@(H'18,R12)
 LAB_8c019e24:
-          BSR         _FUN_8c0197c0
+          BSR         _drawVmMenu_197c0
           NOP
 LAB_8c019e28:
           MOV.L       R14,@(H'38,R12)
@@ -1477,7 +1478,7 @@ LAB_8c019e2a:
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-_setMenuTaskAction_8c019e44:
+_VmMenuSwitchFromTask_19e44:
           STS.L       PR,@-R15
           MOV.L       LP_GEN_77899+50,R3
           MOV.L       LP_GEN_77899+46,R5
@@ -1493,18 +1494,26 @@ _setMenuTaskAction_8c019e44:
           MOV.L       R4,@(R0,R5)
 LP_GEN_77899:
           .RES.W 1 ; H'8C019E5E
-          .DATA.L _processNavInputAndPlaySound_8c016caa ; H'8C019E60
-          .DATA.L _var_8c1ba34c ; H'8C019E64
+          .DATA.L _promptHandleBinary_16caa ; H'8C019E60
+          .DATA.L _var_selectedVm_8c1ba34c ; H'8C019E64
           .DATA.L _FUN_8c01895e ; H'8C019E68
           .DATA.L __quick_evn_mvn ; H'8C019E6C
-          .DATA.L _init_8c044dc4 ; H'8C019E70
-          .DATA.L _FUN_8c02aefc ; H'8C019E74
+          .DATA.L _init_vmuStatusMessages_8c044dc4 ; H'8C019E70
+          .DATA.L _swapMessageBoxFor_8c02aefc ; H'8C019E74
           .DATA.L _push_fadeout_8c022b60 ; H'8C019E78
           .DATA.L _FUN_8c019334 ; H'8C019E7C
           .DATA.L _drawSprite_8c014f54 ; H'8C019E80
           .DATA.L _init_8c03bd80 ; H'8C019E84
-          .DATA.L _FUN_8c01a09a ; H'8C019E88
-          .DATA.L _task_menu_8c0198a0 ; H'8C019E8C
+          .DATA.L _switchToMainMenuTask_8c01a09a ; H'8C019E88
+          .DATA.L _VmMenuTask_198a0 ; H'8C019E8C
           .DATA.L _setTaskAction_8c014b3e ; H'8C019E90
           .DATA.L _menuState_8c1bc7a8 ; H'8C019E94
+          .SECTION     C, DATA, ALIGN=4
+_const_8c037ef8:
+          .SDATA      "よろしいですか？"
+          .DATA.B     H'00
+          .RES.B      3
+_const_8c037f0c:
+          .SDATA      "ファイルを設定しないとセーブできません<E>このままゲームを開始してもよろしいですか？"
+          .DATA.B     H'00
           .END
