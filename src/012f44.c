@@ -305,15 +305,37 @@ struct BusState {
 }
 typedef BusState;
 
-extern NJS_MATRIX     var_matrix_8c2f8ca0[16];
+extern NJS_TEXMEMLIST var_tex_8c157af8[TEX_NUM];
+extern NJS_TEXNAME    var_texname_8c18acf8[1];
+extern Sint8          var_soundMode_8c226070;
+extern Sint8          var_cachebuf_8c235ca0[CACHE_BUFSIZE];
 extern NJS_VERTEX_BUF var_vbuf_8c255ca0[2048];
 extern Sint8          var_texbuf_8c277ca0[TEX_BUFSIZE];
-extern NJS_TEXMEMLIST var_tex_8c157af8[TEX_NUM];
-extern Sint8          var_cachebuf_8c235ca0[CACHE_BUFSIZE];
 extern Float          var_shapebuf_8c2f84a0[SHAPE_BUFSIZE];
-extern Sint8          var_soundMode_8c226070;
-extern NJS_TEXNAME    var_texname_8c18acf8[1];
-extern NJS_TEXLIST    init_texlist_8c03bf44;
+extern NJS_MATRIX     var_matrix_8c2f8ca0[16];
+extern char           s_DUMMY_8c03346c[];
+extern int            const_8c033474;
+
+NJS_TEXLIST init_texlist_8c03bf44 = {var_texname_8c18acf8, 1};
+int init_8c03bf48 = 1;
+char init_8c03bf4c[] = {
+    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xD4, 0x9B, 0x5E, 0x3F, 0x00, 0x00, 0x00, 0x7F,
+    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xF0, 0x43, 0xD4, 0x9B, 0x5E, 0x3F, 0x00, 0x00, 0x00, 0x7F,
+    0x00, 0x00, 0x20, 0x44, 0x00, 0x00, 0x00, 0x00, 0xD4, 0x9B, 0x5E, 0x3F, 0x00, 0x00, 0x00, 0x7F,
+    0x00, 0x00, 0x20, 0x44, 0x00, 0x00, 0xF0, 0x43, 0xD4, 0x9B, 0x5E, 0x3F, 0x00, 0x00, 0x00, 0x7F
+};
+// Forward declaration
+int init_8c03bf8c[7];
+int init_8c03bf8c[] = {
+    0,
+    (int) &s_DUMMY_8c03346c,
+    1,
+    (int) &init_8c03bf8c,
+    (int) &const_8c033474,
+    0,
+    0,
+};
+int init_8c03bfa8 = 0;
 
 extern Task var_tasks_8c1ba3c8[];
 extern Task var_tasks_8c1ba5e8[];
@@ -399,7 +421,6 @@ extern int var_8c227da8;
 extern task_load_8c014338;
 extern var_memblkSource_8c0fcd48;
 extern var_memblkSource_8c0fcd4c;
-extern init_8c03bfa8;
 
 extern var_8c18ad1c;
 extern var_8c228708;

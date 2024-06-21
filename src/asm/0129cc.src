@@ -25,7 +25,6 @@
           .IMPORT     _var_8c1ba2cc
           .IMPORT     _var_8c1ba2b8
           .IMPORT     _var_8c1ba1cc
-          .IMPORT     _init_8c03bf4c
           .IMPORT     _njDrawPolygon
           .IMPORT     _FUN_8c017ef2
           .IMPORT     _var_8c22640c
@@ -41,6 +40,7 @@
           .IMPORT     _FUN_8c022910
           .IMPORT     _init_8c03bd80
           .IMPORT     _init_8c03bd84
+          .IMPORT     _init_8c03bf4c
           .IMPORT     _FUN_adxVol_8c010a40
           .IMPORT     _FUN_8c010bae
           .IMPORT     _var_peripheral_8c1ba35c
@@ -739,16 +739,16 @@ LAB_8c012f10:
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-
 LP_GEN_94405:
-          .DATA.W H'0708 ; LP_GEN_94405+0
-          .DATA.L _push_fadeout_8c022b60
-          .DATA.L _pushTitle_8c015fd6
-          .DATA.L _FUN_8c02239c
-          .DATA.L _var_tasks_8c1ba5e8
-          .DATA.L _execTasks_8c014b42
-          .DATA.L _FUN_8c022910
-          .DATA.L H'BF8CCCCD
-          .DATA.L _var_8c1bc418
-          .DATA.L _drawSprite_8c014f54
+          .DATA.W     H'0708 ; LP_GEN_94405+0
+          .DATA.L     _push_fadeout_8c022b60
+          .DATA.L     _pushTitle_8c015fd6
+          .DATA.L     _FUN_8c02239c
+          .DATA.L     _var_tasks_8c1ba5e8
+          .DATA.L     _execTasks_8c014b42
+          .DATA.L     _FUN_8c022910
+          .DATA.L     H'BF8CCCCD
+          .DATA.L     _var_8c1bc418
+          .DATA.L     _drawSprite_8c014f54
+          .SECTION    D,DATA,ALIGN=4
           .END

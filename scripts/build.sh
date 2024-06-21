@@ -34,7 +34,7 @@ assemble src/asm/012324.src
 assemble src/asm/012504.src
 assemble src/asm/0129cc.src
 compile  src/012f44.c
-assemble src/asm/012101_data.src
+assemble src/asm/013ae8_pre_data.src
 assemble src/asm/013ae8.src
 compile  src/014934.c
 compile  src/0149b0_sbinit.c

@@ -414,27 +414,27 @@
           .EXPORT     _var_shapebuf_8c2f84a0
           .EXPORT     _var_matrix_8c2f8ca0
           .SECTION    B,DATA,ALIGN=4
-_var_tex_8c157af8:
+_var_tex_8c157af8:              ; 12f44
           .RES.B      208896
 _var_fogTable_8c18aaf8:
           .RES.B      512
-_var_texname_8c18acf8:
+_var_texname_8c18acf8:          ; 12f44
           .RES.B      12
-_var_8c18ad04:
+_var_8c18ad04:                  ; 129cc
           .RES.B      4
-_var_8c18ad08:
+_var_8c18ad08:                  ; 129cc
           .RES.B      4
-_var_8c18ad0c:
+_var_8c18ad0c:                  ; 129cc
           .RES.B      4
-_var_8c18ad10:
+_var_8c18ad10:                  ; 129cc
           .RES.B      4
-_var_gdErr_8c18ad14:
+_var_gdErr_8c18ad14:            ; 12f44
           .RES.B      4
-_var_8c18ad18:
+_var_8c18ad18:            ; 13ae8
           .RES.B      4
-_var_8c18ad1c:
+_var_8c18ad1c:            ; 12f44
           .RES.B      4
-_var_8c18ad20:
+_var_8c18ad20:            ; 12f44
           .RES.B      4
 _var_8c18ad24:
           .RES.B      4
