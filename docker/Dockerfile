@@ -20,7 +20,7 @@ RUN cd /app \
 FROM php:8.3-cli
 
 RUN dpkg --add-architecture i386 \
-    && apt-get update && apt-get install -y \
+    && apt-get update && apt-get install -y --no-install-recommends \
         wine \
         wine32 \
     && rm -rf /var/lib/apt/lists/*
