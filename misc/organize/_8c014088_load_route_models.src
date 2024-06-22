@@ -1,6 +1,6 @@
           .IMPORT     __8c012030
           .IMPORT     _request_nj_8c011492
-          .IMPORT     _requestDat_8c011182
+          .IMPORT     _AsqRequestDat_11182
           .IMPORT     _request_some_files_8c013ae8
           .IMPORT     _prob_strcpy_8c03011c
           .EXPORT     __8c1bb868
@@ -203,7 +203,7 @@ L1059:
           MOV.W       L1073,R6   ; H'008C
           MOV         #0,R7
           MOV.L       @(60,R15),R5
-          MOV.L       L1073+62,R12; _requestDat_8c011182
+          MOV.L       L1073+62,R12; _AsqRequestDat_11182
           JSR         @R12
           MOV         R14,R4
           MOV         #64,R0
@@ -302,7 +302,7 @@ L1073:
           .DATA.L     __8c1bb880
           .DATA.L     __8c1bb884
           .DATA.L     __8c1bb888
-          .DATA.L     _requestDat_8c011182
+          .DATA.L     _AsqRequestDat_11182
           .DATA.L     __8c1bb890
           .DATA.L     __8c1bb894
           .DATA.L     __8c1bb8a4

@@ -116,7 +116,7 @@ MASKED:
 MASKED:
           route_common_dir_8c18ad6c
 MASKED:
-          requestNjPvmPairs_8c012030
+          AsqRequestNjPvmPairs_12030
 MASKED:
           MASKED
 MASKED:
@@ -136,7 +136,7 @@ MASKED:
 MASKED:
           route_common_dir_copy_8c18ad2c
 MASKED:
-          requestDat_8c011182
+          AsqRequestDat_11182
 MASKED:
           LAB_8c02aa36
 MASKED:
@@ -246,7 +246,7 @@ MASKED:
           _MOV      R13,R4
           MOV.L     @R14,R5
           MOV       R12,R6
-          MOV.L     ->requestDat_8c011182,R10
+          MOV.L     ->AsqRequestDat_11182,R10
           ADD       #0x24,R6
           MOV.L     @(0x3c,R5),R5
           JSR       @R10
@@ -330,7 +330,7 @@ MASKED:
           _MOV      R13,R4
           BSR       request_some_fileMASKED
           _NOP
-          MOV.L     ->requestNjPvmPairs_8c012030,R2
+          MOV.L     ->AsqRequestNjPvmPairs_12030,R2
           MOV       #0x10,R6
           MOV.L     MASKED.njd_8c01444c,R5
           JSR       @R2
