@@ -7,11 +7,11 @@
 #include "015ab8_title.h"
 #include "scif.h"
 #include "011120_asset_queues.h"
+#include "02fb50_sh4nlfzn_post_data.h"
 
-#define TEX_BUFSIZE     0x80800
 #define TEX_NUM         3072
-#define CACHE_BUFSIZE   0x20000
-#define SHAPE_BUFSIZE   512
+// #define CACHE_BUFSIZE   0x20000
+// #define SHAPE_BUFSIZE   512
 #define RENDER_X        256
 #define RENDER_Y        512
 
@@ -308,11 +308,6 @@ typedef BusState;
 extern NJS_TEXMEMLIST var_tex_8c157af8[TEX_NUM];
 extern NJS_TEXNAME    var_texname_8c18acf8[1];
 extern Sint8          var_soundMode_8c226070;
-extern Sint8          var_cachebuf_8c235ca0[CACHE_BUFSIZE];
-extern NJS_VERTEX_BUF var_vbuf_8c255ca0[2048];
-extern Sint8          var_texbuf_8c277ca0[TEX_BUFSIZE];
-extern Float          var_shapebuf_8c2f84a0[SHAPE_BUFSIZE];
-extern NJS_MATRIX     var_matrix_8c2f8ca0[16];
 extern char           s_DUMMY_8c03346c[];
 extern int            const_8c033474;
 

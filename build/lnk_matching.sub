@@ -262,6 +262,7 @@ input build\output\0332a4_sectionC.obj
 input build\output\03bd80_sectionD.obj
 input build\output\04f6c0_SDK.obj
 input build\output\0fcd20_sectionB.obj
+input build\output\02fb50_sh4nlfzn_post_data.obj
 
 print build\output\tbg.map
 form a

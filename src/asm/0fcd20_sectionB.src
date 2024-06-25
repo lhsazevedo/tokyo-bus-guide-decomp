@@ -366,53 +366,48 @@
           .EXPORT     _var_8c2288f8
           .EXPORT     _var_8c2288fc
           .EXPORT     _var_8c228900
-          .EXPORT     _var_8c228908
-          .EXPORT     _var_8c22890c
-          .EXPORT     _var_8c228910
-          .EXPORT     _var_8c22891c
-          .EXPORT     _var_8c228928
-          .EXPORT     _var_8c228934
-          .EXPORT     _var_8c228940
-          .EXPORT     _var_8c22894c
-          .EXPORT     _var_8c228958
-          .EXPORT     _var_8c22895c
-          .EXPORT     _var_8c228960
-          .EXPORT     _var_8c228974
-          .EXPORT     _var_8c228978
-          .EXPORT     _var_8c2289d8
-          .EXPORT     _var_8c228a38
-          .EXPORT     _var_8c228b38
-          .EXPORT     _var_8c228b3c
-          .EXPORT     _var_8c228b40
-          .EXPORT     _var_8c228b44
-          .EXPORT     _var_8c228b48
-          .EXPORT     _var_8c228b98
-          .EXPORT     _var_8c228b9c
-          .EXPORT     _var_8c228ba0
-          .EXPORT     _var_8c228ba4
-          .EXPORT     _var_8c228ba8
-          .EXPORT     _var_8c228baa
-          .EXPORT     _var_8c228bac
-          .EXPORT     _var_8c228bae
-          .EXPORT     _var_8c229bae
-          .EXPORT     _var_8c22bbae
-          .EXPORT     _var_8c22dbae
-          .EXPORT     _var_8c22fbae
-          .EXPORT     _var_8c231bae
-          .EXPORT     _var_8c231bb0
-          .EXPORT     _var_8c233bb0
-          .EXPORT     _var_8c235bb0
-          .EXPORT     _var_8c235bb2
-          .EXPORT     _var_8c235bb4
-          .EXPORT     _var_8c235c7c
-          .EXPORT     _var_8c235c7e
-          .EXPORT     _var_8c235c80
-          .EXPORT     _var_8c235c84
-          .EXPORT     _var_cachebuf_8c235ca0
-          .EXPORT     _var_vbuf_8c255ca0
-          .EXPORT     _var_texbuf_8c277ca0
-          .EXPORT     _var_shapebuf_8c2f84a0
-          .EXPORT     _var_matrix_8c2f8ca0
+          .EXPORT     _var_8c228908 ; 02c884
+          .EXPORT     _var_8c22890c ; 02c884
+          .EXPORT     _var_8c228910 ; 02d19c
+          .EXPORT     _var_8c22891c ; 02d19c
+          .EXPORT     _var_8c228928 ; 02d19c
+          .EXPORT     _var_8c228934 ; 02d19c
+          .EXPORT     _var_8c228940 ; 02d19c
+          .EXPORT     _var_8c22894c ; 02d19c
+          .EXPORT     _var_8c228958 ; 02d19c
+          .EXPORT     _var_8c22895c ; 02d19c
+          .EXPORT     _var_8c228960 ; 02d06c
+          .EXPORT     _var_8c228974 ; 02df3c
+          .EXPORT     _var_8c228978 ; 02e2dc
+          .EXPORT     _var_8c2289d8 ; 02e2dc
+          .EXPORT     _var_8c228a38 ; 02e400
+          .EXPORT     _var_8c228b38 ; 02e400
+          .EXPORT     _var_8c228b3c ; 02e51c
+          .EXPORT     _var_8c228b40 ; 02f0c8 / 026710
+          .EXPORT     _var_8c228b44 ; 02f0c8
+          .EXPORT     _var_8c228b48 ; 02f0c8
+          .EXPORT     _var_8c228b98 ; 02f0c8
+          .EXPORT     _var_8c228b9c ; 02f0c8
+          .EXPORT     _var_8c228ba0 ; 02f0c8
+          .EXPORT     _var_8c228ba4 ; 02f320
+          .EXPORT     _var_8c228ba8 ; 02f320
+          .EXPORT     _var_8c228baa ; 02f320
+          .EXPORT     _var_8c228bac ; 02f320
+          .EXPORT     _var_8c228bae ; 02f320
+          .EXPORT     _var_8c229bae ; 02f320
+          .EXPORT     _var_8c22bbae ; 02f320
+          .EXPORT     _var_8c22dbae ; 02f320
+          .EXPORT     _var_8c22fbae ; 02f320
+          .EXPORT     _var_8c231bae ; 02f320
+          .EXPORT     _var_8c231bb0 ; 02f320
+          .EXPORT     _var_8c233bb0 ; 02f320
+          .EXPORT     _var_8c235bb0 ; 02f320
+          .EXPORT     _var_8c235bb2 ; 02f320
+          .EXPORT     _var_8c235bb4 ; 02f320
+          .EXPORT     _var_8c235c7c ; 02f320
+          .EXPORT     _var_8c235c7e ; 02f320
+          .EXPORT     _var_8c235c80             ; 02fb50
+          .EXPORT     _var_8c235c84             ; 02fb50
           .SECTION    B,DATA,ALIGN=4
 _var_tex_8c157af8:              ; 12f44
           .RES.B      208896
@@ -1232,14 +1227,4 @@ _var_8c235c80:
           .RES.B      4
 _var_8c235c84:
           .RES.B      28
-_var_cachebuf_8c235ca0:
-          .RES.B      131072
-_var_vbuf_8c255ca0:
-          .RES.B      139264
-_var_texbuf_8c277ca0:
-          .RES.B      526336
-_var_shapebuf_8c2f84a0:
-          .RES.B      2048
-_var_matrix_8c2f8ca0:
-          .RES.B      1024
           .END
