@@ -50,7 +50,7 @@ assemble src/asm/016d2c.src
 assemble src/asm/018644.src
 assemble src/asm/018784.src
 assemble src/asm/0193c8_pre_data.src
-compile src/0193c8_vm_menu.c
+compile  src/0193c8_vm_menu.c
 assemble src/asm/019e98.src
 assemble src/asm/01a148.src
 assemble src/asm/01b19c.src
@@ -98,7 +98,7 @@ assemble src/asm/02e400.src
 assemble src/asm/02e51c.src
 assemble src/asm/02f0c8.src
 assemble src/asm/02f320.src
-compile src/02fb50_sh4nlfzn_post_data.c
+compile  src/02fb50_sh4nlfzn_post_data.c
 assemble src/asm/0332a4_sectionC.src
 assemble src/asm/03bd80_sectionD.src
 assemble src/asm/0fcd20_sectionB.src
