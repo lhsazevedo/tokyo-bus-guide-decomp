@@ -6,127 +6,45 @@
 
 ![Main function hero](./tbg.png)
 
+_Yup, [this is a real file](https://github.com/lhsazevedo/tokyo-bus-guide-decomp/blob/88fb8f87500f9474780cd9a0f7dafa00b14b0be7/src/010080_main.c)!_
 
 ## Introduction
-This project focuses on decompiling the Sega Dreamcast game Tokyo Bus Guide. It prioritizes achieving identical behavior between the original and decompiled code, rather than traditional methods targeting byte-level matching. Key objectives include functional equivalence, scalable decompilation methods, and community collaboration in Dreamcast reverse engineering.
+Welcome to the first-ever public Dreamcast game decompilation project, for the classic title Tokyo
+Bus Guide! The goal is to fully decompile the code, focusing on functional equivalence rather than
+byte-level matching. This project is a collaborative effort to advance Dreamcast reverse
+engineering.
 
-To the best of the author's knowledge, this is the first public Dreamcast game decompilation project.
-
+> [!WARNING]
+> It is important to note that it is not possible to build a playable ROM from this decompilation
+> project without a legitimate backup of the original game. This project is intended for educational
+> and research purposes only, and users must ensure they have the legal right to use any game assets
+> in their possession. Unauthorized distribution or use of game data is strictly prohibited.
 
 ## Approach
-Unlike traditional byte-level matching, this project uses a custom [SH4 object simulator and testing framework](https://github.com/lhsazevedo/sh4objtest). This tool tests decompiled functions against their original counterparts, ensuring exact behavioral replication.
-
+Unlike traditional byte-level matching, we are using a custom [SH4 object simulator and testing
+framework](https://github.com/lhsazevedo/sh4objtest) to test decompiled functions against their
+original counterparts, ensuring they behave exactly the same.
 
 ## Project Status
-This is an ongoing project, the decompilation process will be regularly updated. While under development, the project allows building the game using the available decompiled functions.
-
+This project is ongoing and is being updated regularly. It is in a shiftable state, which means the
+original code can be shifted around in memory, allowing for edits such as data modifications without
+worrying about length changes. It is also possible to recompile the binary using the decompiled
+functions that are available.
 
 ### Current Achivements:
-- Rebuilding the game binary with decompiled functions alongside original code.
-- Custom logs from decompiled C files, written to the Dreamcast serial interface and on-screen debug text: [watch video](https://twitter.com/lhs_azevedo/status/1777558619480867048), [view code](https://github.com/lhsazevedo/tokyo-bus-guide-decomp/blob/7cbc8608b7a7568db8e26e9c9302b8a6f983460e/src/011120_asset_queues.c#L1186-L1197).
+- Rebuilding the binary with decompiled functions alongside original code.
+- Custom logs from decompiled C files, written to the Dreamcast serial interface and on-screen debug
+  text:
+   - [Watch capture](https://twitter.com/lhs_azevedo/status/1777558619480867048)
+   - [View code](https://github.com/lhsazevedo/tokyo-bus-guide-decomp/blob/7cbc8608b7a7568db8e26e9c9302b8a6f983460e/src/011120_asset_queues.c#L1186-L1197)
 - CI workflows with matching builds, non-matching builds and unit tests checks.
 
 ## How to Contribute
-Contributions to this project are encouraged and welcomed! Your expertise in code, testing, or documentation can significantly advance this decompilation effort. Detailed contribution guidelines will be available shortly.
-
-## Requirements
-- Operating System: Linux Mint or similar Ubuntu-based distributions (additional steps may be required for other distributions).
-- [Wine](https://www.winehq.org/) 32.
-- Dreamcast SDK (Sega Library) Ver.1.55J (Google is your friend)
-
-## Project Setup
-1. Ensure your SDK is organized as follows.
-   ```
-   ├── bin (From disc Vol.1 dc_sdk/bin)
-   │   ├── binadj.exe
-   │   └── ...
-   ├── shc (From disc Vol.2)
-   │   ├── bin
-   │   ├── include
-   │   └── lib
-   └── shinobi (From disc Vol.2)
-      ├── driver
-      ├── include
-      ├── lib
-      └── sample
-   ```
-
-2. The Hitachi compiler suite expects some environments variables to be set. Create a copy of `set_kt.example.sh` named `set_kt.sh` and update the `DK_SDK` environment variable with your SDK location.
-
-3. Source your `set_kt.sh` script to make the environment variables available in the current shell:
-   ```
-   $ source set_kt.sh
-   ```
-
-4. Build the binary using the provided `build.sh` script.
-   ```
-   $ ./build.sh
-
-   (...)
-
-   LINKAGE EDITOR COMPLETED
-   ELF2BIN: ELF -> binary converter Ver. 1.04
-   Copyright (c) 1998, Hitachi, Ltd.  All rights reserved.
-   Module  address: 8c008000 - 8c0fde20
-   Convert address: 8c010000 - 8c0fde20  size: 000ede20 (974368)
-
-   ================
-   Project built :)
-   ================
-   ```
-
-A successful build will display "Project built :)".
-
-
-## Docker Container Development
-
-1. Open run_container.sh with your favorite text editor and update the SDK_PATH variable with the absolute path location of the SDK Files mentioned in the Project Setup
-
-2. Run run_container.sh. you should be inside a bash shell inside /app (your current folder)
-   ```
-   $ ./run_container.sh
-   ```
-
-3. Source your `set_kt.docker.sh` script to make the environment variables available in the current shell:
-
-   ```
-   $ source ./scripts/set_kt.docker.sh
-   ```
-
-4. Build the binary using the provided `build.sh` script.
-   ```
-   $ ./scripts/build.sh
-
-   (...)
-
-   LINKAGE EDITOR COMPLETED
-   ELF2BIN: ELF -> binary converter Ver. 1.04
-   Copyright (c) 1998, Hitachi, Ltd.  All rights reserved.
-   Module  address: 8c008000 - 8c0fde20
-   Convert address: 8c010000 - 8c0fde20  size: 000ede20 (974368)
-
-   ================
-   Project built :)
-   ================
-   ```
-
-A successful build will display "Project built :)".
-
-5. Install Composer sh4objtest
-   ```
-   $ composer global require lhsazevedo/sh4objtest:dev-main
-   ```
-
-6. Run the tests
-
-   ```
-   $ ./scripts/run_tests.docker.sh
-   ```
-
-
-## Acknowledgements
-Acknowledgements and contributors will be listed soon.
-
+Contributions are welcome! To get started, please refer to the project setup instructions in
+[Project Setup](docs/setup.md). Detailed contribution guidelines will be available soon, providing
+you with all the information you need to contribute effectively to this project. For now, you can
+look the [CI workflows](https://github.com/lhsazevedo/tokyo-bus-guide-decomp/tree/main/.github/workflows)
+to see how tests are being executed.
 
 ## Useful resources
 - [Dreamcast Programming](https://mc.pp.se/dc/) by Marcus Comstedt
