@@ -17,16 +17,12 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y --no-install-recommends wine wine32:i386
 
-      - name: Setup PHP
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: 8.x
-          tools: composer:v2
-
       - name: Install sh4objtest
         run: |
-          composer global require --no-ansi --no-interaction --no-progress lhsazevedo/sh4objtest:dev-main
-          echo "$HOME/.config/composer/vendor/bin" >> $GITHUB_PATH
+          wget -nv https://github.com/lhsazevedo/sh4objtest/releases/latest/download/sh4objtest-linux-x86_64.tar.gz
+          tar -xzf sh4objtest-linux-x86_64.tar.gz
+          mv sh4objtest /usr/local/bin/sh4objtest
+          rm sh4objtest-linux-x86_64.tar.gz
 
       - name: Checkout SDK
         uses: actions/checkout@v4
