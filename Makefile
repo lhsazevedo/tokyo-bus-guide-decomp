@@ -1,3 +1,6 @@
+MAKEFLAGS += --no-builtin-rules
+.SUFFIXES:
+
 # Initial Makefile for matching build
 SHELL=/bin/bash
 ASMSH_FLAGS=-debug=d -cpu=sh4 -endian=little -sjis
@@ -122,4 +125,10 @@ $(OUTPUT_DIR)/tbg.bin: $(OUTPUT_DIR)/tbg.elf
 clean:
 	rm -rf $(OUTPUT_DIR)
 
+depend:
+	makedepend -Y -o .obj -f- $(C_SRCS) 2>/dev/null > Makefile.d
+	sed -i 's/^src/$$(OUTPUT_DIR)/' Makefile.d
+
 .PHONY: all clean
+
+include Makefile.d
