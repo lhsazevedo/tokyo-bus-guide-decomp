@@ -124,8 +124,8 @@ STATIC QueuedPvm* var_pvmQueueRear_8c157ac0;
 STATIC QueuedPvm* var_pvmQueueTail_8c157ac4;
 STATIC int var_pvmQueueIsIdle_8c157ac8;
 
-STATIC int var_8c157acc;
-STATIC int var_8c157ad0;
+STATIC int var_seed_8c157acc;
+STATIC int var_seed_8c157ad0;
 
 /* ===================
  * Initialized Globals
@@ -1268,40 +1268,40 @@ void AsqFreeNjPvmPairs_120fe(NjPvmPair **pairsPtr) {
 }
 
 /* Tested */
-void AsqFUN_12160(int p1) {
-    var_8c157acc = p1;
+void AsqSetSeedA_12160(int seed) {
+    var_seed_8c157acc = seed;
 }
 
 /* Tested */
-int AsqFUN_12166() {
-    var_8c157acc = var_8c157acc * 5 + 13;
-    return var_8c157acc;
+int AsqGetRandomA_12166() {
+    var_seed_8c157acc = var_seed_8c157acc * 5 + 13;
+    return var_seed_8c157acc;
 }
 
 /* Tested */
-int AsqFUN_12178(unsigned int p1) {
+int AsqGetRandomInRangeA_12178(unsigned int p1) {
     if (p1) {
-        return AsqFUN_12166() % p1;
+        return AsqGetRandomA_12166() % p1;
     }
 
     return 0;
 }
 
 /* Tested */
-void AsqFUN_121a2(int p1) {
-    var_8c157ad0 = p1;
+void AsqSetSeedB_121a2(int seed) {
+    var_seed_8c157ad0 = seed;
 }
 
 /* Tested */
-int AsqFUN_121a8() {
-    var_8c157ad0 = (var_8c157ad0 >> 1) * 7 + 0xb;
-    return var_8c157ad0;
+int AsqGetRandomB_121a8() {
+    var_seed_8c157ad0 = (var_seed_8c157ad0 >> 1) * 7 + 0xb;
+    return var_seed_8c157ad0;
 }
 
 /* Tested */
-int AsqFUN_121be(unsigned int p1) {
+int AsqGetRandomInRangeB_121be(unsigned int p1) {
     if (p1) {
-        return AsqFUN_121a8() % p1;
+        return AsqGetRandomB_121a8() % p1;
     }
 
     return 0;

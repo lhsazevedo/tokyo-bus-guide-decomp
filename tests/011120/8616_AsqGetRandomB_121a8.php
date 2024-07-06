@@ -8,11 +8,11 @@ use Lhsazevedo\Sh4ObjTest\Simulator\Arguments\WildcardArgument;
 return new class extends TestCase {
     public function test_itUpdatesAndReturnsValue()
     {
-        $this->initUint32($this->addressOf('_var_8c157ad0'), 42);
+        $this->initUint32($this->addressOf('_var_seed_8c157ad0'), 42);
 
-        $this->shouldWriteTo('_var_8c157ad0', 158);
+        $this->shouldWriteTo('_var_seed_8c157ad0', 158);
 
-        $this->call('_AsqFUN_121a8')
+        $this->call('_AsqGetRandomB_121a8')
             ->shouldReturn(158)
             ->run();
     }

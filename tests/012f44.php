@@ -43,8 +43,8 @@ return new class extends TestCase {
 
         // njRandomSeed
         $this->shouldCall('_srand')->with(0xcafe0001);
-        $this->shouldCall('_AsqFUN_12160')->with(0xcafe0001);
-        $this->shouldCall('_AsqFUN_121a2')->with(0xcafe0001);
+        $this->shouldCall('_AsqSetSeedA_12160')->with(0xcafe0001);
+        $this->shouldCall('_AsqSetSeedB_121a2')->with(0xcafe0001);
         
         $this->shouldCall('_FUN_8c0128cc')->with(1);
 
@@ -129,8 +129,8 @@ return new class extends TestCase {
 
         // njRandomSeed
         $this->shouldCall('_srand')->with(0xcafe0001);
-        $this->shouldCall('_AsqFUN_12160')->with(0xcafe0001);
-        $this->shouldCall('_AsqFUN_121a2')->with(0xcafe0001);
+        $this->shouldCall('_AsqSetSeedA_12160')->with(0xcafe0001);
+        $this->shouldCall('_AsqSetSeedB_121a2')->with(0xcafe0001);
         
         $this->shouldCall('_FUN_8c0128cc')->with(1);
 
@@ -201,8 +201,8 @@ return new class extends TestCase {
 
         // njRandomSeed
         $this->shouldCall('_srand')->with(0xcafe0001);
-        $this->shouldCall('_AsqFUN_12160')->with(0xcafe0001);
-        $this->shouldCall('_AsqFUN_121a2')->with(0xcafe0001);
+        $this->shouldCall('_AsqSetSeedA_12160')->with(0xcafe0001);
+        $this->shouldCall('_AsqSetSeedB_121a2')->with(0xcafe0001);
         
         $this->shouldCall('_FUN_8c0128cc')->with(1);
 

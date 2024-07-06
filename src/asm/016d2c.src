@@ -32,7 +32,7 @@
           .IMPORT     _var_8c1bb8bc
           .IMPORT     _var_8c1bb8dc
           .IMPORT     _var_8c1bb8f8
-          .IMPORT     _AsqFUN_121be
+          .IMPORT     _AsqGetRandomInRangeB_121be
           .IMPORT     _var_8c225fbc
           .IMPORT     _var_8c1bb8fc
           .IMPORT     _init_8c03bd80
@@ -47,7 +47,7 @@
           .IMPORT     _var_8c225fb0
           .IMPORT     _switchToMainMenuTask_8c01a09a
           .IMPORT     _menuTextboxText_8c02af1c
-          .IMPORT     _AsqFUN_12166
+          .IMPORT     _AsqGetRandomA_12166
           .IMPORT     _var_8c1bb8c0
           .IMPORT     _setTaskAction_8c014b3e
           .IMPORT     _var_demo_8c1bb8d0
@@ -1216,7 +1216,7 @@ LP_GEN_78741:
           .DATA.L _var_8c1bb8dc ; H'8C01757C
           .DATA.L _var_8c1bb8f8 ; H'8C017580
           .DATA.L __modls ; H'8C017584
-          .DATA.L _AsqFUN_121be ; H'8C017588
+          .DATA.L _AsqGetRandomInRangeB_121be ; H'8C017588
           .DATA.L _var_8c225fbc ; H'8C01758C
 _drawCoursesButtons_8c017590:
           MOV.L       R14,@-R15
@@ -1868,7 +1868,7 @@ LP_GEN_86103:
           .DATA.L _menuTextboxText_8c02af1c ; H'8C017A90
           .DATA.L H'C0C00000 ; H'8C017A94
           .DATA.L H'C0E00000 ; H'8C017A98
-          .DATA.L _AsqFUN_12166 ; H'8C017A9C
+          .DATA.L _AsqGetRandomA_12166 ; H'8C017A9C
           .DATA.L _var_8c1bb8c0 ; H'8C017AA0
           .DATA.L _var_8c225fbc ; H'8C017AA4
 LAB_8c017aa8:
@@ -2218,7 +2218,7 @@ LP_GEN_85439:
           .DATA.L _menuTextboxText_8c02af1c ; H'8C017D44
           .DATA.L H'C0C00000 ; H'8C017D48
           .DATA.L H'C0E00000 ; H'8C017D4C
-          .DATA.L _AsqFUN_12166 ; H'8C017D50
+          .DATA.L _AsqGetRandomA_12166 ; H'8C017D50
 _FUN_8c017d54:
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15

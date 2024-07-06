@@ -47,7 +47,7 @@
           .IMPORT     _FUN_8c020b6c
           .IMPORT     _var_8c228238
           .IMPORT     _rand
-          .IMPORT     _AsqFUN_12166
+          .IMPORT     _AsqGetRandomA_12166
           .IMPORT     _var_8c1bbfdc
           .IMPORT     _freeTask_8c014b66
           .IMPORT     _init_8c04623c
@@ -106,7 +106,7 @@
           .IMPORT     _AsqReleaseAndFreeTexlist_11e3c
           .IMPORT     _njSetTexture
           .IMPORT     _njCnkSimpleDrawMotion
-          .IMPORT     _AsqFUN_12178
+          .IMPORT     _AsqGetRandomInRangeA_12178
           .IMPORT     _var_tasks_8c1bb448
           .IMPORT     _var_8c1bbddc
           .IMPORT     _njControl3D
@@ -2336,7 +2336,7 @@ LP_GEN_98778:
           .DATA.L _pushTask_8c014ae8 ; H'8C02922C
           .DATA.L H'47000000 ; H'8C029230
           .DATA.L _rand ; H'8C029234
-          .DATA.L _AsqFUN_12166 ; H'8C029238
+          .DATA.L _AsqGetRandomA_12166 ; H'8C029238
           .DATA.L H'4F800000 ; H'8C02923C
           .DATA.L H'47800000 ; H'8C029240
           .DATA.L H'42480000 ; H'8C029244
@@ -4112,7 +4112,7 @@ LP_GEN_15421:
           .DATA.L LAB_8c029e46 ; H'8C02A020
           .DATA.L _FUN_8c0223ea ; H'8C02A024
           .DATA.L _freeTask_8c014b66 ; H'8C02A028
-          .DATA.L _AsqFUN_12178 ; H'8C02A02C
+          .DATA.L _AsqGetRandomInRangeA_12178 ; H'8C02A02C
           .DATA.L LAB_8c029e68 ; H'8C02A030
           .DATA.L _var_tasks_8c1bb448 ; H'8C02A034
           .DATA.L _pushTask_8c014ae8 ; H'8C02A038
@@ -5285,7 +5285,7 @@ LP_GEN_67201:
           .DATA.L __quick_evn_mvn ; H'8C02A960
           .DATA.L LAB_8c02a4f8 ; H'8C02A964
           .DATA.L _var_8c228414 ; H'8C02A968
-          .DATA.L _AsqFUN_12178 ; H'8C02A96C
+          .DATA.L _AsqGetRandomInRangeA_12178 ; H'8C02A96C
           .DATA.L _var_8c22842c ; H'8C02A970
 LAB_8c02a974:
           MOV.L       LP_GEN_79722+2,R1

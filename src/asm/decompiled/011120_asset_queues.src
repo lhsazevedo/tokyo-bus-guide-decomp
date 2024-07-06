@@ -40,12 +40,12 @@
           .EXPORT     _AsqProcessQueues_11fe0
           .EXPORT     _AsqRequestNjPvmPairs_12030
           .EXPORT     _AsqFreeNjPvmPairs_120fe
-          .EXPORT     _AsqFUN_12160
-          .EXPORT     _AsqFUN_12166
-          .EXPORT     _AsqFUN_12178
-          .EXPORT     _AsqFUN_121a2
-          .EXPORT     _AsqFUN_121a8
-          .EXPORT     _AsqFUN_121be
+          .EXPORT     _AsqSetSeedA_12160
+          .EXPORT     _AsqGetRandomA_12166
+          .EXPORT     _AsqGetRandomInRangeA_12178
+          .EXPORT     _AsqSetSeedB_121a2
+          .EXPORT     _AsqGetRandomB_121a8
+          .EXPORT     _AsqGetRandomInRangeB_121be
           .EXPORT     _AsqFUN_121e8
 
           .EXPORT     _init_8c03be80
@@ -106,8 +106,8 @@
           .EXPORT     _var_pvmQueueRear_8c157ac0
           .EXPORT     _var_pvmQueueTail_8c157ac4
           .EXPORT     _var_pvmQueueIsIdle_8c157ac8
-          .EXPORT     _var_8c157acc
-          .EXPORT     _var_8c157ad0
+          .EXPORT     _var_seed_8c157acc
+          .EXPORT     _var_seed_8c157ad0
           .AENDI
           .SECTION    P,CODE,ALIGN=4
 _AsqNop_11120:                   ; function: AsqNop_11120
@@ -2273,11 +2273,11 @@ LAB_8c012152:
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-_AsqFUN_12160:
+_AsqSetSeedA_12160:
           MOV.L       LP_GEN_90004+22,R3
           RTS
           MOV.L       R4,@R3
-_AsqFUN_12166:
+_AsqGetRandomA_12166:
           MOV.L       LP_GEN_90004+22,R4
           MOV.L       @R4,R3
           MOV         R3,R2
@@ -2287,14 +2287,14 @@ _AsqFUN_12166:
           MOV.L       R3,@R4
           RTS
           MOV         R3,R0
-_AsqFUN_12178:
+_AsqGetRandomInRangeA_12178:
           STS.L       PR,@-R15
           ADD         #-H'4,R15
           MOV         R4,R3
           TST         R3,R3
           BT/S        LAB_8c012198
           MOV.L       R4,@R15
-          BSR         _AsqFUN_12166
+          BSR         _AsqGetRandomA_12166
           NOP
           MOV.L       LP_GEN_90004+26,R2
           MOV         R0,R1
@@ -2310,11 +2310,11 @@ LAB_8c012198:
           LDS.L       @R15+,PR
           RTS
           NOP
-_AsqFUN_121a2:
+_AsqSetSeedB_121a2:
           MOV.L       LP_GEN_90004+30,R3
           RTS
           MOV.L       R4,@R3
-_AsqFUN_121a8:
+_AsqGetRandomB_121a8:
           MOV.L       LP_GEN_90004+30,R4
           MOV.L       @R4,R3
           SHAR        R3
@@ -2326,14 +2326,14 @@ _AsqFUN_121a8:
           MOV.L       R1,@R4
           RTS
           MOV         R1,R0
-_AsqFUN_121be:
+_AsqGetRandomInRangeB_121be:
           STS.L       PR,@-R15
           ADD         #-H'4,R15
           MOV         R4,R3
           TST         R3,R3
           BT/S        LAB_8c0121de
           MOV.L       R4,@R15
-          BSR         _AsqFUN_121a8
+          BSR         _AsqGetRandomB_121a8
           NOP
           MOV.L       LP_GEN_90004+26,R2
           MOV         R0,R1
@@ -2373,9 +2373,9 @@ LP_GEN_90004:
           .DATA.L     _pushTask_8c014ae8
           .DATA.L     _syMalloc
           .DATA.L     _syFree
-          .DATA.L     _var_8c157acc
+          .DATA.L     _var_seed_8c157acc
           .DATA.L     __modlu
-          .DATA.L     _var_8c157ad0
+          .DATA.L     _var_seed_8c157ad0
           .DATA.L     _var_8c1ba1cc
           .DATA.L     _init_8c03bf18
           .DATA.L     _init_8c03be80
@@ -2632,8 +2632,8 @@ _var_pvmQueueTail_8c157ac4:
           .RES.B      4
 _var_pvmQueueIsIdle_8c157ac8:
           .RES.B      4
-_var_8c157acc:
+_var_seed_8c157acc:
           .RES.B      4
-_var_8c157ad0:
+_var_seed_8c157ad0:
           .RES.B      4
           .END

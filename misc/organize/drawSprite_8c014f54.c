@@ -24,7 +24,7 @@ void drawSprite_8c014f54(ResourceGroup *struct1_r4, int texture_id, float x, flo
         /* 0x8c014f76 */
         dat_section_base = (int *) struct1_r4->contents_0x08;
     } else {
-        /* Melhor até agora */
+        /* Melhor at? agora */
         dat_section_base = ((int *) struct1_r4->contents_0x08) + texture_id;
         dat_section_base = ((int *) struct1_r4->contents_0x08) + *dat_section_base;
 

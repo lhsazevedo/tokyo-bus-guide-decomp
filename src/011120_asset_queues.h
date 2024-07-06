@@ -79,16 +79,16 @@ NjPvmPair* AsqRequestNjPvmPairs_12030(char *basedir, NjPvmPairFilenames *pairs, 
 
 void AsqFreeNjPvmPairs_120fe(NjPvmPair **pairsPtr);
 
-void AsqFUN_12160(int p1);
+void AsqSetSeedA_12160(int p1);
 
-int AsqFUN_12166();
+int AsqGetRandomA_12166();
 
-int AsqFUN_12178(unsigned int p1);
+int AsqGetRandomInRangeA_12178(unsigned int p1);
 
-void AsqFUN_121a2(int p1);
+void AsqSetSeedB_121a2(int p1);
 
-int AsqFUN_121a8();
+int AsqGetRandomB_121a8();
 
-int AsqFUN_121be(unsigned int p1);
+int AsqGetRandomInRangeB_121be(unsigned int p1);
 
 void AsqFUN_121e8();

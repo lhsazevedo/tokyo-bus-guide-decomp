@@ -217,23 +217,23 @@ $sh4objtest "tests/011120/8240_AsqRequestNjPvmPairs_12030.php" "build/output/011
 $sh4objtest "tests/011120/8446_AsqFreeNjPvmPairs_120fe.php" "build/output/011120_asset_queues_src.obj"
 $sh4objtest "tests/011120/8446_AsqFreeNjPvmPairs_120fe.php" "build/output/011120_asset_queues_c.obj"
 
-$sh4objtest "tests/011120/8544_AsqFUN_12160.php" "build/output/011120_asset_queues_src.obj"
-$sh4objtest "tests/011120/8544_AsqFUN_12160.php" "build/output/011120_asset_queues_c.obj"
+$sh4objtest "tests/011120/8544_AsqSetSeedA_12160.php" "build/output/011120_asset_queues_src.obj"
+$sh4objtest "tests/011120/8544_AsqSetSeedA_12160.php" "build/output/011120_asset_queues_c.obj"
 
-$sh4objtest "tests/011120/8550_AsqFUN_12166.php" "build/output/011120_asset_queues_src.obj"
-$sh4objtest "tests/011120/8550_AsqFUN_12166.php" "build/output/011120_asset_queues_c.obj"
+$sh4objtest "tests/011120/8550_AsqGetRandomA_12166.php" "build/output/011120_asset_queues_src.obj"
+$sh4objtest "tests/011120/8550_AsqGetRandomA_12166.php" "build/output/011120_asset_queues_c.obj"
 
-$sh4objtest "tests/011120/8568_AsqFUN_12178.php" "build/output/011120_asset_queues_src.obj"
-$sh4objtest "tests/011120/8568_AsqFUN_12178.php" "build/output/011120_asset_queues_c.obj"
+$sh4objtest "tests/011120/8568_AsqGetRandomInRangeA_12178.php" "build/output/011120_asset_queues_src.obj"
+$sh4objtest "tests/011120/8568_AsqGetRandomInRangeA_12178.php" "build/output/011120_asset_queues_c.obj"
 
-$sh4objtest "tests/011120/8610_AsqFUN_121a2.php" "build/output/011120_asset_queues_src.obj"
-$sh4objtest "tests/011120/8610_AsqFUN_121a2.php" "build/output/011120_asset_queues_c.obj"
+$sh4objtest "tests/011120/8610_AsqSetSeedB_121a2.php" "build/output/011120_asset_queues_src.obj"
+$sh4objtest "tests/011120/8610_AsqSetSeedB_121a2.php" "build/output/011120_asset_queues_c.obj"
 
-$sh4objtest "tests/011120/8616_AsqFUN_121a8.php" "build/output/011120_asset_queues_src.obj"
-$sh4objtest "tests/011120/8616_AsqFUN_121a8.php" "build/output/011120_asset_queues_c.obj"
+$sh4objtest "tests/011120/8616_AsqGetRandomB_121a8.php" "build/output/011120_asset_queues_src.obj"
+$sh4objtest "tests/011120/8616_AsqGetRandomB_121a8.php" "build/output/011120_asset_queues_c.obj"
 
-$sh4objtest "tests/011120/8638_AsqFUN_121be.php" "build/output/011120_asset_queues_src.obj"
-$sh4objtest "tests/011120/8638_AsqFUN_121be.php" "build/output/011120_asset_queues_c.obj"
+$sh4objtest "tests/011120/8638_AsqGetRandomInRangeB_121be.php" "build/output/011120_asset_queues_src.obj"
+$sh4objtest "tests/011120/8638_AsqGetRandomInRangeB_121be.php" "build/output/011120_asset_queues_c.obj"
 
 $sh4objtest "tests/011120/8680_AsqFUN_121e8.php" "build/output/011120_asset_queues_src.obj"
 $sh4objtest "tests/011120/8680_AsqFUN_121e8.php" "build/output/011120_asset_queues_c.obj"

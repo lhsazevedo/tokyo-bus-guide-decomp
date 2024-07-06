@@ -11,9 +11,9 @@ return new class extends TestCase {
         // Resolve modlu symbol
         $this->setSize('__modlu', 4);
 
-        $this->shouldCall('_AsqFUN_121a8')->andReturn(42);
+        $this->shouldCall('_AsqGetRandomB_121a8')->andReturn(42);
 
-        $this->call('_AsqFUN_121be')
+        $this->call('_AsqGetRandomInRangeB_121be')
             ->with(20)
             ->shouldReturn(2)
             ->run();

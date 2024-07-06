@@ -522,8 +522,8 @@ void FUN_8c01306e(void)
     clearTasks_8c014a9c(var_tasks_8c1bb448, 0x20);
 
     njRandomSeed(var_seed_8c157a64);
-    AsqFUN_12160(var_seed_8c157a64);
-    AsqFUN_121a2(var_seed_8c157a64);
+    AsqSetSeedA_12160(var_seed_8c157a64);
+    AsqSetSeedB_121a2(var_seed_8c157a64);
 
     FUN_8c0128cc(1);
 
@@ -574,7 +574,7 @@ void FUN_8c01328c() {
         var_8c1bb868 = var_8c1bc824->field_0x00;
         var_8c228704 = var_8c1bc824->field_0x04;
         var_8c1bb8c8 = var_8c1bc824->field_0x08;
-        var_seed_8c157a64 = AsqFUN_12166();
+        var_seed_8c157a64 = AsqGetRandomA_12166();
     } else if ((var_demo_8c1bb8d0 == 2) && (var_8c1bb8d4 != 0)) {
         var_8c227dd4 = init_8c0460b0[var_8c1bb868 - 0x26];
         FUN_8c01895e();
@@ -583,8 +583,8 @@ void FUN_8c01328c() {
     }
 
     njRandomSeed(var_seed_8c157a64);
-    AsqFUN_12160(var_seed_8c157a64);
-    AsqFUN_121a2(var_seed_8c157a64);
+    AsqSetSeedA_12160(var_seed_8c157a64);
+    AsqSetSeedB_121a2(var_seed_8c157a64);
     AsqFUN_121e8();
     var_8c227da0 = (char) var_8c1ba292;
     var_8c227da8 = 0;
@@ -601,7 +601,7 @@ void FUN_8c013310(int p1) {
         var_8c1bb868 = p1;
         var_8c228704 = 0;
         var_8c1bb8c8 = (char) var_8c1ba291;
-        var_seed_8c157a64 = AsqFUN_12166();
+        var_seed_8c157a64 = AsqGetRandomA_12166();
     } else if (var_demo_8c1bb8d0 == 2 && var_8c1bb8d4 != 0) {
         var_8c227dd4 = init_8c0460b0[var_8c1bb868 - 0x26];
     } else {
@@ -609,8 +609,8 @@ void FUN_8c013310(int p1) {
     }
 
     njRandomSeed(var_seed_8c157a64);
-    AsqFUN_12160(var_seed_8c157a64);
-    AsqFUN_121a2(var_seed_8c157a64);
+    AsqSetSeedA_12160(var_seed_8c157a64);
+    AsqSetSeedB_121a2(var_seed_8c157a64);
     AsqFUN_121e8();
     var_8c227da0 = (char) var_8c1ba292;
     var_8c227da8 = 0;

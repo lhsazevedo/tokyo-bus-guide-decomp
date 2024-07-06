@@ -39,7 +39,7 @@
           .IMPORT     _pushTask_8c014ae8
           .IMPORT     _init_8c04429c
           .IMPORT     _var_8c1bc824
-          .IMPORT     _AsqFUN_12166
+          .IMPORT     _AsqGetRandomA_12166
           .IMPORT     _FUN_8c0128cc
           .IMPORT     _var_8c1bc828
           .IMPORT     _var_8c225fa8
@@ -1008,7 +1008,7 @@ LP_GEN_94139:
           .DATA.L H'000C0000 ; H'8C016854
           .DATA.L _const_8c0360b0 ; H'8C016858
           .DATA.L H'000A0000 ; H'8C01685C
-          .DATA.L _AsqFUN_12166 ; H'8C016860
+          .DATA.L _AsqGetRandomA_12166 ; H'8C016860
           .DATA.L _FUN_8c0128cc ; H'8C016864
           .DATA.L _FUN_8c01666a ; H'8C016868
           .DATA.L _var_8c1bc828 ; H'8C01686C
