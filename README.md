@@ -4,6 +4,8 @@
 [![Build](https://github.com/lhsazevedo/tokyo-bus-guide-decomp/actions/workflows/build.yml/badge.svg)](https://github.com/lhsazevedo/tokyo-bus-guide-decomp/actions/workflows/build.yml)
 [![Build Matching](https://github.com/lhsazevedo/tokyo-bus-guide-decomp/actions/workflows/build_matching.yml/badge.svg)](https://github.com/lhsazevedo/tokyo-bus-guide-decomp/actions/workflows/build_matching.yml)
 
+## Decompilation progress: 12.64%
+
 ![Main function hero](./tbg.png)
 
 _Yup, [this is a real file](https://github.com/lhsazevedo/tokyo-bus-guide-decomp/blob/88fb8f87500f9474780cd9a0f7dafa00b14b0be7/src/010080_main.c)!_
