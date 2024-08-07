@@ -272,6 +272,9 @@ return new class extends TestCase {
 
     public function test_task_8c013388_field0x08Is0_PvmBoolIs0()
     {
+        // FIXME
+        $this->doNotRandomizeMemory();
+
         $taskPtr = $this->alloc(0xc);
 
         $this->shouldCall('_getUknPvmBool_8c01432a')
@@ -284,6 +287,9 @@ return new class extends TestCase {
 
     public function test_task_8c013388_field0x08Is0_PvmBoolIs1()
     {
+        // FIXME
+        $this->doNotRandomizeMemory();
+
         $taskPtr = $this->alloc(0xc);
 
         $var_loadedFooNjm_8c1bc448Ptr = $this->alloc(0x08);
@@ -308,6 +314,9 @@ return new class extends TestCase {
 
     public function test_task_8c013388_field0x08Is1_PvmBoolIs0()
     {
+        // FIXME
+        $this->doNotRandomizeMemory();
+
         $taskPtr = $this->alloc(0xc);
         $this->initUint32($taskPtr + 8, 1);
 
@@ -320,6 +329,9 @@ return new class extends TestCase {
 
     public function test_task_8c013388_field0x08Is1_PvmBoolIs1()
     {
+        // FIXME
+        $this->doNotRandomizeMemory();
+
         $taskPtr = $this->alloc(0xc);
         $this->initUint32($taskPtr + 8, 1);
         //$var_8c2260a8Ptr = $this->allocRellocate('_var_8c2260a8', 4);

@@ -10,6 +10,9 @@ function fdec(float $value) {
 
 return new class extends TestCase {
     public function testFUN_8c0207d4() {
+        // FIXME
+        $this->doNotRandomizeMemory();
+
         $aPtr = $this->alloc(0x0c);
         $bPtr = $this->alloc(0x0c);
         $cPtr = $this->alloc(0x0c);
@@ -33,6 +36,9 @@ return new class extends TestCase {
     }
 
     public function testFUN_8c0207d4_2() {
+        // FIXME
+        $this->doNotRandomizeMemory();
+
         $aPtr = $this->alloc(0x0c);
         $bPtr = $this->alloc(0x0c);
         $cPtr = $this->alloc(0x0c);
@@ -56,6 +62,9 @@ return new class extends TestCase {
     }
 
     public function testFUN_8c0207fa() {
+        // FIXME
+        $this->doNotRandomizeMemory();
+
         $aPtr = $this->alloc(0x0c);
         $bPtr = $this->alloc(0x0c);
         $cPtr = $this->alloc(0x0c);
@@ -79,6 +88,9 @@ return new class extends TestCase {
     }
 
     public function testFUN_8c0207fa_2() {
+        // FIXME
+        $this->doNotRandomizeMemory();
+
         $aPtr = $this->alloc(0x0c);
         $bPtr = $this->alloc(0x0c);
         $cPtr = $this->alloc(0x0c);

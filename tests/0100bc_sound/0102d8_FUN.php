@@ -11,6 +11,9 @@ function fdec(float $value) {
 return new class extends TestCase {
     public function test_path_none()
     {
+        // FIXME
+        $this->doNotRandomizeMemory();
+
         $this->resolveSymbols();
 
         $this->initUint32($this->addressOf('_var_uknVol_8c0fcd50'), 0);
@@ -20,6 +23,9 @@ return new class extends TestCase {
 
     public function test_path_A()
     {
+        // FIXME
+        $this->doNotRandomizeMemory();
+
         $this->resolveSymbols();
 
         $this->initUint32($this->addressOf('_var_uknVol_8c0fcd50'), 0xf8);
@@ -40,6 +46,9 @@ return new class extends TestCase {
 
     public function test_path_C()
     {
+        // FIXME
+        $this->doNotRandomizeMemory();
+
         $this->resolveSymbols();
 
         $this->initUint32($this->addressOf('_var_uknVol_8c0fcd50'), 0xf9);

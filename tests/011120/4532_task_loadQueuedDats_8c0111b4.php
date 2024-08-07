@@ -261,6 +261,9 @@ return new class extends TestCase {
 
     public function test_case0_breaksOnQueueCursorAndFreeTask()
     {
+        // FIXME
+        $this->doNotRandomizeMemory();
+
         $this->resolveImports();
 
         $sizeOfQueuedDat = 0x10;

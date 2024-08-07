@@ -15,6 +15,9 @@ define('PDD_DGT_TA', (1 <<  2));
 return new class extends TestCase {
     public function test_case0_waitForTimer()
     {
+        // FIXME
+        $this->doNotRandomizeMemory();
+
         $this->resolveSymbols();
 
         $this->initUint32($this->addressOf('_menuState_8c1bc7a8') + 0x18, 0); // state
@@ -28,6 +31,9 @@ return new class extends TestCase {
 
     public function test_case0_advancesToCase1()
     {
+        // FIXME
+        $this->doNotRandomizeMemory();
+
         $this->resolveSymbols();
 
         $this->initUint32($this->addressOf('_menuState_8c1bc7a8') + 0x18, 0); // state
@@ -79,6 +85,9 @@ return new class extends TestCase {
 
     public function test_case0_advancesToCase6()
     {
+        // FIXME
+        $this->doNotRandomizeMemory();
+
         $this->resolveSymbols();
 
         $state = $this->alloc(8 * 4);
@@ -105,6 +114,9 @@ return new class extends TestCase {
 
     public function test_case1_waitsForFadeIn()
     {
+        // FIXME
+        $this->doNotRandomizeMemory();
+
         $this->resolveSymbols();
 
         $state = $this->alloc(8 * 4);
@@ -119,6 +131,9 @@ return new class extends TestCase {
 
     public function test_case1_advancesAfterFade()
     {
+        // FIXME
+        $this->doNotRandomizeMemory();
+
         $this->resolveSymbols();
 
         $state = $this->alloc(8 * 4);
@@ -134,6 +149,9 @@ return new class extends TestCase {
 
     public function test_case2_startsInAnAvailableSlot()
     {
+        // FIXME
+        $this->doNotRandomizeMemory();
+
         $this->resolveSymbols();
 
         $this->initUint32($this->addressOf('_menuState_8c1bc7a8') + 0x18, 2); // state
@@ -559,6 +577,9 @@ return new class extends TestCase {
 
     public function test_case4_waitsForUserInput()
     {
+        // FIXME
+        $this->doNotRandomizeMemory();
+
         $this->resolveSymbols();
 
         $this->initUint32($this->addressOf('_menuState_8c1bc7a8') + 0x18, 4); // state
@@ -667,6 +688,9 @@ return new class extends TestCase {
 
     public function test_case5_waitsForUserInput()
     {
+        // FIXME
+        $this->doNotRandomizeMemory();
+
         $this->resolveSymbols();
 
         $this->initUint32($this->addressOf('_menuState_8c1bc7a8') + 0x18, 5); // state

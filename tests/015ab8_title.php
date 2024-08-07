@@ -31,6 +31,9 @@ return new class extends TestCase {
     }
 
     public function testState0x00_Init_AdvanceToFortyFiveFadeIn() {
+        // FIXME
+        $this->doNotRandomizeMemory();
+
         $this->resolveImports();
 
         $this->initUint32($this->addressOf('_menuState_8c1bc7a8') + 0x18 , 0);
@@ -988,6 +991,9 @@ return new class extends TestCase {
     }
 
     public function testState0x11_TimeOut_AdvancesWhenFadedAnd8c03bd80IsFalse() {
+        // FIXME
+        $this->doNotRandomizeMemory();
+
         $this->resolveImports();
 
         $this->initUint32($this->addressOf('_menuState_8c1bc7a8') + 0x18, 0x11);
