@@ -49,8 +49,8 @@ $sh4objtest "tests/014f54/1529c_FUN_free.php" "build/output/014f54_c.obj"
 $sh4objtest "tests/014f54/152fc_createTextBox.php" "build/output/014f54_src.obj"
 $sh4objtest "tests/014f54/152fc_createTextBox.php" "build/output/014f54_c.obj"
 
-$sh4objtest "tests/014f54/1543a_drawMessageBox.php" "build/output/014f54_src.obj"
-$sh4objtest "tests/014f54/1543a_drawMessageBox.php" "build/output/014f54_c.obj"
+$sh4objtest "tests/014f54/1543a_prepareTextBoxLayout.php" "build/output/014f54_src.obj"
+$sh4objtest "tests/014f54/1543a_prepareTextBoxLayout.php" "build/output/014f54_c.obj"
 
 # 0100bc_sound
 assemble  src/asm/decompiled/0100bc_sound.src
