@@ -23,7 +23,7 @@
           .EXPORT     _gMapleSendBuf         ; 0149b0
           .EXPORT     _gdfswork              ; 0149b0
           .EXPORT     _gdfscurdir            ; 0149b0
-          .EXPORT     _var_8c1ba1c8          ; 014f54
+          .EXPORT     _var_busFont_8c1ba1c8          ; 014f54
           .EXPORT     _var_8c1ba1cc          ; 016d2c
           .EXPORT     _var_8c1ba1d0
           .EXPORT     _var_8c1ba1e4
@@ -158,7 +158,7 @@
           .EXPORT     _var_8c1bc46c
           .EXPORT     _gBupInfo_8c1bc4ac
           .EXPORT     _var_8c1bc78c
-          .EXPORT     _var_8c1bc790
+          .EXPORT     _var_glyphTexlists_8c1bc790
           .EXPORT     _var_8c1bc794
           .EXPORT     _var_8c1bc7a0
           .EXPORT     _var_8c1bc7a4
@@ -457,7 +457,7 @@ _gdfswork:
           .RES.B      5012
 _gdfscurdir:
           .RES.B      90160
-_var_8c1ba1c8:
+_var_busFont_8c1ba1c8:
           .RES.B      4
 _var_8c1ba1cc:
           .RES.B      4
@@ -727,7 +727,7 @@ _gBupInfo_8c1bc4ac:
           .RES.B      736
 _var_8c1bc78c:
           .RES.B      4
-_var_8c1bc790:
+_var_glyphTexlists_8c1bc790:
           .RES.B      4
 _var_8c1bc794:
           .RES.B      12

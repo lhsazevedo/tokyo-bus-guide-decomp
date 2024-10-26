@@ -188,11 +188,46 @@
           .EXPORT     _const_8c037ecc
           .SECTION    C, DATA, ALIGN=4
 _const_8c035f24:        ; from defines
-          .DATA.B      H'00, H'00, H'5E, H'00, H'6C, H'00, H'AA, H'00, H'FD, H'00, H'53, H'01, H'83, H'01, H'C5, H'01
-          .DATA.B      H'23, H'02, H'81, H'02, H'DF, H'02, H'3D, H'03, H'9B, H'03, H'F9, H'03, H'57, H'04, H'B5, H'04
-          .DATA.B      H'13, H'05, H'71, H'05, H'CF, H'05, H'2D, H'06, H'8B, H'06, H'E9, H'06, H'47, H'07, H'A5, H'07
-          .DATA.B      H'03, H'08, H'61, H'08, H'BF, H'08, H'1D, H'09, H'7B, H'09, H'D9, H'09, H'37, H'0A, H'95, H'0A
-          .DATA.B      H'F3, H'0A, H'51, H'0B, H'AF, H'0B, H'0D, H'0C, H'6B, H'0C, H'C9, H'0C, H'27, H'0D, H'00, H'00
+          .DATA.W     H'0000
+          .DATA.W     H'005E
+          .DATA.W     H'006C
+          .DATA.W     H'00AA
+          .DATA.W     H'00FD
+          .DATA.W     H'0153
+          .DATA.W     H'0183
+          .DATA.W     H'01C5
+          .DATA.W     H'0223
+          .DATA.W     H'0281
+          .DATA.W     H'02DF
+          .DATA.W     H'033D
+          .DATA.W     H'039B
+          .DATA.W     H'03F9
+          .DATA.W     H'0457
+          .DATA.W     H'04B5
+          .DATA.W     H'0513
+          .DATA.W     H'0571
+          .DATA.W     H'05CF
+          .DATA.W     H'062D
+          .DATA.W     H'068B
+          .DATA.W     H'06E9
+          .DATA.W     H'0747
+          .DATA.W     H'07A5
+          .DATA.W     H'0803
+          .DATA.W     H'0861
+          .DATA.W     H'08BF
+          .DATA.W     H'091D
+          .DATA.W     H'097B
+          .DATA.W     H'09D9
+          .DATA.W     H'0A37
+          .DATA.W     H'0A95
+          .DATA.W     H'0AF3
+          .DATA.W     H'0B51
+          .DATA.W     H'0BAF
+          .DATA.W     H'0C0D
+          .DATA.W     H'0C6B
+          .DATA.W     H'0CC9
+          .DATA.W     H'0D27
+          .DATA.W     H'0000
 _const_8c035f74:        ; from defines
           ;.SDATA      "\SYSTEM"
           ;.DATA.B     H'00

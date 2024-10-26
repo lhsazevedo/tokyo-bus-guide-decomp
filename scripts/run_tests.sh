@@ -1,6 +1,6 @@
 set -e
 
-sh4objtest=sh4objtest
+sh4objtest=~/.config/composer/vendor/bin/sh4objtest
 
 ASMSH_FLAGS="-define=UNIT_TESTING=1 -debug=d -cpu=sh4 -endian=little -sjis"
 
@@ -26,6 +26,31 @@ compile() {
 
 rm -rf build/output
 mkdir build/output
+
+# 014f44
+assemble  src/asm/014f54.src
+compile  src/incomplete/014f54.c
+
+$sh4objtest "tests/014f54/14f54_drawSprite.php" "build/output/014f54_src.obj"
+$sh4objtest "tests/014f54/14f54_drawSprite.php" "build/output/014f54_c.obj"
+
+$sh4objtest "tests/014f54/15034_getGlyphDatOffset.php" "build/output/014f54_src.obj"
+$sh4objtest "tests/014f54/15034_getGlyphDatOffset.php" "build/output/014f54_c.obj"
+
+$sh4objtest "tests/014f54/15110_unpackGlyphTexture.php" "build/output/014f54_src.obj"
+$sh4objtest "tests/014f54/15110_unpackGlyphTexture.php" "build/output/014f54_c.obj"
+
+$sh4objtest "tests/014f54/1524c_FUN_alloc.php" "build/output/014f54_src.obj"
+$sh4objtest "tests/014f54/1524c_FUN_alloc.php" "build/output/014f54_c.obj"
+
+$sh4objtest "tests/014f54/1529c_FUN_free.php" "build/output/014f54_src.obj"
+$sh4objtest "tests/014f54/1529c_FUN_free.php" "build/output/014f54_c.obj"
+
+$sh4objtest "tests/014f54/152fc_createTextBox.php" "build/output/014f54_src.obj"
+$sh4objtest "tests/014f54/152fc_createTextBox.php" "build/output/014f54_c.obj"
+
+$sh4objtest "tests/014f54/1543a_drawMessageBox.php" "build/output/014f54_src.obj"
+$sh4objtest "tests/014f54/1543a_drawMessageBox.php" "build/output/014f54_c.obj"
 
 # 0100bc_sound
 assemble  src/asm/decompiled/0100bc_sound.src
@@ -123,7 +148,6 @@ compile  src/012f44.c
 $sh4objtest "tests/012f44.php" "build/output/012f44_c.obj"
 
 # 011120
-# TODO: Integrate
 assemble  src/asm/decompiled/011120_asset_queues.src
 compile  src/011120_asset_queues.c
 

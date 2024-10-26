@@ -372,7 +372,7 @@ extern void* var_mark_dat_8c1bc420;
 extern void* var_busstop_parts_dat_8c1bc428;
 extern void* var_busstop_dat_8c1bc42c;
 extern void* var_8c1bc3f8[3];
-extern void* var_8c1ba1c8;
+extern void* var_busFont_8c1ba1c8;
 extern void* var_8c2260ac;
 extern void* var_8c2260b8;
 extern void* var_8c2260c4;
@@ -769,7 +769,7 @@ void njUserInit_8c0134ec() {
     AsqRequestDat_11182("\\SYSTEM", "load_parts.dat", &var_8c1bc3f8[1]);
     AsqRequestDat_11182("\\SYSTEM", "loading.dat", &var_8c1bc3f8[2]);
 
-    AsqRequestDat_11182("\\SYSTEM", "bus_font.fff", &var_8c1ba1c8);
+    AsqRequestDat_11182("\\SYSTEM", "bus_font.fff", &var_busFont_8c1ba1c8);
     AsqRequestDat_11182("\\SYSTEM", "vm_bus.lcd", &var_8c2260ac);
     AsqRequestDat_11182("\\SYSTEM", "vm_danger.lcd", &var_8c2260b8);
     AsqRequestDat_11182("\\SYSTEM", "now_loading.lcd", &var_8c2260c4);

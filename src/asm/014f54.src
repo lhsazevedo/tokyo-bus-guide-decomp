@@ -7,14 +7,14 @@
           .IMPORT     _syMalloc
           .IMPORT     _var_8c1bc7a4
           .IMPORT     _var_8c1bc78c
-          .IMPORT     _var_8c1bc790
+          .IMPORT     _var_glyphTexlists_8c1bc790
           .IMPORT     _var_8c1bc794
           .IMPORT     _init_8c044128
           .IMPORT     _init_8c04413c
           .IMPORT     _njReleaseTexture
           .IMPORT     _syFree
           .IMPORT     _strlen
-          .IMPORT     _var_8c1ba1c8
+          .IMPORT     _var_busFont_8c1ba1c8
           .IMPORT     _njSetTextureInfo
           .IMPORT     _njSetTextureName
           .IMPORT     _njLoadTexture
@@ -46,13 +46,18 @@
           .IMPORT     _AsqProcessQueues_11fe0
           .IMPORT     _njDrawSprite2D
           .EXPORT     _drawSprite_8c014f54
-          .EXPORT     _FUN_8c01524c
-          .EXPORT     _FUN_8c01529c
-          .EXPORT     _FUN_8c0152fc
-          .EXPORT     _FUN_8c015410
-          .EXPORT     _FUN_8c01543a
+          .EXPORT     _FUN_alloc_8c01524c
+          .EXPORT     _FUN_free_8c01529c
+          .EXPORT     _createTextBox_8c0152fc
+          .EXPORT     _freeTextBox_8c015410
+          .EXPORT     _prepareTextBoxLayout_8c01543a
           .EXPORT     _menuTextboxTextSub_8c0155e0
           .EXPORT     _FUN_8c0159ac
+
+          .AIFDEF UNIT_TESTING
+          .EXPORT     _getGlyphIndex_8c015034
+          .EXPORT     _unpackGlyph_8c015110
+          .AENDI
           .SECTION    P,CODE,ALIGN=4
 _drawSprite_8c014f54:
           MOV.L       R14,@-R15
@@ -140,7 +145,7 @@ LAB_8c014fd0:
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-_FUN_8c014ff6:
+_drawSpriteLerp_8c014ff6:
           FMOV.S      FR15,@-R15
           FMOV.S      FR14,@-R15
           ADD         #-H'8,R15
@@ -173,7 +178,7 @@ LP_GEN_55719:
           .DATA.L _njDrawSprite2D
           .DATA.L H'38D1B717
 
-_FUN_8c015034:
+_getGlyphIndex_8c015034:
           STS.L       PR,@-R15
           ADD         #-H'50,R15
 LAB_8c015038:
@@ -297,7 +302,7 @@ LP_GEN_55759:
           .DATA.L __slow_mvn
           .DATA.L H'000081A6
 
-_FUN_8c015110:
+_unpackGlyph_8c015110:
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           MOV.L       R12,@-R15
@@ -310,7 +315,7 @@ _FUN_8c015110:
           ADD         R0,R15
           MOV         R6,R13
           MOV         R5,R9
-          BSR         _FUN_8c015034
+          BSR         _getGlyphIndex_8c015034
           MOV.L       R7,@(4,R15)
           MOV         R15,R12
           MOV         #0,R5
@@ -469,7 +474,7 @@ LP_GEN_73990:
           .DATA.L __divls
           .DATA.L _njTwiddledTexture
 
-          _FUN_8c01524c:
+_FUN_alloc_8c01524c:
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           MOV.L       R12,@-R15
@@ -511,7 +516,7 @@ LAB_8c015264:
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-_FUN_8c01529c:
+_FUN_free_8c01529c:
           MOV.L       R14,@-R15
           MOV         #0,R4
           MOV.L       R13,@-R15
@@ -562,7 +567,7 @@ LAB_8c0152cc:
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-_FUN_8c0152fc:
+_createTextBox_8c0152fc:
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           MOV.L       R12,@-R15
@@ -648,7 +653,7 @@ LP_GEN_39385:
           .DATA.L H'0000FFFF
           .DATA.L _var_8c1bc7a4
           .DATA.L _var_8c1bc78c
-          .DATA.L _var_8c1bc790
+          .DATA.L _var_glyphTexlists_8c1bc790
           .DATA.L _var_8c1bc794
           .DATA.L _init_8c044128
           .DATA.L _init_8c04413c
@@ -690,7 +695,7 @@ LAB_8c0153e2:
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-_FUN_8c015410:
+_freeTextBox_8c015410:
           MOV.L       R14,@-R15
           MOV         R4,R14
           MOV.L       R13,@-R15
@@ -714,7 +719,7 @@ LAB_8c01542e:
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-_FUN_8c01543a:
+_prepareTextBoxLayout_8c01543a:
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           MOV.L       R12,@-R15
@@ -992,7 +997,7 @@ LP_GEN_86517:
           .DATA.L _syFree
           .DATA.L H'0000FFFF
           .DATA.L H'0000FFED
-          .DATA.L _var_8c1bc790
+          .DATA.L _var_glyphTexlists_8c1bc790
           .DATA.L _njReleaseTexture
           .DATA.L _var_8c1bc7a0
           .DATA.L _strlen
@@ -1111,7 +1116,7 @@ LAB_8c015706:
 LP_GEN_22452:
           .RES.W      1
           .DATA.L H'41C00000
-          .DATA.L _var_8c1bc790
+          .DATA.L _var_glyphTexlists_8c1bc790
           .DATA.L H'0000FFFE
           .DATA.L H'0000FFFD
           .DATA.L H'0000A94A
@@ -1154,7 +1159,7 @@ LAB_8c015742:
           OR          R2,R4
           MOV.L       LP_GEN_51911+18,R2
           MOV.L       @R2,R6
-          BSR         _FUN_8c015110
+          BSR         _unpackGlyph_8c015110
           ADD         #H'24,R5
           MOV.L       LP_GEN_51911+14,R2
           MOV         #H'20,R3
@@ -1236,7 +1241,7 @@ LP_GEN_51911:
           .DATA.L _var_8c1bc7a0
           .DATA.L H'0000FFFF
           .DATA.L _var_8c1bc7a4
-          .DATA.L _var_8c1ba1c8
+          .DATA.L _var_busFont_8c1ba1c8
           .DATA.L _njSetTextureInfo
           .DATA.L H'40800000
           .DATA.L _var_8c1bc78c

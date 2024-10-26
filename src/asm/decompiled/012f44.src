@@ -156,7 +156,7 @@
           .IMPORT     _var_busstop_dat_8c1bc42c
           .IMPORT     _var_8c1bc3f8
           .IMPORT     _AsqRequestPvm_11ac0
-          .IMPORT     _var_8c1ba1c8
+          .IMPORT     _var_busFont_8c1ba1c8
           .IMPORT     _var_8c2260ac
           .IMPORT     _var_8c2260b8
           .IMPORT     _var_8c2260c4
@@ -1473,7 +1473,7 @@ LP_GEN_19861:
           .DATA.L     _AsqRequestPvm_11ac0
           .DATA.L     s_load_parts_dat_8c0333d0
           .DATA.L     s_loading_dat_8c0333e0
-          .DATA.L     _var_8c1ba1c8
+          .DATA.L     _var_busFont_8c1ba1c8
           .DATA.L     s_bus_font_fff_8c0333ec
           .DATA.L     _var_8c2260ac
           .DATA.L     s_vm_bus_lcd_8c0333fc

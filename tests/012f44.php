@@ -483,7 +483,7 @@ return new class extends TestCase {
         $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "load_parts.dat", $this->addressOf('_var_8c1bc3f8') + 4);
         $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "loading.dat", $this->addressOf('_var_8c1bc3f8') + 8);
 
-        $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "bus_font.fff", $this->addressOf('_var_8c1ba1c8'));
+        $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "bus_font.fff", $this->addressOf('_var_busFont_8c1ba1c8'));
         $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "vm_bus.lcd", $this->addressOf('_var_8c2260ac'));
         $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "vm_danger.lcd", $this->addressOf('_var_8c2260b8'));
         $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "now_loading.lcd", $this->addressOf('_var_8c2260c4'));
@@ -637,7 +637,7 @@ return new class extends TestCase {
         $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "load_parts.dat", $this->addressOf('_var_8c1bc3f8') + 4);
         $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "loading.dat", $this->addressOf('_var_8c1bc3f8') + 8);
 
-        $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "bus_font.fff", $this->addressOf('_var_8c1ba1c8'));
+        $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "bus_font.fff", $this->addressOf('_var_busFont_8c1ba1c8'));
         $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "vm_bus.lcd", $this->addressOf('_var_8c2260ac'));
         $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "vm_danger.lcd", $this->addressOf('_var_8c2260b8'));
         $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "now_loading.lcd", $this->addressOf('_var_8c2260c4'));
@@ -791,7 +791,7 @@ return new class extends TestCase {
         $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "load_parts.dat", $this->addressOf('_var_8c1bc3f8') + 4);
         $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "loading.dat", $this->addressOf('_var_8c1bc3f8') + 8);
 
-        $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "bus_font.fff", $this->addressOf('_var_8c1ba1c8'));
+        $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "bus_font.fff", $this->addressOf('_var_busFont_8c1ba1c8'));
         $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "vm_bus.lcd", $this->addressOf('_var_8c2260ac'));
         $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "vm_danger.lcd", $this->addressOf('_var_8c2260b8'));
         $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "now_loading.lcd", $this->addressOf('_var_8c2260c4'));
@@ -945,7 +945,7 @@ return new class extends TestCase {
         $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "load_parts.dat", $this->addressOf('_var_8c1bc3f8') + 4);
         $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "loading.dat", $this->addressOf('_var_8c1bc3f8') + 8);
 
-        $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "bus_font.fff", $this->addressOf('_var_8c1ba1c8'));
+        $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "bus_font.fff", $this->addressOf('_var_busFont_8c1ba1c8'));
         $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "vm_bus.lcd", $this->addressOf('_var_8c2260ac'));
         $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "vm_danger.lcd", $this->addressOf('_var_8c2260b8'));
         $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "now_loading.lcd", $this->addressOf('_var_8c2260c4'));
