@@ -61,7 +61,7 @@ void drawSprite_8c014f54(
  * Draws a sprite with linear interpolation between two points.
  *
  * @note Address: 0x8c014ff6
- * @note This function not used.
+ * @note This function is not used.
  *
  * @param start_x    The starting X-coordinate for the interpolation
  * @param start_y    The starting Y-coordinate for the interpolation
