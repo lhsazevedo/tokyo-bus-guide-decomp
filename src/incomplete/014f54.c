@@ -32,6 +32,25 @@ struct ResourceGroupSpriteEntry {
 }
 typedef ResourceGroupSpriteEntry;
 
+typedef struct {
+    int x_0x00;
+    int y_0x04;
+    float priority_0x08;
+    int width_0x0c;
+    int height_0x10;
+    int field_0x14;
+    int field_0x18;
+    Uint16 processed_char_count_0x1c;
+    Uint16 processed_tag_count_0x1e;
+    Uint16 character_count_0x20;
+    Uint16 tag_count_0x22;
+    Uint16 palette_0x24[GLYPH_PALETTE_SIZE];
+    Uint16 *glyph_indexes_0x2c;
+    int field_0x30;
+    Float *line_offsets_0x34;
+    unsigned char *text_0x38;
+} TextBox;
+
 /**
  * Draws a sprite or series of sprites from a resource group.
  *
@@ -306,26 +325,6 @@ void FUN_free_8c01529c()
     syFree(var_glyphBuffer_8c1bc7a4);
     syFree(var_8c1bc7a0);
 }
-
-typedef struct {
-    int x_0x00;
-    int y_0x04;
-    float priority_0x08;
-    int width_0x0c;
-    int height_0x10;
-    int field_0x14;
-    int field_0x18;
-    Uint16 processed_char_count_0x1c;
-    Uint16 processed_tag_count_0x1e;
-    Uint16 character_count_0x20;
-    Uint16 tag_count_0x22;
-    // TODO: Extract to a struct
-    Uint16 palette_0x24[GLYPH_PALETTE_SIZE];
-    Uint16 *glyph_indexes_0x2c;
-    int field_0x30;
-    Float *line_offsets_0x34;
-    unsigned char *text_0x38;
-} TextBox;
 
 /**
  * Creates a TextBox with the specified parameters.
