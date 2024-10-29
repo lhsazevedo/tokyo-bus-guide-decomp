@@ -1,7 +1,29 @@
 #include <shinobi.h>
 #include "015ab8_title.h"
 
+#define PACKED_GLYPH_SIZE   0xc0
+#define UNPACKED_GLYPH_SIZE 0xc0 * 4
+#define GLYPH_TEXTURE_WIDTH 32
+#define GLYPH_TEXTURE_SIZE  GLYPH_TEXTURE_WIDTH * GLYPH_TEXTURE_WIDTH
+#define GLYPH_WIDTH         24
+#define GLYPH_HEIGHT        32
+#define GLYPH_PALETTE_SIZE  4
+#define GLYPH_COUNT         0x200
+
+#define ARGB1555(a, r, g, b) ( \
+    ((a & 0x1) << 15) | ((r & 0x1F) << 10) | ((g & 0x1F) << 5) | (b & 0x1F) \
+)
+
+extern NJS_TEXANIM init_tanim_8c044128;
+extern Sint16 init_contents_8c04413c[];
+
 extern void* var_busFont_8c1ba1c8;
+extern NJS_TEXNAME *var_glyphTexnames_8c1bc78c;
+extern NJS_TEXLIST *var_glyphTexlists_8c1bc790;
+extern ResourceGroup var_fontResourceGroup_8c1bc794;
+extern Sint16 *var_8c1bc7a0;
+extern void *var_glyphBuffer_8c1bc7a4;
+
 
 struct ResourceGroupSpriteEntry {
     int sprite_no_0x00;
@@ -197,19 +219,6 @@ Uint16 getGlyphIndex_8c015034(Uint16 character_code)
     }
 }
 
-#define PACKED_GLYPH_SIZE   0xc0
-#define UNPACKED_GLYPH_SIZE 0xc0 * 4
-#define GLYPH_TEXTURE_WIDTH 32
-#define GLYPH_TEXTURE_SIZE  GLYPH_TEXTURE_WIDTH * GLYPH_TEXTURE_WIDTH
-#define GLYPH_WIDTH         24
-#define GLYPH_HEIGHT        32
-#define GLYPH_PALETTE_SIZE  4
-#define GLYPH_COUNT         0x200
-
-#define ARGB1555(a, r, g, b) ( \
-    ((a & 0x1) << 15) | ((r & 0x1F) << 10) | ((g & 0x1F) << 5) | (b & 0x1F) \
-)
-
 /**
  * Unpacks and processes a glyph's texture data from the compressed font.
  *
@@ -268,14 +277,6 @@ unpackGlyph_8c015110(
     // Apply twiddle transformation
     njTwiddledTexture(dest, mapped, GLYPH_TEXTURE_WIDTH);
 }
-
-extern Sint16 *var_8c1bc7a0;
-extern void *var_glyphBuffer_8c1bc7a4;
-extern NJS_TEXNAME *var_glyphTexnames_8c1bc78c;
-extern NJS_TEXLIST *var_glyphTexlists_8c1bc790;
-extern ResourceGroup var_fontResourceGroup_8c1bc794;
-extern NJS_TEXANIM init_tanim_8c044128;
-extern Sint16 init_contents_8c04413c[];
 
 void FUN_alloc_8c01524c()
 {
