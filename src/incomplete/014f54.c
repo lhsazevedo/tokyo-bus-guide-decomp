@@ -486,7 +486,7 @@ int FntPrepareTextBoxLayout_8c01543a(TextBox *box, char *text)
     return character_count;
 }
 
-int FntDrawTextbox_8c0155e0(float p1, float p2, TextBox *box, int limit)
+int FntDrawTextbox_8c0155e0(TextBox *box, int limit)
 {
     int i = 0;
     int token_limit = 0;
