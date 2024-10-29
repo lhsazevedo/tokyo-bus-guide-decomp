@@ -271,6 +271,98 @@ return new class extends TestCase {
             ->run();
     }
 
+    public function test_it_allows_limiting_the_characters_to_draw()
+    {
+        $this->resolveSymbols();
+
+        $WIDTH = 0x240;
+        $HEIGHT = 0x40;
+
+        $var_8c1bc7a0 = $this->alloc(0x200 * 2);
+        $this->initUint16Array($var_8c1bc7a0, array_fill(0, 0x200, 0xffff));
+        $this->initUint32($this->addressOf('_var_8c1bc7a0'), $var_8c1bc7a0);
+
+        $var_glyphTexnames_8c1bc78c = $this->alloc(0x200 * 0x0c);
+        // $this->initUint16Array($var_glyphTexnames_8c1bc78c, array_fill(0, 0x200, 0xffff));
+        $this->initUint32($this->addressOf('_var_glyphTexnames_8c1bc78c'), $var_glyphTexnames_8c1bc78c);
+
+        $var_glyphTexlists_8c1bc790 = $this->alloc(0x200 * 0x8);
+        // $this->initUint16Array($var_glyphTexlists_8c1bc790, array_fill(0, 0x200, 0xffff));
+        $this->initUint32($this->addressOf('_var_glyphTexlists_8c1bc790'), $var_glyphTexlists_8c1bc790);
+
+        $this->initUint32($this->addressOf('_var_busFont_8c1ba1c8'), 0xcafe0001);
+        $this->initUint32($this->addressOf('_var_glyphBuffer_8c1bc7a4'), 0xcafe0002);
+
+        $text = $this->allocString('‚‚‚‚ƒ');
+        $box = $this->alloc(0x3c);
+        $this->initUint32($box + 0x00, 0); // x
+        $this->initUint32($box + 0x04, 500); // y
+        $this->initUint32($box + 0x08, fdec(42)); // priority
+        $this->initUint32($box + 0x0c, $WIDTH); // width
+        $this->initUint32($box + 0x10, $HEIGHT); // height
+        $this->initUint32($box + 0x14, 0);
+        $this->initUint32($box + 0x18, 0);
+        $this->initUint16($box + 0x1c, 0); // processed_char_count_0x1c
+        $this->initUint16($box + 0x1e, 0); // processed_tag_count_0x1e
+        $this->initUint16($box + 0x20, 3); // character_count_0x20
+        $this->initUint16($box + 0x22, 0); // tag_count_0x22
+        $glyphIndexes = $this->alloc(3 * 2);
+        $this->initUint32($box + 0x2c, $glyphIndexes);
+        $this->initUint32($box + 0x30, -1);
+        $lineOffsets = $this->alloc((int) ($HEIGHT * 4 / 32));
+        $this->initUint32Array($lineOffsets, array_fill(0, (int) ($HEIGHT * 4 / 32), fdec(0)));
+        $this->initUint32($box + 0x34, $lineOffsets);
+        $this->initUint32($box + 0x38, $text);
+
+        $shouldLoadGlyphContext = [
+            "box" => $box,
+            "var_glyphTexnames_8c1bc78c" => $var_glyphTexnames_8c1bc78c,
+            "var_glyphTexlists_8c1bc790" => $var_glyphTexlists_8c1bc790,
+            "var_8c1bc7a0" => $var_8c1bc7a0,
+            "glyphIndexes" => $glyphIndexes,
+        ];
+
+        $shouldDrawCharacterContext = [
+            "box" => $box,
+            "var_glyphTexlists_8c1bc790" => $var_glyphTexlists_8c1bc790,
+        ];
+
+        // Load and draw ‚
+        $this->shouldLoadGlyph(
+            ...$shouldLoadGlyphContext,
+            charCode:              0x8281,
+            glyphIndex:            0,
+            newProcessedCharCount: 1
+        );
+        $this->shouldDrawCharacter(
+            ...$shouldDrawCharacterContext,
+            glyphIndex: 0,
+            x:          0.0,
+            y:          500.0,
+            priority:   42.0
+        );
+
+        // Load and draw ‚‚
+        $this->shouldLoadGlyph(
+            ...$shouldLoadGlyphContext,
+            charCode:              0x8282,
+            glyphIndex:            1,
+            newProcessedCharCount: 2
+        );
+        $this->shouldDrawCharacter(
+            ...$shouldDrawCharacterContext,
+            glyphIndex: 1,
+            x:          24.0,
+            y:          500.0,
+            priority:   42.0
+        );
+
+        $this->call('_FntDrawTextbox_8c0155e0')
+            ->with($box, 2)
+            ->shouldReturn(1)
+            ->run();
+    }
+
     protected function shouldLoadGlyph (
         int $charCode,
         int $glyphIndex,
