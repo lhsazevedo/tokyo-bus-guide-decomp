@@ -35,11 +35,14 @@ void drawSprite_8c014f54(
 
     // Handle BUS_FONT.FFF
     if (texture_id == 2000) {
-        sprite_entry = (ResourceGroupSpriteEntry *) resource_group->contents_0x08;
+        sprite_entry =
+            (ResourceGroupSpriteEntry *) resource_group->contents_0x08;
     } else {
         int *offset_table = resource_group->contents_0x08;
         int texture_offset = offset_table[texture_id];
-        sprite_entry = (ResourceGroupSpriteEntry *) &((int *) resource_group->contents_0x08)[texture_offset];
+        sprite_entry =
+            (ResourceGroupSpriteEntry *)
+            &((int *) resource_group->contents_0x08)[texture_offset];
     }
 
     // Initialize NJS_SPRITE
@@ -53,7 +56,9 @@ void drawSprite_8c014f54(
         sprite.p.x = x + sprite_entry[i].x_0x04;
         sprite.p.y = y + sprite_entry[i].y_0x08;
 
-        njDrawSprite2D(&sprite, sprite_entry[i].sprite_no_0x00, priority, NJD_SPRITE_ALPHA);
+        njDrawSprite2D(
+            &sprite, sprite_entry[i].sprite_no_0x00, priority, NJD_SPRITE_ALPHA
+        );
 
         priority += .0001f;
     }
@@ -101,7 +106,8 @@ void drawSpriteLerp_8c014ff6(
 /**
  * Retrieves the index for a given glyph based on the character code.
  *
- * @param character_code The character code for which to retrieve the font index.
+ * @param character_code The character code for which to retrieve the font
+ * index.
  * @return The font index corresponding to the given character code.
  */
 Uint16 getGlyphIndex_8c015034(Uint16 character_code)
@@ -207,17 +213,23 @@ Uint16 getGlyphIndex_8c015034(Uint16 character_code)
 /**
  * Unpacks and processes a glyph's texture data from the compressed font.
  *
- * This function takes a character code and unpacks its associated font data into 
- * a texture buffer. The unpacked data is processed and translated into color values 
- * using a provided color array. The final texture twiddled for rendering.
+ * This function takes a character code and unpacks its associated font data
+ * into a texture buffer. The unpacked data is processed and translated into
+ * color values using a provided color array. The final texture twiddled for
+ * rendering.
  *
  * @param char_code The character code corresponding to the glyph to unpack.
- * @param palette An array of four 16-bit color values used to translate the unpacked font data.
+ * @param palette An array of four 16-bit color values used to translate the
+ * unpacked font data.
  * @param font The compressed font data.
  * @param dest The destination buffer for the twiddled texture data.
  */
-unpackGlyph_8c015110(Uint16 char_code, Uint16 palette[GLYPH_PALETTE_SIZE], Uint8 *font, Sint16 *dest)
-{
+unpackGlyph_8c015110(
+    Uint16 char_code,
+    Uint16 palette[GLYPH_PALETTE_SIZE],
+    Uint8 *font,
+    Sint16 *dest
+) {
     /* Buffer for the unpacked font data */
     Uint8 unpacked[UNPACKED_GLYPH_SIZE] = {0};
     /* Buffer for the mapped texture */
@@ -238,6 +250,8 @@ unpackGlyph_8c015110(Uint16 char_code, Uint16 palette[GLYPH_PALETTE_SIZE], Uint8
     };
 
     // Create color mapped texture
+    // Note: This loop was refactored, but I would
+    // like to preserve the original code.
     for (i = j = 0; i < GLYPH_TEXTURE_SIZE; i++) {
         Uint8 color_index;
 
@@ -246,7 +260,7 @@ unpackGlyph_8c015110(Uint16 char_code, Uint16 palette[GLYPH_PALETTE_SIZE], Uint8
             continue;
 
         color_index = unpacked[j++];
-        if (color_index < GLYPH_PALETTE_SIZE) { // TODO: Is this present in the original code?
+        if (color_index < GLYPH_PALETTE_SIZE) {
             mapped[i] = palette[color_index];
         }
     }
@@ -391,15 +405,18 @@ int prepareTextBoxLayout_8c01543a(TextBox *box, char *text)
         int available_characters;
 
         // Release textures for existing characters
-        for (i = 0; i < (box->character_count_0x20 + box->tag_count_0x22); i++) {
+        for (i = 0; i < box->character_count_0x20 + box->tag_count_0x22; i++) {
             if (box->glyph_indexes_0x2c[i] < 0xffed) {
-                njReleaseTexture(&var_glyphTexlists_8c1bc790[box->glyph_indexes_0x2c[i]]);
+                njReleaseTexture(
+                    &var_glyphTexlists_8c1bc790[box->glyph_indexes_0x2c[i]]
+                );
                 var_8c1bc7a0[box->glyph_indexes_0x2c[i]] = -1;
             }
         }
 
         // Reset character codes
-        available_characters = 0x28 + characters_per_line * (box->height_0x10 / GLYPH_HEIGHT);
+        available_characters =
+            0x28 + characters_per_line * (box->height_0x10 / GLYPH_HEIGHT);
         for (i = 0; i < available_characters; i++) {
             box->glyph_indexes_0x2c[i] = 0xffff;
         }
@@ -420,7 +437,8 @@ int prepareTextBoxLayout_8c01543a(TextBox *box, char *text)
     }
 
     // Calculate the number of characters (excluding tags)
-    // In Shift JIS, characters can be 1 or 2 bytes. This assumes 2 bytes per character.
+    // In Shift JIS, characters can be 1 or 2 bytes.
+    // This assumes 2 bytes per character.
     character_count = (strlen(text) - box->tag_count_0x22 * 3) / 2;
 
     box->text_0x38 = text;
@@ -450,7 +468,7 @@ int prepareTextBoxLayout_8c01543a(TextBox *box, char *text)
         }
 
         // Wrap text if the current line is full
-        if ((box->line_offsets_0x34[current_line] / 2) >= characters_per_line) {
+        if (box->line_offsets_0x34[current_line] / 2 >= characters_per_line) {
             if (current_line >= line_count)
                 break;
             current_line++;
@@ -463,7 +481,8 @@ int prepareTextBoxLayout_8c01543a(TextBox *box, char *text)
 
     // Center-align text on each line
     for (i = 0; i < line_count; i++) {
-        box->line_offsets_0x34[i] = (characters_per_line - (box->line_offsets_0x34[i] / 2)) / 2;
+        box->line_offsets_0x34[i] =
+            (characters_per_line - (box->line_offsets_0x34[i] / 2)) / 2;
     }
 
     return character_count;
@@ -488,7 +507,9 @@ int menuTextboxTextSub_8c0155e0(float p1, float p2, TextBox *box, int limit)
 
     for (i = 0; i < token_limit; i++) {
         // Load glyph
-        if ((box->processed_char_count_0x1c + box->processed_tag_count_0x1e) <= i) {
+        if (
+            box->processed_char_count_0x1c + box->processed_tag_count_0x1e <= i
+        ) {
             unsigned char *currentChar;
             unsigned nextChar; // Move down the scope?
 
@@ -575,7 +596,8 @@ int menuTextboxTextSub_8c0155e0(float p1, float p2, TextBox *box, int limit)
 
         // Draw glyph
         if (box->glyph_indexes_0x2c[i] < 0xffed) {
-            var_fontResourceGroup_8c1bc794.tlist_0x00 = &var_glyphTexlists_8c1bc790[box->glyph_indexes_0x2c[i]];
+            var_fontResourceGroup_8c1bc794.tlist_0x00 =
+                &var_glyphTexlists_8c1bc790[box->glyph_indexes_0x2c[i]];
             // Wrap line
             if ((col + 1) * GLYPH_WIDTH > box->width_0x0c) {
                 col = 0;
