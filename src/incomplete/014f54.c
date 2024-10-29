@@ -488,8 +488,8 @@ int FntPrepareTextBoxLayout_8c01543a(TextBox *box, char *text)
 
 int FntDrawTextbox_8c0155e0(float p1, float p2, TextBox *box, int limit)
 {
-    int i;
-    int token_limit;
+    int i = 0;
+    int token_limit = 0;
     int row = 0;
     int col = 0;
 
