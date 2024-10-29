@@ -316,7 +316,7 @@ void FUN_free_8c01529c()
 {
     int i;
     for (i = 0; i < GLYPH_COUNT; i++) {
-        if (var_8c1bc7a0[i] < -19) {
+        if (var_8c1bc7a0[i] < 0xffed) {
             njReleaseTexture(&var_glyphTexlists_8c1bc790[i]);
         }
     };
