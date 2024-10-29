@@ -38,15 +38,15 @@ typedef struct {
     float priority_0x08;
     int width_0x0c;
     int height_0x10;
-    int field_0x14;
-    int field_0x18;
+    int x2_0x14;
+    int y2_0x18;
     Uint16 processed_char_count_0x1c;
     Uint16 processed_tag_count_0x1e;
     Uint16 character_count_0x20;
     Uint16 tag_count_0x22;
     Uint16 palette_0x24[GLYPH_PALETTE_SIZE];
     Uint16 *glyph_indexes_0x2c;
-    int field_0x30;
+    int enable_offset_0x30;
     Float *line_offsets_0x34;
     unsigned char *text_0x38;
 } TextBox;
@@ -332,14 +332,14 @@ void FUN_free_8c01529c()
  * @return A pointer to the created TextBox.
  */
 TextBox* createTextBox_8c0152fc(
-    int p1,
-    int p2,
+    int x,
+    int y,
     float priority,
     int width,
     int height,
-    int p6,
-    int p7,
-    int p8
+    int x2,
+    int y2,
+    int enable_offset
 )
 {
     // Sample parameters
@@ -348,13 +348,13 @@ TextBox* createTextBox_8c0152fc(
     int max_chars;
     int i;
     TextBox *box = syMalloc(sizeof(TextBox));
-    box->x_0x00 = p1;
-    box->y_0x04 = p2;
+    box->x_0x00 = x;
+    box->y_0x04 = y;
     box->priority_0x08 = priority;
     box->width_0x0c = width;
     box->height_0x10 = height;
-    box->field_0x14 = p6;
-    box->field_0x18 = p7;
+    box->x2_0x14 = x2;
+    box->y2_0x18 = y2;
     box->palette_0x24[0] = ARGB1555(0, 0, 0, 0);
     box->palette_0x24[1] = ARGB1555(1, 10, 10, 10);
     box->palette_0x24[2] = ARGB1555(1, 15, 15, 15);
@@ -362,7 +362,7 @@ TextBox* createTextBox_8c0152fc(
     max_chars = 0x28 + (width / GLYPH_WIDTH) * (height / GLYPH_HEIGHT);
     box->glyph_indexes_0x2c = syMalloc(max_chars * sizeof(Uint16));
     box->line_offsets_0x34 = syMalloc(height / GLYPH_HEIGHT * sizeof(Float));
-    box->field_0x30 = p8;
+    box->enable_offset_0x30 = enable_offset;
 
     for (i = 0; i < max_chars; i++) {
         box->glyph_indexes_0x2c[i] = (Uint16) -1;
@@ -604,9 +604,9 @@ int drawTextbox_8c0155e0(float p1, float p2, TextBox *box, int limit)
             }
 
             if ((row + 1) * GLYPH_HEIGHT <= box->height_0x10) {
-                if (box->field_0x30 == -1) {
-                    int x = col * GLYPH_WIDTH + box->x_0x00 + box->field_0x14;
-                    int y = row * GLYPH_HEIGHT + box->y_0x04 + box->field_0x18;
+                if (box->enable_offset_0x30 == -1) {
+                    int x = col * GLYPH_WIDTH + box->x_0x00 + box->x2_0x14;
+                    int y = row * GLYPH_HEIGHT + box->y_0x04 + box->y2_0x18;
 
                     x += box->line_offsets_0x34[row] * GLYPH_WIDTH;
 
@@ -618,8 +618,8 @@ int drawTextbox_8c0155e0(float p1, float p2, TextBox *box, int limit)
                         box->priority_0x08
                     );
                 } else {
-                    int x = col + box->x_0x00 + box->field_0x14;
-                    int y = row + box->y_0x04 + box->field_0x18;
+                    int x = col + box->x_0x00 + box->x2_0x14;
+                    int y = row + box->y_0x04 + box->y2_0x18;
                     drawSprite_8c014f54(
                         &var_fontResourceGroup_8c1bc794,
                         2000,
