@@ -1,6 +1,7 @@
 #ifndef _DEFINITIONS_H_
 #define _DEFINITIONS_H_
 
+/* TODO: Move to another file */
 #ifdef UNIT_TESTING
 #define STATIC
 #else
