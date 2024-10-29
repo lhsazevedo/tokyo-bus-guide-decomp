@@ -286,8 +286,7 @@ void FUN_alloc_8c01524c()
         var_8c1bc7a0[i] = (Uint16) -1;
     }
 
-    var_glyphBuffer_8c1bc7a4 =
-        syMalloc(GLYPH_TEXTURE_WIDTH * GLYPH_TEXTURE_WIDTH * sizeof(Uint16));
+    var_glyphBuffer_8c1bc7a4 = syMalloc(GLYPH_TEXTURE_SIZE * sizeof(Uint16));
     var_glyphTexnames_8c1bc78c = syMalloc(GLYPH_COUNT * sizeof(NJS_TEXNAME));
     var_glyphTexlists_8c1bc790 = syMalloc(GLYPH_COUNT * sizeof(NJS_TEXLIST));
     var_fontResourceGroup_8c1bc794.tanim_0x04 = &init_tanim_8c044128;
