@@ -200,6 +200,10 @@ Uint16 getGlyphIndex_8c015034(Uint16 character_code)
 #define GLYPH_PALETTE_SIZE  4
 #define GLYPH_COUNT         0x200
 
+#define ARGB1555(a, r, g, b) ( \
+    ((a & 0x1) << 15) | ((r & 0x1F) << 10) | ((g & 0x1F) << 5) | (b & 0x1F) \
+)
+
 /**
  * Unpacks and processes a glyph's texture data from the compressed font.
  *
@@ -338,10 +342,10 @@ TextBox* createTextBox_8c0152fc(
     box->height_0x10 = height;
     box->field_0x14 = p6;
     box->field_0x18 = p7;
-    box->palette_0x24[0] = 0x0000;
-    box->palette_0x24[1] = 0xa94a;
-    box->palette_0x24[2] = 0xbdef;
-    box->palette_0x24[3] = 0xc631;
+    box->palette_0x24[0] = ARGB1555(0, 0, 0, 0);
+    box->palette_0x24[1] = ARGB1555(1, 10, 10, 10);
+    box->palette_0x24[2] = ARGB1555(1, 15, 15, 15);
+    box->palette_0x24[3] = ARGB1555(1, 17, 17, 17);
     max_chars = 0x28 + (width / GLYPH_WIDTH) * (height / GLYPH_HEIGHT);
     box->glyph_indexes_0x2c = syMalloc(max_chars * sizeof(Uint16));
     box->line_offsets_0x34 = syMalloc(height / GLYPH_HEIGHT * sizeof(Float));
@@ -500,20 +504,20 @@ int menuTextboxTextSub_8c0155e0(float p1, float p2, TextBox *box, int limit)
                         break;
                     case 'D':
                         box->glyph_indexes_0x2c[i] = 0xFFFD;
-                        box->palette_0x24[0] = 0;
-                        box->palette_0x24[1] = 0xA94A;
-                        box->palette_0x24[2] = 0xBDEF;
-                        box->palette_0x24[3] = 0xC631;
+                        box->palette_0x24[0] = ARGB1555(0, 0, 0, 0);
+                        box->palette_0x24[1] = ARGB1555(1, 10, 10, 10);
+                        box->palette_0x24[2] = ARGB1555(1, 15, 15, 15);
+                        box->palette_0x24[3] = ARGB1555(1, 17, 17, 17);
                         break;
                     case 'C':
                         box->glyph_indexes_0x2c[i] = 0xFFFC;
                         break;
                     case 'R':
                         box->glyph_indexes_0x2c[i] = 0xFFFB;
-                        box->palette_0x24[0] = 0;
-                        box->palette_0x24[1] = 0xD14A;
-                        box->palette_0x24[2] = 0xE5EF;
-                        box->palette_0x24[3] = 0xFE10;
+                        box->palette_0x24[0] = ARGB1555(0, 0, 0, 0);
+                        box->palette_0x24[1] = ARGB1555(1, 20, 10, 10);
+                        box->palette_0x24[2] = ARGB1555(1, 25, 15, 15);
+                        box->palette_0x24[3] = ARGB1555(1, 31, 16, 16);
                         break;
                 }
 
@@ -537,7 +541,7 @@ int menuTextboxTextSub_8c0155e0(float p1, float p2, TextBox *box, int limit)
                         njSetTextureInfo(
                             &texInfo,
                             var_glyphBuffer_8c1bc7a4,
-                            0x100,
+                            NJD_TEXFMT_ARGB_1555 | NJD_TEXFMT_TWIDDLED,
                             GLYPH_TEXTURE_WIDTH,
                             GLYPH_TEXTURE_WIDTH
                         );
