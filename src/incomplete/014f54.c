@@ -24,13 +24,11 @@ extern ResourceGroup var_fontResourceGroup_8c1bc794;
 extern Sint16 *var_8c1bc7a0;
 extern void *var_glyphBuffer_8c1bc7a4;
 
-
-struct ResourceGroupSpriteEntry {
+typedef struct {
     int sprite_no_0x00;
     float x_0x04;
     float y_0x08;
-}
-typedef ResourceGroupSpriteEntry;
+} ResourceGroupSpriteEntry;
 
 typedef struct {
     int x_0x00;
@@ -316,7 +314,7 @@ void FUN_free_8c01529c()
 {
     int i;
     for (i = 0; i < GLYPH_COUNT; i++) {
-        if (var_8c1bc7a0[i] < 0xffed) {
+        if (var_8c1bc7a0[i] < -19) {
             njReleaseTexture(&var_glyphTexlists_8c1bc790[i]);
         }
     };
