@@ -1,5 +1,7 @@
 #include <shinobi.h>
 #include "015ab8_title.h"
+#include "014a9c_tasks.h"
+#include "011120_asset_queues.h"
 #include "serial_debug.h"
 
 #define PACKED_GLYPH_SIZE   0xc0
@@ -18,12 +20,16 @@
 extern NJS_TEXANIM init_tanim_8c044128;
 extern Sint16 init_contents_8c04413c[];
 
-extern void* var_busFont_8c1ba1c8;
+extern void *var_busFont_8c1ba1c8;
+extern int *var_8c1ba3c4;
 extern NJS_TEXNAME *var_glyphTexnames_8c1bc78c;
 extern NJS_TEXLIST *var_glyphTexlists_8c1bc790;
 extern ResourceGroup var_fontResourceGroup_8c1bc794;
 extern Sint16 *var_8c1bc7a0;
 extern void *var_glyphBuffer_8c1bc7a4;
+extern void *var_8c1bc828;
+extern int var_8c1bb868;
+extern int var_8c1bb8c8;
 
 typedef struct {
     int sprite_no_0x00;
@@ -47,7 +53,7 @@ typedef struct {
     Uint16 *tokens_0x2c;
     int enable_offset_0x30;
     Float *line_offsets_0x34;
-    unsigned char *text_0x38;
+    char *text_0x38;
 } TextBox;
 
 /**
@@ -257,6 +263,7 @@ STATIC unpackGlyph_8c015110(
     Uint8 *font,
     Sint16 *dest
 ) {
+    //LOG_DEBUG(("Unpacking glyph for character code: %x\n", char_code));
     /* Buffer for the unpacked font data */
     Uint8 unpacked[UNPACKED_GLYPH_SIZE] = {0};
     /* Buffer for the mapped texture */
@@ -509,7 +516,7 @@ int FntDrawTextbox_8c0155e0(TextBox *box, int limit)
             box->processed_char_count_0x1c + box->processed_tag_count_0x1e <=
             token_idx
         ) {
-            unsigned char *currentChar;
+            char *currentChar;
             unsigned nextChar; // Move down the scope?
 
             currentChar = box->text_0x38
@@ -551,7 +558,8 @@ int FntDrawTextbox_8c0155e0(TextBox *box, int limit)
                         NJS_TEXINFO texInfo;
 
                         unpackGlyph_8c015110(
-                            (*currentChar << 8) | currentChar[1],
+                            ((*currentChar & 0xFF) << 8)
+                                | (currentChar[1] & 0xFF),
                             box->palette_0x24,
                             var_busFont_8c1ba1c8,
                             var_glyphBuffer_8c1bc7a4
@@ -640,4 +648,23 @@ int FntDrawTextbox_8c0155e0(TextBox *box, int limit)
     }
 
     return 1;
+}
+
+void FUN_8c01594c(Task *task)
+{
+    void *local;
+    if (!getUknPvmBool_8c01432a()) {
+        return;
+    }
+
+    var_8c1bb868 = var_8c1ba3c4[1];
+    var_8c1bb8c8 = var_8c1ba3c4[2];
+    var_seed_8c157a64 = var_8c1ba3c4[3];
+    local = &var_8c1bc828;
+    FUN_8c02f320();
+    FUN_8c02fa14(&var_8c1ba3c4[4], &local, var_8c1ba3c4[0]);
+    syFree(var_8c1ba3c4);
+    var_8c1ba3c4 = (int *) -1;
+    freeTask_8c014b66(task);
+    FUN_8c01328c();
 }

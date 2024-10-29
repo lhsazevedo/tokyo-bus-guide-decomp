@@ -356,7 +356,7 @@ extern void* var_8c1ba2e0;
 extern void* var_8c1ba348;
 extern void* var_8c1ba344;
 extern void* var_8c225fb0;
-extern void* var_8c1ba3c4;
+extern int* var_8c1ba3c4;
 extern void* var_8c1bc454;
 extern void* var_selectedVm_8c1ba34c;
 extern BusState var_busState_8c1bb9d0;

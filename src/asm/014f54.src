@@ -57,6 +57,7 @@
           .AIFDEF UNIT_TESTING
           .EXPORT     _getGlyphIndex_8c015034
           .EXPORT     _unpackGlyph_8c015110
+          .EXPORT     _FUN_8c01594c
           .AENDI
           .SECTION    P,CODE,ALIGN=4
 _drawSprite_8c014f54:
