@@ -51,7 +51,7 @@
           .EXPORT     _createTextBox_8c0152fc
           .EXPORT     _freeTextBox_8c015410
           .EXPORT     _prepareTextBoxLayout_8c01543a
-          .EXPORT     _menuTextboxTextSub_8c0155e0
+          .EXPORT     _drawTextbox_8c0155e0
           .EXPORT     _FUN_8c0159ac
 
           .AIFDEF UNIT_TESTING
@@ -952,7 +952,7 @@ LAB_8c0155cc:
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-_menuTextboxTextSub_8c0155e0:
+_drawTextbox_8c0155e0:
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           MOV.L       R12,@-R15

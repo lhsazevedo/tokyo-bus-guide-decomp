@@ -156,7 +156,7 @@
           .IMPORT     _var_8c1bc40c
           .IMPORT     _var_8c225fb8
           .IMPORT     _prepareTextBoxLayout_8c01543a
-          .IMPORT     _menuTextboxTextSub_8c0155e0
+          .IMPORT     _drawTextbox_8c0155e0
           .IMPORT     _freeTextBox_8c015410
           .IMPORT     _var_8c1bc408
           .IMPORT     _FUN_free_8c01529c
@@ -6048,7 +6048,7 @@ LP_GEN_47883:
           .DATA.L _var_8c1bc40c ; H'8C02AF5C
           .DATA.L _var_8c1bc404 ; H'8C02AF60
           .DATA.L _prepareTextBoxLayout_8c01543a ; H'8C02AF64
-          .DATA.L _menuTextboxTextSub_8c0155e0 ; H'8C02AF68
+          .DATA.L _drawTextbox_8c0155e0 ; H'8C02AF68
           .DATA.L _freeTextBox_8c015410 ; H'8C02AF6C
           .DATA.L _var_8c1bc408 ; H'8C02AF70
           .DATA.L _FUN_free_8c01529c ; H'8C02AF74

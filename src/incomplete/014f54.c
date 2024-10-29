@@ -488,7 +488,7 @@ int prepareTextBoxLayout_8c01543a(TextBox *box, char *text)
     return character_count;
 }
 
-int menuTextboxTextSub_8c0155e0(float p1, float p2, TextBox *box, int limit)
+int drawTextbox_8c0155e0(float p1, float p2, TextBox *box, int limit)
 {
     int i;
     int token_limit;

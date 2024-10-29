@@ -27,7 +27,7 @@ return new class extends TestCase {
         $this->initUint32($box + 0x38, 0);
         // $this->initUint16($glyphIndexes, -1);
 
-        $this->call('_menuTextboxTextSub_8c0155e0')
+        $this->call('_drawTextbox_8c0155e0')
             ->with($box)
             ->shouldReturn(0)
             ->run();
@@ -51,7 +51,7 @@ return new class extends TestCase {
         $this->initUint32($box + 0x38, $text);
         // $this->initUint16($glyphIndexes, -1);
 
-        $this->call('_menuTextboxTextSub_8c0155e0')
+        $this->call('_drawTextbox_8c0155e0')
             ->with($box)
             ->shouldReturn(0)
             ->run();
@@ -158,7 +158,7 @@ return new class extends TestCase {
             priority:   42.0,
         );
 
-        $this->call('_menuTextboxTextSub_8c0155e0')
+        $this->call('_drawTextbox_8c0155e0')
             ->with($box, 3)
             ->shouldReturn(1)
             ->run();
@@ -265,7 +265,7 @@ return new class extends TestCase {
             priority:   42.0
         );
 
-        $this->call('_menuTextboxTextSub_8c0155e0')
+        $this->call('_drawTextbox_8c0155e0')
             ->with($box, 3)
             ->shouldReturn(1)
             ->run();
