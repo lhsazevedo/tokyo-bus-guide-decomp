@@ -14,18 +14,16 @@ return new class extends TestCase {
     {
         $this->resolveSymbols();
 
-        // $WIDTH = 0x240;
-        // $HEIGHT = 0x40;
+        [$box] = $this->createTextbox(
+            '',
+            characterCount: 0,
+            tagCount: 0,
+            x: 0,
+            y: 500,
+        );
 
-        // $glyphIndexes = $this->alloc(4);
-        $box = $this->alloc(0x3c);
-        // $this->initUint32($box + 0x0c, $WIDTH);
-        // $this->initUint32($box + 0x10, $HEIGHT);
-        // $this->initUint32($box + 0x2c, $glyphIndexes);
-        // $lineOffsets = $this->alloc((int) ($HEIGHT * 4 / 32));
-        // $this->initUint32($box + 0x34, $lineOffsets);
+        // Force NULL text pointer
         $this->initUint32($box + 0x38, 0);
-        // $this->initUint16($glyphIndexes, -1);
 
         $this->call('_FntDrawTextbox_8c0155e0')
             ->with($box)
@@ -37,19 +35,13 @@ return new class extends TestCase {
     {
         $this->resolveSymbols();
 
-        // $WIDTH = 0x240;
-        // $HEIGHT = 0x40;
-
-        // $glyphIndexes = $this->alloc(4);
-        $text = $this->allocString('');
-        $box = $this->alloc(0x3c);
-        // $this->initUint32($box + 0x0c, $WIDTH);
-        // $this->initUint32($box + 0x10, $HEIGHT);
-        // $this->initUint32($box + 0x2c, $glyphIndexes);
-        // $lineOffsets = $this->alloc((int) ($HEIGHT * 4 / 32));
-        // $this->initUint32($box + 0x34, $lineOffsets);
-        $this->initUint32($box + 0x38, $text);
-        // $this->initUint16($glyphIndexes, -1);
+        [$box] = $this->createTextbox(
+            '',
+            characterCount: 0,
+            tagCount: 0,
+            x: 0,
+            y: 500,
+        );
 
         $this->call('_FntDrawTextbox_8c0155e0')
             ->with($box)
@@ -60,9 +52,6 @@ return new class extends TestCase {
     public function test_it_loads_glyphs()
     {
         $this->resolveSymbols();
-
-        $WIDTH = 0x240;
-        $HEIGHT = 0x40;
 
         $var_8c1bc7a0 = $this->alloc(0x200 * 2);
         $this->initUint16Array($var_8c1bc7a0, array_fill(0, 0x200, 0xffff));
@@ -79,26 +68,13 @@ return new class extends TestCase {
         $this->initUint32($this->addressOf('_var_busFont_8c1ba1c8'), 0xcafe0001);
         $this->initUint32($this->addressOf('_var_glyphBuffer_8c1bc7a4'), 0xcafe0002);
 
-        $text = $this->allocString('‚‚‚‚ƒ');
-        $box = $this->alloc(0x3c);
-        $this->initUint32($box + 0x00, 0); // x
-        $this->initUint32($box + 0x04, 500); // y
-        $this->initUint32($box + 0x08, fdec(42)); // priority
-        $this->initUint32($box + 0x0c, $WIDTH); // width
-        $this->initUint32($box + 0x10, $HEIGHT); // height
-        $this->initUint32($box + 0x14, 0);
-        $this->initUint32($box + 0x18, 0);
-        $this->initUint16($box + 0x1c, 0); // processed_char_count_0x1c
-        $this->initUint16($box + 0x1e, 0); // processed_tag_count_0x1e
-        $this->initUint16($box + 0x20, 3); // character_count_0x20
-        $this->initUint16($box + 0x22, 0); // tag_count_0x22
-        $glyphIndexes = $this->alloc(3 * 2);
-        $this->initUint32($box + 0x2c, $glyphIndexes);
-        $this->initUint32($box + 0x30, -1);
-        $lineOffsets = $this->alloc((int) ($HEIGHT * 4 / 32));
-        $this->initUint32Array($lineOffsets, array_fill(0, (int) ($HEIGHT * 4 / 32), fdec(0)));
-        $this->initUint32($box + 0x34, $lineOffsets);
-        $this->initUint32($box + 0x38, $text);
+        [$box, $glyphIndexes] = $this->createTextbox(
+            '‚‚‚‚ƒ',
+            characterCount: 3,
+            tagCount: 0,
+            x: 0,
+            y: 500,
+        );
 
         $shouldLoadGlyphContext = [
             "box" => $box,
@@ -168,9 +144,6 @@ return new class extends TestCase {
     {
         $this->resolveSymbols();
 
-        $WIDTH = 0x240;
-        $HEIGHT = 0x40;
-
         $var_8c1bc7a0 = $this->alloc(0x200 * 2);
         $this->initUint16Array($var_8c1bc7a0, array_fill(0, 0x200, 0xffff));
         $this->initUint32($this->addressOf('_var_8c1bc7a0'), $var_8c1bc7a0);
@@ -186,26 +159,13 @@ return new class extends TestCase {
         $this->initUint32($this->addressOf('_var_busFont_8c1ba1c8'), 0xcafe0001);
         $this->initUint32($this->addressOf('_var_glyphBuffer_8c1bc7a4'), 0xcafe0002);
 
-        $text = $this->allocString('‚‚‚‚');
-        $box = $this->alloc(0x3c);
-        $this->initUint32($box + 0x00, 0); // x
-        $this->initUint32($box + 0x04, 500); // y
-        $this->initUint32($box + 0x08, fdec(42)); // priority
-        $this->initUint32($box + 0x0c, $WIDTH); // width
-        $this->initUint32($box + 0x10, $HEIGHT); // height
-        $this->initUint32($box + 0x14, 0);
-        $this->initUint32($box + 0x18, 0);
-        $this->initUint16($box + 0x1c, 0); // processed_char_count_0x1c
-        $this->initUint16($box + 0x1e, 0); // processed_tag_count_0x1e
-        $this->initUint16($box + 0x20, 3); // character_count_0x20
-        $this->initUint16($box + 0x22, 0); // tag_count_0x22
-        $glyphIndexes = $this->alloc(3 * 2);
-        $this->initUint32($box + 0x2c, $glyphIndexes);
-        $this->initUint32($box + 0x30, -1);
-        $lineOffsets = $this->alloc((int) ($HEIGHT * 4 / 32));
-        $this->initUint32Array($lineOffsets, array_fill(0, (int) ($HEIGHT * 4 / 32), fdec(0)));
-        $this->initUint32($box + 0x34, $lineOffsets);
-        $this->initUint32($box + 0x38, $text);
+        [$box, $glyphIndexes] = $this->createTextbox(
+            '‚‚‚‚',
+            characterCount: 3,
+            tagCount: 0,
+            x: 0,
+            y: 500,
+        );
 
         $shouldLoadGlyphContext = [
             "box" => $box,
@@ -275,9 +235,6 @@ return new class extends TestCase {
     {
         $this->resolveSymbols();
 
-        $WIDTH = 0x240;
-        $HEIGHT = 0x40;
-
         $var_8c1bc7a0 = $this->alloc(0x200 * 2);
         $this->initUint16Array($var_8c1bc7a0, array_fill(0, 0x200, 0xffff));
         $this->initUint32($this->addressOf('_var_8c1bc7a0'), $var_8c1bc7a0);
@@ -293,26 +250,13 @@ return new class extends TestCase {
         $this->initUint32($this->addressOf('_var_busFont_8c1ba1c8'), 0xcafe0001);
         $this->initUint32($this->addressOf('_var_glyphBuffer_8c1bc7a4'), 0xcafe0002);
 
-        $text = $this->allocString('‚‚‚‚ƒ');
-        $box = $this->alloc(0x3c);
-        $this->initUint32($box + 0x00, 0); // x
-        $this->initUint32($box + 0x04, 500); // y
-        $this->initUint32($box + 0x08, fdec(42)); // priority
-        $this->initUint32($box + 0x0c, $WIDTH); // width
-        $this->initUint32($box + 0x10, $HEIGHT); // height
-        $this->initUint32($box + 0x14, 0);
-        $this->initUint32($box + 0x18, 0);
-        $this->initUint16($box + 0x1c, 0); // processed_char_count_0x1c
-        $this->initUint16($box + 0x1e, 0); // processed_tag_count_0x1e
-        $this->initUint16($box + 0x20, 3); // character_count_0x20
-        $this->initUint16($box + 0x22, 0); // tag_count_0x22
-        $glyphIndexes = $this->alloc(3 * 2);
-        $this->initUint32($box + 0x2c, $glyphIndexes);
-        $this->initUint32($box + 0x30, -1);
-        $lineOffsets = $this->alloc((int) ($HEIGHT * 4 / 32));
-        $this->initUint32Array($lineOffsets, array_fill(0, (int) ($HEIGHT * 4 / 32), fdec(0)));
-        $this->initUint32($box + 0x34, $lineOffsets);
-        $this->initUint32($box + 0x38, $text);
+        [$box, $glyphIndexes, $lineOffsets] = $this->createTextbox(
+            '‚‚‚‚ƒ',
+            characterCount: 3,
+            tagCount: 0,
+            x: 0,
+            y: 500,
+        );
 
         $shouldLoadGlyphContext = [
             "box" => $box,
@@ -450,6 +394,50 @@ return new class extends TestCase {
         $this->setSize('_njSetTextureName', 4);
         $this->setSize('_njLoadTexture', 4);
         // $this->setSize('_strlen', 4);
+    }
+
+    private function createTextbox(
+        $textContent,
+        $characterCount,
+        $tagCount,
+        $x,
+        $y,
+        $width = 0x240,
+        $height = 0x24,
+        $x2 = 0,
+        $y2 = 0,
+        $priority = 42.0,
+    ) {
+        $text = $this->allocString($textContent);
+        $box = $this->alloc(0x3c);
+
+        // Initialize box properties
+        $this->initUint32($box + 0x00, $x); // x
+        $this->initUint32($box + 0x04, $y); // y
+        $this->initUint32($box + 0x08, fdec($priority)); // priority
+        $this->initUint32($box + 0x0c, $width); // width
+        $this->initUint32($box + 0x10, $height); // height
+        $this->initUint32($box + 0x14, $x2);
+        $this->initUint32($box + 0x18, $y2);
+        $this->initUint16($box + 0x1c, 0); // processed_char_count_0x1c
+        $this->initUint16($box + 0x1e, 0); // processed_tag_count_0x1e
+        $this->initUint16($box + 0x20, $characterCount);
+        $this->initUint16($box + 0x22, $tagCount);
+
+        // Allocate glyph indexes
+        $glyphIndexes = $this->alloc($characterCount * 2);
+        $this->initUint32($box + 0x2c, $glyphIndexes);
+
+        // Allocate line offsets and initialize
+        $this->initUint32($box + 0x30, -1); // Enable offsets
+        $lineOffsets = $this->alloc((int) ($height * 4 / 32));
+        $this->initUint32Array($lineOffsets, array_fill(0, (int) ($height * 4 / 32), fdec(0)));
+        $this->initUint32($box + 0x34, $lineOffsets);
+
+        // Set text reference
+        $this->initUint32($box + 0x38, $text);
+
+        return [$box, $glyphIndexes, $lineOffsets];
     }
 
     protected function initUint16Array(int $address, array $values): void
