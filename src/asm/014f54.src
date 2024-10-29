@@ -46,12 +46,12 @@
           .IMPORT     _AsqProcessQueues_11fe0
           .IMPORT     _njDrawSprite2D
           .EXPORT     _drawSprite_8c014f54
-          .EXPORT     _FUN_alloc_8c01524c
-          .EXPORT     _FUN_free_8c01529c
-          .EXPORT     _createTextBox_8c0152fc
-          .EXPORT     _freeTextBox_8c015410
-          .EXPORT     _prepareTextBoxLayout_8c01543a
-          .EXPORT     _drawTextbox_8c0155e0
+          .EXPORT     _FntInit_8c01524c
+          .EXPORT     _FntDestroy_8c01529c
+          .EXPORT     _FntCreateTextBox_8c0152fc
+          .EXPORT     _FntDestroyTextBox_8c015410
+          .EXPORT     _FntPrepareTextBoxLayout_8c01543a
+          .EXPORT     _FntDrawTextbox_8c0155e0
           .EXPORT     _FUN_8c0159ac
 
           .AIFDEF UNIT_TESTING
@@ -474,7 +474,7 @@ LP_GEN_73990:
           .DATA.L __divls
           .DATA.L _njTwiddledTexture
 
-_FUN_alloc_8c01524c:
+_FntInit_8c01524c:
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           MOV.L       R12,@-R15
@@ -516,7 +516,7 @@ LAB_8c015264:
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-_FUN_free_8c01529c:
+_FntDestroy_8c01529c:
           MOV.L       R14,@-R15
           MOV         #0,R4
           MOV.L       R13,@-R15
@@ -567,7 +567,7 @@ LAB_8c0152cc:
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-_createTextBox_8c0152fc:
+_FntCreateTextBox_8c0152fc:
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           MOV.L       R12,@-R15
@@ -695,7 +695,7 @@ LAB_8c0153e2:
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-_freeTextBox_8c015410:
+_FntDestroyTextBox_8c015410:
           MOV.L       R14,@-R15
           MOV         R4,R14
           MOV.L       R13,@-R15
@@ -719,7 +719,7 @@ LAB_8c01542e:
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-_prepareTextBoxLayout_8c01543a:
+_FntPrepareTextBoxLayout_8c01543a:
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           MOV.L       R12,@-R15
@@ -952,7 +952,7 @@ LAB_8c0155cc:
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-_drawTextbox_8c0155e0:
+_FntDrawTextbox_8c0155e0:
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           MOV.L       R12,@-R15

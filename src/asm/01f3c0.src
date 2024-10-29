@@ -13,8 +13,8 @@
           .IMPORT     _njSetBackColor
           .IMPORT     _var_8c1bc404
           .IMPORT     _init_8c04528c
-          .IMPORT     _prepareTextBoxLayout_8c01543a
-          .IMPORT     _drawTextbox_8c0155e0
+          .IMPORT     _FntPrepareTextBoxLayout_8c01543a
+          .IMPORT     _FntDrawTextbox_8c0155e0
           .IMPORT     _init_8c03bd80
           .IMPORT     _FUN_8c010bae
           .IMPORT     _isFading_8c226568
@@ -26,8 +26,8 @@
           .IMPORT     _var_8c225fb4
           .IMPORT     _push_fadeout_8c022b60
           .IMPORT     _free_8c1bc404_8c02af32
-          .IMPORT     _FUN_alloc_8c01524c
-          .IMPORT     _createTextBox_8c0152fc
+          .IMPORT     _FntInit_8c01524c
+          .IMPORT     _FntCreateTextBox_8c0152fc
           .IMPORT     _var_8c1bc408
           .IMPORT     _init_8c045290
           .IMPORT     _FUN_8c016182
@@ -358,7 +358,7 @@ LP_GEN_39506:
           .DATA.L H'C3F00000 ; H'8C01F60C
           .DATA.L H'44700000 ; H'8C01F610
           .DATA.L _init_8c04528c ; H'8C01F614
-          .DATA.L _prepareTextBoxLayout_8c01543a ; H'8C01F618
+          .DATA.L _FntPrepareTextBoxLayout_8c01543a ; H'8C01F618
 LAB_8c01f61c:
           MOV.L       R12,@(H'1c,R14)
 LAB_8c01f61e:
@@ -501,7 +501,7 @@ LAB_8c01f706:
 LP_GEN_79838:
           .DATA.W H'00FF ; H'8C01F718
           .RES.W 1 ; H'8C01F71A
-          .DATA.L _drawTextbox_8c0155e0 ; H'8C01F71C
+          .DATA.L _FntDrawTextbox_8c0155e0 ; H'8C01F71C
           .DATA.L _init_8c03bd80 ; H'8C01F720
           .DATA.L _FUN_8c010bae ; H'8C01F724
           .DATA.L _isFading_8c226568 ; H'8C01F728
@@ -677,13 +677,13 @@ LP_GEN_41910:
           .DATA.L _var_8c225fb4 ; H'8C01F880
           .DATA.L _push_fadeout_8c022b60 ; H'8C01F884
           .DATA.L _free_8c1bc404_8c02af32 ; H'8C01F888
-          .DATA.L _FUN_alloc_8c01524c ; H'8C01F88C
+          .DATA.L _FntInit_8c01524c ; H'8C01F88C
           .DATA.L H'C0A00000 ; H'8C01F890
           .DATA.L _var_8c1bc404 ; H'8C01F894
-          .DATA.L _createTextBox_8c0152fc ; H'8C01F898
+          .DATA.L _FntCreateTextBox_8c0152fc ; H'8C01F898
           .DATA.L _var_8c1bc408 ; H'8C01F89C
           .DATA.L _init_8c04528c ; H'8C01F8A0
-          .DATA.L _prepareTextBoxLayout_8c01543a ; H'8C01F8A4
+          .DATA.L _FntPrepareTextBoxLayout_8c01543a ; H'8C01F8A4
           .DATA.L _init_8c045290 ; H'8C01F8A8
           .DATA.L _push_fadein_8c022a9c ; H'8C01F8AC
 LAB_8c01f8b0:

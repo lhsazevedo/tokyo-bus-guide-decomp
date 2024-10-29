@@ -1,5 +1,6 @@
 #include <shinobi.h>
 #include "015ab8_title.h"
+#include "serial_debug.h"
 
 #define PACKED_GLYPH_SIZE   0xc0
 #define UNPACKED_GLYPH_SIZE 0xc0 * 4
@@ -149,7 +150,7 @@ void drawSpriteLerp_8c014ff6(
  * index.
  * @return The font index corresponding to the given character code.
  */
-Uint16 getGlyphIndex_8c015034(Uint16 character_code)
+STATIC Uint16 getGlyphIndex_8c015034(Uint16 character_code)
 {
     // Font file offset table
     static const Uint16 font_section_offsets[40] = {
@@ -250,7 +251,7 @@ Uint16 getGlyphIndex_8c015034(Uint16 character_code)
  * @param font The compressed font data.
  * @param dest The destination buffer for the twiddled texture data.
  */
-unpackGlyph_8c015110(
+STATIC unpackGlyph_8c015110(
     Uint16 char_code,
     Uint16 palette[GLYPH_PALETTE_SIZE],
     Uint8 *font,
@@ -295,7 +296,7 @@ unpackGlyph_8c015110(
     njTwiddledTexture(dest, mapped, GLYPH_TEXTURE_WIDTH);
 }
 
-void FUN_alloc_8c01524c()
+void FntInit_8c01524c()
 {
     int i;
     var_8c1bc7a0 = syMalloc(GLYPH_COUNT * sizeof(Sint16));
@@ -310,7 +311,7 @@ void FUN_alloc_8c01524c()
     var_fontResourceGroup_8c1bc794.contents_0x08 = &init_contents_8c04413c;
 }
 
-void FUN_free_8c01529c()
+void FntDestroy_8c01529c()
 {
     int i;
     for (i = 0; i < GLYPH_COUNT; i++) {
@@ -329,7 +330,7 @@ void FUN_free_8c01529c()
  *
  * @return A pointer to the created TextBox.
  */
-TextBox* createTextBox_8c0152fc(
+TextBox* FntCreateTextBox_8c0152fc(
     int x,
     int y,
     float priority,
@@ -377,7 +378,7 @@ TextBox* createTextBox_8c0152fc(
  * @todo Write a test for this function.
  * @param box The TextBox to be freed.
  */
-void freeTextBox_8c015410(TextBox *box)
+void FntDestroyTextBox_8c015410(TextBox *box)
 {
     if (box->glyph_indexes_0x2c) {
         syFree(box->glyph_indexes_0x2c);
@@ -388,7 +389,7 @@ void freeTextBox_8c015410(TextBox *box)
     syFree(box);
 }
 
-int prepareTextBoxLayout_8c01543a(TextBox *box, char *text)
+int FntPrepareTextBoxLayout_8c01543a(TextBox *box, char *text)
 {
     int i;
     int current_line;
@@ -485,7 +486,7 @@ int prepareTextBoxLayout_8c01543a(TextBox *box, char *text)
     return character_count;
 }
 
-int drawTextbox_8c0155e0(float p1, float p2, TextBox *box, int limit)
+int FntDrawTextbox_8c0155e0(float p1, float p2, TextBox *box, int limit)
 {
     int i;
     int token_limit;
