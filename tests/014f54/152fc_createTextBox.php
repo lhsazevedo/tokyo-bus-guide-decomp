@@ -16,7 +16,7 @@ return new class extends TestCase {
         $GLYPH_COUNT = ($WIDTH / $GLYPH_WIDTH) * ($HEIGHT / $GLYPH_HEIGHT) + 0x28;
 
         $box = $this->alloc(0x3c);
-        $charCodes = $this->alloc($GLYPH_COUNT * 2);
+        $glyphIndexes = $this->alloc($GLYPH_COUNT * 2);
         $this->shouldCall('_syMalloc')->with(0x3c)->andReturn($box);
 
         $this->shouldWriteLong($box + 0x00, 0x20);
@@ -31,14 +31,14 @@ return new class extends TestCase {
         $this->shouldWriteWord($box + 0x28, 0xbdef);
         $this->shouldWriteWord($box + 0x2a, 0xc631);
 
-        $this->shouldCall('_syMalloc')->with($GLYPH_COUNT * 2)->andReturn($charCodes);
-        $this->shouldWriteLong($box + 0x2c, $charCodes);
+        $this->shouldCall('_syMalloc')->with($GLYPH_COUNT * 2)->andReturn($glyphIndexes);
+        $this->shouldWriteLong($box + 0x2c, $glyphIndexes);
         $this->shouldCall('_syMalloc')->with($HEIGHT * 4 / 32)->andReturn(0xbebacafe);
         $this->shouldWriteLong($box + 0x34, 0xbebacafe);
         $this->shouldWriteLong($box + 0x30, 42);
         
         for ($i = 0; $i < $GLYPH_COUNT; $i++) {
-            $this->shouldWriteWord($charCodes + $i * 2, 0xffff);
+            $this->shouldWriteWord($glyphIndexes + $i * 2, 0xffff);
         }
 
         $this->shouldWriteLong($box + 0x38, 0);
@@ -53,7 +53,7 @@ return new class extends TestCase {
 
     protected function resolveSymbols(): void
     {
-        //$this->setSize('_var_8c1bc794', 8);
+        //$this->setSize('_var_fontResourceGroup_8c1bc794', 8);
         // Functions
         $this->setSize('_syMalloc', 4);
         $this->setSize('__divls', 4);

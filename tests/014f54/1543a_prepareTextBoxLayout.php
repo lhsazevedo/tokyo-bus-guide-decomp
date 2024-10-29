@@ -12,18 +12,18 @@ return new class extends TestCase {
 
         $GLYPH_COUNT = 0x28 + (0x240 / 0x18) * (0x40 / 0x20);
 
-        $charCodes = $this->alloc($GLYPH_COUNT * 2);
+        $glyphIndexes = $this->alloc($GLYPH_COUNT * 2);
         $box = $this->alloc(0x3c);
         $this->initUint32($box + 0x0c, 0x240); // Width
         $this->initUint32($box + 0x10, 0x40); // Height
         $this->initUint16($box + 0x20, 2);
         $this->initUint16($box + 0x22, 2);
 
-        $this->initUint32($box + 0x2c, $charCodes);
-        $this->initUint16($charCodes + 0x00, 0);
-        $this->initUint16($charCodes + 0x02, 0xffed);
-        $this->initUint16($charCodes + 0x04, 42);
-        $this->initUint16($charCodes + 0x06, 69);
+        $this->initUint32($box + 0x2c, $glyphIndexes);
+        $this->initUint16($glyphIndexes + 0x00, 0);
+        $this->initUint16($glyphIndexes + 0x02, 0xffed);
+        $this->initUint16($glyphIndexes + 0x04, 42);
+        $this->initUint16($glyphIndexes + 0x06, 69);
 
         $text = $this->allocString('');
 
@@ -42,7 +42,7 @@ return new class extends TestCase {
         $this->shouldWriteWord($var_8c1bc7a0 + 69 * 2, -1);
 
         for ($i = 0; $i < $GLYPH_COUNT; $i++) {
-            $this->shouldWriteWord($charCodes + $i * 2, 0xffff);
+            $this->shouldWriteWord($glyphIndexes + $i * 2, 0xffff);
         }
 
         $this->shouldWriteLong($box + 0x38, $text);
@@ -57,10 +57,10 @@ return new class extends TestCase {
     {
         $this->resolveSymbols();
 
-        $charCodes = $this->alloc(4);
+        $glyphIndexes = $this->alloc(4);
         $box = $this->alloc(0x3c);
-        $this->initUint32($box + 0x2c, $charCodes);
-        $this->initUint16($charCodes, -1);
+        $this->initUint32($box + 0x2c, $glyphIndexes);
+        $this->initUint16($glyphIndexes, -1);
 
         $text = $this->allocString('');
 
@@ -79,14 +79,14 @@ return new class extends TestCase {
         $WIDTH = 0x240;
         $HEIGHT = 0x40;
 
-        $charCodes = $this->alloc(4);
+        $glyphIndexes = $this->alloc(4);
         $box = $this->alloc(0x3c);
         $this->initUint32($box + 0x0c, $WIDTH);
         $this->initUint32($box + 0x10, $HEIGHT);
-        $this->initUint32($box + 0x2c, $charCodes);
+        $this->initUint32($box + 0x2c, $glyphIndexes);
         $lineOffsets = $this->alloc((int) ($HEIGHT * 4 / 32));
         $this->initUint32($box + 0x34, $lineOffsets);
-        $this->initUint16($charCodes, -1);
+        $this->initUint16($glyphIndexes, -1);
 
         // Note that these are wide characters
         $textStr = 'Ｔｈｅ　ｑｕｉｃｋ　ｂｒｏｗｎ　ｆｏｘ';
@@ -129,14 +129,14 @@ return new class extends TestCase {
         $WIDTH = 0x240;
         $HEIGHT = 0x40;
 
-        $charCodes = $this->alloc(4);
+        $glyphIndexes = $this->alloc(4);
         $box = $this->alloc(0x3c);
         $this->initUint32($box + 0x0c, $WIDTH);
         $this->initUint32($box + 0x10, $HEIGHT);
-        $this->initUint32($box + 0x2c, $charCodes);
+        $this->initUint32($box + 0x2c, $glyphIndexes);
         $lineOffsets = $this->alloc((int) ($HEIGHT * 4 / 32));
         $this->initUint32($box + 0x34, $lineOffsets);
-        $this->initUint16($charCodes, -1);
+        $this->initUint16($glyphIndexes, -1);
 
         // Note that these are wide characters
         $textStr = 'Ｔｈｅ　ｑｕｉｃｋ　ｂｒｏｗｎ　ｆｏｘ　<E>　ｊｕｍｐｓ　ｏｖｅｒ　ｔｈｅ　ｌａｚｙ　ｄｏｇ';
@@ -184,14 +184,14 @@ return new class extends TestCase {
         $WIDTH = 0x240;
         $HEIGHT = 0x40;
 
-        $charCodes = $this->alloc(4);
+        $glyphIndexes = $this->alloc(4);
         $box = $this->alloc(0x3c);
         $this->initUint32($box + 0x0c, $WIDTH);
         $this->initUint32($box + 0x10, $HEIGHT);
-        $this->initUint32($box + 0x2c, $charCodes);
+        $this->initUint32($box + 0x2c, $glyphIndexes);
         $lineOffsets = $this->alloc((int) ($HEIGHT * 4 / 32));
         $this->initUint32($box + 0x34, $lineOffsets);
-        $this->initUint16($charCodes, -1);
+        $this->initUint16($glyphIndexes, -1);
 
         // Note that these are wide characters
         $textStr = 'Ｔｈｅ　ｑｕｉｃｋ　ｂｒｏｗｎ　<E>　ｆｏｘ　ｊｕｍｐｓ　ｏｖｅｒ　<E>　ｔｈｅ　ｌａｚｙ　ｄｏｇ';
@@ -244,14 +244,14 @@ return new class extends TestCase {
         $WIDTH = 0x240;
         $HEIGHT = 0x40;
 
-        $charCodes = $this->alloc(4);
+        $glyphIndexes = $this->alloc(4);
         $box = $this->alloc(0x3c);
         $this->initUint32($box + 0x0c, $WIDTH);
         $this->initUint32($box + 0x10, $HEIGHT);
-        $this->initUint32($box + 0x2c, $charCodes);
+        $this->initUint32($box + 0x2c, $glyphIndexes);
         $lineOffsets = $this->alloc((int) ($HEIGHT * 4 / 32));
         $this->initUint32($box + 0x34, $lineOffsets);
-        $this->initUint16($charCodes, -1);
+        $this->initUint16($glyphIndexes, -1);
 
         // Note that these are wide characters
         $textStr = 'Ｔｈｅ　ｑｕｉｃｋ　<E>　ｂｒｏｗｎ　ｆｏｘ　<E>　ｊｕｍｐｓ　ｏｖｅｒ　<E>　ｔｈｅ　ｌａｚｙ　ｄｏｇ';
@@ -305,14 +305,14 @@ return new class extends TestCase {
         $WIDTH = 0x240;
         $HEIGHT = 0x40;
 
-        $charCodes = $this->alloc(4);
+        $glyphIndexes = $this->alloc(4);
         $box = $this->alloc(0x3c);
         $this->initUint32($box + 0x0c, $WIDTH);
         $this->initUint32($box + 0x10, $HEIGHT);
-        $this->initUint32($box + 0x2c, $charCodes);
+        $this->initUint32($box + 0x2c, $glyphIndexes);
         $lineOffsets = $this->alloc((int) ($HEIGHT * 4 / 32));
         $this->initUint32($box + 0x34, $lineOffsets);
-        $this->initUint16($charCodes, -1);
+        $this->initUint16($glyphIndexes, -1);
 
         // Note that these are wide characters
         $textStr = 'Ｔｈｅ　ｑｕｉｃｋ　ｂｒｏｗｎ　ｆｏｘ　ｊｕｍｐｓ　ｏｖｅｒ　ｔｈｅ　ｌａｚｙ　ｄｏｇ';
@@ -359,14 +359,14 @@ return new class extends TestCase {
         $WIDTH = 0x240;
         $HEIGHT = 0x40;
 
-        $charCodes = $this->alloc(4);
+        $glyphIndexes = $this->alloc(4);
         $box = $this->alloc(0x3c);
         $this->initUint32($box + 0x0c, $WIDTH);
         $this->initUint32($box + 0x10, $HEIGHT);
-        $this->initUint32($box + 0x2c, $charCodes);
+        $this->initUint32($box + 0x2c, $glyphIndexes);
         $lineOffsets = $this->alloc((int) ($HEIGHT * 4 / 32));
         $this->initUint32($box + 0x34, $lineOffsets);
-        $this->initUint16($charCodes, -1);
+        $this->initUint16($glyphIndexes, -1);
 
         // Note that these are wide characters
         $textStr = 'Ｔｈｅ　ｑｕｉｃｋ　ｂｒｏｗｎ　ｆｏｘ　ｊｕｍｐＴｈｅ　ｑｕｉｃｋ　ｂｒｏｗｎ　ｆｏｘ　ｊｕｍｐＴｈｅ　ｑｕｉｃｋ　ｂｒｏｗｎ　ｆｏｘ　ｊｕｍｐ';

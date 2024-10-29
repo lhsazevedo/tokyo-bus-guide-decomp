@@ -1,6 +1,8 @@
 #include <shinobi.h>
 #include "015ab8_title.h"
 
+extern void* var_busFont_8c1ba1c8;
+
 struct ResourceGroupSpriteEntry {
     int sprite_no_0x00;
     float x_0x04;
@@ -189,13 +191,13 @@ Uint16 getGlyphIndex_8c015034(Uint16 character_code)
     }
 }
 
-#define PACKED_GLYPH_SIZE   0xc0
+#define PACKED_GLYPH_SIZE     0xc0
 #define UNPACKED_GLYPH_SIZE 0xc0 * 4
 #define GLYPH_TEXTURE_WIDTH 32
-#define GLYPH_TEXTURE_SIZE  GLYPH_TEXTURE_WIDTH * GLYPH_TEXTURE_WIDTH
-#define GLYPH_WIDTH    24
-#define GLYPH_HEIGHT   32
-#define GLYPH_PALETTE_SIZE  4
+#define GLYPH_TEXTURE_SIZE   GLYPH_TEXTURE_WIDTH * GLYPH_TEXTURE_WIDTH
+#define GLYPH_WIDTH            24
+#define GLYPH_HEIGHT          32
+#define GLYPH_PALETTE_SIZE   4
 
 /**
  * Unpacks and processes a glyph's texture data from the compressed font.
@@ -205,11 +207,11 @@ Uint16 getGlyphIndex_8c015034(Uint16 character_code)
  * using a provided color array. The final texture twiddled for rendering.
  *
  * @param char_code The character code corresponding to the glyph to unpack.
- * @param colors An array of four 16-bit color values used to translate the unpacked font data.
+ * @param palette An array of four 16-bit color values used to translate the unpacked font data.
  * @param font The compressed font data.
  * @param dest The destination buffer for the twiddled texture data.
  */
-unpackGlyph_8c015110(Uint16 char_code, Uint16 colors[GLYPH_PALETTE_SIZE], Uint8 *font, Sint16 *dest)
+unpackGlyph_8c015110(Uint16 char_code, Uint16 palette[GLYPH_PALETTE_SIZE], Uint8 *font, Sint16 *dest)
 {
     /* Buffer for the unpacked font data */
     Uint8 unpacked[UNPACKED_GLYPH_SIZE] = {0};
@@ -239,8 +241,8 @@ unpackGlyph_8c015110(Uint16 char_code, Uint16 colors[GLYPH_PALETTE_SIZE], Uint8 
             continue;
 
         color_index = unpacked[j++];
-        if (color_index < GLYPH_PALETTE_SIZE) {
-            mapped[i] = colors[color_index];
+        if (color_index < GLYPH_PALETTE_SIZE) { // TODO: Is this present in the original code?
+            mapped[i] = palette[color_index];
         }
     }
 
@@ -249,13 +251,12 @@ unpackGlyph_8c015110(Uint16 char_code, Uint16 colors[GLYPH_PALETTE_SIZE], Uint8 
 }
 
 extern Sint16 *var_8c1bc7a0;
-extern void *var_8c1bc7a4;
-extern void *var_8c1bc78c;
+extern void *var_glyphBuffer_8c1bc7a4;
+extern NJS_TEXNAME *var_glyphTexnames_8c1bc78c;
 extern NJS_TEXLIST *var_glyphTexlists_8c1bc790;
-extern void *var_8c1bc794[3];
-extern void *var_8c1bc79c;
-extern Sint16 init_8c044128[];
-extern Sint16 init_8c04413c[];
+extern ResourceGroup var_fontResourceGroup_8c1bc794;
+extern NJS_TEXANIM init_tanim_8c044128;
+extern Sint16 init_contents_8c04413c[];
 
 void FUN_alloc_8c01524c()
 {
@@ -265,11 +266,12 @@ void FUN_alloc_8c01524c()
         var_8c1bc7a0[i] = (Uint16) -1;
     }
 
-    var_8c1bc7a4 = syMalloc(0x800);
-    var_8c1bc78c = syMalloc(0x1800);
+    var_glyphBuffer_8c1bc7a4 =
+        syMalloc(GLYPH_TEXTURE_WIDTH * GLYPH_TEXTURE_WIDTH * sizeof(Uint16));
+    var_glyphTexnames_8c1bc78c = syMalloc(0x200 * sizeof(NJS_TEXNAME));
     var_glyphTexlists_8c1bc790 = syMalloc(0x200 * sizeof(NJS_TEXLIST));
-    var_8c1bc794[1] = init_8c044128;
-    var_8c1bc794[2] = init_8c04413c;
+    var_fontResourceGroup_8c1bc794.tanim_0x04 = &init_tanim_8c044128;
+    var_fontResourceGroup_8c1bc794.contents_0x08 = &init_contents_8c04413c;
 }
 
 void FUN_free_8c01529c()
@@ -281,72 +283,71 @@ void FUN_free_8c01529c()
         }
     };
     syFree(var_glyphTexlists_8c1bc790);
-    syFree(var_8c1bc78c);
-    syFree(var_8c1bc7a4);
+    syFree(var_glyphTexnames_8c1bc78c);
+    syFree(var_glyphBuffer_8c1bc7a4);
     syFree(var_8c1bc7a0);
 }
 
 typedef struct {
-    int field_0x00;
-    int field_0x04;
-    float field_0x08;
+    int x_0x00;
+    int y_0x04;
+    float priority_0x08;
     int width_0x0c;
     int height_0x10;
     int field_0x14;
     int field_0x18;
-    Uint16 field_0x1c;
-    Uint16 field_0x1e;
+    Uint16 processed_char_count_0x1c;
+    Uint16 processed_tag_count_0x1e;
     Uint16 character_count_0x20;
     Uint16 tag_count_0x22;
-    Uint16 field_0x24;
-    Uint16 field_0x26;
-    Uint16 field_0x28;
-    Uint16 field_0x2a;
-    Uint16 *char_codes_0x2c;
+    // TODO: Extract to a struct
+    Uint16 palette_0x24[GLYPH_PALETTE_SIZE];
+    Uint16 *glyph_indexes_0x2c;
     int field_0x30;
     Float *line_offsets_0x34;
-    void *text_0x38;
+    unsigned char *text_0x38;
 } TextBox;
 
 /**
  * Creates a TextBox with the specified parameters.
  *
- * @param p1 The value for field_0x00.
- * @param p2 The value for field_0x04.
- * @param p3 The value for field_0x08.
- * @param width The width of the TextBox.
- * @param height The height of the TextBox.
- * @param p6 The value for field_0x14.
- * @param p7 The value for field_0x18.
- * @param p8 The value for field_0x30.
  * @return A pointer to the created TextBox.
  */
-TextBox* createTextBox_8c0152fc(int p1, int p2, float p3, int width, int height, int p6, int p7, int p8)
+TextBox* createTextBox_8c0152fc(
+    int p1,
+    int p2,
+    float priority,
+    int width,
+    int height,
+    int p6,
+    int p7,
+    int p8
+)
 {
     // Sample parameters
     // 0x20, 0x178, -2.0, 0x240,
     // 0x40,     0,    0,    -1,
-    int character_count;
+    int max_chars;
     int i;
     TextBox *box = syMalloc(sizeof(TextBox));
-    box->field_0x00 = p1;
-    box->field_0x04 = p2;
-    box->field_0x08 = p3;
+    box->x_0x00 = p1;
+    box->y_0x04 = p2;
+    box->priority_0x08 = priority;
     box->width_0x0c = width;
     box->height_0x10 = height;
     box->field_0x14 = p6;
     box->field_0x18 = p7;
-    box->field_0x24 = 0x0000;
-    box->field_0x26 = 0xa94a;
-    box->field_0x28 = 0xbdef;
-    box->field_0x2a = 0xc631;
-    character_count = 0x28 + (width / GLYPH_WIDTH) * (height / GLYPH_HEIGHT);
-    box->char_codes_0x2c = syMalloc(character_count * sizeof(Uint16));
-    box->line_offsets_0x34 = syMalloc(height / 0x20 * sizeof(Float));
+    box->palette_0x24[0] = 0x0000;
+    box->palette_0x24[1] = 0xa94a;
+    box->palette_0x24[2] = 0xbdef;
+    box->palette_0x24[3] = 0xc631;
+    max_chars = 0x28 + (width / GLYPH_WIDTH) * (height / GLYPH_HEIGHT);
+    box->glyph_indexes_0x2c = syMalloc(max_chars * sizeof(Uint16));
+    box->line_offsets_0x34 = syMalloc(height / GLYPH_HEIGHT * sizeof(Float));
     box->field_0x30 = p8;
 
-    for (i = 0; i < character_count; i++) {
-        box->char_codes_0x2c[i] = (Uint16) -1;
+    for (i = 0; i < max_chars; i++) {
+        box->glyph_indexes_0x2c[i] = (Uint16) -1;
     }
 
     box->text_0x38 = NULL;
@@ -362,8 +363,8 @@ TextBox* createTextBox_8c0152fc(int p1, int p2, float p3, int width, int height,
  */
 void freeTextBox_8c015410(TextBox *box)
 {
-    if (box->char_codes_0x2c) {
-        syFree(box->char_codes_0x2c);
+    if (box->glyph_indexes_0x2c) {
+        syFree(box->glyph_indexes_0x2c);
     }
     if (box->line_offsets_0x34) {
         syFree(box->line_offsets_0x34);
@@ -380,22 +381,22 @@ int prepareTextBoxLayout_8c01543a(TextBox *box, char *text)
     const int characters_per_line = box->width_0x0c / GLYPH_WIDTH;
 
     // Check if the box already contains characters
-    if (*box->char_codes_0x2c != (Uint16) -1) {
+    if (*box->glyph_indexes_0x2c != (Uint16) -1) {
         int i;
         int available_characters;
 
         // Release textures for existing characters
         for (i = 0; i < (box->character_count_0x20 + box->tag_count_0x22); i++) {
-            if (box->char_codes_0x2c[i] < 0xffed) {
-                njReleaseTexture(&var_glyphTexlists_8c1bc790[box->char_codes_0x2c[i]]);
-                var_8c1bc7a0[box->char_codes_0x2c[i]] = -1;
+            if (box->glyph_indexes_0x2c[i] < 0xffed) {
+                njReleaseTexture(&var_glyphTexlists_8c1bc790[box->glyph_indexes_0x2c[i]]);
+                var_8c1bc7a0[box->glyph_indexes_0x2c[i]] = -1;
             }
         }
 
         // Reset character codes
         available_characters = 0x28 + characters_per_line * (box->height_0x10 / GLYPH_HEIGHT);
         for (i = 0; i < available_characters; i++) {
-            box->char_codes_0x2c[i] = 0xffff;
+            box->glyph_indexes_0x2c[i] = 0xffff;
         }
     }
 
@@ -418,8 +419,8 @@ int prepareTextBoxLayout_8c01543a(TextBox *box, char *text)
     character_count = (strlen(text) - box->tag_count_0x22 * 3) / 2;
 
     box->text_0x38 = text;
-    box->field_0x1c = 0;
-    box->field_0x1e = 0;
+    box->processed_char_count_0x1c = 0;
+    box->processed_tag_count_0x1e = 0;
     box->character_count_0x20 = character_count;
 
     // Initialize line offsets
@@ -461,4 +462,157 @@ int prepareTextBoxLayout_8c01543a(TextBox *box, char *text)
     }
 
     return character_count;
+}
+
+int menuTextboxTextSub_8c0155e0(float p1, float p2, TextBox *box, int limit)
+{
+    int i;
+    int token_limit;
+    int row = 0;
+    int col = 0;
+
+    if (box->text_0x38 == NULL || !*box->text_0x38) {
+        return 0;
+    }
+
+    if (box->character_count_0x20 >= limit) {
+        token_limit = box->processed_tag_count_0x1e + limit;
+    } else {
+        token_limit = box->character_count_0x20 + box->tag_count_0x22;
+    }
+
+    for (i = 0; i < token_limit; i++) {
+        // Load glyph
+        if ((box->processed_char_count_0x1c + box->processed_tag_count_0x1e) <= i) {
+            unsigned char *currentChar;
+            unsigned nextChar; // Move down the scope?
+
+            currentChar = box->text_0x38
+                + box->processed_tag_count_0x1e * 3
+                + box->processed_char_count_0x1c * 2;
+
+            if (*currentChar == '<') {
+                nextChar = currentChar[1];
+                switch (nextChar) {
+                    case 'E':
+                        box->glyph_indexes_0x2c[i] = 0xFFFE;
+                        break;
+                    case 'D':
+                        box->glyph_indexes_0x2c[i] = 0xFFFD;
+                        box->palette_0x24[0] = 0;
+                        box->palette_0x24[1] = 0xA94A;
+                        box->palette_0x24[2] = 0xBDEF;
+                        box->palette_0x24[3] = 0xC631;
+                        break;
+                    case 'C':
+                        box->glyph_indexes_0x2c[i] = 0xFFFC;
+                        break;
+                    case 'R':
+                        box->glyph_indexes_0x2c[i] = 0xFFFB;
+                        box->palette_0x24[0] = 0;
+                        box->palette_0x24[1] = 0xD14A;
+                        box->palette_0x24[2] = 0xE5EF;
+                        box->palette_0x24[3] = 0xFE10;
+                        break;
+                }
+
+                box->processed_tag_count_0x1e++;
+            } else {
+                int glyphIndex = 0;
+
+                // Load glyph
+                // TODO: Extract 0x200 to a constant
+                while (glyphIndex < 0x200) {
+                    if (var_8c1bc7a0[glyphIndex] == -1) {
+                        NJS_TEXINFO texInfo;
+
+                        unpackGlyph_8c015110(
+                            (*currentChar << 8) | currentChar[1],
+                            box->palette_0x24,
+                            var_busFont_8c1ba1c8,
+                            var_glyphBuffer_8c1bc7a4
+                        );
+
+                        njSetTextureInfo(
+                            &texInfo,
+                            var_glyphBuffer_8c1bc7a4,
+                            0x100,
+                            GLYPH_TEXTURE_WIDTH,
+                            GLYPH_TEXTURE_WIDTH
+                        );
+                        njSetTextureName(
+                            &var_glyphTexnames_8c1bc78c[glyphIndex],
+                            &texInfo,
+                            glyphIndex,
+                            NJD_TEXATTR_TYPE_MEMORY | NJD_TEXATTR_GLOBALINDEX
+                        );
+
+                        var_glyphTexlists_8c1bc790[glyphIndex].textures =
+                            &var_glyphTexnames_8c1bc78c[glyphIndex];
+                        var_glyphTexlists_8c1bc790[glyphIndex].nbTexture = 1;
+                        var_8c1bc7a0[glyphIndex] = glyphIndex;
+                        box->glyph_indexes_0x2c[i] = glyphIndex;
+
+                        njLoadTexture(&var_glyphTexlists_8c1bc790[glyphIndex]);
+                        box->processed_char_count_0x1c++;
+                        break;
+                    }
+
+                    glyphIndex++;
+                }
+
+                // Glyph overflow (TODO: improve comment)
+                if (glyphIndex >= 0x200) {
+                    return -1;
+                }
+            }
+        }
+
+        // Draw glyph
+        if (box->glyph_indexes_0x2c[i] < 0xffed) {
+            var_fontResourceGroup_8c1bc794.tlist_0x00 = &var_glyphTexlists_8c1bc790[box->glyph_indexes_0x2c[i]];
+            // Wrap line
+            if ((col + 1) * GLYPH_WIDTH > box->width_0x0c) {
+                col = 0;
+                row++;
+            }
+
+            if ((row + 1) * GLYPH_HEIGHT <= box->height_0x10) {
+                if (box->field_0x30 == -1) {
+                    int x = col * GLYPH_WIDTH + box->x_0x00 + box->field_0x14;
+                    int y = row * GLYPH_HEIGHT + box->y_0x04 + box->field_0x18;
+
+                    x += box->line_offsets_0x34[row] * GLYPH_WIDTH;
+
+                    drawSprite_8c014f54(
+                        &var_fontResourceGroup_8c1bc794,
+                        2000,
+                        x,
+                        y,
+                        box->priority_0x08
+                    );
+                } else {
+                    int x = col + box->x_0x00 + box->field_0x14;
+                    int y = row + box->y_0x04 + box->field_0x18;
+                    drawSprite_8c014f54(
+                        &var_fontResourceGroup_8c1bc794,
+                        2000,
+                        x,
+                        y,
+                        box->priority_0x08
+                    );
+                }
+
+            }
+
+            col++;
+        }
+        // Line break
+        else if (box->glyph_indexes_0x2c[i] == 0xfffe) {
+            col = 0;
+            row += 1;
+        }
+    }
+
+    return 1;
 }

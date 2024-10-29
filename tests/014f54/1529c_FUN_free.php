@@ -19,8 +19,8 @@ return new class extends TestCase {
         $var_glyphTexlists_8c1bc790 = $this->alloc(0x200 * 8);
         $this->initUint32($this->addressOf('_var_glyphTexlists_8c1bc790'), $var_glyphTexlists_8c1bc790);
 
-        $this->initUint32($this->addressOf('_var_8c1bc78c'), 0xcafe0000);
-        $this->initUint32($this->addressOf('_var_8c1bc7a4'), 0xcafe0001);
+        $this->initUint32($this->addressOf('_var_glyphTexnames_8c1bc78c'), 0xcafe0000);
+        $this->initUint32($this->addressOf('_var_glyphBuffer_8c1bc7a4'), 0xcafe0001);
 
         $this->shouldCall('_njReleaseTexture')->with($var_glyphTexlists_8c1bc790 + 0x001 * 8);
         $this->shouldCall('_njReleaseTexture')->with($var_glyphTexlists_8c1bc790 + 0x199 * 8);
@@ -35,7 +35,7 @@ return new class extends TestCase {
 
     protected function resolveSymbols(): void
     {
-        //$this->setSize('_var_8c1bc794', 8);
+        //$this->setSize('_var_fontResourceGroup_8c1bc794', 8);
         // Functions
         // $this->setSize('__divls', 4);
     }

@@ -5,12 +5,12 @@
           .IMPORT     _njTwiddledTexture
           .IMPORT     _var_8c1bc7a0
           .IMPORT     _syMalloc
-          .IMPORT     _var_8c1bc7a4
-          .IMPORT     _var_8c1bc78c
+          .IMPORT     _var_glyphBuffer_8c1bc7a4
+          .IMPORT     _var_glyphTexnames_8c1bc78c
           .IMPORT     _var_glyphTexlists_8c1bc790
-          .IMPORT     _var_8c1bc794
-          .IMPORT     _init_8c044128
-          .IMPORT     _init_8c04413c
+          .IMPORT     _var_fontResourceGroup_8c1bc794
+          .IMPORT     _init_tanim_8c044128
+          .IMPORT     _init_contents_8c04413c
           .IMPORT     _njReleaseTexture
           .IMPORT     _syFree
           .IMPORT     _strlen
@@ -651,12 +651,12 @@ LP_GEN_39385:
           .DATA.L _var_8c1bc7a0
           .DATA.L _syMalloc
           .DATA.L H'0000FFFF
-          .DATA.L _var_8c1bc7a4
-          .DATA.L _var_8c1bc78c
+          .DATA.L _var_glyphBuffer_8c1bc7a4
+          .DATA.L _var_glyphTexnames_8c1bc78c
           .DATA.L _var_glyphTexlists_8c1bc790
-          .DATA.L _var_8c1bc794
-          .DATA.L _init_8c044128
-          .DATA.L _init_8c04413c
+          .DATA.L _var_fontResourceGroup_8c1bc794
+          .DATA.L _init_tanim_8c044128
+          .DATA.L _init_contents_8c04413c
           .DATA.L _njReleaseTexture
           .DATA.L H'0000FFED
           .DATA.L _syFree
@@ -1240,11 +1240,11 @@ LP_GEN_51911:
           .RES.W 1
           .DATA.L _var_8c1bc7a0
           .DATA.L H'0000FFFF
-          .DATA.L _var_8c1bc7a4
+          .DATA.L _var_glyphBuffer_8c1bc7a4
           .DATA.L _var_busFont_8c1ba1c8
           .DATA.L _njSetTextureInfo
           .DATA.L H'40800000
-          .DATA.L _var_8c1bc78c
+          .DATA.L _var_glyphTexnames_8c1bc78c
           .DATA.L _njSetTextureName
           .DATA.L _njLoadTexture
 
@@ -1393,7 +1393,7 @@ LP_GEN_90770:
           .DATA.W H'07D0 ; LP_GEN_90770+0
           .RES.W 1
           .DATA.L H'0000FFED
-          .DATA.L _var_8c1bc794
+          .DATA.L _var_fontResourceGroup_8c1bc794
           .DATA.L _drawSprite_8c014f54
           .DATA.L H'0000FFFE
 

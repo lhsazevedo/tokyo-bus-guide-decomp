@@ -157,11 +157,11 @@
           .EXPORT     _var_8c1bc460
           .EXPORT     _var_8c1bc46c
           .EXPORT     _gBupInfo_8c1bc4ac
-          .EXPORT     _var_8c1bc78c
+          .EXPORT     _var_glyphTexnames_8c1bc78c
           .EXPORT     _var_glyphTexlists_8c1bc790
-          .EXPORT     _var_8c1bc794
+          .EXPORT     _var_fontResourceGroup_8c1bc794
           .EXPORT     _var_8c1bc7a0
-          .EXPORT     _var_8c1bc7a4
+          .EXPORT     _var_glyphBuffer_8c1bc7a4
           .EXPORT     _menuState_8c1bc7a8
           .EXPORT     _var_8c1bc7b4
           .EXPORT     _var_8c1bc7c0
@@ -725,15 +725,15 @@ _var_8c1bc46c:
           .RES.B      64
 _gBupInfo_8c1bc4ac:
           .RES.B      736
-_var_8c1bc78c:
+_var_glyphTexnames_8c1bc78c:
           .RES.B      4
 _var_glyphTexlists_8c1bc790:
           .RES.B      4
-_var_8c1bc794:
+_var_fontResourceGroup_8c1bc794:
           .RES.B      12
 _var_8c1bc7a0:
           .RES.B      4
-_var_8c1bc7a4:
+_var_glyphBuffer_8c1bc7a4:
           .RES.B      4
 _menuState_8c1bc7a8:
           .RES.B      12

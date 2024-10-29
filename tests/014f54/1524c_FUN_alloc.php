@@ -18,24 +18,24 @@ return new class extends TestCase {
         }
 
         $this->shouldCall('_syMalloc')->with(0x800)->andReturn(0xcafe0001);
-        $this->shouldWriteLongTo('_var_8c1bc7a4', 0xcafe0001);
+        $this->shouldWriteLongTo('_var_glyphBuffer_8c1bc7a4', 0xcafe0001);
 
         $this->shouldCall('_syMalloc')->with(0x1800)->andReturn(0xcafe0002);
-        $this->shouldWriteLongTo('_var_8c1bc78c', 0xcafe0002);
+        $this->shouldWriteLongTo('_var_glyphTexnames_8c1bc78c', 0xcafe0002);
 
         $this->shouldCall('_syMalloc')->with(0x200 * 8)->andReturn(0xcafe0003);
         $this->shouldWriteLongTo('_var_glyphTexlists_8c1bc790', 0xcafe0003);
 
-        $this->shouldWriteLong($this->addressOf('_var_8c1bc794') + 4, $this->addressOf('_init_8c044128'));
-        $this->shouldWriteLong($this->addressOf('_var_8c1bc794') + 8, $this->addressOf('_init_8c04413c'));
-        //$this->shouldWriteLongTo('_var_8c1bc79c', $this->addressOf('_init_8c04413c'));
+        $this->shouldWriteLong($this->addressOf('_var_fontResourceGroup_8c1bc794') + 4, $this->addressOf('_init_tanim_8c044128'));
+        $this->shouldWriteLong($this->addressOf('_var_fontResourceGroup_8c1bc794') + 8, $this->addressOf('_init_contents_8c04413c'));
+        //$this->shouldWriteLongTo('_var_8c1bc79c', $this->addressOf('_init_contents_8c04413c'));
 
         $this->call('_FUN_alloc_8c01524c')->run();
     }
 
     protected function resolveSymbols(): void
     {
-        $this->setSize('_var_8c1bc794', 8);
+        $this->setSize('_var_fontResourceGroup_8c1bc794', 8);
         // Functions
         // $this->setSize('__divls', 4);
     }
