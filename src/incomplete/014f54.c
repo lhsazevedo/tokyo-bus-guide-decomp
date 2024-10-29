@@ -191,13 +191,14 @@ Uint16 getGlyphIndex_8c015034(Uint16 character_code)
     }
 }
 
-#define PACKED_GLYPH_SIZE     0xc0
+#define PACKED_GLYPH_SIZE   0xc0
 #define UNPACKED_GLYPH_SIZE 0xc0 * 4
 #define GLYPH_TEXTURE_WIDTH 32
-#define GLYPH_TEXTURE_SIZE   GLYPH_TEXTURE_WIDTH * GLYPH_TEXTURE_WIDTH
-#define GLYPH_WIDTH            24
-#define GLYPH_HEIGHT          32
-#define GLYPH_PALETTE_SIZE   4
+#define GLYPH_TEXTURE_SIZE  GLYPH_TEXTURE_WIDTH * GLYPH_TEXTURE_WIDTH
+#define GLYPH_WIDTH         24
+#define GLYPH_HEIGHT        32
+#define GLYPH_PALETTE_SIZE  4
+#define GLYPH_COUNT         0x200
 
 /**
  * Unpacks and processes a glyph's texture data from the compressed font.
@@ -261,15 +262,15 @@ extern Sint16 init_contents_8c04413c[];
 void FUN_alloc_8c01524c()
 {
     int i;
-    var_8c1bc7a0 = syMalloc(0x200 * sizeof(Sint16));
-    for (i = 0; i < 0x200; i++) {
+    var_8c1bc7a0 = syMalloc(GLYPH_COUNT * sizeof(Sint16));
+    for (i = 0; i < GLYPH_COUNT; i++) {
         var_8c1bc7a0[i] = (Uint16) -1;
     }
 
     var_glyphBuffer_8c1bc7a4 =
         syMalloc(GLYPH_TEXTURE_WIDTH * GLYPH_TEXTURE_WIDTH * sizeof(Uint16));
-    var_glyphTexnames_8c1bc78c = syMalloc(0x200 * sizeof(NJS_TEXNAME));
-    var_glyphTexlists_8c1bc790 = syMalloc(0x200 * sizeof(NJS_TEXLIST));
+    var_glyphTexnames_8c1bc78c = syMalloc(GLYPH_COUNT * sizeof(NJS_TEXNAME));
+    var_glyphTexlists_8c1bc790 = syMalloc(GLYPH_COUNT * sizeof(NJS_TEXLIST));
     var_fontResourceGroup_8c1bc794.tanim_0x04 = &init_tanim_8c044128;
     var_fontResourceGroup_8c1bc794.contents_0x08 = &init_contents_8c04413c;
 }
@@ -277,7 +278,7 @@ void FUN_alloc_8c01524c()
 void FUN_free_8c01529c()
 {
     int i;
-    for (i = 0; i < 0x200; i++) {
+    for (i = 0; i < GLYPH_COUNT; i++) {
         if (var_8c1bc7a0[i] < -19) {
             njReleaseTexture(&var_glyphTexlists_8c1bc790[i]);
         }
@@ -521,8 +522,8 @@ int menuTextboxTextSub_8c0155e0(float p1, float p2, TextBox *box, int limit)
                 int glyphIndex = 0;
 
                 // Load glyph
-                // TODO: Extract 0x200 to a constant
-                while (glyphIndex < 0x200) {
+                // TODO: Extract GLYPH_COUNT to a constant
+                while (glyphIndex < GLYPH_COUNT) {
                     if (var_8c1bc7a0[glyphIndex] == -1) {
                         NJS_TEXINFO texInfo;
 
@@ -562,7 +563,7 @@ int menuTextboxTextSub_8c0155e0(float p1, float p2, TextBox *box, int limit)
                 }
 
                 // Glyph overflow (TODO: improve comment)
-                if (glyphIndex >= 0x200) {
+                if (glyphIndex >= GLYPH_COUNT) {
                     return -1;
                 }
             }
