@@ -44,7 +44,7 @@ typedef struct {
     Uint16 character_count_0x20;
     Uint16 tag_count_0x22;
     Uint16 palette_0x24[GLYPH_PALETTE_SIZE];
-    Uint16 *glyph_indexes_0x2c;
+    Uint16 *tokens_0x2c;
     int enable_offset_0x30;
     Float *line_offsets_0x34;
     unsigned char *text_0x38;
@@ -359,12 +359,12 @@ TextBox* FntCreateTextBox_8c0152fc(
     box->palette_0x24[2] = ARGB1555(1, 15, 15, 15);
     box->palette_0x24[3] = ARGB1555(1, 17, 17, 17);
     max_chars = 0x28 + (width / GLYPH_WIDTH) * (height / GLYPH_HEIGHT);
-    box->glyph_indexes_0x2c = syMalloc(max_chars * sizeof(Uint16));
+    box->tokens_0x2c = syMalloc(max_chars * sizeof(Uint16));
     box->line_offsets_0x34 = syMalloc(height / GLYPH_HEIGHT * sizeof(Float));
     box->enable_offset_0x30 = enable_offset;
 
     for (i = 0; i < max_chars; i++) {
-        box->glyph_indexes_0x2c[i] = (Uint16) -1;
+        box->tokens_0x2c[i] = (Uint16) -1;
     }
 
     box->text_0x38 = NULL;
@@ -380,8 +380,8 @@ TextBox* FntCreateTextBox_8c0152fc(
  */
 void FntDestroyTextBox_8c015410(TextBox *box)
 {
-    if (box->glyph_indexes_0x2c) {
-        syFree(box->glyph_indexes_0x2c);
+    if (box->tokens_0x2c) {
+        syFree(box->tokens_0x2c);
     }
     if (box->line_offsets_0x34) {
         syFree(box->line_offsets_0x34);
@@ -398,17 +398,17 @@ int FntPrepareTextBoxLayout_8c01543a(TextBox *box, char *text)
     const int characters_per_line = box->width_0x0c / GLYPH_WIDTH;
 
     // Check if the box already contains characters
-    if (*box->glyph_indexes_0x2c != (Uint16) -1) {
+    if (*box->tokens_0x2c != (Uint16) -1) {
         int i;
         int available_characters;
 
         // Release textures for existing characters
         for (i = 0; i < box->character_count_0x20 + box->tag_count_0x22; i++) {
-            if (box->glyph_indexes_0x2c[i] < 0xffed) {
+            if (box->tokens_0x2c[i] < 0xffed) {
                 njReleaseTexture(
-                    &var_glyphTexlists_8c1bc790[box->glyph_indexes_0x2c[i]]
+                    &var_glyphTexlists_8c1bc790[box->tokens_0x2c[i]]
                 );
-                var_8c1bc7a0[box->glyph_indexes_0x2c[i]] = -1;
+                var_8c1bc7a0[box->tokens_0x2c[i]] = -1;
             }
         }
 
@@ -416,7 +416,7 @@ int FntPrepareTextBoxLayout_8c01543a(TextBox *box, char *text)
         available_characters =
             0x28 + characters_per_line * (box->height_0x10 / GLYPH_HEIGHT);
         for (i = 0; i < available_characters; i++) {
-            box->glyph_indexes_0x2c[i] = 0xffff;
+            box->tokens_0x2c[i] = 0xffff;
         }
     }
 
@@ -488,7 +488,7 @@ int FntPrepareTextBoxLayout_8c01543a(TextBox *box, char *text)
 
 int FntDrawTextbox_8c0155e0(TextBox *box, int limit)
 {
-    int i = 0;
+    int token_idx = 0;
     int token_limit = 0;
     int row = 0;
     int col = 0;
@@ -503,10 +503,11 @@ int FntDrawTextbox_8c0155e0(TextBox *box, int limit)
         token_limit = box->character_count_0x20 + box->tag_count_0x22;
     }
 
-    for (i = 0; i < token_limit; i++) {
-        // Load glyph
+    for (token_idx = 0; token_idx < token_limit; token_idx++) {
+        // Load glyph if not already loaded
         if (
-            box->processed_char_count_0x1c + box->processed_tag_count_0x1e <= i
+            box->processed_char_count_0x1c + box->processed_tag_count_0x1e <=
+            token_idx
         ) {
             unsigned char *currentChar;
             unsigned nextChar; // Move down the scope?
@@ -519,20 +520,20 @@ int FntDrawTextbox_8c0155e0(TextBox *box, int limit)
                 nextChar = currentChar[1];
                 switch (nextChar) {
                     case 'E':
-                        box->glyph_indexes_0x2c[i] = 0xFFFE;
+                        box->tokens_0x2c[token_idx] = 0xFFFE;
                         break;
                     case 'D':
-                        box->glyph_indexes_0x2c[i] = 0xFFFD;
+                        box->tokens_0x2c[token_idx] = 0xFFFD;
                         box->palette_0x24[0] = ARGB1555(0, 0, 0, 0);
                         box->palette_0x24[1] = ARGB1555(1, 10, 10, 10);
                         box->palette_0x24[2] = ARGB1555(1, 15, 15, 15);
                         box->palette_0x24[3] = ARGB1555(1, 17, 17, 17);
                         break;
                     case 'C':
-                        box->glyph_indexes_0x2c[i] = 0xFFFC;
+                        box->tokens_0x2c[token_idx] = 0xFFFC;
                         break;
                     case 'R':
-                        box->glyph_indexes_0x2c[i] = 0xFFFB;
+                        box->tokens_0x2c[token_idx] = 0xFFFB;
                         box->palette_0x24[0] = ARGB1555(0, 0, 0, 0);
                         box->palette_0x24[1] = ARGB1555(1, 20, 10, 10);
                         box->palette_0x24[2] = ARGB1555(1, 25, 15, 15);
@@ -545,7 +546,6 @@ int FntDrawTextbox_8c0155e0(TextBox *box, int limit)
                 int glyphIndex = 0;
 
                 // Load glyph
-                // TODO: Extract GLYPH_COUNT to a constant
                 while (glyphIndex < GLYPH_COUNT) {
                     if (var_8c1bc7a0[glyphIndex] == -1) {
                         NJS_TEXINFO texInfo;
@@ -575,7 +575,7 @@ int FntDrawTextbox_8c0155e0(TextBox *box, int limit)
                             &var_glyphTexnames_8c1bc78c[glyphIndex];
                         var_glyphTexlists_8c1bc790[glyphIndex].nbTexture = 1;
                         var_8c1bc7a0[glyphIndex] = glyphIndex;
-                        box->glyph_indexes_0x2c[i] = glyphIndex;
+                        box->tokens_0x2c[token_idx] = glyphIndex;
 
                         njLoadTexture(&var_glyphTexlists_8c1bc790[glyphIndex]);
                         box->processed_char_count_0x1c++;
@@ -593,9 +593,9 @@ int FntDrawTextbox_8c0155e0(TextBox *box, int limit)
         }
 
         // Draw glyph
-        if (box->glyph_indexes_0x2c[i] < 0xffed) {
+        if (box->tokens_0x2c[token_idx] < 0xffed) {
             var_fontResourceGroup_8c1bc794.tlist_0x00 =
-                &var_glyphTexlists_8c1bc790[box->glyph_indexes_0x2c[i]];
+                &var_glyphTexlists_8c1bc790[box->tokens_0x2c[token_idx]];
             // Wrap line
             if ((col + 1) * GLYPH_WIDTH > box->width_0x0c) {
                 col = 0;
@@ -633,7 +633,7 @@ int FntDrawTextbox_8c0155e0(TextBox *box, int limit)
             col++;
         }
         // Line break
-        else if (box->glyph_indexes_0x2c[i] == 0xfffe) {
+        else if (box->tokens_0x2c[token_idx] == 0xfffe) {
             col = 0;
             row += 1;
         }
