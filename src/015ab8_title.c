@@ -27,7 +27,7 @@ extern NJS_TEXMEMLIST var_tex_8c157af8;
 extern FUN_8c02ae3e(int p1, int p2, float fp1, int p3, int p4, int p5, int p6, int p7);
 extern void resetUknPvmBool_8c014322();
 extern FUN_8c016182();
-extern FUN_8c0159ac();
+extern FUN_demo_8c0159ac();
 extern void requestSysResgrp_8c018568(ResourceGroup* dds, ResourceGroupInfo* rg);
 extern void requestCommonResources_8c01852c();
 extern void setUknPvmBool_8c014330();
@@ -405,7 +405,7 @@ void task_title_8c015ab8(Task* task, void *state) {
             if (isFading_8c226568 == FALSE) {
                 if (init_8c03bd80 == FALSE) {
                     FUN_8c016182();
-                    FUN_8c0159ac();
+                    FUN_demo_8c0159ac();
                 }
 
                 return;

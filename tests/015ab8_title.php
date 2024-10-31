@@ -1001,7 +1001,7 @@ return new class extends TestCase {
         $this->initUint32($this->addressOf('_isFading_8c226568'), 0);
         $this->shouldReadSymbolOffset('_init_8c03bd80', 0, 0);
         $this->shouldCall('_FUN_8c016182');
-        $this->shouldCall('_FUN_8c0159ac');
+        $this->shouldCall('_FUN_demo_8c0159ac');
 
         $this->call('_task_title_8c015ab8')
             ->with(0xbebacafe, 0)

@@ -17,11 +17,22 @@
     ((a & 0x1) << 15) | ((r & 0x1F) << 10) | ((g & 0x1F) << 5) | (b & 0x1F) \
 )
 
+extern char const_system_8c035f74[];
+
 extern NJS_TEXANIM init_tanim_8c044128;
 extern Sint16 init_contents_8c04413c[];
 
+typedef struct {
+    char *filename;
+    int field_0x04;
+    int field_0x08;
+} DemoEntry;
+extern DemoEntry init_demos_8c044154[];
+
+extern void setUknPvmBool_8c014330();
+
 extern void *var_busFont_8c1ba1c8;
-extern int *var_8c1ba3c4;
+extern int *var_demoBuf_8c1ba3c4;
 extern NJS_TEXNAME *var_glyphTexnames_8c1bc78c;
 extern NJS_TEXLIST *var_glyphTexlists_8c1bc790;
 extern ResourceGroup var_fontResourceGroup_8c1bc794;
@@ -30,6 +41,11 @@ extern void *var_glyphBuffer_8c1bc7a4;
 extern void *var_8c1bc828;
 extern int var_8c1bb868;
 extern int var_8c1bb8c8;
+extern int var_demo_8c1bb8d0;
+extern int var_8c1bb8d4;
+extern int var_demoIndex_8c1bb8d8;
+extern int var_8c227e14;
+extern int var_8c22822c;
 
 typedef struct {
     int sprite_no_0x00;
@@ -657,14 +673,43 @@ void FUN_8c01594c(Task *task)
         return;
     }
 
-    var_8c1bb868 = var_8c1ba3c4[1];
-    var_8c1bb8c8 = var_8c1ba3c4[2];
-    var_seed_8c157a64 = var_8c1ba3c4[3];
+    var_8c1bb868 = var_demoBuf_8c1ba3c4[1];
+    var_8c1bb8c8 = var_demoBuf_8c1ba3c4[2];
+    var_seed_8c157a64 = var_demoBuf_8c1ba3c4[3];
     local = &var_8c1bc828;
     FUN_8c02f320();
-    FUN_8c02fa14(&var_8c1ba3c4[4], &local, var_8c1ba3c4[0]);
-    syFree(var_8c1ba3c4);
-    var_8c1ba3c4 = (int *) -1;
+    FUN_readDemo_8c02fa14(&var_demoBuf_8c1ba3c4[4], &local, var_demoBuf_8c1ba3c4[0]);
+    syFree(var_demoBuf_8c1ba3c4);
+    var_demoBuf_8c1ba3c4 = (int *) -1;
     freeTask_8c014b66(task);
     FUN_8c01328c();
+}
+
+void FUN_demo_8c0159ac()
+{
+    Task *created_task;
+    void *created_state;
+    pushTask_8c014ae8(
+        var_tasks_8c1ba3c8, FUN_8c01594c, &created_task, &created_state, 0
+    );
+    created_task->field_0x08 = 0;
+    // created_task->field_0x0c = NULL;
+    var_demo_8c1bb8d0 = 2;
+    var_8c1bb8d4 = 1;
+    var_demoIndex_8c1bb8d8++;
+    if (var_demoIndex_8c1bb8d8 >= 19) {
+        var_demoIndex_8c1bb8d8 = 0;
+    }
+    AsqInitQueues_11f36(1,0,0,0);
+    AsqResetQueues_11f6c();
+    AsqRequestDat_11182(
+        &const_system_8c035f74, // "\\SYSTEM",
+        init_demos_8c044154[var_demoIndex_8c1bb8d8].filename,
+        &var_demoBuf_8c1ba3c4
+    );
+    var_8c227e14 = init_demos_8c044154[var_demoIndex_8c1bb8d8].field_0x04;
+    var_8c22822c = init_demos_8c044154[var_demoIndex_8c1bb8d8].field_0x08;
+    resetUknPvmBool_8c014322();
+    AsqProcessQueues_11fe0(AsqNop_11120, 0, 0, 0, setUknPvmBool_8c014330);
+    return;
 }

@@ -40,17 +40,26 @@ $sh4objtest "tests/014f54/15034_getGlyphDatOffset.php" "build/output/014f54_c.ob
 $sh4objtest "tests/014f54/15110_unpackGlyphTexture.php" "build/output/014f54_src.obj"
 $sh4objtest "tests/014f54/15110_unpackGlyphTexture.php" "build/output/014f54_c.obj"
 
-$sh4objtest "tests/014f54/1524c_FUN_alloc.php" "build/output/014f54_src.obj"
-$sh4objtest "tests/014f54/1524c_FUN_alloc.php" "build/output/014f54_c.obj"
+$sh4objtest "tests/014f54/1524c_FntInit.php" "build/output/014f54_src.obj"
+$sh4objtest "tests/014f54/1524c_FntInit.php" "build/output/014f54_c.obj"
 
-$sh4objtest "tests/014f54/1529c_FUN_free.php" "build/output/014f54_src.obj"
-$sh4objtest "tests/014f54/1529c_FUN_free.php" "build/output/014f54_c.obj"
+$sh4objtest "tests/014f54/1529c_FntDestroy.php" "build/output/014f54_src.obj"
+$sh4objtest "tests/014f54/1529c_FntDestroy.php" "build/output/014f54_c.obj"
 
-$sh4objtest "tests/014f54/152fc_createTextBox.php" "build/output/014f54_src.obj"
-$sh4objtest "tests/014f54/152fc_createTextBox.php" "build/output/014f54_c.obj"
+$sh4objtest "tests/014f54/152fc_FntCreateTextBox.php" "build/output/014f54_src.obj"
+$sh4objtest "tests/014f54/152fc_FntCreateTextBox.php" "build/output/014f54_c.obj"
 
-$sh4objtest "tests/014f54/1543a_prepareTextBoxLayout.php" "build/output/014f54_src.obj"
-$sh4objtest "tests/014f54/1543a_prepareTextBoxLayout.php" "build/output/014f54_c.obj"
+$sh4objtest "tests/014f54/1543a_FntPrepareTextBoxLayout.php" "build/output/014f54_src.obj"
+$sh4objtest "tests/014f54/1543a_FntPrepareTextBoxLayout.php" "build/output/014f54_c.obj"
+
+$sh4objtest "tests/014f54/155e0_FntDrawTextbox.php" "build/output/014f54_src.obj"
+$sh4objtest "tests/014f54/155e0_FntDrawTextbox.php" "build/output/014f54_c.obj"
+
+$sh4objtest "tests/014f54/1594c_FUN.php" "build/output/014f54_src.obj"
+$sh4objtest "tests/014f54/1594c_FUN.php" "build/output/014f54_c.obj"
+
+$sh4objtest "tests/014f54/159ac_FUN_demo.php" "build/output/014f54_src.obj"
+$sh4objtest "tests/014f54/159ac_FUN_demo.php" "build/output/014f54_c.obj"
 
 # 0100bc_sound
 assemble  src/asm/decompiled/0100bc_sound.src

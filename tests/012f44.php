@@ -443,13 +443,13 @@ return new class extends TestCase {
         $this->shouldWriteTo('_var_8c1ba348', -1);
         $this->shouldWriteTo('_var_8c1ba344', -1);
         $this->shouldWriteTo('_var_8c225fb0', -1);
-        $this->shouldWriteTo('_var_8c1ba3c4', -1);
+        $this->shouldWriteTo('_var_demoBuf_8c1ba3c4', -1);
         $this->shouldWriteTo('_var_8c1bc454', -1);
         $this->shouldWriteTo('_var_selectedVm_8c1ba34c', -1);
 
 
         $this->shouldWriteTo('_var_8c1bb8c4', 0);
-        $this->shouldWriteTo('_var_8c1bb8d8', 100);
+        $this->shouldWriteTo('_var_demoIndex_8c1bb8d8', 100);
         $this->shouldWriteTo('_var_8c157a6c', 0);
 
         $this->shouldCall('_FUN_8c01c8dc');
@@ -597,13 +597,13 @@ return new class extends TestCase {
         $this->shouldWriteTo('_var_8c1ba348', -1);
         $this->shouldWriteTo('_var_8c1ba344', -1);
         $this->shouldWriteTo('_var_8c225fb0', -1);
-        $this->shouldWriteTo('_var_8c1ba3c4', -1);
+        $this->shouldWriteTo('_var_demoBuf_8c1ba3c4', -1);
         $this->shouldWriteTo('_var_8c1bc454', -1);
         $this->shouldWriteTo('_var_selectedVm_8c1ba34c', -1);
 
 
         $this->shouldWriteTo('_var_8c1bb8c4', 0);
-        $this->shouldWriteTo('_var_8c1bb8d8', 100);
+        $this->shouldWriteTo('_var_demoIndex_8c1bb8d8', 100);
         $this->shouldWriteTo('_var_8c157a6c', 0);
 
         $this->shouldCall('_FUN_8c01c8dc');
@@ -751,13 +751,13 @@ return new class extends TestCase {
         $this->shouldWriteTo('_var_8c1ba348', -1);
         $this->shouldWriteTo('_var_8c1ba344', -1);
         $this->shouldWriteTo('_var_8c225fb0', -1);
-        $this->shouldWriteTo('_var_8c1ba3c4', -1);
+        $this->shouldWriteTo('_var_demoBuf_8c1ba3c4', -1);
         $this->shouldWriteTo('_var_8c1bc454', -1);
         $this->shouldWriteTo('_var_selectedVm_8c1ba34c', -1);
 
 
         $this->shouldWriteTo('_var_8c1bb8c4', 0);
-        $this->shouldWriteTo('_var_8c1bb8d8', 100);
+        $this->shouldWriteTo('_var_demoIndex_8c1bb8d8', 100);
         $this->shouldWriteTo('_var_8c157a6c', 0);
 
         $this->shouldCall('_FUN_8c01c8dc');
@@ -906,12 +906,12 @@ return new class extends TestCase {
         $this->shouldWriteTo('_var_8c1ba348', -1);
         $this->shouldWriteTo('_var_8c1ba344', -1);
         $this->shouldWriteTo('_var_8c225fb0', -1);
-        $this->shouldWriteTo('_var_8c1ba3c4', -1);
+        $this->shouldWriteTo('_var_demoBuf_8c1ba3c4', -1);
         $this->shouldWriteTo('_var_8c1bc454', -1);
         $this->shouldWriteTo('_var_selectedVm_8c1ba34c', -1);
 
         $this->shouldWriteTo('_var_8c1bb8c4', 0);
-        $this->shouldWriteTo('_var_8c1bb8d8', 100);
+        $this->shouldWriteTo('_var_demoIndex_8c1bb8d8', 100);
         $this->shouldWriteTo('_var_8c157a6c', 0);
 
         $this->shouldCall('_FUN_8c01c8dc');

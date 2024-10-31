@@ -139,10 +139,10 @@
           .IMPORT     _var_8c1ba348
           .IMPORT     _var_8c1ba344
           .IMPORT     _var_8c225fb0
-          .IMPORT     _var_8c1ba3c4
+          .IMPORT     _var_demoBuf_8c1ba3c4
           .IMPORT     _var_8c1bc454
           .IMPORT     _var_selectedVm_8c1ba34c
-          .IMPORT     _var_8c1bb8d8
+          .IMPORT     _var_demoIndex_8c1bb8d8
           .IMPORT     _var_8c157a6c
           .IMPORT     _FUN_8c01c8dc
           .IMPORT     _FUN_8c0189d2
@@ -1200,11 +1200,11 @@ LP_GEN_90231:
           .DATA.L _var_8c1ba348
           .DATA.L _var_8c1ba344
           .DATA.L _var_8c225fb0
-          .DATA.L _var_8c1ba3c4
+          .DATA.L _var_demoBuf_8c1ba3c4
           .DATA.L _var_8c1bc454
           .DATA.L _var_selectedVm_8c1ba34c
           .DATA.L _var_8c1bb8c4
-          .DATA.L _var_8c1bb8d8
+          .DATA.L _var_demoIndex_8c1bb8d8
           .DATA.L _var_8c157a6c
           .DATA.L _FUN_8c01c8dc
           .DATA.L _FUN_8c0189d2

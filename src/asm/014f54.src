@@ -19,24 +19,24 @@
           .IMPORT     _njSetTextureName
           .IMPORT     _njLoadTexture
           .IMPORT     _getUknPvmBool_8c01432a
-          .IMPORT     _var_8c1ba3c4
+          .IMPORT     _var_demoBuf_8c1ba3c4
           .IMPORT     _var_8c1bb868
           .IMPORT     _var_8c1bb8c8
           .IMPORT     _var_seed_8c157a64
           .IMPORT     _var_8c1bc828
           .IMPORT     _FUN_8c02f320
-          .IMPORT     _FUN_8c02fa14
+          .IMPORT     _FUN_readDemo_8c02fa14
           .IMPORT     _freeTask_8c014b66
           .IMPORT     _FUN_8c01328c
           .IMPORT     _var_tasks_8c1ba3c8
           .IMPORT     _pushTask_8c014ae8
           .IMPORT     _var_demo_8c1bb8d0
           .IMPORT     _var_8c1bb8d4
-          .IMPORT     _var_8c1bb8d8
+          .IMPORT     _var_demoIndex_8c1bb8d8
           .IMPORT     _AsqInitQueues_11f36
           .IMPORT     _AsqResetQueues_11f6c
-          .IMPORT     _init_8c044154
-          .IMPORT     _const_8c035f74
+          .IMPORT     _init_demos_8c044154
+          .IMPORT     _const_system_8c035f74
           .IMPORT     _AsqRequestDat_11182
           .IMPORT     _var_8c227e14
           .IMPORT     _var_8c22822c
@@ -52,7 +52,7 @@
           .EXPORT     _FntDestroyTextBox_8c015410
           .EXPORT     _FntPrepareTextBoxLayout_8c01543a
           .EXPORT     _FntDrawTextbox_8c0155e0
-          .EXPORT     _FUN_8c0159ac
+          .EXPORT     _FUN_demo_8c0159ac
 
           .AIFDEF UNIT_TESTING
           .EXPORT     _getGlyphIndex_8c015034
@@ -1448,7 +1448,7 @@ LAB_8c0159a4:
           LDS.L       @R15+,PR
           RTS
           MOV.L       @R15+,R14
-_FUN_8c0159ac:
+_FUN_demo_8c0159ac:
           MOV.L       R14,@-R15
           STS.L       PR,@-R15
           ADD         #-H'8,R15
@@ -1531,13 +1531,13 @@ LAB_8c0159ec
 
 LP_GEN_51554:
           .DATA.L _getUknPvmBool_8c01432a ; LP_GEN_51554+0
-          .DATA.L _var_8c1ba3c4
+          .DATA.L _var_demoBuf_8c1ba3c4
           .DATA.L _var_8c1bb868
           .DATA.L _var_8c1bb8c8
           .DATA.L _var_seed_8c157a64
           .DATA.L _var_8c1bc828
           .DATA.L _FUN_8c02f320
-          .DATA.L _FUN_8c02fa14
+          .DATA.L _FUN_readDemo_8c02fa14
           .DATA.L _syFree
           .DATA.L _freeTask_8c014b66
           .DATA.L _FUN_8c01328c
@@ -1546,11 +1546,11 @@ LP_GEN_51554:
           .DATA.L _pushTask_8c014ae8
           .DATA.L _var_demo_8c1bb8d0
           .DATA.L _var_8c1bb8d4
-          .DATA.L _var_8c1bb8d8
+          .DATA.L _var_demoIndex_8c1bb8d8
           .DATA.L _AsqInitQueues_11f36
           .DATA.L _AsqResetQueues_11f6c
-          .DATA.L _init_8c044154
-          .DATA.L _const_8c035f74
+          .DATA.L _init_demos_8c044154
+          .DATA.L _const_system_8c035f74
           .DATA.L _AsqRequestDat_11182
           .DATA.L _var_8c227e14
           .DATA.L _var_8c22822c

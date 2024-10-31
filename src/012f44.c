@@ -356,7 +356,7 @@ extern void* var_8c1ba2e0;
 extern void* var_8c1ba348;
 extern void* var_8c1ba344;
 extern void* var_8c225fb0;
-extern int* var_8c1ba3c4;
+extern int* var_demoBuf_8c1ba3c4;
 extern void* var_8c1bc454;
 extern void* var_selectedVm_8c1ba34c;
 extern BusState var_busState_8c1bb9d0;
@@ -365,7 +365,7 @@ extern void* var_8c1bbddc;
 extern void* var_8c1bbfdc;
 
 extern int var_8c1bb8c4;
-extern int var_8c1bb8d8;
+extern int var_demoIndex_8c1bb8d8;
 
 extern void* var_mark_parts_dat_8c1bc41c;
 extern void* var_mark_dat_8c1bc420;
@@ -739,12 +739,12 @@ void njUserInit_8c0134ec() {
     var_8c1ba348 = (void *) -1;
     var_8c1ba344 = (void *) -1;
     var_8c225fb0 = (void *) -1;
-    var_8c1ba3c4 = (void *) -1;
+    var_demoBuf_8c1ba3c4 = (void *) -1;
     var_8c1bc454 = (void *) -1;
     var_selectedVm_8c1ba34c = (void *) -1;
 
     var_8c1bb8c4 = 0;
-    var_8c1bb8d8 = 100;
+    var_demoIndex_8c1bb8d8 = 100;
     var_8c157a6c = 0;
 
     FUN_8c01c8dc();

@@ -51,7 +51,7 @@
           .EXPORT     _var_peripheral_8c1ba35c
           .EXPORT     _var_8c1ba374
           .EXPORT     _var_8c1ba376
-          .EXPORT     _var_8c1ba3c4
+          .EXPORT     _var_demoBuf_8c1ba3c4
           .EXPORT     _var_tasks_8c1ba3c8
           .EXPORT     _var_tasks_8c1ba5e8
           .EXPORT     _var_tasks_8c1ba808
@@ -75,7 +75,7 @@
           .EXPORT     _var_8c1bb8cc
           .EXPORT     _var_demo_8c1bb8d0
           .EXPORT     _var_8c1bb8d4
-          .EXPORT     _var_8c1bb8d8
+          .EXPORT     _var_demoIndex_8c1bb8d8
           .EXPORT     _var_8c1bb8dc
           .EXPORT     _var_8c1bb8e0
           .EXPORT     _var_8c1bb8e4
@@ -513,7 +513,7 @@ _var_8c1ba374:
           .RES.B      2
 _var_8c1ba376:
           .RES.B      78
-_var_8c1ba3c4:
+_var_demoBuf_8c1ba3c4:
           .RES.B      4
 _var_tasks_8c1ba3c8:
           .RES.B      544
@@ -561,7 +561,7 @@ _var_demo_8c1bb8d0:
           .RES.B      4
 _var_8c1bb8d4:
           .RES.B      4
-_var_8c1bb8d8:
+_var_demoIndex_8c1bb8d8:
           .RES.B      4
 _var_8c1bb8dc:
           .RES.B      4

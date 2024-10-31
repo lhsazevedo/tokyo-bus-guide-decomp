@@ -807,7 +807,7 @@
           .IMPORT     _const_8c03b968
           .EXPORT     _init_tanim_8c044128 ; 014f54
           .EXPORT     _init_contents_8c04413c ; 014f54
-          .EXPORT     _init_8c044154 ; 014f54
+          .EXPORT     _init_demos_8c044154 ; 014f54
           .EXPORT     _init_8c044158
           .EXPORT     _init_8c04415c
           .EXPORT     _init_8c044264 ; 016d2c
@@ -1632,7 +1632,7 @@ _init_contents_8c04413c:        ; from defines
           .DATA.B      H'00, H'00
           .DATA.B      H'00, H'00
           .DATA.B      H'00, H'00
-_init_8c044154:        ; from defines
+_init_demos_8c044154:        ; from defines
           .DATA.L      _const_8c035f7c ; ukn
 _init_8c044158:        ; from ghidra
           .DATA.B      H'1E, H'00, H'00, H'00

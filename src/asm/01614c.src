@@ -16,7 +16,7 @@
           .IMPORT     _var_8c1bc3f4
           .IMPORT     _FUN_8c013b5a
           .IMPORT     _var_8c1bb868
-          .IMPORT     _var_8c1ba3c4
+          .IMPORT     _var_demoBuf_8c1ba3c4
           .IMPORT     _var_8c1bc454
           .IMPORT     _freeResourceGroups_8c016108
           .IMPORT     _var_selectedVm_8c1ba34c
@@ -57,7 +57,7 @@
           .IMPORT     _const_8c036148
           .IMPORT     _var_8c1bb8d4
           .IMPORT     _FUN_8c02f934
-          .IMPORT     _FUN_8c02fa14
+          .IMPORT     _FUN_readDemo_8c02fa14
           .IMPORT     _sdMidiStopAll
           .IMPORT     _pdVibMxStop
           .IMPORT     _syFree
@@ -424,7 +424,7 @@ LP_GEN_42967:
           .DATA.L _FUN_8c013b5a ; H'8C0163D8
           .DATA.L _var_8c1bb868 ; H'8C0163DC
           .DATA.L _syFree ; H'8C0163E0
-          .DATA.L _var_8c1ba3c4 ; H'8C0163E4
+          .DATA.L _var_demoBuf_8c1ba3c4 ; H'8C0163E4
           .DATA.L _var_8c1bc454 ; H'8C0163E8
           .DATA.L _freeResourceGroups_8c016108 ; H'8C0163EC
           .DATA.L _FUN_8c0187d0 ; H'8C0163F0
@@ -1020,7 +1020,7 @@ LP_GEN_94139:
           .DATA.L _var_demo_8c1bb8d0 ; H'8C016884
           .DATA.L _FUN_8c01328c ; H'8C016888
           .DATA.L _BupGetInfo_8c014bba ; H'8C01688C
-          .DATA.L _var_8c1ba3c4 ; H'8C016890
+          .DATA.L _var_demoBuf_8c1ba3c4 ; H'8C016890
           .DATA.L _var_selectedVm_8c1ba34c ; H'8C016894
           .DATA.L _BupMount_8c014c00 ; H'8C016898
 LAB_8c01689c:
@@ -1264,7 +1264,7 @@ LP_GEN_65913:
           .DATA.L _var_8c225fa8 ; H'8C016A78
           .DATA.L _var_8c225fa8 ; H'8C016A7C
           .DATA.L _var_8c1bc828 ; H'8C016A80
-          .DATA.L _var_8c1ba3c4 ; H'8C016A84
+          .DATA.L _var_demoBuf_8c1ba3c4 ; H'8C016A84
           .DATA.L _syMalloc ; H'8C016A88
           .DATA.L _FUN_8c02f320 ; H'8C016A8C
           .DATA.L _FUN_8c02f934 ; H'8C016A90
@@ -1410,7 +1410,7 @@ LP_GEN_41084:
           .DATA.L _var_seed_8c157a64 ; H'8C016BBC
           .DATA.L _var_8c1bc828 ; H'8C016BC0
           .DATA.L _FUN_8c02f320 ; H'8C016BC4
-          .DATA.L _FUN_8c02fa14 ; H'8C016BC8
+          .DATA.L _FUN_readDemo_8c02fa14 ; H'8C016BC8
           .DATA.L _syFree ; H'8C016BCC
           .DATA.L _BupUnmount_8c014c46 ; H'8C016BD0
           .DATA.L _freeTask_8c014b66 ; H'8C016BD4

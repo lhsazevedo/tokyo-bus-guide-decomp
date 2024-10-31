@@ -7,12 +7,12 @@ use Lhsazevedo\Sh4ObjTest\TestCase;
 return new class extends TestCase {
     public function test_basic()
     {
-        $var_8c1ba3c4 = $this->alloc(5 * 4);
-        $this->initUint32($var_8c1ba3c4 + 0 * 4, 0xcafe0000);
-        $this->initUint32($var_8c1ba3c4 + 1 * 4, 0xcafe0001);
-        $this->initUint32($var_8c1ba3c4 + 2 * 4, 0xcafe0002);
-        $this->initUint32($var_8c1ba3c4 + 3 * 4, 0xcafe0003);
-        $this->initUint32($this->addressOf('_var_8c1ba3c4'), $var_8c1ba3c4);
+        $var_demoBuf_8c1ba3c4 = $this->alloc(5 * 4);
+        $this->initUint32($var_demoBuf_8c1ba3c4 + 0 * 4, 0xcafe0000);
+        $this->initUint32($var_demoBuf_8c1ba3c4 + 1 * 4, 0xcafe0001);
+        $this->initUint32($var_demoBuf_8c1ba3c4 + 2 * 4, 0xcafe0002);
+        $this->initUint32($var_demoBuf_8c1ba3c4 + 3 * 4, 0xcafe0003);
+        $this->initUint32($this->addressOf('_var_demoBuf_8c1ba3c4'), $var_demoBuf_8c1ba3c4);
 
         $this->shouldCall('_getUknPvmBool_8c01432a')->andReturn(1);
 
@@ -25,14 +25,14 @@ return new class extends TestCase {
         $this->shouldWriteLong($local1, $this->addressOf('_var_8c1bc828'));
 
         $this->shouldCall('_FUN_8c02f320');
-        $this->shouldCall('_FUN_8c02fa14')
+        $this->shouldCall('_FUN_readDemo_8c02fa14')
             ->with(
-                $var_8c1ba3c4 + 4 * 4,
+                $var_demoBuf_8c1ba3c4 + 4 * 4,
                 $local1,
                 0xcafe0000
             );
-        $this->shouldCall('_syFree')->with($var_8c1ba3c4);
-        $this->shouldWriteLongTo('_var_8c1ba3c4', -1);
+        $this->shouldCall('_syFree')->with($var_demoBuf_8c1ba3c4);
+        $this->shouldWriteLongTo('_var_demoBuf_8c1ba3c4', -1);
         $this->shouldCall('_freeTask_8c014b66')->with(0xbeba1337);
         $this->shouldCall('_FUN_8c01328c');
 

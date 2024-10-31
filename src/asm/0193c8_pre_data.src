@@ -1,5 +1,5 @@
           .EXPORT     _const_8c035f24
-          .EXPORT     _const_8c035f74
+          .EXPORT     _const_system_8c035f74
           .EXPORT     _const_8c035f7c
           .EXPORT     _const_8c035f88
           .EXPORT     _const_8c035f94
@@ -228,7 +228,7 @@ _const_8c035f24:        ; from defines
           .DATA.W     H'0CC9
           .DATA.W     H'0D27
           .DATA.W     H'0000
-_const_8c035f74:        ; from defines
+_const_system_8c035f74:        ; from defines
           ;.SDATA      "\SYSTEM"
           ;.DATA.B     H'00
           .DATA.B      H'5C, H'53, H'59, H'53, H'54, H'45, H'4D, H'00
