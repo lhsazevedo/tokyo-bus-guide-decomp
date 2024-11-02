@@ -744,6 +744,8 @@ void njUserInit_8c0134ec() {
     var_selectedVm_8c1ba34c = (void *) -1;
 
     var_8c1bb8c4 = 0;
+
+    // Set high index to trigger loop and ensure first demo runs
     var_demoIndex_8c1bb8d8 = 100;
     var_8c157a6c = 0;
 

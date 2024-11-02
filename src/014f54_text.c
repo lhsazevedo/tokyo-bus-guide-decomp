@@ -44,8 +44,8 @@ extern int var_8c1bb8c8;
 extern int var_demo_8c1bb8d0;
 extern int var_8c1bb8d4;
 extern int var_demoIndex_8c1bb8d8;
-extern int var_8c227e14;
-extern int var_8c22822c;
+extern int var_demoEntryValue_8c227e14;
+extern int var_demoEntryValue_8c22822c;
 
 typedef struct {
     int sprite_no_0x00;
@@ -275,7 +275,6 @@ STATIC unpackGlyph_8c015110(
     Uint8 *font,
     Sint16 *dest
 ) {
-    //LOG_DEBUG(("Unpacking glyph for character code: %x\n", char_code));
     /* Buffer for the unpacked font data */
     Uint8 unpacked[UNPACKED_GLYPH_SIZE] = {0};
     /* Buffer for the mapped texture */
@@ -318,6 +317,9 @@ STATIC unpackGlyph_8c015110(
 void TxtInit_8c01524c()
 {
     int i;
+
+    LOG_INFO(("[TXT] Initializing text module\n"));
+
     var_8c1bc7a0 = syMalloc(GLYPH_COUNT * sizeof(Sint16));
     for (i = 0; i < GLYPH_COUNT; i++) {
         var_8c1bc7a0[i] = (Uint16) -1;
@@ -333,6 +335,9 @@ void TxtInit_8c01524c()
 void TxtDestroy_8c01529c()
 {
     int i;
+
+    LOG_INFO(("[TXT] Destroying text module\n"));
+
     for (i = 0; i < GLYPH_COUNT; i++) {
         if (var_8c1bc7a0[i] < -19) {
             njReleaseTexture(&var_glyphTexlists_8c1bc790[i]);
@@ -360,12 +365,17 @@ TextBox* TxtCreateTextBox_8c0152fc(
     int enable_offset
 )
 {
-    // Sample parameters
-    // 0x20, 0x178, -2.0, 0x240,
-    // 0x40,     0,    0,    -1,
     int max_chars;
     int i;
     TextBox *box = syMalloc(sizeof(TextBox));
+
+    LOG_INFO((
+        "[TXT] Creating TextBox instance:\n"
+        "      x=%d, y=%d, priority=%f, width=%d, height=%d, "
+        "      x2=%d, y2=%d, enable_offset=%d\n",
+        x, y, priority, width, height, x2, y2, enable_offset
+    ));
+
     box->x_0x00 = x;
     box->y_0x04 = y;
     box->priority_0x08 = priority;
@@ -692,8 +702,7 @@ void FUN_demo_8c0159ac()
     // created_task->field_0x0c = NULL;
     var_demo_8c1bb8d0 = 2;
     var_8c1bb8d4 = 1;
-    var_demoIndex_8c1bb8d8++;
-    if (var_demoIndex_8c1bb8d8 >= 19) {
+    if (++var_demoIndex_8c1bb8d8 >= 20) {
         var_demoIndex_8c1bb8d8 = 0;
     }
     AsqInitQueues_11f36(1,0,0,0);
@@ -703,8 +712,10 @@ void FUN_demo_8c0159ac()
         init_demos_8c044154[var_demoIndex_8c1bb8d8].filename,
         &var_demoBuf_8c1ba3c4
     );
-    var_8c227e14 = init_demos_8c044154[var_demoIndex_8c1bb8d8].field_0x04;
-    var_8c22822c = init_demos_8c044154[var_demoIndex_8c1bb8d8].field_0x08;
+    var_demoEntryValue_8c227e14 =
+        init_demos_8c044154[var_demoIndex_8c1bb8d8].field_0x04;
+    var_demoEntryValue_8c22822c =
+        init_demos_8c044154[var_demoIndex_8c1bb8d8].field_0x08;
     resetUknPvmBool_8c014322();
     AsqProcessQueues_11fe0(AsqNop_11120, 0, 0, 0, setUknPvmBool_8c014330);
     return;

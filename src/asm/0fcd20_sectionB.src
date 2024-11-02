@@ -284,7 +284,7 @@
           .EXPORT     _var_8c227e00
           .EXPORT     _var_8c227e0c
           .EXPORT     _var_8c227e10
-          .EXPORT     _var_8c227e14
+          .EXPORT     _var_demoEntryValue_8c227e14
           .EXPORT     _var_8c227e18
           .EXPORT     _var_8c227e1c
           .EXPORT     _var_8c227e20
@@ -292,7 +292,7 @@
           .EXPORT     _var_8c227e28
           .EXPORT     _var_8c227e2c
           .EXPORT     _var_8c22802c
-          .EXPORT     _var_8c22822c
+          .EXPORT     _var_demoEntryValue_8c22822c
           .EXPORT     _var_8c228230
           .EXPORT     _var_8c228234
           .EXPORT     _var_8c228238
@@ -979,7 +979,7 @@ _var_8c227e0c:
           .RES.B      4
 _var_8c227e10:
           .RES.B      4
-_var_8c227e14:
+_var_demoEntryValue_8c227e14:
           .RES.B      4
 _var_8c227e18:
           .RES.B      4
@@ -995,7 +995,7 @@ _var_8c227e2c:
           .RES.B      512
 _var_8c22802c:
           .RES.B      512
-_var_8c22822c:
+_var_demoEntryValue_8c22822c:
           .RES.B      4
 _var_8c228230:
           .RES.B      4

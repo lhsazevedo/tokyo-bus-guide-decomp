@@ -52,7 +52,7 @@
           .IMPORT     _freeTask_8c014b66
           .IMPORT     _init_8c04623c
           .IMPORT     _var_8c1bbd8c
-          .IMPORT     _var_8c22822c
+          .IMPORT     _var_demoEntryValue_8c22822c
           .IMPORT     _var_8c22823c
           .IMPORT     _var_8c228240
           .IMPORT     _var_tasks_8c1ba808
@@ -2659,7 +2659,7 @@ LP_GEN_26341:
           .DATA.L _var_8c2264d4 ; H'8C0294B0
           .DATA.L H'00FF0000 ; H'8C0294B4
           .DATA.L _var_8c1bbd8c ; H'8C0294B8
-          .DATA.L _var_8c22822c ; H'8C0294BC
+          .DATA.L _var_demoEntryValue_8c22822c ; H'8C0294BC
           .DATA.L _var_8c228230 ; H'8C0294C0
           .DATA.L _var_8c228234 ; H'8C0294C4
           .DATA.L _var_8c22823c ; H'8C0294C8
