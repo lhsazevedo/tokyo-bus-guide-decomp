@@ -28,8 +28,8 @@ rm -rf build/output
 mkdir build/output
 
 # 014f44
-assemble  src/asm/014f54.src
-compile  src/incomplete/014f54.c
+assemble  src/asm/decompiled/014f54.src
+compile  src/014f54.c
 
 $sh4objtest "tests/014f54/14f54_drawSprite.php" "build/output/014f54_src.obj"
 $sh4objtest "tests/014f54/14f54_drawSprite.php" "build/output/014f54_c.obj"
