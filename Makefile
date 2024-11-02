@@ -79,7 +79,7 @@ C_SRCS = \
 	src/0149b0_sbinit.c \
 	src/014a9c_tasks.c \
 	src/014b8c_backup.c \
-	src/014f54.c \
+	src/014f54_text.c \
 	src/015ab8_title.c \
 	src/016108.c \
 	src/016c58_prompt.c \
