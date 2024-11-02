@@ -285,7 +285,7 @@ STATIC unpackGlyph_8c015110(
     /* Buffer for the mapped texture */
     Sint16 mapped[GLYPH_TEXTURE_SIZE] = {0};
 
-    Uint16 offset = getGlyphIndex_8c015034(char_code) * PACKED_GLYPH_SIZE;
+    size_t offset = getGlyphIndex_8c015034(char_code) * PACKED_GLYPH_SIZE;
     size_t i;
     size_t j;
 
