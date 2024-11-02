@@ -50,3 +50,13 @@ fi
 
 sed -i "s/https:\/\/progress-bar.dev\/[0-9]\+/https:\/\/progress-bar.dev\/$progress_percentage_int/" "$readme_file"
 echo "README progress bar updated."
+
+# Update SVG progress bar
+svg_file="progress.svg"
+svg_bar_width=$(echo "scale=2; 300 * $progress_percentage / 100" | bc)
+
+sed -i -E "s/(<rect rx=\"4\" x=\"0\" width=\")[0-9.]+/\1$svg_bar_width/" "$svg_file"
+sed -i -E "s/(<text x=\"150.0\" y=\"15\"[^>]*>)[0-9.]+/\1$progress_percentage/" "$svg_file"
+sed -i -E "s/(<text x=\"150.0\" y=\"14\">)[0-9.]+/\1$progress_percentage/" "$svg_file"
+
+echo "SVG progress bar updated."
