@@ -12,6 +12,7 @@ ASM_SRCS = \
 	src/asm/0129cc.src \
 	src/asm/013ae8_pre_data.src \
 	src/asm/013ae8.src \
+	src/asm/014f54_text_pre_data.src \
 	src/asm/01614c.src \
 	src/asm/016bf4.src \
 	src/asm/016d2c.src \

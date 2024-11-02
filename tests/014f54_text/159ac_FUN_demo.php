@@ -119,7 +119,6 @@ return new class extends TestCase {
 
     protected function resolveSymbols(): void
     {
-        $this->setSize('_init_demos_8c044154', 20 * 0xc);
         // Functions
         $this->setSize('_getUknPvmBool_8c01432a', 4);
         // $this->setSize('_strlen', 4);

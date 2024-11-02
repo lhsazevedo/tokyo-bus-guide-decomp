@@ -1,11 +1,29 @@
 ; 8c014f54
           .IMPORT     _const_8c035f24
+          .IMPORT     _const_8c035f7c
+          .IMPORT     _const_8c035f88
+          .IMPORT     _const_8c035f94
+          .IMPORT     _const_8c035fa0
+          .IMPORT     _const_8c035fac
+          .IMPORT     _const_8c035f7c
+          .IMPORT     _const_8c035f88
+          .IMPORT     _const_8c035f94
+          .IMPORT     _const_8c035fa0
+          .IMPORT     _const_8c035fac
+          .IMPORT     _const_8c035f7c
+          .IMPORT     _const_8c035f88
+          .IMPORT     _const_8c035f94
+          .IMPORT     _const_8c035fa0
+          .IMPORT     _const_8c035fac
+          .IMPORT     _const_8c035f7c
+          .IMPORT     _const_8c035f88
+          .IMPORT     _const_8c035f94
+          .IMPORT     _const_8c035fa0
+          .IMPORT     _const_8c035fac
           .IMPORT     __slow_mvn
           .IMPORT     __divls
           .IMPORT     _njTwiddledTexture
           .IMPORT     _syMalloc
-          .IMPORT     _init_tanim_8c044128
-          .IMPORT     _init_contents_8c04413c
           .IMPORT     _njReleaseTexture
           .IMPORT     _syFree
           .IMPORT     _strlen
@@ -30,7 +48,6 @@
           .IMPORT     _var_demoIndex_8c1bb8d8
           .IMPORT     _AsqInitQueues_11f36
           .IMPORT     _AsqResetQueues_11f6c
-          .IMPORT     _init_demos_8c044154
           .IMPORT     _const_system_8c035f74
           .IMPORT     _AsqRequestDat_11182
           .IMPORT     _var_demoEntryValue_8c227e14
@@ -54,6 +71,10 @@
           .EXPORT     _getGlyphIndex_8c015034
           .EXPORT     _unpackGlyph_8c015110
           .EXPORT     _FUN_8c01594c
+
+          .EXPORT     _init_tanim_8c044128 ; 014f54
+          .EXPORT     _init_contents_8c04413c ; 014f54
+          .EXPORT     _init_demos_8c044154 ; 014f54
 
           .EXPORT     _var_glyphTexnames_8c1bc78c
           .EXPORT     _var_glyphTexlists_8c1bc790
@@ -1560,6 +1581,74 @@ LP_GEN_51554:
           .DATA.L _setUknPvmBool_8c014330
           .DATA.L _AsqNop_11120
           .DATA.L _AsqProcessQueues_11fe0
+_init_tanim_8c044128:        ; from defines
+          .DATA.B      H'18, H'00
+          .DATA.B      H'20, H'00
+          .DATA.B      H'00, H'00
+          .DATA.B      H'00, H'00
+          .DATA.B      H'00, H'00
+          .DATA.B      H'00, H'00
+          .DATA.B      H'B8, H'00
+          .DATA.B      H'F8, H'00
+          .DATA.B      H'00, H'00
+          .DATA.B      H'00, H'00
+_init_contents_8c04413c:        ; from defines
+          .DATA.B      H'00, H'00
+          .DATA.B      H'00, H'00
+          .DATA.B      H'00, H'00
+          .DATA.B      H'00, H'00
+          .DATA.B      H'00, H'00
+          .DATA.B      H'00, H'00
+          .DATA.B      H'FF, H'FF
+          .DATA.B      H'FF, H'FF
+          .DATA.B      H'00, H'00
+          .DATA.B      H'00, H'00
+          .DATA.B      H'00, H'00
+          .DATA.B      H'00, H'00
+_init_demos_8c044154:        ; from defines
+          .DATA.L      _const_8c035f7c ; ukn
+_init_8c044158:        ; from ghidra
+          .DATA.B      H'1E, H'00, H'00, H'00
+_init_8c04415c:        ; from ghidra
+          .DATA.B      H'15, H'00, H'00, H'00
+          .DATA.L      _const_8c035f88 ; ukn
+          .DATA.B      H'0F, H'00, H'00, H'00, H'06, H'00, H'00, H'00
+          .DATA.L      _const_8c035f94 ; ukn
+          .DATA.B      H'0E, H'00, H'00, H'00, H'09, H'00, H'00, H'00
+          .DATA.L      _const_8c035fa0 ; ukn
+          .DATA.B      H'08, H'00, H'00, H'00, H'04, H'00, H'00, H'00
+          .DATA.L      _const_8c035fac ; ukn
+          .DATA.B      H'0B, H'00, H'00, H'00, H'04, H'00, H'00, H'00
+          .DATA.L      _const_8c035f7c ; ukn
+          .DATA.B      H'1E, H'00, H'00, H'00, H'15, H'00, H'00, H'00
+          .DATA.L      _const_8c035f88 ; ukn
+          .DATA.B      H'0F, H'00, H'00, H'00, H'06, H'00, H'00, H'00
+          .DATA.L      _const_8c035f94 ; ukn
+          .DATA.B      H'0E, H'00, H'00, H'00, H'09, H'00, H'00, H'00
+          .DATA.L      _const_8c035fa0 ; ukn
+          .DATA.B      H'08, H'00, H'00, H'00, H'04, H'00, H'00, H'00
+          .DATA.L      _const_8c035fac ; ukn
+          .DATA.B      H'0B, H'00, H'00, H'00, H'04, H'00, H'00, H'00
+          .DATA.L      _const_8c035f7c ; ukn
+          .DATA.B      H'1E, H'00, H'00, H'00, H'15, H'00, H'00, H'00
+          .DATA.L      _const_8c035f88 ; ukn
+          .DATA.B      H'0F, H'00, H'00, H'00, H'06, H'00, H'00, H'00
+          .DATA.L      _const_8c035f94 ; ukn
+          .DATA.B      H'0E, H'00, H'00, H'00, H'09, H'00, H'00, H'00
+          .DATA.L      _const_8c035fa0 ; ukn
+          .DATA.B      H'08, H'00, H'00, H'00, H'04, H'00, H'00, H'00
+          .DATA.L      _const_8c035fac ; ukn
+          .DATA.B      H'0B, H'00, H'00, H'00, H'04, H'00, H'00, H'00
+          .DATA.L      _const_8c035f7c ; ukn
+          .DATA.B      H'1E, H'00, H'00, H'00, H'15, H'00, H'00, H'00
+          .DATA.L      _const_8c035f88 ; ukn
+          .DATA.B      H'0F, H'00, H'00, H'00, H'06, H'00, H'00, H'00
+          .DATA.L      _const_8c035f94 ; ukn
+          .DATA.B      H'0E, H'00, H'00, H'00, H'09, H'00, H'00, H'00
+          .DATA.L      _const_8c035fa0 ; ukn
+          .DATA.B      H'08, H'00, H'00, H'00, H'04, H'00, H'00, H'00
+          .DATA.L      _const_8c035fac ; ukn
+          .DATA.B      H'0B, H'00, H'00, H'00, H'04, H'00, H'00, H'00
           .SECTION    B,DATA,ALIGN=4
 _var_glyphTexnames_8c1bc78c:
           .RES.L      1
