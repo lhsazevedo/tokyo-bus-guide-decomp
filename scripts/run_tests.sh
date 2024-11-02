@@ -40,20 +40,20 @@ $sh4objtest "tests/014f54/15034_getGlyphDatOffset.php" "build/output/014f54_c.ob
 $sh4objtest "tests/014f54/15110_unpackGlyphTexture.php" "build/output/014f54_src.obj"
 $sh4objtest "tests/014f54/15110_unpackGlyphTexture.php" "build/output/014f54_c.obj"
 
-$sh4objtest "tests/014f54/1524c_FntInit.php" "build/output/014f54_src.obj"
-$sh4objtest "tests/014f54/1524c_FntInit.php" "build/output/014f54_c.obj"
+$sh4objtest "tests/014f54/1524c_TxtInit.php" "build/output/014f54_src.obj"
+$sh4objtest "tests/014f54/1524c_TxtInit.php" "build/output/014f54_c.obj"
 
-$sh4objtest "tests/014f54/1529c_FntDestroy.php" "build/output/014f54_src.obj"
-$sh4objtest "tests/014f54/1529c_FntDestroy.php" "build/output/014f54_c.obj"
+$sh4objtest "tests/014f54/1529c_TxtDestroy.php" "build/output/014f54_src.obj"
+$sh4objtest "tests/014f54/1529c_TxtDestroy.php" "build/output/014f54_c.obj"
 
-$sh4objtest "tests/014f54/152fc_FntCreateTextBox.php" "build/output/014f54_src.obj"
-$sh4objtest "tests/014f54/152fc_FntCreateTextBox.php" "build/output/014f54_c.obj"
+$sh4objtest "tests/014f54/152fc_TxtCreateTextBox.php" "build/output/014f54_src.obj"
+$sh4objtest "tests/014f54/152fc_TxtCreateTextBox.php" "build/output/014f54_c.obj"
 
-$sh4objtest "tests/014f54/1543a_FntPrepareTextBoxLayout.php" "build/output/014f54_src.obj"
-$sh4objtest "tests/014f54/1543a_FntPrepareTextBoxLayout.php" "build/output/014f54_c.obj"
+$sh4objtest "tests/014f54/1543a_TxtPrepareTextBoxLayout.php" "build/output/014f54_src.obj"
+$sh4objtest "tests/014f54/1543a_TxtPrepareTextBoxLayout.php" "build/output/014f54_c.obj"
 
-$sh4objtest "tests/014f54/155e0_FntDrawTextbox.php" "build/output/014f54_src.obj"
-$sh4objtest "tests/014f54/155e0_FntDrawTextbox.php" "build/output/014f54_c.obj"
+$sh4objtest "tests/014f54/155e0_TxtDrawTextbox.php" "build/output/014f54_src.obj"
+$sh4objtest "tests/014f54/155e0_TxtDrawTextbox.php" "build/output/014f54_c.obj"
 
 $sh4objtest "tests/014f54/1594c_FUN.php" "build/output/014f54_src.obj"
 $sh4objtest "tests/014f54/1594c_FUN.php" "build/output/014f54_c.obj"
