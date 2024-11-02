@@ -14,7 +14,6 @@ ASM_SRCS = \
 	src/asm/0129cc.src \
 	src/asm/013ae8_pre_data.src \
 	src/asm/013ae8.src \
-	src/asm/014f54.src \
 	src/asm/01614c.src \
 	src/asm/016bf4.src \
 	src/asm/016d2c.src \
@@ -80,6 +79,7 @@ C_SRCS = \
 	src/0149b0_sbinit.c \
 	src/014a9c_tasks.c \
 	src/014b8c_backup.c \
+	src/014f54.c \
 	src/015ab8_title.c \
 	src/016108.c \
 	src/016c58_prompt.c \
