@@ -39,7 +39,7 @@ compile  src/014934.c
 compile  src/0149b0_sbinit.c
 compile  src/014a9c_tasks.c
 compile  src/014b8c_backup.c
-assemble src/asm/014f54.src
+assemble src/asm/014f54_text.src
 assemble src/asm/decompiled/015ab8_title.src
 compile  src/016108.c
 assemble src/asm/01614c.src

@@ -28,38 +28,38 @@ rm -rf build/output
 mkdir build/output
 
 # 014f44
-assemble  src/asm/decompiled/014f54.src
-compile  src/014f54.c
+assemble  src/asm/decompiled/014f54_text.src
+compile  src/014f54_text.c
 
-$sh4objtest "tests/014f54/14f54_drawSprite.php" "build/output/014f54_src.obj"
-$sh4objtest "tests/014f54/14f54_drawSprite.php" "build/output/014f54_c.obj"
+$sh4objtest "tests/014f54_text/14f54_drawSprite.php" "build/output/014f54_text_src.obj"
+$sh4objtest "tests/014f54_text/14f54_drawSprite.php" "build/output/014f54_text_c.obj"
 
-$sh4objtest "tests/014f54/15034_getGlyphDatOffset.php" "build/output/014f54_src.obj"
-$sh4objtest "tests/014f54/15034_getGlyphDatOffset.php" "build/output/014f54_c.obj"
+$sh4objtest "tests/014f54_text/15034_getGlyphDatOffset.php" "build/output/014f54_text_src.obj"
+$sh4objtest "tests/014f54_text/15034_getGlyphDatOffset.php" "build/output/014f54_text_c.obj"
 
-$sh4objtest "tests/014f54/15110_unpackGlyphTexture.php" "build/output/014f54_src.obj"
-$sh4objtest "tests/014f54/15110_unpackGlyphTexture.php" "build/output/014f54_c.obj"
+$sh4objtest "tests/014f54_text/15110_unpackGlyphTexture.php" "build/output/014f54_text_src.obj"
+$sh4objtest "tests/014f54_text/15110_unpackGlyphTexture.php" "build/output/014f54_text_c.obj"
 
-$sh4objtest "tests/014f54/1524c_TxtInit.php" "build/output/014f54_src.obj"
-$sh4objtest "tests/014f54/1524c_TxtInit.php" "build/output/014f54_c.obj"
+$sh4objtest "tests/014f54_text/1524c_TxtInit.php" "build/output/014f54_text_src.obj"
+$sh4objtest "tests/014f54_text/1524c_TxtInit.php" "build/output/014f54_text_c.obj"
 
-$sh4objtest "tests/014f54/1529c_TxtDestroy.php" "build/output/014f54_src.obj"
-$sh4objtest "tests/014f54/1529c_TxtDestroy.php" "build/output/014f54_c.obj"
+$sh4objtest "tests/014f54_text/1529c_TxtDestroy.php" "build/output/014f54_text_src.obj"
+$sh4objtest "tests/014f54_text/1529c_TxtDestroy.php" "build/output/014f54_text_c.obj"
 
-$sh4objtest "tests/014f54/152fc_TxtCreateTextBox.php" "build/output/014f54_src.obj"
-$sh4objtest "tests/014f54/152fc_TxtCreateTextBox.php" "build/output/014f54_c.obj"
+$sh4objtest "tests/014f54_text/152fc_TxtCreateTextBox.php" "build/output/014f54_text_src.obj"
+$sh4objtest "tests/014f54_text/152fc_TxtCreateTextBox.php" "build/output/014f54_text_c.obj"
 
-$sh4objtest "tests/014f54/1543a_TxtPrepareTextBoxLayout.php" "build/output/014f54_src.obj"
-$sh4objtest "tests/014f54/1543a_TxtPrepareTextBoxLayout.php" "build/output/014f54_c.obj"
+$sh4objtest "tests/014f54_text/1543a_TxtPrepareTextBoxLayout.php" "build/output/014f54_text_src.obj"
+$sh4objtest "tests/014f54_text/1543a_TxtPrepareTextBoxLayout.php" "build/output/014f54_text_c.obj"
 
-$sh4objtest "tests/014f54/155e0_TxtDrawTextbox.php" "build/output/014f54_src.obj"
-$sh4objtest "tests/014f54/155e0_TxtDrawTextbox.php" "build/output/014f54_c.obj"
+$sh4objtest "tests/014f54_text/155e0_TxtDrawTextbox.php" "build/output/014f54_text_src.obj"
+$sh4objtest "tests/014f54_text/155e0_TxtDrawTextbox.php" "build/output/014f54_text_c.obj"
 
-$sh4objtest "tests/014f54/1594c_FUN.php" "build/output/014f54_src.obj"
-$sh4objtest "tests/014f54/1594c_FUN.php" "build/output/014f54_c.obj"
+$sh4objtest "tests/014f54_text/1594c_FUN.php" "build/output/014f54_text_src.obj"
+$sh4objtest "tests/014f54_text/1594c_FUN.php" "build/output/014f54_text_c.obj"
 
-$sh4objtest "tests/014f54/159ac_FUN_demo.php" "build/output/014f54_src.obj"
-$sh4objtest "tests/014f54/159ac_FUN_demo.php" "build/output/014f54_c.obj"
+$sh4objtest "tests/014f54_text/159ac_FUN_demo.php" "build/output/014f54_text_src.obj"
+$sh4objtest "tests/014f54_text/159ac_FUN_demo.php" "build/output/014f54_text_c.obj"
 
 # 0100bc_sound
 assemble  src/asm/decompiled/0100bc_sound.src
