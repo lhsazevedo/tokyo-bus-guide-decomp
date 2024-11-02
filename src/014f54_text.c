@@ -33,17 +33,19 @@ extern void setUknPvmBool_8c014330();
 
 extern void *var_busFont_8c1ba1c8;
 extern int *var_demoBuf_8c1ba3c4;
-extern NJS_TEXNAME *var_glyphTexnames_8c1bc78c;
-extern NJS_TEXLIST *var_glyphTexlists_8c1bc790;
-extern ResourceGroup var_fontResourceGroup_8c1bc794;
-extern Sint16 *var_8c1bc7a0;
-extern void *var_glyphBuffer_8c1bc7a4;
-extern void *var_8c1bc828;
 extern int var_8c1bb868;
 extern int var_8c1bb8c8;
 extern int var_demo_8c1bb8d0;
 extern int var_8c1bb8d4;
 extern int var_demoIndex_8c1bb8d8;
+
+STATIC NJS_TEXNAME *var_glyphTexnames_8c1bc78c;
+STATIC NJS_TEXLIST *var_glyphTexlists_8c1bc790;
+STATIC ResourceGroup var_fontResourceGroup_8c1bc794;
+STATIC Sint16 *var_8c1bc7a0;
+STATIC void *var_glyphBuffer_8c1bc7a4;
+
+extern void *var_8c1bc828;
 extern int var_demoEntryValue_8c227e14;
 extern int var_demoEntryValue_8c22822c;
 
@@ -672,7 +674,7 @@ int TxtDrawTextbox_8c0155e0(TextBox *box, int limit)
     return 1;
 }
 
-void FUN_8c01594c(Task *task)
+STATIC void FUN_8c01594c(Task *task)
 {
     void *local;
     if (!getUknPvmBool_8c01432a()) {

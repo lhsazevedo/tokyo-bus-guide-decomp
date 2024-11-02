@@ -35,9 +35,6 @@ return new class extends TestCase {
 
     protected function resolveSymbols(): void
     {
-        $this->setSize('_var_fontResourceGroup_8c1bc794', 8);
-        // Functions
-        // $this->setSize('__divls', 4);
     }
 
     protected function isAsmObject(): bool

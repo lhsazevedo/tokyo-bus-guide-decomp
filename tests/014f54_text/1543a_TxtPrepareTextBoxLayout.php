@@ -412,7 +412,6 @@ return new class extends TestCase {
 
     protected function resolveSymbols(): void
     {
-        $this->setSize('_var_glyphTexlists_8c1bc790', 4);
         // Functions
         $this->setSize('_njReleaseTexture', 4);
         $this->setSize('__divls', 4);

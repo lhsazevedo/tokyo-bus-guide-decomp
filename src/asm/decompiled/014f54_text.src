@@ -3,12 +3,7 @@
           .IMPORT     __slow_mvn
           .IMPORT     __divls
           .IMPORT     _njTwiddledTexture
-          .IMPORT     _var_8c1bc7a0
           .IMPORT     _syMalloc
-          .IMPORT     _var_glyphBuffer_8c1bc7a4
-          .IMPORT     _var_glyphTexnames_8c1bc78c
-          .IMPORT     _var_glyphTexlists_8c1bc790
-          .IMPORT     _var_fontResourceGroup_8c1bc794
           .IMPORT     _init_tanim_8c044128
           .IMPORT     _init_contents_8c04413c
           .IMPORT     _njReleaseTexture
@@ -54,10 +49,17 @@
           .EXPORT     _TxtDrawTextbox_8c0155e0
           .EXPORT     _FUN_demo_8c0159ac
 
+
           .AIFDEF UNIT_TESTING
           .EXPORT     _getGlyphIndex_8c015034
           .EXPORT     _unpackGlyph_8c015110
           .EXPORT     _FUN_8c01594c
+
+          .EXPORT     _var_glyphTexnames_8c1bc78c
+          .EXPORT     _var_glyphTexlists_8c1bc790
+          .EXPORT     _var_fontResourceGroup_8c1bc794
+          .EXPORT     _var_8c1bc7a0
+          .EXPORT     _var_glyphBuffer_8c1bc7a4
           .AENDI
           .SECTION    P,CODE,ALIGN=4
 _drawSprite_8c014f54:
@@ -1558,6 +1560,16 @@ LP_GEN_51554:
           .DATA.L _setUknPvmBool_8c014330
           .DATA.L _AsqNop_11120
           .DATA.L _AsqProcessQueues_11fe0
-
+          .SECTION    B,DATA,ALIGN=4
+_var_glyphTexnames_8c1bc78c:
+          .RES.L      1
+_var_glyphTexlists_8c1bc790:
+          .RES.L      1
+_var_fontResourceGroup_8c1bc794:
+          .RES.L      3
+_var_8c1bc7a0:
+          .RES.B      4
+_var_glyphBuffer_8c1bc7a4:
+          .RES.B      4
           .END
 

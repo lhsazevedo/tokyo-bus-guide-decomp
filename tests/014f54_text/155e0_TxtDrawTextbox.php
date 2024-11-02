@@ -637,16 +637,11 @@ return new class extends TestCase {
 
     protected function resolveSymbols(): void
     {
-        $this->setSize('_var_glyphTexlists_8c1bc790', 4);
-        $this->setSize('_var_glyphTexnames_8c1bc78c', 4);
-        $this->setSize('_var_glyphBuffer_8c1bc7a4', 4);
         $this->setSize('_var_busFont_8c1ba1c8', 4);
-        $this->setSize('_var_fontResourceGroup_8c1bc794', 0xc);
         // Functions
         $this->setSize('_njSetTextureInfo', 4);
         $this->setSize('_njSetTextureName', 4);
         $this->setSize('_njLoadTexture', 4);
-        // $this->setSize('_strlen', 4);
     }
 
     private function createTextbox(
