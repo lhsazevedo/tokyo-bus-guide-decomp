@@ -17,17 +17,58 @@
     ((a & 0x1) << 15) | ((r & 0x1F) << 10) | ((g & 0x1F) << 5) | (b & 0x1F) \
 )
 
-extern char const_system_8c035f74[];
+typedef struct {
+    int sprite_no_0x00;
+    float x_0x04;
+    float y_0x08;
+} ResourceGroupSpriteEntry;
 
-extern NJS_TEXANIM init_tanim_8c044128;
-extern Sint16 init_contents_8c04413c[];
+STATIC NJS_TEXANIM init_tanim_8c044128 = {
+    GLYPH_WIDTH,  /* width */
+    GLYPH_HEIGHT, /* height */
+    0, 0,         /* center coordinates                 */
+    0, 0,         /* upper left UV coordinates  (0-255) */
+    184, 248,     /* lower right UV coordinates (0-255) */
+    0,            /* number                             */
+    0             /* attribute                          */
+};
+
+STATIC ResourceGroupSpriteEntry init_contents_8c04413c[2] = {
+    { 0, 0, 0 },
+    { -1, 0, 0 }
+};
 
 typedef struct {
-    char *filename;
+    const char *filename;
     int field_0x04;
     int field_0x08;
 } DemoEntry;
-extern DemoEntry init_demos_8c044154[];
+
+STATIC DemoEntry init_demos_8c044154[20] = {
+    { "demo2.bin", 0x1E, 0x15 },
+    { "demo6.bin", 0x0F, 0x06 },
+    { "demo1.bin", 0x0E, 0x09 },
+    { "demo0.bin", 0x08, 0x04 },
+    { "demo5.bin", 0x0B, 0x04 },
+
+    { "demo2.bin", 0x1E, 0x15 },
+    { "demo6.bin", 0x0F, 0x06 },
+    { "demo1.bin", 0x0E, 0x09 },
+    { "demo0.bin", 0x08, 0x04 },
+    { "demo5.bin", 0x0B, 0x04 },
+
+    { "demo2.bin", 0x1E, 0x15 },
+    { "demo6.bin", 0x0F, 0x06 },
+    { "demo1.bin", 0x0E, 0x09 },
+    { "demo0.bin", 0x08, 0x04 },
+    { "demo5.bin", 0x0B, 0x04 },
+
+    { "demo2.bin", 0x1E, 0x15 },
+    { "demo6.bin", 0x0F, 0x06 },
+    { "demo1.bin", 0x0E, 0x09 },
+    { "demo0.bin", 0x08, 0x04 },
+    { "demo5.bin", 0x0B, 0x04 },
+};
 
 extern void setUknPvmBool_8c014330();
 
@@ -48,12 +89,6 @@ STATIC void *var_glyphBuffer_8c1bc7a4;
 extern void *var_8c1bc828;
 extern int var_demoEntryValue_8c227e14;
 extern int var_demoEntryValue_8c22822c;
-
-typedef struct {
-    int sprite_no_0x00;
-    float x_0x04;
-    float y_0x08;
-} ResourceGroupSpriteEntry;
 
 typedef struct {
     int x_0x00;
@@ -710,7 +745,7 @@ void FUN_demo_8c0159ac()
     AsqInitQueues_11f36(1,0,0,0);
     AsqResetQueues_11f6c();
     AsqRequestDat_11182(
-        &const_system_8c035f74, // "\\SYSTEM",
+        "\\SYSTEM",
         init_demos_8c044154[var_demoIndex_8c1bb8d8].filename,
         &var_demoBuf_8c1ba3c4
     );

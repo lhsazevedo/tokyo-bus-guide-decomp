@@ -1,25 +1,4 @@
 ; 8c014f54
-          .IMPORT     _const_8c035f24
-          .IMPORT     _const_8c035f7c
-          .IMPORT     _const_8c035f88
-          .IMPORT     _const_8c035f94
-          .IMPORT     _const_8c035fa0
-          .IMPORT     _const_8c035fac
-          .IMPORT     _const_8c035f7c
-          .IMPORT     _const_8c035f88
-          .IMPORT     _const_8c035f94
-          .IMPORT     _const_8c035fa0
-          .IMPORT     _const_8c035fac
-          .IMPORT     _const_8c035f7c
-          .IMPORT     _const_8c035f88
-          .IMPORT     _const_8c035f94
-          .IMPORT     _const_8c035fa0
-          .IMPORT     _const_8c035fac
-          .IMPORT     _const_8c035f7c
-          .IMPORT     _const_8c035f88
-          .IMPORT     _const_8c035f94
-          .IMPORT     _const_8c035fa0
-          .IMPORT     _const_8c035fac
           .IMPORT     __slow_mvn
           .IMPORT     __divls
           .IMPORT     _njTwiddledTexture
@@ -48,7 +27,6 @@
           .IMPORT     _var_demoIndex_8c1bb8d8
           .IMPORT     _AsqInitQueues_11f36
           .IMPORT     _AsqResetQueues_11f6c
-          .IMPORT     _const_system_8c035f74
           .IMPORT     _AsqRequestDat_11182
           .IMPORT     _var_demoEntryValue_8c227e14
           .IMPORT     _var_demoEntryValue_8c22822c
@@ -71,6 +49,13 @@
           .EXPORT     _getGlyphIndex_8c015034
           .EXPORT     _unpackGlyph_8c015110
           .EXPORT     _FUN_8c01594c
+
+          .EXPORT     _const_system_8c035f74
+          .EXPORT     _const_8c035f7c
+          .EXPORT     _const_8c035f88
+          .EXPORT     _const_8c035f94
+          .EXPORT     _const_8c035fa0
+          .EXPORT     _const_8c035fac
 
           .EXPORT     _init_tanim_8c044128 ; 014f54
           .EXPORT     _init_contents_8c04413c ; 014f54
@@ -1581,6 +1566,78 @@ LP_GEN_51554:
           .DATA.L _setUknPvmBool_8c014330
           .DATA.L _AsqNop_11120
           .DATA.L _AsqProcessQueues_11fe0
+          .SECTION    C,DATA,ALIGN=4
+_const_8c035f24:        ; from defines
+          .DATA.W     H'0000
+          .DATA.W     H'005E
+          .DATA.W     H'006C
+          .DATA.W     H'00AA
+          .DATA.W     H'00FD
+          .DATA.W     H'0153
+          .DATA.W     H'0183
+          .DATA.W     H'01C5
+          .DATA.W     H'0223
+          .DATA.W     H'0281
+          .DATA.W     H'02DF
+          .DATA.W     H'033D
+          .DATA.W     H'039B
+          .DATA.W     H'03F9
+          .DATA.W     H'0457
+          .DATA.W     H'04B5
+          .DATA.W     H'0513
+          .DATA.W     H'0571
+          .DATA.W     H'05CF
+          .DATA.W     H'062D
+          .DATA.W     H'068B
+          .DATA.W     H'06E9
+          .DATA.W     H'0747
+          .DATA.W     H'07A5
+          .DATA.W     H'0803
+          .DATA.W     H'0861
+          .DATA.W     H'08BF
+          .DATA.W     H'091D
+          .DATA.W     H'097B
+          .DATA.W     H'09D9
+          .DATA.W     H'0A37
+          .DATA.W     H'0A95
+          .DATA.W     H'0AF3
+          .DATA.W     H'0B51
+          .DATA.W     H'0BAF
+          .DATA.W     H'0C0D
+          .DATA.W     H'0C6B
+          .DATA.W     H'0CC9
+          .DATA.W     H'0D27
+          .DATA.W     H'0000
+_const_system_8c035f74:        ; from defines
+          ;.SDATA      "\SYSTEM"
+          ;.DATA.B     H'00
+          .DATA.B      H'5C, H'53, H'59, H'53, H'54, H'45, H'4D, H'00
+_const_8c035f7c:        ; from ghidra
+          ;.SDATA      "demo2.bin"
+          ;.DATA.B     H'00
+          ;.RES.B      2
+          .DATA.B      H'64, H'65, H'6D, H'6F, H'32, H'2E, H'62, H'69, H'6E, H'00, H'00, H'00
+_const_8c035f88:        ; from ghidra
+          ;.SDATA      "demo6.bin"
+          ;.DATA.B     H'00
+          ;.RES.B      2
+          .DATA.B      H'64, H'65, H'6D, H'6F, H'36, H'2E, H'62, H'69, H'6E, H'00, H'00, H'00
+_const_8c035f94:        ; from ghidra
+          ;.SDATA      "demo1.bin"
+          ;.DATA.B     H'00
+          ;.RES.B      2
+          .DATA.B      H'64, H'65, H'6D, H'6F, H'31, H'2E, H'62, H'69, H'6E, H'00, H'00, H'00
+_const_8c035fa0:        ; from ghidra
+          ;.SDATA      "demo0.bin"
+          ;.DATA.B     H'00
+          ;.RES.B      2
+          .DATA.B      H'64, H'65, H'6D, H'6F, H'30, H'2E, H'62, H'69, H'6E, H'00, H'00, H'00
+_const_8c035fac:        ; from ghidra
+          ;.SDATA      "demo5.bin"
+          ;.DATA.B     H'00
+          ;.RES.B      2
+          .DATA.B      H'64, H'65, H'6D, H'6F, H'35, H'2E, H'62, H'69, H'6E, H'00, H'00, H'00
+          .SECTION     D,DATA,ALIGN=4
 _init_tanim_8c044128:        ; from defines
           .DATA.B      H'18, H'00
           .DATA.B      H'20, H'00
