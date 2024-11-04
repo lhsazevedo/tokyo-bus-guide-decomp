@@ -4,6 +4,11 @@
 #include "011120_asset_queues.h"
 #include "serial_debug.h"
 
+/* ====================
+ * Compiler Definitions
+ * ====================
+ */
+
 #define PACKED_GLYPH_SIZE   0xc0
 #define UNPACKED_GLYPH_SIZE 0xc0 * 4
 #define GLYPH_TEXTURE_WIDTH 32
@@ -17,11 +22,70 @@
     ((a & 0x1) << 15) | ((r & 0x1F) << 10) | ((g & 0x1F) << 5) | (b & 0x1F) \
 )
 
+/* =================
+ * Type Declarations
+ * =================
+ */
+
 typedef struct {
     int sprite_no_0x00;
     float x_0x04;
     float y_0x08;
 } ResourceGroupSpriteEntry;
+
+typedef struct {
+    const char *filename;
+    int field_0x04;
+    int field_0x08;
+} DemoEntry;
+
+typedef struct {
+    int x_0x00;
+    int y_0x04;
+    float priority_0x08;
+    int width_0x0c;
+    int height_0x10;
+    int x2_0x14;
+    int y2_0x18;
+    Uint16 processed_char_count_0x1c;
+    Uint16 processed_tag_count_0x1e;
+    Uint16 character_count_0x20;
+    Uint16 tag_count_0x22;
+    Uint16 palette_0x24[GLYPH_PALETTE_SIZE];
+    Uint16 *tokens_0x2c;
+    int enable_offset_0x30;
+    Float *line_offsets_0x34;
+    char *text_0x38;
+} TextBox;
+
+/* =======================
+ * Non-initialized Globals
+ * =======================
+ */
+
+extern void *var_busFont_8c1ba1c8;
+extern int *var_demoBuf_8c1ba3c4;
+extern int var_8c1bb868;
+extern int var_8c1bb8c8;
+extern int var_demo_8c1bb8d0;
+extern int var_8c1bb8d4;
+extern int var_demoIndex_8c1bb8d8;
+
+STATIC NJS_TEXNAME *var_glyphTexnames_8c1bc78c;
+STATIC NJS_TEXLIST *var_glyphTexlists_8c1bc790;
+STATIC ResourceGroup var_fontResourceGroup_8c1bc794;
+STATIC Sint16 *var_8c1bc7a0;
+STATIC void *var_glyphBuffer_8c1bc7a4;
+
+extern void *var_8c1bc828;
+extern int var_demoEntryValue_8c227e14;
+extern int var_demoEntryValue_8c22822c;
+
+
+/* ===================
+ * Initialized Globals
+ * ===================
+ */
 
 STATIC NJS_TEXANIM init_tanim_8c044128 = {
     GLYPH_WIDTH,  /* width */
@@ -37,12 +101,6 @@ STATIC ResourceGroupSpriteEntry init_contents_8c04413c[2] = {
     { 0, 0, 0 },
     { -1, 0, 0 }
 };
-
-typedef struct {
-    const char *filename;
-    int field_0x04;
-    int field_0x08;
-} DemoEntry;
 
 STATIC DemoEntry init_demos_8c044154[20] = {
     { "demo2.bin", 0x1E, 0x15 },
@@ -70,44 +128,17 @@ STATIC DemoEntry init_demos_8c044154[20] = {
     { "demo5.bin", 0x0B, 0x04 },
 };
 
+/* ====================
+ * Forward Declarations
+ * ====================
+ */
+
 extern void setUknPvmBool_8c014330();
 
-extern void *var_busFont_8c1ba1c8;
-extern int *var_demoBuf_8c1ba3c4;
-extern int var_8c1bb868;
-extern int var_8c1bb8c8;
-extern int var_demo_8c1bb8d0;
-extern int var_8c1bb8d4;
-extern int var_demoIndex_8c1bb8d8;
-
-STATIC NJS_TEXNAME *var_glyphTexnames_8c1bc78c;
-STATIC NJS_TEXLIST *var_glyphTexlists_8c1bc790;
-STATIC ResourceGroup var_fontResourceGroup_8c1bc794;
-STATIC Sint16 *var_8c1bc7a0;
-STATIC void *var_glyphBuffer_8c1bc7a4;
-
-extern void *var_8c1bc828;
-extern int var_demoEntryValue_8c227e14;
-extern int var_demoEntryValue_8c22822c;
-
-typedef struct {
-    int x_0x00;
-    int y_0x04;
-    float priority_0x08;
-    int width_0x0c;
-    int height_0x10;
-    int x2_0x14;
-    int y2_0x18;
-    Uint16 processed_char_count_0x1c;
-    Uint16 processed_tag_count_0x1e;
-    Uint16 character_count_0x20;
-    Uint16 tag_count_0x22;
-    Uint16 palette_0x24[GLYPH_PALETTE_SIZE];
-    Uint16 *tokens_0x2c;
-    int enable_offset_0x30;
-    Float *line_offsets_0x34;
-    char *text_0x38;
-} TextBox;
+/* =========
+ * Functions
+ * =========
+ */
 
 /**
  * Draws a sprite or series of sprites from a resource group.
