@@ -443,13 +443,13 @@ return new class extends TestCase {
         $this->shouldWriteTo('_var_8c1ba348', -1);
         $this->shouldWriteTo('_var_8c1ba344', -1);
         $this->shouldWriteTo('_var_8c225fb0', -1);
-        $this->shouldWriteTo('_var_8c1ba3c4', -1);
+        $this->shouldWriteTo('_var_demoBuf_8c1ba3c4', -1);
         $this->shouldWriteTo('_var_8c1bc454', -1);
         $this->shouldWriteTo('_var_selectedVm_8c1ba34c', -1);
 
 
         $this->shouldWriteTo('_var_8c1bb8c4', 0);
-        $this->shouldWriteTo('_var_8c1bb8d8', 100);
+        $this->shouldWriteTo('_var_demoIndex_8c1bb8d8', 100);
         $this->shouldWriteTo('_var_8c157a6c', 0);
 
         $this->shouldCall('_FUN_8c01c8dc');
@@ -483,7 +483,7 @@ return new class extends TestCase {
         $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "load_parts.dat", $this->addressOf('_var_8c1bc3f8') + 4);
         $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "loading.dat", $this->addressOf('_var_8c1bc3f8') + 8);
 
-        $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "bus_font.fff", $this->addressOf('_var_8c1ba1c8'));
+        $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "bus_font.fff", $this->addressOf('_var_busFont_8c1ba1c8'));
         $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "vm_bus.lcd", $this->addressOf('_var_8c2260ac'));
         $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "vm_danger.lcd", $this->addressOf('_var_8c2260b8'));
         $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "now_loading.lcd", $this->addressOf('_var_8c2260c4'));
@@ -597,13 +597,13 @@ return new class extends TestCase {
         $this->shouldWriteTo('_var_8c1ba348', -1);
         $this->shouldWriteTo('_var_8c1ba344', -1);
         $this->shouldWriteTo('_var_8c225fb0', -1);
-        $this->shouldWriteTo('_var_8c1ba3c4', -1);
+        $this->shouldWriteTo('_var_demoBuf_8c1ba3c4', -1);
         $this->shouldWriteTo('_var_8c1bc454', -1);
         $this->shouldWriteTo('_var_selectedVm_8c1ba34c', -1);
 
 
         $this->shouldWriteTo('_var_8c1bb8c4', 0);
-        $this->shouldWriteTo('_var_8c1bb8d8', 100);
+        $this->shouldWriteTo('_var_demoIndex_8c1bb8d8', 100);
         $this->shouldWriteTo('_var_8c157a6c', 0);
 
         $this->shouldCall('_FUN_8c01c8dc');
@@ -637,7 +637,7 @@ return new class extends TestCase {
         $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "load_parts.dat", $this->addressOf('_var_8c1bc3f8') + 4);
         $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "loading.dat", $this->addressOf('_var_8c1bc3f8') + 8);
 
-        $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "bus_font.fff", $this->addressOf('_var_8c1ba1c8'));
+        $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "bus_font.fff", $this->addressOf('_var_busFont_8c1ba1c8'));
         $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "vm_bus.lcd", $this->addressOf('_var_8c2260ac'));
         $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "vm_danger.lcd", $this->addressOf('_var_8c2260b8'));
         $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "now_loading.lcd", $this->addressOf('_var_8c2260c4'));
@@ -751,13 +751,13 @@ return new class extends TestCase {
         $this->shouldWriteTo('_var_8c1ba348', -1);
         $this->shouldWriteTo('_var_8c1ba344', -1);
         $this->shouldWriteTo('_var_8c225fb0', -1);
-        $this->shouldWriteTo('_var_8c1ba3c4', -1);
+        $this->shouldWriteTo('_var_demoBuf_8c1ba3c4', -1);
         $this->shouldWriteTo('_var_8c1bc454', -1);
         $this->shouldWriteTo('_var_selectedVm_8c1ba34c', -1);
 
 
         $this->shouldWriteTo('_var_8c1bb8c4', 0);
-        $this->shouldWriteTo('_var_8c1bb8d8', 100);
+        $this->shouldWriteTo('_var_demoIndex_8c1bb8d8', 100);
         $this->shouldWriteTo('_var_8c157a6c', 0);
 
         $this->shouldCall('_FUN_8c01c8dc');
@@ -791,7 +791,7 @@ return new class extends TestCase {
         $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "load_parts.dat", $this->addressOf('_var_8c1bc3f8') + 4);
         $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "loading.dat", $this->addressOf('_var_8c1bc3f8') + 8);
 
-        $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "bus_font.fff", $this->addressOf('_var_8c1ba1c8'));
+        $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "bus_font.fff", $this->addressOf('_var_busFont_8c1ba1c8'));
         $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "vm_bus.lcd", $this->addressOf('_var_8c2260ac'));
         $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "vm_danger.lcd", $this->addressOf('_var_8c2260b8'));
         $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "now_loading.lcd", $this->addressOf('_var_8c2260c4'));
@@ -906,12 +906,12 @@ return new class extends TestCase {
         $this->shouldWriteTo('_var_8c1ba348', -1);
         $this->shouldWriteTo('_var_8c1ba344', -1);
         $this->shouldWriteTo('_var_8c225fb0', -1);
-        $this->shouldWriteTo('_var_8c1ba3c4', -1);
+        $this->shouldWriteTo('_var_demoBuf_8c1ba3c4', -1);
         $this->shouldWriteTo('_var_8c1bc454', -1);
         $this->shouldWriteTo('_var_selectedVm_8c1ba34c', -1);
 
         $this->shouldWriteTo('_var_8c1bb8c4', 0);
-        $this->shouldWriteTo('_var_8c1bb8d8', 100);
+        $this->shouldWriteTo('_var_demoIndex_8c1bb8d8', 100);
         $this->shouldWriteTo('_var_8c157a6c', 0);
 
         $this->shouldCall('_FUN_8c01c8dc');
@@ -945,7 +945,7 @@ return new class extends TestCase {
         $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "load_parts.dat", $this->addressOf('_var_8c1bc3f8') + 4);
         $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "loading.dat", $this->addressOf('_var_8c1bc3f8') + 8);
 
-        $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "bus_font.fff", $this->addressOf('_var_8c1ba1c8'));
+        $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "bus_font.fff", $this->addressOf('_var_busFont_8c1ba1c8'));
         $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "vm_bus.lcd", $this->addressOf('_var_8c2260ac'));
         $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "vm_danger.lcd", $this->addressOf('_var_8c2260b8'));
         $this->shouldCall('_AsqRequestDat_11182')->with("\\SYSTEM", "now_loading.lcd", $this->addressOf('_var_8c2260c4'));

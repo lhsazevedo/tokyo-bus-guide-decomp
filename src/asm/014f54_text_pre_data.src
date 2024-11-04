@@ -1,0 +1,475 @@
+          .EXPORT     _var_tex_8c157af8
+          .EXPORT     _var_fogTable_8c18aaf8 ; 012f44
+          .EXPORT     _var_texname_8c18acf8  ; 012f44
+          .EXPORT     _var_8c18ad04          ; 0129cc
+          .EXPORT     _var_8c18ad08          ; 0129cc
+          .EXPORT     _var_8c18ad0c          ; 0129cc
+          .EXPORT     _var_8c18ad10          ; 0129cc
+          .EXPORT     _var_gdErr_8c18ad14    ; 012f44
+          .EXPORT     _var_8c18ad18          ; 013ae8
+          .EXPORT     _var_8c18ad1c          ; 013ae8
+          .EXPORT     _var_8c18ad20          ; 013ae8
+          .EXPORT     _var_8c18ad24          ; 013ae8
+          .EXPORT     _var_8c18ad28          ; 013ae8
+          .EXPORT     _var_8c18ad2c          ; 013ae8
+          .EXPORT     _var_8c18ad4c          ; 013ae8
+          .EXPORT     _var_8c18ad6c          ; 013ae8
+          .EXPORT     _var_8c18ad8c          ; 013ae8
+          .EXPORT     _var_8c18adac          ; 013ae8
+          .EXPORT     _var_8c18adb0          ; 013ae8
+          .EXPORT     _var_8c18adb4          ; 013ae8
+          .EXPORT     _gMapleRecvBuf         ; 0149b0
+          .EXPORT     _gMapleSendBuf         ; 0149b0
+          .EXPORT     _gdfswork              ; 0149b0
+          .EXPORT     _gdfscurdir            ; 0149b0
+          .EXPORT     _var_busFont_8c1ba1c8          ; 014f54
+          .EXPORT     _var_8c1ba1cc          ; 016d2c
+          .EXPORT     _var_8c1ba1d0
+          .EXPORT     _var_8c1ba1e4
+          .EXPORT     _var_8c1ba210          ; 016d2c
+          .EXPORT     _var_8c1ba25c          ; 016d2c
+          .EXPORT     _var_8c1ba264          ; 01e27c
+          .EXPORT     _var_8c1ba290          ; 013ae8
+          .EXPORT     _var_8c1ba291          ; 012f44
+          .EXPORT     _var_8c1ba292          ; 012f44
+          .EXPORT     _var_8c1ba293
+          .EXPORT     _var_8c1ba29c
+          .EXPORT     _var_8c1ba29d
+          .EXPORT     _var_8c1ba2b4
+          .EXPORT     _var_8c1ba2b8          ; 016d2c
+          .EXPORT     _var_8c1ba2cc          ; 016d2c
+          .EXPORT     _var_8c1ba2e0          ; 018784
+          .EXPORT     _var_8c1ba2e4          ; 018644
+          .EXPORT     _var_8c1ba33c          ; 018644
+          .EXPORT     _var_8c1ba344          ; 018784
+          .EXPORT     _var_8c1ba348          ; 018644
+          .EXPORT     _var_selectedVm_8c1ba34c
+          .EXPORT     _var_8c1ba350
+          .EXPORT     _var_vibport_8c1ba354
+          .EXPORT     _var_8c1ba358
+          .EXPORT     _var_peripheral_8c1ba35c
+          .EXPORT     _var_8c1ba374
+          .EXPORT     _var_8c1ba376
+          .EXPORT     _var_demoBuf_8c1ba3c4
+          .EXPORT     _var_tasks_8c1ba3c8
+          .EXPORT     _var_tasks_8c1ba5e8
+          .EXPORT     _var_tasks_8c1ba808
+          .EXPORT     _var_tasks_8c1bac28
+          .EXPORT     _var_tasks_8c1bb448
+          .EXPORT     _var_8c1bb868
+          .EXPORT     _var_8c1bb86c
+          .EXPORT     _var_8c1bb870
+          .EXPORT     _var_8c1bb878
+          .EXPORT     _var_8c1bb880
+          .EXPORT     _var_8c1bb888
+          .EXPORT     _var_8c1bb890
+          .EXPORT     _var_8c1bb894
+          .EXPORT     _var_8c1bb8a0
+          .EXPORT     _var_8c1bb8a4
+          .EXPORT     _var_8c1bb8b8
+          .EXPORT     _var_8c1bb8bc
+          .EXPORT     _var_8c1bb8c0
+          .EXPORT     _var_8c1bb8c4
+          .EXPORT     _var_8c1bb8c8
+          .EXPORT     _var_8c1bb8cc
+          .EXPORT     _var_demo_8c1bb8d0
+          .EXPORT     _var_8c1bb8d4
+          .EXPORT     _var_demoIndex_8c1bb8d8
+          .EXPORT     _var_8c1bb8dc
+          .EXPORT     _var_8c1bb8e0
+          .EXPORT     _var_8c1bb8e4
+          .EXPORT     _var_8c1bb8e8
+          .EXPORT     _var_8c1bb8ec
+          .EXPORT     _var_8c1bb8f0
+          .EXPORT     _var_8c1bb8f4
+          .EXPORT     _var_8c1bb8f8
+          .EXPORT     _var_8c1bb8fc
+          .EXPORT     _var_8c1bb900
+          .EXPORT     _var_8c1bb904
+          .EXPORT     _var_8c1bb944
+          .EXPORT     _var_8c1bb984
+          .EXPORT     _var_busState_8c1bb9d0
+          .EXPORT     _var_8c1bba54
+          .EXPORT     _var_8c1bbac4
+          .EXPORT     _var_8c1bbac8
+          .EXPORT     _var_8c1bbacc
+          .EXPORT     _var_8c1bbad8
+          .EXPORT     _var_8c1bbb38
+          .EXPORT     _var_8c1bbb44
+          .EXPORT     _var_8c1bbb50
+          .EXPORT     _var_8c1bbb5c
+          .EXPORT     _var_8c1bbc2c
+          .EXPORT     _var_8c1bbc38
+          .EXPORT     _var_8c1bbc4c
+          .EXPORT     _var_8c1bbc84
+          .EXPORT     _var_8c1bbcb0
+          .EXPORT     _var_8c1bbcb4
+          .EXPORT     _var_8c1bbcc4
+          .EXPORT     _var_8c1bbcd8
+          .EXPORT     _var_8c1bbce0
+          .EXPORT     _var_8c1bbd1c
+          .EXPORT     _var_8c1bbd38
+          .EXPORT     _var_8c1bbd54
+          .EXPORT     _var_8c1bbd70
+          .EXPORT     _var_8c1bbd80
+          .EXPORT     _var_8c1bbd8c
+          .EXPORT     _var_8c1bbd9c
+          .EXPORT     _var_8c1bbda0
+          .EXPORT     _var_8c1bbda8
+          .EXPORT     _var_8c1bbdac
+          .EXPORT     _var_8c1bbdb0
+          .EXPORT     _var_8c1bbdb4
+          .EXPORT     _var_8c1bbdb8
+          .EXPORT     _var_8c1bbdc4
+          .EXPORT     _var_8c1bbdd0
+          .EXPORT     _var_8c1bbddc
+          .EXPORT     _var_8c1bbf7c
+          .EXPORT     _var_8c1bbfdc
+          .EXPORT     _var_8c1bbfe4
+          .EXPORT     _var_8c1bc3ec
+          .EXPORT     _var_8c1bc3f0
+          .EXPORT     _var_8c1bc3f4
+          .EXPORT     _var_8c1bc3f8
+          .EXPORT     _var_8c1bc404
+          .EXPORT     _var_8c1bc408
+          .EXPORT     _var_8c1bc40c
+          .EXPORT     _var_8c1bc410
+          .EXPORT     _var_8c1bc414
+          .EXPORT     _var_8c1bc418
+          .EXPORT     _var_mark_parts_dat_8c1bc41c
+          .EXPORT     _var_mark_dat_8c1bc420
+          .EXPORT     _var_8c1bc424
+          .EXPORT     _var_busstop_parts_dat_8c1bc428
+          .EXPORT     _var_busstop_dat_8c1bc42c
+          .EXPORT     _var_8c1bc430
+          .EXPORT     _var_8c1bc434
+          .EXPORT     _var_8c1bc438
+          .EXPORT     _var_8c1bc43c
+          .EXPORT     _var_8c1bc440
+          .EXPORT     _var_8c1bc444
+          .EXPORT     _var_loadedFooNjm_8c1bc448
+          .EXPORT     _var_8c1bc44c
+          .EXPORT     _var_8c1bc450
+          .EXPORT     _var_8c1bc454
+          .EXPORT     _var_8c1bc458
+          .EXPORT     _var_8c1bc45c
+          .EXPORT     _var_8c1bc460
+          .EXPORT     _var_8c1bc46c
+          .EXPORT     _gBupInfo_8c1bc4ac
+          .SECTION    B,DATA,ALIGN=4
+_var_tex_8c157af8:              ; 12f44
+          .RES.B      208896
+_var_fogTable_8c18aaf8:
+          .RES.B      512
+_var_texname_8c18acf8:          ; 12f44
+          .RES.B      12
+_var_8c18ad04:                  ; 129cc
+          .RES.B      4
+_var_8c18ad08:                  ; 129cc
+          .RES.B      4
+_var_8c18ad0c:                  ; 129cc
+          .RES.B      4
+_var_8c18ad10:                  ; 129cc
+          .RES.B      4
+_var_gdErr_8c18ad14:            ; 12f44
+          .RES.B      4
+_var_8c18ad18:            ; 13ae8
+          .RES.B      4
+_var_8c18ad1c:            ; 12f44
+          .RES.B      4
+_var_8c18ad20:            ; 12f44
+          .RES.B      4
+_var_8c18ad24:
+          .RES.B      4
+_var_8c18ad28:
+          .RES.B      4
+_var_8c18ad2c:
+          .RES.B      32
+_var_8c18ad4c:
+          .RES.B      32
+_var_8c18ad6c:
+          .RES.B      32
+_var_8c18ad8c:
+          .RES.B      32
+_var_8c18adac:
+          .RES.B      4
+_var_8c18adb0:
+          .RES.B      4
+_var_8c18adb4:
+          .RES.B      16
+_gMapleRecvBuf:
+          .RES.B      49184
+_gMapleSendBuf:
+          .RES.B      49184
+_gdfswork:
+          .RES.B      5012
+_gdfscurdir:
+          .RES.B      90160
+_var_busFont_8c1ba1c8:
+          .RES.B      4
+_var_8c1ba1cc:
+          .RES.B      4
+_var_8c1ba1d0:
+          .RES.B      20
+_var_8c1ba1e4:
+          .RES.B      44
+_var_8c1ba210:
+          .RES.B      76
+_var_8c1ba25c:
+          .RES.B      8
+_var_8c1ba264:
+          .RES.B      44
+_var_8c1ba290:
+          .RES.B      1
+_var_8c1ba291:
+          .RES.B      1
+_var_8c1ba292:
+          .RES.B      1
+_var_8c1ba293:
+          .RES.B      9
+_var_8c1ba29c:
+          .RES.B      1
+_var_8c1ba29d:
+          .RES.B      23
+_var_8c1ba2b4:
+          .RES.B      4
+_var_8c1ba2b8:
+          .RES.B      20
+_var_8c1ba2cc:
+          .RES.B      20
+_var_8c1ba2e0:
+          .RES.B      4
+_var_8c1ba2e4:
+          .RES.B      88
+_var_8c1ba33c:
+          .RES.B      8
+_var_8c1ba344:
+          .RES.B      4
+_var_8c1ba348:
+          .RES.B      4
+_var_selectedVm_8c1ba34c:
+          .RES.B      4
+_var_8c1ba350:
+          .RES.B      4
+_var_vibport_8c1ba354:
+          .RES.B      4
+_var_8c1ba358:
+          .RES.B      4
+_var_peripheral_8c1ba35c:
+          .RES.B      24
+_var_8c1ba374:
+          .RES.B      2
+_var_8c1ba376:
+          .RES.B      78
+_var_demoBuf_8c1ba3c4:
+          .RES.B      4
+_var_tasks_8c1ba3c8:
+          .RES.B      544
+_var_tasks_8c1ba5e8:
+          .RES.B      544
+_var_tasks_8c1ba808:
+          .RES.B      1056
+_var_tasks_8c1bac28:
+          .RES.B      2080
+_var_tasks_8c1bb448:
+          .RES.B      1056
+_var_8c1bb868:
+          .RES.B      4
+_var_8c1bb86c:
+          .RES.B      4
+_var_8c1bb870:
+          .RES.B      8
+_var_8c1bb878:
+          .RES.B      8
+_var_8c1bb880:
+          .RES.B      8
+_var_8c1bb888:
+          .RES.B      8
+_var_8c1bb890:
+          .RES.B      4
+_var_8c1bb894:
+          .RES.B      12
+_var_8c1bb8a0:
+          .RES.B      4
+_var_8c1bb8a4:
+          .RES.B      20
+_var_8c1bb8b8:
+          .RES.B      4
+_var_8c1bb8bc:
+          .RES.B      4
+_var_8c1bb8c0:
+          .RES.B      4
+_var_8c1bb8c4:
+          .RES.B      4
+_var_8c1bb8c8:
+          .RES.B      4
+_var_8c1bb8cc:
+          .RES.B      4
+_var_demo_8c1bb8d0:
+          .RES.B      4
+_var_8c1bb8d4:
+          .RES.B      4
+_var_demoIndex_8c1bb8d8:
+          .RES.B      4
+_var_8c1bb8dc:
+          .RES.B      4
+_var_8c1bb8e0:
+          .RES.B      4
+_var_8c1bb8e4:
+          .RES.B      4
+_var_8c1bb8e8:
+          .RES.B      4
+_var_8c1bb8ec:
+          .RES.B      4
+_var_8c1bb8f0:
+          .RES.B      4
+_var_8c1bb8f4:
+          .RES.B      4
+_var_8c1bb8f8:
+          .RES.B      4
+_var_8c1bb8fc:
+          .RES.B      4
+_var_8c1bb900:
+          .RES.B      4
+_var_8c1bb904:
+          .RES.B      64
+_var_8c1bb944:
+          .RES.B      64
+_var_8c1bb984:
+          .RES.B      76
+_var_busState_8c1bb9d0:
+          .RES.B      132
+_var_8c1bba54:
+          .RES.B      112
+_var_8c1bbac4:
+          .RES.B      4
+_var_8c1bbac8:
+          .RES.B      4
+_var_8c1bbacc:
+          .RES.B      12
+_var_8c1bbad8:
+          .RES.B      96
+_var_8c1bbb38:
+          .RES.B      12
+_var_8c1bbb44:
+          .RES.B      12
+_var_8c1bbb50:
+          .RES.B      12
+_var_8c1bbb5c:
+          .RES.B      208
+_var_8c1bbc2c:
+          .RES.B      12
+_var_8c1bbc38:
+          .RES.B      20
+_var_8c1bbc4c:
+          .RES.B      56
+_var_8c1bbc84:
+          .RES.B      44
+_var_8c1bbcb0:
+          .RES.B      4
+_var_8c1bbcb4:
+          .RES.B      16
+_var_8c1bbcc4:
+          .RES.B      20
+_var_8c1bbcd8:
+          .RES.B      8
+_var_8c1bbce0:
+          .RES.B      60
+_var_8c1bbd1c:
+          .RES.B      28
+_var_8c1bbd38:
+          .RES.B      28
+_var_8c1bbd54:
+          .RES.B      28
+_var_8c1bbd70:
+          .RES.B      16
+_var_8c1bbd80:
+          .RES.B      12
+_var_8c1bbd8c:
+          .RES.B      16
+_var_8c1bbd9c:
+          .RES.B      4
+_var_8c1bbda0:
+          .RES.B      8
+_var_8c1bbda8:
+          .RES.B      4
+_var_8c1bbdac:
+          .RES.B      4
+_var_8c1bbdb0:
+          .RES.B      4
+_var_8c1bbdb4:
+          .RES.B      4
+_var_8c1bbdb8:
+          .RES.B      12
+_var_8c1bbdc4:
+          .RES.B      12
+_var_8c1bbdd0:
+          .RES.B      12
+_var_8c1bbddc:
+          .RES.B      416
+_var_8c1bbf7c:
+          .RES.B      96
+_var_8c1bbfdc:
+          .RES.B      8
+_var_8c1bbfe4:
+          .RES.B      1032
+_var_8c1bc3ec:
+          .RES.B      4
+_var_8c1bc3f0:
+          .RES.B      4
+_var_8c1bc3f4:
+          .RES.B      4
+_var_8c1bc3f8:
+          .RES.B      12
+_var_8c1bc404:
+          .RES.B      4
+_var_8c1bc408:
+          .RES.B      4
+_var_8c1bc40c:
+          .RES.B      4
+_var_8c1bc410:
+          .RES.B      4
+_var_8c1bc414:
+          .RES.B      4
+_var_8c1bc418:
+          .RES.B      4
+_var_mark_parts_dat_8c1bc41c:
+          .RES.B      4
+_var_mark_dat_8c1bc420:
+          .RES.B      4
+_var_8c1bc424:
+          .RES.B      4
+_var_busstop_parts_dat_8c1bc428:
+          .RES.B      4
+_var_busstop_dat_8c1bc42c:
+          .RES.B      4
+_var_8c1bc430:
+          .RES.B      4
+_var_8c1bc434:
+          .RES.B      4
+_var_8c1bc438:
+          .RES.B      4
+_var_8c1bc43c:
+          .RES.B      4
+_var_8c1bc440:
+          .RES.B      4
+_var_8c1bc444:
+          .RES.B      4
+_var_loadedFooNjm_8c1bc448:
+          .RES.B      4
+_var_8c1bc44c:
+          .RES.B      4
+_var_8c1bc450:
+          .RES.B      4
+_var_8c1bc454:
+          .RES.B      4
+_var_8c1bc458:
+          .RES.B      4
+_var_8c1bc45c:
+          .RES.B      4
+_var_8c1bc460:
+          .RES.B      12
+_var_8c1bc46c:
+          .RES.B      64
+_gBupInfo_8c1bc4ac:
+          .RES.B      736

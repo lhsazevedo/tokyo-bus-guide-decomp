@@ -1,10 +1,3 @@
-          .EXPORT     _const_8c035f24
-          .EXPORT     _const_8c035f74
-          .EXPORT     _const_8c035f7c
-          .EXPORT     _const_8c035f88
-          .EXPORT     _const_8c035f94
-          .EXPORT     _const_8c035fa0
-          .EXPORT     _const_8c035fac
           .EXPORT     _const_8c035fb8
           .EXPORT     _const_8c035fcc
           .EXPORT     _const_8c035fd8
@@ -187,41 +180,6 @@
           .EXPORT     _const_8c037ec8
           .EXPORT     _const_8c037ecc
           .SECTION    C, DATA, ALIGN=4
-_const_8c035f24:        ; from defines
-          .DATA.B      H'00, H'00, H'5E, H'00, H'6C, H'00, H'AA, H'00, H'FD, H'00, H'53, H'01, H'83, H'01, H'C5, H'01
-          .DATA.B      H'23, H'02, H'81, H'02, H'DF, H'02, H'3D, H'03, H'9B, H'03, H'F9, H'03, H'57, H'04, H'B5, H'04
-          .DATA.B      H'13, H'05, H'71, H'05, H'CF, H'05, H'2D, H'06, H'8B, H'06, H'E9, H'06, H'47, H'07, H'A5, H'07
-          .DATA.B      H'03, H'08, H'61, H'08, H'BF, H'08, H'1D, H'09, H'7B, H'09, H'D9, H'09, H'37, H'0A, H'95, H'0A
-          .DATA.B      H'F3, H'0A, H'51, H'0B, H'AF, H'0B, H'0D, H'0C, H'6B, H'0C, H'C9, H'0C, H'27, H'0D, H'00, H'00
-_const_8c035f74:        ; from defines
-          ;.SDATA      "\SYSTEM"
-          ;.DATA.B     H'00
-          .DATA.B      H'5C, H'53, H'59, H'53, H'54, H'45, H'4D, H'00
-_const_8c035f7c:        ; from ghidra
-          ;.SDATA      "demo2.bin"
-          ;.DATA.B     H'00
-          ;.RES.B      2
-          .DATA.B      H'64, H'65, H'6D, H'6F, H'32, H'2E, H'62, H'69, H'6E, H'00, H'00, H'00
-_const_8c035f88:        ; from ghidra
-          ;.SDATA      "demo6.bin"
-          ;.DATA.B     H'00
-          ;.RES.B      2
-          .DATA.B      H'64, H'65, H'6D, H'6F, H'36, H'2E, H'62, H'69, H'6E, H'00, H'00, H'00
-_const_8c035f94:        ; from ghidra
-          ;.SDATA      "demo1.bin"
-          ;.DATA.B     H'00
-          ;.RES.B      2
-          .DATA.B      H'64, H'65, H'6D, H'6F, H'31, H'2E, H'62, H'69, H'6E, H'00, H'00, H'00
-_const_8c035fa0:        ; from ghidra
-          ;.SDATA      "demo0.bin"
-          ;.DATA.B     H'00
-          ;.RES.B      2
-          .DATA.B      H'64, H'65, H'6D, H'6F, H'30, H'2E, H'62, H'69, H'6E, H'00, H'00, H'00
-_const_8c035fac:        ; from ghidra
-          ;.SDATA      "demo5.bin"
-          ;.DATA.B     H'00
-          ;.RES.B      2
-          .DATA.B      H'64, H'65, H'6D, H'6F, H'35, H'2E, H'62, H'69, H'6E, H'00, H'00, H'00
 _const_8c035fb8:        ; from ghidra
           ;.SDATA      "common_parts.dat"
           ;.DATA.B     H'00

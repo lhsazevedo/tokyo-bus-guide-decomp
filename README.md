@@ -1,9 +1,10 @@
 # Tokyo Bus Guide Decompilation
 
-![Decompiled](https://img.shields.io/badge/decompiled-12.6%25-teal)
 [![Test](https://github.com/lhsazevedo/tokyo-bus-guide-decomp/actions/workflows/test.yml/badge.svg)](https://github.com/lhsazevedo/tokyo-bus-guide-decomp/actions/workflows/test.yml)
 [![Build](https://github.com/lhsazevedo/tokyo-bus-guide-decomp/actions/workflows/build.yml/badge.svg)](https://github.com/lhsazevedo/tokyo-bus-guide-decomp/actions/workflows/build.yml)
 [![Build Matching](https://github.com/lhsazevedo/tokyo-bus-guide-decomp/actions/workflows/build_matching.yml/badge.svg)](https://github.com/lhsazevedo/tokyo-bus-guide-decomp/actions/workflows/build_matching.yml)
+
+![Progress Bar](./progress.svg)
 
 ![Main function hero](./tbg.png)
 
@@ -27,8 +28,8 @@ framework](https://github.com/lhsazevedo/sh4objtest) to test decompiled function
 original counterparts, ensuring they behave exactly the same.
 
 ## Project Status
-#### Decompilation progress: 12.6%
-![Progress Bar](https://progress-bar.dev/12/?width=300)
+
+![Progress Chart](./progress.png)
 
 This project is ongoing and is being updated regularly. It is in a shiftable state, which means the
 original code can be shifted around in memory, allowing for edits such as data modifications without

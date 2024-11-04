@@ -33,6 +33,7 @@ struct ResourceGroupInfo {
 }
 typedef ResourceGroupInfo;
 
+// TODO: Move
 struct ResourceGroup {
     NJS_TEXLIST *tlist_0x00;
     NJS_TEXANIM *tanim_0x04;

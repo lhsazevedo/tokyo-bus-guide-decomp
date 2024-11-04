@@ -52,7 +52,7 @@
           .IMPORT     _freeTask_8c014b66
           .IMPORT     _init_8c04623c
           .IMPORT     _var_8c1bbd8c
-          .IMPORT     _var_8c22822c
+          .IMPORT     _var_demoEntryValue_8c22822c
           .IMPORT     _var_8c22823c
           .IMPORT     _var_8c228240
           .IMPORT     _var_tasks_8c1ba808
@@ -151,15 +151,15 @@
           .IMPORT     _var_tasks_8c1ba3c8
           .IMPORT     _var_8c1bb8e8
           .IMPORT     _var_8c1bc404
-          .IMPORT     _FUN_8c01524c
-          .IMPORT     _FUN_8c0152fc
+          .IMPORT     _TxtInit_8c01524c
+          .IMPORT     _TxtCreateTextBox_8c0152fc
           .IMPORT     _var_8c1bc40c
           .IMPORT     _var_8c225fb8
-          .IMPORT     _FUN_8c01543a
-          .IMPORT     _menuTextboxTextSub_8c0155e0
-          .IMPORT     _FUN_8c015410
+          .IMPORT     _TxtPrepareTextBoxLayout_8c01543a
+          .IMPORT     _TxtDrawTextbox_8c0155e0
+          .IMPORT     _TxtDestroyTextBox_8c015410
           .IMPORT     _var_8c1bc408
-          .IMPORT     _FUN_8c01529c
+          .IMPORT     _TxtDestroy_8c01529c
           .IMPORT     _FUN_8c0281ac
           .IMPORT     _FUN_8c028206
           .EXPORT     _FUN_8c028258
@@ -2659,7 +2659,7 @@ LP_GEN_26341:
           .DATA.L _var_8c2264d4 ; H'8C0294B0
           .DATA.L H'00FF0000 ; H'8C0294B4
           .DATA.L _var_8c1bbd8c ; H'8C0294B8
-          .DATA.L _var_8c22822c ; H'8C0294BC
+          .DATA.L _var_demoEntryValue_8c22822c ; H'8C0294BC
           .DATA.L _var_8c228230 ; H'8C0294C0
           .DATA.L _var_8c228234 ; H'8C0294C4
           .DATA.L _var_8c22823c ; H'8C0294C8
@@ -5988,8 +5988,8 @@ LP_GEN_16602:
           .DATA.L _var_8c228514 ; H'8C02AEE0
           .DATA.L _var_8c228484 ; H'8C02AEE4
           .DATA.L _var_8c1bc404 ; H'8C02AEE8
-          .DATA.L _FUN_8c01524c ; H'8C02AEEC
-          .DATA.L _FUN_8c0152fc ; H'8C02AEF0
+          .DATA.L _TxtInit_8c01524c ; H'8C02AEEC
+          .DATA.L _TxtCreateTextBox_8c0152fc ; H'8C02AEF0
           .DATA.L _var_8c1bc40c ; H'8C02AEF4
           .DATA.L _var_8c225fb8 ; H'8C02AEF8
 _swapMessageBoxFor_8c02aefc:
@@ -6047,9 +6047,9 @@ LAB_8c02af56:
 LP_GEN_47883:
           .DATA.L _var_8c1bc40c ; H'8C02AF5C
           .DATA.L _var_8c1bc404 ; H'8C02AF60
-          .DATA.L _FUN_8c01543a ; H'8C02AF64
-          .DATA.L _menuTextboxTextSub_8c0155e0 ; H'8C02AF68
-          .DATA.L _FUN_8c015410 ; H'8C02AF6C
+          .DATA.L _TxtPrepareTextBoxLayout_8c01543a ; H'8C02AF64
+          .DATA.L _TxtDrawTextbox_8c0155e0 ; H'8C02AF68
+          .DATA.L _TxtDestroyTextBox_8c015410 ; H'8C02AF6C
           .DATA.L _var_8c1bc408 ; H'8C02AF70
-          .DATA.L _FUN_8c01529c ; H'8C02AF74
+          .DATA.L _TxtDestroy_8c01529c ; H'8C02AF74
           .END

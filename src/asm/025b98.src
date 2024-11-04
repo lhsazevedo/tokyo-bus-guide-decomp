@@ -21,7 +21,7 @@
           .IMPORT     _FUN_8c0207d4
           .IMPORT     _FUN_8c026ca2
           .IMPORT     _FUN_8c027012
-          .IMPORT     _var_8c227e14
+          .IMPORT     _var_demoEntryValue_8c227e14
           .IMPORT     _FUN_8c026710
           .IMPORT     _FUN_8c02e400
           .IMPORT     _FUN_8c026bc4
@@ -1136,7 +1136,7 @@ LP_GEN_44316:
           .RES.W 1 ; H'8C0263D6
           .DATA.L _FUN_8c026ca2 ; H'8C0263D8
           .DATA.L _FUN_8c027012 ; H'8C0263DC
-          .DATA.L _var_8c227e14 ; H'8C0263E0
+          .DATA.L _var_demoEntryValue_8c227e14 ; H'8C0263E0
           .DATA.L _FUN_8c026710 ; H'8C0263E4
           .DATA.L _FUN_8c02e400 ; H'8C0263E8
           .DATA.L H'3DCCCCCD ; H'8C0263EC
@@ -1422,7 +1422,7 @@ LP_GEN_51630:
           .DATA.L _var_8c1bbacc ; H'8C026608
           .DATA.L _njSqrt ; H'8C02660C
           .DATA.L H'43480000 ; H'8C026610
-          .DATA.L _var_8c227e14 ; H'8C026614
+          .DATA.L _var_demoEntryValue_8c227e14 ; H'8C026614
           .DATA.L _freeTask_8c014b66 ; H'8C026618
           .DATA.L _FUN_8c027c3c ; H'8C02661C
           .DATA.L H'3DCCCCCD ; H'8C026620
@@ -1538,7 +1538,7 @@ LP_GEN_53982:
           .DATA.L _var_8c1bbacc ; H'8C0266F8
           .DATA.L _njSqrt ; H'8C0266FC
           .DATA.L H'43480000 ; H'8C026700
-          .DATA.L _var_8c227e14 ; H'8C026704
+          .DATA.L _var_demoEntryValue_8c227e14 ; H'8C026704
           .DATA.L _freeTask_8c014b66 ; H'8C026708
           .DATA.L _FUN_8c027c3c ; H'8C02670C
           .END

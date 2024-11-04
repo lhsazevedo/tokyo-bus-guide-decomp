@@ -30,7 +30,7 @@
           .EXPORT     _FUN_8c02f824
           .EXPORT     _FUN_8c02f892
           .EXPORT     _FUN_8c02f934
-          .EXPORT     _FUN_8c02fa14
+          .EXPORT     _FUN_readDemo_8c02fa14
           .EXPORT     _FUN_8c02f320
           .EXPORT     _FUN_8c02f3a0
           .EXPORT     _FUN_8c02f3e0
@@ -945,7 +945,7 @@ LAB_8c02f9ea:
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-_FUN_8c02fa14:
+_FUN_readDemo_8c02fa14:
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           MOV.L       R12,@-R15
