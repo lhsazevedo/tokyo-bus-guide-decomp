@@ -27,30 +27,6 @@ echo "Progress percentage: $progress_percentage%"
 # Update README file with progress
 readme_file="README.md"
 
-if ! grep -q "https://img.shields.io/badge/decompiled-" "$readme_file"; then
-    echo "Progress badge not found in README file!"
-    exit 1
-fi
-
-sed -i "s/https:\/\/img.shields.io\/badge\/decompiled-[0-9.]\+/https:\/\/img.shields.io\/badge\/decompiled-$progress_percentage/" "$readme_file"
-echo "README file progress badge updated."
-
-if ! grep -q "Decompilation progress:" "$readme_file"; then
-    echo "Progress not found in README file!"
-    exit 1
-fi
-
-sed -i "s/Decompilation progress: [0-9.]\+%/Decompilation progress: $progress_percentage%/" "$readme_file"
-echo "README file progress updated."
-
-if ! grep -q "https://progress-bar.dev/" "$readme_file"; then
-    echo "Progress bar not found in README file!"
-    exit 1
-fi
-
-sed -i "s/https:\/\/progress-bar.dev\/[0-9]\+/https:\/\/progress-bar.dev\/$progress_percentage_int/" "$readme_file"
-echo "README progress bar updated."
-
 # Update SVG progress bar
 svg_file="progress.svg"
 svg_bar_width=$(echo "scale=2; 300 * $progress_percentage / 100" | bc)
