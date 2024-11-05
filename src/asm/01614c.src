@@ -21,7 +21,6 @@
           .IMPORT     _freeResourceGroups_8c016108
           .IMPORT     _var_selectedVm_8c1ba34c
           .IMPORT     _init_8c044294
-          .IMPORT     _var_peripheral_8c1ba35c
           .IMPORT     _var_vmuStatus_8c226048
           .IMPORT     _const_8c0360a4
           .IMPORT     _BupGetInfo_8c014bba

@@ -6,3 +6,4 @@
 
 scripts/set_kt.sh
 build/lnk.sub
+build/lnk_matching.sub
