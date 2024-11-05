@@ -92,22 +92,26 @@ C_SRCS = \
 	src/020528.c \
 	src/02fb50_sh4nlfzn_post_data.c
 
-ASM_OBJS = $(patsubst src/asm/%.src,$(OUTPUT_DIR)/%.obj,$(ASM_SRCS))
-DECOMPILED_ASM_OBJS = $(patsubst src/asm/decompiled/%.src,$(OUTPUT_DIR)/%.obj,$(DECOMPILED_ASM_SRCS))
-C_OBJS = $(patsubst src/%.c,$(OUTPUT_DIR)/%.obj,$(C_SRCS))
+ASM_OBJS = $(patsubst src/asm/%.src,$(OUTPUT_DIR)/src/asm/%.obj,$(ASM_SRCS))
+DECOMPILED_ASM_OBJS = $(patsubst src/asm/decompiled/%.src,$(OUTPUT_DIR)/src/asm/decompiled/%.obj,$(DECOMPILED_ASM_SRCS))
+C_OBJS = $(patsubst src/%.c,$(OUTPUT_DIR)/src/%.obj,$(C_SRCS))
 
 all: $(OUTPUT_DIR)/tbg.bin
 
+# Create subdirectories under OUTPUT_DIR
 $(OUTPUT_DIR):
-	mkdir -p $(OUTPUT_DIR)
+	mkdir -p $(OUTPUT_DIR)/src/asm/decompiled
 
-$(OUTPUT_DIR)/%.obj: src/asm/%.src | $(OUTPUT_DIR)
+# Compile ASM files
+$(OUTPUT_DIR)/src/asm/%.obj: src/asm/%.src | $(OUTPUT_DIR)
 	wine "$(SHC_BIN)/asmsh.exe" "$(subst /,\\,$<)" -object="$(subst /,\\,$@)" $(ASMSH_FLAGS)
 
-$(OUTPUT_DIR)/%.obj: src/asm/decompiled/%.src | $(OUTPUT_DIR)
+# Compile decompiled ASM files
+$(OUTPUT_DIR)/src/asm/decompiled/%.obj: src/asm/decompiled/%.src | $(OUTPUT_DIR)
 	wine "$(SHC_BIN)/asmsh.exe" "$(subst /,\\,$<)" -object="$(subst /,\\,$@)" $(ASMSH_FLAGS)
 
-$(OUTPUT_DIR)/%.obj: src/%.c | $(OUTPUT_DIR)
+# Compile C files
+$(OUTPUT_DIR)/src/%.obj: src/%.c | $(OUTPUT_DIR)
 	wine "$(SHC_BIN)/shc.exe" "$(subst /,\\,$<)" -object="$(subst /,\\,$@)" -sub=build/shc_matching.sub
 
 $(OUTPUT_DIR)/tbg.elf: $(ASM_OBJS) $(DECOMPILED_ASM_OBJS) $(C_OBJS)
@@ -130,7 +134,7 @@ clean:
 
 depend:
 	makedepend -Y -o .obj -f- $(C_SRCS) 2>/dev/null > Makefile.d
-	sed -i 's/^src/$$(OUTPUT_DIR)/' Makefile.d
+	sed -i 's/^src/$$(OUTPUT_DIR)\/src/' Makefile.d
 
 .PHONY: all clean
 

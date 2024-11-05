@@ -91,24 +91,24 @@ C_SRCS = \
 	src/scif.c \
 	src/serial_debug.c
 
-ASM_OBJS = $(patsubst src/asm/%.src,$(OUTPUT_DIR)/%.obj,$(ASM_SRCS))
-C_OBJS = $(patsubst src/%.c,$(OUTPUT_DIR)/%.obj,$(C_SRCS))
+ASM_OBJS = $(patsubst src/asm/%.src,$(OUTPUT_DIR)/src/asm/%.obj,$(ASM_SRCS))
+C_OBJS = $(patsubst src/%.c,$(OUTPUT_DIR)/src/%.obj,$(C_SRCS))
 
 all: $(OUTPUT_DIR)/tbg.bin
 
 $(OUTPUT_DIR):
-	mkdir -p $(OUTPUT_DIR)
+	mkdir -p $(OUTPUT_DIR)/src/asm
 
-$(OUTPUT_DIR)/%.obj: src/asm/%.src | $(OUTPUT_DIR)
+$(OUTPUT_DIR)/src/asm/%.obj: src/asm/%.src | $(OUTPUT_DIR)
 	wine "$(SHC_BIN)/asmsh.exe" "$(subst /,\\,$<)" -object="$(subst /,\\,$@)" $(ASMSH_FLAGS)
 
-$(OUTPUT_DIR)/%.obj: src/%.c | $(OUTPUT_DIR)
+$(OUTPUT_DIR)/src/%.obj: src/%.c | $(OUTPUT_DIR)
 	wine "$(SHC_BIN)/shc.exe" "$(subst /,\\,$<)" -object="$(subst /,\\,$@)" -sub=build/shc.sub
 
 $(OUTPUT_DIR)/tbg.elf: $(ASM_OBJS) $(C_OBJS) build/lnk.sub
 	wine "$(SHC_BIN)/lnk.exe" -sub=build\\lnk.sub
 
-build/lnk.sub:
+build/lnk.sub: build/lnk_template.sub
 	sed "s/@DC_SDK@/$$(printf %q "$(KATANA_SDK_DIR)")/g" build/lnk_template.sub > build/lnk.sub
 
 $(OUTPUT_DIR)/tbg.bin: $(OUTPUT_DIR)/tbg.elf
