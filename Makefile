@@ -5,6 +5,7 @@ ASMSH_FLAGS=-debug=d -cpu=sh4 -endian=little -sjis
 BUILD_DIR=build
 OUTPUT_DIR=$(BUILD_DIR)/output
 SHA1_CHECKSUM=a6df9e0de39b2d11e9339aef915d20e35763ec81
+SHELL := /bin/bash
 
 SRCS = \
 	src/010080_main.c \
