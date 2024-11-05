@@ -1,24 +1,40 @@
-# Initial Makefile for matching build
+MAKEFLAGS += --no-builtin-rules
+.SUFFIXES:
 
 ASMSH_FLAGS=-define=MATCHING=1 -debug=d -cpu=sh4 -endian=little -sjis
-OUTPUT_DIR=build/output
+BUILD_DIR=build
+OUTPUT_DIR=$(BUILD_DIR)/output
 SHA1_CHECKSUM=a6df9e0de39b2d11e9339aef915d20e35763ec81
 
-ASM_SRCS = \
+SRCS = \
 	src/asm/010000.src \
+	src/010080_main.c \
+	src/asm/decompiled/0100bc_sound.src \
+	src/010e90.c \
 	src/asm/010fe8_unused.src \
+	src/asm/decompiled/011120_asset_queues.src \
 	src/asm/012324.src \
 	src/asm/012504.src \
 	src/asm/0129cc.src \
+	src/asm/decompiled/012f44.src \
 	src/asm/013ae8_pre_data.src \
 	src/asm/013ae8.src \
+	src/014934.c \
+	src/0149b0_sbinit.c \
+	src/014a9c_tasks.c \
+	src/014b8c_backup.c \
 	src/asm/014f54_text_pre_data.src \
+	src/asm/decompiled/014f54_text.src \
+	src/asm/decompiled/015ab8_title.src \
+	src/016108.c \
 	src/asm/01614c.src \
 	src/asm/016bf4.src \
+	src/asm/decompiled/016c58_prompt.src \
 	src/asm/016d2c.src \
 	src/asm/018644.src \
 	src/asm/018784.src \
 	src/asm/0193c8_pre_data.src \
+	src/asm/decompiled/0193c8_vm_menu.src \
 	src/asm/019e98.src \
 	src/asm/01a148.src \
 	src/asm/01b19c.src \
@@ -30,8 +46,10 @@ ASM_SRCS = \
 	src/asm/01f3c0.src \
 	src/asm/01fa78.src \
 	src/asm/020214.src \
+	src/020528.c \
 	src/asm/020594.src \
 	src/asm/0206f0.src \
+	src/asm/decompiled/0207d4.src \
 	src/asm/02081c.src \
 	src/asm/020914.src \
 	src/asm/020b6c.src \
@@ -69,53 +87,37 @@ ASM_SRCS = \
 	src/asm/0332a4_sectionC.src \
 	src/asm/03bd80_sectionD.src \
 	src/asm/04f6c0_SDK.src \
-	src/asm/0fcd20_sectionB.src
-
-DECOMPILED_ASM_SRCS = \
-	src/asm/decompiled/0100bc_sound.src \
-	src/asm/decompiled/011120_asset_queues.src \
-	src/asm/decompiled/012f44.src \
-	src/asm/decompiled/014f54_text.src \
-	src/asm/decompiled/015ab8_title.src \
-	src/asm/decompiled/016c58_prompt.src \
-	src/asm/decompiled/0193c8_vm_menu.src \
-	src/asm/decompiled/0207d4.src
-
-C_SRCS = \
-	src/010080_main.c \
-	src/010e90.c \
-	src/014934.c \
-	src/0149b0_sbinit.c \
-	src/014a9c_tasks.c \
-	src/014b8c_backup.c \
-	src/016108.c \
-	src/020528.c \
+	src/asm/0fcd20_sectionB.src \
 	src/02fb50_sh4nlfzn_post_data.c
 
-ASM_OBJS = $(patsubst src/asm/%.src,$(OUTPUT_DIR)/src/asm/%.obj,$(ASM_SRCS))
-DECOMPILED_ASM_OBJS = $(patsubst src/asm/decompiled/%.src,$(OUTPUT_DIR)/src/asm/decompiled/%.obj,$(DECOMPILED_ASM_SRCS))
-C_OBJS = $(patsubst src/%.c,$(OUTPUT_DIR)/src/%.obj,$(C_SRCS))
+OBJS = $(patsubst src/%.c,$(OUTPUT_DIR)/src/%.obj,$(SRCS))
+OBJS := $(patsubst src/asm/%.src,$(OUTPUT_DIR)/src/asm/%.obj,$(OBJS))
+OBJS := $(patsubst src/asm/decompiled/%.src,$(OUTPUT_DIR)/src/asm/decompiled/%.obj,$(OBJS))
+LINKER_OBJS = $(subst /,\\, $(OBJS))
 
-all: $(OUTPUT_DIR)/tbg.bin
+all: create_dirs $(OUTPUT_DIR)/tbg.bin
 
 # Create subdirectories under OUTPUT_DIR
-$(OUTPUT_DIR):
-	mkdir -p $(OUTPUT_DIR)/src/asm/decompiled
+create_dirs:
+	@mkdir -p $(OUTPUT_DIR)/src/asm/decompiled
 
 # Compile ASM files
-$(OUTPUT_DIR)/src/asm/%.obj: src/asm/%.src | $(OUTPUT_DIR)
+$(OUTPUT_DIR)/src/asm/%.obj: src/asm/%.src
 	wine "$(SHC_BIN)/asmsh.exe" "$(subst /,\\,$<)" -object="$(subst /,\\,$@)" $(ASMSH_FLAGS)
 
 # Compile decompiled ASM files
-$(OUTPUT_DIR)/src/asm/decompiled/%.obj: src/asm/decompiled/%.src | $(OUTPUT_DIR)
+$(OUTPUT_DIR)/src/asm/decompiled/%.obj: src/asm/decompiled/%.src
 	wine "$(SHC_BIN)/asmsh.exe" "$(subst /,\\,$<)" -object="$(subst /,\\,$@)" $(ASMSH_FLAGS)
 
 # Compile C files
-$(OUTPUT_DIR)/src/%.obj: src/%.c | $(OUTPUT_DIR)
-	wine "$(SHC_BIN)/shc.exe" "$(subst /,\\,$<)" -object="$(subst /,\\,$@)" -sub=build/shc_matching.sub
+$(OUTPUT_DIR)/src/%.obj: src/%.c
+	wine "$(SHC_BIN)/shc.exe" "$(subst /,\\,$<)" -object="$(subst /,\\,$@)" -sub=$(BUILD_DIR)/shc_matching.sub
 
-$(OUTPUT_DIR)/tbg.elf: $(ASM_OBJS) $(DECOMPILED_ASM_OBJS) $(C_OBJS)
+$(OUTPUT_DIR)/tbg.elf: $(OBJS) $(BUILD_DIR)/lnk_matching.sub
 	wine "$(SHC_BIN)/lnk.exe" -sub=build\\lnk_matching.sub
+
+$(BUILD_DIR)/lnk_matching.sub: $(BUILD_DIR)/lnk_matching_template.sub
+	sed 's|@INPUTS@|$(foreach obj,$(LINKER_OBJS),input $(obj)\n)|g' $(BUILD_DIR)/lnk_matching_template.sub > $(BUILD_DIR)/lnk_matching.sub
 
 $(OUTPUT_DIR)/tbg.bin: $(OUTPUT_DIR)/tbg.elf
 	wine "$(KATANA_SDK_DIR)/bin/elf2bin.exe" -s 8c010000 "$(subst /,\\,$<)"
@@ -130,12 +132,12 @@ $(OUTPUT_DIR)/tbg.bin: $(OUTPUT_DIR)/tbg.elf
 	echo "====================="
 
 clean:
-	rm -rf $(OUTPUT_DIR)
+	rm -rf $(OUTPUT_DIR) $(BUILD_DIR)/lnk_matching.sub
 
 depend:
 	makedepend -Y -o .obj -f- $(C_SRCS) 2>/dev/null > Makefile.d
 	sed -i 's/^src/$$(OUTPUT_DIR)\/src/' Makefile.d
 
-.PHONY: all clean
+.PHONY: all clean create_dirs $(OUTPUT_DIR)/tbg.bin
 
 include Makefile.d

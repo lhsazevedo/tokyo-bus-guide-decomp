@@ -1,26 +1,39 @@
 MAKEFLAGS += --no-builtin-rules
 .SUFFIXES:
 
-# Initial Makefile for matching build
-SHELL=/bin/bash
 ASMSH_FLAGS=-debug=d -cpu=sh4 -endian=little -sjis
-OUTPUT_DIR=build/output
+BUILD_DIR=build
+OUTPUT_DIR=$(BUILD_DIR)/output
 SHA1_CHECKSUM=a6df9e0de39b2d11e9339aef915d20e35763ec81
 
-ASM_SRCS = \
+SRCS = \
+	src/010080_main.c \
+	src/0100bc_sound.c \
+	src/010e90.c \
 	src/asm/010fe8_unused.src \
+	src/011120_asset_queues.c \
 	src/asm/012324.src \
 	src/asm/012504.src \
 	src/asm/0129cc.src \
+	src/012f44.c \
 	src/asm/013ae8_pre_data.src \
 	src/asm/013ae8.src \
+	src/014934.c \
+	src/0149b0_sbinit.c \
+	src/014a9c_tasks.c \
+	src/014b8c_backup.c \
 	src/asm/014f54_text_pre_data.src \
+	src/014f54_text.c \
+	src/015ab8_title.c \
+	src/016108.c \
 	src/asm/01614c.src \
 	src/asm/016bf4.src \
+	src/016c58_prompt.c \
 	src/asm/016d2c.src \
 	src/asm/018644.src \
 	src/asm/018784.src \
 	src/asm/0193c8_pre_data.src \
+	src/0193c8_vm_menu.c \
 	src/asm/019e98.src \
 	src/asm/01a148.src \
 	src/asm/01b19c.src \
@@ -32,8 +45,10 @@ ASM_SRCS = \
 	src/asm/01f3c0.src \
 	src/asm/01fa78.src \
 	src/asm/020214.src \
+	src/020528.c \
 	src/asm/020594.src \
 	src/asm/0206f0.src \
+	src/0207d4.c \
 	src/asm/02081c.src \
 	src/asm/020914.src \
 	src/asm/020b6c.src \
@@ -68,48 +83,32 @@ ASM_SRCS = \
 	src/asm/02f320.src \
 	src/asm/0332a4_sectionC.src \
 	src/asm/03bd80_sectionD.src \
-	src/asm/0fcd20_sectionB.src
-
-C_SRCS = \
-	src/010080_main.c \
-	src/0100bc_sound.c \
-	src/010e90.c \
-	src/011120_asset_queues.c \
-	src/012f44.c \
-	src/014934.c \
-	src/0149b0_sbinit.c \
-	src/014a9c_tasks.c \
-	src/014b8c_backup.c \
-	src/014f54_text.c \
-	src/015ab8_title.c \
-	src/016108.c \
-	src/016c58_prompt.c \
-	src/0193c8_vm_menu.c \
-	src/020528.c \
-	src/0207d4.c \
+	src/asm/0fcd20_sectionB.src \
 	src/02fb50_sh4nlfzn_post_data.c \
 	src/scif.c \
 	src/serial_debug.c
 
-ASM_OBJS = $(patsubst src/asm/%.src,$(OUTPUT_DIR)/src/asm/%.obj,$(ASM_SRCS))
-C_OBJS = $(patsubst src/%.c,$(OUTPUT_DIR)/src/%.obj,$(C_SRCS))
+OBJS = $(patsubst src/%.c,$(OUTPUT_DIR)/src/%.obj,$(SRCS))
+OBJS := $(patsubst src/asm/%.src,$(OUTPUT_DIR)/src/asm/%.obj,$(OBJS))
+LINKER_OBJS = $(subst /,\\, $(OBJS))
 
-all: $(OUTPUT_DIR)/tbg.bin
+all: create_dirs $(OUTPUT_DIR)/tbg.bin
 
-$(OUTPUT_DIR):
-	mkdir -p $(OUTPUT_DIR)/src/asm
+create_dirs:
+	@mkdir -p $(OUTPUT_DIR)/src/asm
 
-$(OUTPUT_DIR)/src/asm/%.obj: src/asm/%.src | $(OUTPUT_DIR)
+$(OUTPUT_DIR)/src/asm/%.obj: src/asm/%.src
 	wine "$(SHC_BIN)/asmsh.exe" "$(subst /,\\,$<)" -object="$(subst /,\\,$@)" $(ASMSH_FLAGS)
 
-$(OUTPUT_DIR)/src/%.obj: src/%.c | $(OUTPUT_DIR)
-	wine "$(SHC_BIN)/shc.exe" "$(subst /,\\,$<)" -object="$(subst /,\\,$@)" -sub=build/shc.sub
+$(OUTPUT_DIR)/src/%.obj: src/%.c
+	wine "$(SHC_BIN)/shc.exe" "$(subst /,\\,$<)" -object="$(subst /,\\,$@)" -sub=$(BUILD_DIR)/shc.sub
 
-$(OUTPUT_DIR)/tbg.elf: $(ASM_OBJS) $(C_OBJS) build/lnk.sub
+$(OUTPUT_DIR)/tbg.elf: $(OBJS) $(BUILD_DIR)/lnk.sub
 	wine "$(SHC_BIN)/lnk.exe" -sub=build\\lnk.sub
 
-build/lnk.sub: build/lnk_template.sub
-	sed "s/@DC_SDK@/$$(printf %q "$(KATANA_SDK_DIR)")/g" build/lnk_template.sub > build/lnk.sub
+$(BUILD_DIR)/lnk.sub: $(BUILD_DIR)/lnk_template.sub
+	sed "s|@DC_SDK@|$$(printf %q "$(KATANA_SDK_DIR)")|g" $(BUILD_DIR)/lnk_template.sub > $(BUILD_DIR)/lnk.sub
+	sed -i 's|@INPUTS@|$(foreach obj,$(LINKER_OBJS),input $(obj)\n)|g' $(BUILD_DIR)/lnk.sub
 
 $(OUTPUT_DIR)/tbg.bin: $(OUTPUT_DIR)/tbg.elf
 	wine "$(KATANA_SDK_DIR)/bin/elf2bin.exe" -s 8c010000 "$(subst /,\\,$<)"
@@ -124,12 +123,12 @@ $(OUTPUT_DIR)/tbg.bin: $(OUTPUT_DIR)/tbg.elf
 	fi
 
 clean:
-	rm -rf $(OUTPUT_DIR)
+	rm -rf $(OUTPUT_DIR) $(OUTPUT_DIR)/lnk.sub
 
 depend:
 	makedepend -Y -o .obj -f- $(C_SRCS) 2>/dev/null > Makefile.d
 	sed -i 's/^src/$$(OUTPUT_DIR)/' Makefile.d
 
-.PHONY: all clean
+.PHONY: all clean create_dirs $(OUTPUT_DIR)/tbg.bin
 
 include Makefile.d
