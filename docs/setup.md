@@ -25,22 +25,20 @@
 You can either use the provided Docker image or setup your own environment.
 
 ### 3.1 Using the provided Docker image
-1. Open run_container.sh with your favorite text editor and update the SDK_PATH variable with the absolute path location of the SDK Files mentioned in the Project Setup
+1. Open .env.example with your favorite text editor and fill the SDK_PATH variable with the absolute path location of the SDK Files mentioned in the Project Setup, then save it as .env.
 
-2. Run run_container.sh. you should be inside a bash shell inside /app (your current folder)
+2. (Optional, only needed for rebuild the disc image) Open .env, uncomment and
+update the TBG_DISC_PATH variable with the absolute path location of the
+extracted disc image files.
+
+3. Run run_container.sh. you should be inside a bash shell inside /app (your current folder)
    ```
    $ ./run_container.sh
    ```
 
-3. Source your `set_kt.docker.sh` script to make the environment variables available in the current shell:
-
+4. Build the binary using the provided Makefile.
    ```
-   $ source ./scripts/set_kt.docker.sh
-   ```
-
-4. Build the binary using the provided `build.sh` script.
-   ```
-   $ ./scripts/build.sh
+   $ make
 
    (...)
 
@@ -69,9 +67,9 @@ You can either use the provided Docker image or setup your own environment.
    $ source set_kt.sh
    ```
 
-4. Build the binary using the provided `build.sh` script.
+4. Build the binary using the provided Makefile.
    ```
-   $ ./build.sh
+   $ make
 
    (...)
 

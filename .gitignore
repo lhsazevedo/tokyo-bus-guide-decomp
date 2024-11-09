@@ -9,3 +9,4 @@ build/lnk.sub
 build/lnk_matching.sub
 
 /ghidra
+/.env
