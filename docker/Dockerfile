@@ -1,6 +1,6 @@
-FROM bitnami/dotnet-sdk:6 as gdibuilder
+FROM bitnami/dotnet-sdk:6 AS gdibuilder
 
-COPY gdibuilder.patch /app/gdibuilder.patch
+COPY docker/gdibuilder.patch /app/gdibuilder.patch
 
 RUN apt-get update && apt-get install -y \
     clang \
@@ -12,12 +12,19 @@ RUN apt-get update && apt-get install -y \
 RUN cd /app \
     && git clone https://github.com/Sappharad/GDIbuilder.git \
     && cd GDIbuilder \
+    && git checkout 1af5e8f69d0bcefb169827f3f86987460a51e638 \
     && git apply /app/gdibuilder.patch \
     && cd buildgdi \
     && dotnet publish --configuration Release -r linux-x64 --self-contained
 
 
 FROM php:8.3-cli
+
+ENV DC_SDK=/sdk
+ENV TBG_DISC=/tbgdisc
+
+RUN addgroup --gid 1000 user \
+    && useradd --create-home --home-dir /home/user --shell /bin/bash --uid 1000 --gid user user
 
 RUN dpkg --add-architecture i386 \
     && apt-get update && apt-get install -y --no-install-recommends \
@@ -34,9 +41,9 @@ RUN chmod uga+x /usr/local/bin/install-php-extensions && sync \
     @composer \
     && rm /usr/local/bin/install-php-extensions
 
-RUN addgroup --gid 1000 user \
-    && useradd --create-home --home-dir /home/user --shell /bin/bash --uid 1000 --gid user user
-
 COPY --from=gdibuilder /app/GDIbuilder/buildgdi/bin/Release/net6.0/linux-x64/publish /opt/buildgdi
-
 RUN ln -s /opt/buildgdi/buildgdi /usr/local/bin/buildgdi
+
+USER user
+RUN composer global require lhsazevedo/sh4objtest:v0.1.3
+ENV PATH="${PATH}:/home/user/.composer/vendor/bin"
