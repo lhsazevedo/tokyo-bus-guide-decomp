@@ -1,5 +1,8 @@
 {
     "files.encoding": "shiftjis",
+    "[markdown]": {
+        "files.encoding": "utf8"
+    },
     "files.associations": {
         "*.inc": "php",
         "*.s": "plaintext",
