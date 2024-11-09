@@ -7,6 +7,8 @@ export SHC_TMP=$(winepath -w /tmp)
 export SHC_LIB=$(winepath -w $DC_SDK/shc/bin)
 export SHC_INC=$(winepath -w $DC_SDK/shc/include),$(winepath -w $DC_SDK/shinobi/include)
 
+# TODO: Document the commented out variables below
+
 # export HLNK_LIBRARY1=$(winepath -w $DC_SDK/shinobi/lib/shinobi.lib)
 # export HLNK_LIBRARY2=$(winepath -w $DC_SDK/shinobi/lib/ninja.lib)
 # export HLNK_LIBRARY3=$(winepath -w $DC_SDK/shc/lib/sh4nlfzn.lib)
