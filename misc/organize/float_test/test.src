@@ -1,0 +1,28 @@
+          .EXPORT     _function
+          .SECTION    P,CODE,ALIGN=4
+          .LINE       "Z:\app\test.c",1
+_function:                       ; function: function
+                                 ; frame size=0
+          .LINE       "Z:\app\test.c",26
+          FADD        FR5,FR4
+          FMOV.S      @R15,FR3
+          MOV         #4,R0
+          FMOV.S      @(R0,R15),FR2
+          MOV         #8,R0
+          FMOV.S      @(R0,R15),FR1
+          MOV         #12,R0
+          FADD        FR6,FR4
+          FADD        FR7,FR4
+          FADD        FR8,FR4
+          FADD        FR9,FR4
+          FADD        FR10,FR4
+          FADD        FR11,FR4
+          FADD        FR3,FR4
+          FMOV.S      @(R0,R15),FR3
+          FADD        FR2,FR4
+          FADD        FR1,FR4
+          FMOV.S      FR4,FR0
+          .LINE       "Z:\app\test.c",27
+          RTS
+          FADD        FR3,FR0
+          .END

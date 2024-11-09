@@ -1,0 +1,27 @@
+float function(
+    float fr4,
+    float fr5,
+    float fr6,
+    float fr7,
+    float fr8,
+    float fr9,
+    float fr10,
+    float fr11,
+    float fr12,
+    float fr13,
+    float fr14,
+    float fr15
+) {
+    return fr4
+        + fr5
+        + fr6
+        + fr7
+        + fr8
+        + fr9
+        + fr10
+        + fr11
+        + fr12
+        + fr13
+        + fr14
+        + fr15;
+}
