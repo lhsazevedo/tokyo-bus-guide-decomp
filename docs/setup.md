@@ -7,18 +7,18 @@
 ## 2. SDK Setup
 1. Ensure your SDK is organized as follows.
    ```
-   „¥„Ÿ„Ÿ bin (From disc Vol.1 dc_sdk/bin)
-   „    „¥„Ÿ„Ÿ binadj.exe
-   „    „¤„Ÿ„Ÿ ...
-   „¥„Ÿ„Ÿ shc (From disc Vol.2)
-   „    „¥„Ÿ„Ÿ bin
-   „    „¥„Ÿ„Ÿ include
-   „    „¤„Ÿ„Ÿ lib
-   „¤„Ÿ„Ÿ shinobi (From disc Vol.2)
-      „¥„Ÿ„Ÿ driver
-      „¥„Ÿ„Ÿ include
-      „¥„Ÿ„Ÿ lib
-      „¤„Ÿ„Ÿ sample
+   â”œâ”€â”€ bin (From disc Vol.1 dc_sdk/bin)
+   â”‚   â”œâ”€â”€ binadj.exe
+   â”‚   â””â”€â”€ ...
+   â”œâ”€â”€ shc (From disc Vol.2)
+   â”‚   â”œâ”€â”€ bin
+   â”‚   â”œâ”€â”€ include
+   â”‚   â””â”€â”€ lib
+   â””â”€â”€ shinobi (From disc Vol.2)
+      â”œâ”€â”€ driver
+      â”œâ”€â”€ include
+      â”œâ”€â”€ lib
+      â””â”€â”€ sample
    ```
 
 ## 3. Choose your environment
