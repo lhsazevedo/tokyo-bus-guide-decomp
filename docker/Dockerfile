@@ -20,9 +20,6 @@ RUN cd /app \
 
 FROM php:8.3-cli
 
-ENV DC_SDK=/sdk
-ENV TBG_DISC=/tbgdisc
-
 RUN addgroup --gid 1000 user \
     && useradd --create-home --home-dir /home/user --shell /bin/bash --uid 1000 --gid user user
 
@@ -46,4 +43,15 @@ RUN ln -s /opt/buildgdi/buildgdi /usr/local/bin/buildgdi
 
 USER user
 RUN composer global require lhsazevedo/sh4objtest:v0.1.3
+
 ENV PATH="${PATH}:/home/user/.composer/vendor/bin"
+ENV DC_SDK=/sdk
+ENV TBG_DISC=/tbgdisc
+
+# Paths as seen by the SDK with wine
+ENV SHINOBI_DIR=Z:\\sdk\\shinobi
+ENV KATANA_SDK_DIR=Z:\\sdk
+ENV SHC_BIN=Z:\\sdk\\shc\\bin
+ENV SHC_TMP=Z:\\tmp
+ENV SHC_LIB=Z:\\sdk\\shc\\bin
+ENV SHC_INC=Z:\\sdk\\shc\\include,Z:\\sdk\\shinobi\\include
