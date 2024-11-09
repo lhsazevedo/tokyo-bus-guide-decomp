@@ -1,7 +1,7 @@
           .IMPORT     _pdVibMxStart
           .IMPORT     _pdVibMxStop
           .IMPORT     _memset
-          .EXPORT     __8c033318
+          .EXPORT     _init_peripheral_8c033318
           .EXPORT     _init_vib_8c03bdac
           .EXPORT     _init_vib_8c03bdc4
           .EXPORT     _init_vib_8c03bde4
@@ -203,7 +203,7 @@ L9:
           .DATA.L     _pdVibMxStop
           .DATA.L     _memset
           .SECTION    C,DATA,ALIGN=4
-__8c033318:                      ; static: _8c033318
+_init_peripheral_8c033318:               ; static: init_peripheral_8c033318
           .DATA.B     H'00
           .DATAB.B    51,0
           .SECTION    D,DATA,ALIGN=4

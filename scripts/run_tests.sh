@@ -27,9 +27,17 @@ compile() {
 rm -rf build/output
 mkdir build/output
 
+# 012324
+assemble  src/asm/012324.src
+compile  src/012324.c
+
+$sh4objtest --disasm "tests/012324/12324_task.php" "build/output/012324_src.obj"
+$sh4objtest --disasm "tests/012324/12324_task.php" "build/output/012324_c.obj"
+
 # 014f44
 assemble  src/asm/decompiled/014f54_text.src
 compile  src/014f54_text.c
+
 
 $sh4objtest "tests/014f54_text/14f54_drawSprite.php" "build/output/014f54_text_src.obj"
 $sh4objtest "tests/014f54_text/14f54_drawSprite.php" "build/output/014f54_text_c.obj"

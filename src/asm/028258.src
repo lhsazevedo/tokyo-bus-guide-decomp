@@ -136,7 +136,7 @@
           .IMPORT     _var_8c228484
           .IMPORT     _var_8c228478
           .IMPORT     _init_8c046758
-          .IMPORT     _var_8c1ba358
+          .IMPORT     _var_peripheral_8c1ba358
           .IMPORT     _snd_8c010cd6
           .IMPORT     _FUN_8c010ca6
           .IMPORT     _var_8c226564
@@ -5594,7 +5594,7 @@ LP_GEN_97247:
           .DATA.L _init_8c046758 ; H'8C02ABC0
           .DATA.L _AsqRequestPvm_11ac0 ; H'8C02ABC4
           .DATA.L H'0000FFFF ; H'8C02ABC8
-          .DATA.L _var_8c1ba358 ; H'8C02ABCC
+          .DATA.L _var_peripheral_8c1ba358 ; H'8C02ABCC
 LAB_8c02abd0:
           MOV.L       @(H'10,R14),R2
           MOV.L       @R2,R1
@@ -5801,7 +5801,7 @@ LP_GEN_90033:
           .RES.W 1 ; H'8C02AD3E
           .DATA.L _var_8c228518 ; H'8C02AD40
           .DATA.L _snd_8c010cd6 ; H'8C02AD44
-          .DATA.L _var_8c1ba358 ; H'8C02AD48
+          .DATA.L _var_peripheral_8c1ba358 ; H'8C02AD48
           .DATA.L _FUN_8c010ca6 ; H'8C02AD4C
           .DATA.L _var_8c226564 ; H'8C02AD50
           .DATA.L _isFading_8c226568 ; H'8C02AD54

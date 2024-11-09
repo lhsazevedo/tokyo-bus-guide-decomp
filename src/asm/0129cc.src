@@ -3,7 +3,7 @@
           .IMPORT     _var_8c18ad04
           .IMPORT     _var_midiHandles_8c0fcd28
           .IMPORT     _sdMidiPlay
-          .IMPORT     _var_8c1ba358
+          .IMPORT     _var_peripheral_8c1ba358
           .IMPORT     _var_8c157a70
           .IMPORT     _var_8c22847c
           .IMPORT     _var_8c18ad10
@@ -327,7 +327,7 @@ LP_GEN_41107:
           .DATA.L _var_8c18ad04
           .DATA.L _var_midiHandles_8c0fcd28
           .DATA.L _sdMidiPlay
-          .DATA.L _var_8c1ba358
+          .DATA.L _var_peripheral_8c1ba358
           .DATA.L _var_8c157a70
           .DATA.L _var_8c22847c
           .DATA.L _var_8c18ad10
@@ -625,7 +625,7 @@ LP_GEN_43727:
           .DATA.L _execTasks_8c014b42
           .DATA.L _FUN_8c022560
           .DATA.L _var_8c1bb8cc
-          .DATA.L _var_8c1ba358
+          .DATA.L _var_peripheral_8c1ba358
           .DATA.L _FUN_8c022910
           .DATA.L _init_8c03bd80
           .DATA.L _init_8c03bd84
