@@ -28,11 +28,11 @@ rm -rf build/output
 mkdir build/output
 
 # 012324
-assemble  src/asm/012324.src
-compile  src/012324.c
+assemble  src/asm/012324_peripheral_support.src
+compile  src/012324_peripheral_support.c
 
-$sh4objtest "tests/012324/12324_task.php" "build/output/012324_src.obj"
-$sh4objtest "tests/012324/12324_task.php" "build/output/012324_c.obj"
+$sh4objtest "tests/012324/12324_task.php" "build/output/012324_peripheral_support_src.obj"
+$sh4objtest "tests/012324/12324_task.php" "build/output/012324_peripheral_support_c.obj"
 
 # 014f44
 assemble  src/asm/decompiled/014f54_text.src
