@@ -46,7 +46,7 @@
           .EXPORT     _var_selectedVm_8c1ba34c
           .EXPORT     _var_8c1ba350
           .EXPORT     _var_vibport_8c1ba354
-          .EXPORT     _var_8c1ba358
+          .EXPORT     _var_peripheral_8c1ba358
           .EXPORT     _var_peripheral_8c1ba35c
           .EXPORT     _var_8c1ba374
           .EXPORT     _var_8c1ba376
@@ -253,7 +253,7 @@ _var_8c1ba350:
           .RES.B      4
 _var_vibport_8c1ba354:
           .RES.B      4
-_var_8c1ba358:
+_var_peripheral_8c1ba358:
           .RES.B      4
 _var_peripheral_8c1ba35c:
           .RES.B      24

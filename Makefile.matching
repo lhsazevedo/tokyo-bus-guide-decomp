@@ -14,7 +14,7 @@ SRCS = \
 	src/010e90.c \
 	src/asm/010fe8_unused.src \
 	src/asm/decompiled/011120_asset_queues.src \
-	src/asm/012324.src \
+	src/asm/decompiled/012324_peripheral_support.src \
 	src/asm/012504.src \
 	src/asm/0129cc.src \
 	src/asm/decompiled/012f44.src \

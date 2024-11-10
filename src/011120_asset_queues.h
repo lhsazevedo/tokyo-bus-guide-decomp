@@ -45,7 +45,7 @@ extern int var_8c157a6c;
 /* TODO: Confirm type */
 extern int var_8c157a70;
 extern int var_8c157a74;
-extern int var_8c157a78;
+extern int var_resetRequested_8c157a78;
 extern int var_8c157a7c;
 
 /* =========

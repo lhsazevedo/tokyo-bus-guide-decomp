@@ -58,7 +58,7 @@
           .EXPORT     _var_8c157a6c
           .EXPORT     _var_8c157a70
           .EXPORT     _var_8c157a74
-          .EXPORT     _var_8c157a78
+          .EXPORT     _var_resetRequested_8c157a78
           .EXPORT     _var_8c157a7c
 
           .AIFDEF UNIT_TESTING
@@ -2590,7 +2590,7 @@ _var_8c157a70:
           .RES.B      4
 _var_8c157a74:
           .RES.B      4
-_var_8c157a78:
+_var_resetRequested_8c157a78:
           .RES.B      4
 _var_8c157a7c:
           .RES.B      4

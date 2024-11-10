@@ -2,7 +2,8 @@
 #include <shinobi.h>
 
 /* === Workarounds === */
-const char _8c033318[52] = {0};
+/* TODO */
+const PDS_PERIPHERAL const_peripheral_8c033318 = {0};
 
 /* === Structs === */
 struct UnknownVibStructA {

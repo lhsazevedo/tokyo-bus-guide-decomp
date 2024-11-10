@@ -1,20 +1,20 @@
 ; 8c012324
           .IMPORT     _var_peripheral_8c1ba35c
-          .IMPORT     _var_8c157a78
-          .IMPORT     _var_8c1ba358
+          .IMPORT     _var_resetRequested_8c157a78
+          .IMPORT     _var_peripheral_8c1ba358
           .IMPORT     _pdGetPeripheral
           .IMPORT     _var_8c157a70
           .IMPORT     __quick_odd_mvn
-          .IMPORT     __8c033318
+          .IMPORT     _const_peripheral_8c033318
           .IMPORT     _var_vibport_8c1ba354
           .IMPORT     _vmsLcd_8c01c910
           .IMPORT     _FUN_adxVol_8c010a40
-          .EXPORT     _task_8c012324
+          .EXPORT     _PspTask_8c012324
           .EXPORT     _var_8c157ad4
           .EXPORT     _var_8c157ae4
           .EXPORT     _var_8c157ae8
           .SECTION     P, CODE, ALIGN=4
-_task_8c012324:
+_PspTask_8c012324:
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           MOV         #H'0,R13
@@ -144,8 +144,8 @@ LAB_8c012406:
 LP_GEN_72787:
           .DATA.W H'0080 ; LP_GEN_72787+0
           .DATA.L _var_peripheral_8c1ba35c
-          .DATA.L _var_8c157a78
-          .DATA.L _var_8c1ba358
+          .DATA.L _var_resetRequested_8c157a78
+          .DATA.L _var_peripheral_8c1ba358
           .DATA.L _pdGetPeripheral
           .DATA.L H'000F06FE
           .DATA.L _var_8c157a70
@@ -255,8 +255,8 @@ LAB_8c0124ce:
 LP_GEN_88452:
           .DATA.W H'0606
           .DATA.L H'000000F0
-          .DATA.L _var_8c157a78
-          .DATA.L __8c033318
+          .DATA.L _var_resetRequested_8c157a78
+          .DATA.L _const_peripheral_8c033318
           .DATA.L __quick_odd_mvn
           .DATA.L _var_vibport_8c1ba354
           .DATA.L _var_8c157ad4
@@ -264,7 +264,7 @@ LP_GEN_88452:
           .DATA.L _FUN_adxVol_8c010a40
           .SECTION    B,DATA,ALIGN=4
 _var_8c157ad4:
-          .RES.B      16
+          .RES.L      4
 _var_8c157ae4:
           .RES.B      4
 _var_8c157ae8:
