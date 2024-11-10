@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install -y \
 RUN cd /app \
     && git clone https://github.com/Sappharad/GDIbuilder.git \
     && cd GDIbuilder \
-    && git checkout 1af5e8f69d0bcefb169827f3f86987460a51e638 \
+    && git checkout 43d0a81a55bbce67ac7f64d7e8ef101d11f26c9b \
     && git apply /app/gdibuilder.patch \
     && cd buildgdi \
     && dotnet publish --configuration Release -r linux-x64 --self-contained
@@ -42,7 +42,7 @@ COPY --from=gdibuilder /app/GDIbuilder/buildgdi/bin/Release/net6.0/linux-x64/pub
 RUN ln -s /opt/buildgdi/buildgdi /usr/local/bin/buildgdi
 
 USER user
-RUN composer global require lhsazevedo/sh4objtest:v0.1.3
+RUN composer global require lhsazevedo/sh4objtest:v0.1.4
 
 ENV PATH="${PATH}:/home/user/.composer/vendor/bin"
 ENV DC_SDK=/sdk
