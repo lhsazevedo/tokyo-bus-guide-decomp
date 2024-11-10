@@ -17,7 +17,7 @@
           .IMPORT     _pushTask_8c014ae8
           .IMPORT     _var_tasks_8c1ba3c8
           .IMPORT     _var_8c157a74
-          .IMPORT     _task_8c012324
+          .IMPORT     _PspTask_8c012324
           .IMPORT     _var_8c157ae4
           .IMPORT     _var_8c157ae8
           .IMPORT     _var_8c157ad4
@@ -594,7 +594,7 @@ LP_GEN_17272:
           .DATA.L _pushTask_8c014ae8
           .DATA.L _var_tasks_8c1ba3c8
           .DATA.L _var_8c157a74
-          .DATA.L _task_8c012324
+          .DATA.L _PspTask_8c012324
           .DATA.L _var_8c157ae4
           .DATA.L _var_8c157ae8
           .DATA.L _var_8c157ad4

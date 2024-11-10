@@ -9,12 +9,12 @@
           .IMPORT     _var_vibport_8c1ba354
           .IMPORT     _vmsLcd_8c01c910
           .IMPORT     _FUN_adxVol_8c010a40
-          .EXPORT     _task_8c012324
+          .EXPORT     _PspTask_8c012324
           .EXPORT     _var_8c157ad4
           .EXPORT     _var_8c157ae4
           .EXPORT     _var_8c157ae8
           .SECTION     P, CODE, ALIGN=4
-_task_8c012324:
+_PspTask_8c012324:
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           MOV         #H'0,R13

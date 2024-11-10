@@ -14,7 +14,7 @@ extern PDS_PERIPHERAL var_peripheral_8c1ba35c[2];
 #define DGT_UDLR (PDD_DGT_KU | PDD_DGT_KD | PDD_DGT_KL | PDD_DGT_KR)
 #define DGT_AB (PDD_DGT_TA | PDD_DGT_TB)
 
-void task_8c012324()
+void PspTask_8c012324()
 {
     int support;
 

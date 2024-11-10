@@ -55,7 +55,7 @@ return new class extends TestCase {
         $this->shouldCall('_vmsLcd_8c01c910');
         $this->shouldCall('_FUN_adxVol_8c010a40');
 
-        $this->call('_task_8c012324')
+        $this->call('_PspTask_8c012324')
             ->run();
     }
 
@@ -113,7 +113,7 @@ return new class extends TestCase {
         $this->shouldCall('_vmsLcd_8c01c910');
         $this->shouldCall('_FUN_adxVol_8c010a40');
 
-        $this->call('_task_8c012324')
+        $this->call('_PspTask_8c012324')
             ->run();
     }
 
@@ -170,7 +170,7 @@ return new class extends TestCase {
         $this->shouldCall('_vmsLcd_8c01c910');
         $this->shouldCall('_FUN_adxVol_8c010a40');
 
-        $this->call('_task_8c012324')
+        $this->call('_PspTask_8c012324')
             ->run();
     }
 
@@ -228,7 +228,7 @@ return new class extends TestCase {
         $this->shouldCall('_vmsLcd_8c01c910');
         $this->shouldCall('_FUN_adxVol_8c010a40');
 
-        $this->call('_task_8c012324')
+        $this->call('_PspTask_8c012324')
             ->run();
     }
 
@@ -286,7 +286,7 @@ return new class extends TestCase {
         $this->shouldCall('_vmsLcd_8c01c910');
         $this->shouldCall('_FUN_adxVol_8c010a40');
 
-        $this->call('_task_8c012324')
+        $this->call('_PspTask_8c012324')
             ->run();
     }
 
@@ -343,7 +343,7 @@ return new class extends TestCase {
         $this->shouldCall('_vmsLcd_8c01c910');
         $this->shouldCall('_FUN_adxVol_8c010a40');
 
-        $this->call('_task_8c012324')
+        $this->call('_PspTask_8c012324')
             ->run();
     }
 
@@ -401,7 +401,7 @@ return new class extends TestCase {
         $this->shouldCall('_vmsLcd_8c01c910');
         $this->shouldCall('_FUN_adxVol_8c010a40');
 
-        $this->call('_task_8c012324')
+        $this->call('_PspTask_8c012324')
             ->run();
     }
 
@@ -457,7 +457,7 @@ return new class extends TestCase {
         $this->shouldCall('_vmsLcd_8c01c910');
         $this->shouldCall('_FUN_adxVol_8c010a40');
 
-        $this->call('_task_8c012324')
+        $this->call('_PspTask_8c012324')
             ->run();
     }
 
@@ -509,7 +509,7 @@ return new class extends TestCase {
         $this->shouldCall('_vmsLcd_8c01c910');
         $this->shouldCall('_FUN_adxVol_8c010a40');
 
-        $this->call('_task_8c012324')
+        $this->call('_PspTask_8c012324')
             ->run();
     }
 
@@ -562,7 +562,7 @@ return new class extends TestCase {
         $this->shouldCall('_vmsLcd_8c01c910');
         $this->shouldCall('_FUN_adxVol_8c010a40');
 
-        $this->call('_task_8c012324')->run();
+        $this->call('_PspTask_8c012324')->run();
     }
 
     public function test_unsuported_controller()
@@ -615,7 +615,7 @@ return new class extends TestCase {
         $this->shouldCall('_vmsLcd_8c01c910');
         $this->shouldCall('_FUN_adxVol_8c010a40');
 
-        $this->call('_task_8c012324')->run();
+        $this->call('_PspTask_8c012324')->run();
     }
 
     public function test_second_part_zero_nothing()
@@ -671,7 +671,7 @@ return new class extends TestCase {
         $this->shouldCall('_vmsLcd_8c01c910');
         $this->shouldCall('_FUN_adxVol_8c010a40');
 
-        $this->call('_task_8c012324')->run();
+        $this->call('_PspTask_8c012324')->run();
     }
 
     public function test_second_part_zero_up()
@@ -733,7 +733,7 @@ return new class extends TestCase {
         $this->shouldCall('_vmsLcd_8c01c910');
         $this->shouldCall('_FUN_adxVol_8c010a40');
 
-        $this->call('_task_8c012324')->run();
+        $this->call('_PspTask_8c012324')->run();
     }
 
     public function test_second_part_one_nothing()
@@ -795,7 +795,7 @@ return new class extends TestCase {
         $this->shouldCall('_vmsLcd_8c01c910');
         $this->shouldCall('_FUN_adxVol_8c010a40');
 
-        $this->call('_task_8c012324')->run();
+        $this->call('_PspTask_8c012324')->run();
     }
 
     public function test_second_part_one_up()
@@ -858,7 +858,7 @@ return new class extends TestCase {
         $this->shouldCall('_vmsLcd_8c01c910');
         $this->shouldCall('_FUN_adxVol_8c010a40');
 
-        $this->call('_task_8c012324')->run();
+        $this->call('_PspTask_8c012324')->run();
     }
 
     public function test_second_part_one_path_a()
@@ -924,7 +924,7 @@ return new class extends TestCase {
         $this->shouldCall('_vmsLcd_8c01c910');
         $this->shouldCall('_FUN_adxVol_8c010a40');
 
-        $this->call('_task_8c012324')->run();
+        $this->call('_PspTask_8c012324')->run();
     }
 
     public function test_second_part_one_path_b()
@@ -988,7 +988,7 @@ return new class extends TestCase {
         $this->shouldCall('_vmsLcd_8c01c910');
         $this->shouldCall('_FUN_adxVol_8c010a40');
 
-        $this->call('_task_8c012324')->run();
+        $this->call('_PspTask_8c012324')->run();
     }
 
     private function initUint32Array(int $address, array $values): void
