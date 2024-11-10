@@ -31,8 +31,8 @@ mkdir build/output
 assemble  src/asm/012324.src
 compile  src/012324.c
 
-$sh4objtest --disasm "tests/012324/12324_task.php" "build/output/012324_src.obj"
-$sh4objtest --disasm "tests/012324/12324_task.php" "build/output/012324_c.obj"
+$sh4objtest "tests/012324/12324_task.php" "build/output/012324_src.obj"
+$sh4objtest "tests/012324/12324_task.php" "build/output/012324_c.obj"
 
 # 014f44
 assemble  src/asm/decompiled/014f54_text.src

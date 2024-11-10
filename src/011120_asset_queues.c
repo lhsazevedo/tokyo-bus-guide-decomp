@@ -97,7 +97,7 @@ int var_8c157a6c;
 /* TODO: Confirm type */
 int var_8c157a70;
 int var_8c157a74;
-int var_8c157a78;
+int var_resetRequested_8c157a78;
 int var_8c157a7c;
 
 STATIC char *var_queueBaseDir_8c157a80;

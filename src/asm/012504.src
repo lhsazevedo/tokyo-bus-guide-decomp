@@ -1,7 +1,7 @@
 ; 8c012504
           .IMPORT     _pdGetPeripheral
           .IMPORT     _var_vibport_8c1ba354
-          .IMPORT     _var_8c157a78
+          .IMPORT     _var_resetRequested_8c157a78
           .IMPORT     _var_peripheral_8c1ba358
           .IMPORT     _var_8c157a70
           .IMPORT     _var_peripheral_8c1ba35c
@@ -9,7 +9,7 @@
           .IMPORT     _init_8c03bef0
           .IMPORT     _var_8c1bbc4c
           .IMPORT     _var_8c1bbcc4
-          .IMPORT     _init_peripheral_8c033318
+          .IMPORT     _const_peripheral_8c033318
           .IMPORT     __quick_odd_mvn
           .IMPORT     _vmsLcd_8c01c910
           .IMPORT     _init_8c03beb8
@@ -164,7 +164,7 @@ LP_GEN_80518:
           .DATA.W H'0606 ; LP_GEN_80518+0
           .DATA.L _pdGetPeripheral
           .DATA.L _var_vibport_8c1ba354
-          .DATA.L _var_8c157a78
+          .DATA.L _var_resetRequested_8c157a78
           .DATA.L _var_peripheral_8c1ba358
           .DATA.L H'000F06FE
           .DATA.L _var_8c157a70
@@ -309,8 +309,8 @@ LP_GEN_43503:
           .RES.W 1
           .DATA.L _var_8c1bbc4c
           .DATA.L _var_8c1bbcc4
-          .DATA.L _var_8c157a78
-          .DATA.L _init_peripheral_8c033318
+          .DATA.L _var_resetRequested_8c157a78
+          .DATA.L _const_peripheral_8c033318
           .DATA.L __quick_odd_mvn
           .DATA.L _vmsLcd_8c01c910
 
@@ -447,7 +447,7 @@ LP_GEN_64371:
           .RES.W  1
           .DATA.L _pdGetPeripheral
           .DATA.L _var_vibport_8c1ba354
-          .DATA.L _var_8c157a78
+          .DATA.L _var_resetRequested_8c157a78
           .DATA.L _var_peripheral_8c1ba358
           .DATA.L H'000F06FE
           .DATA.L _var_peripheral_8c1ba35c
@@ -586,8 +586,8 @@ LAB_8c0128e6:
 
 LP_GEN_17272:
           .DATA.W H'0100 ; LP_GEN_17272+0
-          .DATA.L _var_8c157a78
-          .DATA.L _init_peripheral_8c033318
+          .DATA.L _var_resetRequested_8c157a78
+          .DATA.L _const_peripheral_8c033318
           .DATA.L __quick_odd_mvn
           .DATA.L _var_8c157a70
           .DATA.L _vmsLcd_8c01c910

@@ -1,5 +1,5 @@
 ; 8c012f44
-          .IMPORT     _var_8c157a78
+          .IMPORT     _var_resetRequested_8c157a78
           .IMPORT     _var_8c157a7c
           .IMPORT     _FUN_8c010ca6
           .IMPORT     _sdMidiStopAll
@@ -308,7 +308,7 @@ LP_GEN_99840:
           .DATA.W H'03C0
           .DATA.W H'0268
           .RES.W      1
-          .DATA.L _var_8c157a78
+          .DATA.L _var_resetRequested_8c157a78
           .DATA.L _var_8c157a7c
           .DATA.L _FUN_8c010ca6
           .DATA.L _sdMidiStopAll

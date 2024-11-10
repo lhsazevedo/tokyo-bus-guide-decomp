@@ -428,7 +428,7 @@ extern setSoundMode_8c0108c0(Bool);
 /* Matched :) */
 void task_8c012f44()
 {
-    if ((var_8c157a78 != 0) && (var_8c157a7c == 0)) {
+    if ((var_resetRequested_8c157a78 != 0) && (var_8c157a7c == 0)) {
         FUN_8c010ca6(0);
         sdMidiStopAll();
         if (var_vibport_8c1ba354 != -1) {

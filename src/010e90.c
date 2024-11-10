@@ -3,7 +3,7 @@
 
 /* === Workarounds === */
 /* TODO */
-PDS_PERIPHERAL init_peripheral_8c033318 = {0};
+const PDS_PERIPHERAL const_peripheral_8c033318 = {0};
 
 /* === Structs === */
 struct UnknownVibStructA {
