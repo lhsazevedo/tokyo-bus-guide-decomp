@@ -145,5 +145,13 @@ return [
                 "build/output/011120_asset_queues_c.obj",
             ],
         ],
+        [
+            "tests" => [
+                "tests/019e98_main_menu/1a09a_switchToMainMenuTask.php",
+            ],
+            "objects" => [
+                "build/output/019e98_main_menu_src.obj",
+            ]
+        ]
     ],
 ];
