@@ -35,7 +35,7 @@ SRCS = \
 	src/asm/018784.src \
 	src/asm/0193c8_pre_data.src \
 	src/0193c8_vm_menu.c \
-	src/asm/019e98.src \
+	src/asm/019e98_main_menu.src \
 	src/asm/01a148.src \
 	src/asm/01b19c.src \
 	src/asm/01bb48.src \
