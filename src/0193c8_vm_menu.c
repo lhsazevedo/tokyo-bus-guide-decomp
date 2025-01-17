@@ -85,6 +85,8 @@ enum VMU_STATUS {
    =====================
  */
 
+extern MainMenuSwitchFromTask_8c01a09a(Task *task);
+
 extern int init_8c03bd80;
 extern char* init_saveNames_8c044d50[11];
 extern char* init_vmuStatusMessages_8c044dc4[7];
@@ -411,7 +413,7 @@ STATIC void DrawVmWarning_19852()
 /* Tested */
 STATIC void VmMenuTask_198a0(Task* task, void *actionState)
 {
-    int slot = menuState_8c1bc7a8.field_0x38;
+    int slot = menuState_8c1bc7a8.selected_0x38;
     switch (menuState_8c1bc7a8.state_0x18)
     {
         /* Init */
@@ -516,7 +518,7 @@ STATIC void VmMenuTask_198a0(Task* task, void *actionState)
                 }
 
                 // If slot didn't change and A was pressed
-                if (slot == menuState_8c1bc7a8.field_0x38
+                if (slot == menuState_8c1bc7a8.selected_0x38
                     && (var_peripheral_8c1ba35c[0].press & PDD_DGT_TA))
                 {
                     int status = var_vmuStatus_8c226048[slot];
@@ -551,7 +553,7 @@ STATIC void VmMenuTask_198a0(Task* task, void *actionState)
             }
 
             // If selection changed
-            if (slot != menuState_8c1bc7a8.field_0x38) {
+            if (slot != menuState_8c1bc7a8.selected_0x38) {
                 sdMidiPlay(var_midiHandles_8c0fcd28[0], 1, 3, 0);
                 initCursorLerp_19788(slot);
                 CHANGE_STATE(VM_MENU_STATE_CURSOR_ANIMATING);
@@ -560,7 +562,6 @@ STATIC void VmMenuTask_198a0(Task* task, void *actionState)
 
             drawVmMenu_197c0();
             menuTextboxText_8c02af1c(0x20);
-            //menuState_8c1bc7a8.field_0x38 = slot;
             break;
         }
 
@@ -573,7 +574,6 @@ STATIC void VmMenuTask_198a0(Task* task, void *actionState)
 
             drawVmMenu_197c0();
             menuTextboxText_8c02af1c(0x20);
-            //menuState_8c1bc7a8.field_0x38 = slot;
             break;
         }
 
@@ -682,7 +682,7 @@ STATIC void VmMenuTask_198a0(Task* task, void *actionState)
                 // VM Warning Fade out to Main Menu
                 case 2: {
                     if (!isFading_8c226568) {
-                        switchToMainMenuTask_8c01a09a(task);
+                        MainMenuSwitchFromTask_8c01a09a(task);
                         return;
                     }
                     break;
@@ -718,7 +718,6 @@ STATIC void VmMenuTask_198a0(Task* task, void *actionState)
             );
 
             drawVmMenu_197c0();
-            //menuState_8c1bc7a8.field_0x38 = slot;
             break;
         }
 
@@ -728,7 +727,7 @@ STATIC void VmMenuTask_198a0(Task* task, void *actionState)
                 break;
             }
             if (init_8c03bd80) return;
-            switchToMainMenuTask_8c01a09a(task);
+            MainMenuSwitchFromTask_8c01a09a(task);
             return;
         }
 
@@ -741,7 +740,7 @@ STATIC void VmMenuTask_198a0(Task* task, void *actionState)
         }
     }
 
-    menuState_8c1bc7a8.field_0x38 = slot;
+    menuState_8c1bc7a8.selected_0x38 = slot;
 }
 
 /* Tested */
@@ -749,6 +748,6 @@ void VmMenuSwitchFromTask_19e44(Task *task)
 {
     setTaskAction_8c014b3e(task, VmMenuTask_198a0);
     menuState_8c1bc7a8.state_0x18 = VM_MENU_STATE_INIT;
-    menuState_8c1bc7a8.field_0x38 = 0;
+    menuState_8c1bc7a8.selected_0x38 = 0;
     menuState_8c1bc7a8.logo_timer_0x68 = 0;
 }

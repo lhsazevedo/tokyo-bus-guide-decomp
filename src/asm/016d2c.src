@@ -99,9 +99,9 @@
           .EXPORT     _FUN_8c0173e6
           .EXPORT     _FUN_8c017420
           .EXPORT     _drawCoursesButtons_8c017590
-          .EXPORT     _FUN_8c017718
+          .EXPORT     _StoryMenuTask_8c017718
           .EXPORT     _FUN_8c017a20
-          .EXPORT     _task_menu_freerun_8c017ada
+          .EXPORT     _FreeRunMenuTask_8c017ada
           .EXPORT     _FUN_8c017d54
           .EXPORT     _FUN_8c017e18
           .EXPORT     _FUN_8c017ef2
@@ -1412,7 +1412,7 @@ LAB_8c0176ec:
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-_FUN_8c017718:
+_StoryMenuTask_8c017718:
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           MOV.L       R12,@-R15
@@ -1899,7 +1899,7 @@ LAB_8c017ac0:
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-_task_menu_freerun_8c017ada:
+_FreeRunMenuTask_8c017ada:
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           MOV         R4,R13
@@ -2349,7 +2349,7 @@ LP_GEN_59651:
           .DATA.L _init_8c04442c ; H'8C017E44
           .DATA.L _var_8c1ba1cc ; H'8C017E48
           .DATA.L _var_8c1bb8fc ; H'8C017E4C
-          .DATA.L _FUN_8c017718 ; H'8C017E50
+          .DATA.L _StoryMenuTask_8c017718 ; H'8C017E50
           .DATA.L _setTaskAction_8c014b3e ; H'8C017E54
 LAB_8c017e58:
           MOV.L       LP_GEN_67544+8,R1
@@ -2471,7 +2471,7 @@ _FUN_8c017ef2:
 LP_GEN_67544:
           .DATA.W H'0C00 ; H'8C017F38
           .RES.W 1 ; H'8C017F3A
-          .DATA.L _task_menu_freerun_8c017ada ; H'8C017F3C
+          .DATA.L _FreeRunMenuTask_8c017ada ; H'8C017F3C
           .DATA.L _setTaskAction_8c014b3e ; H'8C017F40
           .DATA.L _menuState_8c1bc7a8 ; H'8C017F44
           .DATA.L _var_8c225fbc ; H'8C017F48
@@ -2495,7 +2495,7 @@ LP_GEN_67544:
           .DATA.L _task_8c012f44 ; H'8C017F90
           .DATA.L _var_tasks_8c1ba3c8 ; H'8C017F94
           .DATA.L _var_8c1bb8fc ; H'8C017F98
-          .DATA.L _FUN_8c017718 ; H'8C017F9C
+          .DATA.L _StoryMenuTask_8c017718 ; H'8C017F9C
 LAB_8c017fa0:
           MOV         #H'0,R1
           MOV.L       LP_GEN_56170+6,R5
@@ -2641,7 +2641,7 @@ LP_GEN_56170:
           .DATA.W H'0C00 ; H'8C0180B2
           .DATA.W H'0240 ; H'8C0180B4
           .DATA.W H'0180 ; H'8C0180B6
-          .DATA.L _task_menu_freerun_8c017ada ; H'8C0180B8
+          .DATA.L _FreeRunMenuTask_8c017ada ; H'8C0180B8
           .DATA.L _menuState_8c1bc7a8 ; H'8C0180BC
           .DATA.L _var_8c225fbc ; H'8C0180C0
           .DATA.L _init_8c044c08 ; H'8C0180C4

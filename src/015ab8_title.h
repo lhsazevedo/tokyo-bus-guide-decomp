@@ -58,7 +58,7 @@ struct MenuState {
     } pos;
     float uknX_0x30;
     float uknY_0x34;
-    int field_0x38;
+    int selected_0x38;
     int field_0x3c;
     int field_0x40;
     int field_0x44;

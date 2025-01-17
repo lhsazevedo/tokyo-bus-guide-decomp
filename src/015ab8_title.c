@@ -28,7 +28,7 @@ extern FUN_8c02ae3e(int p1, int p2, float fp1, int p3, int p4, int p5, int p6, i
 extern void resetUknPvmBool_8c014322();
 extern FUN_8c016182();
 extern FUN_demo_8c0159ac();
-extern void requestSysResgrp_8c018568(ResourceGroup* dds, ResourceGroupInfo* rg);
+extern int requestSysResgrp_8c018568(ResourceGroup* dds, ResourceGroupInfo* rg);
 extern void requestCommonResources_8c01852c();
 extern void setUknPvmBool_8c014330();
 extern void snd_8c010cd6(int p1, int p2);
