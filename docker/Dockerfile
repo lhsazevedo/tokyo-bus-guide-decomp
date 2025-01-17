@@ -1,6 +1,6 @@
 FROM bitnami/dotnet-sdk:6 AS gdibuilder
 
-COPY docker/gdibuilder.patch /app/gdibuilder.patch
+COPY gdibuilder.patch /app/gdibuilder.patch
 
 RUN apt-get update && apt-get install -y \
     clang \
@@ -42,7 +42,7 @@ COPY --from=gdibuilder /app/GDIbuilder/buildgdi/bin/Release/net6.0/linux-x64/pub
 RUN ln -s /opt/buildgdi/buildgdi /usr/local/bin/buildgdi
 
 USER user
-RUN composer global require lhsazevedo/sh4objtest:v0.1.4
+RUN composer global require lhsazevedo/sh4objtest:v0.1.7
 
 ENV PATH="${PATH}:/home/user/.composer/vendor/bin"
 ENV DC_SDK=/sdk

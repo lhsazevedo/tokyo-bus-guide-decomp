@@ -6,8 +6,10 @@ use Lhsazevedo\Sh4ObjTest\TestCase;
 use Lhsazevedo\Sh4ObjTest\Simulator\Arguments\WildcardArgument;
 use Lhsazevedo\Sh4ObjTest\Simulator\Types\U32;
 
-function fdec(float $value) {
-    return unpack('L', pack('f', $value))[1];
+if (!function_exists('fdec')) {
+    function fdec(float $value) {
+        return unpack('L', pack('f', $value))[1];
+    }
 }
 
 return new class extends TestCase {

@@ -6,11 +6,13 @@ use Lhsazevedo\Sh4ObjTest\TestCase;
 use Lhsazevedo\Sh4ObjTest\Simulator\Arguments\WildcardArgument;
 use Lhsazevedo\Sh4ObjTest\Simulator\Types\U32;
 
-define('PDD_DGT_KR', (1 <<  7));
-define('PDD_DGT_KL', (1 <<  6));
-define('PDD_DGT_KD', (1 <<  5));
-define('PDD_DGT_KU', (1 <<  4));
-define('PDD_DGT_TA', (1 <<  2));
+if (!defined('PDD_DGT_KR')) {
+    define('PDD_DGT_KR', (1 <<  7));
+    define('PDD_DGT_KL', (1 <<  6));
+    define('PDD_DGT_KD', (1 <<  5));
+    define('PDD_DGT_KU', (1 <<  4));
+    define('PDD_DGT_TA', (1 <<  2));
+};
 
 return new class extends TestCase {
     public function test_case0_waitForTimer()
