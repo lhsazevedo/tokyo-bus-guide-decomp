@@ -3,7 +3,7 @@
           .IMPORT     _FUN_8c0167c0
           .IMPORT     _FUN_8c016b4c
           .IMPORT     _FUN_8c0184cc
-          .IMPORT     _switchToMainMenuTask_8c01a09a
+          .IMPORT     _MainMenuSwitchFromTask_8c01a09a
           .IMPORT     _FUN_8c01a3c0
           .IMPORT     _FUN_8c01a89c
           .IMPORT     _FUN_8c01afd8
@@ -805,7 +805,7 @@
           .IMPORT     _const_8c03b950
           .IMPORT     _const_8c03b95c
           .IMPORT     _const_8c03b968
-          .EXPORT     _init_8c044264 ; 016d2c
+          .EXPORT     _init_mainMenuResourceGroup_8c044264 ; 016d2c
           .EXPORT     _init_8c044274 ; 01e27c
           .EXPORT     _init_8c044284 ; 01e27c
           .EXPORT     _init_8c044294 ; 01614c
@@ -1612,7 +1612,7 @@ _titleResourceGroup_8c044254:        ; from defines
           .DATA.L      _const_8c035ff4 ; ukn
           .DATA.L      _const_8c036000 ; ukn
           .DATA.B      H'01, H'00, H'00, H'00
-_init_8c044264:        ; from defines
+_init_mainMenuResourceGroup_8c044264:        ; from defines
           .DATA.L      _const_8c03600c ; ukn
           .DATA.L      _const_8c03601c ; ukn
           .DATA.L      _const_8c036028 ; ukn
@@ -2340,7 +2340,7 @@ _init_8c044e28:        ; from defines
           .DATA.L      _FUN_8c01a3c0 ; ukn
           .DATA.L      _FUN_8c01a89c ; ukn
           .DATA.L      _FUN_8c01afd8 ; ukn
-          .DATA.L      _switchToMainMenuTask_8c01a09a ; ukn
+          .DATA.L      _MainMenuSwitchFromTask_8c01a09a ; ukn
 _init_8c044e38:        ; from defines
           .DATA.L      _var_8c2260ac ; ukn
           .DATA.L      _var_8c2260b8 ; ukn

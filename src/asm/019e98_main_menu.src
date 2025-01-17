@@ -17,16 +17,16 @@
           .IMPORT     _setTaskAction_8c014b3e
           .IMPORT     _AsqInitQueues_11f36
           .IMPORT     _AsqResetQueues_11f6c
-          .IMPORT     _init_8c044264
+          .IMPORT     _init_mainMenuResourceGroup_8c044264
           .IMPORT     _requestSysResgrp_8c018568
           .IMPORT     _setUknPvmBool_8c014330
           .IMPORT     _resetUknPvmBool_8c014322
           .IMPORT     _AsqNop_11120
           .IMPORT     _AsqProcessQueues_11fe0
-          .EXPORT     _task_mainmenu_8c019e98
-          .EXPORT     _switchToMainMenuTask_8c01a09a
+          .EXPORT     _MainMenuTask_8c019e98
+          .EXPORT     _MainMenuSwitchFromTask_8c01a09a
           .SECTION     P, CODE, ALIGN=4
-_task_mainmenu_8c019e98:
+_MainMenuTask_8c019e98:
           MOV.L       R14,@-R15
           MOV.L       R13,@-R15
           MOV.L       R12,@-R15
@@ -297,7 +297,7 @@ LAB_8c01a088:
           MOV.L       @R15+,R13
           RTS
           MOV.L       @R15+,R14
-_switchToMainMenuTask_8c01a09a:
+_MainMenuSwitchFromTask_8c01a09a:
           MOV.L       R14,@-R15
           STS.L       PR,@-R15
           ADD         #-H'4,R15
@@ -355,12 +355,12 @@ LP_GEN_13822:
           .DATA.L H'C0800000 ; H'8C01A110
           .DATA.L H'C0A00000 ; H'8C01A114
           .DATA.L H'C0E00000 ; H'8C01A118
-          .DATA.L _task_mainmenu_8c019e98 ; H'8C01A11C
+          .DATA.L _MainMenuTask_8c019e98 ; H'8C01A11C
           .DATA.L _setTaskAction_8c014b3e ; H'8C01A120
           .DATA.L _menuState_8c1bc7a8 ; H'8C01A124
           .DATA.L _AsqInitQueues_11f36 ; H'8C01A128
           .DATA.L _AsqResetQueues_11f6c ; H'8C01A12C
-          .DATA.L _init_8c044264 ; H'8C01A130
+          .DATA.L _init_mainMenuResourceGroup_8c044264 ; H'8C01A130
           .DATA.L _requestSysResgrp_8c018568 ; H'8C01A134
           .DATA.L _setUknPvmBool_8c014330 ; H'8C01A138
           .DATA.L _resetUknPvmBool_8c014322 ; H'8C01A13C

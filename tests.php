@@ -151,6 +151,7 @@ return [
             ],
             "objects" => [
                 "build/output/019e98_main_menu_src.obj",
+                "build/output/019e98_main_menu_c.obj",
             ]
         ]
     ],

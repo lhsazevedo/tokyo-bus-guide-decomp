@@ -1008,7 +1008,7 @@ return new class extends TestCase {
         $this->initUint32($task + 0x08, 2); // substate
         $this->initUint32($this->addressOf('_isFading_8c226568'), 0);
 
-        $this->shouldCall('_switchToMainMenuTask_8c01a09a')->with($task);
+        $this->shouldCall('_MainMenuSwitchFromTask_8c01a09a')->with($task);
 
         $this->call($this->entryName())->with($task, 0)->run();
     }
@@ -1039,7 +1039,7 @@ return new class extends TestCase {
         $this->initUint32($this->addressOf('_isFading_8c226568'), 0);
 
         $this->shouldWriteLong($this->addressOf('_menuState_8c1bc7a8') + 0x18, 10);
-        //$this->shouldCall('_switchToMainMenuTask_8c01a09a');
+        //$this->shouldCall('_MainMenuSwitchFromTask_8c01a09a');
 
         $this->call($this->entryName())->with($task, 0)->run();
     }
@@ -1116,7 +1116,7 @@ return new class extends TestCase {
         $this->initUint32($this->addressOf('_isFading_8c226568'), 0);
         $this->initUint32($this->addressOf('_init_8c03bd80'), 0);
 
-        $this->shouldCall('_switchToMainMenuTask_8c01a09a')->with(0xcafecafe);
+        $this->shouldCall('_MainMenuSwitchFromTask_8c01a09a')->with(0xcafecafe);
 
         $this->call($this->entryName())->with(0xcafecafe, 0)->run();
     }
@@ -1198,7 +1198,7 @@ return new class extends TestCase {
         $this->setSize('_BupGetInfo_8c014bba', 4);
         $this->setSize('_drawSprite_8c014f54', 4);
         $this->setSize('_push_fadeout_8c022b60', 4);
-        $this->setSize('_switchToMainMenuTask_8c01a09a', 4);
+        $this->setSize('_MainMenuSwitchFromTask_8c01a09a', 4);
     }
 
     private function initUint32Array(int $address, array $values): void

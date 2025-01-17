@@ -64,7 +64,7 @@
           .IMPORT     _var_8c22606c
           .IMPORT     _freeResourceGroup_8c0185c4
           .IMPORT     _syFree
-          .IMPORT     _switchToMainMenuTask_8c01a09a
+          .IMPORT     _MainMenuSwitchFromTask_8c01a09a
           .IMPORT     _menuTextboxText_8c02af1c
           .IMPORT     _setTaskAction_8c014b3e
           .IMPORT     _AsqInitQueues_11f36
@@ -1860,7 +1860,7 @@ LP_GEN_33412:
           .DATA.L _freeResourceGroup_8c0185c4 ; H'8C01C864
           .DATA.L _var_8c1bc454 ; H'8C01C868
           .DATA.L _syFree ; H'8C01C86C
-          .DATA.L _switchToMainMenuTask_8c01a09a ; H'8C01C870
+          .DATA.L _MainMenuSwitchFromTask_8c01a09a ; H'8C01C870
           .DATA.L _menuTextboxText_8c02af1c ; H'8C01C874
           .DATA.L H'C0800000 ; H'8C01C878
           .DATA.L _drawSprite_8c014f54 ; H'8C01C87C

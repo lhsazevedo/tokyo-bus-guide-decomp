@@ -33,7 +33,7 @@
           .IMPORT     _var_8c226088
           .IMPORT     _FUN_8c010720
           .IMPORT     _init_8c044e28
-          .IMPORT     _switchToMainMenuTask_8c01a09a
+          .IMPORT     _MainMenuSwitchFromTask_8c01a09a
           .IMPORT     _var_8c1ba290
           .EXPORT     _FUN_8c01a148
           .EXPORT     _FUN_8c01a3c0
@@ -2200,7 +2200,7 @@ LP_GEN_51773:
           .DATA.L H'10+_var_peripheral_8c1ba35c ; H'8C01B174
           .DATA.L _init_8c044e28 ; H'8C01B178
           .DATA.L _push_fadeout_8c022b60 ; H'8C01B17C
-          .DATA.L _switchToMainMenuTask_8c01a09a ; H'8C01B180
+          .DATA.L _MainMenuSwitchFromTask_8c01a09a ; H'8C01B180
           .DATA.L _drawSprite_8c014f54 ; H'8C01B184
           .DATA.L H'C0800000 ; H'8C01B188
           .DATA.L H'C0A00000 ; H'8C01B18C

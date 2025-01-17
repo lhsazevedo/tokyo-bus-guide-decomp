@@ -35,7 +35,7 @@
           .IMPORT     _menuTextboxText_8c02af1c
           .IMPORT     _FUN_8c019334
           .IMPORT     _init_8c03bd80
-          .IMPORT     _switchToMainMenuTask_8c01a09a
+          .IMPORT     _MainMenuSwitchFromTask_8c01a09a
           .IMPORT     _setTaskAction_8c014b3e
           .EXPORT     _VmMenuMountVms_1940e
           .EXPORT     _VmMenuUnmountVms_194de
@@ -1504,7 +1504,7 @@ LP_GEN_77899:
           .DATA.L _FUN_8c019334 ; H'8C019E7C
           .DATA.L _drawSprite_8c014f54 ; H'8C019E80
           .DATA.L _init_8c03bd80 ; H'8C019E84
-          .DATA.L _switchToMainMenuTask_8c01a09a ; H'8C019E88
+          .DATA.L _MainMenuSwitchFromTask_8c01a09a ; H'8C019E88
           .DATA.L _VmMenuTask_198a0 ; H'8C019E8C
           .DATA.L _setTaskAction_8c014b3e ; H'8C019E90
           .DATA.L _menuState_8c1bc7a8 ; H'8C019E94
