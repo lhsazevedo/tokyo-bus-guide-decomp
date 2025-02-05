@@ -108,7 +108,7 @@ return new class extends TestCase {
         $this->shouldCall('_njTwiddledTexture')
             ->with($texture, $srcLocal, 0x20);
 
-        $this->call('_unpackGlyph_8c015110')
+        $this->singleCall('_unpackGlyph_8c015110')
             ->with(0x835a, $colors, $busFont, $texture)
             ->run();
     }
@@ -217,7 +217,7 @@ return new class extends TestCase {
         $this->shouldCall('_njTwiddledTexture')
             ->with($texture, $srcLocal, 0x20);
 
-        $this->call('_unpackGlyph_8c015110')
+        $this->singleCall('_unpackGlyph_8c015110')
             ->with(0x889f, $colors, $busFont, $texture)
             ->run();
     }

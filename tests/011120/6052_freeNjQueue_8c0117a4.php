@@ -14,7 +14,7 @@ return new class extends TestCase {
 
         $this->shouldCall('_syFree')->with(0xbebacafe);
 
-        $this->call('_freeNjQueue_8c0117a4')->run();
+        $this->singleCall('_freeNjQueue_8c0117a4')->run();
     }
 
     public function test_ignoresWhenUnitialized()
@@ -23,7 +23,7 @@ return new class extends TestCase {
 
         $this->initUint32($this->addressOf('_var_njQueue_8c157a9c'), -1);
 
-        $this->call('_freeNjQueue_8c0117a4')->run();
+        $this->singleCall('_freeNjQueue_8c0117a4')->run();
     }
 
     private function resolveImports()

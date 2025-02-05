@@ -34,7 +34,7 @@ return new class extends TestCase {
         $this->shouldCall('_syFree')->with($textures);
         $this->shouldCall('_syFree')->with($texlist);
 
-        $this->call('_AsqFreeTexlist_11e60')
+        $this->singleCall('_AsqFreeTexlist_11e60')
             ->with($texlist)
             ->run();
     }

@@ -27,7 +27,7 @@ return new class extends TestCase {
         // Force NULL text pointer
         $this->initUint32($box + 0x38, 0);
 
-        $this->call('_TxtDrawTextbox_8c0155e0')
+        $this->singleCall('_TxtDrawTextbox_8c0155e0')
             ->with($box)
             ->shouldReturn(0)
             ->run();
@@ -45,7 +45,7 @@ return new class extends TestCase {
             y: 500,
         );
 
-        $this->call('_TxtDrawTextbox_8c0155e0')
+        $this->singleCall('_TxtDrawTextbox_8c0155e0')
             ->with($box)
             ->shouldReturn(0)
             ->run();
@@ -139,7 +139,7 @@ return new class extends TestCase {
             priority:   42.0,
         );
 
-        $this->call('_TxtDrawTextbox_8c0155e0')
+        $this->singleCall('_TxtDrawTextbox_8c0155e0')
             ->with($box, 3)
             ->shouldReturn(1)
             ->run();
@@ -233,7 +233,7 @@ return new class extends TestCase {
             priority:   42.0
         );
 
-        $this->call('_TxtDrawTextbox_8c0155e0')
+        $this->singleCall('_TxtDrawTextbox_8c0155e0')
             ->with($box, 3)
             ->shouldReturn(1)
             ->run();
@@ -311,7 +311,7 @@ return new class extends TestCase {
             priority:   42.0
         );
 
-        $this->call('_TxtDrawTextbox_8c0155e0')
+        $this->singleCall('_TxtDrawTextbox_8c0155e0')
             ->with($box, 2)
             ->shouldReturn(1)
             ->run();
@@ -393,7 +393,7 @@ return new class extends TestCase {
             priority:   42.0,
         );
 
-        $this->call('_TxtDrawTextbox_8c0155e0')
+        $this->singleCall('_TxtDrawTextbox_8c0155e0')
             ->with($box, 3)
             ->shouldReturn(1)
             ->run();
@@ -473,7 +473,7 @@ return new class extends TestCase {
             $var_glyphTexlists_8c1bc790 + 1 * 0x8
         );
 
-        $this->call('_TxtDrawTextbox_8c0155e0')
+        $this->singleCall('_TxtDrawTextbox_8c0155e0')
             ->with($box, 3)
             ->shouldReturn(1)
             ->run();
@@ -555,7 +555,7 @@ return new class extends TestCase {
             priority:   42.0,
         );
 
-        $this->call('_TxtDrawTextbox_8c0155e0')
+        $this->singleCall('_TxtDrawTextbox_8c0155e0')
             ->with($box, 3)
             ->shouldReturn(1)
             ->run();

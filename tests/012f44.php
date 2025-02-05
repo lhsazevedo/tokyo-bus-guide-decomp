@@ -93,7 +93,7 @@ return new class extends TestCase {
 
         $this->shouldCall('_FUN_8c0228a2');
 
-        $this->call('_FUN_8c01306e')->run();
+        $this->singleCall('_FUN_8c01306e')->run();
     }
 
     public function testFUN_8c01306e_DemoIs2_8c1bb8d4Is0()
@@ -167,7 +167,7 @@ return new class extends TestCase {
 
         $this->shouldCall('_FUN_8c0228a2');
 
-        $this->call('_FUN_8c01306e')->run();
+        $this->singleCall('_FUN_8c01306e')->run();
     }
 
     public function testFUN_8c01306e_DemoIs2_8c1bb8d4Is1()
@@ -267,7 +267,7 @@ return new class extends TestCase {
 
         $this->shouldCall('_FUN_8c0228a2');
 
-        $this->call('_FUN_8c01306e')->run();
+        $this->singleCall('_FUN_8c01306e')->run();
     }
 
     ////// task_8c013388 //////
@@ -282,7 +282,7 @@ return new class extends TestCase {
         $this->shouldCall('_getUknPvmBool_8c01432a')
             ->andReturn(0);
 
-        $this->call('_task_8c013388')
+        $this->singleCall('_task_8c013388')
             ->with($taskPtr, 0)
             ->run();
     }
@@ -309,7 +309,7 @@ return new class extends TestCase {
         $this->shouldCall('_resetUknPvmBool_8c014322');
         $this->shouldCall('_AsqProcessQueues_11fe0')->with($this->addressOf('_AsqNop_11120'), 0, 0, 0, $this->addressOf('_setUknPvmBool_8c014330'));;
 
-        $this->call('_task_8c013388')
+        $this->singleCall('_task_8c013388')
             ->with($taskPtr, 0)
             ->run();
     }
@@ -324,7 +324,7 @@ return new class extends TestCase {
 
         $this->shouldCall('_getUknPvmBool_8c01432a')->andReturn(0);
 
-        $this->call('_task_8c013388')
+        $this->singleCall('_task_8c013388')
             ->with($taskPtr, 0)
             ->run();
     }
@@ -346,7 +346,7 @@ return new class extends TestCase {
         $this->shouldWriteTo('_var_8c2260a8', 1);
         $this->shouldCall('_pushTitle_8c015fd6');
 
-        $this->call('_task_8c013388')
+        $this->singleCall('_task_8c013388')
             ->with($taskPtr, 0)
             ->run();
     }
@@ -503,7 +503,7 @@ return new class extends TestCase {
 
         $this->shouldCall('_gdFsEntryErrFuncAll')->with(new WildcardArgument, 0);
 
-        $this->call('_njUserInit_8c0134ec')->run();
+        $this->singleCall('_njUserInit_8c0134ec')->run();
     }
 
     public function test_njUserInit_8c0134ec_Vga_getSoundMode_8c010924ReturnsNegative()
@@ -657,7 +657,7 @@ return new class extends TestCase {
 
         $this->shouldCall('_gdFsEntryErrFuncAll')->with(new WildcardArgument, 0);
 
-        $this->call('_njUserInit_8c0134ec')->run();
+        $this->singleCall('_njUserInit_8c0134ec')->run();
     }
 
     public function test_njUserInit_8c0134ec_Ntsci_getSoundMode_8c010924Returns1()
@@ -811,7 +811,7 @@ return new class extends TestCase {
 
         $this->shouldCall('_gdFsEntryErrFuncAll')->with(new WildcardArgument, 0);
 
-        $this->call('_njUserInit_8c0134ec')->run();
+        $this->singleCall('_njUserInit_8c0134ec')->run();
     }
 
     public function test_njUserInit_8c0134ec_Ntsci_getSoundMode_8c010924ReturnsNegative()
@@ -965,7 +965,7 @@ return new class extends TestCase {
 
         $this->shouldCall('_gdFsEntryErrFuncAll')->with(new WildcardArgument, 0);
 
-        $this->call('_njUserInit_8c0134ec')->run();
+        $this->singleCall('_njUserInit_8c0134ec')->run();
     }
 
     ////// njUserMain_8c01392e //////
@@ -997,7 +997,7 @@ return new class extends TestCase {
         
         $this->shouldCall('_execTasks_8c014b42')->with($this->addressOf('_var_tasks_8c1ba3c8'));
 
-        $this->call('_njUserMain_8c01392e')->shouldReturn(0)->run();
+        $this->singleCall('_njUserMain_8c01392e')->shouldReturn(0)->run();
     }
 
     public function test_njUserMain_8c01392e_block1_ok()
@@ -1009,7 +1009,7 @@ return new class extends TestCase {
 
         $this->shouldCall('_execTasks_8c014b42')->with($this->addressOf('_var_tasks_8c1ba3c8'));
 
-        $this->call('_njUserMain_8c01392e')->shouldReturn(0)->run();
+        $this->singleCall('_njUserMain_8c01392e')->shouldReturn(0)->run();
     }
 
     public function test_njUserMain_8c01392e_block1_fail_noVib()
@@ -1022,7 +1022,7 @@ return new class extends TestCase {
         $this->initUint32($this->addressOf('_var_vibport_8c1ba354'), -1 & 0xffffffff);
 
         // FIXME: -1 & 0xffffffff
-        $this->call('_njUserMain_8c01392e')->shouldReturn(-1 & 0xffffffff)->run();
+        $this->singleCall('_njUserMain_8c01392e')->shouldReturn(-1 & 0xffffffff)->run();
     }
 
     public function test_njUserMain_8c01392e_block1_fail_vib()
@@ -1040,7 +1040,7 @@ return new class extends TestCase {
         $this->shouldCall('_pdVibMxStop')->with(0xbebacafe);
 
         // FIXME: -1 & 0xffffffff
-        $this->call('_njUserMain_8c01392e')->shouldReturn(-1 & 0xffffffff)->run();
+        $this->singleCall('_njUserMain_8c01392e')->shouldReturn(-1 & 0xffffffff)->run();
     }
 
     // public function test_njUserMain_8c01392e_0_0_0_idle_open_vib()
@@ -1067,7 +1067,7 @@ return new class extends TestCase {
     //     $this->shouldCall('_pdVibMxStop')->with(0xbebacafe);
 
     //     // FIXME: -1 & 0xffffffff
-    //     $this->call('_njUserMain_8c01392e')->shouldReturn(-1 & 0xffffffff)->run();
+    //     $this->singleCall('_njUserMain_8c01392e')->shouldReturn(-1 & 0xffffffff)->run();
     // }
 
     // public function test_njUserMain_8c01392e_0_0_0_idle_open()
@@ -1093,7 +1093,7 @@ return new class extends TestCase {
     //     $this->shouldRead($var_vibport_8c1ba354Ptr, -1);
 
     //     // FIXME: -1 & 0xffffffff
-    //     $this->call('_njUserMain_8c01392e')->shouldReturn(-1 & 0xffffffff)->run();
+    //     $this->singleCall('_njUserMain_8c01392e')->shouldReturn(-1 & 0xffffffff)->run();
     // }
 
     private function resolveNjUserMain()

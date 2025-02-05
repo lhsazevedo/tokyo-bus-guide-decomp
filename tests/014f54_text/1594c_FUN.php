@@ -36,7 +36,7 @@ return new class extends TestCase {
         $this->shouldCall('_freeTask_8c014b66')->with(0xbeba1337);
         $this->shouldCall('_FUN_8c01328c');
 
-        $this->call('_FUN_8c01594c')
+        $this->singleCall('_FUN_8c01594c')
             ->with(0xbeba1337)
             ->run();
     }
@@ -45,7 +45,7 @@ return new class extends TestCase {
     {
         $this->shouldCall('_getUknPvmBool_8c01432a')->andReturn(0);
 
-        $this->call('_FUN_8c01594c')
+        $this->singleCall('_FUN_8c01594c')
             ->with()
             ->run();
     }

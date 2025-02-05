@@ -105,7 +105,7 @@ return new class extends TestCase {
 
         $this->shouldWriteLong($this->addressOf('_var_vmuStatus_8c226048') + 8 * 4, 3);
 
-        $this->call('_VmMenuUpdateVmusStatus_19550')
+        $this->singleCall('_VmMenuUpdateVmusStatus_19550')
             ->with($this->addressOf('_init_saveNames_8c044d50'), 3)
             ->run();
     }
@@ -197,7 +197,7 @@ return new class extends TestCase {
 
         $this->shouldWriteLong($this->addressOf('_var_vmuStatus_8c226048') + 8 * 4, 3);
 
-        $this->call('_VmMenuUpdateVmusStatus_19550')
+        $this->singleCall('_VmMenuUpdateVmusStatus_19550')
             ->with($this->addressOf('_init_saveNames_8c044d50'), 3)
             ->run();
     }

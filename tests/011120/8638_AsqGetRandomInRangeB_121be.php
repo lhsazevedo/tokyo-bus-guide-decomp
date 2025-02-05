@@ -13,7 +13,7 @@ return new class extends TestCase {
 
         $this->shouldCall('_AsqGetRandomB_121a8')->andReturn(42);
 
-        $this->call('_AsqGetRandomInRangeB_121be')
+        $this->singleCall('_AsqGetRandomInRangeB_121be')
             ->with(20)
             ->shouldReturn(2)
             ->run();

@@ -32,7 +32,7 @@ return new class extends TestCase {
             $this->addressOf('_resetUknPvmBool_8c014322')
         );
 
-        $this->call('_MainMenuSwitchFromTask_8c01a09a')->with($task)->run();
+        $this->singleCall('_MainMenuSwitchFromTask_8c01a09a')->with($task)->run();
     }
 
     private function resolveSymbols(): void

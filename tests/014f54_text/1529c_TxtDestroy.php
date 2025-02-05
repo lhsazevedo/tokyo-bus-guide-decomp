@@ -30,7 +30,7 @@ return new class extends TestCase {
         $this->shouldCall('_syFree')->with(0xcafe0001);
         $this->shouldCall('_syFree')->with($var_8c1bc7a0);
 
-        $this->call('_TxtDestroy_8c01529c')->run();
+        $this->singleCall('_TxtDestroy_8c01529c')->run();
     }
 
     protected function resolveSymbols(): void

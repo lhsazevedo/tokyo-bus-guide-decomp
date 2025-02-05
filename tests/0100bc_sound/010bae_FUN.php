@@ -11,7 +11,7 @@ return new class extends TestCase {
 
         $this->initUint32($this->addressOf('_var_uknAdxVol_8c157a34') + 0x00, 1);
 
-        $this->call('_FUN_8c010bae')->with(0)->run();
+        $this->singleCall('_FUN_8c010bae')->with(0)->run();
     }
 
     public function test_pathNone2()
@@ -20,7 +20,7 @@ return new class extends TestCase {
 
         $this->initUint32($this->addressOf('_var_uknAdxVol_8c157a34') + 0x00, 0xf0);
 
-        $this->call('_FUN_8c010bae')->with(0)->run();
+        $this->singleCall('_FUN_8c010bae')->with(0)->run();
     }
 
     public function test_pathNone3()
@@ -29,7 +29,7 @@ return new class extends TestCase {
 
         $this->initUint32($this->addressOf('_var_uknAdxVol_8c157a34') + 0x00, 0xf0);
 
-        $this->call('_FUN_8c010bae')->with(3)->run();
+        $this->singleCall('_FUN_8c010bae')->with(3)->run();
     }
 
     public function test_pathA()
@@ -43,7 +43,7 @@ return new class extends TestCase {
         $this->shouldWrite($this->addressOf('_var_uknAdxVol_8c157a34') + 0x04, 4);
         $this->shouldWrite($this->addressOf('_var_uknAdxVol_8c157a34') + 0x0c, -330);
 
-        $this->call('_FUN_8c010bae')->with(0)->run();
+        $this->singleCall('_FUN_8c010bae')->with(0)->run();
     }
 
     public function test_pathB()
@@ -57,7 +57,7 @@ return new class extends TestCase {
         $this->shouldWrite($this->addressOf('_var_uknAdxVol_8c157a34') + 0x08, 4);
         $this->shouldWrite($this->addressOf('_var_uknAdxVol_8c157a34') + 0x10, -330);
 
-        $this->call('_FUN_8c010bae')->with(1)->run();
+        $this->singleCall('_FUN_8c010bae')->with(1)->run();
     }
 
     private function resolveSymbols(): void

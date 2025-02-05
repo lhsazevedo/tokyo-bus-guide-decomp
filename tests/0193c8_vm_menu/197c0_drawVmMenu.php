@@ -75,7 +75,7 @@ return new class extends TestCase {
             0.0, 0.0, -7.0
         );
 
-        $this->call('_drawVmMenu_197c0')->run();
+        $this->singleCall('_drawVmMenu_197c0')->run();
     }
 
     public function test_B()
@@ -145,7 +145,7 @@ return new class extends TestCase {
             0.0, 0.0, -7.0
         );
 
-        $this->call('_drawVmMenu_197c0')->run();
+        $this->singleCall('_drawVmMenu_197c0')->run();
     }
 
     private function resolveSymbols(): void

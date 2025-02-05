@@ -70,7 +70,7 @@ return new class extends TestCase {
         $this->shouldCall('_freeTask_8c014b66')
             ->with($task);
 
-        $this->call('_task_loadQueuedTexlists_8c01183e')
+        $this->singleCall('_task_loadQueuedTexlists_8c01183e')
             ->with($task, 0)
             ->run();
     }
@@ -143,7 +143,7 @@ return new class extends TestCase {
         // $this->shouldCall('_freeTask_8c014b66')
         //     ->with($task);
 
-        $this->call('_task_loadQueuedTexlists_8c01183e')
+        $this->singleCall('_task_loadQueuedTexlists_8c01183e')
             ->with($task, 0)
             ->run();
     }
@@ -216,7 +216,7 @@ return new class extends TestCase {
         $this->shouldCall('_freeTask_8c014b66')
             ->with($task);
 
-        $this->call('_task_loadQueuedTexlists_8c01183e')
+        $this->singleCall('_task_loadQueuedTexlists_8c01183e')
             ->with($task, 0)
             ->run();
     }
@@ -364,7 +364,7 @@ return new class extends TestCase {
         $this->shouldCall('_freeTask_8c014b66')
             ->with($task);
 
-        $this->call('_task_loadQueuedTexlists_8c01183e')
+        $this->singleCall('_task_loadQueuedTexlists_8c01183e')
             ->with($task, 0)
             ->run();
     }
@@ -498,7 +498,7 @@ return new class extends TestCase {
         $this->shouldCall('_freeTask_8c014b66')
             ->with($task);
 
-        $this->call('_task_loadQueuedTexlists_8c01183e')
+        $this->singleCall('_task_loadQueuedTexlists_8c01183e')
             ->with($task, 0)
             ->run();
     }
@@ -727,7 +727,7 @@ return new class extends TestCase {
         $this->shouldCall('_freeTask_8c014b66')
             ->with($task);
 
-        $this->call('_task_loadQueuedTexlists_8c01183e')
+        $this->singleCall('_task_loadQueuedTexlists_8c01183e')
             ->with($task, 0)
             ->run();
     }

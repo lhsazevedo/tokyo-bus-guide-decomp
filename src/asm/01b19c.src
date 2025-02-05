@@ -51,7 +51,7 @@
           .IMPORT     _const_8c0382a4
           .IMPORT     _var_midiHandles_8c0fcd28
           .IMPORT     _sdMidiPlay
-          .IMPORT     _var_8c1bb8fc
+          .IMPORT     _var_game_mode_8c1bb8fc
           .IMPORT     _const_8c0382d8
           .IMPORT     _const_8c03830c
           .IMPORT     _VmMenuUnmountVms_194de
@@ -769,7 +769,7 @@ LP_GEN_26888:
           .DATA.L _const_8c0382a4 ; H'8C01B6D0
           .DATA.L _var_midiHandles_8c0fcd28 ; H'8C01B6D4
           .DATA.L _sdMidiPlay ; H'8C01B6D8
-          .DATA.L _var_8c1bb8fc ; H'8C01B6DC
+          .DATA.L _var_game_mode_8c1bb8fc ; H'8C01B6DC
           .DATA.L _const_8c0382d8 ; H'8C01B6E0
           .DATA.L _const_8c03830c ; H'8C01B6E4
           .DATA.L H'10+_var_peripheral_8c1ba35c ; H'8C01B6E8

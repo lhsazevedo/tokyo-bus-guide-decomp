@@ -19,7 +19,7 @@ return new class extends TestCase {
 
         $this->shouldCall(0xcafe0001);
 
-        $this->call('_task_processQueues_8c011e80')
+        $this->singleCall('_task_processQueues_8c011e80')
             ->with($task, $state)
             ->run();
     }
@@ -43,7 +43,7 @@ return new class extends TestCase {
 
         $this->shouldCall(0xcafe0001);
 
-        $this->call('_task_processQueues_8c011e80')
+        $this->singleCall('_task_processQueues_8c011e80')
             ->with($task, $state)
             ->run();
     }
@@ -67,7 +67,7 @@ return new class extends TestCase {
 
         $this->shouldCall(0xcafe0001);
 
-        $this->call('_task_processQueues_8c011e80')
+        $this->singleCall('_task_processQueues_8c011e80')
             ->with($task, $state)
             ->run();
     }
@@ -85,7 +85,7 @@ return new class extends TestCase {
 
         $this->shouldCall(0xcafe0001);
 
-        $this->call('_task_processQueues_8c011e80')
+        $this->singleCall('_task_processQueues_8c011e80')
             ->with($task, $state)
             ->run();
     }
@@ -109,7 +109,7 @@ return new class extends TestCase {
 
         $this->shouldCall(0xcafe0001);
 
-        $this->call('_task_processQueues_8c011e80')
+        $this->singleCall('_task_processQueues_8c011e80')
             ->with($task, $state)
             ->run();
     }
@@ -133,7 +133,7 @@ return new class extends TestCase {
 
         $this->shouldCall(0xcafe0001);
 
-        $this->call('_task_processQueues_8c011e80')
+        $this->singleCall('_task_processQueues_8c011e80')
             ->with($task, $state)
             ->run();
     }
@@ -151,7 +151,7 @@ return new class extends TestCase {
 
         $this->shouldCall(0xcafe0001);
 
-        $this->call('_task_processQueues_8c011e80')
+        $this->singleCall('_task_processQueues_8c011e80')
             ->with($task, $state)
             ->run();
     }
@@ -175,7 +175,7 @@ return new class extends TestCase {
 
         $this->shouldCall(0xcafe0001);
 
-        $this->call('_task_processQueues_8c011e80')
+        $this->singleCall('_task_processQueues_8c011e80')
             ->with($task, $state)
             ->run();
     }
@@ -199,7 +199,7 @@ return new class extends TestCase {
 
         $this->shouldCall(0xcafe0001);
 
-        $this->call('_task_processQueues_8c011e80')
+        $this->singleCall('_task_processQueues_8c011e80')
             ->with($task, $state)
             ->run();
     }
@@ -217,7 +217,7 @@ return new class extends TestCase {
 
         $this->shouldCall(0xcafe0001);
 
-        $this->call('_task_processQueues_8c011e80')
+        $this->singleCall('_task_processQueues_8c011e80')
             ->with($task, $state)
             ->run();
     }
@@ -238,7 +238,7 @@ return new class extends TestCase {
 
         $this->shouldCall('_freeTask_8c014b66')->with($task);
 
-        $this->call('_task_processQueues_8c011e80')
+        $this->singleCall('_task_processQueues_8c011e80')
             ->with($task, $state)
             ->run();
     }
@@ -258,7 +258,7 @@ return new class extends TestCase {
         $this->shouldCall('_freeTask_8c014b66')->with($task);
         $this->shouldCall(0xcafe0002);
 
-        $this->call('_task_processQueues_8c011e80')
+        $this->singleCall('_task_processQueues_8c011e80')
             ->with($task, $state)
             ->run();
     }

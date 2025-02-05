@@ -27,7 +27,7 @@ return new class extends TestCase
 
         $this->shouldWrite($createdTask + 0x18, 42);
 
-        $this->call('_loadTexlistQueue_8c0119f8')
+        $this->singleCall('_loadTexlistQueue_8c0119f8')
             ->shouldReturn(1)
             ->run();
     }
@@ -37,7 +37,7 @@ return new class extends TestCase
         $this->initUint32($this->addressOf('_var_texlistQueue_8c157aac'), 42);
         $this->initUint32($this->addressOf('_var_texlistQueueRear_8c157ab0'), 42);
 
-        $this->call('_loadTexlistQueue_8c0119f8')
+        $this->singleCall('_loadTexlistQueue_8c0119f8')
             ->shouldReturn(0)
             ->run();
     }
@@ -57,7 +57,7 @@ return new class extends TestCase
             ->with($this->addressOf('_var_tasks_8c1ba3c8'), $this->addressOf('_task_loadQueuedTexlists_8c01183e'), $createdTaskLocal, $createdState, 0)
             ->andReturn(0);
 
-        $this->call('_loadTexlistQueue_8c0119f8')
+        $this->singleCall('_loadTexlistQueue_8c0119f8')
             ->shouldReturn(0)
             ->run();
     }

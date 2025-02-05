@@ -120,7 +120,7 @@ return new class extends TestCase {
         $this->shouldWrite($taskPtr + 0x08, 0);
         // $this->shouldWrite($pvmQueue + 0x0c, 1);
 
-        $this->call('_task_loadQueuedPvms_8c011b00')
+        $this->singleCall('_task_loadQueuedPvms_8c011b00')
             ->with($taskPtr, 0)
             ->run();
     }
@@ -235,7 +235,7 @@ return new class extends TestCase {
         $this->shouldWrite($taskPtr + 0x08, 0);
         // $this->shouldWrite($pvmQueue + 0x0c, 1);
 
-        $this->call('_task_loadQueuedPvms_8c011b00')
+        $this->singleCall('_task_loadQueuedPvms_8c011b00')
             ->with($taskPtr, 0)
             ->run();
     }
@@ -300,7 +300,7 @@ return new class extends TestCase {
         $this->shouldWriteTo('_var_8c157a88', 0);
         $this->shouldWriteStringTo('_var_queueBaseDir_8c157a80', 'DATA EMPTY');
 
-        $this->call('_task_loadQueuedPvms_8c011b00')
+        $this->singleCall('_task_loadQueuedPvms_8c011b00')
             ->with($taskPtr, 0)
             ->run();
     }
@@ -364,7 +364,7 @@ return new class extends TestCase {
         $this->shouldWriteTo('_var_pvmQueueIsIdle_8c157ac8', 1);
         $this->shouldCall('_freeTask_8c014b66')->with($taskPtr);
 
-        $this->call('_task_loadQueuedPvms_8c011b00')
+        $this->singleCall('_task_loadQueuedPvms_8c011b00')
             ->with($taskPtr, 0)
             ->run();
     }
@@ -433,7 +433,7 @@ return new class extends TestCase {
         //$this->shouldWrite($taskPtr + 0x18, $pvmQueue + $sizeOfQueuedPvm);
         //$this->shouldWrite($taskPtr + 0x08, 0);
 
-        $this->call('_task_loadQueuedPvms_8c011b00')
+        $this->singleCall('_task_loadQueuedPvms_8c011b00')
             ->with($taskPtr, 0)
             ->run();
     }
@@ -470,7 +470,7 @@ return new class extends TestCase {
         $this->shouldCall('_gdFsTrans32')
             ->with(0xbebacafe, 2048, $this->addressOf('_var_texbuf_8c277ca0'));
 
-        $this->call('_task_loadQueuedPvms_8c011b00')
+        $this->singleCall('_task_loadQueuedPvms_8c011b00')
             ->with($taskPtr, 0)
             ->run();
     }
@@ -505,7 +505,7 @@ return new class extends TestCase {
             ->with(0xbebacafe)
             ->andReturn(1); // GDD_FS_TRANS_BUSY
 
-        $this->call('_task_loadQueuedPvms_8c011b00')
+        $this->singleCall('_task_loadQueuedPvms_8c011b00')
             ->with($taskPtr, 0)
             ->run();
     }
@@ -551,7 +551,7 @@ return new class extends TestCase {
         $this->shouldWrite($taskPtr + 0x18, $pvmQueue + $sizeOfQueuedPvm);
         $this->shouldWrite($taskPtr + 0x08, 0);
 
-        $this->call('_task_loadQueuedPvms_8c011b00')
+        $this->singleCall('_task_loadQueuedPvms_8c011b00')
             ->with($taskPtr, 0)
             ->run();
     }
@@ -569,7 +569,7 @@ return new class extends TestCase {
         // task->field_0x08
         $this->initUint32($taskPtr + 0x08, 2);
 
-        $this->call('_task_loadQueuedPvms_8c011b00')
+        $this->singleCall('_task_loadQueuedPvms_8c011b00')
             ->with($taskPtr, 0)
             ->run();
     }

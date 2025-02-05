@@ -26,7 +26,7 @@
           .IMPORT     _var_8c2263f4
           .IMPORT     _var_8c2263f0
           .IMPORT     _var_8c2263ec
-          .IMPORT     _var_8c1bb8fc
+          .IMPORT     _var_game_mode_8c1bb8fc
           .IMPORT     _var_8c1ba1cc
           .IMPORT     _push_fadeout_8c022b60
           .IMPORT     _var_vmuStatus_8c226048
@@ -552,7 +552,7 @@ LP_GEN_73625:
           .DATA.L H'43240000 ; H'8C01DB90
           .DATA.L _var_8c2263f0 ; H'8C01DB94
           .DATA.L _var_8c2263ec ; H'8C01DB98
-          .DATA.L _var_8c1bb8fc ; H'8C01DB9C
+          .DATA.L _var_game_mode_8c1bb8fc ; H'8C01DB9C
           .DATA.L _var_8c1ba1cc ; H'8C01DBA0
           .DATA.L _push_fadeout_8c022b60 ; H'8C01DBA4
           .DATA.L _drawSprite_8c014f54 ; H'8C01DBA8

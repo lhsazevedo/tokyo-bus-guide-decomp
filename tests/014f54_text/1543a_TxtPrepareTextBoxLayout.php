@@ -47,7 +47,7 @@ return new class extends TestCase {
 
         $this->shouldWriteLong($box + 0x38, $text);
 
-        $this->call('_TxtPrepareTextBoxLayout_8c01543a')
+        $this->singleCall('_TxtPrepareTextBoxLayout_8c01543a')
             ->with($box, $text)
             ->shouldReturn(0)
             ->run();
@@ -66,7 +66,7 @@ return new class extends TestCase {
 
         $this->shouldWriteLong($box + 0x38, $text);
 
-        $this->call('_TxtPrepareTextBoxLayout_8c01543a')
+        $this->singleCall('_TxtPrepareTextBoxLayout_8c01543a')
             ->with($box, $text)
             ->shouldReturn(0)
             ->run();
@@ -116,7 +116,7 @@ return new class extends TestCase {
         $this->shouldWriteFloat($lineOffsets + 0 * 4, 2.5);
         $this->shouldWriteFloat($lineOffsets + 1 * 4, 12.0);
 
-        $this->call('_TxtPrepareTextBoxLayout_8c01543a')
+        $this->singleCall('_TxtPrepareTextBoxLayout_8c01543a')
             ->with($box, $text)
             ->shouldReturn(19)
             ->run();
@@ -171,7 +171,7 @@ return new class extends TestCase {
         $this->shouldWriteFloat($lineOffsets + 0 * 4, 2.0);
         $this->shouldWriteFloat($lineOffsets + 1 * 4, 0.0);
 
-        $this->call('_TxtPrepareTextBoxLayout_8c01543a')
+        $this->singleCall('_TxtPrepareTextBoxLayout_8c01543a')
             ->with($box, $text)
             ->shouldReturn(44)
             ->run();
@@ -231,7 +231,7 @@ return new class extends TestCase {
         $this->shouldWriteFloat($lineOffsets + 0 * 4, 4.0);
         $this->shouldWriteFloat($lineOffsets + 1 * 4, 4.0);
 
-        $this->call('_TxtPrepareTextBoxLayout_8c01543a')
+        $this->singleCall('_TxtPrepareTextBoxLayout_8c01543a')
             ->with($box, $text)
             ->shouldReturn(45)
             ->run();
@@ -292,7 +292,7 @@ return new class extends TestCase {
         $this->shouldWriteFloat($lineOffsets + 0 * 4, 7.0);
         $this->shouldWriteFloat($lineOffsets + 1 * 4, 6.5);
 
-        $this->call('_TxtPrepareTextBoxLayout_8c01543a')
+        $this->singleCall('_TxtPrepareTextBoxLayout_8c01543a')
             ->with($box, $text)
             ->shouldReturn(46)
             ->run();
@@ -346,7 +346,7 @@ return new class extends TestCase {
         $this->shouldWriteFloat($lineOffsets + 0 * 4, 0);
         $this->shouldWriteFloat($lineOffsets + 1 * 4, 2.5);
 
-        $this->call('_TxtPrepareTextBoxLayout_8c01543a')
+        $this->singleCall('_TxtPrepareTextBoxLayout_8c01543a')
             ->with($box, $text)
             ->shouldReturn(43)
             ->run();
@@ -404,7 +404,7 @@ return new class extends TestCase {
         $this->shouldWriteFloat($lineOffsets + 0 * 4, 0.0);
         $this->shouldWriteFloat($lineOffsets + 1 * 4, 0.0);
 
-        $this->call('_TxtPrepareTextBoxLayout_8c01543a')
+        $this->singleCall('_TxtPrepareTextBoxLayout_8c01543a')
             ->with($box, $text)
             ->shouldReturn(72)
             ->run();

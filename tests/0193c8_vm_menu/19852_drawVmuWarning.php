@@ -29,7 +29,7 @@ return new class extends TestCase {
             0.0, 0.0, -7.0
         );
 
-        $this->call('_DrawVmWarning_19852')->run();
+        $this->singleCall('_DrawVmWarning_19852')->run();
     }
 
     public function test_drawSecondOption()
@@ -54,7 +54,7 @@ return new class extends TestCase {
             0.0, 0.0, -7.0
         );
 
-        $this->call('_DrawVmWarning_19852')->run();
+        $this->singleCall('_DrawVmWarning_19852')->run();
     }
 
     private function resolveSymbols(): void

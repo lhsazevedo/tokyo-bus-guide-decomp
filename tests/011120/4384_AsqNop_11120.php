@@ -7,6 +7,6 @@ use Lhsazevedo\Sh4ObjTest\TestCase;
 return new class extends TestCase {
     public function test_AsqNop_11120()
     {
-        $this->call('_AsqNop_11120')->run();
+        $this->singleCall('_AsqNop_11120')->run();
     }
 };

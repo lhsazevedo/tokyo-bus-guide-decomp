@@ -125,7 +125,7 @@ return new class extends TestCase {
         $this->shouldWrite($taskPtr + 0x18, $njQueue + $sizeOfQueuedNj);
         $this->shouldWrite($taskPtr + 0x08, 0);
 
-        $this->call('_task_loadQueuedNjs_8c0114cc')
+        $this->singleCall('_task_loadQueuedNjs_8c0114cc')
             ->with($taskPtr, 0)
             ->run();
     }
@@ -253,7 +253,7 @@ return new class extends TestCase {
         $this->shouldWrite($taskPtr + 0x18, $njQueue + $sizeOfQueuedNj);
         $this->shouldWrite($taskPtr + 0x08, 0);
 
-        $this->call('_task_loadQueuedNjs_8c0114cc')
+        $this->singleCall('_task_loadQueuedNjs_8c0114cc')
             ->with($taskPtr, 0)
             ->run();
     }
@@ -321,7 +321,7 @@ return new class extends TestCase {
         $this->shouldWriteLongTo('_var_njQueueIsIdle_8c157aa8', 1);
         $this->shouldCall('_freeTask_8c014b66')->with($taskPtr);
         
-        $this->call('_task_loadQueuedNjs_8c0114cc')
+        $this->singleCall('_task_loadQueuedNjs_8c0114cc')
             ->with($taskPtr, 0)
             ->run();
     }
@@ -390,7 +390,7 @@ return new class extends TestCase {
         $this->shouldwriteTo('_var_8c157a88', 0);
         $this->shouldWriteStringTo('_var_queueBaseDir_8c157a80', 'DATA EMPTY');
 
-        $this->call('_task_loadQueuedNjs_8c0114cc')
+        $this->singleCall('_task_loadQueuedNjs_8c0114cc')
             ->with($taskPtr, 0)
             ->run();
     }
@@ -474,7 +474,7 @@ return new class extends TestCase {
         $this->shouldWrite($taskPtr + 0x18, $njQueue + $sizeOfQueuedNj);
         $this->shouldWrite($taskPtr + 0x08, 0);
 
-        $this->call('_task_loadQueuedNjs_8c0114cc')
+        $this->singleCall('_task_loadQueuedNjs_8c0114cc')
             ->with($taskPtr, 0)
             ->run();
     }
@@ -565,7 +565,7 @@ return new class extends TestCase {
         $this->shouldWrite($taskPtr + 0x18, $njQueue + $sizeOfQueuedNj);
         $this->shouldWrite($taskPtr + 0x08, 0);
 
-        $this->call('_task_loadQueuedNjs_8c0114cc')
+        $this->singleCall('_task_loadQueuedNjs_8c0114cc')
             ->with($taskPtr, 0)
             ->run();
     }
@@ -656,7 +656,7 @@ return new class extends TestCase {
         $this->shouldWrite($taskPtr + 0x18, $njQueue + $sizeOfQueuedNj);
         $this->shouldWrite($taskPtr + 0x08, 0);
 
-        $this->call('_task_loadQueuedNjs_8c0114cc')
+        $this->singleCall('_task_loadQueuedNjs_8c0114cc')
             ->with($taskPtr, 0)
             ->run();
     }
@@ -781,7 +781,7 @@ return new class extends TestCase {
         $this->shouldWrite($taskPtr + 0x18, $njQueue + 2 * $sizeOfQueuedNj);
         $this->shouldWrite($taskPtr + 0x08, 0);
 
-        $this->call('_task_loadQueuedNjs_8c0114cc')
+        $this->singleCall('_task_loadQueuedNjs_8c0114cc')
             ->with($taskPtr, 0)
             ->run();
     }
@@ -845,7 +845,7 @@ return new class extends TestCase {
         $this->shouldWrite($taskPtr + 0x18, $njQueue + 1 * $sizeOfQueuedNj);
         $this->shouldWrite($taskPtr + 0x08, 0);
 
-        $this->call('_task_loadQueuedNjs_8c0114cc')
+        $this->singleCall('_task_loadQueuedNjs_8c0114cc')
             ->with($taskPtr, 0)
             ->run();
     }
@@ -914,7 +914,7 @@ return new class extends TestCase {
         $this->shouldWrite($taskPtr + 0x18, $njQueue + 1 * $sizeOfQueuedNj);
         $this->shouldWrite($taskPtr + 0x08, 0);
 
-        $this->call('_task_loadQueuedNjs_8c0114cc')
+        $this->singleCall('_task_loadQueuedNjs_8c0114cc')
             ->with($taskPtr, 0)
             ->run();
     }
@@ -985,7 +985,7 @@ return new class extends TestCase {
         $this->shouldWrite($taskPtr + 0x18, $njQueue + 1 * $sizeOfQueuedNj);
         $this->shouldWrite($taskPtr + 0x08, 0);
 
-        $this->call('_task_loadQueuedNjs_8c0114cc')
+        $this->singleCall('_task_loadQueuedNjs_8c0114cc')
             ->with($taskPtr, 0)
             ->run();
     }
@@ -1060,7 +1060,7 @@ return new class extends TestCase {
         $this->shouldWrite($taskPtr + 0x18, $njQueue + 1 * $sizeOfQueuedNj);
         $this->shouldWrite($taskPtr + 0x08, 0);
 
-        $this->call('_task_loadQueuedNjs_8c0114cc')
+        $this->singleCall('_task_loadQueuedNjs_8c0114cc')
             ->with($taskPtr, 0)
             ->run();
     }
@@ -1137,7 +1137,7 @@ return new class extends TestCase {
         $this->shouldWrite($taskPtr + 0x18, $njQueue + 1 * $sizeOfQueuedNj);
         $this->shouldWrite($taskPtr + 0x08, 0);
 
-        $this->call('_task_loadQueuedNjs_8c0114cc')
+        $this->singleCall('_task_loadQueuedNjs_8c0114cc')
             ->with($taskPtr, 0)
             ->run();
     }
@@ -1220,7 +1220,7 @@ return new class extends TestCase {
         $this->shouldWrite($taskPtr + 0x18, $njQueue + 1 * $sizeOfQueuedNj);
         $this->shouldWrite($taskPtr + 0x08, 0);
 
-        $this->call('_task_loadQueuedNjs_8c0114cc')
+        $this->singleCall('_task_loadQueuedNjs_8c0114cc')
             ->with($taskPtr, 0)
             ->run();
     }
@@ -1286,7 +1286,7 @@ return new class extends TestCase {
         $this->shouldWrite($taskPtr + 0x18, $njQueue + $sizeOfQueuedNj);
         $this->shouldWrite($taskPtr + 0x08, 0);
 
-        $this->call('_task_loadQueuedNjs_8c0114cc')
+        $this->singleCall('_task_loadQueuedNjs_8c0114cc')
             ->with($taskPtr, 0)
             ->run();
     }
@@ -1334,7 +1334,7 @@ return new class extends TestCase {
         $this->shouldWrite($taskPtr + 0x18, $njQueue + $sizeOfQueuedNj);
         $this->shouldWrite($taskPtr + 0x08, 0);
 
-        $this->call('_task_loadQueuedNjs_8c0114cc')
+        $this->singleCall('_task_loadQueuedNjs_8c0114cc')
             ->with($taskPtr, 0)
             ->run();
     }
@@ -1391,7 +1391,7 @@ return new class extends TestCase {
         $this->shouldWrite($taskPtr + 0x18, $njQueue + $sizeOfQueuedNj);
         $this->shouldWrite($taskPtr + 0x08, 0);
 
-        $this->call('_task_loadQueuedNjs_8c0114cc')
+        $this->singleCall('_task_loadQueuedNjs_8c0114cc')
             ->with($taskPtr, 0)
             ->run();
     }
@@ -1448,7 +1448,7 @@ return new class extends TestCase {
         $this->shouldWrite($taskPtr + 0x18, $njQueue + $sizeOfQueuedNj);
         $this->shouldWrite($taskPtr + 0x08, 0);
 
-        $this->call('_task_loadQueuedNjs_8c0114cc')
+        $this->singleCall('_task_loadQueuedNjs_8c0114cc')
             ->with($taskPtr, 0)
             ->run();
     }
@@ -1499,7 +1499,7 @@ return new class extends TestCase {
         $this->shouldWrite($taskPtr + 0x18, $njQueue + $sizeOfQueuedNj);
         $this->shouldWrite($taskPtr + 0x08, 0);
 
-        $this->call('_task_loadQueuedNjs_8c0114cc')
+        $this->singleCall('_task_loadQueuedNjs_8c0114cc')
             ->with($taskPtr, 0)
             ->run();
     }
@@ -1546,7 +1546,7 @@ return new class extends TestCase {
         $this->shouldCall('_gdFsTrans32')
             ->with(0xf5f50000, 2048, $this->addressOf('_var_texbuf_8c277ca0'));
 
-        $this->call('_task_loadQueuedNjs_8c0114cc')
+        $this->singleCall('_task_loadQueuedNjs_8c0114cc')
             ->with($taskPtr, 0)
             ->run();
     }
@@ -1590,7 +1590,7 @@ return new class extends TestCase {
             ->with(0xf5f50000)
             ->andReturn(1); // GDD_FS_TRANS_BUSY
 
-        $this->call('_task_loadQueuedNjs_8c0114cc')
+        $this->singleCall('_task_loadQueuedNjs_8c0114cc')
             ->with($taskPtr, 0)
             ->run();
     }
@@ -1640,7 +1640,7 @@ return new class extends TestCase {
 
         // $this->shouldCall('_syFree')->with($readTarget);
 
-        $this->call('_task_loadQueuedNjs_8c0114cc')
+        $this->singleCall('_task_loadQueuedNjs_8c0114cc')
             ->with($taskPtr, 0)
             ->run();
     }
@@ -1687,7 +1687,7 @@ return new class extends TestCase {
         $this->shouldWrite($taskPtr + 0x18, $njQueue + 1 * $sizeOfQueuedNj);
         $this->shouldWrite($taskPtr + 0x08, 0);
 
-        $this->call('_task_loadQueuedNjs_8c0114cc')
+        $this->singleCall('_task_loadQueuedNjs_8c0114cc')
             ->with($taskPtr, 0)
             ->run();
     }
@@ -1737,7 +1737,7 @@ return new class extends TestCase {
         $this->shouldWrite($taskPtr + 0x18, $njQueue + 1 * $sizeOfQueuedNj);
         $this->shouldWrite($taskPtr + 0x08, 0);
 
-        $this->call('_task_loadQueuedNjs_8c0114cc')
+        $this->singleCall('_task_loadQueuedNjs_8c0114cc')
             ->with($taskPtr, 0)
             ->run();
     }
@@ -1773,7 +1773,7 @@ return new class extends TestCase {
         $this->initUint32($this->addressOf('_var_texbuf_8c277ca0'), 0xdeadbeef);
         $this->initUint32($this->addressOf('_var_queueBuffer_8c157a84'), 0xbebacafe);
 
-        $this->call('_task_loadQueuedNjs_8c0114cc')
+        $this->singleCall('_task_loadQueuedNjs_8c0114cc')
             ->with($taskPtr, 0)
             ->run();
     }

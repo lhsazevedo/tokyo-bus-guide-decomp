@@ -93,7 +93,7 @@ return new class extends TestCase {
         $this->shouldWriteTo('_var_8c157a88', 0);
         $this->shouldWriteStringTo('_var_queueBaseDir_8c157a80', 'DATA EMPTY');
 
-        $this->call('_sortAndLoadPvmQueue_8c011d24')
+        $this->singleCall('_sortAndLoadPvmQueue_8c011d24')
             ->shouldReturn(1)
             ->run();
     }
@@ -139,7 +139,7 @@ return new class extends TestCase {
         $this->shouldWriteTo('_var_8c157a88', 0);
         $this->shouldWriteStringTo('_var_queueBaseDir_8c157a80', 'DATA EMPTY');
 
-        $this->call('_sortAndLoadPvmQueue_8c011d24')
+        $this->singleCall('_sortAndLoadPvmQueue_8c011d24')
             ->shouldReturn(1)
             ->run();
     }
@@ -156,7 +156,7 @@ return new class extends TestCase {
             $pvmQueue,
         );
 
-        $this->call('_sortAndLoadPvmQueue_8c011d24')
+        $this->singleCall('_sortAndLoadPvmQueue_8c011d24')
             ->shouldReturn(0)
             ->run();
     }
@@ -203,7 +203,7 @@ return new class extends TestCase {
             )
             ->andReturn(0);
 
-        $this->call('_sortAndLoadPvmQueue_8c011d24')
+        $this->singleCall('_sortAndLoadPvmQueue_8c011d24')
             ->shouldReturn(0)
             ->run();
     }

@@ -31,7 +31,7 @@ return new class extends TestCase {
         $this->initUint32($cPtr + 0x00, fdec(9.0));
         $this->initUint32($cPtr + 0x00, fdec(10.0));
 
-        $this->call('_FUN_8c0207d4')
+        $this->singleCall('_FUN_8c0207d4')
             ->with($aPtr, $bPtr, $cPtr)
             ->shouldReturn(56.0)
             ->run();
@@ -57,7 +57,7 @@ return new class extends TestCase {
         $this->initUint32($cPtr + 0x00, fdec(3.0));
         $this->initUint32($cPtr + 0x00, fdec(2.0));
 
-        $this->call('_FUN_8c0207d4')
+        $this->singleCall('_FUN_8c0207d4')
             ->with($aPtr, $bPtr, $cPtr)
             ->shouldReturn(104.0)
             ->run();
@@ -83,7 +83,7 @@ return new class extends TestCase {
         $this->initUint32($cPtr + 0x00, fdec(9.0));
         $this->initUint32($cPtr + 0x00, fdec(10.0));
 
-        $this->call('_FUN_8c0207fa')
+        $this->singleCall('_FUN_8c0207fa')
             ->with($aPtr, $bPtr, $cPtr)
             ->shouldReturn(12.0)
             ->run();
@@ -109,7 +109,7 @@ return new class extends TestCase {
         $this->initUint32($cPtr + 0x00, fdec(3.0));
         $this->initUint32($cPtr + 0x00, fdec(2.0));
 
-        $this->call('_FUN_8c0207fa')
+        $this->singleCall('_FUN_8c0207fa')
             ->with($aPtr, $bPtr, $cPtr)
             ->shouldReturn(-24.0)
             ->run();

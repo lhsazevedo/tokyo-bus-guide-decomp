@@ -15,7 +15,7 @@ return new class extends TestCase {
 
         $this->shouldWrite($optionPtr, 0);
 
-        $this->call('_promptHandleMultiple_16c58')
+        $this->singleCall('_promptHandleMultiple_16c58')
             ->with($optionPtr, 3)
             ->shouldReturn(0)
             ->run();
@@ -34,7 +34,7 @@ return new class extends TestCase {
 
         $this->shouldWrite($optionPtr, 1);
 
-        $this->call('_promptHandleMultiple_16c58')
+        $this->singleCall('_promptHandleMultiple_16c58')
             ->with($optionPtr, 3)
             ->shouldReturn(1)
             ->run();
@@ -53,7 +53,7 @@ return new class extends TestCase {
 
         $this->shouldWrite($optionPtr, 2);
 
-        $this->call('_promptHandleMultiple_16c58')
+        $this->singleCall('_promptHandleMultiple_16c58')
             ->with($optionPtr, 3)
             ->shouldReturn(1)
             ->run();
@@ -72,7 +72,7 @@ return new class extends TestCase {
 
         $this->shouldWrite($optionPtr, 0);
 
-        $this->call('_promptHandleMultiple_16c58')
+        $this->singleCall('_promptHandleMultiple_16c58')
             ->with($optionPtr, 3)
             ->shouldReturn(1)
             ->run();
@@ -91,7 +91,7 @@ return new class extends TestCase {
 
         $this->shouldWrite($optionPtr, 2);
 
-        $this->call('_promptHandleMultiple_16c58')
+        $this->singleCall('_promptHandleMultiple_16c58')
             ->with($optionPtr, 3)
             ->shouldReturn(1)
             ->run();
@@ -107,7 +107,7 @@ return new class extends TestCase {
 
         $this->shouldWrite($optionPtr, 1);
 
-        $this->call('_promptHandleMultiple_16c58')
+        $this->singleCall('_promptHandleMultiple_16c58')
             ->with($optionPtr, 3)
             ->shouldReturn(0)
             ->run();

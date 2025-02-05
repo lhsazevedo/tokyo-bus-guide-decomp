@@ -12,7 +12,7 @@ return new class extends TestCase {
 
         $this->shouldWriteTo('_var_seed_8c157ad0', 42);
 
-        $this->call('_AsqSetSeedB_121a2')
+        $this->singleCall('_AsqSetSeedB_121a2')
             ->with(42)
             ->run();
     }

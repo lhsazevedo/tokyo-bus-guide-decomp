@@ -17,7 +17,7 @@ return new class extends TestCase {
         $this->shouldWriteTo('_var_pvmQueue_8c157abc', 0xbebacafe);
         $this->shouldWriteTo('_var_pvmQueueTail_8c157ac4', 0xbebacafe + $queueItems * $sizeOfQueuedPvm);
 
-        $this->call('_initPvmQueue_8c011a5c')
+        $this->singleCall('_initPvmQueue_8c011a5c')
             ->with($queueItems)
             ->shouldReturn(1)
             ->run();
@@ -34,7 +34,7 @@ return new class extends TestCase {
 
         $this->shouldWriteTo('_var_pvmQueue_8c157abc', 0);
 
-        $this->call('_initPvmQueue_8c011a5c')
+        $this->singleCall('_initPvmQueue_8c011a5c')
             ->with($queueItems)
             ->shouldReturn(0)
             ->run();
@@ -45,7 +45,7 @@ return new class extends TestCase {
         $this->shouldWriteTo('_var_pvmQueueTail_8c157ac4', -1);
         $this->shouldWriteTo('_var_pvmQueue_8c157abc', -1);
 
-        $this->call('_initPvmQueue_8c011a5c')
+        $this->singleCall('_initPvmQueue_8c011a5c')
             ->with(0)
             ->shouldReturn(1)
             ->run();

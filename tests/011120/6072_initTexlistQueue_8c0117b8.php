@@ -15,7 +15,7 @@ return new class extends TestCase {
         $this->shouldWriteTo('_var_texlistQueue_8c157aac', 0xbebacafe);
         $this->shouldWriteTo('_var_texlistQueueTail_8c157ab4', 0xbebacafe + 8);
 
-        $this->call('_initTexlistQueue_8c0117b8')
+        $this->singleCall('_initTexlistQueue_8c0117b8')
             ->with(1)
             ->shouldReturn(1)
             ->run();
@@ -30,7 +30,7 @@ return new class extends TestCase {
         $this->shouldWriteTo('_var_texlistQueue_8c157aac', 0xbebacafe);
         $this->shouldWriteTo('_var_texlistQueueTail_8c157ab4', 0xbebacafe + 16);
 
-        $this->call('_initTexlistQueue_8c0117b8')
+        $this->singleCall('_initTexlistQueue_8c0117b8')
             ->with(2)
             ->shouldReturn(1)
             ->run();
@@ -44,7 +44,7 @@ return new class extends TestCase {
 
         $this->shouldWriteTo('_var_texlistQueue_8c157aac', 0);
 
-        $this->call('_initTexlistQueue_8c0117b8')
+        $this->singleCall('_initTexlistQueue_8c0117b8')
             ->with(1)
             ->shouldReturn(0)
             ->run();
@@ -55,7 +55,7 @@ return new class extends TestCase {
         $this->shouldWriteTo('_var_texlistQueueTail_8c157ab4', -1);
         $this->shouldWriteTo('_var_texlistQueue_8c157aac', -1);
 
-        $this->call('_initTexlistQueue_8c0117b8')
+        $this->singleCall('_initTexlistQueue_8c0117b8')
             ->with(0)
             ->shouldReturn(1)
             ->run();
@@ -73,7 +73,7 @@ return new class extends TestCase {
     //         $njQueue,
     //     );
 
-    //     $this->call('_sortAndLoadNjQueue_8c0116b6')
+    //     $this->singleCall('_sortAndLoadNjQueue_8c0116b6')
     //         ->shouldReturn(0)
     //         ->run();
     // }
@@ -120,7 +120,7 @@ return new class extends TestCase {
     //         )
     //         ->andReturn(0);
 
-    //     $this->call('_sortAndLoadNjQueue_8c0116b6')
+    //     $this->singleCall('_sortAndLoadNjQueue_8c0116b6')
     //         ->shouldReturn(0)
     //         ->run();
     // }

@@ -28,7 +28,7 @@ return new class extends TestCase {
         $this->shouldWriteLong($this->addressOf('_menuState_8c1bc7a8') + 0x68, 4);
 
 
-        $this->call($this->entryName())->with(0, 0)->run();
+        $this->singleCall($this->entryName())->with(0, 0)->run();
     }
 
     public function test_case0_advancesToCase1()
@@ -82,7 +82,7 @@ return new class extends TestCase {
 
         $this->shouldCall('_push_fadein_8c022a9c')->with(10);
 
-        $this->call($this->entryName())->with(0, 0)->run();
+        $this->singleCall($this->entryName())->with(0, 0)->run();
     }
 
     public function test_case0_advancesToCase6()
@@ -111,7 +111,7 @@ return new class extends TestCase {
 
         $this->shouldCall('_push_fadein_8c022a9c')->with(10);
 
-        $this->call($this->entryName())->with($state, 0)->run();
+        $this->singleCall($this->entryName())->with($state, 0)->run();
     }
 
     public function test_case1_waitsForFadeIn()
@@ -128,7 +128,7 @@ return new class extends TestCase {
         $this->shouldCall('_drawVmMenu_197c0');
         $this->shouldWriteSelectedSlot(0);
 
-        $this->call($this->entryName())->with($state, 0)->run();
+        $this->singleCall($this->entryName())->with($state, 0)->run();
     }
 
     public function test_case1_advancesAfterFade()
@@ -146,7 +146,7 @@ return new class extends TestCase {
         $this->shouldCall('_drawVmMenu_197c0');
         $this->shouldWriteSelectedSlot(0);
 
-        $this->call($this->entryName())->with($state, 0)->run();
+        $this->singleCall($this->entryName())->with($state, 0)->run();
     }
 
     public function test_case2_startsInAnAvailableSlot()
@@ -174,7 +174,7 @@ return new class extends TestCase {
         $this->shouldCall('_menuTextboxText_8c02af1c')->with(0x20);
         $this->shouldWriteSelectedSlot(2);
 
-        $this->call($this->entryName())->with(0, 0)->run();
+        $this->singleCall($this->entryName())->with(0, 0)->run();
     }
 
     public function test_case2_moveRightOnUpperRow()
@@ -405,7 +405,7 @@ return new class extends TestCase {
         $this->shouldCall('_menuTextboxText_8c02af1c')->with(0x20);
         $this->shouldWriteSelectedSlot(1);
 
-        $this->call($this->entryName())->with(0, 0)->run();
+        $this->singleCall($this->entryName())->with(0, 0)->run();
     }
 
     public function test_case2_showConfirmMessageWhenSelectingExistingSave()
@@ -436,7 +436,7 @@ return new class extends TestCase {
         $this->shouldCall('_menuTextboxText_8c02af1c')->with(0x20);
         $this->shouldWriteSelectedSlot(1);
 
-        $this->call($this->entryName())->with(0, 0)->run();
+        $this->singleCall($this->entryName())->with(0, 0)->run();
     }
 
     public function test_case2_showConfirmMessageWhenSelectingExistingSaveB()
@@ -467,7 +467,7 @@ return new class extends TestCase {
         $this->shouldCall('_menuTextboxText_8c02af1c')->with(0x20);
         $this->shouldWriteSelectedSlot(1);
 
-        $this->call($this->entryName())->with(0, 0)->run();
+        $this->singleCall($this->entryName())->with(0, 0)->run();
     }
 
     public function test_case2_showConfirmMessageWhenProceedingWithoutSaving()
@@ -495,7 +495,7 @@ return new class extends TestCase {
         $this->shouldCall('_menuTextboxText_8c02af1c')->with(0x20);
         $this->shouldWriteSelectedSlot(8);
 
-        $this->call($this->entryName())->with(0, 0)->run();
+        $this->singleCall($this->entryName())->with(0, 0)->run();
     }
 
     public function test_case2_playFailSoundOnInvalidOption()
@@ -521,7 +521,7 @@ return new class extends TestCase {
         $this->shouldCall('_menuTextboxText_8c02af1c')->with(0x20);
         $this->shouldWriteSelectedSlot(1);
 
-        $this->call($this->entryName())->with(0, 0)->run();
+        $this->singleCall($this->entryName())->with(0, 0)->run();
     }
 
     public function test_case2_MoveUpFromNinithSlot()
@@ -550,7 +550,7 @@ return new class extends TestCase {
         $this->shouldCall('_menuTextboxText_8c02af1c')->with(0x20);
         $this->shouldWriteSelectedSlot(1);
 
-        $this->call($this->entryName())->with(0, 0)->run();
+        $this->singleCall($this->entryName())->with(0, 0)->run();
     }
 
     public function test_case3_advancesWhenInterpolated()
@@ -574,7 +574,7 @@ return new class extends TestCase {
         $this->shouldCall('_menuTextboxText_8c02af1c')->with(0x20);
         $this->shouldWriteSelectedSlot(1);
 
-        $this->call($this->entryName())->with(0, 0)->run();
+        $this->singleCall($this->entryName())->with(0, 0)->run();
     }
 
     public function test_case4_waitsForUserInput()
@@ -608,7 +608,7 @@ return new class extends TestCase {
         $this->shouldCall('_menuTextboxText_8c02af1c')->with(0xff);
         $this->shouldWriteSelectedSlot(1);
 
-        $this->call($this->entryName())->with(0, 0)->run();
+        $this->singleCall($this->entryName())->with(0, 0)->run();
     }
 
     public function test_case4_advancesOnOk()
@@ -647,7 +647,7 @@ return new class extends TestCase {
         $this->shouldCall('_menuTextboxText_8c02af1c')->with(0xff);
         $this->shouldWriteSelectedSlot(3);
 
-        $this->call($this->entryName())->with(0, 0)->run();
+        $this->singleCall($this->entryName())->with(0, 0)->run();
     }
 
     public function test_case4_goesBackOnCancel()
@@ -685,7 +685,7 @@ return new class extends TestCase {
         $this->shouldCall('_menuTextboxText_8c02af1c')->with(0xff);
         $this->shouldWriteSelectedSlot(3);
 
-        $this->call($this->entryName())->with(0, 0)->run();
+        $this->singleCall($this->entryName())->with(0, 0)->run();
     }
 
     public function test_case5_waitsForUserInput()
@@ -719,7 +719,7 @@ return new class extends TestCase {
         $this->shouldCall('_menuTextboxText_8c02af1c')->with(0xff);
         $this->shouldWriteSelectedSlot(8);
 
-        $this->call($this->entryName())->with(0, 0)->run();
+        $this->singleCall($this->entryName())->with(0, 0)->run();
     }
 
     public function test_case5_advancesOnOk()
@@ -761,7 +761,7 @@ return new class extends TestCase {
         $this->shouldCall('_menuTextboxText_8c02af1c')->with(0xff);
         $this->shouldWriteSelectedSlot(8);
 
-        $this->call($this->entryName())->with(0, 0)->run();
+        $this->singleCall($this->entryName())->with(0, 0)->run();
     }
 
     public function test_case5_goesBackOnCancel()
@@ -799,7 +799,7 @@ return new class extends TestCase {
         $this->shouldCall('_menuTextboxText_8c02af1c')->with(0xff);
         $this->shouldWriteSelectedSlot(8);
 
-        $this->call($this->entryName())->with(0, 0)->run();
+        $this->singleCall($this->entryName())->with(0, 0)->run();
     }
 
     public function test_case6_waitsForFadeIn()
@@ -813,7 +813,7 @@ return new class extends TestCase {
         $this->shouldCall('_DrawVmWarning_19852');
         $this->shouldWriteSelectedSlot(1);
 
-        $this->call($this->entryName())->with(0, 0)->run();
+        $this->singleCall($this->entryName())->with(0, 0)->run();
     }
 
     public function test_case6_advancesAfterFade()
@@ -828,7 +828,7 @@ return new class extends TestCase {
         $this->shouldCall('_DrawVmWarning_19852');
         $this->shouldWriteSelectedSlot(1);
 
-        $this->call($this->entryName())->with(0, 0)->run();
+        $this->singleCall($this->entryName())->with(0, 0)->run();
     }
 
     public function test_case7_subcase0_waitsForPlayerInput()
@@ -850,7 +850,7 @@ return new class extends TestCase {
 
         $this->shouldCall('_DrawVmWarning_19852');
 
-        $this->call($this->entryName())->with($task, 0)->run();
+        $this->singleCall($this->entryName())->with($task, 0)->run();
     }
 
     public function test_case7_subcase0_advancesOnOk()
@@ -877,7 +877,7 @@ return new class extends TestCase {
 
         $this->shouldCall('_DrawVmWarning_19852');
 
-        $this->call($this->entryName())->with($task, 0)->run();
+        $this->singleCall($this->entryName())->with($task, 0)->run();
     }
 
     public function test_case7_subcase0_goesBackOnCancel()
@@ -929,7 +929,7 @@ return new class extends TestCase {
 
         $this->shouldCall('_DrawVmWarning_19852');
 
-        $this->call($this->entryName())->with($task, 0)->run();
+        $this->singleCall($this->entryName())->with($task, 0)->run();
     }
 
     public function test_case7_subcase0_else()
@@ -949,7 +949,7 @@ return new class extends TestCase {
 
         $this->shouldCall('_DrawVmWarning_19852');
 
-        $this->call($this->entryName())->with($task, 0)->run();
+        $this->singleCall($this->entryName())->with($task, 0)->run();
     }
 
     public function test_case7_subcase1_waitsForFade()
@@ -964,7 +964,7 @@ return new class extends TestCase {
 
         $this->shouldCall('_DrawVmWarning_19852');
 
-        $this->call($this->entryName())->with($task, 0)->run();
+        $this->singleCall($this->entryName())->with($task, 0)->run();
     }
 
     public function test_case7_subcase1_advancesAfterFade()
@@ -980,7 +980,7 @@ return new class extends TestCase {
         $this->shouldWriteLong($this->addressOf('_menuState_8c1bc7a8') + 0x68, 10);
         $this->shouldWriteLong($this->addressOf('_menuState_8c1bc7a8') + 0x18, 0);
 
-        $this->call($this->entryName())->with($task, 0)->run();
+        $this->singleCall($this->entryName())->with($task, 0)->run();
     }
 
     public function test_case7_subcase2_waitsForFade()
@@ -995,7 +995,7 @@ return new class extends TestCase {
 
         $this->shouldCall('_DrawVmWarning_19852');
 
-        $this->call($this->entryName())->with($task, 0)->run();
+        $this->singleCall($this->entryName())->with($task, 0)->run();
     }
 
     public function test_case7_subcase2_advancedAfterFade()
@@ -1010,7 +1010,7 @@ return new class extends TestCase {
 
         $this->shouldCall('_MainMenuSwitchFromTask_8c01a09a')->with($task);
 
-        $this->call($this->entryName())->with($task, 0)->run();
+        $this->singleCall($this->entryName())->with($task, 0)->run();
     }
 
     public function test_case7_subcase3_waitsForFade()
@@ -1025,7 +1025,7 @@ return new class extends TestCase {
 
         $this->shouldCall('_DrawVmWarning_19852');
 
-        $this->call($this->entryName())->with($task, 0)->run();
+        $this->singleCall($this->entryName())->with($task, 0)->run();
     }
 
     public function test_case7_subcase3()
@@ -1041,7 +1041,7 @@ return new class extends TestCase {
         $this->shouldWriteLong($this->addressOf('_menuState_8c1bc7a8') + 0x18, 10);
         //$this->shouldCall('_MainMenuSwitchFromTask_8c01a09a');
 
-        $this->call($this->entryName())->with($task, 0)->run();
+        $this->singleCall($this->entryName())->with($task, 0)->run();
     }
 
     public function test_case8_waitsForFade()
@@ -1064,7 +1064,7 @@ return new class extends TestCase {
         $this->shouldCall('_drawVmMenu_197c0');
         $this->shouldWriteLong($this->addressOf('_menuState_8c1bc7a8') + 0x38, 3);
 
-        $this->call($this->entryName())->with(0, 0)->run();
+        $this->singleCall($this->entryName())->with(0, 0)->run();
     }
 
     public function test_case8_advancesAfterFade()
@@ -1078,7 +1078,7 @@ return new class extends TestCase {
 
         $this->shouldCall('_FUN_8c019334')->with(0xcafecafe);
 
-        $this->call($this->entryName())->with(0xcafecafe, 0)->run();
+        $this->singleCall($this->entryName())->with(0xcafecafe, 0)->run();
     }
 
     public function test_case9_waitsForFade()
@@ -1092,7 +1092,7 @@ return new class extends TestCase {
 
         $this->shouldWriteLong($this->addressOf('_menuState_8c1bc7a8') + 0x38, 3);
 
-        $this->call($this->entryName())->with(0, 0)->run();
+        $this->singleCall($this->entryName())->with(0, 0)->run();
     }
 
     public function test_case9_waitsFor8c03bd80()
@@ -1104,7 +1104,7 @@ return new class extends TestCase {
         $this->initUint32($this->addressOf('_isFading_8c226568'), 0);
         $this->initUint32($this->addressOf('_init_8c03bd80'), 1);
 
-        $this->call($this->entryName())->with(0, 0)->run();
+        $this->singleCall($this->entryName())->with(0, 0)->run();
     }
 
     public function test_case9_advances()
@@ -1118,7 +1118,7 @@ return new class extends TestCase {
 
         $this->shouldCall('_MainMenuSwitchFromTask_8c01a09a')->with(0xcafecafe);
 
-        $this->call($this->entryName())->with(0xcafecafe, 0)->run();
+        $this->singleCall($this->entryName())->with(0xcafecafe, 0)->run();
     }
 
     public function test_case10_waitsForFade()
@@ -1132,7 +1132,7 @@ return new class extends TestCase {
         $this->shouldCall('_drawVmMenu_197c0');
         $this->shouldWriteLong($this->addressOf('_menuState_8c1bc7a8') + 0x38, 3);
 
-        $this->call($this->entryName())->with(0, 0)->run();
+        $this->singleCall($this->entryName())->with(0, 0)->run();
     }
 
     public function test_case10_advancesAfterFade()
@@ -1147,7 +1147,7 @@ return new class extends TestCase {
         $this->shouldCall('_drawVmMenu_197c0');
         $this->shouldWriteLong($this->addressOf('_menuState_8c1bc7a8') + 0x38, 3);
 
-        $this->call($this->entryName())->with(0, 0)->run();
+        $this->singleCall($this->entryName())->with(0, 0)->run();
     }
 
     public function test_case_default()
@@ -1158,7 +1158,7 @@ return new class extends TestCase {
         $this->initUint32($this->addressOf('_menuState_8c1bc7a8') + 0x38, 3); // slot
         $this->shouldWriteLong($this->addressOf('_menuState_8c1bc7a8') + 0x38, 3);
 
-        $this->call($this->entryName())->with(0, 0)->run();
+        $this->singleCall($this->entryName())->with(0, 0)->run();
     }
 
     private function resolveSymbols(): void
@@ -1253,7 +1253,7 @@ return new class extends TestCase {
         $this->shouldCall('_menuTextboxText_8c02af1c')->with(0x20);
         $this->shouldWriteSelectedSlot($expectedSlot);
 
-        $this->call($this->entryName())->with(0, 0)->run();
+        $this->singleCall($this->entryName())->with(0, 0)->run();
     }
 
     private function isAsmObject(): bool

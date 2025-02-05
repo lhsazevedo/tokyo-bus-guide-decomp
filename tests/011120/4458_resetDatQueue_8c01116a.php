@@ -13,7 +13,7 @@ return new class extends TestCase {
         $this->shouldWriteStringTo('_var_queueBaseDir_8c157a80', 'DATA EMPTY');
         $this->shouldWriteTo('_var_datQueueIsIdle_8c157a98', 1);
 
-        $this->call('_resetDatQueue_8c01116a')
+        $this->singleCall('_resetDatQueue_8c01116a')
             ->run();
     }
 };

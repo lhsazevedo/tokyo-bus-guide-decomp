@@ -484,7 +484,7 @@ return new class extends TestCase {
             $this->shouldCall('__slow_mvn')->do($mvn);
         }
 
-    $this->call('_getGlyphIndex_8c015034')
+    $this->singleCall('_getGlyphIndex_8c015034')
         ->with($code)
         ->shouldReturn($offset)
         ->run();

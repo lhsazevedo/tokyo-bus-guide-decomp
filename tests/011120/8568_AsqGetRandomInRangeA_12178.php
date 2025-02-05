@@ -13,7 +13,7 @@ return new class extends TestCase {
 
         $this->shouldCall('_AsqGetRandomA_12166')->andReturn(42);
 
-        $this->call('_AsqGetRandomInRangeA_12178')
+        $this->singleCall('_AsqGetRandomInRangeA_12178')
             ->with(20)
             ->shouldReturn(2)
             ->run();
@@ -24,7 +24,7 @@ return new class extends TestCase {
         // Resolve modlu symbol
         $this->setSize('__modlu', 4);
 
-        $this->call('_AsqGetRandomInRangeA_12178')
+        $this->singleCall('_AsqGetRandomInRangeA_12178')
             ->with(0)
             ->shouldReturn(0)
             ->run();

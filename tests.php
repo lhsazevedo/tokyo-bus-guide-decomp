@@ -147,7 +147,7 @@ return [
         ],
         [
             "tests" => [
-                "tests/019e98_main_menu/198a0_VmMenuTask.php",
+                "tests/019e98_main_menu/19e98_MainMenuTask.php",
                 "tests/019e98_main_menu/1a09a_switchToMainMenuTask.php",
             ],
             "objects" => [

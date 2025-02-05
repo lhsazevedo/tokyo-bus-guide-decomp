@@ -30,7 +30,7 @@ return new class extends TestCase {
         $this->shouldWriteLong($this->addressOf('_var_fontResourceGroup_8c1bc794') + 8, $this->addressOf('_init_contents_8c04413c'));
         //$this->shouldWriteLongTo('_var_8c1bc79c', $this->addressOf('_init_contents_8c04413c'));
 
-        $this->call('_TxtInit_8c01524c')->run();
+        $this->singleCall('_TxtInit_8c01524c')->run();
     }
 
     protected function resolveSymbols(): void

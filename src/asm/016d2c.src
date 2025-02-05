@@ -34,7 +34,7 @@
           .IMPORT     _var_8c1bb8f8
           .IMPORT     _AsqGetRandomInRangeB_121be
           .IMPORT     _var_8c225fbc
-          .IMPORT     _var_8c1bb8fc
+          .IMPORT     _var_game_mode_8c1bb8fc
           .IMPORT     _init_8c03bd80
           .IMPORT     _isFading_8c226568
           .IMPORT     _getUknPvmBool_8c01432a
@@ -1361,7 +1361,7 @@ LP_GEN_35911:
           .DATA.L _var_8c1ba1cc ; H'8C0176A8
           .DATA.L H'42D40000 ; H'8C0176AC
           .DATA.L H'42940000 ; H'8C0176B0
-          .DATA.L _var_8c1bb8fc ; H'8C0176B4
+          .DATA.L _var_game_mode_8c1bb8fc ; H'8C0176B4
 LAB_8c0176b8:
           MOV         R13,R1
           ADD         R14,R1
@@ -2348,7 +2348,7 @@ LP_GEN_59651:
           .DATA.L __quick_evn_mvn ; H'8C017E40
           .DATA.L _init_8c04442c ; H'8C017E44
           .DATA.L _var_8c1ba1cc ; H'8C017E48
-          .DATA.L _var_8c1bb8fc ; H'8C017E4C
+          .DATA.L _var_game_mode_8c1bb8fc ; H'8C017E4C
           .DATA.L _StoryMenuTask_8c017718 ; H'8C017E50
           .DATA.L _setTaskAction_8c014b3e ; H'8C017E54
 LAB_8c017e58:
@@ -2494,7 +2494,7 @@ LP_GEN_67544:
           .DATA.L _pushTask_8c014ae8 ; H'8C017F8C
           .DATA.L _task_8c012f44 ; H'8C017F90
           .DATA.L _var_tasks_8c1ba3c8 ; H'8C017F94
-          .DATA.L _var_8c1bb8fc ; H'8C017F98
+          .DATA.L _var_game_mode_8c1bb8fc ; H'8C017F98
           .DATA.L _StoryMenuTask_8c017718 ; H'8C017F9C
 LAB_8c017fa0:
           MOV         #H'0,R1

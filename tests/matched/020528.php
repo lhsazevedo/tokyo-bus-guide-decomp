@@ -8,7 +8,7 @@ return new class extends TestCase {
     public function testOnlyRunsWhen8c1bb8d0IsNot2() {
         $this->shouldReadSymbolOffset('_var_demo_8c1bb8d0', 0, 2);
 
-        $this->call('_FUN_8c020528')
+        $this->singleCall('_FUN_8c020528')
             ->run();
     }
 
@@ -37,7 +37,7 @@ return new class extends TestCase {
         $this->shouldWrite($structPtr + 0x14, 0);
         $this->shouldWrite($structPtr + 0x18, 0);
 
-        $this->call('_FUN_8c020528')
+        $this->singleCall('_FUN_8c020528')
             ->run();
     }
 };

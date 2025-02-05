@@ -22,6 +22,6 @@ return new class extends TestCase {
         $this->shouldWriteLong($this->addressOf('_var_uknVol_8c0fcd50') + 0x0c, 146);
         $this->shouldWriteLong($this->addressOf('_var_uknVol_8c0fcd50') + 0x20, fdec(0.032564103));
 
-        $this->call('_initUknVol_8c0100bc')->run();
+        $this->singleCall('_initUknVol_8c0100bc')->run();
     }
 };

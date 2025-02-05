@@ -44,7 +44,7 @@ return new class extends TestCase {
         $this->shouldWriteLong($box + 0x38, 0);
 
         // Note: The game passes 0 instead of 42 and 69.
-        $this->call('_TxtCreateTextBox_8c0152fc')
+        $this->singleCall('_TxtCreateTextBox_8c0152fc')
             // TODO: -1 instead of 0xffffffff in the last argument
             ->with(0x20, 0x178, -2.0, $WIDTH, $HEIGHT, 42, 69, 0xffffffff)
             ->shouldReturn($box)

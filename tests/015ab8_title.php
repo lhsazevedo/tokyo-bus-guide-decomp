@@ -25,7 +25,7 @@ return new class extends TestCase {
         $this->forceStop();
 
         /* Act */
-        $this->call('_task_title_8c015ab8')
+        $this->singleCall('_task_title_8c015ab8')
             ->with(0, 0)
             ->run();
     }
@@ -51,7 +51,7 @@ return new class extends TestCase {
 
         $this->shouldCall('_njSetBackColor')->with(0xff000000, 0xff000000, 0xff000000);
 
-        $this->call('_task_title_8c015ab8')
+        $this->singleCall('_task_title_8c015ab8')
             ->with($task, 0)
             ->run();
     }
@@ -66,7 +66,7 @@ return new class extends TestCase {
         // TODO: Fix Task size
         $taskPtr = $this->alloc(0x0c);
 
-        $this->call('_task_title_8c015ab8')
+        $this->singleCall('_task_title_8c015ab8')
             ->with($taskPtr, 0)
             ->run();
     }
@@ -90,7 +90,7 @@ return new class extends TestCase {
 
         $this->shouldCall('_njSetBackColor')->with(0xffffffff, 0xffffffff, 0xffffffff);
 
-        $this->call('_task_title_8c015ab8')
+        $this->singleCall('_task_title_8c015ab8')
             ->with($taskPtr, 0)
             ->run();
     }
@@ -104,7 +104,7 @@ return new class extends TestCase {
         $this->shouldCall('_drawSprite_8c014f54')
             ->with($this->addressOf('_menuState_8c1bc7a8') + 0x0c, 0, 0.0, 0.0, -5.0);
 
-        $this->call('_task_title_8c015ab8')
+        $this->singleCall('_task_title_8c015ab8')
             ->with(0, 0)
             ->run();
     }
@@ -123,7 +123,7 @@ return new class extends TestCase {
         $this->shouldCall('_drawSprite_8c014f54')
             ->with($this->addressOf('_menuState_8c1bc7a8') + 0x0c, 0, 0.0, 0.0, -5.0);
 
-        $this->call('_task_title_8c015ab8')
+        $this->singleCall('_task_title_8c015ab8')
             ->with(0, 0)
             ->run();
     }
@@ -139,7 +139,7 @@ return new class extends TestCase {
         $this->shouldCall('_drawSprite_8c014f54')
             ->with($this->addressOf('_menuState_8c1bc7a8') + 0x0c, 0, 0.0, 0.0, -5.0);
 
-        $this->call('_task_title_8c015ab8')
+        $this->singleCall('_task_title_8c015ab8')
             ->with(0, 0)
             ->run();
     }
@@ -161,7 +161,7 @@ return new class extends TestCase {
         $this->shouldCall('_drawSprite_8c014f54')
             ->with($this->addressOf('_menuState_8c1bc7a8') + 0x0c, 0, 0.0, 0.0, -5.0);
 
-        $this->call('_task_title_8c015ab8')
+        $this->singleCall('_task_title_8c015ab8')
             ->with(0, 0)
             ->run();
     }
@@ -175,7 +175,7 @@ return new class extends TestCase {
         $this->shouldCall('_drawSprite_8c014f54')
             ->with($this->addressOf('_menuState_8c1bc7a8') + 0x0c, 0, 0.0, 0.0, -5.0);
 
-        $this->call('_task_title_8c015ab8')
+        $this->singleCall('_task_title_8c015ab8')
             ->with(0, 0)
             ->run();
     }
@@ -191,7 +191,7 @@ return new class extends TestCase {
         $this->shouldWriteSymbolOffset('_menuState_8c1bc7a8', 0x18, 4);
         $this->shouldCall('_push_fadein_8c022a9c')->with(20);
 
-        $this->call('_task_title_8c015ab8')
+        $this->singleCall('_task_title_8c015ab8')
             ->with(0, 0)
             ->run();
     }
@@ -205,7 +205,7 @@ return new class extends TestCase {
         $this->shouldCall('_drawSprite_8c014f54')
             ->with($this->addressOf('_menuState_8c1bc7a8') + 0x0c, 3, 0.0, 0.0, -5.0);
 
-        $this->call('_task_title_8c015ab8')
+        $this->singleCall('_task_title_8c015ab8')
             ->with(0, 0)
             ->run();
     }
@@ -223,7 +223,7 @@ return new class extends TestCase {
 
         $this->shouldCall('_drawSprite_8c014f54')->with($this->addressOf('_menuState_8c1bc7a8') + 0x0c, 3, 0.0, 0.0, -5.0);
 
-        $this->call('_task_title_8c015ab8')
+        $this->singleCall('_task_title_8c015ab8')
             ->with(0, 0)
             ->run();
     }
@@ -240,7 +240,7 @@ return new class extends TestCase {
         $this->shouldCall('_drawSprite_8c014f54')
             ->with($this->addressOf('_menuState_8c1bc7a8') + 0x0c, 3, 0.0, 0.0, -5.0);
 
-        $this->call('_task_title_8c015ab8')
+        $this->singleCall('_task_title_8c015ab8')
             ->with(0, 0)
             ->run();
     }
@@ -262,7 +262,7 @@ return new class extends TestCase {
         $this->shouldCall('_drawSprite_8c014f54')->with(
             $this->addressOf('_menuState_8c1bc7a8') + 0x0c, 3, 0.0, 0.0, -5.0);
 
-        $this->call('_task_title_8c015ab8')
+        $this->singleCall('_task_title_8c015ab8')
             ->with(0, 0)
             ->run();
     }
@@ -276,7 +276,7 @@ return new class extends TestCase {
         $this->shouldCall('_drawSprite_8c014f54')
             ->with($this->addressOf('_menuState_8c1bc7a8') + 0x0c, 3, 0.0, 0.0, -5.0);
 
-        $this->call('_task_title_8c015ab8')
+        $this->singleCall('_task_title_8c015ab8')
             ->with(0, 0)
             ->run();
     }
@@ -293,7 +293,7 @@ return new class extends TestCase {
         $this->shouldWriteSymbolOffset('_menuState_8c1bc7a8', 0x18, 0x0a);
         $this->shouldCall('_push_fadein_8c022a9c')->with(10);
 
-        $this->call('_task_title_8c015ab8')
+        $this->singleCall('_task_title_8c015ab8')
             ->with(0, 0)
             ->run();
     }
@@ -314,7 +314,7 @@ return new class extends TestCase {
         $this->shouldWriteSymbolOffset('_menuState_8c1bc7a8', 0x18, 0x0a);
         $this->shouldCall('_push_fadein_8c022a9c')->with(10);
 
-        $this->call('_task_title_8c015ab8')
+        $this->singleCall('_task_title_8c015ab8')
             ->with(0, 0)
             ->run();
     }
@@ -336,7 +336,7 @@ return new class extends TestCase {
         $this->shouldWriteSymbolOffset('_menuState_8c1bc7a8', 0x18, 0x07);
         $this->shouldCall('_push_fadein_8c022a9c')->with(10);
 
-        $this->call('_task_title_8c015ab8')
+        $this->singleCall('_task_title_8c015ab8')
             ->with(0, 0)
             ->run();
     }
@@ -350,7 +350,7 @@ return new class extends TestCase {
         $this->shouldCall('_drawSprite_8c014f54')->with($this->addressOf('_menuState_8c1bc7a8') + 0x0c, 17, 0.0, 0.0, -5.0);
         $this->shouldCall('_njSetBackColor')->with(0xffffffff, 0xffffffff, 0xffffffff);
 
-        $this->call('_task_title_8c015ab8')
+        $this->singleCall('_task_title_8c015ab8')
             ->with(0, 0)
             ->run();
     }
@@ -367,7 +367,7 @@ return new class extends TestCase {
         $this->shouldCall('_drawSprite_8c014f54')->with($this->addressOf('_menuState_8c1bc7a8') + 0x0c, 17, 0.0, 0.0, -5.0);
         $this->shouldCall('_njSetBackColor')->with(0xffffffff, 0xffffffff, 0xffffffff);
 
-        $this->call('_task_title_8c015ab8')
+        $this->singleCall('_task_title_8c015ab8')
             ->with(0, 0)
             ->run();
     }
@@ -382,7 +382,7 @@ return new class extends TestCase {
 
         $this->shouldCall('_drawSprite_8c014f54')->with($this->addressOf('_menuState_8c1bc7a8') + 0x0c, 17, 0.0, 0.0, -5.0);
 
-        $this->call('_task_title_8c015ab8')
+        $this->singleCall('_task_title_8c015ab8')
             ->with(0, 0)
             ->run();
     }
@@ -403,7 +403,7 @@ return new class extends TestCase {
 
         $this->shouldCall('_drawSprite_8c014f54')->with($this->addressOf('_menuState_8c1bc7a8') + 0x0c, 17, 0.0, 0.0, -5.0);
 
-        $this->call('_task_title_8c015ab8')
+        $this->singleCall('_task_title_8c015ab8')
             ->with(0, 0)
             ->run();
     }
@@ -424,7 +424,7 @@ return new class extends TestCase {
 
         $this->shouldCall('_drawSprite_8c014f54')->with($this->addressOf('_menuState_8c1bc7a8') + 0x0c, 17, 0.0, 0.0, -5.0);
 
-        $this->call('_task_title_8c015ab8')
+        $this->singleCall('_task_title_8c015ab8')
             ->with(0, 0)
             ->run();
     }
@@ -440,7 +440,7 @@ return new class extends TestCase {
 
         $this->shouldCall('_drawSprite_8c014f54')->with($this->addressOf('_menuState_8c1bc7a8') + 0x0c, 17, 0.0, 0.0, -5.0);
 
-        $this->call('_task_title_8c015ab8')
+        $this->singleCall('_task_title_8c015ab8')
             ->with(0, 0)
             ->run();
     }
@@ -463,7 +463,7 @@ return new class extends TestCase {
 
         $this->shouldCall('_drawSprite_8c014f54')->with($this->addressOf('_menuState_8c1bc7a8') + 0x0c, 17, 0.0, 0.0, -5.0);
 
-        $this->call('_task_title_8c015ab8')
+        $this->singleCall('_task_title_8c015ab8')
             ->with(0, 0)
             ->run();
     }
@@ -478,7 +478,7 @@ return new class extends TestCase {
         $this->shouldCall('_drawSprite_8c014f54')
             ->with($this->addressOf('_menuState_8c1bc7a8') + 0x0c, 17, 0.0, 0.0, -5.0);
 
-        $this->call('_task_title_8c015ab8')
+        $this->singleCall('_task_title_8c015ab8')
             ->with(0, 0)
             ->run();
     }
@@ -493,7 +493,7 @@ return new class extends TestCase {
         $this->shouldWriteSymbolOffset('_menuState_8c1bc7a8', 0x18, 0x0a);
         $this->shouldCall('_push_fadein_8c022a9c')->with(10);
 
-        $this->call('_task_title_8c015ab8')
+        $this->singleCall('_task_title_8c015ab8')
             ->with(0, 0)
             ->run();
     }
@@ -508,7 +508,7 @@ return new class extends TestCase {
         $this->shouldCall('_drawSprite_8c014f54')->with($this->addressOf('_menuState_8c1bc7a8') + 0x0c, 2, 0.0, 0.0, -5.0);
         $this->shouldCall('_drawSprite_8c014f54')->with($this->addressOf('_menuState_8c1bc7a8') + 0x00, 46, 0.0, 0.0, -7.0);
 
-        $this->call('_task_title_8c015ab8')
+        $this->singleCall('_task_title_8c015ab8')
             ->with(0, 0)
             ->run();
     }
@@ -530,7 +530,7 @@ return new class extends TestCase {
         $this->shouldCall('_drawSprite_8c014f54')->with($this->addressOf('_menuState_8c1bc7a8') + 0x0c, 2, 0.0, 0.0, -5.0);
         $this->shouldCall('_drawSprite_8c014f54')->with($this->addressOf('_menuState_8c1bc7a8') + 0x00, 46, 0.0, 0.0, -7.0);
 
-        $this->call('_task_title_8c015ab8')
+        $this->singleCall('_task_title_8c015ab8')
             ->with(0, 0)
             ->run();
     }
@@ -553,7 +553,7 @@ return new class extends TestCase {
         $this->shouldCall('_drawSprite_8c014f54')->with($this->addressOf('_menuState_8c1bc7a8') + 0x0c, 2, 0.0, 0.0, -5.0);
         $this->shouldCall('_drawSprite_8c014f54')->with($this->addressOf('_menuState_8c1bc7a8') + 0x00, 46, 0.0, 0.0, -7.0);
 
-        $this->call('_task_title_8c015ab8')
+        $this->singleCall('_task_title_8c015ab8')
             ->with(0, 0)
             ->run();
     }
@@ -590,7 +590,7 @@ return new class extends TestCase {
         $this->shouldCall('_drawSprite_8c014f54')->with($this->addressOf('_menuState_8c1bc7a8') + 0x0c, 2, 0.0, 0.0, -5.0);
         $this->shouldCall('_drawSprite_8c014f54')->with($this->addressOf('_menuState_8c1bc7a8') + 0x00, 46, 0.0, 0.0, -7.0);
 
-        $this->call('_task_title_8c015ab8')
+        $this->singleCall('_task_title_8c015ab8')
             ->with(0, 0)
             ->run();
     }
@@ -617,7 +617,7 @@ return new class extends TestCase {
         $this->shouldCall('_drawSprite_8c014f54')->with($this->addressOf('_menuState_8c1bc7a8') + 0x0c, 2, 0.0, 0.0, -5.0);
         $this->shouldCall('_drawSprite_8c014f54')->with($this->addressOf('_menuState_8c1bc7a8') + 0x00, 46, 0.0, 0.0, -7.0);
 
-        $this->call('_task_title_8c015ab8')
+        $this->singleCall('_task_title_8c015ab8')
             ->with(0, 0)
             ->run();
     }
@@ -647,7 +647,7 @@ return new class extends TestCase {
         $this->shouldCall('_drawSprite_8c014f54')->with($this->addressOf('_menuState_8c1bc7a8') + 0x0c, 2, 0.0, 0.0, -5.0);
         $this->shouldCall('_drawSprite_8c014f54')->with($this->addressOf('_menuState_8c1bc7a8') + 0x00, 46, 0.0, 0.0, -7.0);
 
-        $this->call('_task_title_8c015ab8')
+        $this->singleCall('_task_title_8c015ab8')
             ->with(0, 0)
             ->run();
     }
@@ -670,7 +670,7 @@ return new class extends TestCase {
         $this->shouldCall('_drawSprite_8c014f54')->with($this->addressOf('_menuState_8c1bc7a8') + 0x0c, 2, 0.0, 0.0, -5.0);
         $this->shouldCall('_drawSprite_8c014f54')->with($this->addressOf('_menuState_8c1bc7a8') + 0x00, 46, 0.0, 0.0, -7.0);
 
-        $this->call('_task_title_8c015ab8')
+        $this->singleCall('_task_title_8c015ab8')
             ->with(0, 0)
             ->run();
     }
@@ -694,7 +694,7 @@ return new class extends TestCase {
         $this->shouldCall('_drawSprite_8c014f54')->with($this->addressOf('_menuState_8c1bc7a8') + 0x0c, 2, 0.0, 0.0, -5.0);
         $this->shouldCall('_drawSprite_8c014f54')->with($this->addressOf('_menuState_8c1bc7a8') + 0x00, 46, 0.0, 0.0, -7.0);
 
-        $this->call('_task_title_8c015ab8')
+        $this->singleCall('_task_title_8c015ab8')
             ->with(0, 0)
             ->run();
     }
@@ -718,7 +718,7 @@ return new class extends TestCase {
         $this->shouldCall('_drawSprite_8c014f54')->with($this->addressOf('_menuState_8c1bc7a8') + 0x0c, 2, 0.0, 0.0, -5.0);
         $this->shouldCall('_drawSprite_8c014f54')->with($this->addressOf('_menuState_8c1bc7a8') + 0x00, 46, 0.0, 0.0, -7.0);
 
-        $this->call('_task_title_8c015ab8')
+        $this->singleCall('_task_title_8c015ab8')
             ->with(0, 0)
             ->run();
     }
@@ -750,7 +750,7 @@ return new class extends TestCase {
         $this->shouldCall('_drawSprite_8c014f54')->with($this->addressOf('_menuState_8c1bc7a8') + 0x0c, 2, 0.0, 0.0, -5.0);
         $this->shouldCall('_drawSprite_8c014f54')->with($this->addressOf('_menuState_8c1bc7a8') + 0x00, 46, 0.0, 0.0, -7.0);
 
-        $this->call('_task_title_8c015ab8')
+        $this->singleCall('_task_title_8c015ab8')
             ->with(0, 0)
             ->run();
     }
@@ -781,7 +781,7 @@ return new class extends TestCase {
         $this->shouldCall('_drawSprite_8c014f54')->with($this->addressOf('_menuState_8c1bc7a8') + 0x0c, 2, 0.0, 0.0, -5.0);
         $this->shouldCall('_drawSprite_8c014f54')->with($this->addressOf('_menuState_8c1bc7a8') + 0x00, 46, 0.0, 0.0, -7.0);
 
-        $this->call('_task_title_8c015ab8')
+        $this->singleCall('_task_title_8c015ab8')
             ->with(0, 0)
             ->run();
     }
@@ -806,7 +806,7 @@ return new class extends TestCase {
         $this->shouldCall('_drawSprite_8c014f54')->with($this->addressOf('_menuState_8c1bc7a8') + 0x0c, 2, 0.0, 0.0, -5.0);
         $this->shouldCall('_drawSprite_8c014f54')->with($this->addressOf('_menuState_8c1bc7a8') + 0x00, 46, 0.0, 0.0, -7.0);
 
-        $this->call('_task_title_8c015ab8')
+        $this->singleCall('_task_title_8c015ab8')
             ->with(0, 0)
             ->run();
     }
@@ -833,7 +833,7 @@ return new class extends TestCase {
         $this->shouldCall('_drawSprite_8c014f54')->with($this->addressOf('_menuState_8c1bc7a8') + 0x0c, 2, 0.0, 0.0, -5.0);
         $this->shouldCall('_drawSprite_8c014f54')->with($this->addressOf('_menuState_8c1bc7a8') + 0x00, 46, 0.0, 0.0, -7.0);
 
-        $this->call('_task_title_8c015ab8')
+        $this->singleCall('_task_title_8c015ab8')
             ->with(0, 0)
             ->run();
     }
@@ -861,7 +861,7 @@ return new class extends TestCase {
         $this->shouldCall('_drawSprite_8c014f54')->with($this->addressOf('_menuState_8c1bc7a8') + 0x0c, 2, 0.0, 0.0, -5.0);
         $this->shouldCall('_drawSprite_8c014f54')->with($this->addressOf('_menuState_8c1bc7a8') + 0x00, 46, 0.0, 0.0, -7.0);
 
-        $this->call('_task_title_8c015ab8')
+        $this->singleCall('_task_title_8c015ab8')
             ->with(0, 0)
             ->run();
     }
@@ -889,7 +889,7 @@ return new class extends TestCase {
         $this->shouldCall('_drawSprite_8c014f54')->with($this->addressOf('_menuState_8c1bc7a8') + 0x0c, 2, 0.0, 0.0, -5.0);
         $this->shouldCall('_drawSprite_8c014f54')->with($this->addressOf('_menuState_8c1bc7a8') + 0x00, 46, 0.0, 0.0, -7.0);
 
-        $this->call('_task_title_8c015ab8')
+        $this->singleCall('_task_title_8c015ab8')
             ->with(0, 0)
             ->run();
     }
@@ -916,7 +916,7 @@ return new class extends TestCase {
         $this->shouldCall('_drawSprite_8c014f54')->with($this->addressOf('_menuState_8c1bc7a8') + 0x0c, 2, 0.0, 0.0, -5.0);
         $this->shouldCall('_drawSprite_8c014f54')->with($this->addressOf('_menuState_8c1bc7a8') + 0x00, 46, 0.0, 0.0, -7.0);
 
-        $this->call('_task_title_8c015ab8')
+        $this->singleCall('_task_title_8c015ab8')
             ->with(0, 0)
             ->run();
     }
@@ -932,7 +932,7 @@ return new class extends TestCase {
 
         $this->shouldReadSymbolOffset('_init_8c03bd80', 0, 1);
 
-        $this->call('_task_title_8c015ab8')
+        $this->singleCall('_task_title_8c015ab8')
             ->with(0, 0)
             ->run();
     }
@@ -950,7 +950,7 @@ return new class extends TestCase {
         $this->shouldWriteSymbolOffset('_var_8c1bb8c4', 0, 0);
         $this->shouldCall('_VmMenuSwitchFromTask_19e44')->with(0xbebacafe);
 
-        $this->call('_task_title_8c015ab8')
+        $this->singleCall('_task_title_8c015ab8')
             ->with(0xbebacafe, 0)
             ->run();
     }
@@ -971,7 +971,7 @@ return new class extends TestCase {
         $this->shouldCall('_drawSprite_8c014f54')->with($this->addressOf('_menuState_8c1bc7a8') + 0x0c, 2, 0.0, 0.0, -5.0);
         $this->shouldCall('_drawSprite_8c014f54')->with($this->addressOf('_menuState_8c1bc7a8') + 0x00, 46, 0.0, 0.0, -7.0);
 
-        $this->call('_task_title_8c015ab8')
+        $this->singleCall('_task_title_8c015ab8')
             ->with(0, 0)
             ->run();
     }
@@ -985,7 +985,7 @@ return new class extends TestCase {
 
         $this->shouldReadSymbolOffset('_init_8c03bd80', 0, 1);
 
-        $this->call('_task_title_8c015ab8')
+        $this->singleCall('_task_title_8c015ab8')
             ->with(0, 0)
             ->run();
     }
@@ -1003,7 +1003,7 @@ return new class extends TestCase {
         $this->shouldCall('_FUN_8c016182');
         $this->shouldCall('_FUN_demo_8c0159ac');
 
-        $this->call('_task_title_8c015ab8')
+        $this->singleCall('_task_title_8c015ab8')
             ->with(0xbebacafe, 0)
             ->run();
     }
@@ -1028,7 +1028,7 @@ return new class extends TestCase {
 
         $this->forceStop();
 
-        $this->call('_task_title_8c015ab8')
+        $this->singleCall('_task_title_8c015ab8')
             ->with(0xbebacafe, 0)
             ->run();
     }
@@ -1053,7 +1053,7 @@ return new class extends TestCase {
 
         $this->forceStop();
 
-        $this->call('_task_title_8c015ab8')
+        $this->singleCall('_task_title_8c015ab8')
             ->with(0xbebacafe, 0)
             ->run();
 

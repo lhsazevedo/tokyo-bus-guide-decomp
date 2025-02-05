@@ -14,7 +14,7 @@ return new class extends TestCase {
 
         $this->shouldCall('_syFree')->with(0xbebacafe);
 
-        $this->call('_freePvmQueue_8c011e28')->run();
+        $this->singleCall('_freePvmQueue_8c011e28')->run();
     }
 
     public function test_ignoresWhenUnitialized()
@@ -23,7 +23,7 @@ return new class extends TestCase {
 
         $this->initUint32($this->addressOf('_var_pvmQueue_8c157abc'), -1);
 
-        $this->call('_freePvmQueue_8c011e28')->run();
+        $this->singleCall('_freePvmQueue_8c011e28')->run();
     }
 
     private function resolveImports()

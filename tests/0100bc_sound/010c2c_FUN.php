@@ -18,7 +18,7 @@ return new class extends TestCase {
         $this->shouldWriteLong($this->addressOf('_var_uknAdxVol_8c157a34') + 0x10, -990);
         $this->shouldWriteLong($this->addressOf('_init_8c03bd80'), 0b0100_0101);
 
-        $this->call('_FUN_8c010c2c')->with(1)->run();
+        $this->singleCall('_FUN_8c010c2c')->with(1)->run();
     }
 
     public function test_skipsWhenParamIsZero()
@@ -29,7 +29,7 @@ return new class extends TestCase {
         $this->initUint32($this->addressOf('_init_uknAdxVol_8c03bd88') + 0x04, 660);
         $this->initUint32($this->addressOf('_init_8c03bd80'), 0b0101_0101);
 
-        $this->call('_FUN_8c010c2c')->with(0)->run();
+        $this->singleCall('_FUN_8c010c2c')->with(0)->run();
     }
 
     public function test_skipsWhenParamIsTwo()
@@ -40,7 +40,7 @@ return new class extends TestCase {
         $this->initUint32($this->addressOf('_init_uknAdxVol_8c03bd88') + 0x04, 660);
         $this->initUint32($this->addressOf('_init_8c03bd80'), 0b0101_0101);
 
-        $this->call('_FUN_8c010c2c')->with(2)->run();
+        $this->singleCall('_FUN_8c010c2c')->with(2)->run();
     }
 
     public function test_skipsWhenLowerNibbleIsNotZero()
@@ -51,7 +51,7 @@ return new class extends TestCase {
         $this->initUint32($this->addressOf('_init_uknAdxVol_8c03bd88') + 0x04, 660);
         $this->initUint32($this->addressOf('_init_8c03bd80'), 0b0101_0101);
 
-        $this->call('_FUN_8c010c2c')->with(1)->run();
+        $this->singleCall('_FUN_8c010c2c')->with(1)->run();
     }
 
     public function test_skipsWhenUpperNibbleIs2()
@@ -62,7 +62,7 @@ return new class extends TestCase {
         $this->initUint32($this->addressOf('_init_uknAdxVol_8c03bd88') + 0x04, 660);
         $this->initUint32($this->addressOf('_init_8c03bd80'), 0b0101_0101);
 
-        $this->call('_FUN_8c010c2c')->with(1)->run();
+        $this->singleCall('_FUN_8c010c2c')->with(1)->run();
     }
 
     private function resolveSymbols(): void

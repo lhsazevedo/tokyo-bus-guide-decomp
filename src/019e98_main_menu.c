@@ -22,7 +22,9 @@ char *DEBUG_mainMenuStateNames[] = {
 };
 #endif
 
-#define CHANGE_STATE(x) menuState_8c1bc7a8.state_0x18 = x; LOG_DEBUG(("[MAIN_MENU] State changed: %s\n", DEBUG_mainMenuStateNames[x]))
+#define CHANGE_STATE(x)                                                        \
+    menuState_8c1bc7a8.state_0x18 = x;                                         \
+    LOG_DEBUG(("[MAIN_MENU] State changed: %s\n", DEBUG_mainMenuStateNames[x]))
 
 
 /* =================
@@ -31,12 +33,12 @@ char *DEBUG_mainMenuStateNames[] = {
  */
 
 enum MAIN_MENU_STATE {
-    MAIN_MENU_STATE_INIT = 0,
-    MAIN_MENU_STATE_FADE_IN = 1,
-    MAIN_MENU_STATE_IDLE = 2,
+    MAIN_MENU_STATE_INIT            = 0,
+    MAIN_MENU_STATE_FADE_IN         = 1,
+    MAIN_MENU_STATE_IDLE            = 2,
     MAIN_MENU_STATE_ANIMATING_RIGHT = 3,
-    MAIN_MENU_STATE_ANIMATING_LEFT = 4,
-    MAIN_MENU_STATE_FADE_OUT = 5,
+    MAIN_MENU_STATE_ANIMATING_LEFT  = 4,
+    MAIN_MENU_STATE_SELECTED        = 5,
 };
 
 /* =====================
@@ -59,10 +61,9 @@ extern NJS_TEXMEMLIST var_tex_8c157af8[TEX_NUM];
 extern PDS_PERIPHERAL var_peripheral_8c1ba35c[2];
 extern int var_8c1bb8c0;
 extern int var_demo_8c1bb8d0;
-extern int var_8c1bb8fc;
+extern int var_game_mode_8c1bb8fc;
 extern void* var_8c1bc454;
 extern int var_8c225fb8;
-extern int var_8c225fbc;
 extern void* var_resourceGroup_8c2263a8;
 extern Bool isFading_8c226568;
 
@@ -125,22 +126,17 @@ void MainMenuTask_8c019e98(Task *task) {
                 }
             } else if (var_peripheral_8c1ba35c[0].press & PDD_DGT_TA) {
                 sdMidiPlay(var_midiHandles_8c0fcd28[0], 1, 0, 0);
-                CHANGE_STATE(5);
+                CHANGE_STATE(MAIN_MENU_STATE_SELECTED);
                 push_fadeout_8c022b60(10);
             }
             break;
         }
 
         case MAIN_MENU_STATE_ANIMATING_RIGHT: {
-            // TODO
-            break;
-        }
-
-        case MAIN_MENU_STATE_ANIMATING_LEFT: {
-            if (menuState_8c1bc7a8.logo_timer_0x68 == 0) {
+            if (menuState_8c1bc7a8.logo_timer_0x68 % 4 == 0) {
                 menuState_8c1bc7a8.field_0x5c++;
+                menuState_8c1bc7a8.startTimer_0x64++;
             }
-            menuState_8c1bc7a8.startTimer_0x64++;
             menuState_8c1bc7a8.logo_timer_0x68++;
             if (menuState_8c1bc7a8.startTimer_0x64 >= 2) {
                 CHANGE_STATE(MAIN_MENU_STATE_IDLE);
@@ -148,7 +144,19 @@ void MainMenuTask_8c019e98(Task *task) {
             break;
         }
 
-        case MAIN_MENU_STATE_FADE_OUT: {
+        case MAIN_MENU_STATE_ANIMATING_LEFT: {
+            if (menuState_8c1bc7a8.logo_timer_0x68 % 4 == 0) {
+                menuState_8c1bc7a8.field_0x5c--;
+                menuState_8c1bc7a8.startTimer_0x64++;
+            }
+            menuState_8c1bc7a8.logo_timer_0x68++;
+            if (menuState_8c1bc7a8.startTimer_0x64 >= 2) {
+                CHANGE_STATE(MAIN_MENU_STATE_IDLE);
+            }
+            break;
+        }
+
+        case MAIN_MENU_STATE_SELECTED: {
             if (isFading_8c226568) {
                 break;
             }
@@ -161,39 +169,9 @@ void MainMenuTask_8c019e98(Task *task) {
                     int result;
                     menuState_8c1bc7a8.field_0x3c = 2;
                     menuState_8c1bc7a8.field_0x40 = 0;
-                    var_8c1bb8fc = menuState_8c1bc7a8.selected_0x38;
+                    var_game_mode_8c1bb8fc = menuState_8c1bc7a8.selected_0x38;
                     var_8c1bb8c0 = 1;
-                    if (menuState_8c1bc7a8.selected_0x38 == 0) {
-                        setTaskAction_8c014b3e(task, StoryMenuTask_8c017718);
-                        FUN_8c017420();
-                    } else {
-                        setTaskAction_8c014b3e(task, FreeRunMenuTask_8c017ada);
-                        FUN_8c017420();
-                    }
-
-                    menuState_8c1bc7a8.field_0x60 = init_8c044c08[var_8c225fbc];
-                    var_8c225fb8 = 0;
-                    var_demo_8c1bb8d0 = 0;
-                    FUN_8c017d54();
-                    njGarbageTexture(var_tex_8c157af8, 0xc00);
-                    AsqInitQueues_11f36(8, 0, 0, 8);
-                    AsqResetQueues_11f6c();
-
-                    result = requestSysResgrp_8c018568(
-                        &menuState_8c1bc7a8.resourceGroupB_0x0c,
-                        &init_mainMenuResourceGroup_8c044264
-                    );
-
-                    if (result) {
-                        setUknPvmBool_8c014330();
-                        AsqProcessQueues_11fe0(AsqNop_11120, 0, 0, 0, resetUknPvmBool_8c014322);
-                        menuState_8c1bc7a8.state_0x18 = 0;
-                    } else {
-                        AsqFreeQueues_11f7e();
-                        menuState_8c1bc7a8.state_0x18 = 1;
-                        push_fadein_8c022a9c(10);
-                        snd_8c010cd6(0, 15);
-                    }
+                    FUN_8c017e18(task);
                     return;
                 }
 
@@ -205,19 +183,7 @@ void MainMenuTask_8c019e98(Task *task) {
 
                 // VM Game
                 case 3: {
-                    setTaskAction_8c014b3e(task, FUN_8c01bfec);
-                    menuState_8c1bc7a8.state_0x18 = 0;
-                    menuState_8c1bc7a8.selected_0x38 = 0;
-                    AsqInitQueues_11f36(8, 0, 0, 8);
-                    AsqResetQueues_11f6c();
-                    requestSysResgrp_8c018568(
-                        &var_resourceGroup_8c2263a8,
-                        &init_8c044e90
-                    );
-                    AsqRequestDat_11182("\\SYSTEM", "PDAQUIZ.bin", &var_8c1bc454);
-                    setUknPvmBool_8c014330();
-                    AsqProcessQueues_11fe0(AsqNop_11120, 0, 0, 0, resetUknPvmBool_8c014322);
-                    swapMessageBoxFor_8c02aefc("");
+                    FUN_8c01c880();
                     return;
                 }
 

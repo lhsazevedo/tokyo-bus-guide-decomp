@@ -20,7 +20,7 @@ return new class extends TestCase {
 
         $this->initUint32($this->addressOf('_var_uknVol_8c0fcd50'), 0);
 
-        $this->call('_FUN_8c0102d8')->run();
+        $this->singleCall('_FUN_8c0102d8')->run();
     }
 
     public function test_path_A()
@@ -43,7 +43,7 @@ return new class extends TestCase {
 
         $this->shouldWriteLongTo('_var_uknVol_8c0fcd50', 1);
 
-        $this->call('_FUN_8c0102d8')->run();
+        $this->singleCall('_FUN_8c0102d8')->run();
     }
 
     public function test_path_C()
@@ -61,7 +61,7 @@ return new class extends TestCase {
 
         $this->shouldWriteLongTo('_var_uknVol_8c0fcd50', 0xf8);
 
-        $this->call('_FUN_8c0102d8')->run();
+        $this->singleCall('_FUN_8c0102d8')->run();
     }
 
     public function test_path_D()
@@ -82,7 +82,7 @@ return new class extends TestCase {
 
         $this->shouldWriteLongTo('_var_uknVol_8c0fcd50', 0xfa);
 
-        $this->call('_FUN_8c0102d8')->run();
+        $this->singleCall('_FUN_8c0102d8')->run();
     }
 
     public function test_path_F()
@@ -96,7 +96,7 @@ return new class extends TestCase {
 
         $this->shouldWriteLongTo('_var_uknVol_8c0fcd50', 0);
 
-        $this->call('_FUN_8c0102d8')->run();
+        $this->singleCall('_FUN_8c0102d8')->run();
     }
 
     public function test_path_G()
@@ -117,7 +117,7 @@ return new class extends TestCase {
 
         $this->shouldWriteLongTo('_var_uknVol_8c0fcd50', 0b110);
 
-        $this->call('_FUN_8c0102d8')->run();
+        $this->singleCall('_FUN_8c0102d8')->run();
     }
 
     private function resolveSymbols(): void

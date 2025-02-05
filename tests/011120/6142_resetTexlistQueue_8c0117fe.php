@@ -15,6 +15,6 @@ return new class extends TestCase {
         $this->shouldWriteTo('_var_texlistQueueCount_8c157a68', 0);
         $this->shouldWriteTo('_var_texlistQueueIsIdle_8c157ab8', 1);
 
-        $this->call('_resetTexlistQueue_8c0117fe')->run();
+        $this->singleCall('_resetTexlistQueue_8c0117fe')->run();
     }
 };

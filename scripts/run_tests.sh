@@ -64,7 +64,7 @@ assemble  src/asm/decompiled/011120_asset_queues.src
 compile  src/011120_asset_queues.c
 
 # 019e98
-assemble  src/asm/019e98_main_menu.src
+assemble  src/asm/decompiled/019e98_main_menu.src
 compile  src/019e98_main_menu.c
 
 $sh4objtest suite -s tests.php -c
